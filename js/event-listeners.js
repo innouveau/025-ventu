@@ -1,3 +1,13 @@
+function initTooltips() {
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            viewport: {
+                selector: 'body', padding: 20
+            }
+        });
+    });
+}
+
 function initFilter() {
     $('#area-slider').slider({
         tooltip: 'always'

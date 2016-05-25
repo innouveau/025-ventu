@@ -15,6 +15,7 @@ $(window).ready(function(){
     initMap();
     initGuide();
     initFilter();
+    initTooltips();
 
 });
 

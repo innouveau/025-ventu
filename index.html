@@ -36,7 +36,7 @@
                             <input class="ventu-map-input" type="text" placeholder="Zoeken...">
                             <div class="ventu-map-search-tools">
                                 <div class="ventu-icon ventu-icon-med ventu-icon-search"></div>
-                                <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-remove"></div>
+                                <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-remove"  data-toggle="tooltip" data-placement="bottom" title="Verwijder zoekstring"></div>
                             </div>
                             <div class="ventu-map-search-results">
                                 <div class="ventu-map-search-result">
@@ -76,7 +76,7 @@
                         initialize();
                     </script>
                     <div class="ventu-map-tools">
-                        <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-add">
+                        <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-add" data-toggle="tooltip" data-placement="top" title="Voeg een nieuwe zoekcirkel toe">
                             <div class="ventu-guide ventu-guide-0 ventu-guide-left ventu-guide-big" y="5">
                                 <b>Welkom op Ventu!</b><br><br>
                                 Je kunt hier enkele filters instellen, te beginnen met de kaart. Door op het plusje te
@@ -84,8 +84,8 @@
                                 Als je op het laad-icoontje drukt worden er locaties opgehaald, die binnen de cirkel vallen.
                             </div>
                         </div>
-                        <div class="ventu-icon ventu-icon-med ventu-icon-reload"></div>
-                        <div class="ventu-icon ventu-icon-med ventu-icon-right ventu-icon-box ventu-icon-remove"></div>
+                        <div class="ventu-icon ventu-icon-med ventu-icon-reload" data-toggle="tooltip" data-placement="top" title="Haal locaties op"></div>
+                        <div class="ventu-icon ventu-icon-med ventu-icon-right ventu-icon-box ventu-icon-remove" data-toggle="tooltip" data-placement="top" title="Verwijder locaties"></div>
                     </div>
                 </div>
             </div>
@@ -96,13 +96,15 @@
                     Oppervlakte
                 </div>
                 <div class="ventu-filter-box-body">
-                    <input id="area-slider"
-                           type="text"
-                           value=""
-                           data-slider-min="100"
-                           data-slider-max="10000"
-                           data-slider-step="50"
-                           data-slider-value="[3000,5000]"/>
+                    <div class="ventu-slider">
+                        <input id="area-slider"
+                               type="text"
+                               value=""
+                               data-slider-min="100"
+                               data-slider-max="10000"
+                               data-slider-step="50"
+                               data-slider-value="[3000,5000]"/>
+                    </div>
                     <div class="ventu-guide ventu-guide-2 ventu-guide-left" x="130" y="15">
                         Met deze slider, kun je de oppervlakte van je gewenste locaties begrenzen.
                     </div>
