@@ -962,7 +962,7 @@ body.ventu-single {
     width: 100%;
 }
 
-.ventu-single .ventu-card-text {
+.ventu-mini-card .ventu-card-text {
     display: block;
     background: #fff;
     margin-bottom: 10px;
@@ -1051,10 +1051,17 @@ body.ventu-single {
     transform: scale(1.1);
 }
 
-
 .ventu-mini-card h3 {
     font-size: 14px;
     line-height: 19px;
+}
+
+.ventu-single .ventu-stack-container {
+    margin: 0 auto;
+}
+
+.ventu-single .ventu-counter {
+    bottom: 8px;
 }
 
 

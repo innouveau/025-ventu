@@ -55,11 +55,7 @@ Ventu.prototype.buildCard = function(i, end) {
         self = this,
         time = 10;
     if (i < this.limit) {
-        // dont append more cards above the limit
-        transform = this.getTransform(i);
-        card = $('<div class="ventu-card ventu-card-' + i + '"><div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-grey"></div><div class="ventu-card-text"></div></div>');
-        this.setCSStransform(card, transform);
-        this.elements.container.append(card);
+        this.append(i);
     } else {
         time = Math.floor(1000 / i);
     }
@@ -76,6 +72,26 @@ Ventu.prototype.buildCard = function(i, end) {
                 self.setCurrent();
             }
         }, 400);
+    }
+};
+
+Ventu.prototype.append = function(i) {
+    var transform = this.getTransform(i),
+        card = $('<div class="ventu-card ventu-card-' + i + '">' +
+                 '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-grey"></div>' +
+                 '<div class="ventu-card-text"></div></div>');
+    this.setCSStransform(card, transform);
+    this.elements.container.append(card);
+};
+
+Ventu.prototype.createStatic = function() {
+    var l = this.cards;
+    this.count(l);
+    if (l > this.limit) {
+        l = this.limit;
+    }
+    for (var i = 0; i < l; i++) {
+        this.append(i);
     }
 };
 

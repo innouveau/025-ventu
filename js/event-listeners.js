@@ -187,7 +187,7 @@ function openForm(form) {
 }
 
 function closeForms(){
-    $('.ventu-form').each(function(){
+    $('.ventu-form .ventu-form-hidden').each(function(){
         var height = $(this).outerHeight();
         $(this).attr('height', height);
         $(this).css('height', 0);
