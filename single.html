@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ventu – Single Page</title>
+
+        <link rel="stylesheet" type="text/css" href="assets/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.2/css/bootstrap-slider.min.css">
+        <link rel="stylesheet" type="text/css" href="css/fonts.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <!-- google maps API -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaU80wDMYEf2w7TL7Wcvoi1tPAZHUzrhA"></script>
+    </head>
+
+    <body class="ventu-single">
+        <div class="ventu-single-content">
+            <div class="ventu-single-main-image ventu-triangle ventu-triangle-bottom ventu-triangle-white">
+                <img src="img/kantoor.jpg">
+            </div>
+            <div class="ventu-card-text">
+                <h4>Amsterdam-Zuid</h4>
+                <h3>De Zwanenschuur</h3>
+                <ul>
+                    <li>Maecenas id tellus vitae</li>
+                    <li>Ex faucibus dignissim 4.000</li>
+                    <li>Quis non urna. Praesent at aliquet metus</li>
+                </ul>
+            </div>
+
+            <div class="ventu-single-tools">
+                <div class="ventu-single-tool-set">
+                    <div class="ventu-icon ventu-icon-white ventu-icon-med ventu-icon-box ventu-icon-hover ventu-icon-photo ventu-open-lightbox"></div>
+                    <div class="ventu-text-along-icon">
+                        12 foto's
+                    </div>
+                </div>
+
+                <div class="ventu-single-tool-set">
+                    <div class="ventu-icon ventu-icon-white ventu-icon-download ventu-icon-med ventu-icon-box ventu-icon-hover"></div>
+                    <div class="ventu-text-along-icon">
+                        download PDF
+                    </div>
+                </div>
+
+                <div class="ventu-single-tool-set">
+                    <div class="ventu-icon ventu-icon-white ventu-icon-med ventu-icon-box ventu-icon-hover ventu-icon-comment ventu-open-form"></div>
+                    <div class="ventu-text-along-icon">
+                        direct reageren
+                    </div>
+                </div>
+            </div>
+
+            <div class="ventu-form ventu-form-blue ventu-form-hidden">
+                <div class="ventu-form-container">
+                    <input type="text" placeholder="Naam">
+                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Telefoon">
+                    <input type="text" placeholder="Adres">
+                    <div class="ventu-form-send">
+                        <div class="ventu-button ventu-button-white-line">Versturen</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ventu-single-follow-up">
+                <p>
+                    <b>Omgeving</b><br><br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus tristique tellus at mattis. Aliquam ornare nunc metus, a porttitor purus efficitur eu.
+                </p>
+                <p>
+                    Proin porta risus eget vestibulum aliquet. Vivamus non eleifend ex. Quisque a sapien turpis. Ut lacinia consectetur quam, a ultrices turpis posuere in. Vivamus at nunc at nunc finibus fermentum eu quis magna. Nulla a commodo magna, sit amet elementum tellus. Sed blandit laoreet ligula in vestibulum.</p>
+                <p>
+                    <b>Laatste nieuws</b><br><br>
+                    Suspendisse pharetra, massa quis laoreet auctor, mauris urna gravida diam, ut rhoncus sapien purus a nisl. Sed cursus nunc quis laoreet tempus. Sed imperdiet ante nunc, a mattis eros auctor ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris eros ex, laoreet eu luctus sit amet, vestibulum in diam. Quisque nec dolor cursus, viverra orci non, pretium velit. Proin sit amet pretium lorem, non pharetra lacus. Vestibulum turpis nisi, sagittis sit amet arcu et, euismod lobortis massa. Morbi convallis aliquet imperdiet. Praesent congue erat at nulla tincidunt venenatis et et purus. Sed interdum accumsan eros. Sed non nisl sed arcu venenatis venenatis id sit amet leo. Aliquam leo erat, fermentum fermentum elit a, feugiat consectetur enim.
+                </p>
+            </div>
+
+            <div class="ventu-single-map ventu-triangle ventu-triangle-top ventu-triangle-white">
+                <div id="ventu-canvas"></div>
+                <div class="ventu-map-search">
+                    <input class="ventu-map-input" type="text" placeholder="Zoeken...">
+                    <div class="ventu-map-search-tools">
+                        <div class="ventu-icon ventu-icon-med ventu-icon-search"></div>
+                        <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-remove"></div>
+                    </div>
+                    <div class="ventu-map-search-results">
+                        <div class="ventu-map-search-result">
+                            <div class="ventu-map-search-result-text">
+                                Amsterdam (117 locaties)
+                            </div>
+                            <div class="ventu-map-search-result-actions">
+                                <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-add"></div>
+                            </div>
+                        </div>
+                        <div class="ventu-map-search-result">
+                            <div class="ventu-map-search-result-text">
+                                Amstelveen (34 locaties)
+                            </div>
+                            <div class="ventu-map-search-result-actions">
+                                <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-add"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function initialize() {
+                    var myOptions = {
+                        zoom: 8,
+                        center: new google.maps.LatLng(51.7,4.6),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        sensor: 'true',
+                        disableDefaultUI: true,
+                        draggable: false
+                    };
+                    var map = new google.maps.Map(document.getElementById("ventu-canvas"), myOptions);
+                }
+                initialize();
+            </script>
+            <div class="ventu-map-tools">
+                <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-add"></div>
+                <div class="ventu-icon ventu-icon-med ventu-icon-reload"></div>
+                <div class="ventu-icon ventu-icon-med ventu-icon-right ventu-icon-box ventu-icon-remove"></div>
+            </div>
+        </div>
+
+        <div class="ventu-like-as-well">
+            Omdat je De Zwanenschuur interessant vindt, ben je misschien ook in deze locaties geïnteresseerd:
+            <div class="ventu-like-as-well-set">
+                <div class="ventu-mini-card">
+                    <div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url('img/kantoor2.jpg')"></div>
+                    <div class="ventu-card-text">
+                        <h3>
+                            Burgemeester Reigerstraat 178
+                        </h3>
+                    </div>
+                </div>
+                <div class="ventu-mini-card">
+                    <div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url('img/kantoor3.jpg')"></div>
+                    <div class="ventu-card-text">
+                        <h3>
+                            Paardenbloem 12
+                        </h3>
+                    </div>
+                </div>
+                <div class="ventu-mini-card">
+                    <div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url('img/kantoor4.jpg')"></div>
+                    <div class="ventu-card-text">
+                        <h3>
+                            Het Oude Postkwartier
+                        </h3>
+                    </div>
+                </div>
+                <div class="ventu-mini-card">
+                    <div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url('img/kantoor5.jpg')"></div>
+                    <div class="ventu-card-text">
+                        <h3>
+                            Steenenstraat 20
+                        </h3>
+                    </div>
+                </div>
+                <div class="ventu-mini-card">
+                    <div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url('img/kantoor6.jpg')"></div>
+                    <div class="ventu-card-text">
+                        <h3>
+                            Het Melkmeisje
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="ventu-single-footer">
+            <div class="ventu-button ventu-button-blue">
+                Terug naar Ventu
+            </div><br><br>
+            <img src="img/ventu-stack.png">
+        </div>
+
+        <div class="ventu-menu">
+            <div class="ventu-identity">
+                <img src="img/fake-logo.png">
+            </div>
+
+            <div class="ventu-menu-buttons">
+                <div class="ventu-menu-button ventu-button ventu-button-light-blue">
+                    Over Ventu
+                </div>
+                <div class="ventu-menu-button ventu-button ventu-button-light-blue">
+                    Hoe werkt dit?
+                </div>
+                <div class="ventu-menu-button ventu-button ventu-button-light-blue">
+                    Contact
+                </div>
+            </div>
+
+            <div class="ventu-settings">
+                <i class="fa fa-gear ventu-dropdown-toggle">
+                    <div class="ventu-dropdown">
+                        <div class="ventu-dropdown-menu">
+                            <div class="ventu-dropdown-menu-button">
+                                Alle geschiedenis wissen
+                            </div>
+                            <div class="ventu-dropdown-menu-button">
+                                Recente geschiedenis wissen...
+                            </div>
+                            <div class="ventu-dropdown-menu-divider"></div>
+                            <div class="ventu-dropdown-menu-button">
+                                Nog een knop
+                            </div>
+                            <div class="ventu-dropdown-menu-divider"></div>
+                            <div class="ventu-dropdown-menu-checkmark-set">
+                                <input type="checkbox"> Setting 1
+                            </div>
+                            <div class="ventu-dropdown-menu-checkmark-set">
+                                <input type="checkbox"> Setting 2
+                            </div>
+                            <div class="ventu-dropdown-menu-checkmark-set">
+                                <input type="checkbox"> Setting 3
+                            </div>
+                            <div class="ventu-dropdown-menu-divider"></div>
+                            <div class="ventu-dropdown-menu-button">
+                                Lorem ipsum
+                            </div>
+                            <div class="ventu-dropdown-menu-button">
+                                Dolor sit amet
+                            </div>
+                        </div>
+
+                    </div>
+                </i>
+                <i class="fa fa-user ventu-dropdown-toggle">
+                    <div class="ventu-dropdown">
+                        <div class="ventu-form">
+                            <div class="ventu-form-container">
+                                <input type="text" placeholder="Naam">
+                                <input type="text" placeholder="Email">
+                                <input type="text" placeholder="Telefoon">
+                                <div class="ventu-form-send">
+                                    <div class="ventu-button ventu-button-small ventu-button-white">Aanmelden</div>
+                                    <div class="ventu-button ventu-button-small ventu-button-white">Inloggen</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </i>
+            </div>
+
+            <div class="ventu-social-media">
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-linkedin"></i>
+                <i class="fa fa-google-plus"></i>
+            </div>
+
+            <div class="ventu-favorites-navigation">
+                <div class="ventu-favorites-icon">
+                    <img src="img/stack-icon.png">
+                    <div class="ventu-favorites-counter-container">
+                        <span class="ventu-favorites-counter">3/7</span>
+                    </div>
+                </div>
+                <div class="ventu-icon ventu-icon-med ventu-icon-prev ventu-icon-box"></div>
+                <div class="ventu-icon ventu-icon-med ventu-icon-next ventu-icon-box"></div>
+            </div>
+        </div>
+
+
+        <div class="ventu-lightbox">
+            <div class="ventu-lightbox-card">
+                <div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url('img/kantoor6.jpg')">
+                    <div class="ventu-icon ventu-icon-prev ventu-icon-med ventu-icon-box ventu-lightbox-left ventu-lightbox-nav-icon"></div>
+                    <div class="ventu-icon ventu-icon-next ventu-icon-med ventu-icon-box ventu-lightbox-right ventu-lightbox-nav-icon"></div>
+                    <div class="ventu-icon ventu-icon-close ventu-icon-med ventu-icon-box ventu-lightbox-nav-icon"></div>
+                </div>
+                <div class="ventu-card-text">
+                    Het pand ligt in een rustieke buurt, omgeven door veel groen.
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-overlay"></div>
+
+        <script src="assets/jquery/jquery.min.js"></script>
+        <script src="assets/bootstrap/bootstrap.min.js"></script>
+        <script src="js/ventu.js"></script>
+        <script src="js/event-listeners.js"></script>
+        <script src="js/single-main.js"></script>
+
+    </body>
+</html>
