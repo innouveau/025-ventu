@@ -78,11 +78,16 @@ function initFilter() {
 }
 
 function initSettings() {
-    $('.ventu-dropdown-toggle').click(function () {
-        showDropdown(this);
+    $('.ventu-dropdown-toggle').click(function (event) {
+        // only on click of the button itself, not its children
+        if ($(event.target).hasClass('ventu-dropdown-toggle')) {
+            showDropdown(this);
+        }
+
     });
 
     $('body').click(function (event) {
+
         var element = $(event.target);
         if (!element.hasClass('ventu-dropdown-toggle') && element.parents('.ventu-dropdown-toggle').length === 0) {
             showDropdown(null);
@@ -126,7 +131,7 @@ function initForm() {
     });
 
     $('.ventu-open-form').click(function(){
-        openForm($('.ventu-form'));
+        openForm($('.ventu-form-respond'));
     });
     closeForms();
 }
