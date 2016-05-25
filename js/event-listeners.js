@@ -115,6 +115,16 @@ function initMap() {
 }
 
 function initForm() {
+    // close button in settings
+    $('.ventu-settings .ventu-icon-close').click(function(){
+        showDropdown(null);
+    });
+
+    // close button of direct reageren
+    $('.ventu-form-respond .ventu-icon-close').click(function(){
+        closeForms();
+    });
+
     $('.ventu-open-form').click(function(){
         openForm($('.ventu-form'));
     });
@@ -180,7 +190,6 @@ function reloadPage() {
 }
 
 function openForm(form) {
-    console.log(form);
     var height = form.attr('height');
     form.css('height', height);
 

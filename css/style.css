@@ -850,7 +850,7 @@ input {
 
 /* form */
 
-.ventu-form {
+.ventu-form.ventu-form-hidden {
     overflow: hidden;
     transition: all 0.5s ease;
 }
@@ -858,6 +858,13 @@ input {
 .ventu-form-container {
     padding: 30px;
 }
+
+.ventu-form-with-close {
+    padding-bottom: 70px;
+    position: relative;
+}
+
+
 
 .ventu-form-blue {
     background: #3E86FF;
@@ -881,6 +888,12 @@ input {
 
 .ventu-form-send .ventu-button {
     margin-right: 10px;
+}
+
+.ventu-form .ventu-icon-close {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
 
 
