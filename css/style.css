@@ -48,6 +48,7 @@ input {
     float: left;
     height: 100%;
     position: relative;
+    max-height: 570px;
 }
 
 .ventu-overlay {
