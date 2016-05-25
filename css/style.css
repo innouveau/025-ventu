@@ -1078,7 +1078,7 @@ body.ventu-single {
 }
 
 .ventu-single .ventu-stack-container {
-    margin: 0 auto;
+    margin: -300px auto 0 auto;
 }
 
 .ventu-single .ventu-counter {
