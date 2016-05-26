@@ -14,4 +14,5 @@ $(window).ready(function(){
     initForm();
     initLightbox();
     initFavorites();
+    initTooltips();
 });

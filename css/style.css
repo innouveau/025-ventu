@@ -289,6 +289,15 @@ a.ventu-button:hover {
     content: '';
 }
 
+.ventu-triangle-cover {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: 1;
+}
+
 .ventu-triangle-bottom:after, .ventu-triangle-top:after {
     left: calc(50% - 12px);
     border-left: 12px solid transparent;
@@ -329,6 +338,10 @@ a.ventu-button:hover {
     border-bottom: 16px solid #00E3A7;
 }
 
+.ventu-triangle-bottom.ventu-triangle-black:after {
+    border-bottom: 16px solid #1F1F1F;
+}
+
 .ventu-triangle-top.ventu-triangle-grey:after {
     border-top: 16px solid #d3d3d3;
 }
@@ -339,6 +352,10 @@ a.ventu-button:hover {
 
 .ventu-triangle-top.ventu-triangle-green:after {
     border-top: 16px solid #00E3A7;
+}
+
+.ventu-triangle-top.ventu-triangle-black:after {
+    border-top: 16px solid #1F1F1F;
 }
 
 .ventu-triangle-left.ventu-triangle-grey:after {
@@ -353,6 +370,10 @@ a.ventu-button:hover {
     border-left: 16px solid #00E3A7;
 }
 
+.ventu-triangle-left.ventu-triangle-black:after {
+    border-left: 16px solid #1F1F1F;
+}
+
 .ventu-triangle-right.ventu-triangle-grey:after {
     border-right: 16px solid #EDEDEC;
 }
@@ -363,6 +384,10 @@ a.ventu-button:hover {
 
 .ventu-triangle-right.ventu-triangle-green:after {
     border-right: 16px solid #00E3A7;
+}
+
+.ventu-triangle-right.ventu-triangle-black:after {
+    border-right: 16px solid #1F1F1F;
 }
 
 
@@ -1079,11 +1104,14 @@ h3 {
 
 
 
+
+
 /* single page */
 
 body.ventu-single {
     background: #D3D3D3;
     overflow: auto;
+    padding: 0;
 }
 
 .ventu-single-content {
@@ -1108,11 +1136,26 @@ body.ventu-single {
     margin-top: 10px;
 }
 
-/* card */
+.ventu-single-main-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.ventu-single-image-overlay {
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    width: 500px;
+}
+
+/* cards */
 
 .ventu-single-card {
     padding: 40px;
-    background: #fff;
+    border: 1px solid #fff;
     margin-top: 10px;
 }
 
@@ -1125,21 +1168,17 @@ body.ventu-single {
     margin-left: 10px;
 }
 
-.ventu-single-main-image {
-    width: 100%;
-    max-height: 400px;
-    overflow: hidden;
-    position: relative;
-}
-
-.ventu-single-main-image img {
-    display: block;
-    width: 100%;
+.ventu-single-address {
+    padding: 20px;
+    background: #fff;
+    max-width: 300px;
+    margin-bottom: 10px;
 }
 
 .ventu-card-text.ventu-card-text-main {
     display: block;
     background: #fff;
+    max-width: 300px;
 }
 
 .ventu-card-price {
@@ -1153,6 +1192,7 @@ body.ventu-single {
 .ventu-single .ventu-quote {
     color: #fff;
     margin: 40px 0 20px 0;
+    padding: 0 15px;
 }
 
 /* tools */
@@ -1161,7 +1201,6 @@ body.ventu-single {
     padding: 30px;
     background: #00e3a7;
     color: #fff;
-    margin-top: 10px;
 }
 
 .ventu-single-tools .ventu-button-with-icon {
@@ -1172,10 +1211,9 @@ body.ventu-single {
 /* share */
 
 .ventu-single-share {
-    background: #959595;
-    padding: 15px 30px;
+    border-top: 1px solid #fff;
+    padding: 15px;
     color: #fff;
-    margin-bottom: 10px;
 }
 
 .ventu-single-share i {

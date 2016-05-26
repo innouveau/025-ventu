@@ -17,24 +17,41 @@
     </head>
 
     <body class="ventu-single">
-        <div class="ventu-single-content">
-            <div class="ventu-single-main-image ventu-triangle ventu-triangle-bottom ventu-triangle-white">
-                <img src="img/kantoor6.jpg">
-            </div>
-            <div class="ventu-card-text ventu-card-text-main">
-                <h4>Amsterdam-Zuid</h4>
-                <h3>De Zwanenschuur</h3>
-                <ul>
-                    <li>Maecenas id tellus vitae</li>
-                    <li>Ex faucibus dignissim 4.000</li>
-                    <li>Quis non urna. Praesent at aliquet metus</li>
-                </ul>
-                <div class="ventu-card-price">
-                    Koopprijs: € 1.075.000
+        <div class="ventu-single-main-image ventu-triangle ventu-triangle-bottom ventu-triangle-green" style="background-image:url('img/kantoor7.jpg')">
+            <div class="ventu-single-image-overlay">
+                <div class="ventu-quote">
+                    Bedrijfsruimte in rustieke buurt, omgeven door veel groen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+                <div class="ventu-single-share">
+                    Deel deze locatie:
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-google-plus"></i>
                 </div>
 
-            </div>
+                <div class="ventu-single-address">
+                    <h3>Adresgegevens</h3>
+                    Utrechtseweg 259<br>
+                    1213 TR Hilversum
+                </div>
 
+                <div class="ventu-card-text ventu-card-text-main">
+                    <h4>Amsterdam-Zuid</h4>
+                    <h3>De Zwanenschuur</h3>
+                    <ul>
+                        <li>Maecenas id tellus vitae</li>
+                        <li>Ex faucibus dignissim 4.000</li>
+                        <li>Quis non urna. Praesent at aliquet metus</li>
+                    </ul>
+                    <div class="ventu-card-price">
+                        Koopprijs: € 1.075.000
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-single-content">
             <div class="ventu-single-tools">
                 <div class="ventu-button ventu-button-with-icon ventu-button-no-line-white ventu-open-lightbox">
                     <div class="ventu-icon ventu-icon-med ventu-icon-photo"></div>
@@ -81,38 +98,7 @@
                 </div>
             </div>
 
-
-
-            <div class="ventu-quote">
-                Bedrijfsruimte in rustieke buurt, omgeven door veel groen. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis justo urna, dictum at ultricies quis, laoreet nec erat. Morbi euismod purus eget sapien vehicula pellentesque. Praesent eget lorem massa.
-            </div>
-
-            <div class="ventu-single-share">
-                Deel deze locatie:
-                <i class="fa fa-twitter"></i>
-                <i class="fa fa-facebook"></i>
-                <i class="fa fa-linkedin"></i>
-                <i class="fa fa-google-plus"></i>
-            </div>
-
-            <div class="ventu-cards-container"><!--
-                --><div class="ventu-single-card ventu-single-card-semi ventu-triangle ventu-triangle-grey ventu-triangle-left">
-                    <h3>Adresgegevens</h3>
-                    Utrechtseweg 259<br>
-                    1213 TR Hilversum
-                </div><!--
-
-                --><div class="ventu-single-card ventu-single-card-semi ventu-triangle ventu-triangle-grey ventu-triangle-left">
-                    <h3>Aanbiedende partijen</h3>
-                    ID Bedrijfsmakelaars (Hilversum)<br>
-                    035 720 00 00
-            </div><!--
-
-            --></div>
-
-
             <div class="ventu-single-follow-up">
-
                 <p>
                     <b>Omgeving</b><br><br>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus tristique tellus at mattis. Aliquam ornare nunc metus, a porttitor purus efficitur eu.
@@ -131,7 +117,7 @@
                     <input class="ventu-map-input" type="text" placeholder="Zoeken...">
                     <div class="ventu-map-search-tools">
                         <div class="ventu-icon ventu-icon-med ventu-icon-search"></div>
-                        <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-remove"></div>
+                        <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-remove" data-toggle="tooltip" data-placement="top" title="Verwijder zoekstring"></div>
                     </div>
                     <div class="ventu-map-search-results">
                         <div class="ventu-map-search-result">
@@ -168,11 +154,22 @@
                 initialize();
             </script>
             <div class="ventu-map-tools">
-                <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-add"></div>
-                <div class="ventu-icon ventu-icon-med ventu-icon-reload"></div>
-                <div class="ventu-icon ventu-icon-med ventu-icon-right ventu-icon-box ventu-icon-remove"></div>
+                <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-add" data-toggle="tooltip" data-placement="top" title="Voeg een nieuwe zoekcirkel toe"></div>
+                <div class="ventu-icon ventu-icon-med ventu-icon-reload" data-toggle="tooltip" data-placement="top" title="Haal locaties op"></div>
+                <div class="ventu-icon ventu-icon-med ventu-icon-right ventu-icon-box ventu-icon-remove" data-toggle="tooltip" data-placement="top" title="Verwijder locaties"></div>
+            </div>
+
+            <div class="ventu-cards-container">
+                <div class="ventu-single-card ventu-triangle ventu-triangle-white ventu-triangle-left">
+                    <div class="ventu-triangle-cover ventu-triangle ventu-triangle-left ventu-triangle-grey"></div>
+                    <h3>Aanbiedende partijen</h3>
+                    ID Bedrijfsmakelaars (Hilversum)<br>
+                    035 720 00 00
+                </div>
             </div>
         </div>
+
+
 
         <div class="ventu-like-as-well">
             Omdat je De Zwanenschuur interessant vindt, ben je misschien ook in deze locaties geïnteresseerd:
