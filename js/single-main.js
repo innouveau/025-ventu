@@ -12,4 +12,5 @@ $(window).ready(function(){
     initLightbox();
     initFavorites();
     initTooltips();
+    setMainImage();
 });

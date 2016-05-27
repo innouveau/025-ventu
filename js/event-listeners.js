@@ -105,6 +105,18 @@ function initSettings() {
     });
 }
 
+function setMainImage() {
+    function setImage(){
+        $('.ventu-single-main-image').css('height', $(window).outerHeight());
+    }
+
+    setImage();
+
+    $(window).resize(function(){
+        setImage();
+    });
+}
+
 function initMap() {
     $('.ventu-map-input').focus(function(){
         $(this).parent().addClass('active');
@@ -229,9 +241,9 @@ function count() {
 
 function reloadPage() {
     // fake
-    $('.ventu-single-content').css('opacity', 0);
+    $('.ventu-single-page').css('opacity', 0);
     setTimeout(function(){
-        $('.ventu-single-content').css('opacity', 1);
+        $('.ventu-single-page').css('opacity', 1);
     }, 1000);
 }
 

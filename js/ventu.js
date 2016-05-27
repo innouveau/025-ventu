@@ -194,6 +194,7 @@ Ventu.prototype.initHammer = function(element) {
             self.hate();
         } else {
             if (dy > 200) {
+                self.love();
                 self.seeDetail();
             } else {
                 self.releaseCard(element);
