@@ -154,6 +154,37 @@ function initLightbox() {
     $('.ventu-lightbox .ventu-icon-close').click(function(){
         $('.ventu-lightbox').fadeOut(250);
     });
+
+
+    function setLightbox() {
+        var windowWidth = $(window).outerWidth(),
+            windowHeight = $(window).outerHeight(),
+            ratio = windowHeight / windowWidth,
+            width,
+            height,
+            margin = 40;
+        if (ratio > 0.75) {
+            width = windowWidth - (2 * margin);
+            height = width * 0.75;
+            margin = ((windowHeight - height) / 2) + 'px ' + margin + 'px';
+        } else {
+            height = windowHeight -  (2 * margin);
+            width = height / 0.75;
+            margin = margin + 'px auto';
+        }
+        $('.ventu-lightbox-card').css({
+            width: width,
+            height: height,
+            margin: margin
+        });
+    }
+
+    $(window).resize(function(){
+        setLightbox();
+    });
+
+    setLightbox();
+
 }
 
 function initFavorites() {
