@@ -1,12 +1,9 @@
 $(window).ready(function(){
     window.ventu = new Ventu();
     ventu.initElements();
+    ventu.measure();
     // prevent responsiveness effects for static stack
-    ventu.sizes.body = {
-        width: 500,
-        height: 600
-    };
-    ventu.sizes.container = 500;
+    ventu.sizes.body.height = 600;
     ventu.createStatic();
 
     initSettings();

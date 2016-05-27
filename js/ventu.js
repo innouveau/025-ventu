@@ -34,10 +34,9 @@ Ventu.prototype.initElements = function() {
 };
 
 Ventu.prototype.measure = function() {
-    this.sizes.body = {
-        width: $('body').outerWidth(),
-        height: $('body').outerHeight()
-    };
+    this.sizes.body = {};
+    this.sizes.body.width = $('body').outerWidth();
+    this.sizes.body.height = $('body').outerHeight();
     this.sizes.container = this.elements.container.outerWidth();
     if (this.sizes.body.width > 768) {
         this.swipe.distance = 300;
