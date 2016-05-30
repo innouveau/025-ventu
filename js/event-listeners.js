@@ -43,7 +43,9 @@ function initFilter() {
             var height = $(this).outerHeight();
             $(this).attr('height', height);
         });
-        openFilterBox($($('.ventu-filter-box')[0]));
+        $('.ventu-filter-box').each(function(){
+            closeFilterBox($(this));
+        });
         if (window.ventuConfig.whatScreen === 'mobile') {
             closeFilterOverlay();
         }
@@ -63,7 +65,7 @@ function initFilter() {
             setBoxes();
             // change position of last guide
             $('.ventu-guide-6').removeClass('ventu-guide-right').addClass('ventu-guide-top').attr('y', 0).attr('x', 40);
-            if (window.ventuConfig.whatScreen === 'desktop') {
+            if (window.ventuConfig.whatScreen === 'mobile') {
                 sizeCards();
             }
         }
@@ -76,8 +78,8 @@ function initFilter() {
     }
 
     function sizeCards() {
-        var width = 1.2 * ($('body').outerWidth() - 40);
-        injectStyles('.ventu-card.current { height: ' + width + 'px;}');
+        var height = 1.2 * ($('body').outerWidth() - 40);
+        injectStyles('.ventu-card.current { height: ' + height + 'px;}');
     }
 
     $(window).resize(function(){
@@ -303,7 +305,7 @@ function openFilterBox(element) {
 }
 
 function closeFilterBox(element) {
-    element.css('height', 49);
+    element.css('height', 41);
     element.addClass('closed');
 }
 
