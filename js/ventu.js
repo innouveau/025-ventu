@@ -22,6 +22,7 @@ function Ventu() {
 Ventu.prototype.init = function() {
     this.initElements();
     this.measure();
+    this.addShades();
     this.buildCard(0, this.cards);
 };
 
@@ -74,10 +75,38 @@ Ventu.prototype.buildCard = function(i, end) {
     }
 };
 
+// shade
+
+Ventu.prototype.addShades = function() {
+    var transform = this.getTransform(0, 1.1, 1.3),
+        stackShade = $('<div class="ventu-stack-shade"></div>'),
+        shade = $('<div class="ventu-shade"></div>');
+    this.setCSStransform(shade, transform);
+    this.setCSStransform(stackShade, transform);
+    this.elements.container.append(shade);
+    this.elements.container.append(stackShade);
+    this.elements.stackShade = stackShade;
+    this.elements.shade = shade;
+};
+
+Ventu.prototype.setShade = function() {
+    var transform = this.getCustomTransform(3, 0.8, 150, 0);
+    this.setCSStransform(this.elements.shade, transform);
+    this.elements.shade.addClass('current');
+};
+
+Ventu.prototype.unsetShade = function() {
+    var transform = this.getCustomTransform(1.1, 1.3, 0, 0);
+    this.setCSStransform(this.elements.shade, transform);
+    this.elements.shade.removeClass('current');
+};
+
+
+
 Ventu.prototype.append = function(i) {
-    var transform = this.getTransform(i),
+    var transform = this.getTransform(i, 1, 1),
         card = $('<div class="ventu-card ventu-card-' + i + '">' +
-                 '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-grey"></div>' +
+                 '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-light-grey"></div>' +
                  '<div class="ventu-card-text"></div></div>');
     this.setCSStransform(card, transform);
     this.elements.container.append(card);
@@ -104,7 +133,7 @@ Ventu.prototype.setCSStransform = function(element, transform) {
     });
 };
 
-Ventu.prototype.getTransform = function(i) {
+Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
     var verticalPosition = this.sizes.body.height * 2.8 - 1100;
     if (verticalPosition > 800) {
         verticalPosition = 800;
@@ -112,7 +141,20 @@ Ventu.prototype.getTransform = function(i) {
     return 'rotateX(80deg) ' +
            'translateZ(' + (-verticalPosition + i * this.config.card.offset) + 'px) ' +
            'translateY(' + (-0.5 * verticalPosition + i * this.config.card.offset) + 'px) ' +
-           'translateX(' + ((this.sizes.container / 2) - 50) + 'px)';
+           'translateX(' + ((this.sizes.container / 2) - 50) + 'px) ' +
+           'scale(' + scaleX + ',' + scaleY + ')';
+};
+
+Ventu.prototype.getCustomTransform = function(scaleX, scaleY, shiftY, shiftX) {
+    var verticalPosition = this.sizes.body.height * 2.8 - 1100;
+    if (verticalPosition > 800) {
+        verticalPosition = 800;
+    }
+    return 'rotateX(80deg) ' +
+        'translateZ(' + (-verticalPosition) + 'px) ' +
+        'translateY(' + (-0.5 * verticalPosition + shiftY) + 'px) ' +
+        'translateX(' + ((this.sizes.container / 2) - 50 + shiftX) + 'px) ' +
+        'scale(' + scaleX + ',' + scaleY + ')';
 };
 
 Ventu.prototype.setCurrent = function() {
@@ -136,6 +178,7 @@ Ventu.prototype.setCurrent = function() {
         last.addClass('current');
         this.setCSStransform(last, this.config.card.selectedPosition);
         this.initHammer(last);
+        this.setShade();
     }
 };
 
@@ -152,8 +195,9 @@ Ventu.prototype.unsetCurrent = function() {
         current.find('.ventu-card-image').css({
             'background-image': 'none'
         });
-        transform = this.getTransform(this.cards - 1);
+        transform = this.getTransform(this.cards - 1, 1, 1);
         this.setCSStransform(current, transform);
+        this.unsetShade();
     }
 };
 
@@ -231,11 +275,19 @@ Ventu.prototype.dragCard = function(card, dx, dy) {
         transform = 'rotateX(' + rotX + 'deg) translateZ(0) rotateY(' + rotY + 'deg) translateY(' + thisDy + 'px) translateX(' + thisDx + 'px)';
     card.addClass('no-transition');
     this.setCSStransform(card, transform);
+    // shade
+    this.elements.shade.addClass('no-transition');
+    var shadeTransform = this.getCustomTransform(3, 0.8, 150, dx);
+    this.setCSStransform(this.elements.shade, shadeTransform);
 };
 
 Ventu.prototype.releaseCard = function(card) {
     card.removeClass('no-transition');
     this.setCSStransform(card, this.config.card.selectedPosition);
+    // shade
+    this.elements.shade.removeClass('no-transition');
+    var shadeTransform = this.getCustomTransform(3, 0.8, 150, 0);
+    this.setCSStransform(this.elements.shade, shadeTransform);
 };
 
 Ventu.prototype.getLast = function() {
@@ -368,7 +420,7 @@ Ventu.prototype.restack = function() {
         i = 0;
     $('.ventu-card').each(function() {
         if (!$(this).hasClass('current')) {
-            var transform = self.getTransform(i);
+            var transform = self.getTransform(i, 1, 1);
             self.setCSStransform($(this), transform);
             i++;
         }
