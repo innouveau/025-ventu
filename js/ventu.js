@@ -1,11 +1,11 @@
 function Ventu() {
     this.config = {
         card: {
-            offset: 6,
+            offset: 4,
             selectedPosition: 'rotateX(0deg) rotateY(0deg) translateZ(0) translateY(0) translateX(0)'
         }
     };
-    this.cards = 32;
+    this.cards = 90;
     this.limit = 70;
     this.favorites = 0;
     this.elements = {};
@@ -120,7 +120,7 @@ Ventu.prototype.setCSStransform = function(element, transform) {
 };
 
 Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
-    var verticalPosition = this.sizes.body.height * 2.8 - 1100;
+    var verticalPosition = this.sizes.body.height * 3.2 - 1200;
     if (verticalPosition > 800) {
         verticalPosition = 800;
     }
@@ -132,7 +132,7 @@ Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
 };
 
 Ventu.prototype.getCustomTransform = function(scaleX, scaleY, shiftY, shiftX) {
-    var verticalPosition = this.sizes.body.height * 2.8 - 1100;
+    var verticalPosition = this.sizes.body.height * 3.2 - 1200;
     if (verticalPosition > 800) {
         verticalPosition = 800;
     }
@@ -263,7 +263,7 @@ Ventu.prototype.dragCard = function(card, dx, dy) {
     this.setCSStransform(card, transform);
     // shade
     this.elements.shade.addClass('no-transition');
-    var shadeTransform = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, dx);
+    var shadeTransform = this.getCustomTransform(this.shade.selected.width - dy / 300, this.shade.selected.height, this.shade.selected.y, dx);
     this.setCSStransform(this.elements.shade, shadeTransform);
 };
 
@@ -313,13 +313,15 @@ Ventu.prototype.hate = function() {
 
 Ventu.prototype.moveCard = function(card, love) {
     var transform,
+        shade = this.elements.shade,
         textElement = card.find('.ventu-card-text');
     if (love) {
         transform = 'rotateX(80deg) translateZ(-700px) translateY(-300px) translateX(1200px)';
     } else {
         transform = 'rotateX(0) rotateY(-10deg) translateZ(-100px) translateY(500px) translateX(-2000px)';
     }
-    card.removeClass('current');
+    //card.removeClass('current');
+    shade.removeClass('no-transition current');
     card.addClass('ventu-removing');
     //textElement.fadeOut(50);
     card.css({
@@ -329,6 +331,7 @@ Ventu.prototype.moveCard = function(card, love) {
     this.setCSStransform(card, transform);
     setTimeout(function () {
         card.remove();
+        shade.remove();
     }, 500);
 };
 
@@ -416,21 +419,26 @@ Ventu.prototype.restack = function() {
 // shade
 
 Ventu.prototype.addShades = function() {
-    var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 8, 0),
-        stackShade = $('<div class="ventu-stack-shade"></div>'),
-        shade = $('<div class="ventu-shade"></div>');
-    this.setCSStransform(shade, transform);
+    var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
+        stackShade = $('<div class="ventu-stack-shade"></div>');
     this.setCSStransform(stackShade, transform);
-    this.elements.container.append(shade);
     this.elements.container.append(stackShade);
     this.elements.stackShade = stackShade;
-    this.elements.shade = shade;
 };
 
 Ventu.prototype.setShade = function() {
-    var transform = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0);
-    this.setCSStransform(this.elements.shade, transform);
-    this.elements.shade.addClass('current');
+    var transformStart = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
+        transformEnd = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0),
+        shade = $('<div class="ventu-shade"></div>'),
+        self = this;
+    this.setCSStransform(shade, transformStart);
+    this.elements.container.prepend(shade);
+    this.elements.shade = shade;
+    setTimeout(function(){
+        self.setCSStransform(self.elements.shade, transformEnd);
+        self.elements.shade.addClass('current');
+    }, 50);
+
 };
 
 Ventu.prototype.unsetShade = function() {

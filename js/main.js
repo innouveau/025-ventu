@@ -6,9 +6,12 @@ $(window).ready(function(){
     };
     window.ventu = new Ventu();
     window.guide = new Guide();
+    if (window.ventuConfig.whatScreen === 'mobile') {
+        // shorter stack for mobile
+        ventu.limit = 35;
+    }
     ventu.init();
-    //guide.init();
-    
+
     
     // listeners
     initSettings();

@@ -675,8 +675,7 @@ h2 {
 
 .ventu-map-tools {
     background: #00E5A9;
-    padding: 8px;
-    height: 48px;
+    height: 32px;
 }
 
 .ventu-map-search {
@@ -883,10 +882,10 @@ h2 {
 
 .ventu-card, .ventu-shade, .ventu-stack-shade {
     position: absolute;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     width: 100px;
     height: 80px;
     opacity: 1;
+    border-bottom: 1px solid #ccc;
     background: #EDEDEC;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
@@ -933,6 +932,7 @@ h2 {
     width: 500px;
     height: 400px;
     box-shadow: none;
+    border: 0;
 }
 
 .ventu-card.current .ventu-card-image {
@@ -1542,11 +1542,6 @@ body.ventu-menu-single {
 
     .ventu-map {
         height: 200px;
-    }
-
-    .ventu-map-tools {
-        padding: 0;
-        height: 32px;
     }
 
     /* content */
