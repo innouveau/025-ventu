@@ -1,4 +1,5 @@
 function Guide() {
+    this.padding = 20;
     this.button = {
         close: $('<div class="ventu-guide-button ventu-guide-close" onclick="guide.stop()"><div class="ventu-icon ventu-icon-remove ventu-icon-box ventu-icon-remove ventu-icon-med"></div></div>')
     }
@@ -8,6 +9,7 @@ Guide.prototype.init = function() {
     // TODO check if every parent has a 'position' set, otherwise position absolute won't work
     $('.ventu-overlay').fadeIn(500);
     this.play(0);
+    this.body = $('body').outerWidth();
 };
 
 Guide.prototype.play = function(n) {
@@ -58,7 +60,13 @@ Guide.prototype.append = function(guide, n) {
         x = parent.offset().left,
         y = parent.offset().top,
         offset = this.getOffset(guide),
-        clone = this.clone(guide);
+        clone = this.clone(guide),
+        endX = x + offset.x,
+        maxWidth;
+    if (endX < this.padding) {
+        endX = this.padding;
+    }
+    maxWidth = this.body - endX - this.padding;
     if (clone.hasClass('ventu-guide-last')) {
         clone.append(this.button.close);
     } else {
@@ -67,8 +75,9 @@ Guide.prototype.append = function(guide, n) {
     }
     clone.appendTo('body');
     clone.css({
-        left: (x + offset.x),
-        top: (y + offset.y)
+        left: endX,
+        top: (y + offset.y),
+        'max-width': maxWidth
     });
     clone.fadeIn(500);
 };
@@ -101,7 +110,7 @@ Guide.prototype.getOffset = function(element) {
     }
     if (element.hasClass('ventu-guide-top')) {
         offset.x = -100;
-        offset.y = 50;
+        offset.y = 70;
     }
     if (element.hasClass('ventu-guide-bottom')) {
         offset.x = -140;
