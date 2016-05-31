@@ -5,8 +5,8 @@ function Ventu() {
             selectedPosition: 'rotateX(0deg) rotateY(0deg) translateZ(0) translateY(0) translateX(0)'
         }
     };
-    this.cards = 90;
-    this.limit = 70;
+    this.cards = 12;
+    this.limit = 4;
     this.favorites = 0;
     this.elements = {};
     this.sizes = {};
@@ -29,6 +29,9 @@ function Ventu() {
     this.hammertime = null;
     this.timer = null;
 }
+
+
+// init
 
 Ventu.prototype.init = function() {
     this.initElements();
@@ -61,6 +64,10 @@ Ventu.prototype.measure = function() {
         }
     }
 };
+
+
+
+// construction
 
 Ventu.prototype.buildCard = function(i, end) {
     var transform,
@@ -106,84 +113,6 @@ Ventu.prototype.createStatic = function() {
     }
     for (var i = 0; i < l; i++) {
         this.append(i);
-    }
-};
-
-Ventu.prototype.setCSStransform = function(element, transform) {
-    element.css({
-        "webkitTransform": transform,
-        "MozTransform": transform,
-        "msTransform": transform,
-        "OTransform": transform,
-        "transform": transform
-    });
-};
-
-Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
-    var verticalPosition = this.sizes.body.height * 3.2 - 1200;
-    if (verticalPosition > 800) {
-        verticalPosition = 800;
-    }
-    return 'rotateX(80deg) ' +
-           'translateZ(' + (-verticalPosition + i * this.config.card.offset) + 'px) ' +
-           'translateY(' + (-0.5 * verticalPosition + i * this.config.card.offset) + 'px) ' +
-           'translateX(' + ((this.sizes.container / 2) - 50) + 'px) ' +
-           'scale(' + scaleX + ',' + scaleY + ')';
-};
-
-Ventu.prototype.getCustomTransform = function(scaleX, scaleY, shiftY, shiftX) {
-    var verticalPosition = this.sizes.body.height * 3.2 - 1200;
-    if (verticalPosition > 800) {
-        verticalPosition = 800;
-    }
-    return 'rotateX(80deg) ' +
-        'translateZ(' + (-verticalPosition) + 'px) ' +
-        'translateY(' + (-0.5 * verticalPosition + shiftY) + 'px) ' +
-        'translateX(' + ((this.sizes.container / 2) - 50 + shiftX) + 'px) ' +
-        'scale(' + scaleX + ',' + scaleY + ')';
-};
-
-Ventu.prototype.setCurrent = function() {
-    var image = 'img/kantoor.jpg', // fake image
-        last = this.getLast(),
-        self = this,
-        text = '<h4>Amsterdam-Zuid</h4><h3>De Zwanenschuur</h3><ul><li>Maecenas id tellus vitae</li><li>Ex faucibus dignissim 4.000</li><li>Quis non urna. Praesent at aliquet metus</li></ul>',
-        textElement;
-
-        this.elements.last = last;
-    if (!last.hasClass('current')) {
-        // add the image
-        last.find('.ventu-card-image').css('background-image', 'url(' + image + ')');
-        // add the info
-        textElement = last.find('.ventu-card-text');
-        textElement.html(text);
-        setTimeout(function(){
-            textElement.fadeIn(300);
-        }, 400);
-        // fade-in the image
-        last.addClass('current');
-        this.setCSStransform(last, this.config.card.selectedPosition);
-        this.initHammer(last);
-        this.setShade();
-    }
-};
-
-Ventu.prototype.unsetCurrent = function() {
-    var current = $('.current'),
-        textElement,
-        image,
-        transform;
-    if (current.length > 0) {
-        current.removeClass('current');
-        textElement = current.find('.ventu-card-text');
-        textElement.html('');
-        textElement.css('opacity', 0);
-        current.find('.ventu-card-image').css({
-            'background-image': 'none'
-        });
-        transform = this.getTransform(this.cards - 1, 1, 1);
-        this.setCSStransform(current, transform);
-        this.unsetShade();
     }
 };
 
@@ -233,25 +162,62 @@ Ventu.prototype.initHammer = function(element) {
     });
 };
 
-Ventu.prototype.seeDetail = function() {
-    // get specific page
-    window.location.href = 'single.html';
+
+
+// current
+
+Ventu.prototype.setCurrent = function() {
+    // if we are above the limit, we create a card on the flye
+    if (this.cards > this.limit) {
+        this.append(this.limit);
+    }
+    this.elements.last = this.getLast();
+        this.launchCurrent();
 };
 
-Ventu.prototype.suggest = function(type) {
-    this.elements.suggest.fadeIn(700);
-    switch(type) {
-        case 0:
-            this.elements.suggest.html('Love it!');
-            break;
-        case 1:
-            this.elements.suggest.html('Nah...');
-            break;
-        case 2:
-            this.elements.suggest.html('Laat details zien...');
-            break;
+Ventu.prototype.launchCurrent = function() {
+    var image = 'img/kantoor.jpg', // fake image
+        last = this.elements.last,
+        text = '<h4>Amsterdam-Zuid</h4><h3>De Zwanenschuur</h3><ul><li>Maecenas id tellus vitae</li><li>Ex faucibus dignissim 4.000</li><li>Quis non urna. Praesent at aliquet metus</li></ul>',
+        textElement;
+
+    // add the image
+    last.find('.ventu-card-image').css('background-image', 'url(' + image + ')');
+    // add the info
+    textElement = last.find('.ventu-card-text');
+    textElement.html(text);
+    setTimeout(function(){
+        textElement.fadeIn(300);
+    }, 400);
+    // fade-in the image
+    last.addClass('current');
+    this.setCSStransform(last, this.config.card.selectedPosition);
+    this.initHammer(last);
+    this.setShade();
+};
+
+Ventu.prototype.unsetCurrent = function() {
+    var current = $('.current'),
+        textElement,
+        image,
+        transform;
+    if (current.length > 0) {
+        current.removeClass('current');
+        textElement = current.find('.ventu-card-text');
+        textElement.html('');
+        textElement.css('opacity', 0);
+        current.find('.ventu-card-image').css({
+            'background-image': 'none'
+        });
+        transform = this.getTransform(this.cards - 1, 1, 1);
+        this.setCSStransform(current, transform);
+        this.unsetShade();
     }
 };
+
+
+
+// events
 
 Ventu.prototype.dragCard = function(card, dx, dy) {
     var thisDx = dx,
@@ -276,21 +242,6 @@ Ventu.prototype.releaseCard = function(card) {
     this.setCSStransform(this.elements.shade, shadeTransform);
 };
 
-Ventu.prototype.getLast = function() {
-    var set = $('.ventu-stack-container .ventu-card');
-    for (var i = (set.length - 1); i > -1; i--) {
-        var card = $(set[i]);
-        if (!card.hasClass('ventu-removing')) {
-            return card;
-        }
-    }
-    return null;
-};
-
-Ventu.prototype.count = function(i) {
-    this.elements.counter.html(i);
-};
-
 Ventu.prototype.love = function() {
     var card = $('.ventu-card.current'),
         self = this;
@@ -309,6 +260,21 @@ Ventu.prototype.hate = function() {
     this.cards--;
     this.count(this.cards);
     this.setCurrent();
+};
+
+Ventu.prototype.suggest = function(type) {
+    this.elements.suggest.fadeIn(700);
+    switch(type) {
+        case 0:
+            this.elements.suggest.html('Love it!');
+            break;
+        case 1:
+            this.elements.suggest.html('Nah...');
+            break;
+        case 2:
+            this.elements.suggest.html('Laat details zien...');
+            break;
+    }
 };
 
 Ventu.prototype.moveCard = function(card, love) {
@@ -335,15 +301,14 @@ Ventu.prototype.moveCard = function(card, love) {
     }, 500);
 };
 
-Ventu.prototype.shine = function(){
-    var self = this;
-    this.elements.favoritesCounter.addClass('shine');
-    setTimeout(function(){
-        self.elements.favoritesCounter.removeClass('shine');
-    }, 500);
-    // counter
-    this.elements.favoritesCounter.html(this.favorites);
+Ventu.prototype.seeDetail = function() {
+    // get specific page
+    window.location.href = 'single.html';
 };
+
+
+
+// stack handlers
 
 Ventu.prototype.setStack = function(n) {
     var wait = 0,
@@ -416,6 +381,8 @@ Ventu.prototype.restack = function() {
     });
 };
 
+
+
 // shade
 
 Ventu.prototype.addShades = function() {
@@ -448,4 +415,65 @@ Ventu.prototype.unsetShade = function() {
 };
 
 
+
+// helper functions
+
+Ventu.prototype.shine = function(){
+    var self = this;
+    this.elements.favoritesCounter.addClass('shine');
+    setTimeout(function(){
+        self.elements.favoritesCounter.removeClass('shine');
+    }, 500);
+    // counter
+    this.elements.favoritesCounter.html(this.favorites);
+};
+
+Ventu.prototype.count = function(i) {
+    this.elements.counter.html(i);
+};
+
+Ventu.prototype.getLast = function() {
+    var set = $('.ventu-stack-container .ventu-card');
+    for (var i = (set.length - 1); i > -1; i--) {
+        var card = $(set[i]);
+        if (!card.hasClass('ventu-removing')) {
+            return card;
+        }
+    }
+    return null;
+};
+
+Ventu.prototype.setCSStransform = function(element, transform) {
+    element.css({
+        "webkitTransform": transform,
+        "MozTransform": transform,
+        "msTransform": transform,
+        "OTransform": transform,
+        "transform": transform
+    });
+};
+
+Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
+    var verticalPosition = this.sizes.body.height * 3.2 - 1200;
+    if (verticalPosition > 800) {
+        verticalPosition = 800;
+    }
+    return 'rotateX(80deg) ' +
+        'translateZ(' + (-verticalPosition + i * this.config.card.offset) + 'px) ' +
+        'translateY(' + (-0.5 * verticalPosition + i * this.config.card.offset) + 'px) ' +
+        'translateX(' + ((this.sizes.container / 2) - 50) + 'px) ' +
+        'scale(' + scaleX + ',' + scaleY + ')';
+};
+
+Ventu.prototype.getCustomTransform = function(scaleX, scaleY, shiftY, shiftX) {
+    var verticalPosition = this.sizes.body.height * 3.2 - 1200;
+    if (verticalPosition > 800) {
+        verticalPosition = 800;
+    }
+    return 'rotateX(80deg) ' +
+        'translateZ(' + (-verticalPosition) + 'px) ' +
+        'translateY(' + (-0.5 * verticalPosition + shiftY) + 'px) ' +
+        'translateX(' + ((this.sizes.container / 2) - 50 + shiftX) + 'px) ' +
+        'scale(' + scaleX + ',' + scaleY + ')';
+};
 
