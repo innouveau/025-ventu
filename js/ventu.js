@@ -5,8 +5,8 @@ function Ventu() {
             selectedPosition: 'rotateX(0deg) rotateY(0deg) translateZ(0) translateY(0) translateX(0)'
         }
     };
-    this.cards = 12;
-    this.limit = 4;
+    this.cards = 3;
+    this.limit = 2;
     this.favorites = 0;
     this.elements = {};
     this.sizes = {};
@@ -167,12 +167,25 @@ Ventu.prototype.initHammer = function(element) {
 // current
 
 Ventu.prototype.setCurrent = function() {
+    var self = this,
+        wait = 0;
     // if we are above the limit, we create a card on the flye
     if (this.cards > this.limit) {
         this.append(this.limit);
+        // we have to wait a bit to make the transition effective
+        wait = 100;
     }
     this.elements.last = this.getLast();
-        this.launchCurrent();
+    if (this.elements.last) {
+        setTimeout(function(){
+            self.launchCurrent();
+        }, wait);
+    }
+    if (this.cards <= 1) {
+        this.stackIsEmpty();
+    } else {
+        this.stackIsNotEmpty();
+    }
 };
 
 Ventu.prototype.launchCurrent = function() {
@@ -218,6 +231,14 @@ Ventu.prototype.unsetCurrent = function() {
 
 
 // events
+
+Ventu.prototype.stackIsEmpty = function() {
+    this.elements.stackShade.hide();
+};
+
+Ventu.prototype.stackIsNotEmpty = function() {
+    this.elements.stackShade.show();
+};
 
 Ventu.prototype.dragCard = function(card, dx, dy) {
     var thisDx = dx,
