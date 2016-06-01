@@ -1,4 +1,9 @@
-$(window).ready(function(){
+$(window).ready(function() {
+
+    window.ventuConfig = {
+        whatScreen: whatScreen(),
+        overlay: false
+    }
     window.ventu = new Ventu();
     ventu.initElements();
     ventu.measure();

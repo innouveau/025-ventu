@@ -5,21 +5,26 @@ function Ventu() {
             selectedPosition: 'rotateX(0deg) rotateY(0deg) translateZ(0) translateY(0) translateX(0)'
         }
     };
-    this.cards = 3;
-    this.limit = 2;
+    this.cards = 70;
+    this.limit = 50;
     this.favorites = 0;
     this.elements = {};
-    this.sizes = {};
+    this.sizes = {
+        card: {
+            width: 500,
+            height: 400
+        }
+    };
     this.swipe = {};
     this.shade = {
         selected: {
-            y: 150,
-            width: 3,
-            height: 0.8
+            y: 120,
+            width: 0.6,
+            height: 0.16
         },
         normal: {
-            width: 1.1,
-            height: 1.3
+            width: 0.22,
+            height: 0.26
         }
     };
     this.drag = {
@@ -52,13 +57,16 @@ Ventu.prototype.measure = function() {
     this.sizes.body = {};
     this.sizes.body.width = $('body').outerWidth();
     this.sizes.body.height = $('body').outerHeight();
-    this.sizes.container = this.elements.container.outerWidth();
+    this.sizes.container = {
+        width: this.elements.container.outerWidth(),
+        height: this.elements.container.outerHeight()
+    };
     if (this.sizes.body.width > 768) {
         this.swipe.distance = 300;
     } else {
         // in mobile modus, the whole screen is the container, so it is fair
         // to make the swipe 60% of half the screen
-        this.swipe.distance = 0.3 * this.sizes.container;
+        this.swipe.distance = 0.3 * this.sizes.container.width;
         if (this.swipe.distance < 100) {
             this.swipe.distance = 100;
         }
@@ -96,13 +104,18 @@ Ventu.prototype.buildCard = function(i, end) {
     }
 };
 
-Ventu.prototype.append = function(i) {
-    var transform = this.getTransform(i, 1, 1),
+Ventu.prototype.append = function(i, before) {
+    var transform = this.getTransform(i, 0.2, 0.2),
         card = $('<div class="ventu-card ventu-card-' + i + '">' +
                  '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-light-grey"></div>' +
                  '<div class="ventu-card-text"></div></div>');
     this.setCSStransform(card, transform);
-    this.elements.container.append(card);
+    if (before) {
+        card.insertBefore(this.elements.last);
+    } else {
+        this.elements.container.append(card);
+    }
+
 };
 
 Ventu.prototype.createStatic = function() {
@@ -167,20 +180,15 @@ Ventu.prototype.initHammer = function(element) {
 // current
 
 Ventu.prototype.setCurrent = function() {
-    var self = this,
-        wait = 0;
-    // if we are above the limit, we create a card on the flye
-    if (this.cards > this.limit) {
-        this.append(this.limit);
-        // we have to wait a bit to make the transition effective
-        wait = 100;
-    }
     this.elements.last = this.getLast();
     if (this.elements.last) {
-        setTimeout(function(){
-            self.launchCurrent();
-        }, wait);
+        this.launchCurrent();
     }
+    // if we are above the limit, we create a card on the fly
+    if (this.cards > this.limit) {
+        this.append(this.limit, true);
+    }
+
     if (this.cards <= 1) {
         this.stackIsEmpty();
     } else {
@@ -222,7 +230,7 @@ Ventu.prototype.unsetCurrent = function() {
         current.find('.ventu-card-image').css({
             'background-image': 'none'
         });
-        transform = this.getTransform(this.cards - 1, 1, 1);
+        transform = this.getTransform(this.cards - 1, 0.2, 0.2);
         this.setCSStransform(current, transform);
         this.unsetShade();
     }
@@ -233,11 +241,15 @@ Ventu.prototype.unsetCurrent = function() {
 // events
 
 Ventu.prototype.stackIsEmpty = function() {
-    this.elements.stackShade.hide();
+    if (window.ventuConfig.whatScreen !== 'mobile') {
+        this.elements.stackShade.hide();
+    }
 };
 
 Ventu.prototype.stackIsNotEmpty = function() {
-    this.elements.stackShade.show();
+    if (window.ventuConfig.whatScreen !== 'mobile') {
+        this.elements.stackShade.show();
+    }
 };
 
 Ventu.prototype.dragCard = function(card, dx, dy) {
@@ -249,9 +261,11 @@ Ventu.prototype.dragCard = function(card, dx, dy) {
     card.addClass('no-transition');
     this.setCSStransform(card, transform);
     // shade
-    this.elements.shade.addClass('no-transition');
-    var shadeTransform = this.getCustomTransform(this.shade.selected.width - dy / 300, this.shade.selected.height, this.shade.selected.y, dx);
-    this.setCSStransform(this.elements.shade, shadeTransform);
+    if (window.ventuConfig.whatScreen !== 'mobile') {
+        this.elements.shade.addClass('no-transition');
+        var shadeTransform = this.getCustomTransform(this.shade.selected.width - dy / 1500, this.shade.selected.height, this.shade.selected.y, dx);
+        this.setCSStransform(this.elements.shade, shadeTransform);
+    }
 };
 
 Ventu.prototype.releaseCard = function(card) {
@@ -308,7 +322,9 @@ Ventu.prototype.moveCard = function(card, love) {
         transform = 'rotateX(0) rotateY(-10deg) translateZ(-100px) translateY(500px) translateX(-2000px)';
     }
     //card.removeClass('current');
-    shade.removeClass('no-transition current');
+    if (window.ventuConfig.whatScreen !== 'mobile') {
+        shade.removeClass('no-transition current');
+    }
     card.addClass('ventu-removing');
     //textElement.fadeOut(50);
     card.css({
@@ -395,7 +411,7 @@ Ventu.prototype.restack = function() {
         i = 0;
     $('.ventu-card').each(function() {
         if (!$(this).hasClass('current')) {
-            var transform = self.getTransform(i, 1, 1);
+            var transform = self.getTransform(i, 0.2, 0.2);
             self.setCSStransform($(this), transform);
             i++;
         }
@@ -407,32 +423,41 @@ Ventu.prototype.restack = function() {
 // shade
 
 Ventu.prototype.addShades = function() {
-    var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
-        stackShade = $('<div class="ventu-stack-shade"></div>');
-    this.setCSStransform(stackShade, transform);
-    this.elements.container.append(stackShade);
-    this.elements.stackShade = stackShade;
+    if (window.ventuConfig.whatScreen !== 'mobile') {
+        var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
+            stackShade = $('<div class="ventu-stack-shade"></div>');
+        this.setCSStransform(stackShade, transform);
+        this.elements.container.append(stackShade);
+        this.elements.stackShade = stackShade;
+    }
 };
 
 Ventu.prototype.setShade = function() {
-    var transformStart = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
-        transformEnd = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0),
-        shade = $('<div class="ventu-shade"></div>'),
-        self = this;
-    this.setCSStransform(shade, transformStart);
-    this.elements.container.prepend(shade);
-    this.elements.shade = shade;
-    setTimeout(function(){
-        self.setCSStransform(self.elements.shade, transformEnd);
-        self.elements.shade.addClass('current');
-    }, 50);
-
+    if (window.ventuConfig.whatScreen !== 'mobile') {
+        var transformStart = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
+            transformEnd = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0),
+            shade = $('<div class="ventu-shade"></div>'),
+            self = this;
+        this.setCSStransform(shade, transformStart);
+        this.elements.container.prepend(shade);
+        this.elements.shade = shade;
+        setTimeout(function () {
+            self.setCSStransform(self.elements.shade, transformEnd);
+            self.elements.shade.addClass('current');
+        }, 50);
+    }
 };
 
 Ventu.prototype.unsetShade = function() {
-    var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 0, 0);
-    this.setCSStransform(this.elements.shade, transform);
-    this.elements.shade.removeClass('current');
+    if (window.ventuConfig.whatScreen !== 'mobile') {
+        var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 0, 0),
+            shade = this.elements.shade;
+        this.setCSStransform(shade, transform);
+        shade.removeClass('current');
+        setTimeout(function() {
+            shade.remove();
+        }, 500);
+    }
 };
 
 
@@ -475,26 +500,31 @@ Ventu.prototype.setCSStransform = function(element, transform) {
 };
 
 Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
-    var verticalPosition = this.sizes.body.height * 3.2 - 1200;
-    if (verticalPosition > 800) {
-        verticalPosition = 800;
-    }
+    var verticalPosition = this.getVertical();
     return 'rotateX(80deg) ' +
         'translateZ(' + (-verticalPosition + i * this.config.card.offset) + 'px) ' +
         'translateY(' + (-0.5 * verticalPosition + i * this.config.card.offset) + 'px) ' +
-        'translateX(' + ((this.sizes.container / 2) - 50) + 'px) ' +
+        'translateX(' + ((this.sizes.container.width / 2) - (this.sizes.card.width / 2)) + 'px) ' +
         'scale(' + scaleX + ',' + scaleY + ')';
 };
 
 Ventu.prototype.getCustomTransform = function(scaleX, scaleY, shiftY, shiftX) {
-    var verticalPosition = this.sizes.body.height * 3.2 - 1200;
-    if (verticalPosition > 800) {
-        verticalPosition = 800;
-    }
+    var verticalPosition = this.getVertical();
     return 'rotateX(80deg) ' +
         'translateZ(' + (-verticalPosition) + 'px) ' +
         'translateY(' + (-0.5 * verticalPosition + shiftY) + 'px) ' +
-        'translateX(' + ((this.sizes.container / 2) - 50 + shiftX) + 'px) ' +
+        'translateX(' + ((this.sizes.container.width / 2) - (this.sizes.card.width / 2) + shiftX) + 'px) ' +
         'scale(' + scaleX + ',' + scaleY + ')';
 };
+
+Ventu.prototype.getVertical = function(scaleX, scaleY, shiftY, shiftX) {
+    var verticalPosition = this.sizes.container.height * 3.1 - 900;
+    if (verticalPosition > 500) {
+        return 500;
+    } else {
+        return verticalPosition;
+    }
+};
+
+
 

@@ -78,8 +78,11 @@ function initFilter() {
     }
 
     function sizeCards() {
-        var height = 1.2 * ($('body').outerWidth() - 40);
-        injectStyles('.ventu-card.current { height: ' + height + 'px;}');
+        var width =  $('body').outerWidth() - 40,
+            height = 1.2 * width;
+        ventu.sizes.card.width = width;
+        ventu.sizes.card.height = height;
+        injectStyles('.ventu-card, .ventu-shade, .ventu-stack-shade { height: ' + height + 'px; width: ' + width + 'px;}');
     }
 
     $(window).resize(function(){

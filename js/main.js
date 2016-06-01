@@ -1,5 +1,9 @@
 $(window).ready(function(){
 
+    document.ontouchmove = function(event){
+        event.preventDefault();
+    };
+
     window.ventuConfig = {
         whatScreen: whatScreen(),
         overlay: false
@@ -10,7 +14,7 @@ $(window).ready(function(){
         // shorter stack for mobile
         ventu.limit = 35;
     }
-    ventu.init();
+
 
     
     // listeners
@@ -19,6 +23,8 @@ $(window).ready(function(){
     initGuide();
     initFilter();
     initTooltips();
+
+    ventu.init();
 
 });
 

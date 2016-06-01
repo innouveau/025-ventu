@@ -877,13 +877,14 @@ h2 {
     -webkit-perspective: 600px;
     width: 100%;
     height: 500px;
+    max-height: 100%;
     position: relative;
 }
 
 .ventu-card, .ventu-shade, .ventu-stack-shade {
     position: absolute;
-    width: 100px;
-    height: 80px;
+    width: 500px;
+    height: 400px;
     opacity: 1;
     border-bottom: 1px solid #ccc;
     background: #EDEDEC;
@@ -898,18 +899,19 @@ h2 {
 
 .ventu-shade, .ventu-stack-shade {
     background: rgba(0,0,0,0.2);
-    box-shadow: none;
-    filter: blur(4px);
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
 }
 
 .ventu-shade {
     opacity: 0;
-    border-radius: 10px;
+    border-radius: 50px;
 }
 
 .ventu-shade.current {
     opacity: 0.8;
-    filter: blur(10px);
+    filter: blur(50px);
+    -webkit-filter: blur(50px);
 }
 
 .ventu-card.no-transition, .ventu-shade.no-transition {
@@ -929,9 +931,6 @@ h2 {
 .ventu-card.current {
     cursor: pointer;
     position: relative;
-    width: 500px;
-    height: 400px;
-    box-shadow: none;
     border: 0;
 }
 
@@ -1149,6 +1148,10 @@ body.ventu-menu-single {
     padding-top: 80px;
 }
 
+.ventu-single-page {
+    margin-bottom: 200px;
+}
+
 .ventu-single-content {
     width: 600px;
     margin: 0 auto 40px auto;
@@ -1334,7 +1337,7 @@ body.ventu-menu-single {
 }
 
 .ventu-single .ventu-stack-container {
-    margin: -300px auto 0 auto;
+    margin: -580px auto 0 auto;
     width: 500px;
     z-index: -1;
 }
@@ -1489,6 +1492,10 @@ body.ventu-menu-single {
         padding: 100px 20px 20px;
     }
 
+    body.ventu-app {
+        padding: 0;
+    }
+
     .ventu-menu-buttons {
         display: none;
     }
@@ -1551,13 +1558,18 @@ body.ventu-menu-single {
         width: 100%;
     }
 
+    .ventu-app .ventu-content {
+        padding: 100px 20px 20px;
+        max-height: 100%;
+        overflow: hidden;
+    }
+
     .ventu-stack-container {
         width: 100%;
     }
 
     .ventu-card.current {
-        width: 100%;
-        /* height is set upon measuring */
+        /* width and height is set upon measuring */
     }
 
     .ventu-card-text {
