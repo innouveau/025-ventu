@@ -516,12 +516,9 @@ a.ventu-button:hover {
     content: '3';
 }
 
-
-
-
 .ventu-text-along-icon {
     display: inline-block;
-    padding-top: 8px;
+    padding: 7px 0 0 3px;
     vertical-align: top;
     font-size: 10px;
 }
@@ -912,21 +909,22 @@ h2 {
     transition: all 0.5s ease;
 }
 
-.ventu-shade, .ventu-stack-shade {
-    background: rgba(0,0,0,0.2);
+.ventu-stack-shade {
+    background: rgba(58,36,18,0.2);
     filter: blur(20px);
-    -webkit-filter: blur(20px);
 }
 
 .ventu-shade {
     opacity: 0;
-    border-radius: 50px;
+    background-image: url('../img/shade.png');
+    background-color: transparent;
+    background-size: cover;
+    background-position: center center;
 }
 
 .ventu-shade.current {
     opacity: 0.8;
-    filter: blur(50px);
-    -webkit-filter: blur(50px);
+
 }
 
 .ventu-card.no-transition, .ventu-shade.no-transition {
@@ -955,8 +953,6 @@ h2 {
 
 .ventu-card.current {
     cursor: pointer;
-    position: relative;
-    border: 0;
 }
 
 .ventu-card.current .ventu-card-image, .ventu-card.current .ventu-card-icons {
@@ -1268,6 +1264,10 @@ body.ventu-menu-single {
     padding: 30px;
     background: #00e3a7;
     color: #fff;
+}
+
+.ventu-single-tools .ventu-icon {
+    color: #00665E;
 }
 
 .ventu-single-tools .ventu-button-with-icon {

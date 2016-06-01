@@ -6,7 +6,7 @@ function Ventu() {
         }
     };
     this.cards = 70;
-    this.limit = 50;
+    this.limit = 60;
     this.favorites = 0;
     this.elements = {};
     this.sizes = {
@@ -41,7 +41,8 @@ function Ventu() {
 Ventu.prototype.init = function() {
     this.initElements();
     this.measure();
-    this.addShades();
+    this.buildStackShade();
+    this.buildNextShade();
     this.buildCard(0, this.cards);
 };
 
@@ -202,7 +203,8 @@ Ventu.prototype.launchCurrent = function() {
         content = this.getContent(),
         textElement = last.find('.ventu-card-text'),
         imageElement = last.find('.ventu-card-image'),
-        iconElement = last.find('.ventu-card-icons');
+        iconElement = last.find('.ventu-card-icons'),
+        self = this;
     imageElement.css('background-image', 'url(' + content.image + ')');
     textElement.html(this.buildText(content.text));
     iconElement.html(this.buildIcons(content.icons));
@@ -213,7 +215,10 @@ Ventu.prototype.launchCurrent = function() {
     last.addClass('current');
     this.setCSStransform(last, this.config.card.selectedPosition);
     this.initHammer(last);
-    this.setShade();
+    this.launchShade();
+    setTimeout(function(){
+        self.buildNextShade();
+    }, 500);
 };
 
 Ventu.prototype.buildText = function(input) {
@@ -295,9 +300,9 @@ Ventu.prototype.dragCard = function(card, dx, dy) {
     this.setCSStransform(card, transform);
     // shade
     if (window.ventuConfig.whatScreen !== 'mobile') {
-        this.elements.shade.addClass('no-transition');
+        this.elements.shadeCurrent.addClass('no-transition');
         var shadeTransform = this.getCustomTransform(this.shade.selected.width - dy / 1500, this.shade.selected.height, this.shade.selected.y, dx);
-        this.setCSStransform(this.elements.shade, shadeTransform);
+        this.setCSStransform(this.elements.shadeCurrent, shadeTransform);
     }
 };
 
@@ -305,14 +310,13 @@ Ventu.prototype.releaseCard = function(card) {
     card.removeClass('no-transition');
     this.setCSStransform(card, this.config.card.selectedPosition);
     // shade
-    this.elements.shade.removeClass('no-transition');
+    this.elements.shadeCurrent.removeClass('no-transition');
     var shadeTransform = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0);
-    this.setCSStransform(this.elements.shade, shadeTransform);
+    this.setCSStransform(this.elements.shadeCurrent, shadeTransform);
 };
 
 Ventu.prototype.love = function() {
-    var card = $('.ventu-card.current'),
-        self = this;
+    var card = $('.ventu-card.current');
     this.moveCard(card, true);
     this.cards--;
     this.favorites++;
@@ -322,8 +326,7 @@ Ventu.prototype.love = function() {
 };
 
 Ventu.prototype.hate = function() {
-    var card = $('.ventu-card.current'),
-        self = this;
+    var card = $('.ventu-card.current');
     this.moveCard(card, false);
     this.cards--;
     this.count(this.cards);
@@ -347,7 +350,7 @@ Ventu.prototype.suggest = function(type) {
 
 Ventu.prototype.moveCard = function(card, love) {
     var transform,
-        shade = this.elements.shade,
+        shade = this.elements.shadeCurrent,
         textElement = card.find('.ventu-card-text');
     if (love) {
         transform = 'rotateX(80deg) translateZ(-700px) translateY(-300px) translateX(1200px)';
@@ -455,7 +458,7 @@ Ventu.prototype.restack = function() {
 
 // shade
 
-Ventu.prototype.addShades = function() {
+Ventu.prototype.buildStackShade = function() {
     if (window.ventuConfig.whatScreen !== 'mobile') {
         var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
             stackShade = $('<div class="ventu-stack-shade"></div>');
@@ -465,19 +468,23 @@ Ventu.prototype.addShades = function() {
     }
 };
 
-Ventu.prototype.setShade = function() {
+Ventu.prototype.buildNextShade = function() {
     if (window.ventuConfig.whatScreen !== 'mobile') {
-        var transformStart = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
-            transformEnd = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0),
-            shade = $('<div class="ventu-shade"></div>'),
-            self = this;
-        this.setCSStransform(shade, transformStart);
+        var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
+            shade = $('<div class="ventu-shade next"></div>');
+        this.setCSStransform(shade, transform);
         this.elements.container.prepend(shade);
-        this.elements.shade = shade;
-        setTimeout(function () {
-            self.setCSStransform(self.elements.shade, transformEnd);
-            self.elements.shade.addClass('current');
-        }, 50);
+        this.elements.shadeNext = shade;
+    }
+};
+
+Ventu.prototype.launchShade = function() {
+    if (window.ventuConfig.whatScreen !== 'mobile') {
+        var transform = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0);
+        this.elements.shadeCurrent = this.elements.shadeNext;
+        this.setCSStransform(this.elements.shadeCurrent, transform);
+        this.elements.shadeCurrent.addClass('current');
+        this.elements.shadeCurrent.removeClass('next');
     }
 };
 
