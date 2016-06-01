@@ -10,7 +10,7 @@ $(window).ready(function() {
     // prevent responsiveness effects for static stack
     ventu.sizes.body.height = 600;
     ventu.createStatic();
-    ventu.addShades();
+    ventu.buildStackShade();
 
     initSettings();
     initMap();
