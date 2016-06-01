@@ -10,7 +10,8 @@ function initTooltips() {
 
 function initFilter() {
     $('#area-slider').slider({
-        tooltip: 'always'
+        tooltip: 'always',
+        tooltip_split: true
     });
 
     // type

@@ -460,7 +460,7 @@ a.ventu-button:hover {
     /*border: 0.75px solid #1F1F1F;*/
 }
 
-.ventu-icon-photo:after {
+.ventu-icon-photo:after, .ventu-icon-image:after {
     content: 'p';
 }
 
@@ -503,6 +503,21 @@ a.ventu-button:hover {
 .ventu-icon-filter:after {
     content: '-';
 }
+
+.ventu-icon-video:after {
+    content: 'P';
+}
+
+.ventu-icon-document:after {
+    content: 'D';
+}
+
+.ventu-icon-3d:after {
+    content: '3';
+}
+
+
+
 
 .ventu-text-along-icon {
     display: inline-block;
@@ -783,21 +798,28 @@ h2 {
 }
 
 .ventu-slider .slider.slider-horizontal .slider-handle {
-    width: 16px;
-    height: 24px;
     background: transparent;
     border-radius: 0;
-    margin-top: -10px;
+    margin-top: -13px;
 }
 
-.ventu-slider .slider .slider-handle:after {
+.ventu-slider .slider.slider-horizontal .slider-handle:after {
     position: absolute;
-    left: 10px;
     top: 0;
-    width: 0.5px;
-    height: 16px;
-    background: #1F1F1F;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 12px solid #00E5A9;
     content: '';
+}
+
+.min-slider-handle.slider-handle:after{
+    left: 1px;
+}
+
+.max-slider-handle.slider-handle:after{
+    left: 1px;
 }
 
 .ventu-slider .slider-track-low, .ventu-filter .slider-track-high {
@@ -805,14 +827,6 @@ h2 {
     border-radius: 0;
     border: 0.5px solid #1F1F1F;
     box-shadow: none;
-}
-
-.ventu-slider .slider-track-low {
-    border-right: none;
-}
-
-.ventu-slider .slider-track-high {
-    border-left: none;
 }
 
 .ventu-slider .slider-selection {
@@ -828,6 +842,7 @@ h2 {
 .ventu-slider .tooltip-inner {
     background: transparent;
     border-radius: 0;
+    font-size: 10px;
     color: #00E3A7;
 }
 
@@ -928,13 +943,23 @@ h2 {
     position: relative;
 }
 
+.ventu-card-icons {
+    opacity: 0;
+    width: 30px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: opacity 2s;
+    color: #727272;
+}
+
 .ventu-card.current {
     cursor: pointer;
     position: relative;
     border: 0;
 }
 
-.ventu-card.current .ventu-card-image {
+.ventu-card.current .ventu-card-image, .ventu-card.current .ventu-card-icons {
     opacity: 1;
 }
 

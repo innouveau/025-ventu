@@ -108,7 +108,8 @@ Ventu.prototype.append = function(i, before) {
     var transform = this.getTransform(i, 0.2, 0.2),
         card = $('<div class="ventu-card ventu-card-' + i + '">' +
                  '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-light-grey"></div>' +
-                 '<div class="ventu-card-text"></div></div>');
+                 '<div class="ventu-card-text"></div>' +
+                 '<div class="ventu-card-icons"></div></div>');
     this.setCSStransform(card, transform);
     if (before) {
         card.insertBefore(this.elements.last);
@@ -197,16 +198,14 @@ Ventu.prototype.setCurrent = function() {
 };
 
 Ventu.prototype.launchCurrent = function() {
-    var image = 'img/kantoor.jpg', // fake image
-        last = this.elements.last,
-        text = '<h4>Amsterdam-Zuid</h4><h3>De Zwanenschuur</h3><ul><li>Maecenas id tellus vitae</li><li>Ex faucibus dignissim 4.000</li><li>Quis non urna. Praesent at aliquet metus</li></ul>',
-        textElement;
-
-    // add the image
-    last.find('.ventu-card-image').css('background-image', 'url(' + image + ')');
-    // add the info
-    textElement = last.find('.ventu-card-text');
-    textElement.html(text);
+    var last = this.elements.last,
+        content = this.getContent(),
+        textElement = last.find('.ventu-card-text'),
+        imageElement = last.find('.ventu-card-image'),
+        iconElement = last.find('.ventu-card-icons');
+    imageElement.css('background-image', 'url(' + content.image + ')');
+    textElement.html(this.buildText(content.text));
+    iconElement.html(this.buildIcons(content.icons));
     setTimeout(function(){
         textElement.fadeIn(300);
     }, 400);
@@ -215,6 +214,40 @@ Ventu.prototype.launchCurrent = function() {
     this.setCSStransform(last, this.config.card.selectedPosition);
     this.initHammer(last);
     this.setShade();
+};
+
+Ventu.prototype.buildText = function(input) {
+    var text = '<h4>' + input.head + '</h4>';
+    text += '<h3>' + input.sub + '</h3>';
+    if (input.list.length) {
+        text += '<ul>';
+        for (var i = 0, l = input.list.length; i < l; i++) {
+            text += '<li>' + input.list[i] + '</li>';
+        }
+        text += '</ul>';
+    }
+    return text;
+};
+
+Ventu.prototype.buildIcons = function(input) {
+    var icons = '';
+    for (var i = 0, l = input.length; i < l; i++) {
+        icons += '<div class="ventu-icon ventu-icon-med ventu-icon-' + input[i] + '"></div>';
+    }
+    return icons;
+};
+
+Ventu.prototype.getContent = function() {
+    // dummy content
+    return {
+        image: 'img/kantoor.jpg',
+        text: {
+            head: 'Amsterdam-Zuid',
+            sub: 'De Zwanenschuur',
+            list: ['Maecenas id tellus vitae', 'Ex faucibus dignissim 4.000', 'Quis non urna. Praesent at aliquet metus']
+        },
+        icons: ['video', 'document', '3d', 'image']
+    };
 };
 
 Ventu.prototype.unsetCurrent = function() {
