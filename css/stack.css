@@ -20,12 +20,15 @@
     perspective: 2500px;
     -webkit-perspective: 2500px;
     transition: all 0.5s ease;
+    width: 500px;
+    height: 400px;
 }
 
 .ventu-stack-shade {
     background: rgba(58,36,18,0.2);
     filter: blur(20px);
     -webkit-filter: blur(20px);
+    border: none;
 }
 
 .ventu-shade {
@@ -34,6 +37,7 @@
     background-color: transparent;
     background-size: cover;
     background-position: center center;
+    border: none;
 }
 
 .ventu-shade.current {
@@ -97,6 +101,55 @@ h3 {
     font-size: 14px;
     line-height: 18px;
     margin: 0;
+}
+
+
+/* love & hate */
+
+.ventu-love-button, .ventu-hate-button {
+    position: absolute;
+    z-index: 1;
+    top: 100px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: 'ventu';
+    padding-top: 12px;
+    text-align: center;
+    opacity: 0.4;
+    transition: all 0.5s ease;
+}
+
+.ventu-love-button:hover, .ventu-hate-button:hover, .ventu-love-button.shine, .ventu-hate-button.shine {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+.ventu-love-button.shine, .ventu-love-button:hover {
+    background: #fff;
+}
+
+.ventu-hate-button.shine, .ventu-hate-button:hover {
+    background: #fff;
+}
+
+.ventu-love-button {
+    right: 20px;
+}
+
+.ventu-hate-button {
+    left: 20px;
+}
+
+.ventu-love-button:after {
+    content: 'L';
+}
+
+.ventu-hate-button:after {
+    content: 'H';
 }
 
 
@@ -169,6 +222,10 @@ h3 {
 
 
 @media (max-width: 1024px) {
+
+    .ventu-love-button, .ventu-hate-button {
+        opacity: 0;
+    }
 
     .ventu-favorites {
         position: relative;

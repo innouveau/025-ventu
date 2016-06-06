@@ -52,6 +52,8 @@ Ventu.prototype.initElements = function() {
     this.elements.favoritesCounter = $('.ventu-favorites-counter');
     this.elements.counter = $('.ventu-counter span');
     this.elements.suggest = $('.ventu-suggest');
+    this.elements.loveButton = $('.ventu-love-button');
+    this.elements.hateButton = $('.ventu-hate-button');
 };
 
 Ventu.prototype.measure = function() {
@@ -134,12 +136,6 @@ Ventu.prototype.createStatic = function() {
 Ventu.prototype.initHammer = function(element) {
     var self = this;
     this.hammertime = Hammer(element[0]);
-    this.hammertime.on('swipeleft', function() {
-        //self.hate();
-    });
-    this.hammertime.on('swiperight', function() {
-        //self.love();
-    });
     this.hammertime.on('drag', function(event) {
         var dx = event.gesture.deltaX,
             dy = event.gesture.deltaY;
@@ -152,6 +148,8 @@ Ventu.prototype.initHammer = function(element) {
                 self.suggest(2);
             } else {
                 self.elements.suggest.fadeOut(700);
+                self.elements.loveButton.removeClass('shine');
+                self.elements.hateButton.removeClass('shine');
             }
         }
         self.dragCard(element, event.gesture.deltaX, event.gesture.deltaY);
@@ -277,13 +275,13 @@ Ventu.prototype.unsetCurrent = function() {
 // events
 
 Ventu.prototype.stackIsEmpty = function() {
-    if (window.ventuConfig.whatScreen < 3) {
+    if (window.ventuConfig.whatScreen > 1) {
         this.elements.stackShade.hide();
     }
 };
 
 Ventu.prototype.stackIsNotEmpty = function() {
-    if (window.ventuConfig.whatScreen < 3) {
+    if (window.ventuConfig.whatScreen > 1) {
         this.elements.stackShade.show();
     }
 };
@@ -297,7 +295,7 @@ Ventu.prototype.dragCard = function(card, dx, dy) {
     card.addClass('no-transition');
     this.setCSStransform(card, transform);
     // shade
-    if (window.ventuConfig.whatScreen < 3) {
+    if (window.ventuConfig.whatScreen > 1) {
         this.elements.shadeCurrent.addClass('no-transition');
         var shadeTransform = this.getCustomTransform(this.shade.selected.width - dy / 1500, this.shade.selected.height, this.shade.selected.y, dx);
         this.setCSStransform(this.elements.shadeCurrent, shadeTransform);
@@ -335,10 +333,12 @@ Ventu.prototype.suggest = function(type) {
     this.elements.suggest.fadeIn(700);
     switch(type) {
         case 0:
-            this.elements.suggest.html('Love it!');
+            //this.elements.suggest.html('Love it!');
+            this.elements.loveButton.addClass('shine');
             break;
         case 1:
-            this.elements.suggest.html('Nah...');
+            //this.elements.suggest.html('Nah...');
+            this.elements.hateButton.addClass('shine');
             break;
         case 2:
             this.elements.suggest.html('Laat details zien...');
@@ -356,7 +356,7 @@ Ventu.prototype.moveCard = function(card, love) {
         transform = 'rotateX(0) rotateY(-10deg) translateZ(-100px) translateY(500px) translateX(-2000px)';
     }
     //card.removeClass('current');
-    if (window.ventuConfig.whatScreen < 3) {
+    if (window.ventuConfig.whatScreen > 1) {
         shade.removeClass('no-transition current');
     }
     card.addClass('ventu-removing');
@@ -457,7 +457,7 @@ Ventu.prototype.restack = function() {
 // shade
 
 Ventu.prototype.buildStackShade = function() {
-    if (window.ventuConfig.whatScreen < 3) {
+    if (window.ventuConfig.whatScreen > 1) {
         var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
             stackShade = $('<div class="ventu-stack-shade"></div>');
         this.setCSStransform(stackShade, transform);
@@ -467,7 +467,7 @@ Ventu.prototype.buildStackShade = function() {
 };
 
 Ventu.prototype.buildNextShade = function() {
-    if (window.ventuConfig.whatScreen < 3) {
+    if (window.ventuConfig.whatScreen > 1) {
         var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
             shade = $('<div class="ventu-shade next"></div>');
         this.setCSStransform(shade, transform);
@@ -477,7 +477,7 @@ Ventu.prototype.buildNextShade = function() {
 };
 
 Ventu.prototype.launchShade = function() {
-    if (window.ventuConfig.whatScreen < 3) {
+    if (window.ventuConfig.whatScreen > 1) {
         var transform = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0);
         this.elements.shadeCurrent = this.elements.shadeNext;
         this.setCSStransform(this.elements.shadeCurrent, transform);
@@ -487,7 +487,7 @@ Ventu.prototype.launchShade = function() {
 };
 
 Ventu.prototype.unsetShade = function() {
-    if (window.ventuConfig.whatScreen < 3) {
+    if (window.ventuConfig.whatScreen > 1) {
         var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 0, 0),
             shade = this.elements.shade;
         this.setCSStransform(shade, transform);
