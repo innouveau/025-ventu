@@ -1,0 +1,127 @@
+.ventu-triangle {
+    position: relative;
+}
+
+.ventu-triangle:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    content: '';
+}
+
+.ventu-triangle-cover {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: 1;
+}
+
+.ventu-triangle-bottom:after, .ventu-triangle-top:after {
+    left: calc(50% - 12px);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+}
+
+.ventu-triangle-left:after, .ventu-triangle-right:after {
+    top: calc(50% - 12px);
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+}
+
+.ventu-triangle-left:after {
+    left: 0;
+}
+
+.ventu-triangle-right:after {
+    right: 0;
+}
+
+.ventu-triangle-bottom:after {
+    bottom: 0;
+}
+
+.ventu-triangle-top:after {
+    top: 0;
+}
+
+.ventu-triangle-bottom.ventu-triangle-light-grey:after {
+    border-bottom: 17px solid #EDEDEC;
+}
+
+.ventu-triangle-bottom.ventu-triangle-grey:after {
+    border-bottom: 17px solid #d3d3d3;
+}
+
+.ventu-triangle-bottom.ventu-triangle-white:after {
+    border-bottom: 17px solid #FFFFFF;
+}
+
+.ventu-triangle-bottom.ventu-triangle-green:after {
+    border-bottom: 17px solid #00E3A7;
+}
+
+.ventu-triangle-bottom.ventu-triangle-black:after {
+    border-bottom: 17px solid #1F1F1F;
+}
+
+.ventu-triangle-top.ventu-triangle-light-grey:after {
+    border-top: 17px solid #EDEDEC;
+}
+
+.ventu-triangle-top.ventu-triangle-grey:after {
+    border-top: 17px solid #d3d3d3;
+}
+
+.ventu-triangle-top.ventu-triangle-white:after {
+    border-top: 17px solid #FFFFFF;
+}
+
+.ventu-triangle-top.ventu-triangle-green:after {
+    border-top: 17px solid #00E3A7;
+}
+
+.ventu-triangle-top.ventu-triangle-black:after {
+    border-top: 17px solid #1F1F1F;
+}
+
+.ventu-triangle-left.ventu-triangle-light-grey:after {
+    border-left: 17px solid #EDEDEC;
+}
+
+.ventu-triangle-left.ventu-triangle-grey:after {
+    border-left: 17px solid #d3d3d3;
+}
+
+.ventu-triangle-left.ventu-triangle-white:after {
+    border-left: 17px solid #FFFFFF;
+}
+
+.ventu-triangle-left.ventu-triangle-green:after {
+    border-left: 17px solid #00E3A7;
+}
+
+.ventu-triangle-left.ventu-triangle-black:after {
+    border-left: 17px solid #1F1F1F;
+}
+
+.ventu-triangle-right.ventu-triangle-light-grey:after {
+    border-right: 17px solid #EDEDEC;
+}
+
+.ventu-triangle-right.ventu-triangle-grey:after {
+    border-right: 17px solid #d3d3d3;
+}
+
+.ventu-triangle-right.ventu-triangle-white:after {
+    border-right: 17px solid #FFFFFF;
+}
+
+.ventu-triangle-right.ventu-triangle-green:after {
+    border-right: 17px solid #00E3A7;
+}
+
+.ventu-triangle-right.ventu-triangle-black:after {
+    border-right: 17px solid #1F1F1F;
+}

@@ -1,0 +1,71 @@
+.ventu-guide {
+    display: none;
+    background: #FFDE00;
+    padding: 20px 20px 60px 20px;
+    font-size: 10px;
+    font-family: 'graphik';
+    font-weight: 400;
+    position: fixed;
+    width: 300px;
+    z-index: 100000;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+}
+
+.ventu-guide.ventu-guide-big {
+}
+
+.ventu-guide:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    content: '';
+}
+
+.ventu-guide-left:after, .ventu-guide-right:after {
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    top: 50px;
+}
+
+.ventu-guide-big.ventu-guide-left:after, .ventu-guide-big.ventu-guide-right:after {
+    top: 75px;
+}
+
+.ventu-guide-left:after {
+    left: -16px;
+    border-right: 16px solid #FFDE00;
+}
+
+.ventu-guide-right:after, .ventu-guide-right:after {
+    right: -16px;
+    border-left: 16px solid #FFDE00;
+}
+
+.ventu-guide-top:after {
+    left: calc(50% - 10px);
+    top: -10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 16px solid #FFDE00;
+}
+
+.ventu-guide-bottom:after {
+    left: 145px;
+    bottom: -10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 16px solid #FFDE00;
+}
+
+.ventu-guide-button {
+    position: absolute;
+    bottom: 10px;
+}
+
+.ventu-guide-button.ventu-guide-next {
+    left: 16px;
+}
+
+.ventu-guide-button.ventu-guide-close {
+    right: 10px;
+}

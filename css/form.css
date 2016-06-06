@@ -1,0 +1,50 @@
+.ventu-form.ventu-form-hidden {
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.ventu-form-container {
+    padding: 30px;
+}
+
+.ventu-form-with-close {
+    padding-bottom: 70px;
+    position: relative;
+}
+
+
+
+.ventu-form-blue {
+    background: #3E86FF;
+    color: #fff;
+}
+
+.ventu-form-intro {
+    margin-bottom: 40px;
+}
+
+.ventu-form input {
+    width: 100%;
+    border: 0;
+    color: #fff;
+    border-bottom: 0.5px solid #fff;
+    margin-bottom: 20px;
+    background: transparent;
+    padding: 4px;
+    max-width: 400px;
+    display: block;
+}
+
+.ventu-form-send {
+    margin-top: 40px;
+}
+
+.ventu-form-send .ventu-button {
+    margin-right: 10px;
+}
+
+.ventu-form .ventu-icon-close {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}

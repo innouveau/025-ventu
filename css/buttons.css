@@ -1,0 +1,98 @@
+.ventu-button {
+    display: inline-block;
+    padding: 16px 20px;
+    border: 0.5px solid #727272;
+    color: #727272;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+a.ventu-button:hover {
+    text-decoration: none;
+}
+
+.ventu-button-small.ventu-button {
+    padding: 8px 20px;
+}
+
+.ventu-button-with-icon {
+    padding: 4px 12px 4px 6px;
+}
+
+.ventu-button:hover {
+    border: 0.5px solid #00E5A9;
+    color: #00E5A9;
+}
+
+.ventu-menu-button.ventu-button {
+    padding: 8px 16px;
+    margin-right: 4px;
+    font-size: 10px;
+}
+
+.ventu-button-blue {
+    background: #164DC8;
+    border: 0;
+    color: #fff;
+}
+
+.ventu-button-blue:hover {
+    background: #03256B;
+    border: 0;
+    color: #fff;
+}
+
+.ventu-button-light-blue {
+    background: #3e86ff;
+    border: 0;
+    color: #fff;
+}
+
+.ventu-button-light-blue:hover, .ventu-button-light-blue.current {
+    background: #164DC8;
+    border: 0;
+    color: #fff;
+}
+
+.ventu-button-white-line {
+    background: transparent;
+    border: 0.5px solid #fff;
+    color: #fff;
+}
+
+.ventu-button-white-line:hover {
+    border: 0.5px solid #1F1F1F;
+    color: #1F1F1F;
+}
+
+.ventu-button-no-line-white {
+    border: 0;
+    background: transparent;
+    color: #fff;
+    padding: 0;
+}
+
+.ventu-button-no-line-white:hover {
+    border: 0;
+    color: #1F1F1F;
+}
+
+.ventu-button-no-line-white:hover .ventu-icon {
+    color: #1F1F1F;
+}
+
+.ventu-button-white-line:hover .ventu-icon {
+    color: #1F1F1F;
+}
+
+.ventu-button-white {
+    background: #fff;
+    border: 1px solid transparent;
+    color: #1f1f1f;
+}
+
+.ventu-button-white:hover {
+    background: #fff;
+    border: 0.5px solid #1f1f1f;
+    color: #1f1f1f;
+}

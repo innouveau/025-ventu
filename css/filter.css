@@ -1,0 +1,274 @@
+.ventu-filter-label {
+    display: none;
+}
+
+/* map */
+
+.ventu-filter-box {
+    margin-bottom: 10px;
+    transition: height 0.5s ease;
+}
+
+.ventu-filter-box-head {
+    display: none;
+}
+
+.ventu-filter-box {
+    overflow: hidden;
+}
+
+.ventu-map {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+#ventu-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.ventu-map-tools {
+    background: #00E5A9;
+    height: 32px;
+}
+
+.ventu-map-search {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: #fff;
+    height: 42px;
+    width: 120px;
+    transition: width 0.2s ease;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+}
+
+.ventu-map-search input {
+    height: 100%;
+    background: transparent;
+    padding: 6px 12px;
+    width: calc(100% - 44px);
+    border: 0;
+    transition: width 0.2s ease;
+    vertical-align: top;
+}
+
+.ventu-map-search.active input {
+    width: calc(100% - 80px);
+}
+
+.ventu-map-search.active {
+    width: calc(100% - 24px);
+}
+
+.ventu-map-search-tools {
+    padding: 5px 8px 5px 0;
+    display: inline-block;
+}
+
+.ventu-map-search .ventu-icon-remove {
+    display: none;
+}
+
+.ventu-map-search-results {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 32px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    border-top: 0.5px solid #D5D5D5;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.ventu-map-search-result {
+    padding: 8px;
+    border-bottom: 0.5px solid #D5D5D5;
+}
+
+.ventu-map-search-result-text {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 2px;
+}
+
+.ventu-map-search-result-actions {
+    display: inline-block;
+    float: right;
+}
+
+.ventu-map-circle {
+    position: absolute;
+    left: 140px;
+    top: 30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    background: rgba(0,0,0,0.4);
+    cursor: move;
+}
+
+.ventu-map-circle:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid #00E5A9;
+    content: '';
+}
+
+/* slider */
+
+.ventu-slider .slider.slider-horizontal {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.ventu-slider .slider.slider-horizontal .slider-track {
+    height: 3px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.ventu-slider .slider.slider-horizontal .slider-handle {
+    background: transparent;
+    border-radius: 0;
+    margin-top: -13px;
+}
+
+.ventu-slider .slider.slider-horizontal .slider-handle:after {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 12px solid #00E5A9;
+    content: '';
+}
+
+.min-slider-handle.slider-handle:after{
+    left: 1px;
+}
+
+.max-slider-handle.slider-handle:after{
+    left: 1px;
+}
+
+.ventu-slider .slider-track-low, .ventu-filter .slider-track-high {
+    background: #fff;
+    border-radius: 0;
+    border: 0.5px solid #1F1F1F;
+    box-shadow: none;
+}
+
+.ventu-slider .slider-selection {
+    background: #00E5A9;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.ventu-slider .tooltip-arrow {
+    display: none;
+}
+
+.ventu-slider .tooltip-inner {
+    background: transparent;
+    border-radius: 0;
+    font-size: 10px;
+    color: #00E3A7;
+}
+
+.ventu-slider .tooltip-inner:after {
+    content: ' m²';
+}
+
+/* types */
+
+.ventu-filter-type-container {
+    border-left: 1px solid #164DC8;
+    padding-left: 20px;
+}
+
+.ventu-filter-type {
+    background: #EDEDEC;
+    font-size: 10px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    color: #959595;
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.ventu-filter-type:hover {
+    background: #727272;
+    color: #fff;
+}
+
+.ventu-filter-type.active {
+    background: #164DC8;
+    color: #E1F0FF;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    /* filter as overlay */
+
+    .ventu-filter {
+        position: fixed;
+        left: 0;
+        background: #EDEDEC;
+        box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+        width: 100%;
+        z-index: 1;
+        height: auto;
+        float: none;
+        margin: 0;
+        overflow: visible;
+        transition: all 0.5s ease;
+    }
+
+    .ventu-filter-label {
+        display: inline-block;
+        position: absolute;
+        bottom: -31px;
+        right: 10px;
+        padding: 0 10px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        font-size: 9px;
+        background: #EDEDEC;
+        box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+        cursor: pointer;
+    }
+
+    .ventu-filter-label .ventu-filter-label-text {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 8px;
+        margin-right: 4px;
+    }
+
+    .ventu-filter-type {
+        background: #fff;
+    }
+
+    .ventu-map {
+        height: 200px;
+    }
+
+}

@@ -143,7 +143,6 @@ Ventu.prototype.initHammer = function(element) {
     this.hammertime.on('drag', function(event) {
         var dx = event.gesture.deltaX,
             dy = event.gesture.deltaY;
-        $('body').addClass('ventu-unselectable');
         if (dx > self.swipe.distance) {
             self.suggest(0);
         } else if (dx < -self.swipe.distance) {
@@ -160,7 +159,6 @@ Ventu.prototype.initHammer = function(element) {
     this.hammertime.on('release', function(event) {
         var dx = event.gesture.deltaX,
             dy = event.gesture.deltaY;
-        $('body').removeClass('ventu-unselectable');
         self.elements.suggest.fadeOut(700);
         if (dx > self.swipe.distance) {
             self.love();

@@ -1,0 +1,147 @@
+html {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    height: 100%;
+    font-size: 12px;
+    line-height: 17px;
+    padding: 80px 40px 40px;
+    color: #1F1F1F;
+    font-family: 'graphik';
+}
+
+input {
+    font-size: 12px;
+    color: #1F1F1F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.ventu-unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+
+/* architecture */
+
+
+.ventu-filter {
+    width: 500px;
+    height: 100%;
+    overflow: auto;
+    float: left;
+    margin-right: 60px;
+}
+
+.ventu-content {
+    width: 500px;
+    float: left;
+    height: 100%;
+    position: relative;
+    max-height: 570px;
+}
+
+.ventu-overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+.ventu-quote {
+    font-family: 'freight';
+    font-size: 32px;
+    line-height: 38px;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 32px;
+    line-height: 38px;
+    margin: 50px 0 30px 0;
+}
+
+
+
+@media (max-width: 1200px) {
+
+    .ventu-filter {
+        width: 360px;
+    }
+
+    .ventu-content {
+        width: 500px;
+    }
+
+
+}
+
+@media (max-width: 1024px) {
+    /* tablet */
+
+    body {
+        padding: 80px 20px 20px;
+        overflow: hidden;
+    }
+
+    .ventu-filter {
+        width: calc(100% - 580px);
+        margin-right: 40px;
+    }
+
+    .ventu-content {
+        width: 500px;
+        margin-right: 40px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    /* mobile */
+
+    body {
+        font-size: 10px;
+        line-height: 16px;
+        padding: 100px 20px 20px;
+    }
+
+    body.ventu-app {
+        padding: 0;
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 34px;
+        margin: 30px 0 20px 0;
+    }
+
+
+
+    /* content */
+
+    .ventu-content {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .ventu-app .ventu-content {
+        padding: 100px 20px 20px;
+        max-height: 100%;
+        overflow: hidden;
+    }
+
+
+}

@@ -1,0 +1,28 @@
+.tooltip {
+    font-family: 'graphik';
+    font-size: 9px;
+}
+
+.tooltip.in {
+    opacity: 1;
+}
+
+.tooltip-inner {
+    background: #959595;
+    border-radius: 0;
+    color: #fff;
+}
+
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #959595;
+    border-width: 11px 7px 0;
+    bottom: -4px;
+    margin-left: -7px;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #959595;
+    border-width: 0 7px 11px;
+    top: -4px;
+}
