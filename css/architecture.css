@@ -1,38 +1,3 @@
-html {
-    height: 100%;
-}
-
-body {
-    overflow: hidden;
-    height: 100%;
-    font-size: 12px;
-    line-height: 17px;
-    padding: 80px 40px 40px;
-    color: #1F1F1F;
-    font-family: 'graphik';
-}
-
-input {
-    font-size: 12px;
-    color: #1F1F1F;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-.ventu-unselectable {
-    user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
-}
-
-
-/* architecture */
-
-
 .ventu-filter {
     width: 500px;
     height: 100%;
@@ -49,28 +14,15 @@ input {
     max-height: 570px;
 }
 
-.ventu-overlay {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
+.ventu-stack-container {
     width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: 10000;
+    height: 500px;
+    max-height: 100%;
 }
 
-.ventu-quote {
-    font-family: 'freight';
-    font-size: 32px;
-    line-height: 38px;
-}
-
-h2 {
-    font-weight: 100;
-    font-size: 32px;
-    line-height: 38px;
-    margin: 50px 0 30px 0;
+.ventu-card {
+    width: 500px;
+    height: 400px;
 }
 
 
@@ -85,8 +37,13 @@ h2 {
         width: 500px;
     }
 
+    .ventu-stack-container {
+        width: 100%;
+    }
 
 }
+
+
 
 @media (max-width: 1024px) {
     /* tablet */
@@ -108,6 +65,8 @@ h2 {
 
 }
 
+
+
 @media (max-width: 768px) {
     /* mobile */
 
@@ -121,16 +80,6 @@ h2 {
         padding: 0;
     }
 
-    h2 {
-        font-size: 24px;
-        line-height: 34px;
-        margin: 30px 0 20px 0;
-    }
-
-
-
-    /* content */
-
     .ventu-content {
         float: none;
         width: 100%;
@@ -143,5 +92,8 @@ h2 {
         overflow: hidden;
     }
 
+    .ventu-card.current {
+        /* width and height is set upon measuring */
+    }
 
 }
