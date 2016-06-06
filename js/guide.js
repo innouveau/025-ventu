@@ -20,8 +20,8 @@ Guide.prototype.play = function(n) {
         self = this;
     guide = $('.ventu-guide-' + n);
 
-    if (window.ventuConfig.whatScreen !== 'desktop') {
-        if (window.ventuConfig.whatScreen === 'mobile') {
+    if (window.ventuConfig.whatScreen < 3) {
+        if (window.ventuConfig.whatScreen === 0) {
             // if the guide is inside the filter and we are in mobile modus
             // we need to open the filter overlay first.
             // overlay transition is 0.5s, check style.css

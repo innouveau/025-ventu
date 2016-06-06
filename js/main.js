@@ -10,7 +10,7 @@ $(window).ready(function(){
     };
     window.ventu = new Ventu();
     window.guide = new Guide();
-    if (window.ventuConfig.whatScreen === 'mobile') {
+    if (window.ventuConfig.whatScreen === 0) {
         // shorter stack for mobile
         ventu.limit = 35;
     }

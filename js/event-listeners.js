@@ -47,7 +47,7 @@ function initFilter() {
         $('.ventu-filter-box').each(function(){
             closeFilterBox($(this));
         });
-        if (window.ventuConfig.whatScreen === 'mobile') {
+        if (window.ventuConfig.whatScreen === 0) {
             closeFilterOverlay();
         }
     }
@@ -62,11 +62,11 @@ function initFilter() {
     });
 
     function init() {
-        if (window.ventuConfig.whatScreen !== 'desktop') {
+        if (window.ventuConfig.whatScreen < 3) {
             setBoxes();
             // change position of last guide
             $('.ventu-guide-6').removeClass('ventu-guide-right').addClass('ventu-guide-top').attr('y', 0).attr('x', 40);
-            if (window.ventuConfig.whatScreen === 'mobile') {
+            if (window.ventuConfig.whatScreen === 0) {
                 sizeCards();
             }
         }
@@ -316,12 +316,14 @@ function closeFilterBox(element) {
 function whatScreen(){
     var width = $(window).outerWidth();
     if (width < 768){
-        return 'mobile';
+        return 0; // mobile
     } else if (width < 1024) {
-        return 'tablet-p';
+        return 1; //table portrait
     } else if (width < 1100) {
-        return 'tablet';
+        return 2; //tablet
+    } else if (width < 1400) {
+        return 3; // laptop / small desktop
     } else {
-        return 'desktop';
+        return 4; // big screens
     }
 }
