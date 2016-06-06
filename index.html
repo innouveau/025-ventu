@@ -170,93 +170,83 @@
             <div class="ventu-suggest"></div>
         </div>
 
-        <div class="ventu-menu">
-            <div class="ventu-identity">
-                <img src="img/fake-logo.png">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header pull-left">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <div class="ventu-identity">
+                        <img src="img/fake-logo.png">
+                    </div>
+                </a>
             </div>
 
-            <div class="ventu-menu-buttons">
-                <div class="ventu-menu-button ventu-button ventu-button-light-blue">
-                    Over Ventu
-                </div>
-                <div class="ventu-menu-button ventu-button ventu-button-light-blue">
-                    Hoe werkt dit?
-                </div>
-                <div class="ventu-menu-button ventu-button ventu-button-light-blue">
-                    Contact
-                </div>
-            </div>
+            <div class="navbar-header pull-right ventu-menu-other">
+                <div class="ventu-menu-dropdowns">
+                    <div class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-gear"></i>
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Alle geschiedenis wissen</a></li>
+                            <li><a href="#">Recente geschiedenis wissen...</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" class="start-guide">Start guide</a></li>
+                        </ul>
+                    </div>
 
-            <div class="ventu-settings">
-                <i class="fa fa-user ventu-dropdown-toggle">
-                    <div class="ventu-dropdown">
-                        <div class="ventu-form">
-                            <div class="ventu-form-container">
-                                <input type="text" placeholder="Naam">
-                                <input type="text" placeholder="Wachtwoord">
-                                <div class="ventu-form-send">
-                                    <div class="ventu-button ventu-button-small ventu-button-white">Inloggen</div>
-                                    <div class="ventu-button ventu-button-small ventu-button-white">Aanmelden</div>
+                    <div class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user"></i>
+                            <span class="caret"></span></a>
+                        <div class="dropdown-menu">
+                            <div class="ventu-form">
+                                <div class="ventu-form-container">
+                                    <input type="text" placeholder="Naam">
+                                    <input type="text" placeholder="Wachtwoord">
+                                    <div class="ventu-form-send">
+                                        <div class="ventu-button ventu-button-small ventu-button-white">Inloggen</div>
+                                        <div class="ventu-button ventu-button-small ventu-button-white">Aanmelden</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </i>
-                <i class="fa fa-gear ventu-dropdown-toggle">
-                    <div class="ventu-dropdown">
-                        <div class="ventu-dropdown-menu">
-                            <div class="ventu-dropdown-menu-button inactive">
-                                Alle geschiedenis wissen
-                            </div>
-                            <div class="ventu-dropdown-menu-button">
-                                Recente geschiedenis wissen...
-                            </div>
-                            <div class="ventu-dropdown-menu-divider"></div>
-                            <div class="ventu-dropdown-menu-button">
-                                Nog een knop
-                            </div>
-                            <div class="ventu-dropdown-menu-divider"></div>
-                            <div class="ventu-dropdown-menu-checkmark-set">
-                                <input type="checkbox"> Setting 1
-                            </div>
-                            <div class="ventu-dropdown-menu-checkmark-set">
-                                <input type="checkbox"> Setting 2
-                            </div>
-                            <div class="ventu-dropdown-menu-checkmark-set">
-                                <input type="checkbox"> Setting 3
-                            </div>
-                            <div class="ventu-dropdown-menu-divider"></div>
-                            <div class="ventu-dropdown-menu-button inactive">
-                                Lorem ipsum
-                            </div>
-                            <div class="ventu-dropdown-menu-button start-guide">
-                                Start guide
-                            </div>
+                </div>
+
+                <div class="ventu-social-media">
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-google-plus"></i>
+                </div>
+
+                <div class="ventu-favorites-navigation ventu-app">
+                    <div class="ventu-favorites-icon">
+                        <img src="img/stack-icon.png">
+                        <div class="ventu-favorites-counter-container">
+                            <span class="ventu-favorites-counter">0</span>
                         </div>
                     </div>
-                </i>
-            </div>
-
-            <div class="ventu-social-media">
-                <i class="fa fa-twitter"></i>
-                <i class="fa fa-facebook"></i>
-                <i class="fa fa-linkedin"></i>
-                <i class="fa fa-google-plus"></i>
-            </div>
-
-            <div class="ventu-favorites-navigation ventu-app">
-                <div class="ventu-favorites-icon">
-                    <img src="img/stack-icon.png">
-                    <div class="ventu-favorites-counter-container">
-                        <span class="ventu-favorites-counter">0</span>
+                    <div class="ventu-icon ventu-icon-med ventu-icon-next ventu-icon-box"  data-toggle="tooltip" data-placement="bottom" title="Bekijk favorieten"></div>
+                    <div class="ventu-guide ventu-guide-6 ventu-guide-top ventu-guide-last" y="15">
+                        En als je hier op klikt ga je naar je favorieten.
                     </div>
                 </div>
-                <div class="ventu-icon ventu-icon-med ventu-icon-next ventu-icon-box"  data-toggle="tooltip" data-placement="bottom" title="Bekijk favorieten"></div>
-                <div class="ventu-guide ventu-guide-6 ventu-guide-top ventu-guide-last" y="15">
-                    En als je hier op klikt ga je naar je favorieten.
-                </div>
             </div>
-        </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav ventu-menu-buttons">
+                    <li><a href="#">Over Ventu</a></li>
+                    <li><a href="">Hoe werkt dit?</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
 
         <div class="ventu-overlay"></div>
 

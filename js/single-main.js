@@ -12,7 +12,6 @@ $(window).ready(function() {
     ventu.createStatic();
     ventu.buildStackShade();
 
-    initSettings();
     initMap();
     initForm();
     initLightbox();

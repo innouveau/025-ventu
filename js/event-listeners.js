@@ -66,8 +66,9 @@ function initFilter() {
             setBoxes();
             // change position of last guide
             $('.ventu-guide-6').removeClass('ventu-guide-right').addClass('ventu-guide-top').attr('y', 0).attr('x', 40);
+
             if (window.ventuConfig.whatScreen === 0) {
-                sizeCards();
+                sizeCards()
             }
         }
     }
@@ -79,7 +80,7 @@ function initFilter() {
     }
 
     function sizeCards() {
-        var width =  $('body').outerWidth() - 40,
+        var width =  $('.ventu-content').outerWidth() - 40,
             height = 1.2 * width;
         ventu.sizes.card.width = width;
         ventu.sizes.card.height = height;
@@ -91,24 +92,6 @@ function initFilter() {
     });
 
     init();
-}
-
-function initSettings() {
-    $('.ventu-dropdown-toggle').click(function (event) {
-        // only on click of the button itself, not its children
-        if ($(event.target).hasClass('ventu-dropdown-toggle')) {
-            showDropdown(this);
-        }
-
-    });
-
-    $('body').click(function (event) {
-
-        var element = $(event.target);
-        if (!element.hasClass('ventu-dropdown-toggle') && element.parents('.ventu-dropdown-toggle').length === 0) {
-            showDropdown(null);
-        }
-    });
 }
 
 function setMainImage() {

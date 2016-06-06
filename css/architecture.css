@@ -92,8 +92,4 @@
         overflow: hidden;
     }
 
-    .ventu-card.current {
-        /* width and height is set upon measuring */
-    }
-
 }

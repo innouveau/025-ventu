@@ -18,7 +18,6 @@ $(window).ready(function(){
 
     
     // listeners
-    initSettings();
     initMap();
     initGuide();
     initFilter();
