@@ -71,6 +71,7 @@ function initFilter() {
 
     $(window).resize(function(){
         init();
+        ventu.redraw();
     });
 
     init();

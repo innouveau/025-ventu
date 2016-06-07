@@ -6,7 +6,6 @@
     perspective: 600px;
     -webkit-perspective: 600px;
     position: relative;
-    background: rgba(255,0,0,0.1);
 }
 
 .ventu-card, .ventu-shade, .ventu-stack-shade {
@@ -122,11 +121,12 @@ h3 {
     text-align: center;
     opacity: 0.4;
     transition: all 0.5s ease;
+    transform: translateZ(5px); /* lift the button slightly otherwise the card overlaps it */
 }
 
 .ventu-love-button:hover, .ventu-hate-button:hover, .ventu-love-button.shine, .ventu-hate-button.shine {
     opacity: 1;
-    transform: scale(1.3);
+    transform: translateZ(20px) scale(1.3);
 }
 
 .ventu-love-button.shine, .ventu-love-button:hover {
@@ -138,11 +138,11 @@ h3 {
 }
 
 .ventu-love-button {
-    right: 20px;
+    right: 20%;
 }
 
 .ventu-hate-button {
-    left: 20px;
+    left: 20%;
 }
 
 .ventu-love-button:after {

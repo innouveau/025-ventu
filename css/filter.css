@@ -261,6 +261,7 @@
         vertical-align: top;
         padding-top: 8px;
         margin-right: 4px;
+        white-space: nowrap;
     }
 
     .ventu-filter-type {

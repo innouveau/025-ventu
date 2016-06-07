@@ -1,14 +1,13 @@
 function Ventu() {
     this.config = {
         card: {
-            offset: 4,
-            horizontalShift: 0,
+            horizontalShift: 0, // horizontal shift card relative to container
             selectedPosition: ''
         },
         shade : {
             active: false,
             selected: {
-                y: 120,
+                y: 160, // distance shade form stack
                 width: 0.6,
                 height: 0.16
             },
@@ -17,19 +16,22 @@ function Ventu() {
                 height: 0.26
             }
         },
-        swipe: {
-
+        stack: {
+            offset: 4, // pixels vertical offset inside stack
+            verticalPosition :0
         },
+        zoom: 0.2, // factor of magnification of stack
+        swipe: 0,
         sizes: {
             card: {
-                width: 500,
-                height: 400
+                width: 0,
+                height: 0
             }
         }
     };
 
-    this.cards = 10;
-    this.limit = 60;
+    this.cards = 30;
+    this.limit = 60; // number of cards that are represented by a div
     this.favorites = 0;
     this.elements = {};
     this.hammertime = null;
@@ -42,13 +44,26 @@ function Ventu() {
 Ventu.prototype.init = function() {
     this.initElements();
     this.measure();
-    this.buildStackShade();
-    this.buildNextShade();
     this.buildCard(0, this.cards);
-    if (this.config.shade.active) {
+    if (window.ventuConfig.whatScreen > 2) {
         this.config.shade.active = true;
+        this.buildStackShade();
+        this.buildNextShade();
     }
 };
+
+Ventu.prototype.redraw = function() {
+    // called after window.resize
+    var self = this;
+    this.measure();
+    this.restack();
+    if (window.ventuConfig.whatScreen > 2) {
+        this.config.shade.active = true;
+        this.buildStackShade();
+        this.buildNextShade();
+    }
+};
+
 
 Ventu.prototype.initElements = function() {
     this.elements.last =  null;
@@ -69,17 +84,16 @@ Ventu.prototype.measure = function() {
         height: this.elements.container.outerHeight()
     };
     this.sizeCards();
-
-
+    this.positionStack();
     // determine swipe distance
     if (this.config.sizes.body.width > 768) {
-        this.config.swipe.distance = 300;
+        this.config.swipe = 300;
     } else {
         // in mobile modus, the whole screen is the container, so it is fair
         // to make the swipe 60% of half the screen
-        this.config.swipe.distance = 0.3 * this.config.sizes.container.width;
-        if (this.config.swipe.distance < 100) {
-            this.config.swipe.distance = 100;
+        this.config.swipe = 0.3 * this.config.sizes.container.width;
+        if (this.config.swipe < 100) {
+            this.config.swipe = 100;
         }
     }
 };
@@ -87,16 +101,31 @@ Ventu.prototype.measure = function() {
 Ventu.prototype.sizeCards = function() {
     var width =  this.config.sizes.container.width - 40,
         height,
-        max = 600;
+        max = 700,
+        ratio = 0.8;
     if (width > max) {
         width = max;
     }
+    if (this.config.sizes.container.height > this.config.sizes.container.width && window.ventuConfig.whatScreen < 2) {
+        // portrait mode, so we make the cards a bit portrait
+        ratio = 1.3;
+    }
     this.config.card.horizontalShift = (this.config.sizes.container.width - width) / 2;
     this.config.card.selectedPosition = 'rotateX(0deg) rotateY(0deg) translateZ(0) translateY(0) translateX(' + this.config.card.horizontalShift + 'px)';
-    height = 0.8 * width;
+    height = ratio * width;
     this.config.sizes.card.width = width;
     this.config.sizes.card.height = height;
     injectStyles('.ventu-card, .ventu-shade, .ventu-stack-shade { height: ' + height + 'px; width: ' + width + 'px;}');
+};
+
+Ventu.prototype.positionStack = function() {
+    var verticalPosition = this.config.sizes.container.height * 1.6 - 400,
+        max = 100000;
+    if (verticalPosition > max) {
+        this.config.stack.verticalPosition = max;
+    } else {
+        this.config.stack.verticalPosition = verticalPosition;
+    }
 };
 
 
@@ -131,7 +160,7 @@ Ventu.prototype.buildCard = function(i, end) {
 };
 
 Ventu.prototype.append = function(i, before) {
-    var transform = this.getTransform(i, 0.2, 0.2),
+    var transform = this.getTransform(i, this.config.zoom, this.config.zoom),
         card = $('<div class="ventu-card ventu-card-' + i + '">' +
                  '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-light-grey"></div>' +
                  '<div class="ventu-card-text"></div>' +
@@ -162,9 +191,9 @@ Ventu.prototype.initHammer = function(element) {
     this.hammertime.on('drag', function(event) {
         var dx = event.gesture.deltaX,
             dy = event.gesture.deltaY;
-        if (dx > self.config.swipe.distance) {
+        if (dx > self.config.swipe) {
             self.suggest(0);
-        } else if (dx < -self.config.swipe.distance) {
+        } else if (dx < -self.config.swipe) {
             self.suggest(1);
         } else {
             if (dy > 200) {
@@ -181,9 +210,9 @@ Ventu.prototype.initHammer = function(element) {
         var dx = event.gesture.deltaX,
             dy = event.gesture.deltaY;
         self.elements.suggest.fadeOut(700);
-        if (dx > self.config.swipe.distance) {
+        if (dx > self.config.swipe) {
             self.love();
-        } else if (dx < -self.config.swipe.distance) {
+        } else if (dx < -self.config.swipe) {
             self.hate();
         } else {
             if (dy > 200) {
@@ -287,7 +316,7 @@ Ventu.prototype.unsetCurrent = function() {
         current.find('.ventu-card-image').css({
             'background-image': 'none'
         });
-        transform = this.getTransform(this.cards - 1, 0.2, 0.2);
+        transform = this.getTransform(this.cards - 1, this.config.zoom, this.config.zoom);
         this.setCSStransform(current, transform);
         this.unsetShade();
     }
@@ -374,7 +403,8 @@ Ventu.prototype.suggest = function(type) {
 Ventu.prototype.moveCard = function(card, love) {
     var transform,
         shade = this.elements.shadeCurrent,
-        textElement = card.find('.ventu-card-text');
+        textElement = card.find('.ventu-card-text'),
+        self = this;
     if (love) {
         transform = 'rotateX(80deg) translateZ(-700px) translateY(-300px) translateX(1200px)';
     } else {
@@ -393,10 +423,14 @@ Ventu.prototype.moveCard = function(card, love) {
     this.setCSStransform(card, transform);
     setTimeout(function () {
         card.remove();
-        if (this.config.shade.active) {
+        if (self.config.shade.active) {
             shade.remove();
         }
+
     }, 500);
+    self.elements.suggest.fadeOut(700);
+    self.elements.loveButton.removeClass('shine');
+    self.elements.hateButton.removeClass('shine');
 };
 
 Ventu.prototype.seeDetail = function() {
@@ -472,7 +506,7 @@ Ventu.prototype.restack = function() {
         i = 0;
     $('.ventu-card').each(function() {
         if (!$(this).hasClass('current')) {
-            var transform = self.getTransform(i, 0.2, 0.2);
+            var transform = self.getTransform(i, self.config.zoom, self.config.zoom);
             self.setCSStransform($(this), transform);
             i++;
         }
@@ -484,23 +518,21 @@ Ventu.prototype.restack = function() {
 // shade
 
 Ventu.prototype.buildStackShade = function() {
-    if (this.config.shade.active) {
-        var transform = this.getCustomTransform(this.config.shade.normal.width, this.config.shade.normal.height, 15, 0),
-            stackShade = $('<div class="ventu-stack-shade"></div>');
-        this.setCSStransform(stackShade, transform);
-        this.elements.container.append(stackShade);
-        this.elements.stackShade = stackShade;
-    }
+    var transform = this.getCustomTransform(this.config.shade.normal.width, this.config.shade.normal.height, 15, 0),
+        stackShade = $('<div class="ventu-stack-shade"></div>');
+    $('.ventu-stack-shade').remove();
+    this.setCSStransform(stackShade, transform);
+    this.elements.container.append(stackShade);
+    this.elements.stackShade = stackShade;
 };
 
 Ventu.prototype.buildNextShade = function() {
-    if (this.config.shade.active) {
-        var transform = this.getCustomTransform(this.config.shade.normal.width, this.config.shade.normal.height, 15, 0),
-            shade = $('<div class="ventu-shade next"></div>');
-        this.setCSStransform(shade, transform);
-        this.elements.container.prepend(shade);
-        this.elements.shadeNext = shade;
-    }
+    var transform = this.getCustomTransform(this.config.shade.normal.width, this.config.shade.normal.height, 15, 0),
+        shade = $('<div class="ventu-shade next"></div>');
+    $('.ventu-shade.next').remove();
+    this.setCSStransform(shade, transform);
+    this.elements.container.prepend(shade);
+    this.elements.shadeNext = shade;
 };
 
 Ventu.prototype.launchShade = function() {
@@ -565,30 +597,21 @@ Ventu.prototype.setCSStransform = function(element, transform) {
 };
 
 Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
-    var verticalPosition = this.getVertical();
+    var verticalPosition = this.config.stack.verticalPosition;
     return 'rotateX(80deg) ' +
-        'translateZ(' + (-verticalPosition + i * this.config.card.offset) + 'px) ' +
-        'translateY(' + (-0.5 * verticalPosition + i * this.config.card.offset) + 'px) ' +
+        'translateZ(' + (-verticalPosition + i * this.config.stack.offset) + 'px) ' +
+        'translateY(' + (-0.5 * verticalPosition + i * this.config.stack.offset) + 'px) ' +
         'translateX(' + ((this.config.sizes.container.width / 2) - (this.config.sizes.card.width / 2)) + 'px) ' +
         'scale(' + scaleX + ',' + scaleY + ')';
 };
 
 Ventu.prototype.getCustomTransform = function(scaleX, scaleY, shiftY, shiftX) {
-    var verticalPosition = this.getVertical();
+    var verticalPosition = this.config.stack.verticalPosition;
     return 'rotateX(80deg) ' +
         'translateZ(' + (-verticalPosition) + 'px) ' +
         'translateY(' + (-0.5 * verticalPosition + shiftY) + 'px) ' +
         'translateX(' + ((this.config.sizes.container.width / 2) - (this.config.sizes.card.width / 2) + shiftX) + 'px) ' +
         'scale(' + scaleX + ',' + scaleY + ')';
-};
-
-Ventu.prototype.getVertical = function(scaleX, scaleY, shiftY, shiftX) {
-    var verticalPosition = this.config.sizes.container.height * 3.1 - 900;
-    if (verticalPosition > 500) {
-        return 500;
-    } else {
-        return verticalPosition;
-    }
 };
 
 function injectStyles(rule) {
