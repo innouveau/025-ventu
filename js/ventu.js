@@ -2,35 +2,36 @@ function Ventu() {
     this.config = {
         card: {
             offset: 4,
-            selectedPosition: 'rotateX(0deg) rotateY(0deg) translateZ(0) translateY(0) translateX(0)'
+            horizontalShift: 0,
+            selectedPosition: ''
+        },
+        shade : {
+            active: false,
+            selected: {
+                y: 120,
+                width: 0.6,
+                height: 0.16
+            },
+            normal: {
+                width: 0.22,
+                height: 0.26
+            }
+        },
+        swipe: {
+
+        },
+        sizes: {
+            card: {
+                width: 500,
+                height: 400
+            }
         }
     };
-    this.cards = 70;
+
+    this.cards = 10;
     this.limit = 60;
     this.favorites = 0;
     this.elements = {};
-    this.sizes = {
-        card: {
-            width: 500,
-            height: 400
-        }
-    };
-    this.swipe = {};
-    this.shade = {
-        selected: {
-            y: 120,
-            width: 0.6,
-            height: 0.16
-        },
-        normal: {
-            width: 0.22,
-            height: 0.26
-        }
-    };
-    this.drag = {
-        x: 0,
-        y: 0
-    };
     this.hammertime = null;
     this.timer = null;
 }
@@ -44,6 +45,9 @@ Ventu.prototype.init = function() {
     this.buildStackShade();
     this.buildNextShade();
     this.buildCard(0, this.cards);
+    if (this.config.shade.active) {
+        this.config.shade.active = true;
+    }
 };
 
 Ventu.prototype.initElements = function() {
@@ -57,23 +61,42 @@ Ventu.prototype.initElements = function() {
 };
 
 Ventu.prototype.measure = function() {
-    this.sizes.body = {};
-    this.sizes.body.width = $('body').outerWidth();
-    this.sizes.body.height = $('body').outerHeight();
-    this.sizes.container = {
+    this.config.sizes.body = {};
+    this.config.sizes.body.width = $('body').outerWidth();
+    this.config.sizes.body.height = $('body').outerHeight();
+    this.config.sizes.container = {
         width: this.elements.container.outerWidth(),
         height: this.elements.container.outerHeight()
     };
-    if (this.sizes.body.width > 768) {
-        this.swipe.distance = 300;
+    this.sizeCards();
+
+
+    // determine swipe distance
+    if (this.config.sizes.body.width > 768) {
+        this.config.swipe.distance = 300;
     } else {
         // in mobile modus, the whole screen is the container, so it is fair
         // to make the swipe 60% of half the screen
-        this.swipe.distance = 0.3 * this.sizes.container.width;
-        if (this.swipe.distance < 100) {
-            this.swipe.distance = 100;
+        this.config.swipe.distance = 0.3 * this.config.sizes.container.width;
+        if (this.config.swipe.distance < 100) {
+            this.config.swipe.distance = 100;
         }
     }
+};
+
+Ventu.prototype.sizeCards = function() {
+    var width =  this.config.sizes.container.width - 40,
+        height,
+        max = 600;
+    if (width > max) {
+        width = max;
+    }
+    this.config.card.horizontalShift = (this.config.sizes.container.width - width) / 2;
+    this.config.card.selectedPosition = 'rotateX(0deg) rotateY(0deg) translateZ(0) translateY(0) translateX(' + this.config.card.horizontalShift + 'px)';
+    height = 0.8 * width;
+    this.config.sizes.card.width = width;
+    this.config.sizes.card.height = height;
+    injectStyles('.ventu-card, .ventu-shade, .ventu-stack-shade { height: ' + height + 'px; width: ' + width + 'px;}');
 };
 
 
@@ -139,9 +162,9 @@ Ventu.prototype.initHammer = function(element) {
     this.hammertime.on('drag', function(event) {
         var dx = event.gesture.deltaX,
             dy = event.gesture.deltaY;
-        if (dx > self.swipe.distance) {
+        if (dx > self.config.swipe.distance) {
             self.suggest(0);
-        } else if (dx < -self.swipe.distance) {
+        } else if (dx < -self.config.swipe.distance) {
             self.suggest(1);
         } else {
             if (dy > 200) {
@@ -158,9 +181,9 @@ Ventu.prototype.initHammer = function(element) {
         var dx = event.gesture.deltaX,
             dy = event.gesture.deltaY;
         self.elements.suggest.fadeOut(700);
-        if (dx > self.swipe.distance) {
+        if (dx > self.config.swipe.distance) {
             self.love();
-        } else if (dx < -self.swipe.distance) {
+        } else if (dx < -self.config.swipe.distance) {
             self.hate();
         } else {
             if (dy > 200) {
@@ -275,13 +298,13 @@ Ventu.prototype.unsetCurrent = function() {
 // events
 
 Ventu.prototype.stackIsEmpty = function() {
-    if (window.ventuConfig.whatScreen > 1) {
+    if (this.config.shade.active) {
         this.elements.stackShade.hide();
     }
 };
 
 Ventu.prototype.stackIsNotEmpty = function() {
-    if (window.ventuConfig.whatScreen > 1) {
+    if (this.config.shade.active) {
         this.elements.stackShade.show();
     }
 };
@@ -291,13 +314,13 @@ Ventu.prototype.dragCard = function(card, dx, dy) {
         thisDy = dy,
         rotY = dx / 50,
         rotX = dy / -8,
-        transform = 'rotateX(' + rotX + 'deg) translateZ(0) rotateY(' + rotY + 'deg) translateY(' + thisDy + 'px) translateX(' + thisDx + 'px)';
+        transform = 'rotateX(' + rotX + 'deg) translateZ(0) rotateY(' + rotY + 'deg) translateY(' + thisDy + 'px) translateX(' + (this.config.card.horizontalShift + thisDx) + 'px)';
     card.addClass('no-transition');
     this.setCSStransform(card, transform);
     // shade
-    if (window.ventuConfig.whatScreen > 1) {
+    if (this.config.shade.active) {
         this.elements.shadeCurrent.addClass('no-transition');
-        var shadeTransform = this.getCustomTransform(this.shade.selected.width - dy / 1500, this.shade.selected.height, this.shade.selected.y, dx);
+        var shadeTransform = this.getCustomTransform(this.config.shade.selected.width - dy / 1500, this.config.shade.selected.height, this.config.shade.selected.y, dx);
         this.setCSStransform(this.elements.shadeCurrent, shadeTransform);
     }
 };
@@ -306,9 +329,11 @@ Ventu.prototype.releaseCard = function(card) {
     card.removeClass('no-transition');
     this.setCSStransform(card, this.config.card.selectedPosition);
     // shade
-    this.elements.shadeCurrent.removeClass('no-transition');
-    var shadeTransform = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0);
-    this.setCSStransform(this.elements.shadeCurrent, shadeTransform);
+    if (this.config.shade.active) {
+        this.elements.shadeCurrent.removeClass('no-transition');
+        var shadeTransform = this.getCustomTransform(this.config.shade.selected.width, this.config.shade.selected.height, this.config.shade.selected.y, 0);
+        this.setCSStransform(this.elements.shadeCurrent, shadeTransform);
+    }
 };
 
 Ventu.prototype.love = function() {
@@ -356,7 +381,7 @@ Ventu.prototype.moveCard = function(card, love) {
         transform = 'rotateX(0) rotateY(-10deg) translateZ(-100px) translateY(500px) translateX(-2000px)';
     }
     //card.removeClass('current');
-    if (window.ventuConfig.whatScreen > 1) {
+    if (this.config.shade.active) {
         shade.removeClass('no-transition current');
     }
     card.addClass('ventu-removing');
@@ -368,7 +393,9 @@ Ventu.prototype.moveCard = function(card, love) {
     this.setCSStransform(card, transform);
     setTimeout(function () {
         card.remove();
-        shade.remove();
+        if (this.config.shade.active) {
+            shade.remove();
+        }
     }, 500);
 };
 
@@ -457,8 +484,8 @@ Ventu.prototype.restack = function() {
 // shade
 
 Ventu.prototype.buildStackShade = function() {
-    if (window.ventuConfig.whatScreen > 1) {
-        var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
+    if (this.config.shade.active) {
+        var transform = this.getCustomTransform(this.config.shade.normal.width, this.config.shade.normal.height, 15, 0),
             stackShade = $('<div class="ventu-stack-shade"></div>');
         this.setCSStransform(stackShade, transform);
         this.elements.container.append(stackShade);
@@ -467,8 +494,8 @@ Ventu.prototype.buildStackShade = function() {
 };
 
 Ventu.prototype.buildNextShade = function() {
-    if (window.ventuConfig.whatScreen > 1) {
-        var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 15, 0),
+    if (this.config.shade.active) {
+        var transform = this.getCustomTransform(this.config.shade.normal.width, this.config.shade.normal.height, 15, 0),
             shade = $('<div class="ventu-shade next"></div>');
         this.setCSStransform(shade, transform);
         this.elements.container.prepend(shade);
@@ -477,8 +504,8 @@ Ventu.prototype.buildNextShade = function() {
 };
 
 Ventu.prototype.launchShade = function() {
-    if (window.ventuConfig.whatScreen > 1) {
-        var transform = this.getCustomTransform(this.shade.selected.width, this.shade.selected.height, this.shade.selected.y, 0);
+    if (this.config.shade.active) {
+        var transform = this.getCustomTransform(this.config.shade.selected.width, this.config.shade.selected.height, this.config.shade.selected.y, 0);
         this.elements.shadeCurrent = this.elements.shadeNext;
         this.setCSStransform(this.elements.shadeCurrent, transform);
         this.elements.shadeCurrent.addClass('current');
@@ -487,8 +514,8 @@ Ventu.prototype.launchShade = function() {
 };
 
 Ventu.prototype.unsetShade = function() {
-    if (window.ventuConfig.whatScreen > 1) {
-        var transform = this.getCustomTransform(this.shade.normal.width, this.shade.normal.height, 0, 0),
+    if (this.config.shade.active) {
+        var transform = this.getCustomTransform(this.config.shade.normal.width, this.config.shade.normal.height, 0, 0),
             shade = this.elements.shade;
         this.setCSStransform(shade, transform);
         shade.removeClass('current');
@@ -542,7 +569,7 @@ Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
     return 'rotateX(80deg) ' +
         'translateZ(' + (-verticalPosition + i * this.config.card.offset) + 'px) ' +
         'translateY(' + (-0.5 * verticalPosition + i * this.config.card.offset) + 'px) ' +
-        'translateX(' + ((this.sizes.container.width / 2) - (this.sizes.card.width / 2)) + 'px) ' +
+        'translateX(' + ((this.config.sizes.container.width / 2) - (this.config.sizes.card.width / 2)) + 'px) ' +
         'scale(' + scaleX + ',' + scaleY + ')';
 };
 
@@ -551,18 +578,24 @@ Ventu.prototype.getCustomTransform = function(scaleX, scaleY, shiftY, shiftX) {
     return 'rotateX(80deg) ' +
         'translateZ(' + (-verticalPosition) + 'px) ' +
         'translateY(' + (-0.5 * verticalPosition + shiftY) + 'px) ' +
-        'translateX(' + ((this.sizes.container.width / 2) - (this.sizes.card.width / 2) + shiftX) + 'px) ' +
+        'translateX(' + ((this.config.sizes.container.width / 2) - (this.config.sizes.card.width / 2) + shiftX) + 'px) ' +
         'scale(' + scaleX + ',' + scaleY + ')';
 };
 
 Ventu.prototype.getVertical = function(scaleX, scaleY, shiftY, shiftX) {
-    var verticalPosition = this.sizes.container.height * 3.1 - 900;
+    var verticalPosition = this.config.sizes.container.height * 3.1 - 900;
     if (verticalPosition > 500) {
         return 500;
     } else {
         return verticalPosition;
     }
 };
+
+function injectStyles(rule) {
+    var div = $('<div />', {
+        html: '&shy;<style>' + rule + '</style>'
+    }).appendTo('body');
+}
 
 
 

@@ -6,6 +6,7 @@
     perspective: 600px;
     -webkit-perspective: 600px;
     position: relative;
+    background: rgba(255,0,0,0.1);
 }
 
 .ventu-card, .ventu-shade, .ventu-stack-shade {

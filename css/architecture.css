@@ -7,7 +7,7 @@
 }
 
 .ventu-content {
-    width: 500px;
+    width: calc(100% - 560px);
     float: left;
     height: 100%;
     position: relative;

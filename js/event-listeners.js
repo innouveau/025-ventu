@@ -66,25 +66,7 @@ function initFilter() {
             setBoxes();
             // change position of last guide
             $('.ventu-guide-6').removeClass('ventu-guide-right').addClass('ventu-guide-top').attr('y', 0).attr('x', 40);
-
-            if (window.ventuConfig.whatScreen === 0) {
-                sizeCards()
-            }
         }
-    }
-
-    function injectStyles(rule) {
-        var div = $('<div />', {
-            html: '&shy;<style>' + rule + '</style>'
-        }).appendTo('body');
-    }
-
-    function sizeCards() {
-        var width =  $('.ventu-content').outerWidth() - 40,
-            height = 1.2 * width;
-        ventu.sizes.card.width = width;
-        ventu.sizes.card.height = height;
-        injectStyles('.ventu-card, .ventu-shade, .ventu-stack-shade { height: ' + height + 'px; width: ' + width + 'px;}');
     }
 
     $(window).resize(function(){
