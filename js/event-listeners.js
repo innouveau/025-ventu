@@ -28,6 +28,16 @@ function initFilter() {
     });
 
 
+    $('.get-locations').click(function(){
+       // loading animation of circle
+       var button = $(this);
+       $('.ventu-map-circle').addClass('ventu-get-locations');
+       // fake killing
+       setTimeout(function(){
+           $('.ventu-map-circle').removeClass('ventu-get-locations');
+       }, 5000);
+    });
+
 
     // filter as overlay
 
@@ -62,11 +72,21 @@ function initFilter() {
     });
 
     function init() {
+        setMapCircle();
         if (window.ventuConfig.whatScreen < 3) {
             setBoxes();
             // change position of last guide
             $('.ventu-guide-6').removeClass('ventu-guide-right').addClass('ventu-guide-top').attr('y', 0).attr('x', 40);
         }
+    }
+
+    function setMapCircle() {
+        var directions = ['n', 's', 'w', 'e'];
+        $('.ventu-map-circle').each(function(){
+            for (var i = 0; i < 4; i++) {
+                $(this).append('<div class="ventu-map-circle-handle ventu-map-circle-handle-' + directions[i] + '"></div>');
+            }
+        })
     }
 
     $(window).resize(function(){

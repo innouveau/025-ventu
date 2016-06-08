@@ -22,7 +22,6 @@ $(window).ready(function(){
     initGuide();
     initFilter();
     initTooltips();
-
     ventu.init();
 
 });

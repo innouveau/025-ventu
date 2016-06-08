@@ -31,6 +31,38 @@ nav.navbar-default {
     background-color: #fff;
 }
 
+.dropdown-menu {
+    border-radius: 0;
+    border: 0.75px solid #727272;
+    box-shadow: none;
+    top: 30px;
+}
+
+.dropdown-menu > li > a {
+    padding: 8px 20px;
+    font-size: 12px;
+}
+
+/* form */
+
+.form-signin {
+    padding: 20px;
+    width: 300px;
+}
+
+.form-signin h2 {
+    font-size: 22px;
+    line-height: 32px;
+    margin-top: 0;
+}
+
+.form-signin input {
+    border-radius: 0;
+    border: 0.75px solid #727272;
+    margin-bottom: 10px;
+    color: #727272;
+}
+
 
 /* --- */
 

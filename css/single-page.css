@@ -201,8 +201,9 @@ body.ventu-menu-single {
 }
 
 .ventu-single .ventu-stack-container {
-    margin: -580px auto 0 auto;
+    margin: -350px auto 0 auto;
     width: 500px;
+    height: 500px;
     z-index: -1;
 }
 

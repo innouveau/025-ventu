@@ -1,3 +1,5 @@
+/* bootstrap overrides */
+
 ul.nav {
     padding-top: 10px;
 }
@@ -16,6 +18,20 @@ ul.nav {
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a.active {
     border-bottom: 2px solid #164DC8;
+    color: #164DC8;
+}
+
+.btn-group-lg > .btn, .btn-lg {
+    border-radius: 0;
+    font-size: 12px;
+}
+
+.btn-primary {
+    background: #3e86ff;
+}
+
+.btn-primary:hover {
+    background: #164DC8;
 }
 
 

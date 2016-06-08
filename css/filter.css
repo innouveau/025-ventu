@@ -115,17 +115,68 @@
     border-radius: 75px;
     background: rgba(0,0,0,0.4);
     cursor: move;
+    border: 2px solid #727272;
+    transition: all 0.5s ease;
 }
 
-.ventu-map-circle:after {
+.ventu-map-circle:hover {
+    border: 2px solid #00E5A9;
+}
+
+.ventu-get-locations {
+    animation-name: ventu-loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.ventu-get-locations .ventu-map-circle-handle {
+    display: none;
+}
+
+@keyframes ventu-loading {
+    0% {border: 2px solid #727272;}
+    50% {border: 5px solid #00E5A9;}
+    100% {border: 2px solid #727272;}
+}
+
+.ventu-map-circle-handle {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 4px solid #00E5A9;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    border: 2px solid #727272;
+    background: #fff;
     content: '';
+    transition: all 0.5s ease;
+}
+
+.ventu-map-circle-handle:hover {
+    border: 2px solid #00E5A9;
+}
+
+.ventu-map-circle-handle-n {
+    top: -8px;
+    left: calc(50% - 8px);
+    cursor: ns-resize;
+}
+
+.ventu-map-circle-handle-s {
+    bottom: -8px;
+    left: calc(50% - 8px);
+    cursor: ns-resize;
+}
+
+.ventu-map-circle-handle-w {
+    top: calc(50% - 8px);
+    left: -8px;
+    cursor: ew-resize;
+}
+
+.ventu-map-circle-handle-e {
+    top: calc(50% - 8px);
+    right: -8px;
+    cursor: ew-resize;
 }
 
 /* slider */
@@ -286,7 +337,7 @@
         position: absolute;
         bottom: -36px;
         height: 36px;
-        right: 10px;
+        right: 15px;
         padding: 4px 10px;
         font-size: 9px;
         background: #727272;

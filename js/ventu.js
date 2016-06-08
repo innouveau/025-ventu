@@ -30,8 +30,8 @@ function Ventu() {
         }
     };
 
-    this.cards = 30;
-    this.limit = 60; // number of cards that are represented by a div
+    this.cards = 110;
+    this.limit = 70; // number of cards that are represented by a div
     this.favorites = 0;
     this.elements = {};
     this.hammertime = null;
@@ -120,7 +120,7 @@ Ventu.prototype.sizeCards = function() {
 
 Ventu.prototype.positionStack = function() {
     var verticalPosition = this.config.sizes.container.height * 1.6 - 400,
-        max = 100000;
+        max = 10000;
     if (verticalPosition > max) {
         this.config.stack.verticalPosition = max;
     } else {
@@ -384,7 +384,6 @@ Ventu.prototype.hate = function() {
 };
 
 Ventu.prototype.suggest = function(type) {
-    this.elements.suggest.fadeIn(700);
     switch(type) {
         case 0:
             //this.elements.suggest.html('Love it!');
@@ -395,6 +394,7 @@ Ventu.prototype.suggest = function(type) {
             this.elements.hateButton.addClass('shine');
             break;
         case 2:
+            this.elements.suggest.fadeIn(700);
             this.elements.suggest.html('Laat details zien...');
             break;
     }
@@ -548,7 +548,7 @@ Ventu.prototype.launchShade = function() {
 Ventu.prototype.unsetShade = function() {
     if (this.config.shade.active) {
         var transform = this.getCustomTransform(this.config.shade.normal.width, this.config.shade.normal.height, 0, 0),
-            shade = this.elements.shade;
+            shade = this.elements.shadeCurrent;
         this.setCSStransform(shade, transform);
         shade.removeClass('current');
         setTimeout(function() {

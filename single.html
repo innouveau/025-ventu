@@ -261,93 +261,89 @@
         </div>
 
         <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="ventu-identity">
-                <img src="img/fake-logo.png">
+            <div class="navbar-header pull-right">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
 
-            <div class="ventu-menu-buttons">
-                <div class="ventu-menu-button ventu-button ventu-button-light-blue">
-                    Over Ventu
-                </div>
-                <div class="ventu-menu-button ventu-button ventu-button-light-blue">
-                    Hoe werkt dit?
-                </div>
-                <div class="ventu-menu-button ventu-button ventu-button-light-blue">
-                    Contact
-                </div>
+            <div class="navbar-header pull-left">
+                <a class="navbar-brand" href="#">
+                    <div class="ventu-identity">
+                        <img src="img/fake-logo.png">
+                    </div>
+                </a>
             </div>
 
-            <div class="ventu-settings">
-                <i class="fa fa-user ventu-dropdown-toggle">
-                    <div class="ventu-dropdown">
-                        <div class="ventu-form">
-                            <div class="ventu-form-container ventu-form-with-close">
-                                <input type="text" placeholder="Naam">
-                                <input type="text" placeholder="Email">
-                                <input type="text" placeholder="Telefoon">
-                                <div class="ventu-form-send">
-                                    <div class="ventu-button ventu-button-small ventu-button-white">Aanmelden</div>
-                                    <div class="ventu-button ventu-button-small ventu-button-white">Inloggen</div>
+            <div class="navbar-header pull-right ventu-menu-other">
+                <div class="ventu-menu-dropdowns">
+                    <div class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-gear"></i>
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Alle geschiedenis wissen</a></li>
+                            <li><a href="#">Recente geschiedenis wissen...</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" class="start-guide">Start guide</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user"></i>
+                            <span class="caret"></span></a>
+                        <div class="dropdown-menu">
+                            <form class="form-signin">
+                                <h2 class="form-signin-heading">Inloggen</h2>
+                                <label for="inputEmail" class="sr-only">Email address</label>
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="remember-me"> Onthoud mij
+                                    </label>
                                 </div>
-                                <div class="ventu-icon ventu-icon-med ventu-icon-close ventu-icon-white"></div>
-                            </div>
-
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Inloggen</button>
+                            </form>
                         </div>
-                    </div>
-                </i>
-                <i class="fa fa-gear ventu-dropdown-toggle">
-                    <div class="ventu-dropdown">
-                        <div class="ventu-dropdown-menu">
-                            <div class="ventu-dropdown-menu-button inactive">
-                                Alle geschiedenis wissen
-                            </div>
-                            <div class="ventu-dropdown-menu-button">
-                                Recente geschiedenis wissen...
-                            </div>
-                            <div class="ventu-dropdown-menu-divider"></div>
-                            <div class="ventu-dropdown-menu-button">
-                                Nog een knop
-                            </div>
-                            <div class="ventu-dropdown-menu-divider"></div>
-                            <div class="ventu-dropdown-menu-checkmark-set">
-                                <input type="checkbox"> Setting 1
-                            </div>
-                            <div class="ventu-dropdown-menu-checkmark-set">
-                                <input type="checkbox"> Setting 2
-                            </div>
-                            <div class="ventu-dropdown-menu-checkmark-set">
-                                <input type="checkbox"> Setting 3
-                            </div>
-                            <div class="ventu-dropdown-menu-divider"></div>
-                            <div class="ventu-dropdown-menu-button inactive">
-                                Lorem ipsum
-                            </div>
-                            <div class="ventu-dropdown-menu-button start-guide">
-                                Start guide
-                            </div>
-                        </div>
-                    </div>
-                </i>
-            </div>
-
-            <div class="ventu-social-media">
-                <i class="fa fa-twitter"></i>
-                <i class="fa fa-facebook"></i>
-                <i class="fa fa-linkedin"></i>
-                <i class="fa fa-google-plus"></i>
-            </div>
-
-            <div class="ventu-favorites-navigation">
-                <div class="ventu-favorites-icon">
-                    <img src="img/stack-icon.png">
-                    <div class="ventu-favorites-counter-container">
-                        <span class="ventu-favorites-counter">3/7</span>
                     </div>
                 </div>
-                <div class="ventu-icon ventu-icon-med ventu-icon-prev ventu-icon-box"></div>
-                <div class="ventu-icon ventu-icon-med ventu-icon-next ventu-icon-box"></div>
+
+                <div class="ventu-social-media">
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-google-plus"></i>
+                </div>
+
+                <div class="ventu-favorites-navigation">
+                    <div class="ventu-favorites-icon">
+                        <img src="img/stack-icon.png">
+                        <div class="ventu-favorites-counter-container">
+                            <span class="ventu-favorites-counter">3/7</span>
+                        </div>
+                    </div>
+                    <div class="ventu-icon ventu-icon-med ventu-icon-prev ventu-icon-box"></div>
+                    <div class="ventu-icon ventu-icon-med ventu-icon-next ventu-icon-box"></div>
+                </div>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse pull-left">
+                <ul class="nav navbar-nav ventu-menu-buttons">
+                    <li><a href="" class="active">Over Ventu</a></li>
+                    <li><a href="">Hoe werkt dit?</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
             </div>
         </nav>
+
+
+
 
         <div class="ventu-overlay"></div>
 

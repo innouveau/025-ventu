@@ -161,11 +161,10 @@ h3 {
     position: absolute;
     left: calc(50% - 40px);
     top: -10px;
-    background: #fff;
     padding: 10px;
     text-align: center;
     width: 80px;
-    color: #D5D5D5;
+    color: #727272;
 }
 
 

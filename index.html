@@ -84,7 +84,7 @@
                                 Als je op het laad-icoontje drukt worden er locaties opgehaald, die binnen de cirkel vallen.
                             </div>
                         </div>
-                        <div class="ventu-icon ventu-icon-med ventu-icon-reload" data-toggle="tooltip" data-placement="top" title="Haal locaties op"></div>
+                        <div class="ventu-icon ventu-icon-med ventu-icon-reload get-locations" data-toggle="tooltip" data-placement="top" title="Haal locaties op"></div>
                         <div class="ventu-icon ventu-icon-med ventu-icon-right ventu-icon-box ventu-icon-remove" data-toggle="tooltip" data-placement="top" title="Verwijder locaties"></div>
                     </div>
                 </div>
@@ -209,16 +209,19 @@
                             <i class="fa fa-user"></i>
                             <span class="caret"></span></a>
                         <div class="dropdown-menu">
-                            <div class="ventu-form">
-                                <div class="ventu-form-container">
-                                    <input type="text" placeholder="Naam">
-                                    <input type="text" placeholder="Wachtwoord">
-                                    <div class="ventu-form-send">
-                                        <div class="ventu-button ventu-button-small ventu-button-white">Inloggen</div>
-                                        <div class="ventu-button ventu-button-small ventu-button-white">Aanmelden</div>
-                                    </div>
+                            <form class="form-signin">
+                                <h2 class="form-signin-heading">Inloggen</h2>
+                                <label for="inputEmail" class="sr-only">Email address</label>
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="remember-me"> Onthoud mij
+                                    </label>
                                 </div>
-                            </div>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Inloggen</button>
+                            </form>
                         </div>
                     </div>
                 </div>
