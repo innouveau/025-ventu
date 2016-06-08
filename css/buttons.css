@@ -1,3 +1,28 @@
+ul.nav {
+    padding-top: 10px;
+}
+
+.navbar-default .navbar-nav > li {
+    margin-right: 8px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    padding: 8px 16px;
+    color: #164DC8;
+    font-size: 10px;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a.active {
+    border-bottom: 2px solid #164DC8;
+}
+
+
+
+
+
+
 .ventu-button {
     display: inline-block;
     padding: 16px 20px;

@@ -1,17 +1,35 @@
 /* bootstrap overrides */
 
-nav {
+nav.navbar-default {
     position: fixed;
     z-index: 2;
     background: #fff!important;
-    box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+    border-bottom: 0.75px solid #727272;
 }
 
 .navbar-brand {
     padding: 0;
 }
 
+.navbar-default .navbar-toggle {
+    border-radius: 0;
+    border: 1px solid #727272;
+    margin-top: 15px;
+}
 
+.navbar-default .navbar-toggle:hover {
+    background: #727272;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    border-radius: 0;
+    background-color: #727272;
+    height: 1px;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar {
+    background-color: #fff;
+}
 
 
 /* --- */
@@ -30,10 +48,10 @@ nav {
     margin: 0;
     display: inline-block;
     height: 100%;
-    padding: 20px;
+    padding: 22px;
     float: right;
     font-size: 18px;
-    border-left: 0.5px solid #727272;
+    border-left: 0.75px solid #727272;
 }
 
 .ventu-menu-dropdowns .dropdown {
@@ -50,7 +68,7 @@ nav {
     padding: 20px;
     float: right;
     font-size: 18px;
-    border-left: 0.5px solid #727272;
+    border-left: 0.75px solid #727272;
 }
 
 .ventu-social-media i {
@@ -72,7 +90,7 @@ nav {
 .ventu-social-media {
     display: inline-block;
     height: 100%;
-    padding: 20px;
+    padding: 22px;
     float: right;
     font-size: 18px;
     border-left: 0.5px solid #727272;
@@ -133,35 +151,6 @@ nav {
 @media (max-width: 1024px) {
     /* tablet */
 
-    /* filter boxes expandable */
-    .ventu-filter-box {
-        border-bottom: 1px solid #fff;
-        margin: 0;
-    }
-
-    .ventu-filter-box-head {
-        display: block;
-        padding: 12px 24px;
-        cursor: pointer;
-        position: relative;
-    }
-
-    .ventu-filter-box-head:after {
-        position: absolute;
-        right: 16px;
-        top: 16px;
-        content: '';
-        font-family: 'fontAwesome';
-        font-size: 10px;
-    }
-
-    .closed .ventu-filter-box-head:after {
-        content: '';
-    }
-
-    .ventu-filter-box-body {
-        padding: 0 12px 12px 12px;
-    }
 
     /* temp hidden */
     .ventu-social-media {
