@@ -204,3 +204,16 @@ nav.navbar-default {
 
 }
 
+@media (max-width: 768px) {
+
+    .dropdown-menu {
+        top: 60px;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        border-left: 0;
+        border-right: 0;
+    }
+
+}
+
