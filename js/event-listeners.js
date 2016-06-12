@@ -54,11 +54,19 @@ function initFilter() {
             var height = $(this).outerHeight();
             $(this).attr('height', height);
         });
-        $('.ventu-filter-box').each(function(){
-            closeFilterBox($(this));
+        $('.ventu-filter-box').each(function(i){
+            console.log(i);
+            if (i > 0) {
+                closeFilterBox($(this));
+            } else {
+                openFilterBox($(this));
+            }
         });
         if (window.ventuConfig.whatScreen === 0) {
-            closeFilterOverlay();
+            setTimeout(function(){
+                closeFilterOverlay();
+            }, 1000);
+
         }
     }
 

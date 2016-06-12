@@ -357,6 +357,7 @@
     .ventu-filter {
         position: fixed;
         left: 0;
+        top: 60px;
         background: #EDEDEC;
         width: 100%;
         z-index: 1;
