@@ -99,7 +99,7 @@ Ventu.prototype.measure = function() {
 };
 
 Ventu.prototype.sizeCards = function() {
-    var width =  this.config.sizes.container.width - 40,
+    var width =  this.config.sizes.container.width,
         height,
         max = 700,
         ratio = 0.8;
