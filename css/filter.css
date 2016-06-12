@@ -253,26 +253,61 @@
 /* types */
 
 .ventu-filter-type {
-    background: #fff;
+    border-radius: 0px;
     font-size: 10px;
-    padding: 6px 16px;
+    padding: 8px 16px 8px 36px;
     border: 0.75px solid #727272;
-    color: #959595;
+    color: #727272;
     display: inline-block;
     margin: 0 4px 8px 0;
     cursor: pointer;
+    position: relative;
+    background-color: #EDEDEC;
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+    background-size: 26px;
+    opacity: 0.3;
 }
 
-.ventu-filter-type:hover {
-    background: #727272;
-    color: #fff;
-    border: 0.75px solid transparent;
+.ventu-filter-type-2 {
+    padding-left: 16px;
 }
 
-.ventu-filter-type.active {
-    background: #164DC8;
-    color: #E1F0FF;
-    border: 0.75px solid transparent;
+.ventu-filter-type:hover, .ventu-filter-type.active {
+    border: 0.75px solid #727272;
+    opacity: 1;
+}
+
+.ventu-filter-type-kantoor {
+    background-image: url('../img/triangles/3.png')!important;
+}
+
+.ventu-filter-type-werkplek {
+    background-image: url('../img/triangles/2.png')!important;
+}
+
+.ventu-filter-type-bedrijfsruimte {
+    background-image: url('../img/triangles/4.png')!important;
+}
+
+.ventu-filter-type-distributie {
+    background-image: url('../img/triangles/5.png')!important;
+}
+
+.ventu-filter-type-winkel {
+    background-image: url('../img/triangles/1.png')!important;
+}
+
+.ventu-filter-type-horeca {
+    background-image: url('../img/triangles/8.png')!important;
+}
+
+.ventu-filter-type-grond {
+    background-image: url('../img/triangles/6.png')!important;
+}
+
+.ventu-filter-type-overige {
+    background-image: url('../img/triangles/7.png')!important;
 }
 
 
@@ -358,7 +393,7 @@
     }
 
     .ventu-filter-type {
-        background: #fff;
+        background-color: #fff;
     }
 
     .ventu-map {
