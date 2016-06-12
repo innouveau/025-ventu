@@ -30,7 +30,7 @@ function Ventu() {
         }
     };
 
-    this.cards = 110;
+    this.cards = 30;
     this.limit = 70; // number of cards that are represented by a div
     this.favorites = 0;
     this.elements = {};
@@ -384,21 +384,29 @@ Ventu.prototype.hate = function() {
 };
 
 Ventu.prototype.suggest = function(type) {
+    var pos,
+        text;
     switch(type) {
         case 0:
-            //this.elements.suggest.html('Love it!');
+            pos = 'calc(80% - 110px)';
+            text = 'Love it!';
             this.elements.loveButton.addClass('shine');
             break;
         case 1:
-            //this.elements.suggest.html('Nah...');
+            pos = 'calc(20% - 90px)';
+            text = 'nah...';
             this.elements.hateButton.addClass('shine');
             break;
         case 2:
-            this.elements.suggest.fadeIn(700);
-            this.elements.suggest.html('Laat details zien...');
+            pos = 'calc(50% - 100px)';
+            text = 'Laat details zien...';
             break;
     }
+    this.elements.suggest.html(text);
+    this.elements.suggest.css('left', pos);
+    this.elements.suggest.fadeIn(700);
 };
+
 
 Ventu.prototype.moveCard = function(card, love) {
     var transform,

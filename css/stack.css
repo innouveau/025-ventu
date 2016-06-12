@@ -159,12 +159,25 @@ h3 {
 .ventu-suggest {
     display: none;
     position: absolute;
-    left: calc(50% - 40px);
-    top: -10px;
+    left: calc(50% - 100px);
+    top: 10px;
     padding: 10px;
     text-align: center;
-    width: 80px;
+    width: 200px;
+    background: #FFDE00;
     color: #727272;
+}
+
+.ventu-suggest:after {
+    position: absolute;
+    content: '';
+    bottom: -17px;
+    left: calc(50% - 12px);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 17px solid #FFDE00;
 }
 
 
