@@ -215,5 +215,27 @@ nav.navbar-default {
         border-right: 0;
     }
 
+    #navbar {
+        border-top: 0.75px solid #727272;
+        width: 100%;
+    }
+
+    .ventu-menu-buttons {
+        display: block;
+    }
+
+    .navbar-default .navbar-nav > li {
+        margin-right: 0;
+        padding: 4px 8px;
+    }
+
+    .navbar-default .navbar-nav > li > a{
+        margin-right: 0;
+        padding: 4px 8px;
+        display: inline-block;
+    }
+
+
+
 }
 
