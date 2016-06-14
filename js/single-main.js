@@ -18,4 +18,5 @@ $(window).ready(function() {
     favoritesListeners();
     createTooltips();
     setMainImage();
+    mapCreaters();
 });

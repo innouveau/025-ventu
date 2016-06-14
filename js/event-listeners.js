@@ -17,6 +17,16 @@ function filterCreaters() {
     });
 }
 
+function mapCreaters() {
+    // TODO: probably development has to do this within the google API
+    var directions = ['n', 's', 'w', 'e'];
+    $('.ventu-map-circle').each(function(){
+        for (var i = 0; i < 4; i++) {
+            $(this).append('<div class="ventu-map-circle-handle ventu-map-circle-handle-' + directions[i] + '"></div>');
+        }
+    })
+}
+
 function setMainImage() {
     function setImage(){
         $('.ventu-single-main-image').css('height', $(window).outerHeight());
@@ -40,10 +50,29 @@ function filterListeners() {
 
 
     $('.ventu-filter-type').click(function(){
-        //fake
+        //fake todo remove this
         var n = Math.round(75 * Math.random());
         ventu.setStack(n);
     });
+
+    $('.ventu-filter-label').click(function(){
+        if ($('.ventu-filter').hasClass('closed')) {
+            openFilterOverlay();
+        } else {
+            closeFilterOverlay();
+        }
+    });
+
+    if (window.ventuConfig.whatScreen < 3) {
+        $('.ventu-filter-box-head').click(function () {
+            var parent = $(this).parent();
+            if (parent.hasClass('closed')) {
+                openFilterBox(parent);
+            } else {
+                closeFilterBox(parent);
+            }
+        });
+    }
 }
 
 function mapListeners() {

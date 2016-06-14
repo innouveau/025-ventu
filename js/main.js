@@ -19,7 +19,8 @@ $(window).ready(function(){
     // listeners
     mapListeners();
     guideListeners();
-    initFilter();
+    mapCreaters();
+    setResponsiveness();
     createTooltips();
     ventu.init();
 

@@ -1,29 +1,30 @@
-function initFilter() {
+function setResponsiveness() {
     filterCreaters();
     filterListeners();
 
-
-    // filter as overlay
-
-    $('.ventu-filter-label').click(function(){
-        if ($('.ventu-filter').hasClass('closed')) {
-            openFilterOverlay();
-        } else {
-            closeFilterOverlay();
-        }
-    });
-
     function setBoxes() {
+        // on resize boxes can be still closed, we open them first to get
+        // the right height
+        $('.ventu-filter-box').each(function(){
+            $(this).css({
+                'transition': 'none',
+                'height': 'auto'
+            });
+        });
+
+
         $('.ventu-filter-box').each(function(){
             var height = $(this).outerHeight();
             $(this).attr('height', height);
         });
         $('.ventu-filter-box').each(function(i){
             if (i > 0) {
+                // open the first one
                 closeFilterBox($(this));
             } else {
                 openFilterBox($(this));
             }
+            $(this).css('transition', '');
         });
         if (window.ventuConfig.whatScreen === 0) {
             setTimeout(function(){
@@ -33,31 +34,10 @@ function initFilter() {
         }
     }
 
-    $('.ventu-filter-box-head').click(function(){
-        var parent = $(this).parent();
-        if (parent.hasClass('closed')) {
-            openFilterBox(parent);
-        } else {
-            closeFilterBox(parent);
-        }
-    });
-
     function init() {
-        setMapCircle();
         if (window.ventuConfig.whatScreen < 3) {
             setBoxes();
-            // change position of last guide
-            $('.ventu-guide-6').removeClass('ventu-guide-right').addClass('ventu-guide-top').attr('y', 0).attr('x', 40);
         }
-    }
-
-    function setMapCircle() {
-        var directions = ['n', 's', 'w', 'e'];
-        $('.ventu-map-circle').each(function(){
-            for (var i = 0; i < 4; i++) {
-                $(this).append('<div class="ventu-map-circle-handle ventu-map-circle-handle-' + directions[i] + '"></div>');
-            }
-        })
     }
 
     $(window).resize(function(){
