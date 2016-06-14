@@ -15,6 +15,7 @@ body {
 input {
     font-size: 12px;
     color: #1F1F1F;
+    outline: none;
 }
 
 * {

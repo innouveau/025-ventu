@@ -1,6 +1,7 @@
 $(window).ready(function(){
 
     document.ontouchmove = function(event){
+        // prevents unwanted scrolling on tablet
         event.preventDefault();
     };
 
@@ -15,13 +16,11 @@ $(window).ready(function(){
         ventu.limit = 35;
     }
 
-
-    
     // listeners
-    initMap();
-    initGuide();
+    mapListeners();
+    guideListeners();
     initFilter();
-    initTooltips();
+    createTooltips();
     ventu.init();
 
 });

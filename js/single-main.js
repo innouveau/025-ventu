@@ -12,10 +12,10 @@ $(window).ready(function() {
     ventu.createStatic();
     ventu.buildStackShade();
 
-    initMap();
-    initForm();
-    initLightbox();
-    initFavorites();
-    initTooltips();
+    mapListeners();
+    formListeners();
+    lightboxListeners();
+    favoritesListeners();
+    createTooltips();
     setMainImage();
 });
