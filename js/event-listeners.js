@@ -81,11 +81,6 @@ function mapListeners() {
 }
 
 function formListeners() {
-    // close button in settings
-    $('.ventu-settings .ventu-icon-close').click(function(){
-        showDropdown(null);
-    });
-
     // close button of direct reageren
     $('.ventu-form-respond .ventu-icon-close').click(function(){
         closeForms();
@@ -190,6 +185,5 @@ function favoritesListeners() {
 function guideListeners() {
     $('.start-guide').click(function () {
         guide.init();
-        showDropdown(null);
     });
 }
