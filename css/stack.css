@@ -157,7 +157,6 @@ h3 {
 /* suggest */
 
 .ventu-suggest {
-    display: none;
     position: absolute;
     left: calc(50% - 100px);
     top: 10px;
@@ -166,6 +165,7 @@ h3 {
     width: 200px;
     background: #FFDE00;
     color: #727272;
+    opacity: 0;
 }
 
 .ventu-suggest:after {
@@ -237,7 +237,7 @@ h3 {
 @media (max-width: 1024px) {
 
     .ventu-love-button, .ventu-hate-button {
-        opacity: 0;
+        display: none;
     }
 
     .ventu-favorites {
@@ -275,6 +275,10 @@ h3 {
 
     .ventu-card-text {
         padding: 20px;
+    }
+
+    .ventu-suggest {
+        top: 90px;
     }
 
 }

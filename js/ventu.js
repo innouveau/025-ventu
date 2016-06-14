@@ -191,25 +191,20 @@ Ventu.prototype.initHammer = function(element) {
     this.hammertime.on('drag', function(event) {
         var dx = event.gesture.deltaX,
             dy = event.gesture.deltaY;
-        if (dx > self.config.swipe) {
-            self.suggest(0);
-        } else if (dx < -self.config.swipe) {
-            self.suggest(1);
-        } else {
-            if (dy > self.config.swipe) {
-                self.suggest(2);
-            } else {
-                self.elements.suggest.fadeOut(700);
-                self.elements.loveButton.removeClass('shine');
-                self.elements.hateButton.removeClass('shine');
-            }
-        }
+        self.suggest(dx, dy);
         self.dragCard(element, event.gesture.deltaX, event.gesture.deltaY);
+        self.elements.loveButton.hide();
+        self.elements.hateButton.hide();
     });
     this.hammertime.on('release', function(event) {
         var dx = event.gesture.deltaX,
             dy = event.gesture.deltaY;
-        self.elements.suggest.fadeOut(700);
+        self.elements.suggest.css('opacity', 0);
+        if (window.ventuConfig.whatScreen > 2) {
+            self.elements.loveButton.show();
+            self.elements.hateButton.show();
+        }
+
         if (dx > self.config.swipe) {
             self.love();
         } else if (dx < -self.config.swipe) {
@@ -383,28 +378,28 @@ Ventu.prototype.hate = function() {
     this.setCurrent();
 };
 
-Ventu.prototype.suggest = function(type) {
-    var pos,
-        text;
-    switch(type) {
-        case 0:
-            pos = 'calc(80% - 110px)';
+Ventu.prototype.suggest = function(dx, dy) {
+    var text,
+        power;
+    // detect direction
+    if (Math.abs(dx) > dy) {
+        if (dx > 0) {
             text = 'Love it!';
-            this.elements.loveButton.addClass('shine');
-            break;
-        case 1:
-            pos = 'calc(20% - 90px)';
+        } else {
             text = 'nah...';
-            this.elements.hateButton.addClass('shine');
-            break;
-        case 2:
-            pos = 'calc(50% - 100px)';
-            text = 'Laat details zien...';
-            break;
+        }
+        power = dx / this.config.swipe;
+    } else {
+        text = 'Laat details zien...';
+        power = dy / this.config.swipe;
     }
+    power = Math.abs(power);
+    power -= 0.4;
+    if (power > 1) { power = 1; }
+    else if (power < 0) { power = 0; }
+
     this.elements.suggest.html(text);
-    this.elements.suggest.css('left', pos);
-    this.elements.suggest.fadeIn(700);
+    this.elements.suggest.css('opacity', power);
 };
 
 
@@ -436,7 +431,7 @@ Ventu.prototype.moveCard = function(card, love) {
         }
 
     }, 500);
-    self.elements.suggest.fadeOut(700);
+    self.elements.suggest.css('opacity', 0);
     self.elements.loveButton.removeClass('shine');
     self.elements.hateButton.removeClass('shine');
 };
