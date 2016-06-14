@@ -335,7 +335,7 @@
         font-size: 10px;
     }
 
-    .closed .ventu-filter-box-head:after {
+    .closed > .ventu-filter-box-head:after {
         content: '';
     }
 
