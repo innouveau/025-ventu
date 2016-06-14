@@ -19,7 +19,6 @@ function initFilter() {
             $(this).attr('height', height);
         });
         $('.ventu-filter-box').each(function(i){
-            console.log(i);
             if (i > 0) {
                 closeFilterBox($(this));
             } else {
