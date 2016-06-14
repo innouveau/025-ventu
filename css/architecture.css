@@ -3,11 +3,11 @@
     height: 100%;
     overflow: auto;
     float: left;
-    margin-right: 60px;
+    margin-right: 45px;
 }
 
 .ventu-content {
-    width: calc(100% - 560px);
+    width: calc(100% - 545px);
     float: left;
     height: 100%;
     position: relative;

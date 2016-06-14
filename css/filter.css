@@ -183,7 +183,8 @@
 
 .ventu-slider .slider.slider-horizontal {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 25px;
+    margin-bottom: 20px;
 }
 
 .ventu-slider .slider.slider-horizontal .slider-track {
@@ -200,25 +201,6 @@
     margin-top: -13px;
 }
 
-.ventu-slider .slider.slider-horizontal .slider-handle:after {
-    position: absolute;
-    top: -2px;
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-top: 12px solid #164dca;
-    content: '';
-}
-
-.min-slider-handle.slider-handle:after{
-    left: 1px;
-}
-
-.max-slider-handle.slider-handle:after{
-    left: 1px;
-}
-
 .ventu-slider .slider-track-low, .ventu-filter .slider-track-high {
     background: #fff;
     border-radius: 0;
@@ -232,8 +214,20 @@
     box-shadow: none;
 }
 
-.ventu-slider .tooltip-arrow {
-    display: none;
+.slider .tooltip.top {
+    margin-top: -32px;
+}
+
+.slider .tooltip.bottom {
+    margin-top: -4px;
+}
+
+.ventu-slider .tooltip.top .tooltip-arrow {
+    border-top-color: #164dca;
+}
+
+.ventu-slider .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #164dca;
 }
 
 .ventu-slider .tooltip-inner {
