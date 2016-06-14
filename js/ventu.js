@@ -87,13 +87,13 @@ Ventu.prototype.measure = function() {
     this.positionStack();
     // determine swipe distance
     if (this.config.sizes.body.width > 768) {
-        this.config.swipe = 180;
+        this.config.swipe = 140;
     } else {
         // in mobile modus, the whole screen is the container, so it is fair
         // to make the swipe 60% of half the screen
-        this.config.swipe = 0.2 * this.config.sizes.container.width;
+        this.config.swipe = 0.15 * this.config.sizes.container.width;
         if (this.config.swipe < 100) {
-            this.config.swipe = 100;
+            this.config.swipe = 60;
         }
     }
 };
