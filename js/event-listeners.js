@@ -13,7 +13,14 @@ function createTooltips() {
 function filterCreaters() {
     $('#area-slider').slider({
         tooltip: 'always',
-        tooltip_split: true
+        tooltip_split: true,
+        formatter: function(value) {
+            if (value === this.max) {
+                return '> ' + this.max + 'm²';
+            } else {
+                return value + 'm²';
+            }
+        }
     });
 }
 
