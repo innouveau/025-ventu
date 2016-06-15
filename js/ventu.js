@@ -516,7 +516,7 @@ Ventu.prototype.restack = function() {
     });
 };
 
-Ventu.prototype.shuffleUp = function() {
+Ventu.prototype.shuffle = function() {
     var self = this,
         i = 0,
         q;
