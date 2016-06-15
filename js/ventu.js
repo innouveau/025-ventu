@@ -30,7 +30,7 @@ function Ventu() {
         }
     };
 
-    this.cards = 30;
+    this.cards = 60;
     this.limit = 70; // number of cards that are represented by a div
     this.favorites = 0;
     this.elements = {};
@@ -514,6 +514,23 @@ Ventu.prototype.restack = function() {
             i++;
         }
     });
+};
+
+Ventu.prototype.shuffleUp = function() {
+    var self = this,
+        i = 0,
+        q;
+    $('.ventu-card').each(function() {
+        if (!$(this).hasClass('current')) {
+            q = Math.round(i + 60 * Math.random());
+            var transform = self.getTransform(q, self.config.zoom, self.config.zoom);
+            self.setCSStransform($(this), transform);
+            i++;
+        }
+    });
+    setTimeout(function(){
+        self.restack();
+    }, 400);
 };
 
 
