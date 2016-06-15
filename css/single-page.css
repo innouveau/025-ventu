@@ -105,8 +105,11 @@ body.ventu-menu-single {
 }
 
 .ventu-single-tools .ventu-button-with-icon {
-    display: block;
-    margin-bottom: 6px;
+    margin: 0 16px 6px 0;
+}
+
+.ventu-single-tools .ventu-button-with-icon .ventu-icon-med {
+    padding-top: 0;
 }
 
 /* share */

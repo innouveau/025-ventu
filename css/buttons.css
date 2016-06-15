@@ -93,13 +93,14 @@ a.ventu-button:hover {
 }
 
 .ventu-button-no-line-white:hover {
-    border: 0;
+    border-radius: 0;
     color: #1F1F1F;
 }
 
 .ventu-button-no-line-white:hover .ventu-icon {
     color: #1F1F1F;
 }
+
 
 .ventu-button-white-line:hover .ventu-icon {
     color: #1F1F1F;
