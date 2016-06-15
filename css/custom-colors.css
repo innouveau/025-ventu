@@ -74,7 +74,8 @@
     background: purple;
 }
 
-.ventu-button-blue {
+.btn-main-color-2 {
+    color: #fff;
     background: purple;
 }
 
@@ -82,21 +83,14 @@
     color: purple;
 }
 
-.btn-primary {
-    background: purple;
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a.active {
+    border-bottom: 2px solid purple;
 }
 
-.btn-primary:hover {
-    background: purple;
-}
 
 /* dark variation */
 
-.ventu-button-blue:hover {
-    background: rebeccapurple;
-}
-
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a.active {
-    border-bottom: 2px solid purple;
-    color: purple;
+.btn-main-color-2:hover {
+    color: #fff;
+    background: #550055;
 }
