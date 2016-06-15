@@ -7,7 +7,7 @@
 .ventu-filter-box {
     margin-bottom: 10px;
     transition: height 0.5s ease;
-    padding-bottom: 10px;
+    padding: 0 30px 10px 30px;
 }
 
 .ventu-filter-box-head {
@@ -31,7 +31,6 @@
 }
 
 .ventu-map-tools {
-    background: #00E5A9;
     height: 32px;
 }
 
@@ -80,11 +79,11 @@
 .ventu-map-search-results {
     display: none;
     position: absolute;
-    left: 0;
-    top: 32px;
-    width: 100%;
+    left: -0.75px;
+    top: 40px;
+    width: calc(100% + 1.5px);
     background: #fff;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    border: 0.5px solid #727272;
     border-top: 0.5px solid #D5D5D5;
     max-height: 200px;
     overflow: auto;
@@ -93,17 +92,21 @@
 .ventu-map-search-result {
     padding: 8px;
     border-bottom: 0.5px solid #D5D5D5;
+    cursor: pointer;
+}
+
+.ventu-map-search-result:hover {
+    background: #D5D5D5;
+}
+
+.ventu-map-search-result:last-child {
+    border-bottom: none;
 }
 
 .ventu-map-search-result-text {
     display: inline-block;
     vertical-align: top;
     padding-top: 2px;
-}
-
-.ventu-map-search-result-actions {
-    display: inline-block;
-    float: right;
 }
 
 .ventu-map-circle {
@@ -119,10 +122,6 @@
     transition: all 0.5s ease;
 }
 
-.ventu-map-circle:hover {
-    border: 2px solid #00E5A9;
-}
-
 .ventu-get-locations {
     animation-name: ventu-loading;
     animation-duration: 1s;
@@ -134,12 +133,6 @@
     display: none;
 }
 
-@keyframes ventu-loading {
-    0% {border: 2px solid #727272;}
-    50% {border: 5px solid #00E5A9;}
-    100% {border: 2px solid #727272;}
-}
-
 .ventu-map-circle-handle {
     position: absolute;
     width: 16px;
@@ -149,10 +142,6 @@
     background: #fff;
     content: '';
     transition: all 0.5s ease;
-}
-
-.ventu-map-circle-handle:hover {
-    border: 2px solid #00E5A9;
 }
 
 .ventu-map-circle-handle-n {
@@ -181,10 +170,12 @@
 
 /* slider */
 
+.ventu-slider {
+    padding: 27px 0 22px 0;
+}
+
 .ventu-slider .slider.slider-horizontal {
     width: 100%;
-    margin-top: 25px;
-    margin-bottom: 20px;
 }
 
 .ventu-slider .slider.slider-horizontal .slider-track {
@@ -209,45 +200,36 @@
 }
 
 .ventu-slider .slider-selection {
-    background: #164dca;
     border-radius: 0;
     box-shadow: none;
 }
 
 .slider .tooltip.top {
-    margin-top: -32px;
+    margin-top: -34px;
 }
 
 .slider .tooltip.bottom {
     margin-top: -4px;
 }
 
-.ventu-slider .tooltip.top .tooltip-arrow {
-    border-top-color: #164dca;
-}
-
-.ventu-slider .tooltip.bottom .tooltip-arrow {
-    border-bottom-color: #164dca;
+.ventu-slider .tooltip-arrow {
+    cursor: pointer;
 }
 
 .ventu-slider .tooltip-inner {
-    background: #164dca;
     border-radius: 0;
-    font-size: 8px;
-    padding: 4px 12px;
+    font-size: 9px;
+    padding: 4px 8px;
     margin-top: 2px;
     color: #fff;
     cursor: pointer;
 }
 
-.ventu-slider .tooltip-inner:after {
-    content: ' m²';
-}
 
 /* types */
 
 .ventu-filter-type {
-    border-radius: 0px;
+    border-radius: 0;
     font-size: 10px;
     padding: 8px 16px 8px 36px;
     border: 0.75px solid #727272;
@@ -311,11 +293,12 @@
     .ventu-filter-box {
         border-bottom: 1px solid #fff;
         margin: 0;
+        padding: 0 20px 10px 20px;
     }
 
     .ventu-filter-box-head {
         display: block;
-        padding: 12px 24px;
+        padding: 12px;
         cursor: pointer;
         position: relative;
     }
@@ -334,7 +317,7 @@
     }
 
     .ventu-filter-box-body {
-        padding: 0 12px 12px 12px;
+        padding-bottom: 12px;
     }
 }
 
@@ -358,8 +341,10 @@
         height: auto;
         float: none;
         margin: 0;
+        padding-right: 0;
         overflow: visible;
         transition: all 0.5s ease;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.3);
     }
 
     .ventu-filter-label {
@@ -373,6 +358,7 @@
         background: #727272;
         cursor: pointer;
         color: #fff;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     }
 
     .ventu-filter-label .ventu-icon {

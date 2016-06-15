@@ -3,11 +3,10 @@
     height: 100%;
     overflow: auto;
     float: left;
-    margin-right: 45px;
 }
 
 .ventu-content {
-    width: calc(100% - 545px);
+    width: calc(100% - 500px);
     float: left;
     height: 100%;
     position: relative;
@@ -42,8 +41,12 @@
     /* tablet */
 
     body {
-        padding: 80px 20px 20px;
+        padding: 100px 20px 20px;
         overflow: hidden;
+    }
+
+    body.ventu-app {
+        padding-left: 0; /* because of this bug: http://stackoverflow.com/questions/11520728/overflow-yvisible-not-working-when-overflow-xhidden-is-present we move the padding to the filter box itself. */
     }
 
     .ventu-filter {

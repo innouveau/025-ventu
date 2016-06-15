@@ -19,10 +19,6 @@
     content: 'x'; /* fallback when no icon content is set */
 }
 
-.ventu-icon-hover:hover {
-    color: #00E5A9;
-}
-
 .ventu-icon-big {
     width: 32px;
     height: 32px;

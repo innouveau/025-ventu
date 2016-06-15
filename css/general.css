@@ -12,6 +12,10 @@ body {
     font-family: 'graphik';
 }
 
+body.ventu-app {
+    padding-left: 0; /* because of this bug: http://stackoverflow.com/questions/11520728/overflow-yvisible-not-working-when-overflow-xhidden-is-present we move the padding to the filter box itself. */
+}
+
 input {
     font-size: 12px;
     color: #1F1F1F;

@@ -2,7 +2,15 @@
 
 @media (max-width: 1024px) {
 
-    .ventu-settings, .ventu-social-media {
+    nav.navbar-default {
+        border-bottom: 1px solid #727272;
+    }
+
+    .dropdown-menu, .form-signin input {
+        border: 1px solid #727272;
+    }
+
+    .ventu-settings, .ventu-social-media, .ventu-menu-dropdowns {
         border-left: 1px solid #727272;
     }
 
@@ -21,7 +29,14 @@
         border: 1px solid #1f1f1f;
     }
 
+    .ventu-map-search {
+        border: 1px solid #727272;
+    }
+
     .ventu-map-search-results {
+        left: -1px;
+        width: calc(100% + 2px);
+        border: 1px solid #727272;
         border-top: 1px solid #D5D5D5;
     }
 
@@ -33,8 +48,8 @@
         border-bottom: 1px solid #fff;
     }
 
-    .ventu-filter .slider .slider-handle:after {
-        width: 1px;
+    .ventu-filter-type, .ventu-filter-type:hover, .ventu-filter-type.active {
+        border: 1px solid #727272;
     }
 
 }

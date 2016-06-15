@@ -10,28 +10,14 @@ ul.nav {
 
 .navbar-default .navbar-nav > li > a {
     padding: 8px 16px;
-    color: #164DC8;
     font-size: 12px;
     transition: all 0.2s ease;
     border-bottom: 2px solid transparent;
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a.active {
-    border-bottom: 2px solid #164DC8;
-    color: #164DC8;
-}
-
 .btn-group-lg > .btn, .btn-lg {
     border-radius: 0;
     font-size: 12px;
-}
-
-.btn-primary {
-    background: #3e86ff;
-}
-
-.btn-primary:hover {
-    background: #164DC8;
 }
 
 
@@ -60,11 +46,6 @@ a.ventu-button:hover {
     padding: 4px 12px 4px 6px;
 }
 
-.ventu-button:hover {
-    border: 0.5px solid #00E5A9;
-    color: #00E5A9;
-}
-
 .ventu-menu-button.ventu-button {
     padding: 8px 16px;
     margin-right: 4px;
@@ -72,13 +53,11 @@ a.ventu-button:hover {
 }
 
 .ventu-button-blue {
-    background: #164DC8;
     border: 0;
     color: #fff;
 }
 
 .ventu-button-blue:hover {
-    background: #03256B;
     border: 0;
     color: #fff;
 }

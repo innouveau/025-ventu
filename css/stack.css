@@ -193,7 +193,6 @@ h3 {
     border-radius: 15px;
     text-align: center;
     padding-top: 7px;
-    background: #3E86FF;
     color: #fff;
     font-size: 8px;
 }
@@ -223,7 +222,6 @@ h3 {
 }
 
 .ventu-favorites-counter {
-    background: #00E3A7;
     padding: 6px;
     color: #fff;
     transition: all 0.5s ease;
