@@ -8,21 +8,20 @@
 }
 
 .tooltip-inner {
-    background: #959595;
+    background: #1f1f1f;
     border-radius: 0;
     color: #fff;
 }
 
-
 .tooltip.top .tooltip-arrow {
-    border-top-color: #959595;
+    border-top-color: #1f1f1f;
     border-width: 11px 7px 0;
     bottom: -4px;
     margin-left: -7px;
 }
 
 .tooltip.bottom .tooltip-arrow {
-    border-bottom-color: #959595;
+    border-bottom-color: #1f1f1f;
     border-width: 0 7px 11px;
     top: -4px;
 }
