@@ -1,12 +1,12 @@
 .ventu-filter {
-    width: 500px;
+    width: 35%;
     height: 100%;
     overflow: auto;
     float: left;
 }
 
 .ventu-content {
-    width: calc(100% - 500px);
+    width: 65%;
     float: left;
     height: 100%;
     position: relative;

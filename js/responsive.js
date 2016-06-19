@@ -34,9 +34,19 @@ function setResponsiveness() {
         }
     }
 
+    function setMapSize() {
+        var map = $('.ventu-map'),
+            height = 0.8 * map.outerWidth();
+        map.css('height', height);
+    }
+
     function init() {
         if (window.ventuConfig.whatScreen < 3) {
             setBoxes();
+        }
+
+        if (window.ventuConfig.whatScreen > 2) {
+            setMapSize();
         }
     }
 

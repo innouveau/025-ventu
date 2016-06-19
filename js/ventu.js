@@ -99,23 +99,34 @@ Ventu.prototype.measure = function() {
 };
 
 Ventu.prototype.sizeCards = function() {
-    var width =  this.config.sizes.container.width,
-        height,
-        max = 700,
-        ratio = 0.8;
-    if (width > max) {
-        width = max;
-    }
+    var cardWidth,
+        cardHeight,
+        maxWidth = 1500,
+        ratio = 0.8,
+        margin = 0.01 * this.config.sizes.container.width,
+        containerRatio = this.config.sizes.container.height / this.config.sizes.container.width;
     if (this.config.sizes.container.height > this.config.sizes.container.width && window.ventuConfig.whatScreen < 2) {
         // portrait mode, so we make the cards a bit portrait
         ratio = 1.3;
     }
-    this.config.card.horizontalShift = (this.config.sizes.container.width - width) / 2;
+    if (containerRatio > ratio) {
+        cardWidth = this.config.sizes.container.width - (2 * margin);
+        if (cardWidth > maxWidth) {
+            cardWidth = maxWidth;
+        }
+        cardHeight = cardWidth * ratio;
+    }   else {
+        cardHeight = this.config.sizes.container.height;
+        if (cardHeight > (maxWidth / ratio)) {
+            cardHeight = maxWidth / ratio;
+        }
+        cardWidth = cardHeight / ratio;
+    }
+    this.config.card.horizontalShift = (this.config.sizes.container.width - cardWidth) / 2;
     this.config.card.selectedPosition = 'rotateX(0deg) rotateY(0deg) translateZ(0) translateY(0) translateX(' + this.config.card.horizontalShift + 'px)';
-    height = ratio * width;
-    this.config.sizes.card.width = width;
-    this.config.sizes.card.height = height;
-    injectStyles('.ventu-card, .ventu-shade, .ventu-stack-shade { height: ' + height + 'px; width: ' + width + 'px;}');
+    this.config.sizes.card.width = cardWidth;
+    this.config.sizes.card.height = cardHeight;
+    injectStyles('.ventu-card, .ventu-shade, .ventu-stack-shade { height: ' + cardHeight + 'px; width: ' + cardWidth + 'px;}');
 };
 
 Ventu.prototype.positionStack = function() {
