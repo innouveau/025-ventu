@@ -103,7 +103,7 @@ Ventu.prototype.sizeCards = function() {
         cardHeight,
         maxWidth = 1500,
         ratio = 0.8,
-        margin = 0.01 * this.config.sizes.container.width,
+        margin = Math.pow(0.008 * this.config.sizes.container.width, 2), // make margin exponentially bigger
         containerRatio = this.config.sizes.container.height / this.config.sizes.container.width;
     if (this.config.sizes.container.height > this.config.sizes.container.width && window.ventuConfig.whatScreen < 2) {
         // portrait mode, so we make the cards a bit portrait
@@ -115,8 +115,8 @@ Ventu.prototype.sizeCards = function() {
             cardWidth = maxWidth;
         }
         cardHeight = cardWidth * ratio;
-    }   else {
-        cardHeight = this.config.sizes.container.height;
+    } else {
+        cardHeight = this.config.sizes.container.height - (2 * margin);
         if (cardHeight > (maxWidth / ratio)) {
             cardHeight = maxWidth / ratio;
         }
