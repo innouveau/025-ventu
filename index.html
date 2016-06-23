@@ -190,7 +190,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-gear"></i>
                             <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-settings">
                             <li><a href="#">Alle geschiedenis wissen</a></li>
                             <li><a href="#">Recente geschiedenis wissen...</a></li>
                             <li role="separator" class="divider"></li>
@@ -202,7 +202,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-user"></i>
                             <span class="caret"></span></a>
-                        <div class="dropdown-menu dropdown-signin">
+                        <div class="dropdown-menu dropdown-login">
                             <form class="form-signin">
                                 <h2 class="form-signin-heading">Inloggen</h2>
                                 <label for="inputEmail" class="sr-only">Email address</label>
@@ -246,11 +246,19 @@
                     <li><a href="menu-pagina.html" class="active">Over Ventu</a></li>
                     <li><a href="menu-pagina.html">Hoe werkt dit?</a></li>
                     <li><a href="menu-pagina.html">Contact</a></li>
+                    <li><a href="" class="only-smartphone open-login">Inloggen</a></li>
+                    <li><a href="" class="only-smartphone open-settings">Settings</a></li>
                 </ul>
             </div>
         </nav>
 
         <div class="ventu-overlay"></div>
+
+        <div class="ventu-smartphone-popup">
+            <div class="ventu-smartphone-popup-close">
+                <div class="ventu-icon ventu-icon-med ventu-icon-close"></div>
+            </div>
+        </div>
 
 
 

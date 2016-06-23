@@ -16,6 +16,7 @@ $(window).ready(function() {
     formListeners();
     lightboxListeners();
     favoritesListeners();
+    menuListeners();
     createTooltips();
     setMainImage();
     mapCreaters();

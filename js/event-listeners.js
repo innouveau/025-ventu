@@ -220,6 +220,38 @@ function favoritesListeners() {
 
 function guideListeners() {
     $('.start-guide').click(function () {
+        hideSmartphonePopup();
         guide.init();
     });
+}
+
+function menuListeners() {
+    $('.only-smartphone').click(function(event){
+        event.preventDefault();
+        if ($(this).hasClass('open-settings')) {
+            openPopup('settings');
+        } else if ($(this).hasClass('open-login')) {
+            openPopup('login');
+        }
+    });
+
+    $('.ventu-smartphone-popup-close').click(function(){
+        hideSmartphonePopup();
+    });
+    
+    function openPopup(popup) {
+        var dropdown = $('.dropdown-' + popup),
+            container = $('.ventu-smartphone-popup');
+        $('.ventu-overlay').show();
+        container.show();
+        dropdown.appendTo(container);
+        dropdown.show();
+    }
+}
+
+function hideSmartphonePopup() {
+    if (window.ventuConfig.whatScreen === 0) {
+        $('.ventu-overlay').hide();
+        $('.ventu-smartphone-popup').hide();
+    }
 }

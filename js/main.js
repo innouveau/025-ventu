@@ -19,6 +19,7 @@ $(window).ready(function(){
     // listeners
     mapListeners();
     guideListeners();
+    menuListeners();
     mapCreaters();
     setResponsiveness();
     createTooltips();
