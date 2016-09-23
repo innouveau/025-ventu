@@ -30,12 +30,19 @@ function Ventu() {
         }
     };
 
-    this.cards = 60;
-    this.limit = 70; // number of cards that are represented by a div
+    this.cards = 0;
+    this.limit = 100; // number of cards that are represented by a div
     this.favorites = 0;
     this.elements = {};
     this.hammertime = null;
     this.timer = null;
+
+    // JWA: added
+    this.objects = [];
+    this.favObjects = [];
+    this.hateObjects = [];
+    this.currentObjectIndex = 0;
+    this.showStackIsEmptyMessage = true;
 }
 
 
@@ -44,7 +51,10 @@ function Ventu() {
 Ventu.prototype.init = function() {
     this.initElements();
     this.measure();
-    this.buildCard(0, this.cards);
+
+    // JWA:
+    // this.buildCard(0, this.cards);
+
     if (window.ventuConfig.whatScreen > 2) {
         this.config.shade.active = true;
         this.buildStackShade();
@@ -98,7 +108,7 @@ Ventu.prototype.measure = function() {
     }
 };
 
-Ventu.prototype.sizeCards = function() {
+Ventu.prototype.sizeCards = function () {
     var cardWidth,
         cardHeight,
         maxWidth = 1500,
@@ -129,8 +139,8 @@ Ventu.prototype.sizeCards = function() {
     injectStyles('.ventu-card, .ventu-shade, .ventu-stack-shade { height: ' + cardHeight + 'px; width: ' + cardWidth + 'px;}');
 };
 
-Ventu.prototype.positionStack = function() {
-    var verticalPosition = this.config.sizes.container.height * 1.6 - 400,
+Ventu.prototype.positionStack = function () {
+    var verticalPosition = (this.config.sizes.container.height * 1.6) - 400,
         max = 10000;
     if (verticalPosition > max) {
         this.config.stack.verticalPosition = max;
@@ -155,7 +165,9 @@ Ventu.prototype.buildCard = function(i, end) {
         time = Math.floor(1000 / i);
     }
     this.count(i);
-    if (j < this.cards && j < 1000) {
+
+    // JWA: set to this.limit
+    if (j < this.cards && j < this.limit) {
         this.timer = setTimeout(function(){
             self.buildCard(j, end);
         }, time);
@@ -170,12 +182,12 @@ Ventu.prototype.buildCard = function(i, end) {
     }
 };
 
-Ventu.prototype.append = function(i, before) {
+Ventu.prototype.append = function (i, before) {
     var transform = this.getTransform(i, this.config.zoom, this.config.zoom),
         card = $('<div class="ventu-card ventu-card-' + i + '">' +
-                 '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-light-grey"></div>' +
-                 '<div class="ventu-card-text"></div>' +
-                 '<div class="ventu-card-icons"></div></div>');
+            '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-light-grey"></div>' +
+            '<div class="ventu-card-text"></div>' +
+            '<div class="ventu-card-icons"></div></div>');
     this.setCSStransform(card, transform);
     if (before) {
         card.insertBefore(this.elements.last);
@@ -199,33 +211,39 @@ Ventu.prototype.createStatic = function() {
 Ventu.prototype.initHammer = function(element) {
     var self = this;
     this.hammertime = Hammer(element[0]);
-    this.hammertime.on('drag', function(event) {
-        var dx = event.gesture.deltaX,
-            dy = event.gesture.deltaY;
-        self.suggest(dx, dy);
-        self.dragCard(element, event.gesture.deltaX, event.gesture.deltaY);
-        self.elements.loveButton.hide();
-        self.elements.hateButton.hide();
-    });
-    this.hammertime.on('release', function(event) {
-        var dx = event.gesture.deltaX,
-            dy = event.gesture.deltaY;
-        self.elements.suggest.css('opacity', 0);
-        if (window.ventuConfig.whatScreen > 2) {
-            self.elements.loveButton.show();
-            self.elements.hateButton.show();
-        }
 
-        if (dx > self.config.swipe) {
-            self.love();
-        } else if (dx < -self.config.swipe) {
-            self.hate();
-        } else {
-            if (dy > 200) {
+    this.hammertime.on('drag', function (event) {
+        if (event != null && event.gesture != null) { // JWA
+            var dx = event.gesture.deltaX,
+                dy = event.gesture.deltaY;
+            self.suggest(dx, dy);
+            self.dragCard(element, event.gesture.deltaX, event.gesture.deltaY);
+            self.elements.loveButton.hide();
+            self.elements.hateButton.hide();
+        }
+    });
+
+    this.hammertime.on('release', function(event) {
+        if (event != null && event.gesture != null) { // JWA
+            var dx = event.gesture.deltaX,
+                dy = event.gesture.deltaY;
+            self.elements.suggest.css('opacity', 0);
+            if (window.ventuConfig.whatScreen > 2) {
+                self.elements.loveButton.show();
+                self.elements.hateButton.show();
+            }
+
+            if (dx > self.config.swipe) {
                 self.love();
-                self.seeDetail();
+            } else if (dx < -self.config.swipe) {
+                self.hate();
             } else {
-                self.releaseCard(element);
+                if (dy > 200) {
+                    //self.love(); // JWA
+                    self.seeDetail();
+                } else {
+                    self.releaseCard(element);
+                }
             }
         }
     });
@@ -235,19 +253,23 @@ Ventu.prototype.initHammer = function(element) {
 
 // current
 
-Ventu.prototype.setCurrent = function() {
-    this.elements.last = this.getLast();
-    if (this.elements.last) {
-        this.launchCurrent();
-    }
-    // if we are above the limit, we create a card on the fly
-    if (this.cards > this.limit) {
-        this.append(this.limit, true);
-    }
+Ventu.prototype.setCurrent = function () {
+    this.unsetCurrent();
 
-    if (this.cards <= 1) {
+    // JWA: if (this.cards <= 1) {
+    if (this.objects.length <= 0) {
         this.stackIsEmpty();
     } else {
+
+        this.elements.last = this.getLast();
+        if (this.elements.last) {
+            this.launchCurrent();
+        }
+        // if we are above the limit, we create a card on the fly
+        if (this.cards > this.limit) {
+            this.append(this.limit, true);
+        }
+
         this.stackIsNotEmpty();
     }
 };
@@ -267,6 +289,14 @@ Ventu.prototype.launchCurrent = function() {
     }, 400);
     // fade-in the image
     last.addClass('current');
+    //last.attr('title', 'Swipe naar links, rechts of beneden');
+
+    function completed(resourceValue) {
+        last.attr('title', resourceValue);
+    }
+
+    SearchUtil.getResourceValue('Ventu.LocalResources.Home', 'Swipe', completed);
+
     this.setCSStransform(last, this.config.card.selectedPosition);
     this.initHammer(last);
     this.launchShade();
@@ -276,7 +306,7 @@ Ventu.prototype.launchCurrent = function() {
 };
 
 Ventu.prototype.buildText = function(input) {
-    var text = '<h4>' + input.head + '</h4>';
+    var text = '<h3>' + input.head + '</h3>';
     text += '<h3>' + input.sub + '</h3>';
     if (input.list.length) {
         text += '<ul>';
@@ -285,28 +315,120 @@ Ventu.prototype.buildText = function(input) {
         }
         text += '</ul>';
     }
+
+    text += '<div class="detailLinkUrl"><a href="/Project/' + input.detailLinkUrl + '">Naar project details</a></div>';
     return text;
 };
 
 Ventu.prototype.buildIcons = function(input) {
     var icons = '';
     for (var i = 0, l = input.length; i < l; i++) {
-        icons += '<div class="ventu-icon ventu-icon-med ventu-icon-' + input[i] + '"></div>';
+        icons += '<a class="ventu-icon ventu-icon-med ventu-icon-' + input[i].style + '"  href="/Project/' + input[i].url + '"></a>';
     }
     return icons;
 };
 
-Ventu.prototype.getContent = function() {
-    // dummy content
-    return {
-        image: 'img/kantoor.jpg',
-        text: {
-            head: 'Amsterdam-Zuid',
-            sub: 'De Zwanenschuur',
-            list: ['Maecenas id tellus vitae', 'Ex faucibus dignissim 4.000', 'Quis non urna. Praesent at aliquet metus']
-        },
-        icons: ['video', 'document', '3d', 'image']
-    };
+Ventu.prototype.getContent = function () {
+
+    // JWA: added info from object
+    var currentObject = this.objects[this.currentObjectIndex];
+
+    var result = null;
+
+    if (currentObject) {
+
+        var hasPrimaryUsageData = currentObject.PrimaryUsage != null && currentObject.PrimaryUsage != undefined && currentObject.PrimaryUsage.length > 0;
+        var hasSaleData = currentObject.SaleOrRent != null && currentObject.SaleOrRent != undefined && currentObject.SaleOrRent.length > 0;
+        var hasMetrageInfo = currentObject.MetrageInfo != null && currentObject.MetrageInfo != undefined && currentObject.MetrageInfo.length > 0;
+        var hasPriceInfo = currentObject.PriceInfo != null && currentObject.PriceInfo != undefined && currentObject.PriceInfo.length > 0;
+
+        var list = [];
+
+        if (hasPrimaryUsageData || hasSaleData) {
+            list.push((hasPrimaryUsageData ? currentObject.PrimaryUsage : '') + (hasSaleData ? ' | ' + currentObject.SaleOrRent : ''));
+        }
+
+        if (hasMetrageInfo) {
+            var metrageInfoText = currentObject.MetrageInfo;
+
+            if (metrageInfoText.indexOf('#') > -1) {
+                var result = metrageInfoText.match(/#(.*?)#/g).map(function (val) {
+                    return val.replace(/#/g, '');
+                });
+
+                $(result).each(function (index, resourceName) {
+
+                    function completed(resourceValue) {
+                        metrageInfoText = metrageInfoText.replace('#' + resourceName + '#', resourceValue);
+                    }
+
+                    SearchUtil.getResourceValue('Ventu.LocalResources.Home', resourceName, completed);
+                });
+            }
+
+            list.push(metrageInfoText);
+        }
+
+        if (hasPriceInfo) {
+
+            var priceInfoText = currentObject.PriceInfo;
+
+            if (priceInfoText.indexOf('#') > -1) {
+                var result = priceInfoText.match(/#(.*?)#/g).map(function (val) {
+                    return val.replace(/#/g, '');
+                });
+
+                $(result).each(function (index, resourceName) {
+
+                    function completed(resourceValue) {
+                        priceInfoText = priceInfoText.replace('#' + resourceName + '#', resourceValue);
+                    }
+
+                    SearchUtil.getResourceValue('Ventu.LocalResources.Home', resourceName, completed);
+                });
+            }
+
+            list.push(priceInfoText);
+        }
+
+        var icons = [];
+        var iconResult = { style: 'image', url: currentObject.DetailLinkUrl + '#photos' };
+
+        // image is always available
+        icons.push(iconResult);
+        //icons.push('image');
+
+        if (currentObject.BrochureUrl) {
+            iconResult = { style: 'document', url: currentObject.DetailLinkUrl + '#brochure' }
+            icons.push(iconResult);
+            //icons.push('document');
+        }
+
+        if (currentObject.VideoUrl) {
+            iconResult = { style: 'video', url: currentObject.DetailLinkUrl + '#objectmovie' }
+            icons.push(iconResult);
+            //icons.push('video');
+        }
+
+        if (currentObject.TourUrl) {
+            iconResult = { style: 'video', url: currentObject.DetailLinkUrl + '#objectmovie' }
+            icons.push(iconResult);
+            //icons.push('3d');
+        }
+
+        result = {
+            image: currentObject.ImageURL == null ? '/img/misc/ventu-stock-thumb.jpg' : currentObject.ImageURL,
+            text: {
+                head: currentObject.City,
+                sub: currentObject.BuildingAddressInfo,
+                list: list,
+                detailLinkUrl: currentObject.DetailLinkUrl
+            },
+            icons: icons
+        };
+    }
+
+    return result;
 };
 
 Ventu.prototype.unsetCurrent = function() {
@@ -318,7 +440,7 @@ Ventu.prototype.unsetCurrent = function() {
         current.removeClass('current');
         textElement = current.find('.ventu-card-text');
         textElement.html('');
-        textElement.css('opacity', 0);
+        //textElement.css('opacity', 0);
         current.find('.ventu-card-image').css({
             'background-image': 'none'
         });
@@ -336,12 +458,27 @@ Ventu.prototype.stackIsEmpty = function() {
     if (this.config.shade.active) {
         this.elements.stackShade.hide();
     }
+
+    // JWA
+    this.elements.loveButton.hide();
+    this.elements.hateButton.hide();
+
+    if (this.showStackIsEmptyMessage) {
+        // todo show on stack...
+
+        //$('.ventu-overlay').fadeIn(500);
+        //$('#ventu-guide-filter-more').show();
+    }
 };
 
 Ventu.prototype.stackIsNotEmpty = function() {
     if (this.config.shade.active) {
         this.elements.stackShade.show();
     }
+
+    // JWA
+    this.elements.loveButton.show();
+    this.elements.hateButton.show();
 };
 
 Ventu.prototype.dragCard = function(card, dx, dy) {
@@ -371,7 +508,19 @@ Ventu.prototype.releaseCard = function(card) {
     }
 };
 
-Ventu.prototype.love = function() {
+Ventu.prototype.love = function () {
+    var currentObject = this.objects[this.currentObjectIndex];
+
+    if (currentObject) {
+        SearchUtil.post('/Services/GoogleSearch.svc/LikeObject', currentObject.UniqueId);
+
+        this.favObjects.unshift(currentObject);
+        $.sessionStorage.set('ventu-favorites', this.favObjects);
+    }
+
+    this.objects.splice(this.currentObjectIndex, 1);
+    this.currentObjectIndex = 0;
+
     var card = $('.ventu-card.current');
     this.moveCard(card, true);
     this.cards--;
@@ -382,6 +531,18 @@ Ventu.prototype.love = function() {
 };
 
 Ventu.prototype.hate = function() {
+
+    var currentObject = this.objects[this.currentObjectIndex];
+
+    if (currentObject) {
+        SearchUtil.post('/Services/GoogleSearch.svc/DislikeObject', currentObject.UniqueId);
+
+        this.hateObjects.unshift(this.objects[this.objects.length - 1]);
+    }
+
+    this.objects.splice(this.currentObjectIndex, 1);
+    this.currentObjectIndex = 0;
+
     var card = $('.ventu-card.current');
     this.moveCard(card, false);
     this.cards--;
@@ -395,13 +556,31 @@ Ventu.prototype.suggest = function(dx, dy) {
     // detect direction
     if (Math.abs(dx) > dy) {
         if (dx > 0) {
-            text = 'Love it!';
+
+            function completed(resourceValue) {
+                text = resourceValue;
+            }
+
+            SearchUtil.getResourceValue('Ventu.LocalResources.Home', 'VindIkLeuk', completed);
+            //text = 'Vind ik leuk';
         } else {
-            text = 'nah...';
+
+            function completed(resourceValue) {
+                text = resourceValue;
+            }
+
+            SearchUtil.getResourceValue('Ventu.LocalResources.Home', 'LaatLinksLiggen', completed);
+            //            text = 'Laat links liggen';
         }
         power = dx / this.config.swipe;
     } else {
-        text = 'Laat details zien...';
+
+        function completed(resourceValue) {
+            text = resourceValue;
+        }
+
+        SearchUtil.getResourceValue('Ventu.LocalResources.Home', 'IkWilDetailsZien', completed);
+        //        text = 'Ik wil de details zien...';
         power = dy / this.config.swipe;
     }
     power = Math.abs(power);
@@ -447,9 +626,20 @@ Ventu.prototype.moveCard = function(card, love) {
     self.elements.hateButton.removeClass('shine');
 };
 
-Ventu.prototype.seeDetail = function() {
-    // get specific page
-    window.location.href = 'single.html';
+Ventu.prototype.seeDetail = function () {
+
+    var currentObject = this.objects[this.currentObjectIndex];
+
+    if (currentObject) {
+
+        SearchUtil.post('/Services/GoogleSearch.svc/LikeObject', currentObject.UniqueId);
+
+        this.favObjects.unshift(currentObject);
+        $.sessionStorage.set('ventu-favorites', this.favObjects);
+
+        // get specific page
+        window.location.href = '/Project/' + currentObject.DetailLinkUrl;
+    }
 };
 
 
@@ -629,6 +819,14 @@ Ventu.prototype.setCSStransform = function(element, transform) {
 
 Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
     var verticalPosition = this.config.stack.verticalPosition;
+
+    //console.log('getTransform', i, scaleX, scaleY, this.config.stack);
+
+    //console.log('getTransform - container height', this.config.sizes.container.height);
+    //console.log('getTransform - body height', this.config.sizes.body.height);
+
+    //verticalPosition = this.config.sizes.container.height;
+
     return 'rotateX(80deg) ' +
         'translateZ(' + (-verticalPosition + i * this.config.stack.offset) + 'px) ' +
         'translateY(' + (-0.5 * verticalPosition + i * this.config.stack.offset) + 'px) ' +
@@ -638,6 +836,11 @@ Ventu.prototype.getTransform = function(i, scaleX, scaleY) {
 
 Ventu.prototype.getCustomTransform = function(scaleX, scaleY, shiftY, shiftX) {
     var verticalPosition = this.config.stack.verticalPosition;
+
+    //console.log('getCustomTransform', scaleX, scaleY, shiftY, shiftX, this.config.stack);
+
+    //verticalPosition = this.config.sizes.container.height;
+
     return 'rotateX(80deg) ' +
         'translateZ(' + (-verticalPosition) + 'px) ' +
         'translateY(' + (-0.5 * verticalPosition + shiftY) + 'px) ' +
