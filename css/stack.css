@@ -12,7 +12,7 @@
     position: absolute;
     opacity: 1;
     border-bottom: 1px solid #ccc;
-    background: #EDEDEC;
+    background: #fff;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     perspective-origin: 50% 50%;
@@ -71,6 +71,7 @@
 
 .ventu-card.current {
     cursor: pointer;
+    box-shadow: 0 16px 16px rgba(0,0,0,0.6);
 }
 
 .ventu-card.current .ventu-card-image, .ventu-card.current .ventu-card-icons {
