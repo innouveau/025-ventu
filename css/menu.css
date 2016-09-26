@@ -5,7 +5,14 @@ nav.navbar-default {
     z-index: 2;
     background: #fff!important;
     border-bottom: 0.75px solid #727272;
+}
 
+#navbar {
+    height: 100%;
+}
+
+#navbar > ul {
+    height: 100%;
 }
 
 .navbar-header {
@@ -69,12 +76,75 @@ nav.navbar-default {
 }
 
 
-/* --- */
+/* map search */
+
+.ventu-map-search {
+    background: #fff;
+    margin-top: 14px;
+    height: 42px;
+    transition: width 0.2s ease;
+    border: 0.75px solid #727272;
+}
+
+.ventu-map-search input {
+    height: 100%;
+    background: transparent;
+    padding: 6px 12px;
+    width: 300px;
+    border: 0;
+    transition: width 0.2s ease;
+    vertical-align: top;
+}
+
+.ventu-map-search-tools {
+    padding: 5px 8px 5px 0;
+    display: inline-block;
+}
+
+.ventu-map-search .ventu-icon-remove {
+    display: none;
+}
+
+.ventu-map-search-results {
+    display: none;
+    position: absolute;
+    left: -0.75px;
+    top: 40px;
+    width: calc(100% + 1.5px);
+    background: #fff;
+    border: 0.5px solid #727272;
+    border-top: 0.5px solid #D5D5D5;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.ventu-map-search-result {
+    padding: 8px;
+    border-bottom: 0.5px solid #D5D5D5;
+    cursor: pointer;
+}
+
+.ventu-map-search-result:hover {
+    background: #D5D5D5;
+}
+
+.ventu-map-search-result:last-child {
+    border-bottom: none;
+}
+
+.ventu-map-search-result-text {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 2px;
+}
+
+
+/* -- identity - */
 
 .ventu-identity {
     display: inline-block;
-    padding: 8px;
     margin-right: 20px;
+    border-right: 0.75px solid #727272;
 }
 
 .ventu-menu-buttons {

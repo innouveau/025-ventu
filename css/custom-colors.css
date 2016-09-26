@@ -83,10 +83,6 @@
     color: purple;
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a.active {
-    border-bottom: 2px solid purple;
-}
-
 
 /* dark variation */
 

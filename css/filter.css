@@ -35,76 +35,7 @@
     color: #fff;
 }
 
-.ventu-map-search {
-    position: absolute;
-    left: 12px;
-    top: 12px;
-    background: #fff;
-    height: 42px;
-    width: 120px;
-    transition: width 0.2s ease;
-    border: 0.75px solid #727272;
-}
 
-.ventu-map-search input {
-    height: 100%;
-    background: transparent;
-    padding: 6px 12px;
-    width: calc(100% - 44px);
-    border: 0;
-    transition: width 0.2s ease;
-    vertical-align: top;
-}
-
-.ventu-map-search.active input {
-    width: calc(100% - 80px);
-}
-
-.ventu-map-search.active {
-    width: calc(100% - 24px);
-}
-
-.ventu-map-search-tools {
-    padding: 5px 8px 5px 0;
-    display: inline-block;
-}
-
-.ventu-map-search .ventu-icon-remove {
-    display: none;
-}
-
-.ventu-map-search-results {
-    display: none;
-    position: absolute;
-    left: -0.75px;
-    top: 40px;
-    width: calc(100% + 1.5px);
-    background: #fff;
-    border: 0.5px solid #727272;
-    border-top: 0.5px solid #D5D5D5;
-    max-height: 200px;
-    overflow: auto;
-}
-
-.ventu-map-search-result {
-    padding: 8px;
-    border-bottom: 0.5px solid #D5D5D5;
-    cursor: pointer;
-}
-
-.ventu-map-search-result:hover {
-    background: #D5D5D5;
-}
-
-.ventu-map-search-result:last-child {
-    border-bottom: none;
-}
-
-.ventu-map-search-result-text {
-    display: inline-block;
-    vertical-align: top;
-    padding-top: 2px;
-}
 
 .ventu-map-circle {
     position: absolute;

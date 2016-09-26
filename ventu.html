@@ -17,134 +17,26 @@
     </head>
 
     <body class="ventu-app">
-        <div class="ventu-filter ventu-unselectable">
-
-            <!-- map -->
-            <div class="ventu-filter-box">
-                <div class="ventu-filter-box-head">
-                    Locatie
-                </div>
-                <div class="ventu-filter-box-body">
-                    <div class="ventu-map">
-                        <div id="ventu-canvas"></div>
-                        <div class="ventu-map-circle"></div>
-                        <div class="ventu-map-search">
-                            <input class="ventu-map-input" type="text" placeholder="Zoeken...">
-                            <div class="ventu-map-search-tools">
-                                <div class="ventu-icon ventu-icon-med ventu-icon-search"></div>
-                                <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-remove" data-toggle="tooltip" data-placement="bottom" title="Verwijder zoekstring"></div>
-                            </div>
-                            <div class="ventu-map-search-results">
-                                <div class="ventu-map-search-result">
-                                    <div class="ventu-map-search-result-text">
-                                        Amsterdam (117 locaties)
-                                    </div>
-                                </div>
-                                <div class="ventu-map-search-result">
-                                    <div class="ventu-map-search-result-text">
-                                        Amstelveen (34 locaties)
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="ventu-guide ventu-guide-1 ventu-guide-left">
-                                Of je kunt zoeken op locaties. Als je een zoekresultaat aanklikt, verschijnt deze ook weer op de kaart.
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        function initialize() {
-                            var myOptions = {
-                                zoom: 8,
-                                center: new google.maps.LatLng(51.7,4.6),
-                                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                sensor: 'true',
-                                disableDefaultUI: true,
-                                draggable: false
-                            };
-                            var map = new google.maps.Map(document.getElementById("ventu-canvas"), myOptions);
-                        }
-                        initialize();
-                    </script>
-                    <div class="ventu-map-tools">
-                        <div class="ventu-icon ventu-icon-med ventu-icon-box ventu-icon-add" data-toggle="tooltip" data-placement="top" title="Voeg een nieuwe zoekcirkel toe">
-                            <div class="ventu-guide ventu-guide-0 ventu-guide-left ventu-guide-big" y="5">
-                                <b>Welkom op Ventu!</b><br><br>
-                                Je kunt hier enkele filters instellen, te beginnen met de kaart. Door op het plusje te
-                                drukken, voeg je een cirkel toe op de kaart. De cirkel kun je verslepen en schalen (max 10km).
-                                Als je op het laad-icoontje drukt worden er locaties opgehaald, die binnen de cirkel vallen.
-                            </div>
-                        </div>
-                        <div class="ventu-icon ventu-icon-med ventu-icon-reload get-locations" data-toggle="tooltip" data-placement="top" title="Haal locaties op"></div>
-                        <div class="ventu-icon ventu-icon-med ventu-icon-right ventu-icon-box ventu-icon-remove" data-toggle="tooltip" data-placement="top" title="Verwijder locaties"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- oppervlakte -->
-            <div class="ventu-filter-box">
-                <div class="ventu-filter-box-head">
-                    Oppervlakte
-                </div>
-                <div class="ventu-filter-box-body">
-                    <div class="ventu-slider">
-                        <input id="area-slider"
-                               type="text"
-                               value=""
-                               data-slider-min="0"
-                               data-slider-max="5000"
-                               data-slider-step="50"
-                               data-slider-value="[2000,2800]"/>
-                    </div>
-                    <div class="ventu-guide ventu-guide-2 ventu-guide-left" x="130" y="15">
-                        Met deze slider, kun je de oppervlakte van je gewenste locaties begrenzen.
-                    </div>
-                </div>
-            </div>
-
-            <!-- types -->
-            <div class="ventu-filter-box ventu-unselectable">
-                <div class="ventu-filter-box-head">
-                    Types
-                </div>
-                <div class="ventu-filter-box-body">
-                    <div class="ventu-filter-type-container">
-                        <a class="btn ventu-filter-type ventu-filter-type-kantoor">Kantoor
-                            <div class="ventu-guide ventu-guide-3 ventu-guide-left">
-                                En deze tags kun je aan of uit zetten, wat weer invloed heeft op het aantal resultaten.
-                            </div></a>
-                        <a class="btn ventu-filter-type ventu-filter-type-werkplek">Werkplek</a>
-                        <a class="btn ventu-filter-type ventu-filter-type-bedrijfsruimte">Bedrijfsruimte</a>
-                        <a class="btn ventu-filter-type ventu-filter-type-distributie">Distributie</a>
-                        <a class="btn ventu-filter-type ventu-filter-type-winkel">Winkel</a>
-                        <a class="btn ventu-filter-type ventu-filter-type-horeca">Horeca</a>
-                        <a class="btn ventu-filter-type ventu-filter-type-grond">Grond</a>
-                        <a class="btn ventu-filter-type ventu-filter-type-overige">Overige</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- offers -->
-            <div class="ventu-filter-box ventu-unselectable">
-                <div class="ventu-filter-box-head">
-                    Aanbod
-                </div>
-                <div class="ventu-filter-box-body">
-                    <div class="ventu-filter-type-container">
-                        <a class="btn ventu-filter-type ventu-filter-type-2">Huur</a>
-                        <a class="btn ventu-filter-type ventu-filter-type-2">Koop</a>
-                        <a class="btn ventu-filter-type ventu-filter-type-2">Huur en Koop</a>
-                        <a class="btn ventu-filter-type ventu-filter-type-2">Belegging</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ventu-filter-label">
-                <div class="ventu-filter-label-text">Zoeken / Verfijnen</div>
-                <div class="ventu-icon ventu-icon-med ventu-icon-filter"></div>
-            </div>
+        <div id="ventu-canvas">
 
         </div>
+
+        <script>
+            function initialize() {
+                var myOptions = {
+                    zoom: 8,
+                    center: new google.maps.LatLng(51.7,4.6),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    sensor: 'true',
+                    disableDefaultUI: true,
+                    draggable: true,
+                    
+                };
+                var map = new google.maps.Map(document.getElementById("ventu-canvas"), myOptions);
+            }
+            initialize();
+        </script>
+
 
         <div class="ventu-content ventu-unselectable">
             <div class="ventu-guide ventu-guide-5 ventu-guide-top ventu-guide-big" x="50">

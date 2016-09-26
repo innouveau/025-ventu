@@ -1,18 +1,22 @@
 /* bootstrap overrides */
 
-ul.nav {
-    padding-top: 10px;
-}
-
 .navbar-default .navbar-nav > li {
-    margin-right: 8px;
+    border-left: 0.75px solid #727272;
+
 }
 
 .navbar-default .navbar-nav > li > a {
-    padding: 8px 16px;
+    padding: 24px 16px;
     font-size: 12px;
     transition: all 0.2s ease;
-    border-bottom: 2px solid transparent;
+    color: #727272;
+    height: 69px;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a.active
+{
+    background: #ddd;
 }
 
 .btn {
@@ -24,6 +28,16 @@ ul.nav {
     transition: all 0.2s ease;
 }
 
+.btn.btn-big {
+    padding: 8px 16px;
+    color: #fff;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.btn.ventu-green:hover {
+    background: #03EDAA;
+}
 
 .btn-with-icon {
     padding: 4px 12px 4px 6px;
@@ -32,15 +46,26 @@ ul.nav {
     color: #fff;
 }
 
+.btn-with-icon.btn-big span {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 9px;
+}
+
 .btn-with-icon .ventu-icon {
     padding-top: 0;
+    color: inherit;
 }
 
 .btn-with-icon:hover {
     border-radius: 0;
-    color: #1F1F1F;
 }
 
-.btn-with-icon:hover .ventu-icon {
-    color: #1F1F1F;
+.ventu-green {
+    background: #16E5A9;
+}
+
+.ventu-white {
+    background: #fff;
+    color: #1F1F1F!important;
 }

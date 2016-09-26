@@ -20,6 +20,11 @@ body {
     height: 100%;
 }
 
+.ventu-pagewrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
 
 
 @media (max-width: 1200px) {
