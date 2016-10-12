@@ -1,0 +1,337 @@
+.ventu-filter-box {
+    display: inline-block;
+    transition: all 0.3s ease;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    position: relative;
+    cursor: pointer;
+    vertical-align: top;
+
+    &:hover {
+        padding: 30px;
+    }
+
+    &:not(:first-child) {
+        margin-left: -5px;
+    }
+
+    &:nth-child(1) {
+        z-index: 4;
+    }
+
+    &:nth-child(2) {
+        z-index: 3;
+    }
+
+    &:nth-child(3) {
+        z-index: 2;
+    }
+
+    &:nth-child(4) {
+        z-index: 1;
+    }
+}
+
+
+
+.ventu-filter-box-head {
+    display: none;
+}
+
+.ventu-filter-box {
+    overflow: hidden;
+}
+
+.ventu-map {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.ventu-map-tools {
+    height: 32px;
+}
+
+.ventu-map-tools .ventu-icon {
+    color: #fff;
+}
+
+
+
+.ventu-map-circle {
+    position: absolute;
+    left: 140px;
+    top: 30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    background: rgba(0,0,0,0.4);
+    cursor: move;
+    border: 2px solid @ventu-main-grey;
+    transition: all 0.5s ease;
+}
+
+.ventu-get-locations {
+    animation-name: ventu-loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.ventu-get-locations .ventu-map-circle-handle {
+    display: none;
+}
+
+.ventu-map-circle-handle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    border: 2px solid @ventu-main-grey;
+    background: #fff;
+    content: '';
+    transition: all 0.5s ease;
+}
+
+.ventu-map-circle-handle-n {
+    top: -8px;
+    left: calc(50% - 8px);
+    cursor: ns-resize;
+}
+
+.ventu-map-circle-handle-s {
+    bottom: -8px;
+    left: calc(50% - 8px);
+    cursor: ns-resize;
+}
+
+.ventu-map-circle-handle-w {
+    top: calc(50% - 8px);
+    left: -8px;
+    cursor: ew-resize;
+}
+
+.ventu-map-circle-handle-e {
+    top: calc(50% - 8px);
+    right: -8px;
+    cursor: ew-resize;
+}
+
+/* slider */
+
+.ventu-slider {
+    padding: 27px 0 22px 0;
+}
+
+.ventu-slider .slider.slider-horizontal {
+    width: 100%;
+}
+
+.ventu-slider .slider.slider-horizontal .slider-track {
+    height: 3px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.ventu-slider .slider.slider-horizontal .slider-handle {
+    background: transparent;
+    border-radius: 0;
+    margin-top: -13px;
+}
+
+.ventu-slider .slider-track-low, .ventu-filter .slider-track-high {
+    background: #fff;
+    border-radius: 0;
+    border: 0.5px solid #1F1F1F;
+    box-shadow: none;
+}
+
+.ventu-slider .slider-selection {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.slider .tooltip.top {
+    margin-top: -34px;
+}
+
+.slider .tooltip.bottom {
+    margin-top: -4px;
+}
+
+.ventu-slider .tooltip-arrow {
+    cursor: pointer;
+}
+
+.ventu-slider .tooltip-inner {
+    border-radius: 0;
+    font-size: 9px;
+    padding: 4px 8px;
+    margin-top: 2px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/* types */
+
+.ventu-filter-type {
+    border-radius: 0;
+    font-size: 10px;
+    padding: 8px 16px 8px 36px;
+    border: @ventu-border-1;
+    color: @ventu-main-grey;
+    display: inline-block;
+    margin: 0 4px 8px 0;
+    cursor: pointer;
+    position: relative;
+    background-color: #EDEDEC;
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+    background-size: 26px;
+    opacity: 0.3;
+}
+
+.ventu-filter-type-2 {
+    padding-left: 16px;
+}
+
+.ventu-filter-type:hover, .ventu-filter-type.active {
+    border: @ventu-border-1;
+    opacity: 1;
+}
+
+.ventu-filter-type-kantoor {
+    background-image: url('../img/triangles/3.png')!important;
+}
+
+.ventu-filter-type-werkplek {
+    background-image: url('../img/triangles/2.png')!important;
+}
+
+.ventu-filter-type-bedrijfsruimte {
+    background-image: url('../img/triangles/4.png')!important;
+}
+
+.ventu-filter-type-distributie {
+    background-image: url('../img/triangles/5.png')!important;
+}
+
+.ventu-filter-type-winkel {
+    background-image: url('../img/triangles/1.png')!important;
+}
+
+.ventu-filter-type-horeca {
+    background-image: url('../img/triangles/8.png')!important;
+}
+
+.ventu-filter-type-grond {
+    background-image: url('../img/triangles/6.png')!important;
+}
+
+.ventu-filter-type-overige {
+    background-image: url('../img/triangles/7.png')!important;
+}
+
+
+@media (max-width: 1024px) {
+
+    /* filter boxes expandable */
+    .ventu-filter-box {
+        border-bottom: 1px solid #fff;
+        margin: 0;
+        padding: 0 20px 10px 20px;
+    }
+
+    .ventu-filter-box-head {
+        display: block;
+        padding: 12px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .ventu-filter-box-head:after {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        content: '';
+        font-family: 'fontAwesome';
+        font-size: 10px;
+    }
+
+    .closed > .ventu-filter-box-head:after {
+        content: '';
+    }
+
+    .ventu-filter-box-body {
+        padding-bottom: 12px;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+    .ventu-filter-box:last-child {
+        border-bottom: 1px solid @ventu-main-grey;
+    }
+
+    /* filter as overlay */
+
+    .ventu-filter {
+        position: fixed;
+        left: 0;
+        top: 60px;
+        background: #EDEDEC;
+        width: 100%;
+        z-index: 1;
+        height: auto;
+        float: none;
+        margin: 0;
+        padding-right: 0;
+        overflow: visible;
+        transition: all 0.5s ease;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    }
+
+    .ventu-filter-label {
+        display: inline-block;
+        position: absolute;
+        bottom: -36px;
+        height: 36px;
+        right: 15px;
+        padding: 4px 10px;
+        font-size: 9px;
+        background: @ventu-main-grey;
+        cursor: pointer;
+        color: #fff;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    }
+
+    .ventu-filter-label .ventu-icon {
+        color: #fff;
+    }
+
+    .ventu-filter-label .ventu-filter-label-text {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 7px;
+        margin-right: 8px;
+        white-space: nowrap;
+    }
+
+    .ventu-filter-type {
+        background-color: #fff;
+    }
+
+    .ventu-map {
+        height: 200px;
+    }
+
+}

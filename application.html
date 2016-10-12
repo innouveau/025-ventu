@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ventu</title>
+
+        <!-- less -->
+        <link rel="stylesheet/less" type="text/css" href="css/application.less" />
+        <script>
+            less = {
+                env : "development",
+                async : false,
+                fileAsync : true,
+                poll : 1000,
+                functions : {},
+                dumpLineNumbers : 'mediaquery',
+                relativeUrls : false
+            };
+        </script>
+
+        <script src="assets/less.js/dist/less-1.7.0.min.js"></script>
+
+        <!-- google maps API -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaU80wDMYEf2w7TL7Wcvoi1tPAZHUzrhA"></script>
+
+        <!-- assets -->
+        <script src="assets/jquery/jquery.min.js"></script>
+        <script src="assets/bootstrap/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.2/bootstrap-slider.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.5/hammer.js'></script>
+
+        <!-- ventu -->
+        <script src="js/event-listeners.js"></script>
+        <script src="js/models/Responsive.js"></script>
+        <script src="js/models/Card.js"></script>
+        <script src="js/models/Map.js"></script>
+        <script src="js/models/Helpers.js"></script>
+        <script src="js/models/Building.js"></script>
+        <script src="js/models/Data-service.js"></script>
+        <script src="js/models/Data-faker.js"></script>
+        <script src="js/models/Config.js"></script>
+        <script src="js/models/App.js"></script>
+        <script src="js/models/Guide.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- fake data -->
+        <script src="js/content/amsterdam.js"></script>
+    </head>
+
+    <body>
+        <div id="ventu-canvas" class="ventu-layer"></div>
+
+
+        <div id="ventu-filters">
+            <div class="ventu-filter-box">
+                Oppervlakte: 2.500 - 10.000 m²
+            </div>
+            <div class="ventu-filter-box">
+                Aanbod: Koop
+            </div>
+            <div class="ventu-filter-box">
+                Zoekcirkel: niet actief
+            </div>
+            <div class="ventu-filter-box">
+                Uitgebreid filteren: -
+            </div>
+        </div>
+
+        <div id="ventu-bottom-bar">
+            <div class="ventu-bottom-bar-sub ventu-bottom-bar-sub-love">
+                Je hebt
+                <div class="ventu-list-counter">12</div>
+                objecten in je interesselijst.
+                <a href="#">Bekijken</a>
+            </div>
+
+            <div class="ventu-bottom-bar-sub ventu-bottom-bar-sub-hate">
+                Je hebt
+                <div class="ventu-list-counter">14</div>
+                objecten in je prullenbak.
+                <a href="#">Bekijken</a>
+            </div>
+        </div>
+
+        <div id="ventu-stack"></div>
+
+
+
+
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header pull-right">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="navbar-header pull-left">
+                <a class="navbar-brand" href="application.html">
+                    <div class="ventu-identity">
+                        <img src="img/ventu-logo-small.png">
+                    </div>
+                </a>
+            </div>
+
+            <div class="navbar-header pull-left">
+                <div class="ventu-map-search">
+                    <input class="ventu-map-input" type="search" placeholder="Vind adres..." id="input-search-address" autocomplete="off">
+                    <div class="ventu-map-search-tools">
+                        <div id="btn-search-address" class="ventu-icon ventu-icon-med ventu-icon-search"></div>
+                    </div>
+                    <div class="ventu-map-search-results" id="search-address-result">
+                        <div class="ventu-map-search-result">
+                            <div class="ventu-map-search-result-text">
+                                Amsterdam (stad)
+                            </div>
+                        </div>
+                        <div class="ventu-map-search-result">
+                            <div class="ventu-map-search-result-text">
+                                Amstelveen (stad)
+                            </div>
+                        </div>
+                        <div class="ventu-map-search-result">
+                            <div class="ventu-map-search-result-text">
+                                Amstelstraat (straat)
+                            </div>
+                        </div>
+                        <div class="ventu-map-search-result">
+                            <div class="ventu-map-search-result-text">
+                                Amstelgebouw (locatie)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ventu-guide ventu-guide-1 ventu-guide-left">
+                        Tik hier adres of naam van een pand in. Als je het zoekresultaat aanklikt, verschijnt deze op de kaart.
+                    </div>
+                </div>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse pull-right">
+                <ul class="nav navbar-nav ventu-menu-buttons">
+                    <li><a href="">Menu</a></li>
+                    <li><a href="">Instellingen</a></li>
+                    <li><a href="">Inloggen</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="ventu-overlay"></div>
+
+        <!--<div class="ventu-smartphone-popup">-->
+            <!--<div class="ventu-smartphone-popup-close">-->
+                <!--<div class="ventu-icon ventu-icon-med ventu-icon-close"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+
+    </body>
+</html>

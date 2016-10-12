@@ -83,19 +83,6 @@ function filterListeners() {
 }
 
 function mapListeners() {
-    $('.ventu-map-input').focus(function(){
-        $(this).parent().addClass('active');
-        setTimeout(function(){
-            $('.ventu-map-search .ventu-icon-remove').fadeIn(50).css('display', 'inline-block');
-        }, 200);
-    });
-
-    $('.ventu-map-input').blur(function() {
-        if ($(this).val() === '') {
-            $(this).parent().removeClass('active');
-            $('.ventu-map-search .ventu-icon-remove').fadeOut(10);
-        }
-    });
 
     $('.ventu-map-input').on('input', function() {
         if ($(this).val() !== '') {

@@ -21,7 +21,7 @@ function Config(app) {
             verticalPosition :0
     };
     this.zoom = 0.2; // factor of magnification of stack
-    this.swipe = 0;
+    this.swipe = 200;
     this.sizes = {
         card: {
             width: 0,

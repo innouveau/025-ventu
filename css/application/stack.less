@@ -1,0 +1,391 @@
+#ventu-stack {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective-origin: 50% 50%;
+    -webkit-perspective-origin: 50% 50%;
+    perspective: 3600px;
+    -webkit-perspective: 3600px;
+
+    .ventu-card {
+        position: absolute;
+        right: 0;
+        top: 0;
+        opacity: 1;
+        background: #fff;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        perspective-origin: 50% 50%;
+        -webkit-perspective-origin: 50% 50%;
+        perspective: 2500px;
+        -webkit-perspective: 2500px;
+        transition: all 0.5s ease;
+        width: 500px;
+        height: 400px;
+        cursor: pointer;
+
+        &.no-transition {
+            transition: none;
+        }
+
+        .ventu-card-image {
+            width: 100%;
+            height: 60%;
+            transition: opacity 2s;
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+        }
+
+        .ventu-card-text {
+            width: 100%;
+            height: 40%;
+            padding: 30px;
+            font-weight: 300;
+
+            h3 {
+                font-weight: 100;
+                font-size: 22px;
+                line-height: 32px;
+                margin: 0;
+            }
+
+            h4 {
+                font-family: 'freight';
+                font-size: 14px;
+                line-height: 18px;
+                margin: 0;
+            }
+
+            ul {
+                padding-left: 10px;
+            }
+        }
+
+        .ventu-card-buttons {
+            height: 40px;
+            border-top: @ventu-border-1;
+            background: #fff;
+
+            .ventu-card-button {
+                width: ~'calc(100% / 3)';
+                float: left;
+                padding-top: 7px;
+                text-align: center;
+                cursor: pointer;
+                height: 100%;
+
+                .ventu-card-button-icon {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 12px;
+                    display: inline-block;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 16px;
+                    padding-top: 4px;
+                    font-family: 'ventu';
+                    margin-right: 4px;
+                    
+                    &.ventu-icon-hate {
+                        background: @ventu-color-hate;
+                    }
+
+                    &.ventu-icon-love {
+                        background: @ventu-color-love;
+                    }
+
+                    &.ventu-icon-details {
+                        background: @ventu-color-details;
+                    }
+                }
+
+                &:not(:last-child) {
+                    border-right: @ventu-border-1;
+                }
+                
+                span {
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-top: 4px;
+                }
+            }
+
+
+        }
+
+    }
+
+    .ventu-card-shade {
+        position: absolute;
+        right: 0;
+        width: 500px;
+        height: 400px;
+        transition: all 0.5s ease;
+        background-image: url('../img/shade.png');
+        background-color: transparent;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        &.no-transition {
+            transition: none;
+        }
+    }
+
+}
+
+
+
+
+
+.ventu-stack-container {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective-origin: 50% 50%;
+    -webkit-perspective-origin: 50% 50%;
+    perspective: 600px;
+    -webkit-perspective: 600px;
+    position: relative;
+}
+
+.ventu-shade, .ventu-stack-shade {
+    position: absolute;
+    opacity: 1;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective-origin: 50% 50%;
+    -webkit-perspective-origin: 50% 50%;
+    perspective: 2500px;
+    -webkit-perspective: 2500px;
+    transition: all 0.5s ease;
+    width: 500px;
+    height: 400px;
+}
+
+.ventu-stack-shade {
+    background: rgba(58,36,18,0.2);
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+    border: none;
+}
+
+.ventu-shade {
+    opacity: 0;
+    background-image: url('../img/shade.png');
+    background-color: transparent;
+    background-size: cover;
+    background-position: center center;
+    border: none;
+}
+
+.ventu-shade.current {
+    opacity: 0.8;
+
+}
+
+.ventu-card.no-transition, .ventu-shade.no-transition {
+    transition: none;
+}
+
+
+
+.ventu-card-icons {
+    opacity: 0;
+    width: 30px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: opacity 2s;
+    color: @ventu-main-grey;
+}
+
+.ventu-card.current {
+    cursor: pointer;
+    box-shadow: 0 16px 16px rgba(0,0,0,0.6);
+}
+
+.ventu-card.current .ventu-card-image, .ventu-card.current .ventu-card-icons {
+    opacity: 1;
+}
+
+
+
+
+/* love & hate */
+
+.ventu-love-button, .ventu-hate-button {
+    position: absolute;
+    z-index: 1;
+    top: 100px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: 'ventu';
+    padding-top: 12px;
+    text-align: center;
+    opacity: 0.4;
+    transition: all 0.5s ease;
+    transform: translateZ(5px); /* lift the button slightly otherwise the card overlaps it */
+}
+
+.ventu-love-button:hover, .ventu-hate-button:hover, .ventu-love-button.shine, .ventu-hate-button.shine {
+    opacity: 1;
+    transform: translateZ(20px) scale(1.3);
+}
+
+.ventu-love-button.shine, .ventu-love-button:hover {
+    background: #fff;
+}
+
+.ventu-hate-button.shine, .ventu-hate-button:hover {
+    background: #fff;
+}
+
+.ventu-love-button {
+    right: 20%;
+}
+
+.ventu-hate-button {
+    left: 20%;
+}
+
+.ventu-love-button:after {
+    content: 'L';
+}
+
+.ventu-hate-button:after {
+    content: 'H';
+}
+
+
+/* suggest */
+
+.ventu-suggest {
+    position: absolute;
+    left: calc(50% - 100px);
+    top: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    background: #FFDE00;
+    color: @ventu-main-grey;
+    opacity: 0;
+}
+
+.ventu-suggest:after {
+    position: absolute;
+    content: '';
+    bottom: -17px;
+    left: calc(50% - 12px);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 17px solid #FFDE00;
+}
+
+
+
+/* counter */
+
+.ventu-counter {
+    position: absolute;
+    left: calc(50% - 15px);
+    bottom: -8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 7px;
+    color: #fff;
+    font-size: 8px;
+}
+
+
+/* favorites */
+
+.ventu-favorites {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.ventu-favorites-icon {
+    text-align: center;
+    padding: 10px 0 10px 0;
+    position: relative;
+}
+
+.ventu-favorites-counter-container {
+    width: 100%;
+    font-size: 8px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+}
+
+.ventu-favorites-counter {
+    padding: 6px;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+
+.ventu-favorites-counter.shine {
+    padding: 10px;
+}
+
+
+@media (max-width: 1024px) {
+
+    .ventu-love-button, .ventu-hate-button {
+        display: none;
+    }
+
+    .ventu-favorites {
+        position: relative;
+        display: inline-block;
+        bottom: 0;
+        right: 0;
+    }
+
+    .ventu-favorites-icon {
+        margin-top: 13px;
+    }
+
+    .ventu-favorites-icon > img {
+        display: none;
+    }
+
+    .ventu-favorites-counter-container {
+        position: relative;
+    }
+
+    .ventu-favorites > .ventu-button {
+        padding: 2px 6px;
+        margin-left: 2px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* mobile */
+
+    h3 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .ventu-card-text {
+        padding: 20px;
+    }
+
+    .ventu-suggest {
+        top: 90px;
+    }
+
+}

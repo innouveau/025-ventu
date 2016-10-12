@@ -49,12 +49,7 @@ function setResponsiveness() {
             setMapSize();
         }
     }
-
-    $(window).resize(function(){
-        init();
-        ventu.redraw();
-    });
-
+    
     init();
 }
 
