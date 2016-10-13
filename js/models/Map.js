@@ -34,12 +34,6 @@ Map.prototype.draw = function(data) {
     }, 1000);
 };
 
-Map.prototype.getPixelCoordinates = function(mapCoordinate) {
-        
-
-};
-
-
 
 Map.prototype._drawPoly = function(data) {
     this.poly = new google.maps.Polygon({
@@ -66,6 +60,7 @@ Map.prototype._removeMarkers = function() {
     for (var i = 0, l = this.markers.length; i < l; i++) {
         this.markers[i].setMap(null);
     }
+    this.markers = [];
 };
 
 Map.prototype._placeMarkerset = function(markers) {
@@ -73,21 +68,13 @@ Map.prototype._placeMarkerset = function(markers) {
         counter = 0,
         timer;
     timer = setInterval(function(){
-            var icon = counter === 0 ? self.marker.selected : self.marker.standard;
-            self._placeMarker(markers[counter], icon);
-            counter++;
-            if (counter === markers.length) {
-                clearInterval(timer);
-            }
-        }, 100)
+        var icon = counter === 0 ? self.marker.selected : self.marker.standard,
+            marker = new Marker(self.app, self, markers[counter], icon);
+        self.markers.push(marker);
+        counter++;
+        if (counter === markers.length) {
+            clearInterval(timer);
+        }
+    }, 100)
 };
 
-Map.prototype._placeMarker = function(markerData, icon) {
-    var marker = new google.maps.Marker({
-        position: markerData.coordinates,
-        map: this.map,
-        icon: icon,
-        title: ''
-    });
-    this.markers.push(marker);
-};

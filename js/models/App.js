@@ -4,7 +4,7 @@ function App() {
     this.map = new Map(this);
     this.settings = {
         stack: {
-            n: 2
+            n: 1
         }
     };
     
@@ -40,6 +40,7 @@ App.prototype._initDomElements = function() {
     this.domElements.container = $('#ventu-stack');
     this.domElements.search = $('#input-search-address');
     this.domElements.searchResults = $('#ventu-search-result');
+    this.domElements.searchFeedback = $('.ventu-search-results-feedback');
     this.domElements.loveContainer = $('.ventu-bottom-bar-sub-love');
     this.domElements.hateContainer = $('.ventu-bottom-bar-sub-hate');
     this.domElements.loveList = $('.ventu-bottom-bar-sub-love .ventu-bottom-bar-list');

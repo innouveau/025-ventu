@@ -35,6 +35,7 @@ DataFaker.prototype.select = function(searchQuery) {
         var building = new Building(this.app, data.buildings[i]);
         this.app.objects.push(building);
     }
+    this.app.domElements.searchFeedback.html(data.buildings.length + ' objecten gevonden');
 
     this.app.map.draw(data);
     this._destroyCards();
@@ -65,7 +66,7 @@ DataFaker.prototype._destroyCards = function() {
 };
 
 DataFaker.prototype._createCards = function() {
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < this.app.settings.stack.n; i++) {
         this._createCard(this.app.objects[i], i);
     }
 };
