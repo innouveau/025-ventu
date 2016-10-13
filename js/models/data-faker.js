@@ -1,24 +1,6 @@
 function DataFaker(app) {
     this.app = app;
-    this.buildings = [
-        {
-            ImageURL: './img/kantoor.jpg',
-            city: 'Amsterdam',
-            icons: '',
-            address: 'Amstel 77',
-            VideoUrl: 'url to video',
-            DetailLinkUrl: 'www.'
-
-        }, {
-            ImageURL: './img/kantoor2.jpg',
-            city: 'Delft',
-            icons: '',
-            address: 'Taj Mahalplaats 61',
-            BrochureUrl: 'url to brochure',
-            DetailLinkUrl: 'www.'
-
-        }
-    ];
+    this.buildings = buildings;
     this.current = 0;
 }
 
@@ -43,7 +25,8 @@ DataFaker.prototype.get = function(searchQuery) {
     return {
         poly: poly,
         center: center,
-        zoom: zoom
+        zoom: zoom,
+        buildings: this.buildings
     }
 };
 

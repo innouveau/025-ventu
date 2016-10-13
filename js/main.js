@@ -24,7 +24,7 @@ $(window).ready(function(){
     // guideListeners();
     // menuListeners();
     // mapCreaters();
-    // setResponsiveness();
+    setResponsiveness();
     // createTooltips();
     ventu.init();
 

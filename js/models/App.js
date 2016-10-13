@@ -1,6 +1,5 @@
 function App() {
     this.config = new Config(this);
-    this.helpers = new Helpers(this);
     this.service = this.getService();
     this.map = new Map(this);
     
@@ -22,7 +21,7 @@ App.prototype.init = function() {
     this.initDomElements();
     this.service.init();
     var data = this.service.get('Amsterdam');
-    this.map.drawPoly(data);
+    this.drawMap(data);
 };
 
 App.prototype.initDomElements = function() {
@@ -35,6 +34,17 @@ App.prototype.getService = function() {
     } else {
         return new DataService(this);
     }
+};
+
+App.prototype.drawMap = function(data) {
+    var self = this;
+    // clear old poly
+    this.map.drawPoly(data);
+    setTimeout(function(){
+        self.map.placeMarkerset(data.buildings);
+    }, 1000);
+    // if first time
+    // launch card
 };
 
 
