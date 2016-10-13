@@ -35,26 +35,7 @@ Map.prototype.draw = function(data) {
 };
 
 Map.prototype.getPixelCoordinates = function(mapCoordinate) {
-        var scale = 1 << zoom;
-
-        var worldCoordinate = project(latLng);
-
-        var pixelCoordinate = new google.maps.Point(
-            Math.floor(worldCoordinate.x * scale),
-            Math.floor(worldCoordinate.y * scale));
-
-        var tileCoordinate = new google.maps.Point(
-            Math.floor(worldCoordinate.x * scale / TILE_SIZE),
-            Math.floor(worldCoordinate.y * scale / TILE_SIZE));
-
-        return [
-            'Chicago, IL',
-            'LatLng: ' + latLng,
-            'Zoom level: ' + zoom,
-            'World Coordinate: ' + worldCoordinate,
-            'Pixel Coordinate: ' + pixelCoordinate,
-            'Tile Coordinate: ' + tileCoordinate
-        ].join('<br>');
+        
 
 };
 
