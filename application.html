@@ -110,31 +110,12 @@
 
             <div class="navbar-header pull-left">
                 <div class="ventu-map-search">
-                    <input class="ventu-map-input" type="search" placeholder="Vind adres..." id="input-search-address" autocomplete="off">
+                    <input class="ventu-map-input" type="search" placeholder="Vind adres..." id="input-search-address" autocomplete="off" onkeyup="ventu.search(this)">
                     <div class="ventu-map-search-tools">
                         <div id="btn-search-address" class="ventu-icon ventu-icon-med ventu-icon-search"></div>
                     </div>
-                    <div class="ventu-map-search-results" id="search-address-result">
-                        <div class="ventu-map-search-result">
-                            <div class="ventu-map-search-result-text">
-                                Amsterdam (stad)
-                            </div>
-                        </div>
-                        <div class="ventu-map-search-result">
-                            <div class="ventu-map-search-result-text">
-                                Amstelveen (stad)
-                            </div>
-                        </div>
-                        <div class="ventu-map-search-result">
-                            <div class="ventu-map-search-result-text">
-                                Amstelstraat (straat)
-                            </div>
-                        </div>
-                        <div class="ventu-map-search-result">
-                            <div class="ventu-map-search-result-text">
-                                Amstelgebouw (locatie)
-                            </div>
-                        </div>
+                    <div class="ventu-map-search-results" id="ventu-search-result">
+
                     </div>
                     <div class="ventu-guide ventu-guide-1 ventu-guide-left">
                         Tik hier adres of naam van een pand in. Als je het zoekresultaat aanklikt, verschijnt deze op de kaart.

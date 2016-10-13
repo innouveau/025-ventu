@@ -1,22 +1,51 @@
 function DataFaker(app) {
     this.app = app;
-    this.buildings = buildings;
-    this.current = 0;
 }
 
-DataFaker.prototype.init = function() {
-    this.app.objects = [];
-    for (var i = 0, l = this.buildings.length; i < l; i++) {
-        var building = new Building(this.app, this.buildings[i]);
-        this.app.objects.push(building);
-        if (i < 1) {
-            var card = new Card(this.app, building);
-            this.app.cards.push(card);
-        }
+DataFaker.prototype.search = function(searchQuery) {
+    var results = this._getSearchResults(searchQuery);
+    this.app.domElements.searchResults.empty();
+    for (var i = 0, l = results.length; i < l; i++) {
+        var result = results[i],
+            element = $('<div class="ventu-map-search-result" onclick="ventu.service.select(\'' + result + '\')"><div class="ventu-map-search-result-text">' + result + '</div></div>');
+        this.app.domElements.searchResults.append(element);
     }
 };
 
-DataFaker.prototype.get = function(searchQuery) {
+DataFaker.prototype._getSearchResults = function(searchQuery) {
+    // fake data
+    return [
+        'Amsterdam (stad)',
+        'Amstelveen (stad)',
+        'Amstelstraat (straat)',
+        'Amstelgebouw (locatie)'
+    ]
+};
+
+DataFaker.prototype.select = function(searchQuery) {
+    var data = this._get(searchQuery);
+    // update menu bar
+    this.app.domElements.searchResults.empty();
+    this.app.domElements.searchResults.hide();
+    this.app.domElements.search.val(searchQuery);
+    this.app.objects = [];
+    this.app.cards = [];
+    for (var i = 0, l = data.buildings.length; i < l; i++) {
+        var building = new Building(this.app, data.buildings[i]);
+        this.app.objects.push(building);
+    }
+    this._createCard(this.app.objects[0]);
+    this.app.drawMap(data);
+};
+
+DataFaker.prototype._createCard = function(building) {
+    // todo destroy old ones?
+    var card = new Card(this.app, building);
+    this.app.cards.push(card);
+};
+
+DataFaker.prototype._get = function(searchQuery) {
+    // fake data
     // http://nominatim.openstreetmap.org/details.php?place_id=158832524
     // http://polygons.openstreetmap.fr/index.py
     var poly = amsterdam,
@@ -26,7 +55,7 @@ DataFaker.prototype.get = function(searchQuery) {
         poly: poly,
         center: center,
         zoom: zoom,
-        buildings: this.buildings
+        buildings: buildings
     }
 };
 

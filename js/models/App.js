@@ -17,15 +17,21 @@ function App() {
     this.showStackIsEmptyMessage = true;
 }
 
+App.prototype.search = function(element) {
+    var searchQuery = $(element).val();
+    this.service.search(searchQuery)
+};
+
 App.prototype.init = function() {
     this.initDomElements();
-    this.service.init();
-    var data = this.service.get('Amsterdam');
-    this.drawMap(data);
+    // fake:
+    this.service.select('Amsterdam (stad)');
 };
 
 App.prototype.initDomElements = function() {
     this.domElements.container = $('#ventu-stack');
+    this.domElements.search = $('#input-search-address');
+    this.domElements.searchResults = $('#ventu-search-result');
 };
 
 App.prototype.getService = function() {
