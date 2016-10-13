@@ -4,23 +4,55 @@ function Card(app, building) {
     this.element = null;
     this.shade = null;
     this.hammer = null;
+    this.buttons = {
+        love: null,
+        hate: null,
+        detail: null
+    };
     this.create();
     this.addListener();
-    //this.float();
 }
 
 Card.prototype.create = function() {
-    var content = this.building.getContent(),
-        card = $('<div class="ventu-card">' +
-            '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url(' + content.image + ')"></div>' +
-            '<div class="ventu-card-text">' + content.text.head + '</div>' +
-            '<div class="ventu-card-buttons"><div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-hate"><div class="ventu-ripple"></div></div><span>niet interessant</span></div><div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>laat details zien</span></div><div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-love"><div class="ventu-ripple"></div></div><span>interessant</span></div></div>' +
-            '<div class="ventu-card-icons"></div></div>'),
-        shade = $('<div class="ventu-card-shade"></div>');
+    var self = this,
+        content = this.building.getContent(),
+        card,
+        buttonBar,
+        shade;
+
+    card = $('<div class="ventu-card">' +
+        '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url(' + content.image + ')"></div>' +
+        '<div class="ventu-card-text">' + content.text.head + '</div>');
+    buttonBar = $('<div class="ventu-card-buttons"></div>');
+    this.buttons.love = $('<div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-love"><div class="ventu-ripple"></div></div><span>interessant</span></div>');
+    this.buttons.hate = $('<div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-hate"><div class="ventu-ripple"></div></div><span>niet interessant</span></div>');
+    this.buttons.detail = $('<div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>laat details zien</span></div>');
+    this.buttons.love.click(function(){
+
+    });
+    buttonBar.append(this.buttons.hate);
+    buttonBar.append(this.buttons.detail);
+    buttonBar.append(this.buttons.love);
+    card.append(buttonBar);
+
+    // bind actions to buttons
+    (function(self) {
+        self.buttons.love.on('click', function () {
+            self.love();
+        });
+        self.buttons.hate.on('click', function () {
+            self.hate();
+        });
+        self.buttons.detail.on('click', function () {
+            self.detail();
+        });
+    })(self);
+
+    shade = $('<div class="ventu-card-shade"></div>');
     this.app.domElements.container.append(card);
     this.app.domElements.container.prepend(shade);
     this.element = card;
-    this.setTransform(shade, 0,100,-100,0,0,1,1);
+    this.setTransform(shade, 0,100,-100,0,0,0,1,1);
     this.shade = shade;
 };
 
@@ -60,16 +92,16 @@ Card.prototype.addListener = function() {
 
 Card.prototype.float = function() {
     var self = this;
-    this.element.removeClass('no-transition');
     this.element.addClass('ventu-card-float');
+    this.shade.addClass('ventu-card-shade-float');
     setTimeout(function(){
         self._clearfloat();
     }, 4000)
 };
 
 Card.prototype._clearfloat = function() {
-    this.element.addClass('no-transition');
     this.element.removeClass('ventu-card-float');
+    this.shade.removeClass('ventu-card-shade-float');
 };
 
 Card.prototype.release = function() {
@@ -96,6 +128,7 @@ Card.prototype.release = function() {
     this.shade.removeClass('no-transition');
     this.setTransform(this.element,0,0,0,0,0,0,1,1);
     this.setTransform(this.shade,0,100,-100,0,0,0,1,1);
+    this._releaseContainers();
 };
 
 Card.prototype.love = function (dx, dy) {
@@ -146,32 +179,23 @@ Card.prototype.hate = function(dx, dy) {
 };
 
 Card.prototype.suggest = function(dx, dy) {
-    // var text,
-    //     power;
-    // // detect direction
-    // if (Math.abs(dx) > dy) {
-    //     if (dx > 0) {
-    //         text = this.app.service.translate('VindIkLeuk')
-    //     } else {
-    //         text = this.app.service.translate('LaatLinksLiggen');
-    //     }
-    //     power = dx / this.app.config.swipe;
-    // } else {
-    //     function completed(resourceValue) {
-    //         text = resourceValue;
-    //     }
-    //     text = this.app.service.translate('IkWilDetailsZien');
-    //     power = dy / this.app.config.swipe;
-    // }
-    // power = Math.abs(power);
-    // power -= 0.4;
-    // if (power > 1) { power = 1; }
-    // else if (power < 0) { power = 0; }
-    //
-    // this.domElements.suggest.html(text);
-    // this.domElements.suggest.css('opacity', power);
+    if (Math.abs(dx) > dy) {
+        if (dx > 0) {
+            this.app.domElements.loveContainer.addClass('selected');
+            this.app.domElements.hateContainer.removeClass('selected');
+        } else {
+            this.app.domElements.hateContainer.addClass('selected');
+            this.app.domElements.loveContainer.removeClass('selected');
+        }
+    } else {
+        this._releaseContainers();
+    }
 };
 
+Card.prototype._releaseContainers = function (){
+    this.app.domElements.hateContainer.removeClass('selected');
+    this.app.domElements.loveContainer.removeClass('selected');
+};
 
 Card.prototype.moveCard = function(card, love) {
     var transform,

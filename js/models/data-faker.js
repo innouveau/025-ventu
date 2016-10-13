@@ -23,7 +23,8 @@ DataFaker.prototype._getSearchResults = function(searchQuery) {
 };
 
 DataFaker.prototype.select = function(searchQuery) {
-    var data = this._get(searchQuery);
+    var self = this,
+        data = this._get(searchQuery);
     // update menu bar
     this.app.domElements.searchResults.empty();
     this.app.domElements.searchResults.hide();
@@ -34,14 +35,22 @@ DataFaker.prototype.select = function(searchQuery) {
         var building = new Building(this.app, data.buildings[i]);
         this.app.objects.push(building);
     }
-    this._createCard(this.app.objects[0]);
-    this.app.drawMap(data);
+
+    this.app.map.draw(data);
+    setTimeout(function(){
+        self._createCard(self.app.objects[0]);
+    }, 2000);
+
 };
 
 DataFaker.prototype._createCard = function(building) {
     // todo destroy old ones?
     var card = new Card(this.app, building);
     this.app.cards.push(card);
+    // if first time:
+    setTimeout(function(){
+        card.float();
+    }, 1000);
 };
 
 DataFaker.prototype._get = function(searchQuery) {

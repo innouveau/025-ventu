@@ -32,6 +32,8 @@ App.prototype.initDomElements = function() {
     this.domElements.container = $('#ventu-stack');
     this.domElements.search = $('#input-search-address');
     this.domElements.searchResults = $('#ventu-search-result');
+    this.domElements.loveContainer = $('.ventu-bottom-bar-sub-love');
+    this.domElements.hateContainer = $('.ventu-bottom-bar-sub-hate');
 };
 
 App.prototype.getService = function() {
@@ -40,17 +42,6 @@ App.prototype.getService = function() {
     } else {
         return new DataService(this);
     }
-};
-
-App.prototype.drawMap = function(data) {
-    var self = this;
-    // clear old poly
-    this.map.drawPoly(data);
-    setTimeout(function(){
-        self.map.placeMarkerset(data.buildings);
-    }, 1000);
-    // if first time
-    // launch card
 };
 
 

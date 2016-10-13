@@ -6,6 +6,7 @@ function Map(app) {
         standard: './img/markers/standard-marker.png',
         selected: './img/markers/selected-marker.png'
     };
+    this.markers = [];
     this.init();
 }
 
@@ -22,7 +23,18 @@ Map.prototype.init = function() {
     this.map = new google.maps.Map(document.getElementById("ventu-canvas"), myOptions);
 };
 
-Map.prototype.drawPoly = function(data) {
+
+Map.prototype.draw = function(data) {
+    var self = this;
+    this._removePoly();
+    this._removeMarkers();
+    this._drawPoly(data);
+    setTimeout(function(){
+        self._placeMarkerset(data.buildings);
+    }, 1000);
+};
+
+Map.prototype._drawPoly = function(data) {
     this.poly = new google.maps.Polygon({
         paths: data.poly,
         strokeColor: 'transparent',
@@ -36,11 +48,23 @@ Map.prototype.drawPoly = function(data) {
     this.map.setZoom(data.zoom);
 };
 
-Map.prototype.placeMarkerset = function(markers) {
+Map.prototype._removePoly = function(markers) {
+    if (this.poly) {
+        this.poly.setMap(null);
+    }
+};
+
+
+Map.prototype._removeMarkers = function() {
+    for (var i = 0, l = this.markers.length; i < l; i++) {
+        this.markers[i].setMap(null);
+    }
+};
+
+Map.prototype._placeMarkerset = function(markers) {
     var self = this,
         counter = 0,
         timer;
-    this.clearMarkers();
     timer = setInterval(function(){
             var icon = counter === 0 ? self.marker.selected : self.marker.standard;
             self._placeMarker(markers[counter], icon);
@@ -58,9 +82,5 @@ Map.prototype._placeMarker = function(markerData, icon) {
         icon: icon,
         title: ''
     });
-
-};
-
-Map.prototype.clearMarkers = function(marker) {
-
+    this.markers.push(marker);
 };
