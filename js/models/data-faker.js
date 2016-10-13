@@ -2,47 +2,13 @@ function DataFaker(app) {
     this.app = app;
 }
 
-DataFaker.prototype.search = function(searchQuery) {
-    var results = this._getSearchResults(searchQuery);
-    this.app.domElements.searchResults.empty();
-    for (var i = 0, l = results.length; i < l; i++) {
-        var result = results[i],
-            element = $('<div class="ventu-map-search-result" onclick="ventu.service.select(\'' + result + '\')"><div class="ventu-map-search-result-text">' + result + '</div></div>');
-        this.app.domElements.searchResults.append(element);
-    }
-};
-
-DataFaker.prototype._getSearchResults = function(searchQuery) {
-    // fake data
+DataFaker.prototype.getSearchResults = function(searchQuery) {
     return [
         'Amsterdam (stad)',
         'Amstelveen (stad)',
         'Amstelstraat (straat)',
         'Amstelgebouw (locatie)'
     ]
-};
-
-DataFaker.prototype.select = function(searchQuery) {
-    var self = this,
-        data = this._get(searchQuery);
-    // update menu bar
-    this.app.domElements.searchResults.empty();
-    this.app.domElements.searchResults.hide();
-    this.app.domElements.search.val(searchQuery);
-    this.app.objects = [];
-    this.app.cards = [];
-    for (var i = 0, l = data.buildings.length; i < l; i++) {
-        var building = new Building(this.app, data.buildings[i]);
-        this.app.objects.push(building);
-    }
-    this.app.domElements.searchFeedback.html(data.buildings.length + ' objecten gevonden');
-
-    this.app.map.draw(data);
-    this._destroyCards();
-    setTimeout(function(){
-        self._createCards();
-    }, 2000);
-
 };
 
 DataFaker.prototype.getList = function(type) {
@@ -58,33 +24,7 @@ DataFaker.prototype.getList = function(type) {
     }
 };
 
-DataFaker.prototype._destroyCards = function() {
-    for (var i = 0, l = this.app.cards.length; i < l; i++) {
-        this.app.cards[i].destroy();
-    }
-    this.app.cards = [];
-};
-
-DataFaker.prototype._createCards = function() {
-    for (var i = 0; i < this.app.settings.stack.n; i++) {
-        this._createCard(this.app.objects[i], i);
-    }
-};
-
-DataFaker.prototype._createCard = function(building, index) {
-    // todo destroy old ones?
-    var card = new Card(this.app, building, index);
-    this.app.cards.push(card);
-    // if first time:
-    if (index === 0) {
-        setTimeout(function () {
-            card.float();
-        }, 1000);
-    }
-};
-
-DataFaker.prototype._get = function(searchQuery) {
-    // fake data
+DataFaker.prototype.getSelectResults = function(searchQuery) {
     // http://nominatim.openstreetmap.org/details.php?place_id=158832524
     // http://polygons.openstreetmap.fr/index.py
     var poly = amsterdam,
@@ -97,8 +37,6 @@ DataFaker.prototype._get = function(searchQuery) {
         buildings: buildings
     }
 };
-
-
 
 DataFaker.prototype.translate = function(string) {
     // no need to translate in development modus

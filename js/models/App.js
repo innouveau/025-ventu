@@ -24,16 +24,10 @@ function App() {
     this.showStackIsEmptyMessage = true;
 }
 
-App.prototype.search = function(element) {
-    var searchQuery = $(element).val();
-    this.service.search(searchQuery)
-};
-
 App.prototype.init = function() {
     this._initDomElements();
     this._appendLists();
-    // fake:
-    this.service.select('Amsterdam (stad)');
+    this.select('Amsterdam (stad)');
 };
 
 App.prototype._initDomElements = function() {
@@ -48,6 +42,77 @@ App.prototype._initDomElements = function() {
     this.domElements.loveCounter = $('.ventu-bottom-bar-sub-love .ventu-list-counter');
     this.domElements.hateCounter = $('.ventu-bottom-bar-sub-hate .ventu-list-counter');
 };
+
+
+
+// search
+
+App.prototype.search = function(element) {
+    var searchQuery = $(element).val(),
+        results = this.service.getSearchResults(searchQuery);
+    this.domElements.searchResults.empty();
+    for (var i = 0, l = results.length; i < l; i++) {
+        var result = results[i],
+            resultElement = $('<div class="ventu-map-search-result" onclick="ventu.select(\'' + result + '\')"><div class="ventu-map-search-result-text">' + result + '</div></div>');
+        this.domElements.searchResults.append(resultElement);
+    }
+};
+
+
+
+// select
+
+App.prototype.select = function(searchQuery) {
+    var self = this,
+        data = this.service.getSelectResults(searchQuery);
+    this._updateMenuBar(searchQuery, data.buildings.length);
+    this.objects = [];
+    for (var i = 0, l = data.buildings.length; i < l; i++) {
+        var building = new Building(this, data.buildings[i]);
+        this.objects.push(building);
+    }
+    this.map.draw(data);
+    this._destroyCards();
+    setTimeout(function(){
+        self._createCards();
+    }, 2000);
+};
+
+App.prototype._updateMenuBar = function(searchQuery, n) {
+    this.domElements.searchResults.empty();
+    this.domElements.searchResults.hide();
+    this.domElements.search.val(searchQuery);
+    this.domElements.searchFeedback.html(n + ' objecten gevonden');
+};
+
+App.prototype._destroyCards = function() {
+    for (var i = 0, l = this.cards.length; i < l; i++) {
+        this.cards[i].destroy();
+    }
+    this.cards = [];
+};
+
+App.prototype._createCards = function() {
+    for (var i = 0; i < this.settings.stack.n; i++) {
+        this._createCard(this.objects[i], i);
+    }
+};
+
+App.prototype._createCard = function(building, index) {
+    var card = new Card(this, building, index);
+    this.cards.push(card);
+    // if first time:
+    if (index === 0) {
+        setTimeout(function () {
+            card.float();
+        }, 1000);
+    }
+};
+
+
+
+
+// bottom-bar
 
 App.prototype._appendLists = function() {
     this.loveList = this.service.getList('love');
