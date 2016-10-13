@@ -1,18 +1,20 @@
 function App() {
     this.config = new Config(this);
-    this.service = this.getService();
+    this.service = this._getService();
     this.map = new Map(this);
     
     
     this.domElements = {};
-    
+
     this.hammertime = null;
     this.timer = null;
 
     this.cards = []; // objects represented as a html card
     this.objects = [];
-    this.favObjects = [];
-    this.hateObjects = [];
+    this.loveList = [];
+    this.hateList = [];
+
+
     this.currentObjectIndex = 0;
     this.showStackIsEmptyMessage = true;
 }
@@ -23,20 +25,43 @@ App.prototype.search = function(element) {
 };
 
 App.prototype.init = function() {
-    this.initDomElements();
+    this._initDomElements();
+    this._appendLists();
     // fake:
     this.service.select('Amsterdam (stad)');
 };
 
-App.prototype.initDomElements = function() {
+App.prototype._initDomElements = function() {
     this.domElements.container = $('#ventu-stack');
     this.domElements.search = $('#input-search-address');
     this.domElements.searchResults = $('#ventu-search-result');
     this.domElements.loveContainer = $('.ventu-bottom-bar-sub-love');
     this.domElements.hateContainer = $('.ventu-bottom-bar-sub-hate');
+    this.domElements.loveList = $('.ventu-bottom-bar-sub-love .ventu-bottom-bar-list');
+    this.domElements.hateList = $('.ventu-bottom-bar-sub-hate .ventu-bottom-bar-list');
+    this.domElements.loveCounter = $('.ventu-bottom-bar-sub-love .ventu-list-counter');
+    this.domElements.hateCounter = $('.ventu-bottom-bar-sub-hate .ventu-list-counter');
 };
 
-App.prototype.getService = function() {
+App.prototype._appendLists = function() {
+    this.loveList = this.service.getList('love');
+    this._appendList(this.loveList, this.domElements.loveList);
+    this.domElements.loveCounter.html(this.loveList.length);
+    this.hateList = this.service.getList('hate');
+    this._appendList(this.hateList, this.domElements.hateList);
+    this.domElements.hateCounter.html(this.hateList.length);
+};
+
+App.prototype._appendList = function(list, parent) {
+    for (var i = 0, l = list.length; i < l; i++) {
+        var item = list[i],
+            content = item.getContent(),
+            element = $('<div class="ventu-bottom-bar-list-item" style="background-image: url(' + content.image + ')"></div>');
+        parent.append(element)
+    }
+};
+
+App.prototype._getService = function() {
     if (window.ventuConfig.environment.development) {
         return new DataFaker(this);
     } else {

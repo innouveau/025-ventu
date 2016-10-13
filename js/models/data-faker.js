@@ -43,6 +43,19 @@ DataFaker.prototype.select = function(searchQuery) {
 
 };
 
+DataFaker.prototype.getList = function(type) {
+    if (type === 'love') {
+        var list = buildings.slice(1,4),
+            toModel = [];
+        for (var i = 0, l = list.length; i < l; i++) {
+            toModel.push(new Building(this.app, list[i]));
+        }
+        return toModel;
+    } else {
+        return [];
+    }
+};
+
 DataFaker.prototype._createCard = function(building) {
     // todo destroy old ones?
     var card = new Card(this.app, building);
