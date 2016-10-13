@@ -1,6 +1,8 @@
-function Card(app, building) {
+function Card(app, building, index) {
     this.app = app;
     this.building = building;
+    this.index = index;
+    this.rotate = index === 0 ? 0 : 15 * Math.random() - 7.5;
     this.element = null;
     this.shade = null;
     this.hammer = null;
@@ -49,10 +51,11 @@ Card.prototype.create = function() {
     })(self);
 
     shade = $('<div class="ventu-card-shade"></div>');
+    this.app.domElements.container.append(shade);
     this.app.domElements.container.append(card);
-    this.app.domElements.container.prepend(shade);
+    this.setTransform(card, 0,0,0,0,0,0,1,1);
+    this.setTransform(shade, 50,100,-50,0,0,0,1,1);
     this.element = card;
-    this.setTransform(shade, 0,100,-100,0,0,0,1,1);
     this.shade = shade;
 };
 
@@ -108,7 +111,7 @@ Card.prototype.release = function() {
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
     this.setTransform(this.element,0,0,0,0,0,1,1);
-    this.setTransform(this.shade,0,100,-100,0,0,1,1);
+    this.setTransform(this.shade,50,100,-50,0,0,1,1);
 };
 
 Card.prototype.drag = function(dx, dy) {
@@ -120,14 +123,14 @@ Card.prototype.drag = function(dx, dy) {
     this.element.addClass('no-transition');
     this.shade.addClass('no-transition');
     this.setTransform(this.element, x,y,0,rotX,rotY, rotZ, 1,1);
-    this.setTransform(this.shade, 0.5*x,0.5*y + 100,-100,0,0,0.5*rotZ,(1 - Math.abs(x/1000)), (1 - Math.abs(y/1000)));
+    this.setTransform(this.shade, 0.5*x+50,0.5*y + 100,-50,0,0,0.5*rotZ,(1 - Math.abs(x/1000)), (1 - Math.abs(y/1000)));
 };
 
 Card.prototype.release = function() {
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
     this.setTransform(this.element,0,0,0,0,0,0,1,1);
-    this.setTransform(this.shade,0,100,-100,0,0,0,1,1);
+    this.setTransform(this.shade,0,50,-50,0,0,0,1,1);
     this._releaseContainers();
 };
 
@@ -230,16 +233,20 @@ Card.prototype.moveCard = function(card, love) {
     self.domElements.hateButton.removeClass('shine');
 };
 
+Card.prototype.destroy = function() {
+    this.element.remove();
+    this.shade.remove();
+};
 
 
 
 Card.prototype._getTransform = function(x, y, z, rotX, rotY, rotZ, scaleX, scaleY) {
-    return 'translateZ(' + z + 'px) ' +
+    return 'translateZ(' + (z - this.index * 100) + 'px) ' +
         'translateY(' + y + 'px) ' +
         'translateX(' + x + 'px) ' +
         'rotateX(' + rotX + 'deg) ' +
         'rotateY(' + rotY + 'deg) ' +
-        'rotateZ(' + rotZ + 'deg) ' +
+        'rotateZ(' + (rotZ + this.rotate) + 'deg) ' +
         'scale(' + scaleX + ',' + scaleY + ')';
 };
 

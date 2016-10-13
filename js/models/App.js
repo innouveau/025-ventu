@@ -2,6 +2,11 @@ function App() {
     this.config = new Config(this);
     this.service = this._getService();
     this.map = new Map(this);
+    this.settings = {
+        stack: {
+            n: 2
+        }
+    };
     
     
     this.domElements = {};

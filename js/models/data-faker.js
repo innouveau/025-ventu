@@ -37,8 +37,9 @@ DataFaker.prototype.select = function(searchQuery) {
     }
 
     this.app.map.draw(data);
+    this._destroyCards();
     setTimeout(function(){
-        self._createCard(self.app.objects[0]);
+        self._createCards();
     }, 2000);
 
 };
@@ -56,14 +57,29 @@ DataFaker.prototype.getList = function(type) {
     }
 };
 
-DataFaker.prototype._createCard = function(building) {
+DataFaker.prototype._destroyCards = function() {
+    for (var i = 0, l = this.app.cards.length; i < l; i++) {
+        this.app.cards[i].destroy();
+    }
+    this.app.cards = [];
+};
+
+DataFaker.prototype._createCards = function() {
+    for (var i = 0; i < 3; i++) {
+        this._createCard(this.app.objects[i], i);
+    }
+};
+
+DataFaker.prototype._createCard = function(building, index) {
     // todo destroy old ones?
-    var card = new Card(this.app, building);
+    var card = new Card(this.app, building, index);
     this.app.cards.push(card);
     // if first time:
-    setTimeout(function(){
-        card.float();
-    }, 1000);
+    if (index === 0) {
+        setTimeout(function () {
+            card.float();
+        }, 1000);
+    }
 };
 
 DataFaker.prototype._get = function(searchQuery) {
