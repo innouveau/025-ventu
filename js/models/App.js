@@ -64,15 +64,21 @@ App.prototype.search = function(element) {
 
 App.prototype.select = function(searchQuery) {
     var self = this,
-        data = this.service.getSelectResults(searchQuery);
+        data = this.service.getSelectResults(searchQuery),
+        firstMarker;
     this._updateMenuBar(searchQuery, data.buildings.length);
     this.objects = [];
     for (var i = 0, l = data.buildings.length; i < l; i++) {
         var building = new Building(this, data.buildings[i]);
         this.objects.push(building);
     }
-    this.map.draw(data);
     this._destroyCards();
+    // 1. redraw map
+    this.map.draw(data);
+    // 2. launch marker as card
+    
+    
+    // 3. show cards
     setTimeout(function(){
         self._createCards();
     }, 2000);

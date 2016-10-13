@@ -29,8 +29,10 @@ Map.prototype.draw = function(data) {
     this._removePoly();
     this._removeMarkers();
     this._drawPoly(data);
+    this._createMarkers(data.buildings);
+    
     setTimeout(function(){
-        self._placeMarkerset(data.buildings);
+        self._showMarkers();
     }, 1000);
 };
 
@@ -63,16 +65,22 @@ Map.prototype._removeMarkers = function() {
     this.markers = [];
 };
 
-Map.prototype._placeMarkerset = function(markers) {
+Map.prototype._createMarkers = function(markers) {
+    for (var i = 0, l = markers.length; i < l; i++) {
+        var icon = i === 0 ? this.marker.selected : this.marker.standard,
+            marker = new Marker(this.app, this, markers[i], icon);
+        this.markers.push(marker);
+    }
+};
+
+Map.prototype._showMarkers = function() {
     var self = this,
         counter = 0,
         timer;
     timer = setInterval(function(){
-        var icon = counter === 0 ? self.marker.selected : self.marker.standard,
-            marker = new Marker(self.app, self, markers[counter], icon);
-        self.markers.push(marker);
+        self.markers[counter].show();
         counter++;
-        if (counter === markers.length) {
+        if (counter === self.markers.length) {
             clearInterval(timer);
         }
     }, 100)

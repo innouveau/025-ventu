@@ -14,6 +14,11 @@ Marker.prototype.create = function() {
         icon: this.icon,
         title: ''
     });
+    this.marker.setVisible(false)
+};
+
+Marker.prototype.show = function() {
+    this.marker.setVisible(true);
 };
 
 
