@@ -1,6 +1,8 @@
-function Card(app, building, index) {
+function Card(app, building, marker, index, launchType) {
     this.app = app;
     this.building = building;
+    this.marker = marker;
+    this.launchType = launchType;
     this.index = index;
     this.rotate = index === 0 ? 0 : 15 * Math.random() - 7.5;
     this.element = null;
@@ -11,17 +13,17 @@ function Card(app, building, index) {
         hate: null,
         detail: null
     };
-    this.create();
-    this.addListener();
+    this._create(launcher);
+    this._addListener();
 }
 
-Card.prototype.create = function() {
+Card.prototype._create = function(launcher) {
     var self = this,
         content = this.building.getContent(),
         card,
         buttonBar,
-        shade;
-
+        shade,
+        thisTransform = launcher ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
     card = $('<div class="ventu-card">' +
         '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url(' + content.image + ')"></div>' +
         '<div class="ventu-card-text">' + content.text.head + '</div>');
@@ -35,6 +37,8 @@ Card.prototype.create = function() {
     buttonBar.append(this.buttons.hate);
     buttonBar.append(this.buttons.detail);
     buttonBar.append(this.buttons.love);
+    shade = $('<div class="ventu-card-shade"></div>');
+
     card.append(buttonBar);
 
     // bind actions to buttons
@@ -49,49 +53,68 @@ Card.prototype.create = function() {
             self.detail();
         });
     })(self);
-
-    shade = $('<div class="ventu-card-shade"></div>');
-    this.app.domElements.container.append(shade);
-    this.app.domElements.container.append(card);
-    this.setTransform(card, 0,0,0,0,0,0,1,1);
-    this.setTransform(shade, 50,100,-50,0,0,0,1,1);
+    this._setTransform(card, thisTransform);
+    this._setTransform(shade, this._projectShade(thisTransform));
+    card.hide();
+    shade.hide();
     this.element = card;
     this.shade = shade;
+    this.app.domElements.stack.append(shade);
+    this.app.domElements.stack.append(card);
 };
 
-Card.prototype.addListener = function() {
+Card.prototype.launch = function() {
     var self = this;
-    this.hammer = Hammer(this.element[0]);
+    this.element.show();
+    this.shade.show();
 
-    this.hammer.on('drag', function (event) {
-        if (event != null && event.gesture !== null) {
-            var dx = event.gesture.deltaX,
-                dy = event.gesture.deltaY;
-            self.suggest(dx, dy);
-            self.drag(dx, dy);
-        }
-    });
-
-    this.hammer.on('release', function(event) {
-        if (event != null && event.gesture !== null) {
-            var dx = event.gesture.deltaX,
-                dy = event.gesture.deltaY;
-            //self.domElements.suggest.css('opacity', 0);
-
-            if (dx > self.app.config.swipe) {
-                self.love(dx, dy);
-            } else if (dx < -self.app.config.swipe) {
-                self.hate(dx, dy);
-            } else {
-                if (dy > 200) {
-                    self.seeDetail();
-                } else {
-                    self.release();
-                }
-            }
-        }
-    });
+    switch (this.launchType) {
+        case 0:
+            this.element.addClass('slow-transition');
+            this.shade.addClass('slow-transition');
+            // launch
+            setTimeout(function () {
+                self.toOrigin();
+            }, 100);
+            // float
+            setTimeout(function () {
+                self.float();
+            }, 2200);
+            setTimeout(function () {
+                self._launchNext();
+            }, 3200);
+            break;
+        case 1:
+            this._launchNext();
+            break;
+        case 2:
+            this.float();
+            setTimeout(function () {
+                self._launchNext();
+            }, 2200);
+    }
 };
+
+Card.prototype._launchNext = function() {
+    var next = this._next();
+    if (next) {
+        next.launch();
+    }
+};
+
+Card.prototype._next = function() {
+    var parent = this.app.map,
+        index = parent.cards.indexOf(this);
+    if (parent.cards[index + 1]) {
+        return parent.cards[index + 1];
+    } else {
+        return null;
+    }
+};
+
+
+
+// moves
 
 Card.prototype.float = function() {
     var self = this;
@@ -107,12 +130,6 @@ Card.prototype._clearfloat = function() {
     this.shade.removeClass('ventu-card-shade-float');
 };
 
-Card.prototype.release = function() {
-    this.element.removeClass('no-transition');
-    this.shade.removeClass('no-transition');
-    this.setTransform(this.element,0,0,0,0,0,1,1);
-    this.setTransform(this.shade,50,100,-50,0,0,1,1);
-};
 
 Card.prototype.drag = function(dx, dy) {
     var x = dx,
@@ -122,23 +139,23 @@ Card.prototype.drag = function(dx, dy) {
         rotZ = dx / 20;
     this.element.addClass('no-transition');
     this.shade.addClass('no-transition');
-    this.setTransform(this.element, x,y,0,rotX,rotY, rotZ, 1,1);
-    this.setTransform(this.shade, 0.5*x+50,0.5*y + 100,-50,0,0,0.5*rotZ,(1 - Math.abs(x/1000)), (1 - Math.abs(y/1000)));
+    this._setTransform(this.element, [x, y, 0, rotX, rotY, rotZ, 1, 1]);
+    this._setTransform(this.shade, [0.5*x+50, 0.5*y+100, -50, 0, 0, 0.5*rotZ, (1 - Math.abs(x/1000)), (1 - Math.abs(y/1000))]);
 };
 
-Card.prototype.release = function() {
+Card.prototype.toOrigin = function() {
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
-    this.setTransform(this.element,0,0,0,0,0,0,1,1);
-    this.setTransform(this.shade,0,50,-50,0,0,0,1,1);
+    this._setTransform(this.element, [0,0,0,0,0,0,1,1]);
+    this._setTransform(this.shade, [0,50,-50,0,0,0,1,1]);
     this._releaseContainers();
 };
 
 Card.prototype.love = function (dx, dy) {
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
-    this.setTransform(this.element,100,600,-200,0,0,0, 0.5,0.5);
-    this.setTransform(this.shade,100,550,-200,0,0,0, 0.5,0.5);
+    this._setTransform(this.element, [100,600,-200,0,0,0, 0.5,0.5]);
+    this._setTransform(this.shade, [100,550,-200,0,0,0, 0.5,0.5]);
 
     // var currentObject = this.objects[this.currentObjectIndex];
     // if (currentObject) {
@@ -162,8 +179,8 @@ Card.prototype.love = function (dx, dy) {
 Card.prototype.hate = function(dx, dy) {
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
-    this.setTransform(this.element,-100,600,-200,0,0,0, 0.5,0.5);
-    this.setTransform(this.shade,-100,550,-200,0,0,0, 0.5,0.5);
+    this._setTransform(this.element, [-100,600,-200,0,0,0, 0.5,0.5]);
+    this._setTransform(this.shade, [-100,550,-200,0,0,0, 0.5,0.5]);
 
     // var currentObject = this.objects[this.currentObjectIndex];
     // if (currentObject) {
@@ -200,39 +217,6 @@ Card.prototype._releaseContainers = function (){
     this.app.domElements.loveContainer.removeClass('selected');
 };
 
-Card.prototype.moveCard = function(card, love) {
-    var transform,
-        shade = this.domElements.shadeCurrent,
-        textElement = card.find('.ventu-card-text'),
-        self = this;
-    if (love) {
-        transform = 'rotateX(80deg) translateZ(-700px) translateY(-300px) translateX(1200px)';
-    } else {
-        transform = 'rotateX(0) rotateY(-10deg) translateZ(-100px) translateY(500px) translateX(-2000px)';
-    }
-    //card.removeClass('current');
-    if (this.app.config.shade.active) {
-        shade.removeClass('no-transition current');
-    }
-    card.addClass('ventu-removing');
-    //textElement.fadeOut(50);
-    card.css({
-        transition: 'all 0.6s ease-in, opacity 1s',
-        opacity: 0
-    });
-    this.setTransform(card, transform);
-    setTimeout(function () {
-        card.remove();
-        if (self.app.config.shade.active) {
-            shade.remove();
-        }
-
-    }, 500);
-    self.domElements.suggest.css('opacity', 0);
-    self.domElements.loveButton.removeClass('shine');
-    self.domElements.hateButton.removeClass('shine');
-};
-
 Card.prototype.destroy = function() {
     this.element.remove();
     this.shade.remove();
@@ -240,23 +224,87 @@ Card.prototype.destroy = function() {
 
 
 
-Card.prototype._getTransform = function(x, y, z, rotX, rotY, rotZ, scaleX, scaleY) {
-    return 'translateZ(' + (z - this.index * 100) + 'px) ' +
-        'translateY(' + y + 'px) ' +
-        'translateX(' + x + 'px) ' +
-        'rotateX(' + rotX + 'deg) ' +
-        'rotateY(' + rotY + 'deg) ' +
-        'rotateZ(' + (rotZ + this.rotate) + 'deg) ' +
-        'scale(' + scaleX + ',' + scaleY + ')';
+// helpers
+
+Card.prototype._getMarkerTransform = function() {
+    var firstMarker = this.marker,
+        position = firstMarker.getPixelCoordinates(),
+        windowWidth = $(window).outerWidth(),
+        markerWidth = 48,
+        cardWidth = 500,
+        padding = 40,
+        translateX = windowWidth - padding - (0.5 * cardWidth) - position.x - 1,
+        translateY = padding,
+        scale = markerWidth / cardWidth;
+    return [-translateX, -translateY, 0, 0, 0, 0, scale, scale];
 };
 
-Card.prototype.setTransform = function(element, x, y, z, rotX, rotY, rotZ, scaleX, scaleY) {
-    var transform = this._getTransform(x, y, z, rotX, rotY, rotZ, scaleX, scaleY);
+
+
+Card.prototype._getTransform = function(transform) {
+    return 'translateZ(' + (transform[2] - this.index * 100) + 'px) ' +
+        'translateY(' + transform[1] + 'px) ' +
+        'translateX(' + transform[0] + 'px) ' +
+        'rotateX(' + transform[3] + 'deg) ' +
+        'rotateY(' + transform[4] + 'deg) ' +
+        'rotateZ(' + (transform[5] + this.rotate) + 'deg) ' +
+        'scale(' + transform[6] + ',' + transform[7] + ')';
+};
+
+Card.prototype._setTransform = function(element, trnsf) {
+    var transform = this._getTransform(trnsf);
     element.css({
         "webkitTransform": transform,
         "MozTransform": transform,
         "msTransform": transform,
         "OTransform": transform,
         "transform": transform
+    });
+};
+
+Card.prototype._projectShade = function(transform) {
+    return [
+        0.8 * transform[0] + 50,
+        0.8 * transform[1] + 100,
+        transform[2],
+        0,
+        0,
+        0,
+        transform[6],
+        transform[7]
+    ];
+};
+
+Card.prototype._addListener = function() {
+    var self = this;
+    this.hammer = Hammer(this.element[0]);
+
+    this.hammer.on('drag', function (event) {
+        if (event != null && event.gesture !== null) {
+            var dx = event.gesture.deltaX,
+                dy = event.gesture.deltaY;
+            self.suggest(dx, dy);
+            self.drag(dx, dy);
+        }
+    });
+
+    this.hammer.on('release', function(event) {
+        if (event != null && event.gesture !== null) {
+            var dx = event.gesture.deltaX,
+                dy = event.gesture.deltaY;
+            //self.domElements.suggest.css('opacity', 0);
+
+            if (dx > self.app.config.swipe) {
+                self.love(dx, dy);
+            } else if (dx < -self.app.config.swipe) {
+                self.hate(dx, dy);
+            } else {
+                if (dy > 200) {
+                    self.seeDetail();
+                } else {
+                    self.toOrigin();
+                }
+            }
+        }
     });
 };

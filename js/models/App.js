@@ -31,7 +31,7 @@ App.prototype.init = function() {
 };
 
 App.prototype._initDomElements = function() {
-    this.domElements.container = $('#ventu-stack');
+    this.domElements.stack = $('#ventu-stack');
     this.domElements.search = $('#input-search-address');
     this.domElements.searchResults = $('#ventu-search-result');
     this.domElements.searchFeedback = $('.ventu-search-results-feedback');
@@ -64,25 +64,19 @@ App.prototype.search = function(element) {
 
 App.prototype.select = function(searchQuery) {
     var self = this,
-        data = this.service.getSelectResults(searchQuery),
-        firstMarker;
+        data = this.service.getSelectResults(searchQuery);
     this._updateMenuBar(searchQuery, data.buildings.length);
     this.objects = [];
     for (var i = 0, l = data.buildings.length; i < l; i++) {
         var building = new Building(this, data.buildings[i]);
         this.objects.push(building);
     }
-    this._destroyCards();
-    // 1. redraw map
+    
+  
     this.map.draw(data);
-    // 2. launch marker as card
     
-    
-    // 3. show cards
-    setTimeout(function(){
-        self._createCards();
-    }, 2000);
 };
+
 
 App.prototype._updateMenuBar = function(searchQuery, n) {
     this.domElements.searchResults.empty();
@@ -91,29 +85,6 @@ App.prototype._updateMenuBar = function(searchQuery, n) {
     this.domElements.searchFeedback.html(n + ' objecten gevonden');
 };
 
-App.prototype._destroyCards = function() {
-    for (var i = 0, l = this.cards.length; i < l; i++) {
-        this.cards[i].destroy();
-    }
-    this.cards = [];
-};
-
-App.prototype._createCards = function() {
-    for (var i = 0; i < this.settings.stack.n; i++) {
-        this._createCard(this.objects[i], i);
-    }
-};
-
-App.prototype._createCard = function(building, index) {
-    var card = new Card(this, building, index);
-    this.cards.push(card);
-    // if first time:
-    if (index === 0) {
-        setTimeout(function () {
-            card.float();
-        }, 1000);
-    }
-};
 
 
 
@@ -192,8 +163,8 @@ App.prototype._getService = function() {
 //     this.config.sizes.body.width = $('body').outerWidth();
 //     this.config.sizes.body.height = $('body').outerHeight();
 //     this.config.sizes.container = {
-//         width: this.domElements.container.outerWidth(),
-//         height: this.domElements.container.outerHeight()
+//         width: this.domElements.stack.outerWidth(),
+//         height: this.domElements.stack.outerHeight()
 //     };
 //     this.sizeCards();
 //     this.positionStack();
@@ -292,7 +263,7 @@ App.prototype._getService = function() {
 //     if (before) {
 //         card.insertBefore(this.domElements.last);
 //     } else {
-//         this.domElements.container.append(card);
+//         this.domElements.stack.append(card);
 //     }
 //
 // };
@@ -730,7 +701,7 @@ App.prototype._getService = function() {
 //         stackShade = $('<div class="ventu-stack-shade"></div>');
 //     $('.ventu-stack-shade').remove();
 //     this.helpers.setCSStransform(stackShade, transform);
-//     this.domElements.container.append(stackShade);
+//     this.domElements.stack.append(stackShade);
 //     this.domElements.stackShade = stackShade;
 // };
 //
@@ -739,7 +710,7 @@ App.prototype._getService = function() {
 //         shade = $('<div class="ventu-shade next"></div>');
 //     $('.ventu-shade.next').remove();
 //     this.helpers.setCSStransform(shade, transform);
-//     this.domElements.container.prepend(shade);
+//     this.domElements.stack.prepend(shade);
 //     this.domElements.shadeNext = shade;
 // };
 //

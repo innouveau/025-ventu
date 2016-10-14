@@ -1,12 +1,13 @@
 function Map(app) {
     this.app = app;
-    this.poly = null;
-    this.map = null;
-    this.marker = {
+    this.icon = {
         standard: './img/markers/standard-marker.png',
         selected: './img/markers/selected-marker.png'
     };
+    this.map = null;
+    this.poly = null;
     this.markers = [];
+    this.cards = [];
     this.init();
 }
 
@@ -28,14 +29,24 @@ Map.prototype.draw = function(data) {
     var self = this;
     this._removePoly();
     this._removeMarkers();
+    this._removeCards();
     this._drawPoly(data);
     this._createMarkers(data.buildings);
+    this._createCards();
     
     setTimeout(function(){
         self._showMarkers();
     }, 1000);
+
+    setTimeout(function(){
+        // init launch cascade
+        self.cards[0].launch();
+    }, 2000);
 };
 
+
+
+// poly
 
 Map.prototype._drawPoly = function(data) {
     this.poly = new google.maps.Polygon({
@@ -58,6 +69,9 @@ Map.prototype._removePoly = function(markers) {
 };
 
 
+
+// markers
+
 Map.prototype._removeMarkers = function() {
     for (var i = 0, l = this.markers.length; i < l; i++) {
         this.markers[i].setMap(null);
@@ -67,7 +81,7 @@ Map.prototype._removeMarkers = function() {
 
 Map.prototype._createMarkers = function(markers) {
     for (var i = 0, l = markers.length; i < l; i++) {
-        var icon = i === 0 ? this.marker.selected : this.marker.standard,
+        var icon = i === 0 ? this.icon.selected : this.icon.standard,
             marker = new Marker(this.app, this, markers[i], icon);
         this.markers.push(marker);
     }
@@ -85,4 +99,32 @@ Map.prototype._showMarkers = function() {
         }
     }, 100)
 };
+
+
+
+// cards
+
+Map.prototype._removeCards = function() {
+    for (var i = 0, l = this.cards.length; i < l; i++) {
+        this.cards[i].destroy();
+    }
+    this.cards = [];
+};
+
+Map.prototype._createCards = function() {
+    for (var i = 0; i < this.app.settings.stack.n; i++) {
+        this._createCard(this.app.objects[i], i);
+    }
+};
+
+Map.prototype._createCard = function(building, index) {
+    var card,
+        launcher = 1;
+    if (index === 0) {
+        launcher = 0;
+    }
+    card = new Card(this, building, this.markers[index], index, launcher);
+    this.cards.push(card);
+};
+
 

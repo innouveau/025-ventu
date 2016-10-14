@@ -21,15 +21,15 @@ Marker.prototype.show = function() {
     this.marker.setVisible(true);
 };
 
-
 Marker.prototype.getPixelCoordinates = function(marker) {
+    console.log(this.parent.map.getBounds());
     var scale = Math.pow(2, this.parent.map.getZoom()),
         nw = new google.maps.LatLng(
             this.parent.map.getBounds().getNorthEast().lat(),
             this.parent.map.getBounds().getSouthWest().lng()
         ),
         worldCoordinateNW = this.parent.map.getProjection().fromLatLngToPoint(nw),
-        worldCoordinate = this.parent.map.getProjection().fromLatLngToPoint(marker.getPosition());
+        worldCoordinate = this.parent.map.getProjection().fromLatLngToPoint(this.marker.getPosition());
     return {
         x: Math.floor((worldCoordinate.x - worldCoordinateNW.x) * scale),
         y: Math.floor((worldCoordinate.y - worldCoordinateNW.y) * scale)

@@ -106,7 +106,7 @@ function whatScreen(){
 function measureCard() {
     var width = Math.round(0.4 * $(window).outerWidth() - 80),
         height = Math.round(width * 0.8);
-    injectStyles('.ventu-card, .ventu-card-shade { height: ' + height + 'px; width: ' + width + 'px;}');
+    //injectStyles('.ventu-card, .ventu-card-shade { height: ' + height + 'px; width: ' + width + 'px;}');
 }
 
 
@@ -114,4 +114,4 @@ function injectStyles(rule) {
     var div = $('<div />', {
         html: '&shy;<style>' + rule + '</style>'
     }).appendTo('body');
-};
+}
