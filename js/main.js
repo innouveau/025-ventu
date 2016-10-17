@@ -1,7 +1,8 @@
 $(window).ready(function(){
 
     window.environment = {
-        development: true
+        development: true,
+        intro: false
     };
 
     document.ontouchmove = function(event){
