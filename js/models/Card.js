@@ -10,8 +10,7 @@ function Card(app, building, marker, index, launchType) {
     this.hammer = null;
     this.buttons = {
         love: null,
-        hate: null,
-        detail: null
+        hate: null
     };
     this._create();
     this._addListener();
@@ -25,16 +24,15 @@ Card.prototype._create = function() {
         shade;
     card = $('<div class="ventu-card">' +
         '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url(' + content.image + ')"></div>' +
-        '<div class="ventu-card-text">' + content.text.head + '</div>');
+        '<div class="ventu-card-text"><h3>' + content.text.head + '</h3>' +
+        '<a href="' + content.text.detailLinkUrl + '">Lees meer</a></div>');
     buttonBar = $('<div class="ventu-card-buttons"></div>');
     this.buttons.love = $('<div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-love"><div class="ventu-ripple"></div></div><span>interessant</span></div>');
     this.buttons.hate = $('<div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-hate"><div class="ventu-ripple"></div></div><span>niet interessant</span></div>');
-    this.buttons.detail = $('<div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>laat details zien</span></div>');
     this.buttons.love.click(function(){
 
     });
     buttonBar.append(this.buttons.hate);
-    buttonBar.append(this.buttons.detail);
     buttonBar.append(this.buttons.love);
     shade = $('<div class="ventu-card-shade"></div>');
 
@@ -48,15 +46,11 @@ Card.prototype._create = function() {
         self.buttons.hate.on('click', function () {
             self.hate();
         });
-        self.buttons.detail.on('click', function () {
-            self.detail();
-        });
     })(self);
     card.hide();
     shade.hide();
     this.element = card;
     this.shade = shade;
-    console.log(this.app);
     this.app.domElements.stack.append(shade);
     this.app.domElements.stack.append(card);
 };

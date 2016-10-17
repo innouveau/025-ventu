@@ -1,11 +1,26 @@
 function DataService(app) {
     this.app = app;
+    this.filter = {
+        area : {
+            min: 2500,
+            max: 10000
+        },
+        offer: ['Koop', 'Huur'],
+        searchCircle: {
+            active: false,
+            km: 1
+        }
+    }
 }
 
 DataService.prototype.init = function() {
 
 };
 
+
+DataService.prototype.filterUpdate = function() {
+    
+};
 
 DataService.prototype.translate = function(string) {
     function completed(resourceValue) {

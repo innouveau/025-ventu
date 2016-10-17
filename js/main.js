@@ -21,12 +21,15 @@ $(window).ready(function(){
 
 
     // listeners
+    filterListeners();
     mapListeners();
     // guideListeners();
     // menuListeners();
     // mapCreaters();
     setResponsiveness();
     // createTooltips();
+
+
     ventu.init();
 
 });

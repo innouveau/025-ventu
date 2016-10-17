@@ -1,5 +1,16 @@
 function DataFaker(app) {
     this.app = app;
+    this.filter = {
+        area : {
+            min: 2500,
+            max: 10000
+        },
+        offer: ['Koop', 'Huur'],
+        searchCircle: {
+            active: false,
+            km: 1
+        }
+    }
 }
 
 DataFaker.prototype.getSearchResults = function(searchQuery) {
@@ -9,6 +20,10 @@ DataFaker.prototype.getSearchResults = function(searchQuery) {
         'Amstelstraat (straat)',
         'Amstelgebouw (locatie)'
     ]
+};
+
+DataFaker.prototype.filterUpdate = function() {
+
 };
 
 DataFaker.prototype.getList = function(type) {
