@@ -13,17 +13,16 @@ function Card(app, building, marker, index, launchType) {
         hate: null,
         detail: null
     };
-    this._create(launcher);
+    this._create();
     this._addListener();
 }
 
-Card.prototype._create = function(launcher) {
+Card.prototype._create = function() {
     var self = this,
         content = this.building.getContent(),
         card,
         buttonBar,
-        shade,
-        thisTransform = launcher ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
+        shade;
     card = $('<div class="ventu-card">' +
         '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url(' + content.image + ')"></div>' +
         '<div class="ventu-card-text">' + content.text.head + '</div>');
@@ -53,18 +52,20 @@ Card.prototype._create = function(launcher) {
             self.detail();
         });
     })(self);
-    this._setTransform(card, thisTransform);
-    this._setTransform(shade, this._projectShade(thisTransform));
     card.hide();
     shade.hide();
     this.element = card;
     this.shade = shade;
+    console.log(this.app);
     this.app.domElements.stack.append(shade);
     this.app.domElements.stack.append(card);
 };
 
 Card.prototype.launch = function() {
-    var self = this;
+    var self = this,
+        thisTransform = this.launchType === 0 ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
+    this._setTransform(this.element, thisTransform);
+    this._setTransform(this.shade, this._projectShade(thisTransform));
     this.element.show();
     this.shade.show();
 
@@ -81,6 +82,8 @@ Card.prototype.launch = function() {
                 self.float();
             }, 2200);
             setTimeout(function () {
+                self.element.removeClass('slow-transition');
+                self.shade.removeClass('slow-transition');
                 self._launchNext();
             }, 3200);
             break;
@@ -147,7 +150,7 @@ Card.prototype.toOrigin = function() {
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
     this._setTransform(this.element, [0,0,0,0,0,0,1,1]);
-    this._setTransform(this.shade, [0,50,-50,0,0,0,1,1]);
+    this._setTransform(this.shade, [0,50,-50,0,0,0,1.5,1]);
     this._releaseContainers();
 };
 
@@ -155,7 +158,7 @@ Card.prototype.love = function (dx, dy) {
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
     this._setTransform(this.element, [100,600,-200,0,0,0, 0.5,0.5]);
-    this._setTransform(this.shade, [100,550,-200,0,0,0, 0.5,0.5]);
+    this._setTransform(this.shade, [100,550,-200,0,0,0, 0.75,0.5]);
 
     // var currentObject = this.objects[this.currentObjectIndex];
     // if (currentObject) {
@@ -180,7 +183,7 @@ Card.prototype.hate = function(dx, dy) {
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
     this._setTransform(this.element, [-100,600,-200,0,0,0, 0.5,0.5]);
-    this._setTransform(this.shade, [-100,550,-200,0,0,0, 0.5,0.5]);
+    this._setTransform(this.shade, [-100,550,-200,0,0,0, 0.75,0.5]);
 
     // var currentObject = this.objects[this.currentObjectIndex];
     // if (currentObject) {
@@ -227,8 +230,7 @@ Card.prototype.destroy = function() {
 // helpers
 
 Card.prototype._getMarkerTransform = function() {
-    var firstMarker = this.marker,
-        position = firstMarker.getPixelCoordinates(),
+    var position = this.marker.getPixelCoordinates(),
         windowWidth = $(window).outerWidth(),
         markerWidth = 48,
         cardWidth = 500,
@@ -271,7 +273,7 @@ Card.prototype._projectShade = function(transform) {
         0,
         0,
         transform[6],
-        transform[7]
+        1.5 * transform[7]
     ];
 };
 

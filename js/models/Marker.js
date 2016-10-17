@@ -22,7 +22,6 @@ Marker.prototype.show = function() {
 };
 
 Marker.prototype.getPixelCoordinates = function(marker) {
-    console.log(this.parent.map.getBounds());
     var scale = Math.pow(2, this.parent.map.getZoom()),
         nw = new google.maps.LatLng(
             this.parent.map.getBounds().getNorthEast().lat(),

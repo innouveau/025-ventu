@@ -123,7 +123,7 @@ Map.prototype._createCard = function(building, index) {
     if (index === 0) {
         launcher = 0;
     }
-    card = new Card(this, building, this.markers[index], index, launcher);
+    card = new Card(this.app, building, this.markers[index], index, launcher);
     this.cards.push(card);
 };
 
