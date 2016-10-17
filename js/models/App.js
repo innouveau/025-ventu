@@ -41,6 +41,8 @@ App.prototype._initDomElements = function() {
     this.domElements.hateList = $('.ventu-bottom-bar-sub-hate .ventu-bottom-bar-list');
     this.domElements.loveCounter = $('.ventu-bottom-bar-sub-love .ventu-list-counter');
     this.domElements.hateCounter = $('.ventu-bottom-bar-sub-hate .ventu-list-counter');
+    this.domElements.loveCatcher = $('.ventu-bottom-bar-sub-love .ventu-bottom-bar-catcher');
+    this.domElements.hateCatcher = $('.ventu-bottom-bar-sub-hate .ventu-bottom-bar-catcher');
 };
 
 
@@ -104,7 +106,7 @@ App.prototype._appendList = function(list, parent) {
     for (var i = 0, l = list.length; i < l; i++) {
         var item = list[i],
             content = item.getContent(),
-            element = $('<div class="ventu-bottom-bar-list-item" style="background-image: url(' + content.image + ')"></div>');
+            element = $('<div class="ventu-bottom-bar-list-item"><div class="ventu-bottom-bar-list-item-image" style="background-image: url(' + content.image + ')"></div></div>');
         parent.append(element)
     }
 };

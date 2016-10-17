@@ -23,7 +23,7 @@ Card.prototype._create = function() {
         buttonBar,
         shade;
     card = $('<div class="ventu-card">' +
-        '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url(' + content.image + ')"></div>' +
+        '<div class="ventu-card-image" style="background-image:url(' + content.image + ')"></div>' +
         '<div class="ventu-card-text"><h3>' + content.text.head + '</h3>' +
         '<a href="' + content.text.detailLinkUrl + '">Lees meer</a></div>');
     buttonBar = $('<div class="ventu-card-buttons"></div>');
@@ -149,10 +149,26 @@ Card.prototype.toOrigin = function() {
 };
 
 Card.prototype.love = function (dx, dy) {
+    var self = this,
+        config = this.app.config,
+        love = config.sizes.bottomBar.love,
+        scale = love.width / config.sizes.card.width,
+        transform = [love.x,love.y,0,0,0,0,scale,scale];
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
-    this._setTransform(this.element, [100,600,-200,0,0,0, 0.5,0.5]);
-    this._setTransform(this.shade, [100,550,-200,0,0,0, 0.75,0.5]);
+    this._setTransform(this.element, transform);
+    this._setTransform(this.shade, transform);
+    this.element.find('.ventu-card-text').fadeOut(500);
+    this.element.find('.ventu-card-buttons').fadeOut(500);
+    setTimeout(function(){
+        self._setTransform(self.element, [0,0,0,0,0,0,1,1]);
+        self.app.domElements.loveCatcher.append(self.element);
+        self.shade.remove();
+        self.app.domElements.loveContainer.removeClass('selected');
+    }, 800);
+
+
+
 
     // var currentObject = this.objects[this.currentObjectIndex];
     // if (currentObject) {
@@ -163,46 +179,39 @@ Card.prototype.love = function (dx, dy) {
     //
     // this.objects.splice(this.currentObjectIndex, 1);
     // this.currentObjectIndex = 0;
-    //
-    // var card = $('.ventu-card.current');
-    // this.moveCard(card, true);
-    // this.cards--;
-    // this.favorites++;
-    // this.shine();
-    // this.count(this.cards);
-    // this.setCurrent();
+
 };
 
 Card.prototype.hate = function(dx, dy) {
+    var self = this,
+        config = this.app.config,
+        hate = config.sizes.bottomBar.hate,
+        scale = hate.width / config.sizes.card.width,
+        transform = [hate.x,hate.y,0,0,0,0,scale,scale];
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
-    this._setTransform(this.element, [-100,600,-200,0,0,0, 0.5,0.5]);
-    this._setTransform(this.shade, [-100,550,-200,0,0,0, 0.75,0.5]);
-
-    // var currentObject = this.objects[this.currentObjectIndex];
-    // if (currentObject) {
-    //     this.app.service.post('DislikeObject', currentObject.UniqueId);
-    //     this.app.hateObjects.unshift(this.objects[this.objects.length - 1]);
-    // }
-    //
-    // this.objects.splice(this.currentObjectIndex, 1);
-    // this.currentObjectIndex = 0;
-    //
-    // var card = $('.ventu-card.current');
-    // this.moveCard(card, false);
-    // this.cards--;
-    // this.count(this.cards);
-    // this.setCurrent();
+    this._setTransform(this.element, transform);
+    this._setTransform(this.shade, transform);
+    this.element.find('.ventu-card-text').fadeOut(500);
+    this.element.find('.ventu-card-buttons').fadeOut(500);
+    setTimeout(function(){
+        self._setTransform(self.element, [0,0,0,0,0,0,1,1]);
+        self.app.domElements.hateCatcher.append(self.element);
+        self.shade.remove();
+        self.app.domElements.hateContainer.removeClass('selected');
+    }, 800);
 };
 
 Card.prototype.suggest = function(dx, dy) {
     if (Math.abs(dx) > dy) {
-        if (dx > 0) {
+        if (dx > this.app.config.swipe) {
             this.app.domElements.loveContainer.addClass('selected');
             this.app.domElements.hateContainer.removeClass('selected');
-        } else {
+        } else if (dx < -this.app.config.swipe) {
             this.app.domElements.hateContainer.addClass('selected');
             this.app.domElements.loveContainer.removeClass('selected');
+        } else {
+            this._releaseContainers();
         }
     } else {
         this._releaseContainers();

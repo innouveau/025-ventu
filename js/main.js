@@ -2,7 +2,7 @@ $(window).ready(function(){
 
     window.environment = {
         development: true,
-        intro: false
+        intro: true
     };
 
     document.ontouchmove = function(event){
