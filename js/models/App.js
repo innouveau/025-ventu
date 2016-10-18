@@ -1,8 +1,14 @@
-function App() {
+function App(page) {
+    this.page = page;
     this.config = new Config(this);
     this.service = this._getService();
-    this.map = new Map(this);
-    this.domElements = {};
+    this.map = null;
+    this.domElements = {
+        search: $('#input-search-address'),
+        searchResults: $('#ventu-search-result'),
+        searchFeedback: $('.ventu-search-results-feedback'),
+        dynamicContent: $('#dynamic-content')
+    };
     this.list = {
         found: [],
         love: null,
@@ -11,12 +17,10 @@ function App() {
 }
 
 App.prototype.init = function() {
+    this.map = new Map(this);
     this._initDomElements();
     this.list.love = new List(this, 'love', 'Interesselijst');
     this.list.hate = new List(this, 'hate', 'Prullenbak');
-    if (window.environment.autostart) {
-        this.select('Amsterdam (stad)');
-    }
 };
 
 
@@ -30,9 +34,6 @@ App.prototype._getService = function() {
 
 App.prototype._initDomElements = function() {
     this.domElements.stack = $('#ventu-stack');
-    this.domElements.search = $('#input-search-address');
-    this.domElements.searchResults = $('#ventu-search-result');
-    this.domElements.searchFeedback = $('.ventu-search-results-feedback');
     this.domElements.bottomBar = $('#ventu-bottom-bar');
 };
 
@@ -57,14 +58,36 @@ App.prototype.search = function(element) {
 
 App.prototype.select = function(searchQuery) {
     var self = this,
-        data = this.service.getSelectResults(searchQuery);
-    this._updateMenuBar(searchQuery, data.buildings.length);
-    this.objects = [];
-    for (var i = 0, l = data.buildings.length; i < l; i++) {
-        var building = new Building(this, data.buildings[i]);
-        this.objects.push(building);
+        searchData = this.service.getSelectResults(searchQuery);
+
+    function callback(searchData) {
+        self._updateMenuBar(searchQuery, searchData.buildings.length);
+        self.objects = [];
+        for (var i = 0, l = searchData.buildings.length; i < l; i++) {
+            var building = new Building(self, searchData.buildings[i]);
+            self.objects.push(building);
+        }
+        self.map.draw(searchData);
     }
-    this.map.draw(data);
+
+    if (this.page !== 'application') {
+        // ajax transition to application
+        $.get('./application.html').done(function(result){
+            var html = $(result).filter('#application-content').children();
+            self.domElements.dynamicContent.html(html);
+            filterListeners();
+            self.init();
+            $('body').addClass('ventu-application');
+            self.page = 'application';
+            callback(searchData);
+        });
+
+    } else {
+        callback(searchData);
+    }
+
+
+
 };
 
 

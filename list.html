@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ventu</title>
+
+    <!-- less -->
+    <link rel="stylesheet/less" type="text/css" href="css/main.less" />
+    <script>
+        less = {
+            env : "development",
+            async : false,
+            fileAsync : true,
+            poll : 1000,
+            functions : {},
+            dumpLineNumbers : 'mediaquery',
+            relativeUrls : false
+        };
+    </script>
+
+    <script src="assets/less.js/dist/less-1.7.0.min.js"></script>
+
+    <!-- google maps API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaU80wDMYEf2w7TL7Wcvoi1tPAZHUzrhA"></script>
+
+    <!-- assets -->
+    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="assets/bootstrap/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.2/bootstrap-slider.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.5/hammer.js'></script>
+
+    <!-- ventu -->
+    <script src="js/dom/filter.js"></script>
+    <script src="js/dom/listeners.js"></script>
+
+    <script src="js/models/Responsive.js"></script>
+    <script src="js/models/Card.js"></script>
+    <script src="js/models/Map.js"></script>
+    <script src="js/models/Marker.js"></script>
+    <script src="js/models/Building.js"></script>
+    <script src="js/models/Data-service.js"></script>
+    <script src="js/models/Data-faker.js"></script>
+    <script src="js/models/Config.js"></script>
+    <script src="js/models/Guide.js"></script>
+    <script src="js/models/List.js"></script>
+    <script src="js/models/App.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/list.js"></script>
+
+
+    <!-- fake data -->
+    <script src="js/content/buildings.js"></script>
+    <script src="js/content/amsterdam.js"></script>
+</head>
+
+<body class="ventu-list">
+
+<div id="ventu-canvas"></div>
+
+<div id="ventu-list-content">
+
+    <div id="ventu-list-menu">
+        <b>Interesselijst.</b> Je hebt 11 objecten die je interessant vindt. Sorteer op:
+    </div>
+
+    <div id="ventu-list-listing">
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Bentickstraat 61</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor2.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Clifforstraat 9</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor3.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Van Reenenstraat 8</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor4.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Van Beuningenplein 1</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor5.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Van Beuningenplein 5</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor8.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Van Beuningenplein 43</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor6.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>De Kempenaerstraat 16</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor7.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Van Reenenstraat 9</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor4.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Van Boetzelaarstraat 1a</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor5.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Bentickstraat 89</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor8.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Cliffordstraat 20</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor6.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Van der Hoopstraat 12-14</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ventu-card ventu-mini-card">
+            <div class="ventu-card-image" style="background-image:url(./img/kantoor7.jpg)"></div>
+            <div class="ventu-card-text">
+                <h3>Van Hallstraat 8</h3>
+                <a href="www.">Lees meer</a>
+            </div>
+            <div class="ventu-card-buttons">
+                <div class="ventu-card-button">
+                    <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header pull-right">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    <div class="navbar-header pull-left">
+        <a class="navbar-brand" href="./">
+            <div class="ventu-identity">
+                <img src="img/ventu-logo-small.png">
+            </div>
+        </a>
+    </div>
+
+    <div class="navbar-header pull-left">
+        <div class="ventu-map-search">
+            <input class="ventu-map-input" type="search" placeholder="Vind adres..." id="input-search-address" autocomplete="off" onkeyup="ventu.search(this)">
+            <div class="ventu-map-search-tools">
+                <div id="btn-search-address" class="ventu-icon ventu-icon-med ventu-icon-search"></div>
+            </div>
+            <div class="ventu-map-search-results" id="ventu-search-result">
+
+            </div>
+        </div>
+        <div class="ventu-search-results-feedback"></div>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse pull-right">
+        <ul class="nav navbar-nav ventu-menu-buttons">
+            <li><a href="">Menu</a></li>
+            <li><a href="">Instellingen</a></li>
+            <li><a href="">Inloggen</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="ventu-overlay"></div>
+
+</body>
+</html>

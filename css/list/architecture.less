@@ -1,0 +1,49 @@
+body.ventu-list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+
+    #ventu-canvas {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40%;
+        height: 100%;
+    }
+
+    #ventu-list-content {
+        position: absolute;
+        right: 0;
+        top: 63px;
+        width: 60%;
+        height: ~'calc(100% - 63px)';
+        background: #fff;
+        border-left: @ventu-border-1;
+
+        #ventu-list-menu {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            height: 63px;
+            width: 100%;
+            background: #fff;
+            box-shadow: @ventu-box-shadow-1;
+            padding: 24px 30px;
+        }
+
+        #ventu-list-listing {
+            position: absolute;
+            left: 0;
+            top: 63px;
+            height: ~'calc(100% - 63px)';
+            width: 100%;
+            overflow: auto;
+            padding: 30px;
+        }
+    }
+}
+
+

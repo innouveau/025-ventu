@@ -21,7 +21,7 @@ List.prototype._create = function() {
     this.element.counter = $('<div class="ventu-list-counter">x</div>');
     header.append('Je hebt ');
     header.append(this.element.counter);
-    header.append(' objecten in je <i>' + this.title + '</i>. <a href="#">Bekijken</a>');
+    header.append(' objecten in je <i>' + this.title + '</i>. <a href="list.html">Bekijken</a>');
     this.element.main.append(header);
     this.element.main.append(this.element.catcher);
     this.element.main.append(this.element.list);
