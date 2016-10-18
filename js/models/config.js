@@ -17,6 +17,7 @@ function Config(app) {
         }
     };
     this.stack = {
+        n: 1,
         offset: 4, // pixels vertical offset inside stack
             verticalPosition :0
     };
@@ -48,8 +49,6 @@ Config.prototype._getBottomBarSizes = function() {
         hateX = -(rightBottomBar + marginBottomBar + halfCatcherWidth - cardRight),
         width = catcherWidth,
         height = catcherHeight;
-    console.log(loveX);
-    console.log(hateX);
     return {
         love: {
             x: loveX,

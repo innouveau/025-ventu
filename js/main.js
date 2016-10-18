@@ -2,7 +2,7 @@ $(window).ready(function(){
 
     window.environment = {
         development: true,
-        intro: true
+        intro: false
     };
 
     document.ontouchmove = function(event){
@@ -20,18 +20,8 @@ $(window).ready(function(){
     window.ventu = new App();
 
 
-    // listeners
     filterListeners();
-    mapListeners();
-    // guideListeners();
-    // menuListeners();
-    // mapCreaters();
-    setResponsiveness();
-    // createTooltips();
-
 
     ventu.init();
 
 });
-
-

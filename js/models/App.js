@@ -2,32 +2,28 @@ function App() {
     this.config = new Config(this);
     this.service = this._getService();
     this.map = new Map(this);
-    this.settings = {
-        stack: {
-            n: 1
-        }
-    };
-    
-    
     this.domElements = {};
-
-    this.hammertime = null;
-    this.timer = null;
-
-    this.cards = []; // objects represented as a html card
-    this.objects = [];
-    this.loveList = [];
-    this.hateList = [];
-
-
-    this.currentObjectIndex = 0;
-    this.showStackIsEmptyMessage = true;
+    this.list = {
+        found: [],
+        love: null,
+        hate: null
+    };
 }
 
 App.prototype.init = function() {
     this._initDomElements();
-    this._appendLists();
+    this.list.love = new List(this, 'love', 'Interesselijst');
+    this.list.hate = new List(this, 'hate', 'Prullenbak');
     this.select('Amsterdam (stad)');
+};
+
+
+App.prototype._getService = function() {
+    if (window.ventuConfig.environment.development) {
+        return new DataFaker(this);
+    } else {
+        return new DataService(this);
+    }
 };
 
 App.prototype._initDomElements = function() {
@@ -35,14 +31,7 @@ App.prototype._initDomElements = function() {
     this.domElements.search = $('#input-search-address');
     this.domElements.searchResults = $('#ventu-search-result');
     this.domElements.searchFeedback = $('.ventu-search-results-feedback');
-    this.domElements.loveContainer = $('.ventu-bottom-bar-sub-love');
-    this.domElements.hateContainer = $('.ventu-bottom-bar-sub-hate');
-    this.domElements.loveList = $('.ventu-bottom-bar-sub-love .ventu-bottom-bar-list');
-    this.domElements.hateList = $('.ventu-bottom-bar-sub-hate .ventu-bottom-bar-list');
-    this.domElements.loveCounter = $('.ventu-bottom-bar-sub-love .ventu-list-counter');
-    this.domElements.hateCounter = $('.ventu-bottom-bar-sub-hate .ventu-list-counter');
-    this.domElements.loveCatcher = $('.ventu-bottom-bar-sub-love .ventu-bottom-bar-catcher');
-    this.domElements.hateCatcher = $('.ventu-bottom-bar-sub-hate .ventu-bottom-bar-catcher');
+    this.domElements.bottomBar = $('#ventu-bottom-bar');
 };
 
 
@@ -73,10 +62,7 @@ App.prototype.select = function(searchQuery) {
         var building = new Building(this, data.buildings[i]);
         this.objects.push(building);
     }
-    
-  
     this.map.draw(data);
-    
 };
 
 
@@ -91,33 +77,6 @@ App.prototype._updateMenuBar = function(searchQuery, n) {
 
 
 
-// bottom-bar
-
-App.prototype._appendLists = function() {
-    this.loveList = this.service.getList('love');
-    this._appendList(this.loveList, this.domElements.loveList);
-    this.domElements.loveCounter.html(this.loveList.length);
-    this.hateList = this.service.getList('hate');
-    this._appendList(this.hateList, this.domElements.hateList);
-    this.domElements.hateCounter.html(this.hateList.length);
-};
-
-App.prototype._appendList = function(list, parent) {
-    for (var i = 0, l = list.length; i < l; i++) {
-        var item = list[i],
-            content = item.getContent(),
-            element = $('<div class="ventu-bottom-bar-list-item"><div class="ventu-bottom-bar-list-item-image" style="background-image: url(' + content.image + ')"></div></div>');
-        parent.append(element)
-    }
-};
-
-App.prototype._getService = function() {
-    if (window.ventuConfig.environment.development) {
-        return new DataFaker(this);
-    } else {
-        return new DataService(this);
-    }
-};
 
 
 

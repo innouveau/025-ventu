@@ -112,7 +112,7 @@ Map.prototype._removeCards = function() {
 };
 
 Map.prototype._createCards = function() {
-    for (var i = 0; i < this.app.settings.stack.n; i++) {
+    for (var i = 0; i < this.app.config.stack.n; i++) {
         this._createCard(this.app.objects[i], i);
     }
 };

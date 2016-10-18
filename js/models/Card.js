@@ -148,12 +148,11 @@ Card.prototype.toOrigin = function() {
     this._releaseContainers();
 };
 
-Card.prototype.love = function (dx, dy) {
+Card.prototype.addToList = function (type) {
     var self = this,
-        config = this.app.config,
-        love = config.sizes.bottomBar.love,
-        scale = love.width / config.sizes.card.width,
-        transform = [love.x,love.y,0,0,0,0,scale,scale];
+        config = this.app.config.sizes.bottomBar[type],
+        scale = config.width / this.app.config.sizes.card.width,
+        transform = [config.x,config.y,0,0,0,0,scale,scale];
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
     this._setTransform(this.element, transform);
@@ -161,10 +160,7 @@ Card.prototype.love = function (dx, dy) {
     this.element.find('.ventu-card-text').fadeOut(500);
     this.element.find('.ventu-card-buttons').fadeOut(500);
     setTimeout(function(){
-        self._setTransform(self.element, [0,0,0,0,0,0,1,1]);
-        self.app.domElements.loveCatcher.append(self.element);
-        self.shade.remove();
-        self.app.domElements.loveContainer.removeClass('selected');
+        self.app.list[type].add(self);
     }, 800);
 
 
@@ -182,34 +178,15 @@ Card.prototype.love = function (dx, dy) {
 
 };
 
-Card.prototype.hate = function(dx, dy) {
-    var self = this,
-        config = this.app.config,
-        hate = config.sizes.bottomBar.hate,
-        scale = hate.width / config.sizes.card.width,
-        transform = [hate.x,hate.y,0,0,0,0,scale,scale];
-    this.element.removeClass('no-transition');
-    this.shade.removeClass('no-transition');
-    this._setTransform(this.element, transform);
-    this._setTransform(this.shade, transform);
-    this.element.find('.ventu-card-text').fadeOut(500);
-    this.element.find('.ventu-card-buttons').fadeOut(500);
-    setTimeout(function(){
-        self._setTransform(self.element, [0,0,0,0,0,0,1,1]);
-        self.app.domElements.hateCatcher.append(self.element);
-        self.shade.remove();
-        self.app.domElements.hateContainer.removeClass('selected');
-    }, 800);
-};
 
 Card.prototype.suggest = function(dx, dy) {
     if (Math.abs(dx) > dy) {
         if (dx > this.app.config.swipe) {
-            this.app.domElements.loveContainer.addClass('selected');
-            this.app.domElements.hateContainer.removeClass('selected');
+            this.app.list.love.element.main.addClass('selected');
+            this.app.list.hate.element.main.removeClass('selected');
         } else if (dx < -this.app.config.swipe) {
-            this.app.domElements.hateContainer.addClass('selected');
-            this.app.domElements.loveContainer.removeClass('selected');
+            this.app.list.hate.element.main.addClass('selected');
+            this.app.list.love.element.main.removeClass('selected');
         } else {
             this._releaseContainers();
         }
@@ -219,13 +196,16 @@ Card.prototype.suggest = function(dx, dy) {
 };
 
 Card.prototype._releaseContainers = function (){
-    this.app.domElements.hateContainer.removeClass('selected');
-    this.app.domElements.loveContainer.removeClass('selected');
+    this.app.list.love.element.main.removeClass('selected');
+    this.app.list.hate.element.main.removeClass('selected');
 };
 
 Card.prototype.destroy = function() {
     this.element.remove();
-    this.shade.remove();
+    console.log(this.shade);
+    if (this.shade) {
+        this.shade.remove();
+    }
 };
 
 
@@ -300,9 +280,9 @@ Card.prototype._addListener = function() {
             //self.domElements.suggest.css('opacity', 0);
 
             if (dx > self.app.config.swipe) {
-                self.love(dx, dy);
+                self.addToList('love');
             } else if (dx < -self.app.config.swipe) {
-                self.hate(dx, dy);
+                self.addToList('hate');
             } else {
                 if (dy > 200) {
                     self.seeDetail();
