@@ -81,7 +81,7 @@ Map.prototype._drawShape = function(data) {
                 radius: data.shape.data.radius,
                 map: this.map
             });
-
+            break;
     }
 
     this.map.setCenter(data.zoomCenter);

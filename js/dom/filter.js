@@ -4,6 +4,16 @@ function filterListeners() {
     });
     // todo, collect data from model and inject in inputs
     //setFilter();
+
+    $('#ventu-filter-circle-active-toggle').click(function(){
+        if ($(this).prop('checked')) {
+            $('.ventu-filter-circle-cover').hide();
+            $('#ventu-filter-circle').show();
+        } else {
+            $('.ventu-filter-circle-cover').show();
+            $('#ventu-filter-circle').hide();
+        }
+    });
 }
 
 function openFilter(element) {
@@ -48,16 +58,15 @@ function updateFilterSummary(filter, type) {
             
             break;
         case 'circle':
-            var km = checkFilterInput($('#ventu-filter-circle').val());
-            
+            var km = checkFilterInput($('#ventu-filter-circle').val()),
+                active = $('#ventu-filter-circle-active-toggle').prop('checked')
             // update model and html
-            if (km > 0) {
+            if (active) {
                 ventu.service.filter.searchCircle.active = true;
                 ventu.service.filter.searchCircle.km = km;
                 summary = km + ' km';
             } else {
                 ventu.service.filter.searchCircle.active = false;
-                ventu.service.filter.searchCircle.km = 0;
                 summary = 'Niet actief';
             }
             break;

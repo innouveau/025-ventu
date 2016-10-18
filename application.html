@@ -131,9 +131,12 @@
                     </div>
                     <div class="ventu-filter-body">
                         <div class="ventu-filter-body-content">
-                            Door het toevoegen van een zoekcircel wordt er in een stral van de ingestelde afstand gezocht rondom de huidige locatie.
+                            Door het toevoegen van een zoekcircel wordt er in een straal van de ingestelde afstand gezocht rondom de huidige locatie.
                             (De cirkel kan met de hand verplaatst en vergroot worden.):<br><br>
-                            <input type="text" value="-" id="ventu-filter-circle" size="3"> km
+                            <input type="checkbox" id="ventu-filter-circle-active-toggle">
+                            <span class="ventu-filter-circle-cover">&nbsp;</span>
+                            <input type="text" value="3" id="ventu-filter-circle">
+                            <span>km</span>
                         </div>
                         <div class="ventu-filter-buttons">
                             <div class="bnt ventu-filter-button ventu-filter-ready" onclick="closeFilter(this, 'circle')">

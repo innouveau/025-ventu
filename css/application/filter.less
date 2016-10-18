@@ -3,7 +3,7 @@
     background: #fff;
     box-shadow: @ventu-box-shadow-1;
     position: relative;
-    cursor: pointer;
+    cursor: default;
     vertical-align: top;
     max-width: 300px;
 
@@ -90,6 +90,24 @@
 
             input {
                 padding: 4px;
+            }
+
+            span {
+                vertical-align: top;
+                line-height: 22px;
+            }
+
+            #ventu-filter-circle {
+                width: 40px;
+                height: 24px;
+                display: none;
+            }
+
+            .ventu-filter-circle-cover {
+                width: 40px;
+                background: #ddd;
+                height: 24px;
+                display: inline-block;
             }
 
             .ventu-filter-toggle {

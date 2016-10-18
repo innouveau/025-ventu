@@ -91,9 +91,13 @@ App.prototype.select = function(searchQuery, type) {
 
 
 App.prototype._updateMenuBar = function(searchQuery, n) {
+    var string = searchQuery;
     this.domElements.searchResults.empty();
     this.domElements.searchResults.hide();
-    this.domElements.search.val(searchQuery);
+    if (this.service.filter.searchCircle.active) {
+        string += ' +' + this.service.filter.searchCircle.km + 'km'
+    }
+    this.domElements.search.val(string);
     this.domElements.searchFeedback.html(n + ' objecten gevonden');
 };
 

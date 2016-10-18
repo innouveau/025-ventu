@@ -24,7 +24,7 @@ DataFaker.prototype.getSearchResults = function(searchQuery) {
 
 DataFaker.prototype.filterUpdate = function() {
     if (this.filter.searchCircle.active) {
-        this.app.select('Amsterdam (stad)', 'circle')
+        this.app.select('Amsterdam (stad)', 'circle');
     } else {
         this.app.select('Amsterdam (stad)', 'poly')
     }
