@@ -58,8 +58,8 @@ Card.prototype._create = function() {
 Card.prototype.launch = function() {
     var self = this,
         thisTransform = this.launchType === 0 ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
-    this._setTransform(this.element, thisTransform);
-    this._setTransform(this.shade, this._projectShade(thisTransform));
+    this._setTransform(this.element, thisTransform, false);
+    this._setTransform(this.shade, this._projectShade(thisTransform), false);
     this.element.show();
     this.shade.show();
 
@@ -136,15 +136,16 @@ Card.prototype.drag = function(dx, dy) {
         rotZ = dx / 20;
     this.element.addClass('no-transition');
     this.shade.addClass('no-transition');
-    this._setTransform(this.element, [x, y, 0, rotX, rotY, rotZ, 1, 1]);
-    this._setTransform(this.shade, [0.5*x+50, 0.5*y+100, -50, 0, 0, 0.5*rotZ, (1 - Math.abs(x/1000)), (1 - Math.abs(y/1000))]);
+    this._setTransform(this.element, [x, y, 0, rotX, rotY, rotZ, 1, 1], false);
+    this._setTransform(this.shade, [0.5*x+50, 0.5*y+100, -50, 0, 0, 0.5*rotZ, (1 - Math.abs(x/1000)), (1 - Math.abs(y/1000))], false);
 };
 
 Card.prototype.toOrigin = function() {
+    this.rotate = 0;
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
-    this._setTransform(this.element, [0,0,0,0,0,0,1,1]);
-    this._setTransform(this.shade, [0,50,-50,0,0,0,1.5,1]);
+    this._setTransform(this.element, [0,0,0,0,0,0,1,1], false);
+    this._setTransform(this.shade, [0,50,-50,0,0,0,1.5,1], false);
     this._releaseContainers();
 };
 
@@ -155,8 +156,8 @@ Card.prototype.addToList = function (type) {
         transform = [config.x,config.y,0,0,0,0,scale,scale];
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
-    this._setTransform(this.element, transform);
-    this._setTransform(this.shade, transform);
+    this._setTransform(this.element, transform, true);
+    this._setTransform(this.shade, transform, true);
     this.element.find('.ventu-card-text').fadeOut(500);
     this.element.find('.ventu-card-buttons').fadeOut(500);
     setTimeout(function(){
@@ -175,6 +176,11 @@ Card.prototype.addToList = function (type) {
     //
     // this.objects.splice(this.currentObjectIndex, 1);
     // this.currentObjectIndex = 0;
+
+};
+
+Card.prototype.detail = function () {
+    this.toOrigin();
 
 };
 
@@ -202,10 +208,7 @@ Card.prototype._releaseContainers = function (){
 
 Card.prototype.destroy = function() {
     this.element.remove();
-    console.log(this.shade);
-    if (this.shade) {
-        this.shade.remove();
-    }
+    this.shade.remove();
 };
 
 
@@ -226,18 +229,24 @@ Card.prototype._getMarkerTransform = function() {
 
 
 
-Card.prototype._getTransform = function(transform) {
-    return 'translateZ(' + (transform[2] - this.index * 100) + 'px) ' +
+Card.prototype._getTransform = function(transform, netto) {
+    var rotate = this.rotate,
+        z = this.index * 100;
+    if (netto) {
+        rotate = 0;
+        z = 0;
+    }
+    return 'translateZ(' + (transform[2] - z) + 'px) ' +
         'translateY(' + transform[1] + 'px) ' +
         'translateX(' + transform[0] + 'px) ' +
         'rotateX(' + transform[3] + 'deg) ' +
         'rotateY(' + transform[4] + 'deg) ' +
-        'rotateZ(' + (transform[5] + this.rotate) + 'deg) ' +
+        'rotateZ(' + (transform[5] + rotate) + 'deg) ' +
         'scale(' + transform[6] + ',' + transform[7] + ')';
 };
 
-Card.prototype._setTransform = function(element, trnsf) {
-    var transform = this._getTransform(trnsf);
+Card.prototype._setTransform = function(element, trnsf, netto) {
+    var transform = this._getTransform(trnsf, netto);
     element.css({
         "webkitTransform": transform,
         "MozTransform": transform,
@@ -285,7 +294,7 @@ Card.prototype._addListener = function() {
                 self.addToList('hate');
             } else {
                 if (dy > 200) {
-                    self.seeDetail();
+                    self.detail();
                 } else {
                     self.toOrigin();
                 }

@@ -17,7 +17,7 @@ function Config(app) {
         }
     };
     this.stack = {
-        n: 1,
+        n: 5,
         offset: 4, // pixels vertical offset inside stack
             verticalPosition :0
     };
