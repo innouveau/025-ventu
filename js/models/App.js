@@ -14,7 +14,9 @@ App.prototype.init = function() {
     this._initDomElements();
     this.list.love = new List(this, 'love', 'Interesselijst');
     this.list.hate = new List(this, 'hate', 'Prullenbak');
-    this.select('Amsterdam (stad)');
+    if (window.environment.autostart) {
+        this.select('Amsterdam (stad)');
+    }
 };
 
 

@@ -2,7 +2,8 @@ $(window).ready(function(){
 
     window.environment = {
         development: true,
-        intro: false
+        intro: false,
+        autostart: true
     };
 
     document.ontouchmove = function(event){
@@ -21,6 +22,7 @@ $(window).ready(function(){
 
 
     filterListeners();
+    mapListeners();
 
     ventu.init();
 

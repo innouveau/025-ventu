@@ -28,12 +28,13 @@ DataFaker.prototype.filterUpdate = function() {
 
 DataFaker.prototype.getList = function(type) {
     if (type === 'love') {
-        var list = buildings.slice(1,4),
-            toModel = [];
-        for (var i = 0, l = list.length; i < l; i++) {
-            toModel.push(new Building(this.app, list[i]));
-        }
-        return toModel;
+        // var list = buildings.slice(1,4),
+        //     toModel = [];
+        // for (var i = 0, l = list.length; i < l; i++) {
+        //     toModel.push(new Building(this.app, list[i]));
+        // }
+        // return toModel;
+        return [];
     } else {
         return [];
     }
