@@ -21,6 +21,11 @@ Marker.prototype.show = function() {
     this.marker.setVisible(true);
 };
 
+
+Marker.prototype.remove = function() {
+    this.marker.setMap(null);
+};
+
 Marker.prototype.getPixelCoordinates = function(marker) {
     var scale = Math.pow(2, this.parent.map.getZoom()),
         nw = new google.maps.LatLng(

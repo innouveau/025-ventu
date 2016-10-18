@@ -47,7 +47,7 @@ App.prototype.search = function(element) {
     this.domElements.searchResults.empty();
     for (var i = 0, l = results.length; i < l; i++) {
         var result = results[i],
-            resultElement = $('<div class="ventu-map-search-result" onclick="ventu.select(\'' + result + '\')"><div class="ventu-map-search-result-text">' + result + '</div></div>');
+            resultElement = $('<div class="ventu-map-search-result" onclick="ventu.select(\'' + result + '\', \'poly\')"><div class="ventu-map-search-result-text">' + result + '</div></div>');
         this.domElements.searchResults.append(resultElement);
     }
 };
@@ -56,10 +56,9 @@ App.prototype.search = function(element) {
 
 // select
 
-App.prototype.select = function(searchQuery) {
+App.prototype.select = function(searchQuery, type) {
     var self = this,
-        searchData = this.service.getSelectResults(searchQuery);
-
+        searchData = this.service.getSelectResults(searchQuery, type);
     function callback(searchData) {
         self._updateMenuBar(searchQuery, searchData.buildings.length);
         self.objects = [];

@@ -4,8 +4,17 @@ function Map(app) {
         standard: './img/markers/standard-marker.png',
         selected: './img/markers/selected-marker.png'
     };
+    this.settings = {
+        shape: {
+            strokeColor: 'transparent',
+            strokeOpacity: 0,
+            strokeWeight: 0,
+            fillColor: '#000',
+            fillOpacity: 0.4
+        }
+    };
     this.map = null;
-    this.poly = null;
+    this.shape = null;
     this.markers = [];
     this.cards = [];
     this.init();
@@ -27,10 +36,10 @@ Map.prototype.init = function() {
 
 Map.prototype.draw = function(data) {
     var self = this;
-    this._removePoly();
+    this._removeShape();
     this._removeMarkers();
     this._removeCards();
-    this._drawPoly(data);
+    this._drawShape(data);
     this._createMarkers(data.buildings);
     this._createCards();
     
@@ -48,23 +57,40 @@ Map.prototype.draw = function(data) {
 
 // poly
 
-Map.prototype._drawPoly = function(data) {
-    this.poly = new google.maps.Polygon({
-        paths: data.poly,
-        strokeColor: 'transparent',
-        strokeOpacity: 0,
-        strokeWeight: 0,
-        fillColor: '#000',
-        fillOpacity: 0.4
-    });
-    this.poly.setMap(this.map);
-    this.map.setCenter(data.center);
+Map.prototype._drawShape = function(data) {
+    switch (data.shape.type) {
+        case 'poly':
+            this.shape = new google.maps.Polygon({
+                paths: data.shape.data.points,
+                strokeColor: this.settings.shape.strokeColor,
+                strokeOpacity: this.settings.shape.strokeOpacity,
+                strokeWeight: this.settings.shape.strokeWeight,
+                fillColor: this.settings.shape.fillColor,
+                fillOpacity: this.settings.shape.fillOpacity
+            });
+            this.shape.setMap(this.map);
+            break;
+        case 'circle':
+            this.shape = new google.maps.Circle({
+                strokeColor: this.settings.shape.strokeColor,
+                strokeOpacity: this.settings.shape.strokeOpacity,
+                strokeWeight: this.settings.shape.strokeWeight,
+                fillColor: this.settings.shape.fillColor,
+                fillOpacity: this.settings.shape.fillOpacity,
+                center: data.shape.data.center,
+                radius: data.shape.data.radius,
+                map: this.map
+            });
+
+    }
+
+    this.map.setCenter(data.zoomCenter);
     this.map.setZoom(data.zoom);
 };
 
-Map.prototype._removePoly = function(markers) {
-    if (this.poly) {
-        this.poly.setMap(null);
+Map.prototype._removeShape = function() {
+    if (this.shape) {
+        this.shape.setMap(null);
     }
 };
 
@@ -74,7 +100,7 @@ Map.prototype._removePoly = function(markers) {
 
 Map.prototype._removeMarkers = function() {
     for (var i = 0, l = this.markers.length; i < l; i++) {
-        this.markers[i].setMap(null);
+        this.markers[i].remove();
     }
     this.markers = [];
 };

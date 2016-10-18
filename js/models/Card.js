@@ -29,9 +29,6 @@ Card.prototype._create = function() {
     buttonBar = $('<div class="ventu-card-buttons"></div>');
     this.buttons.love = $('<div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-love"><div class="ventu-ripple"></div></div><span>interessant</span></div>');
     this.buttons.hate = $('<div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-hate"><div class="ventu-ripple"></div></div><span>niet interessant</span></div>');
-    this.buttons.love.click(function(){
-
-    });
     buttonBar.append(this.buttons.hate);
     buttonBar.append(this.buttons.love);
     shade = $('<div class="ventu-card-shade"></div>');
@@ -41,10 +38,10 @@ Card.prototype._create = function() {
     // bind actions to buttons
     (function(self) {
         self.buttons.love.on('click', function () {
-            self.love();
+            self.addToList('love');
         });
         self.buttons.hate.on('click', function () {
-            self.hate();
+            self.addToList('hate');
         });
     })(self);
     card.hide();
@@ -153,7 +150,10 @@ Card.prototype.addToList = function (type) {
     var self = this,
         config = this.app.config.sizes.bottomBar[type],
         scale = config.width / this.app.config.sizes.card.width,
-        transform = [config.x,config.y,0,0,0,0,scale,scale];
+        transform = [config.x,config.y,0,0,0,0,scale,scale],
+        other = type === 'love' ? 'hate' : 'love';
+    this.app.list[type].element.main.addClass('selected');
+    this.app.list[other].element.main.removeClass('selected');
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
     this._setTransform(this.element, transform, true);

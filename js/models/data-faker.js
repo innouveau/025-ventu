@@ -8,7 +8,7 @@ function DataFaker(app) {
         offer: ['Koop', 'Huur'],
         searchCircle: {
             active: false,
-            km: 1
+            km: 6
         }
     }
 }
@@ -23,7 +23,11 @@ DataFaker.prototype.getSearchResults = function(searchQuery) {
 };
 
 DataFaker.prototype.filterUpdate = function() {
-
+    if (this.filter.searchCircle.active) {
+        this.app.select('Amsterdam (stad)', 'circle')
+    } else {
+        this.app.select('Amsterdam (stad)', 'poly')
+    }
 };
 
 DataFaker.prototype.getList = function(type) {
@@ -40,15 +44,34 @@ DataFaker.prototype.getList = function(type) {
     }
 };
 
-DataFaker.prototype.getSelectResults = function(searchQuery) {
+DataFaker.prototype.getSelectResults = function(searchQuery, type) {
     // http://nominatim.openstreetmap.org/details.php?place_id=158832524
     // http://polygons.openstreetmap.fr/index.py
-    var poly = amsterdam,
-        center = {lat: 52.3745403, lng: 5.09797550561798},
+    var shape,
+        zoomCenter = {lat: 52.3745403, lng: 5.09797550561798},
         zoom = 11;
+    switch (type) {
+        case 'circle':
+            shape = {
+                type: type,
+                data: {
+                    center: {lat: 52.35, lng: 4.87},
+                    radius: this.filter.searchCircle.km * 1000
+                }
+            };
+            break;
+        case 'poly':
+            shape = {
+                type: type,
+                data: {
+                    points: amsterdam
+                }
+            };
+            break
+    }
     return {
-        poly: poly,
-        center: center,
+        shape: shape,
+        zoomCenter: zoomCenter,
         zoom: zoom,
         buildings: buildings
     }

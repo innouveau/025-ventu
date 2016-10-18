@@ -5,7 +5,7 @@ $(window).ready(function(){
     ventu.init();
 
     if (window.environment.autostart) {
-        ventu.select('Amsterdam (stad)');
+        ventu.select('Amsterdam (stad)', 'poly');
     }
 
 });
