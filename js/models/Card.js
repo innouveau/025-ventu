@@ -4,7 +4,7 @@ function Card(app, building, marker, index, launchType) {
     this.marker = marker;
     this.launchType = launchType;
     this.index = index;
-    this.rotate = index === 0 ? 0 : 15 * Math.random() - 7.5;
+    this.rotate = index === 0 ? 0 : 10 * Math.random() - 5;
     this.element = null;
     this.shade = null;
     this.hammer = null;
@@ -258,14 +258,14 @@ Card.prototype._setTransform = function(element, trnsf, netto) {
 
 Card.prototype._projectShade = function(transform) {
     return [
-        0.8 * transform[0] + 50,
-        0.8 * transform[1] + 100,
-        transform[2],
+        transform[0] + 50,
+        transform[1] + 50,
+        transform[2] - 50,
         0,
         0,
         0,
-        transform[6],
-        1.5 * transform[7]
+        1.5 * transform[6],
+        transform[7]
     ];
 };
 
