@@ -72,11 +72,11 @@ App.prototype.select = function(searchQuery, type) {
     if (this.page !== 'application') {
         // ajax transition to application
         $.get('./application.html').done(function(result){
-            var html = $(result).filter('#application-content').children();
+            var html = $(result).filter('#dynamic-content').children();
             self.domElements.dynamicContent.html(html);
             filterListeners();
             self.init();
-            $('body').addClass('ventu-application');
+            $('body').removeClass().addClass('ventu-application');
             self.page = 'application';
             callback(searchData);
         });
@@ -84,11 +84,7 @@ App.prototype.select = function(searchQuery, type) {
     } else {
         callback(searchData);
     }
-
-
-
 };
-
 
 App.prototype._updateMenuBar = function(searchQuery, n) {
     var string = searchQuery;

@@ -1,7 +1,6 @@
 $(window).ready(function(){
-    window.ventu = new App('application');
+    window.ventu = new App('list');
     filterListeners();
     mapListeners();
-    ventu.init();
 
 });

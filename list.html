@@ -57,186 +57,201 @@
 </head>
 
 <body class="ventu-list">
+    <div id="dynamic-content">
 
-    <div id="ventu-canvas"></div>
+        <div id="ventu-canvas-list"></div>
 
-    <div id="ventu-list-content">
+        <script>
+            var myOptions = {
+                zoom: 8,
+                center: new google.maps.LatLng(51.7,4.6),
+                sensor: 'true',
+                draggable: true,
+                zoomControlOptions: {
+                    position: google.maps.ControlPosition.LEFT_CENTER
+                }
+            };
 
-        <div id="ventu-list-menu">
-            <b>Interesselijst.</b> Je hebt 11 objecten die je interessant vindt. Sorteer op:
+            new google.maps.Map(document.getElementById("ventu-canvas-list"), myOptions);
+        </script>
+
+        <div id="ventu-list-content">
+
+            <div id="ventu-list-menu">
+                <b>Interesselijst.</b> Je hebt 11 objecten die je interessant vindt. Sorteer op:
+            </div>
+
+            <div id="ventu-list-listing">
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Bentickstraat 61</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor2.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Clifforstraat 9</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor3.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Van Reenenstraat 8</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor4.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Van Beuningenplein 1</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor5.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Van Beuningenplein 5</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor8.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Van Beuningenplein 43</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor6.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>De Kempenaerstraat 16</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor7.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Van Reenenstraat 9</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor4.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Van Boetzelaarstraat 1a</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor5.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Bentickstraat 89</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor8.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Cliffordstraat 20</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor6.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Van der Hoopstraat 12-14</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ventu-card ventu-mini-card">
+                    <div class="ventu-card-image" style="background-image:url(./img/kantoor7.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <h3>Van Hallstraat 8</h3>
+                        <a href="www.">Lees meer</a>
+                    </div>
+                    <div class="ventu-card-buttons">
+                        <div class="ventu-card-button">
+                            <div class="ventu-card-button-icon ventu-icon-hate"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
-
-        <div id="ventu-list-listing">
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Bentickstraat 61</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor2.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Clifforstraat 9</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor3.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Van Reenenstraat 8</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor4.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Van Beuningenplein 1</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor5.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Van Beuningenplein 5</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor8.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Van Beuningenplein 43</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor6.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>De Kempenaerstraat 16</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor7.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Van Reenenstraat 9</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor4.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Van Boetzelaarstraat 1a</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor5.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Bentickstraat 89</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor8.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Cliffordstraat 20</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor6.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Van der Hoopstraat 12-14</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="ventu-card ventu-mini-card">
-                <div class="ventu-card-image" style="background-image:url(./img/kantoor7.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h3>Van Hallstraat 8</h3>
-                    <a href="www.">Lees meer</a>
-                </div>
-                <div class="ventu-card-buttons">
-                    <div class="ventu-card-button">
-                        <div class="ventu-card-button-icon ventu-icon-hate"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
     </div>
-
 
 
 
