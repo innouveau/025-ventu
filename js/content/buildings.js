@@ -5,7 +5,7 @@ var buildings = [
         icons: '',
         address: 'Amstel 77',
         VideoUrl: 'url to video',
-        DetailLinkUrl: 'www.',
+        DetailLinkUrl: './detail.html',
         coordinates: {
             lng: 4.857409,
             lat: 52.389608
@@ -17,7 +17,7 @@ var buildings = [
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
-        DetailLinkUrl: 'www.',
+        DetailLinkUrl: './detail.html',
         coordinates: {
             lng: 4.835233,
             lat: 52.356177
@@ -29,7 +29,7 @@ var buildings = [
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
-        DetailLinkUrl: 'www.',
+        DetailLinkUrl: './detail.html',
         coordinates: {
             lng: 4.915233,
             lat: 52.346127
@@ -41,7 +41,7 @@ var buildings = [
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
-        DetailLinkUrl: 'www.',
+        DetailLinkUrl: './detail.html',
         coordinates: {
             lng: 4.955233,
             lat: 52.316177
@@ -53,7 +53,7 @@ var buildings = [
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
-        DetailLinkUrl: 'www.',
+        DetailLinkUrl: './detail.html',
         coordinates: {
             lng: 4.815733,
             lat: 52.336377
@@ -65,7 +65,7 @@ var buildings = [
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
-        DetailLinkUrl: 'www.',
+        DetailLinkUrl: './detail.html',
         coordinates: {
             lng: 4.875533,
             lat: 52.326777
@@ -77,7 +77,7 @@ var buildings = [
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
-        DetailLinkUrl: 'www.',
+        DetailLinkUrl: './detail.html',
         coordinates: {
             lng: 4.885233,
             lat: 52.376277
@@ -89,7 +89,7 @@ var buildings = [
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
-        DetailLinkUrl: 'www.',
+        DetailLinkUrl: './detail.html',
         coordinates: {
             lng: 4.825133,
             lat: 52.356857

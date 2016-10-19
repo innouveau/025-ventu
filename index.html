@@ -48,17 +48,21 @@
         <script src="js/models/App.js"></script>
 
         <script src="js/main.js"></script>
-        <script src="js/intro.js"></script>
+        <script src="js/no-application.js"></script>
 
 
         <!-- fake data -->
         <script src="js/content/buildings.js"></script>
         <script src="js/content/amsterdam.js"></script>
+
+        <script>
+            paralax();
+        </script>
     </head>
 
     <body>
         <div id="dynamic-content">
-            <div class="ventu-home-big" style="background-image: url('img/markthal.jpg')">
+            <div class="ventu-img-stretch" style="background-image: url('img/markthal.jpg')">
                 <div class="ventu-text-overlay">
                     <div class="ventu-pagewrap">
                         <h3>Zeg hallo tegen</h3>
@@ -186,6 +190,17 @@
 
                     </div>
                 </div>
+
+                <select multiple>
+                    <option value="kantoor">kantoor</option>
+                    <option value="bedrijfsruimte">bedrijfsruimte</option>
+                    <option value="distributie">distributie</option>
+                    <option value="winkel">winkel</option>
+                    <option value="horeca">horeca</option>
+                    <option value="grond">grond</option>
+                    <option value="overige">overige</option>
+                </select>
+
                 <div class="ventu-search-results-feedback"></div>
             </div>
 

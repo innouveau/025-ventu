@@ -19,4 +19,5 @@ window.ventuConfig = {
 
 $(window).ready(function(){
     menuListeners();
+    select2();
 });

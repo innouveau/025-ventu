@@ -56,17 +56,17 @@ nav.navbar-default {
                 width: ~'calc(100% + 2px)';
                 background: #fff;
                 border: @ventu-border-1;
-                border-top: 1px solid #D5D5D5;
+                border-top: 1px solid #ddd;
                 max-height: 200px;
                 overflow: auto;
 
                 .ventu-map-search-result {
-                    border-bottom: 0.5px solid #D5D5D5;
+                    border-bottom: 1px solid #ddd;
                     cursor: pointer;
 
                     .ventu-map-search-result-text {
                         vertical-align: top;
-                        padding: 8px;
+                        padding: 8px 16px;
                     }
 
                     &:hover {
@@ -78,6 +78,10 @@ nav.navbar-default {
                     }
                 }
             }
+        }
+
+        .select2-container {
+            margin: 18px 0 0 4px;
         }
 
         .ventu-search-results-feedback {

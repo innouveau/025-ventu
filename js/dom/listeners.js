@@ -40,3 +40,30 @@ function openSettings() {
         $('.ventu-settings').fadeIn(100)
     })
 }
+
+// select2
+
+function select2() {
+    $('select').select2({
+        placeholder: "Kies type...",
+        minimumResultsForSearch: -1
+    });
+}
+
+function paralax() {
+    $(window).ready(function() {
+        var paralax = $('.ventu-img-stretch');
+        if (paralax.length > 0) {
+            function update(){
+                var pos = $(window).scrollTop();
+                paralax.css('backgroundPosition', '50% ' +  pos * 0.25 + 'px');
+
+            }
+
+            $(window).bind('scroll', update);
+
+        }
+
+    })
+
+}
