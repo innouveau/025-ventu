@@ -16,3 +16,7 @@ window.ventuConfig = {
         development: true
     }
 };
+
+$(window).ready(function(){
+    menuListeners();
+});

@@ -63,7 +63,7 @@
                     <div class="ventu-pagewrap">
                         <h3>Zeg hallo tegen</h3>
                         <h4>uw nieuwe<br>winkel</h4>
-                        <a href="" class="btn btn-big btn-with-icon ventu-green">
+                        <a href="javascript:ventu.select('Amsterdam (stad)', 'poly');" class="btn btn-big btn-with-icon ventu-green">
                             <div class="ventu-icon ventu-icon-med ventu-icon-next"></div>
                             <span>Zoek op winkels in de buurt</span>
                         </a>
@@ -79,7 +79,7 @@
                             <div class="ventu-text-overlay">
                                 <h3>Zeg hallo tegen</h3>
                                 <h4>12.956 kantoren</h4>
-                                <a href="" class="btn btn-big btn-with-icon ventu-white">
+                                <a href="javascript:ventu.select('Amsterdam (stad)', 'poly');" class="btn btn-big btn-with-icon ventu-white">
                                     <div class="ventu-icon ventu-icon-med ventu-icon-next"></div>
                                     <span>Zoek op kantoren in de buurt</span>
                                 </a>
@@ -90,7 +90,7 @@
                             <div class="ventu-text-overlay">
                                 <h3>Zeg hallo tegen</h3>
                                 <h4>uw restaurant<br>in het centrum</h4>
-                                <a href="" class="btn btn-big btn-with-icon ventu-white">
+                                <a href="javascript:ventu.select('Amsterdam (stad)', 'poly');" class="btn btn-big btn-with-icon ventu-white">
                                     <div class="ventu-icon ventu-icon-med ventu-icon-next"></div>
                                     <span>Zoek naar horeca</span>
                                 </a>
@@ -101,7 +101,7 @@
                             <div class="ventu-text-overlay">
                                 <h3>Zeg hallo tegen</h3>
                                 <h4>heel veel m³</h4>
-                                <a href="" class="btn btn-big btn-with-icon ventu-white">
+                                <a href="javascript:ventu.select('Amsterdam (stad)', 'poly');" class="btn btn-big btn-with-icon ventu-white">
                                     <div class="ventu-icon ventu-icon-med ventu-icon-next"></div>
                                     <span>Zoek naar distributiecentra</span>
                                 </a>
@@ -112,7 +112,7 @@
                             <div class="ventu-text-overlay">
                                 <h3>Zeg hallo tegen</h3>
                                 <h4>de stad van<br>uw dromen</h4>
-                                <a href="" class="btn btn-big btn-with-icon ventu-white">
+                                <a href="javascript:ventu.select('Amsterdam (stad)', 'poly');" class="btn btn-big btn-with-icon ventu-white">
                                     <div class="ventu-icon ventu-icon-med ventu-icon-next"></div>
                                     <span>Zoek meer in de regio</span>
                                 </a>
@@ -148,7 +148,7 @@
 
                     <div class="ventu-home-block ventu-home-footer">
                         <h2>Laat horen wat u van de nieuwe Ventu applicatie vindt</h2>
-                        <a href="" class="btn btn-big btn-with-icon ventu-green">
+                        <a href="./contact.html" class="btn btn-big btn-with-icon ventu-green">
                             <div class="ventu-icon ventu-icon-med ventu-icon-next"></div>
                             <span>neem contact op</span>
                         </a>
@@ -191,21 +191,54 @@
 
             <div id="navbar" class="navbar-collapse collapse pull-right">
                 <ul class="nav navbar-nav ventu-menu-buttons">
-                    <li><a href="">Menu</a></li>
-                    <li><a href="">Instellingen</a></li>
-                    <li><a href="">Inloggen</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Menu
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./">Home</a></li>
+                            <li><a href="#">Over Ventu</a></li>
+                            <li><a href="#">Hoe werkt Ventu?</a></li>
+                            <li><a href="#">Aanbieders</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:openSettings()">Instellingen</a></li>
+                    <li><a href="javascript:openLogin()">Inloggen</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
                 </ul>
             </div>
         </nav>
 
+        <div class="ventu-overlay">
+            <div class="ventu-login ventu-popup">
+                <form class="form-signin ventu-form" action="/vinden" method="post">
+                    <h2 class="form-signin-heading">Inloggen</h2>
+                    <label class="sr-only" for="inputEmail">Emailadres</label>
+                    <input type="text" id="inputEmail" class="form-control" name="emailAddress" placeholder="Emailadres" required="" autofocus="" style="background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAALZJREFUOBFjYKAANDQ0rGWiQD9IqzgL0BQ3IKMXiB8AcSKQ/waIrYDsKUD8Fir2pKmpSf/fv3+zgPxfzMzMSbW1tbeBbAaQC+b+//9fB4h9gOwikCAQTAPyDYHYBciuBQkANfcB+WZAbPP37992kBgIUOoFBiZGRsYkIL4ExJvZ2NhAXmFgYmLKBPLPAfFuFhaWJpAYEBQC+SeA+BDQC5UQIQpJYFgdodQLLyh0w6j20RCgUggAAEREPpKMfaEsAAAAAElFTkSuQmCC"); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;" type="email">
+                    <label class="sr-only" for="inputPassword">Wachtwoord</label>
+                    <input type="text" id="inputPassword" class="form-control" name="password" placeholder="Wachtwoord" required="" style="background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAALZJREFUOBFjYKAANDQ0rGWiQD9IqzgL0BQ3IKMXiB8AcSKQ/waIrYDsKUD8Fir2pKmpSf/fv3+zgPxfzMzMSbW1tbeBbAaQC+b+//9fB4h9gOwikCAQTAPyDYHYBciuBQkANfcB+WZAbPP37992kBgIUOoFBiZGRsYkIL4ExJvZ2NhAXmFgYmLKBPLPAfFuFhaWJpAYEBQC+SeA+BDQC5UQIQpJYFgdodQLLyh0w6j20RCgUggAAEREPpKMfaEsAAAAAElFTkSuQmCC"); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;" type="password">
+                    <input id="inputFavorites" name="favorites" type="hidden">
+                    <div class="checkbox">
+                        <label>
+                            <input name="rememberMe" value="true" type="checkbox">
+                            Onthoud mij
+                        </label>
+                    </div>
+                    <a href="/account/accountmaken">Maak een account</a>
+                    <a href="/account/wachtwoordvergeten">Wachtwoord vergeten</a>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Inloggen</button>
+                </form>
+                <div class="ventu-close-popup ventu-icon ventu-icon-close"></div>
+            </div>
 
+            <div class="ventu-settings ventu-popup">
+                <form class="form-signin ventu-form" action="/vinden" method="post">
+                    <h2 class="">Instellingen</h2>
 
-
-        <div class="ventu-overlay"></div>
-
-        <script src="assets/jquery/jquery.min.js"></script>
-        <script src="assets/bootstrap/bootstrap.min.js"></script>
-
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Opslaan</button>
+                </form>
+                <div class="ventu-close-popup ventu-icon ventu-icon-close"></div>
+            </div>
+        </div>
     </body>
 </html>

@@ -18,3 +18,25 @@ function mapListeners() {
         }, 5000);
     });
 }
+
+// menu
+
+function menuListeners(){
+    $('.ventu-close-popup').click(function(){
+        $('.ventu-popup').fadeOut(100, function(){
+            $('.ventu-overlay').fadeOut(100);
+        });
+    });
+}
+
+function openLogin() {
+    $('.ventu-overlay').fadeIn(100, function(){
+        $('.ventu-login').fadeIn(100)
+    })
+}
+
+function openSettings() {
+    $('.ventu-overlay').fadeIn(100, function(){
+        $('.ventu-settings').fadeIn(100)
+    })
+}
