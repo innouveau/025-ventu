@@ -1,45 +1,25 @@
-html {
-    height: 100%;
-}
-
-body {
-    font-size: 12px;
-    line-height: 17px;
-    padding: 93px 30px 30px 30px;
-    color: #1F1F1F;
-    font-family: 'graphik';
-    background: #ddd;
-}
-
-body.ventu-app {
-    padding-left: 0; /* because of this bug: http://stackoverflow.com/questions/11520728/overflow-yvisible-not-working-when-overflow-xhidden-is-present we move the padding to the filter box itself. */
-    overflow: hidden;
-    height: 100%;
-}
-
-input {
-    font-size: 12px;
-    color: #1F1F1F;
-    outline: none;
-}
-
 * {
     box-sizing: border-box;
 }
 
-.ventu-unselectable {
-    user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
+html {
+    height: 100%;
+
+    body {
+        font-size: 12px;
+        line-height: 17px;
+        padding: 93px 30px 30px 30px;
+        color: #1F1F1F;
+        font-family: 'graphik';
+        background: #ddd;
+    }
 }
 
 
-.ventu-quote {
-    font-family: 'freight';
-    font-size: 32px;
-    line-height: 38px;
+input {
+    font-size: 12px;
+    color: @ventu-black;
+    outline: none;
 }
 
 h2 {
@@ -49,17 +29,10 @@ h2 {
     margin: 50px 0 30px 0;
 }
 
-
-
-@media (max-width: 768px) {
-    /* mobile */
-
-
-    h2 {
-        font-size: 24px;
-        line-height: 34px;
-        margin: 30px 0 20px 0;
-    }
-
-
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
