@@ -57,13 +57,16 @@ Card.prototype.launch = function() {
         thisTransform = this.launchType === 0 ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
     this._setTransform(this.element, thisTransform, false);
     this._setTransform(this.shade, this._projectShade(thisTransform), false);
-    this.element.show();
-    this.shade.show();
 
     switch (this.launchType) {
         case 0:
+            var slowTransition = 1500, // see css card.less
+                float = 3000; // see css card.less
+            this.element.show();
+            this.shade.show();
             this.element.addClass('slow-transition');
             this.shade.addClass('slow-transition');
+
             // launch
             setTimeout(function () {
                 self.toOrigin();
@@ -71,17 +74,34 @@ Card.prototype.launch = function() {
             // float
             setTimeout(function () {
                 self.float();
-            }, 2200);
+            }, (100 + slowTransition));
             setTimeout(function () {
                 self.element.removeClass('slow-transition');
                 self.shade.removeClass('slow-transition');
+
                 self._launchNext();
-            }, 3200);
+            }, (slowTransition + float));
             break;
         case 1:
-            this._launchNext();
+            var wait = 500;
+            this.element.addClass('no-transition').fadeIn(wait, function(){
+                $(this).removeClass('no-transition')
+            });
+            this.shade.addClass('no-transition').fadeIn(wait, function(){
+                $(this).removeClass('no-transition')
+            });
+            setTimeout(function () {
+                self._launchNext();
+            }, (0.5 * wait));
+
             break;
         case 2:
+            this.element.addClass('no-transition').fadeIn(500, function(){
+                $(this).removeClass('no-transition')
+            });
+            this.shade.addClass('no-transition').fadeIn(500, function(){
+                $(this).removeClass('no-transition')
+            });
             this.float();
             setTimeout(function () {
                 self._launchNext();
@@ -164,24 +184,11 @@ Card.prototype.addToList = function (type) {
         self.app.list[type].add(self);
     }, 800);
 
-
-
-
-    // var currentObject = this.objects[this.currentObjectIndex];
-    // if (currentObject) {
-    //     this.app.service.post('LikeObject', currentObject.UniqueId);
-    //     this.app.service.sessionStore(this.favObjects);
-    //     this.favObjects.unshift(currentObject);
-    // }
-    //
-    // this.objects.splice(this.currentObjectIndex, 1);
-    // this.currentObjectIndex = 0;
-
 };
 
 Card.prototype.detail = function () {
     this.toOrigin();
-
+    location.href = this.building.getContent().text.detailLinkUrl;
 };
 
 

@@ -1,6 +1,6 @@
 window.environment = {
     development: true,
-    intro: false,
+    intro: true,
     autostart: true
 };
 

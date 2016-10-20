@@ -1,27 +1,15 @@
 function Config(app) {
     this.app = app;
     this.card = {
-        horizontalShift: 0, // horizontal shift card relative to container
-            selectedPosition: ''
+
     };
     this.shade = {
-        active: false,
-            selected: {
-            y: 160, // distance shade form stack
-                width: 0.6,
-                height: 0.16
-        },
-        normal: {
-            width: 0.22,
-                height: 0.26
-        }
+
     };
     this.stack = {
-        n: 5,
-        offset: 4, // pixels vertical offset inside stack
-            verticalPosition :0
+        n: 8
     };
-    this.zoom = 0.2; // factor of magnification of stack
+    this.zoom = 0;
     this.swipe = 200;
     this.sizes = {
         card: {
