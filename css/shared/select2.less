@@ -2,6 +2,22 @@
     vertical-align: top;
     width: auto!important;
     min-width: 150px;
+    position: relative;
+
+    &:after {
+        position: absolute;
+        right: 12px;
+        top: 14px;
+        content: '';
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px dashed;
+        display: inline-block;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: middle;
+        width: 0;
+    }
 
     .selection {
 
@@ -37,6 +53,20 @@
             li {
                 border-bottom: 1px solid #ddd;
                 padding: 8px 16px;
+                color: @ventu-black;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+
+                &:hover {
+                    background: @button-hover-color;
+                    color: @ventu-black;
+                }
+
+                &.select2-results__option--highlighted[aria-selected] {
+                    background: @button-hover-color;
+                }
             }
         }
 
