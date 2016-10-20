@@ -147,7 +147,7 @@ Map.prototype._createCards = function() {
 Map.prototype._createCard = function(building, index) {
     var card,
         launcher = 1;
-    if (index === 0 && window.environment.intro) {
+    if (window.environment.launchAll || (index === 0 && window.environment.intro)) {
         launcher = 0;
     }
     card = new Card(this.app, building, this.markers[index], index, launcher);

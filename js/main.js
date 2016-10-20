@@ -1,7 +1,8 @@
 window.environment = {
     development: true,
     intro: true,
-    autostart: true
+    autostart: true,
+    launchAll: true
 };
 
 document.ontouchmove = function(event){

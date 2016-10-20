@@ -4,8 +4,9 @@ function Card(app, building, marker, index, launchType) {
     this.marker = marker;
     this.launchType = launchType;
     this.index = index;
-    this.rotate = index === 0 ? 0 : 10 * Math.random() - 5;
-    this.zIndex = index * 100;
+    this.rotate = index === 0 ? 0 : this.app.config.card.rotation * Math.random() - (this.app.config.card.rotation / 2);
+    this.zIndex = index * this.app.config.card.zOffset;
+    this.shift = index * app.config.card.shift;
     this.element = null;
     this.shade = null;
     this.hammer = null;
@@ -45,6 +46,10 @@ Card.prototype._create = function() {
             self.addToList('hate');
         });
     })(self);
+
+    if (this.index === 0) {
+        shade.css('opacity', 1);
+    }
     card.hide();
     shade.hide();
     this.element = card;
@@ -56,30 +61,33 @@ Card.prototype._create = function() {
 Card.prototype.launch = function() {
     var self = this,
         thisTransform = this.launchType === 0 ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
+    // start position
     this._setTransform(this.element, thisTransform, false);
     this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
 
     switch (this.launchType) {
         case 0:
-            var slowTransition = 1500; // see css card.less
-            this.element.show();
-            this.shade.show();
+            this.element.addClass('no-transition').fadeIn(500, function(){
+                $(this).removeClass('no-transition')
+            });
+            this.shade.addClass('no-transition').fadeIn(500, function(){
+                $(this).removeClass('no-transition')
+            });
             this.element.addClass('slow-transition');
             this.shade.addClass('slow-transition');
 
             // launch
             setTimeout(function () {
-                self.toOrigin();
+                // keep the rotation
+                self.toOrigin(false);
             }, 100);
-            // float
-            setTimeout(function () {
-                self.float();
-            }, (100 + slowTransition));
+
+            // launch next
             setTimeout(function () {
                 self.element.removeClass('slow-transition');
                 self.shade.removeClass('slow-transition');
                 self._launchNext();
-            }, (0.25 * slowTransition));
+            }, 150);
             break;
         case 1:
             var wait = 500;
@@ -104,6 +112,13 @@ Card.prototype.launch = function() {
             setTimeout(function () {
                 self._launchNext();
             }, 2200);
+    }
+
+    // float
+    if (this.index === 0) {
+        setTimeout(function () {
+            self.float();
+        }, (self.app.map.cards.length * 150 + 1000));
     }
 };
 
@@ -140,8 +155,10 @@ Card.prototype._remove = function() {
 Card.prototype.topOfStack = function() {
     this.rotate = 0;
     this.zIndex = 0;
+    this.shift = 0;
+    this.shade.css('opacity', 1);
     this.marker.select();
-    this.toOrigin();
+    this.toOrigin(true);
 };
 
 Card.prototype.float = function() {
@@ -172,9 +189,11 @@ Card.prototype.drag = function(dx, dy) {
     this._setTransform(this.shade, this._projectShade(transform, true), false);
 };
 
-Card.prototype.toOrigin = function() {
+Card.prototype.toOrigin = function(unrotate) {
     var transform = [0,0,0,0,0,0,1,1];
-    this.rotate = 0;
+    if (unrotate) {
+        this.rotate = 0;
+    }
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
     this._setTransform(this.element, transform, false);
@@ -203,7 +222,7 @@ Card.prototype.addToList = function (type) {
 };
 
 Card.prototype.detail = function () {
-    this.toOrigin();
+    this.toOrigin(true);
     location.href = this.building.getContent().text.detailLinkUrl;
 };
 
@@ -260,14 +279,17 @@ Card.prototype._getMarkerTransform = function() {
 
 Card.prototype._getTransform = function(transform, netto) {
     var rotate = this.rotate,
+        shift = this.shift,
         z = this.zIndex;
     if (netto) {
         rotate = 0;
+        shift = 0;
         z = 0;
     }
-    return 'translateZ(' + (transform[2] - z) + 'px) ' +
-        'translateY(' + transform[1] + 'px) ' +
-        'translateX(' + transform[0] + 'px) ' +
+    console.log(rotate);
+    return 'translateX(' + (transform[0] + shift) + 'px) ' +
+        'translateY(' + (transform[1] + shift) + 'px) ' +
+        'translateZ(' + (transform[2] - z) + 'px) ' +
         'rotateX(' + transform[3] + 'deg) ' +
         'rotateY(' + transform[4] + 'deg) ' +
         'rotateZ(' + (transform[5] + rotate) + 'deg) ' +
@@ -286,20 +308,25 @@ Card.prototype._setTransform = function(element, trnsf, netto) {
 };
 
 Card.prototype._projectShade = function(transform, rotate) {
-    var rotZ, scaleX, scaleY;
+    var rotZ, scaleX, scaleY, depthFactor = 0.8;
+    if (transform[6] < 0.8) {
+        // reduce x shift for scaled (= closer to the ground)
+        depthFactor = 1 - (transform[6] / 10);
+
+    }
     if (rotate) {
         rotZ = 0.5 * transform[5];
-        scaleX = (1 - Math.abs(transform[0]/1000));
-        scaleY = (1 - Math.abs(transform[1]/1000));
+        scaleX = (1.2 - Math.abs(transform[0]/1000));
+        scaleY = (1.2 - Math.abs(transform[1]/1000));
     } else {
         rotZ = 0;
         scaleX = transform[6];
         scaleY = transform[7];
     }
     return [
-        0.8 * transform[0] + 50,
-        0.8 * transform[1] + 50,
-        transform[2] - 50,
+        depthFactor * transform[0] + 50,
+        depthFactor * transform[1] + 50,
+        transform[2] - (0.5 * this.app.config.card.zOffset),
         0,
         0,
         rotZ,
@@ -311,7 +338,7 @@ Card.prototype._projectShade = function(transform, rotate) {
 Card.prototype._addListener = function() {
     var self = this;
     this.hammer = Hammer(this.element[0]);
-    
+
     this.hammer.on('dragstart', function() {
         self._clearfloat();
     });
@@ -339,7 +366,7 @@ Card.prototype._addListener = function() {
                 if (dy > 200) {
                     self.detail();
                 } else {
-                    self.toOrigin();
+                    self.toOrigin(true);
                 }
             }
         }

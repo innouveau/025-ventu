@@ -1,7 +1,7 @@
 var buildings = [
     {
         ImageURL: './img/kantoor.jpg',
-        city: 'Amsterdam',
+        city: 'Amsterdam 1',
         icons: '',
         address: 'Amstel 77',
         VideoUrl: 'url to video',
@@ -13,7 +13,7 @@ var buildings = [
 
     }, {
         ImageURL: './img/kantoor2.jpg',
-        city: 'Amsterdam',
+        city: 'Amsterdam 2',
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
@@ -25,7 +25,7 @@ var buildings = [
 
     }, {
         ImageURL: './img/kantoor3.jpg',
-        city: 'Amsterdam',
+        city: 'Amsterdam 3',
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
@@ -37,7 +37,7 @@ var buildings = [
 
     }, {
         ImageURL: './img/kantoor4.jpg',
-        city: 'Amsterdam',
+        city: 'Amsterdam 4',
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
@@ -49,7 +49,7 @@ var buildings = [
 
     }, {
         ImageURL: './img/kantoor5.jpg',
-        city: 'Amsterdam',
+        city: 'Amsterdam 5',
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
@@ -61,7 +61,7 @@ var buildings = [
 
     }, {
         ImageURL: './img/kantoor6.jpg',
-        city: 'Amsterdam',
+        city: 'Amsterdam 6',
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
@@ -73,7 +73,7 @@ var buildings = [
 
     }, {
         ImageURL: './img/kantoor7.jpg',
-        city: 'Amsterdam',
+        city: 'Amsterdam 7',
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',
@@ -85,7 +85,7 @@ var buildings = [
 
     }, {
         ImageURL: './img/kantoor8.jpg',
-        city: 'Amsterdam',
+        city: 'Amsterdam 8',
         icons: '',
         address: 'Adres',
         BrochureUrl: 'url to brochure',

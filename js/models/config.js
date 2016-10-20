@@ -1,7 +1,9 @@
 function Config(app) {
     this.app = app;
     this.card = {
-
+        shift: 4, // shift in stack
+        zOffset: 100, // z offset inside stack
+        rotation: 15
     };
     this.shade = {
 
