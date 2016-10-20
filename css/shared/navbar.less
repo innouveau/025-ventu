@@ -70,7 +70,7 @@ nav.navbar-default {
                     }
 
                     &:hover {
-                        background: #D5D5D5;
+                        background: @button-hover-color;
                     }
 
                     &:last-child {
@@ -143,9 +143,17 @@ nav.navbar-default {
                         border-left: 0;
                         border-bottom: 1px solid #ddd;
 
+                        &:hover {
+                            background: transparent;
+                        }
+
                         a {
                             padding: 16px 32px;
                             height: auto;
+
+                            &:hover {
+                                background: @button-hover-color;
+                            }
                         }
                     }
                 }
