@@ -46,7 +46,13 @@ function openSettings() {
 function select2() {
     $('select').select2({
         placeholder: "Kies type...",
-        minimumResultsForSearch: -1
+        minimumResultsForSearch: -1,
+        maximumSelectionLength: 3,
+        language: {
+            maximumSelected: function () {
+                return 'Kies maximaal 3 types';
+            }
+        }
     });
 }
 
