@@ -138,7 +138,8 @@ Map.prototype._removeCards = function() {
 };
 
 Map.prototype._createCards = function() {
-    for (var i = 0; i < this.app.config.stack.n; i++) {
+    var n = this.markers.length > this.app.config.stack.max ? this.app.config.stack.max : this.markers.length;
+    for (var i = 0; i < n; i++) {
         this._createCard(this.app.objects[i], i);
     }
 };

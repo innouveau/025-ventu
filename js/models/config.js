@@ -7,7 +7,7 @@ function Config(app) {
 
     };
     this.stack = {
-        n: 8
+        max: 100
     };
     this.zoom = 0;
     this.swipe = 200;

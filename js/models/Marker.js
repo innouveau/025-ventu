@@ -21,6 +21,10 @@ Marker.prototype.show = function() {
     this.marker.setVisible(true);
 };
 
+Marker.prototype.select = function() {
+    this.marker.setIcon(this.app.map.icon.selected);
+};
+
 
 Marker.prototype.remove = function() {
     this.marker.setMap(null);

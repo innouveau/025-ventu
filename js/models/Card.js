@@ -5,6 +5,7 @@ function Card(app, building, marker, index, launchType) {
     this.launchType = launchType;
     this.index = index;
     this.rotate = index === 0 ? 0 : 10 * Math.random() - 5;
+    this.zIndex = index * 100;
     this.element = null;
     this.shade = null;
     this.hammer = null;
@@ -56,12 +57,11 @@ Card.prototype.launch = function() {
     var self = this,
         thisTransform = this.launchType === 0 ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
     this._setTransform(this.element, thisTransform, false);
-    this._setTransform(this.shade, this._projectShade(thisTransform), false);
+    this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
 
     switch (this.launchType) {
         case 0:
-            var slowTransition = 1500, // see css card.less
-                float = 3000; // see css card.less
+            var slowTransition = 1500; // see css card.less
             this.element.show();
             this.shade.show();
             this.element.addClass('slow-transition');
@@ -78,9 +78,8 @@ Card.prototype.launch = function() {
             setTimeout(function () {
                 self.element.removeClass('slow-transition');
                 self.shade.removeClass('slow-transition');
-
                 self._launchNext();
-            }, (slowTransition + float));
+            }, (0.25 * slowTransition));
             break;
         case 1:
             var wait = 500;
@@ -93,7 +92,6 @@ Card.prototype.launch = function() {
             setTimeout(function () {
                 self._launchNext();
             }, (0.5 * wait));
-
             break;
         case 2:
             this.element.addClass('no-transition').fadeIn(500, function(){
@@ -116,19 +114,35 @@ Card.prototype._launchNext = function() {
     }
 };
 
+
 Card.prototype._next = function() {
-    var parent = this.app.map,
-        index = parent.cards.indexOf(this);
-    if (parent.cards[index + 1]) {
-        return parent.cards[index + 1];
+    var index = this._getIndex();
+    if (this.app.map.cards[index + 1]) {
+        return this.app.map.cards[index + 1];
     } else {
         return null;
     }
 };
 
+Card.prototype._getIndex = function() {
+    return this.app.map.cards.indexOf(this)
+};
+
+Card.prototype._remove = function() {
+    var index = this._getIndex();
+    this.app.map.cards.splice(index, 1);
+};
+
 
 
 // moves
+
+Card.prototype.topOfStack = function() {
+    this.rotate = 0;
+    this.zIndex = 0;
+    this.marker.select();
+    this.toOrigin();
+};
 
 Card.prototype.float = function() {
     var self = this;
@@ -150,19 +164,21 @@ Card.prototype.drag = function(dx, dy) {
         y = dy,
         rotY = dx / 5,
         rotX = dy / -5,
-        rotZ = dx / 20;
+        rotZ = dx / 20,
+        transform = [x, y, 0, rotX, rotY, rotZ, 1, 1];
     this.element.addClass('no-transition');
     this.shade.addClass('no-transition');
-    this._setTransform(this.element, [x, y, 0, rotX, rotY, rotZ, 1, 1], false);
-    this._setTransform(this.shade, [0.5*x+50, 0.5*y+100, -50, 0, 0, 0.5*rotZ, (1 - Math.abs(x/1000)), (1 - Math.abs(y/1000))], false);
+    this._setTransform(this.element, transform, false);
+    this._setTransform(this.shade, this._projectShade(transform, true), false);
 };
 
 Card.prototype.toOrigin = function() {
+    var transform = [0,0,0,0,0,0,1,1];
     this.rotate = 0;
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
-    this._setTransform(this.element, [0,0,0,0,0,0,1,1], false);
-    this._setTransform(this.shade, [0,50,-50,0,0,0,1.5,1], false);
+    this._setTransform(this.element, transform, false);
+    this._setTransform(this.shade, this._projectShade(transform, true), false);
     this._releaseContainers();
 };
 
@@ -214,8 +230,14 @@ Card.prototype._releaseContainers = function (){
 };
 
 Card.prototype.destroy = function() {
+    var next = this._next();
+    if (next) {
+        next.topOfStack();
+    }
     this.element.remove();
     this.shade.remove();
+    this.marker.remove();
+    this._remove();
 };
 
 
@@ -238,7 +260,7 @@ Card.prototype._getMarkerTransform = function() {
 
 Card.prototype._getTransform = function(transform, netto) {
     var rotate = this.rotate,
-        z = this.index * 100;
+        z = this.zIndex;
     if (netto) {
         rotate = 0;
         z = 0;
@@ -263,16 +285,26 @@ Card.prototype._setTransform = function(element, trnsf, netto) {
     });
 };
 
-Card.prototype._projectShade = function(transform) {
+Card.prototype._projectShade = function(transform, rotate) {
+    var rotZ, scaleX, scaleY;
+    if (rotate) {
+        rotZ = 0.5 * transform[5];
+        scaleX = (1 - Math.abs(transform[0]/1000));
+        scaleY = (1 - Math.abs(transform[1]/1000));
+    } else {
+        rotZ = 0;
+        scaleX = transform[6];
+        scaleY = transform[7];
+    }
     return [
-        transform[0] + 50,
-        transform[1] + 50,
+        0.8 * transform[0] + 50,
+        0.8 * transform[1] + 50,
         transform[2] - 50,
         0,
         0,
-        0,
-        1.5 * transform[6],
-        transform[7]
+        rotZ,
+        scaleX,
+        scaleY
     ];
 };
 
