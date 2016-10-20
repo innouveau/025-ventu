@@ -311,6 +311,10 @@ Card.prototype._projectShade = function(transform, rotate) {
 Card.prototype._addListener = function() {
     var self = this;
     this.hammer = Hammer(this.element[0]);
+    
+    this.hammer.on('dragstart', function() {
+        self._clearfloat();
+    });
 
     this.hammer.on('drag', function (event) {
         if (event != null && event.gesture !== null) {
