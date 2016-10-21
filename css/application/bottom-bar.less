@@ -47,7 +47,9 @@
         }
 
         &.ventu-bottom-bar-sub.selected{
-            transform: translateY(-550px) translateZ(-51px);
+            animation: shift-under 0.5s 1;
+            -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+            animation-fill-mode: forwards;
 
             .ventu-bottom-bar-catcher {
                 width: 100%;
@@ -57,7 +59,9 @@
         }
 
         &:hover {
-            transform: translateY(-500px) translateZ(1px);
+            animation: move-over 0.5s 1;
+            -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+            animation-fill-mode: forwards;
         }
 
         .ventu-bottom-bar-header {
@@ -104,5 +108,35 @@
                 }
             }
         }
+    }
+}
+
+@keyframes shift-under {
+    0%{
+        transform: translateY(0) translateZ(0);
+    }
+
+    25% {
+        transform: translateY(0) translateZ(-51px);
+    }
+
+
+    100% {
+        transform: translateY(-550px) translateZ(-51px);
+    }
+}
+
+@keyframes move-over {
+    0%{
+        transform: translateY(0) translateZ(0);
+    }
+
+    25% {
+        transform: translateY(0) translateZ(1px);
+    }
+
+
+    100% {
+        transform: translateY(-500px) translateZ(1px);
     }
 }

@@ -422,7 +422,7 @@ body .ventu-pagewrap {
 }
 .ventu-card .ventu-card-image {
   width: 100%;
-  height: 60%;
+  height: 45%;
   transition: opacity 2s;
   background-size: cover;
   background-position: center center;
@@ -430,21 +430,36 @@ body .ventu-pagewrap {
 }
 .ventu-card .ventu-card-text {
   width: 100%;
-  height: calc(40% - 40px);
-  padding: 30px;
+  height: calc(55% - 40px);
+  padding: 20px 30px;
   font-weight: 300;
+  font-size: 13px;
+  line-height: 18px;
 }
 .ventu-card .ventu-card-text h3 {
   font-weight: 100;
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 24px;
+  line-height: 22px;
   margin: 0;
 }
 .ventu-card .ventu-card-text h4 {
   font-family: 'freight';
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
   margin: 0;
+}
+.ventu-card .ventu-card-text .ventu-card-text-content {
+  padding-top: 10px;
+}
+.ventu-card .ventu-card-text .ventu-card-text-content .ventu-card-text-content-half {
+  float: left;
+  width: 50%;
+}
+.ventu-card .ventu-card-text .ventu-card-text-content .ventu-card-text-content-half:first-child {
+  padding-right: 10px;
+}
+.ventu-card .ventu-card-text .ventu-card-text-content .ventu-card-text-content-half:last-child {
+  padding-left: 10px;
 }
 .ventu-card .ventu-card-text ul {
   padding-left: 10px;
@@ -497,6 +512,34 @@ body .ventu-pagewrap {
   vertical-align: top;
   margin-top: 4px;
 }
+#ventu-stack {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  perspective-origin: 50% 50%;
+  -webkit-perspective-origin: 50% 50%;
+  perspective: 5000px;
+  -webkit-perspective: 5000px;
+}
+#ventu-stack .ventu-card-shade {
+  position: absolute;
+  display: none;
+  right: 0;
+  opacity: 0.1;
+  width: 500px;
+  height: 400px;
+  transition: all 0.5s ease;
+  background-image: url('../img/shade.png');
+  background-color: transparent;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#ventu-stack .ventu-card-shade.no-transition {
+  transition: none;
+}
+#ventu-stack .ventu-card-shade.slow-transition {
+  transition: all 2s ease;
+}
 .ventu-card-float {
   animation: float 3s 1;
   transition: none!important;
@@ -521,16 +564,16 @@ body .ventu-pagewrap {
 }
 @keyframes float-shade {
   0% {
-    transform: translateX(50px) translateY(50px) translateZ(-50px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1, 1);
+    transform: translateX(50px) translateY(50px) translateZ(-50px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.2, 1.2);
   }
   25% {
-    transform: translateX(140px) translateY(50px) translateZ(-50px) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1, 1);
+    transform: translateX(140px) translateY(50px) translateZ(-50px) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1.2, 1.2);
   }
   75% {
-    transform: translateX(-40px) translateY(50px) translateZ(-50px) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1, 1);
+    transform: translateX(-40px) translateY(50px) translateZ(-50px) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1.2, 1.2);
   }
   100% {
-    transform: translateX(50px) translateY(50px) translateZ(-50px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1, 1);
+    transform: translateX(50px) translateY(50px) translateZ(-50px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.2, 1.2);
   }
 }
 .ventu-overlay .ventu-form h2 {
@@ -1169,34 +1212,6 @@ body.ventu-application #ventu-stack {
 .ventu-filter-button:hover {
   background: #00e5a9;
 }
-#ventu-stack {
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  perspective-origin: 50% 50%;
-  -webkit-perspective-origin: 50% 50%;
-  perspective: 5000px;
-  -webkit-perspective: 5000px;
-}
-#ventu-stack .ventu-card-shade {
-  position: absolute;
-  display: none;
-  right: 0;
-  opacity: 0.1;
-  width: 500px;
-  height: 400px;
-  transition: all 0.5s ease;
-  background-image: url('../img/shade.png');
-  background-color: transparent;
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-#ventu-stack .ventu-card-shade.no-transition {
-  transition: none;
-}
-#ventu-stack .ventu-card-shade.slow-transition {
-  transition: all 2s ease;
-}
 #ventu-bottom-bar {
   height: 44px;
   transform-style: preserve-3d;
@@ -1239,7 +1254,10 @@ body.ventu-application #ventu-stack {
   text-decoration: none;
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub.selected {
-  transform: translateY(-550px) translateZ(-51px);
+  animation: shift-under 0.5s 1;
+  -webkit-animation-fill-mode: forwards;
+  /* Safari 4.0 - 8.0 */
+  animation-fill-mode: forwards;
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub.selected .ventu-bottom-bar-catcher {
   width: 100%;
@@ -1247,7 +1265,10 @@ body.ventu-application #ventu-stack {
   margin: 0;
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub:hover {
-  transform: translateY(-500px) translateZ(1px);
+  animation: move-over 0.5s 1;
+  -webkit-animation-fill-mode: forwards;
+  /* Safari 4.0 - 8.0 */
+  animation-fill-mode: forwards;
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-header {
   margin-bottom: 20px;
@@ -1284,6 +1305,28 @@ body.ventu-application #ventu-stack {
   height: 60%;
   background-size: cover;
   background-position: center center;
+}
+@keyframes shift-under {
+  0% {
+    transform: translateY(0) translateZ(0);
+  }
+  25% {
+    transform: translateY(0) translateZ(-51px);
+  }
+  100% {
+    transform: translateY(-550px) translateZ(-51px);
+  }
+}
+@keyframes move-over {
+  0% {
+    transform: translateY(0) translateZ(0);
+  }
+  25% {
+    transform: translateY(0) translateZ(1px);
+  }
+  100% {
+    transform: translateY(-500px) translateZ(1px);
+  }
 }
 .ventu-card.ventu-mini-card {
   width: 200px;
