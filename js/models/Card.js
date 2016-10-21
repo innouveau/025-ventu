@@ -240,9 +240,9 @@ Card.prototype.addToList = function (type) {
     this._setTransform(this.shade, transform, true);
     this.element.find('.ventu-card-text').fadeOut(500);
     this.element.find('.ventu-card-buttons').fadeOut(500);
-
+    this.marker.remove();
     this.app.map.createNewCard();
-    
+
     setTimeout(function(){
         self.app.list[type].add(self);
         if (next) {
@@ -282,7 +282,6 @@ Card.prototype._releaseContainers = function (){
 Card.prototype.destroy = function() {
     this.element.remove();
     this.shade.remove();
-    this.marker.remove();
 };
 
 

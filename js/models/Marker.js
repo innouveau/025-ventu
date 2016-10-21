@@ -31,9 +31,12 @@ Marker.prototype.select = function() {
 
 Marker.prototype.remove = function() {
     var index = this.app.map.markers.indexOf(this);
-    this.marker.setMap(null);
+    this.eject();
     this.app.map.markers.splice(index, 1);
+};
 
+Marker.prototype.eject = function() {
+    this.marker.setMap(null);
 };
 
 Marker.prototype.getPixelCoordinates = function(marker) {

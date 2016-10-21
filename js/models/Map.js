@@ -101,8 +101,9 @@ Map.prototype._removeShape = function() {
 // markers
 
 Map.prototype._removeMarkers = function() {
+    console.log(this.markers);
     for (var i = 0, l = this.markers.length; i < l; i++) {
-        this.markers[i].remove();
+        this.markers[i].eject();
     }
     this.markers = [];
 };
@@ -187,9 +188,9 @@ Map.prototype._getMarker = function() {
 
 
 Map.prototype._createCard = function(marker, building) {
-    this.lastIndex++;
     var card = new Card(this.app, marker, building, this.lastIndex);
     this.cards.push(card);
+    this.lastIndex++;
     return card;
 };
 
