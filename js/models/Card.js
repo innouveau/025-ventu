@@ -224,7 +224,8 @@ Card.prototype.addToList = function (type) {
         config = this.app.config.sizes.bottomBar[type],
         scale = config.width / this.app.config.sizes.card.width,
         transform = [config.x,config.y,0,0,0,0,scale,scale],
-        other = type === 'love' ? 'hate' : 'love';
+        other = type === 'love' ? 'hate' : 'love',
+        next = this._next();
     this.app.list[type].element.main.addClass('selected');
     this.app.list[other].element.main.removeClass('selected');
     this.element.removeClass('no-transition');
@@ -233,8 +234,12 @@ Card.prototype.addToList = function (type) {
     this._setTransform(this.shade, transform, true);
     this.element.find('.ventu-card-text').fadeOut(500);
     this.element.find('.ventu-card-buttons').fadeOut(500);
+
     setTimeout(function(){
         self.app.list[type].add(self);
+        if (next) {
+            next.topOfStack();
+        }
     }, 800);
 
 };
@@ -267,14 +272,9 @@ Card.prototype._releaseContainers = function (){
 };
 
 Card.prototype.destroy = function() {
-    var next = this._next();
-    if (next) {
-        next.topOfStack();
-    }
     this.element.remove();
     this.shade.remove();
     this.marker.remove();
-    this._remove();
 };
 
 

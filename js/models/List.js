@@ -39,7 +39,7 @@ List.prototype._appendLists = function() {
 };
 
 List.prototype._appendObject = function(item) {
-    var content = item.getContent(),
+    var content = item.getCardContent(),
         element = $('<div class="ventu-bottom-bar-list-item"><div class="ventu-bottom-bar-list-item-image" style="background-image: url(' + content.image + ')"></div></div>');
     this.element.list.prepend(element);
 };
