@@ -40,7 +40,7 @@ Map.prototype.draw = function(data) {
     this._removeMarkers();
     this._removeCards();
     this._drawShape(data);
-    this._createMarkers(data.buildings);
+    this._createMarkers(data.markers);
     this._createCards();
     
     setTimeout(function(){
@@ -116,14 +116,15 @@ Map.prototype._createMarkers = function(markers) {
 Map.prototype._showMarkers = function() {
     var self = this,
         counter = 0,
-        timer;
+        timer,
+        interval = 1000 / this.markers.lenght;
     timer = setInterval(function(){
         self.markers[counter].show();
         counter++;
         if (counter === self.markers.length) {
             clearInterval(timer);
         }
-    }, 100)
+    }, interval)
 };
 
 
@@ -140,17 +141,28 @@ Map.prototype._removeCards = function() {
 Map.prototype._createCards = function() {
     var n = this.markers.length > this.app.config.stack.max ? this.app.config.stack.max : this.markers.length;
     for (var i = 0; i < n; i++) {
-        this._createCard(this.app.objects[i], i);
+        var marker = this.markers[i],
+            building = this._getBuilding(marker.UniqueId);
+        if (building) {
+            this._createCard(marker, building, i);
+        }
+        
     }
 };
 
-Map.prototype._createCard = function(building, index) {
-    var card,
-        launcher = 1;
-    if (window.environment.launchAll || (index === 0 && window.environment.intro)) {
-        launcher = 0;
+Map.prototype._getBuilding = function(UniqueId) {
+    for (var i = 0, l = this.app.objects.length; i < l; i++) {
+        var obj = this.app.objects[i];
+        if (obj.UniqueId === UniqueId) {
+            return new Building(this.app, obj);
+        }
     }
-    card = new Card(this.app, building, this.markers[index], index, launcher);
+    return null;
+};
+
+
+Map.prototype._createCard = function(marker, building, index) {
+    var card = new Card(this.app, marker, building, index);
     this.cards.push(card);
 };
 

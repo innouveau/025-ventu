@@ -2,14 +2,15 @@ function Marker(app, parent, data, icon) {
     this.app = app;
     this.parent = parent;
     this.marker = null;
-    this.data = data;
+    this.coordinate = {lat: parseFloat(data.Latitude), lng: parseFloat(data.Longitude)};
+    this.UniqueId = data.UniqueId;
     this.icon = icon;
     this.create();
 }
 
 Marker.prototype.create = function() {
     this.marker = new google.maps.Marker({
-        position: this.data.coordinates,
+        position: this.coordinate,
         map: this.parent.map,
         icon: this.icon,
         title: ''
@@ -23,6 +24,7 @@ Marker.prototype.show = function() {
 
 Marker.prototype.select = function() {
     this.marker.setIcon(this.app.map.icon.selected);
+    this.marker.setZIndex(10000);
 };
 
 

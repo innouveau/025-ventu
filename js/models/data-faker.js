@@ -10,7 +10,7 @@ function DataFaker(app) {
             active: false,
             km: 6
         }
-    }
+    };
 }
 
 DataFaker.prototype.getSearchResults = function(searchQuery) {
@@ -73,7 +73,8 @@ DataFaker.prototype.getSelectResults = function(searchQuery, type) {
         shape: shape,
         zoomCenter: zoomCenter,
         zoom: zoom,
-        buildings: buildings
+        markers: markers,
+        objects: objects
     }
 };
 

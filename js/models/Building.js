@@ -1,36 +1,50 @@
 function Building(app, building) {
     this.app = app;
-    this.ImageURL = building.ImageURL;
-    this.city = building.city;
-    this.icons = building.icons;
-    this.DetailLinkUrl = building.DetailLinkUrl;
-    this.address = building.address;
-    this.BrochureUrl = building.BrochureUrl;
-    this.VideoUrl = building.VideoUrl;
-    this.PrimaryUsage = building.PrimaryUsage;
-    this.SaleOrRent = building.SaleOrRent;
-    this.MetrageInfo = building.MetrageInfo;
-    this.PriceInfo = building.PriceInfo;
+    this.uniqueId = building.UniqueId;
+    // address
+    this.address = building.Address;
+    this.city = building.City;
+    this.postcode = building.Postcode;
+    this.fullAddressInfo = building.FullAddressInfo;
+    // price
+    this.price = building.Price;
+    this.priceInfo = building.PriceInfo;
+    this.priceNOTK = building.PriceNOTK;
+    this.pricePerYear = building.PricePerYear;
+    this.saleOrRent = building.SaleOrRent;
+    this.metrageInfo = building.MetrageInfo;
+    this.broker = building.Broker;
+    // extra info
+    this.imageURL = building.ImageURL;
+    this.detailLinkUrl = building.DetailLinkUrl;
+    this.brochureUrl = building.BrochureUrl;
+    this.videoUrl = building.VideoUrl;
+    this.primaryUsage = building.PrimaryUsage;
+
+    // temp fake data
+    this.imageURL = 'https://ventu.nl' + this.imageURL;
+    this.detailLinkUrl = './detail.html';
+
 }
 
 Building.prototype.hasProperty = function(property) {
     return this[property] != null && this[property] != undefined && this[property].length > 0;
 };
 
-Building.prototype.getContent = function() {
-    var hasPrimaryUsageData = this.hasProperty('PrimaryUsage'),
-        hasSaleData = this.hasProperty('SaleOrRent'),
-        hasMetrageInfo = this.hasProperty('MetrageInfo'),
-        hasPriceInfo = this.hasProperty('PriceInfo'),
+Building.prototype.getCardContent = function() {
+    var hasPrimaryUsageData = this.hasProperty('primaryUsage'),
+        hasSaleData = this.hasProperty('saleOrRent'),
+        hasMetrageInfo = this.hasProperty('metrageInfo'),
+        hasPriceInfo = this.hasProperty('priceInfo'),
         list = [],
         icons = [];
 
     if (hasPrimaryUsageData || hasSaleData) {
-        list.push((hasPrimaryUsageData ? this.PrimaryUsage : '') + (hasSaleData ? ' | ' + this.SaleOrRent : ''));
+        list.push((hasPrimaryUsageData ? this.primaryUsage : '') + (hasSaleData ? ' | ' + this.saleOrRent : ''));
     }
 
     if (hasMetrageInfo) {
-        var metrageInfoText = this.MetrageInfo;
+        var metrageInfoText = this.metrageInfo;
 
         if (metrageInfoText.indexOf('#') > -1) {
             var result = metrageInfoText.match(/#(.*?)#/g).map(function (val) {
@@ -47,7 +61,7 @@ Building.prototype.getContent = function() {
     }
 
     if (hasPriceInfo) {
-        var priceInfoText = this.PriceInfo;
+        var priceInfoText = this.priceInfo;
         if (priceInfoText.indexOf('#') > -1) {
             var result = priceInfoText.match(/#(.*?)#/g).map(function (val) {
                 return val.replace(/#/g, '');
@@ -62,35 +76,43 @@ Building.prototype.getContent = function() {
         list.push(priceInfoText);
     }
 
-    var iconResult = { style: 'image', url: this.DetailLinkUrl + '#photos' };
+    var iconResult = { style: 'image', url: this.detailLinkUrl + '#photos' };
 
     // image is always available
     icons.push(iconResult);
 
-    if (this.BrochureUrl) {
-        iconResult = { style: 'document', url: this.DetailLinkUrl + '#brochure' }
+    if (this.brochureUrl) {
+        iconResult = { style: 'document', url: this.detailLinkUrl + '#brochure' };
         icons.push(iconResult);
     }
 
-    if (this.VideoUrl) {
-        iconResult = { style: 'video', url: this.DetailLinkUrl + '#objectmovie' }
+    if (this.videoUrl) {
+        iconResult = { style: 'video', url: this.detailLinkUrl + '#objectmovie' };
         icons.push(iconResult);
     }
 
     if (this.TourUrl) {
-        iconResult = { style: 'video', url: this.DetailLinkUrl + '#objectmovie' }
+        iconResult = { style: 'video', url: this.detailLinkUrl + '#objectmovie' };
         icons.push(iconResult);
     }
-
     result = {
-        image: this.ImageURL == null ? '/img/misc/ventu-stock-thumb.jpg' : this.ImageURL,
+        image: this.imageURL == null ? '/img/misc/ventu-stock-thumb.jpg' : this.imageURL,
         text: {
-            head: this.city,
-            sub: this.address,
-            list: list,
-            detailLinkUrl: this.DetailLinkUrl
+            head: this.address,
+            sub: this.city,
+            list: this._listToUl(list),
+            address: this.fullAddressInfo,
+            detailLinkUrl: this.detailLinkUrl
         },
         icons: icons
     };
     return result;
+};
+
+Building.prototype._listToUl = function(list) {
+    var ul = '<ul>';
+    for (var i = 0, l = list.length; i < l; i++) {
+        ul += '<li>' + list[i] + '</li>';
+    }
+    return ul += '</ul>';
 };
