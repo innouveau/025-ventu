@@ -58,6 +58,7 @@ Card.prototype._create = function() {
     this.shade = shade;
     this.app.domElements.stack.append(shade);
     this.app.domElements.stack.append(card);
+    this.marker.hasCard = true;
 };
 
 Card.prototype._getPosition = function(index) {
@@ -76,14 +77,19 @@ Card.prototype._getLaunchType = function(index) {
     }
 };
 
-Card.prototype.launch = function() {
+Card.prototype.launch = function(type) {
     var self = this,
-        thisTransform = this.launchType === 0 ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
+        thisTransform;
+    if (!type) {
+        type = this.launchType;
+    }
+    thisTransform = type === 0 ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
     // start position
     this._setTransform(this.element, thisTransform, false);
     this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
 
-    switch (this.launchType) {
+
+    switch (type) {
         case 0:
             this.element.addClass('no-transition').fadeIn(500, function(){
                 $(this).removeClass('no-transition')
@@ -158,7 +164,7 @@ Card.prototype._next = function() {
 };
 
 Card.prototype._getIndex = function() {
-    return this.app.map.cards.indexOf(this)
+    return this.app.map.cards.indexOf(this);
 };
 
 Card.prototype._remove = function() {
@@ -235,6 +241,8 @@ Card.prototype.addToList = function (type) {
     this.element.find('.ventu-card-text').fadeOut(500);
     this.element.find('.ventu-card-buttons').fadeOut(500);
 
+    this.app.map.createNewCard();
+    
     setTimeout(function(){
         self.app.list[type].add(self);
         if (next) {

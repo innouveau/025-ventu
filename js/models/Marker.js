@@ -5,6 +5,7 @@ function Marker(app, parent, data, icon) {
     this.coordinate = {lat: parseFloat(data.Latitude), lng: parseFloat(data.Longitude)};
     this.UniqueId = data.UniqueId;
     this.icon = icon;
+    this.hasCard = false;
     this.create();
 }
 
@@ -29,7 +30,10 @@ Marker.prototype.select = function() {
 
 
 Marker.prototype.remove = function() {
+    var index = this.app.map.markers.indexOf(this);
     this.marker.setMap(null);
+    this.app.map.markers.splice(index, 1);
+
 };
 
 Marker.prototype.getPixelCoordinates = function(marker) {

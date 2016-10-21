@@ -17,6 +17,7 @@ function Map(app) {
     this.shape = null;
     this.markers = [];
     this.cards = [];
+    this.lastIndex = 0;
     this.init();
 }
 
@@ -36,6 +37,7 @@ Map.prototype.init = function() {
 
 Map.prototype.draw = function(data) {
     var self = this;
+    this.lastIndex = 0;
     this._removeShape();
     this._removeMarkers();
     this._removeCards();
@@ -144,7 +146,7 @@ Map.prototype._createCards = function() {
         var marker = this.markers[i],
             building = this._getBuilding(marker.UniqueId);
         if (building) {
-            this._createCard(marker, building, i);
+            this._createCard(marker, building);
         }
         
     }
@@ -160,10 +162,35 @@ Map.prototype._getBuilding = function(UniqueId) {
     return null;
 };
 
+Map.prototype.createNewCard = function() {
+    var marker = this._getMarker();
+    // create a card and launch it inmediately (type 1 is simple fade in at place)
+    this._createCard(marker.marker, marker.building).launch(1);
+};
 
-Map.prototype._createCard = function(marker, building, index) {
-    var card = new Card(this.app, marker, building, index);
+Map.prototype._getMarker = function() {
+    for (var i = 0, l = this.markers.length; i < l; i++) {
+        var marker = this.markers[i],
+            building;
+        if (!marker.hasCard) {
+            building = this._getBuilding(marker.UniqueId);
+            if (building) {
+                return  {
+                    marker: marker,
+                    building: building
+                };
+            }
+        }
+    }
+    return null;
+};
+
+
+Map.prototype._createCard = function(marker, building) {
+    this.lastIndex++;
+    var card = new Card(this.app, marker, building, this.lastIndex);
     this.cards.push(card);
+    return card;
 };
 
 
