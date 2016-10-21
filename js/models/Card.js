@@ -25,7 +25,7 @@ Card.prototype._create = function() {
         buttonBar,
         shade;
     card = $('<div class="ventu-card">' +
-        '<div class="ventu-card-image" style="background-image:url(' + content.image + ')"></div>' +
+        '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url(' + content.image + ')"></div>' +
         '<div class="ventu-card-text"><h4>' + content.text.sub + '</h4><h3>' + content.text.head + '</h3>' +
         '<div class="ventu-card-text-content"><div class="ventu-card-text-content-half">' + content.text.list + '</div>' +
         '<div class="ventu-card-text-content-half">' + content.text.address + '<br><br><a href="' + content.text.detailLinkUrl + '">Lees meer</a></div></div>' +
