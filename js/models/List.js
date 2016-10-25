@@ -14,14 +14,18 @@ function List(app, type, title) {
 }
 
 List.prototype._create = function() {
-    var header = $('<div class="ventu-bottom-bar-header"></div>');
+    var header = $('<div class="ventu-bottom-bar-header"></div>'),
+        label;
     this.element.main = $('<div class="ventu-bottom-bar-sub ventu-bottom-bar-sub-' + this.type + '"></div>');
     this.element.catcher = $('<div class="ventu-bottom-bar-catcher"></div>');
     this.element.list = $('<div class="ventu-bottom-bar-list"></div>');
     this.element.counter = $('<div class="ventu-list-counter">x</div>');
-    header.append('Je hebt ');
-    header.append(this.element.counter);
-    header.append(' objecten in je <i>' + this.title + '</i>. <a href="list.html">Bekijken</a>');
+    label = $('<div class="ventu-list-label"></div>');
+    label.append('Je hebt ');
+    label.append(this.element.counter);
+    label.append(' objecten in je <i>' + this.title + '</i>.');
+    header.append(label);
+    $('body').append('<a class="ventu-to-list ventu-to-list-' + this.type + '" href="list.html">Bekijken</a>');
     this.element.main.append(header);
     this.element.main.append(this.element.catcher);
     this.element.main.append(this.element.list);

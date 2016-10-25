@@ -1221,7 +1221,7 @@ body.ventu-application #ventu-stack {
   -webkit-perspective: 5000px;
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub {
-  padding: 10px 20px 14px 20px;
+  padding: 0 20px 14px 20px;
   display: inline-block;
   float: right;
   height: 800px;
@@ -1244,14 +1244,6 @@ body.ventu-application #ventu-stack {
 #ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub-hate .ventu-list-counter {
   background: #DF0040;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub a {
-  color: #000;
-  padding-bottom: 2px;
-  border-bottom: 1px solid #333;
-}
-#ventu-bottom-bar .ventu-bottom-bar-sub a:hover {
-  text-decoration: none;
-}
 #ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub.selected {
   animation: shift-under 0.5s 1;
   -webkit-animation-fill-mode: forwards;
@@ -1271,6 +1263,12 @@ body.ventu-application #ventu-stack {
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-header {
   margin-bottom: 20px;
+  cursor: default;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-header .ventu-list-label {
+  display: inline-block;
+  padding-top: 10px;
+  margin-right: 4px;
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-catcher {
   border: 1px dashed #333;
@@ -1304,6 +1302,22 @@ body.ventu-application #ventu-stack {
   height: 60%;
   background-size: cover;
   background-position: center center;
+}
+a.ventu-to-list {
+  position: fixed;
+  bottom: 9px;
+  color: #000;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #333;
+}
+a.ventu-to-list:hover {
+  text-decoration: none;
+}
+a.ventu-to-list.ventu-to-list-love {
+  right: 45px;
+}
+a.ventu-to-list.ventu-to-list-hate {
+  right: 374px;
 }
 @keyframes shift-under {
   0% {

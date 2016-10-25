@@ -101,7 +101,6 @@ Map.prototype._removeShape = function() {
 // markers
 
 Map.prototype._removeMarkers = function() {
-    console.log(this.markers);
     for (var i = 0, l = this.markers.length; i < l; i++) {
         this.markers[i].eject();
     }

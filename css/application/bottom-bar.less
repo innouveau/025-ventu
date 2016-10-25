@@ -8,7 +8,7 @@
     -webkit-perspective: 5000px;
 
     .ventu-bottom-bar-sub {
-        padding: 10px 20px 14px 20px;
+        padding: 0 20px 14px 20px;
         display: inline-block;
         float: right;
         height: 800px;
@@ -35,17 +35,6 @@
             background: @ventu-color-hate;
         }
 
-
-        a {
-            color: #000;
-            padding-bottom: 2px;
-            border-bottom: 1px solid #333;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
         &.ventu-bottom-bar-sub.selected{
             animation: shift-under 0.5s 1;
             -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
@@ -66,6 +55,13 @@
 
         .ventu-bottom-bar-header {
             margin-bottom: 20px;
+            cursor: default;
+
+            .ventu-list-label {
+                display: inline-block;
+                padding-top: 10px;
+                margin-right: 4px;
+            }
         }
 
         .ventu-bottom-bar-catcher {
@@ -108,6 +104,26 @@
                 }
             }
         }
+    }
+}
+
+a.ventu-to-list {
+    position: fixed;
+    bottom: 9px;
+    color: #000;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #333;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &.ventu-to-list-love {
+        right: 45px;
+    }
+
+    &.ventu-to-list-hate {
+        right: 374px;
     }
 }
 

@@ -8,4 +8,7 @@ $(window).ready(function(){
         ventu.select('Amsterdam (stad)', 'poly');
     }
 
+    menuListeners();
+    select2();
+
 });
