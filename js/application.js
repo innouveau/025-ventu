@@ -5,7 +5,7 @@ $(window).ready(function(){
     ventu.init();
 
     if (window.environment.autostart) {
-        ventu.select('Amsterdam (stad)', 'poly');
+        ventu.select('1077 Amsterdam (postcode)', 'poly');
     }
 
     menuListeners();
