@@ -23,15 +23,15 @@ function Config(app) {
 }
 
 Config.prototype._getBottomBarSizes = function() {
-    var cardTop = 104 + 200,
-        cardRight = 40 + 250,
+    var cardTop = 124 + 200 - 4,// perspective correction
+        cardRight = 120 + 250,
         bottomBarHeight = 44,
         bottomBarShifted = 550,
         catcherFromTop = 11 + 25 + 5 + 1 + 15,
         catcherWidth = 276,
         catcherHeight = 221,
         halfCatcherWidth = catcherWidth / 2,
-        marginBottomBar = 20 + 20,
+        marginBottomBar = 50 + 20,
         halfCatcherHeight = catcherHeight / 2,
         rightBottomBar = 320,
         y = $(window).outerHeight() - cardTop - bottomBarHeight - bottomBarShifted + catcherFromTop + halfCatcherHeight,

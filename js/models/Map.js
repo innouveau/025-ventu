@@ -13,6 +13,7 @@ function Map(app) {
             fillOpacity: 0.4
         }
     };
+    this.currentCard = null;
     this.map = null;
     this.shape = null;
     this.markers = [];
@@ -27,9 +28,7 @@ Map.prototype.init = function() {
         center: new google.maps.LatLng(51.7,4.6),
         sensor: 'true',
         draggable: true,
-        zoomControlOptions: {
-            position: google.maps.ControlPosition.LEFT_CENTER
-        }
+        streetViewControl: false
     };
     this.map = new google.maps.Map(document.getElementById("ventu-canvas"), myOptions);
 };
@@ -51,6 +50,7 @@ Map.prototype.draw = function(data) {
 
     setTimeout(function(){
         // init launch cascade
+        self.currentCard = self.cards[0];
         self.cards[0].launch();
     }, 2000);
 };
@@ -144,15 +144,15 @@ Map.prototype._createCards = function() {
     var n = this.markers.length > this.app.config.stack.max ? this.app.config.stack.max : this.markers.length;
     for (var i = 0; i < n; i++) {
         var marker = this.markers[i],
-            building = this._getBuilding(marker.UniqueId);
+            building = this.getBuilding(marker.UniqueId);
         if (building) {
-            this._createCard(marker, building);
+            marker.createCard(building);
         }
         
     }
 };
 
-Map.prototype._getBuilding = function(UniqueId) {
+Map.prototype.getBuilding = function(UniqueId) {
     for (var i = 0, l = this.app.objects.length; i < l; i++) {
         var obj = this.app.objects[i];
         if (obj.UniqueId === UniqueId) {
@@ -163,9 +163,9 @@ Map.prototype._getBuilding = function(UniqueId) {
 };
 
 Map.prototype.createNewCard = function() {
-    var marker = this._getMarker();
+    var data = this._getMarker();
     // create a card and launch it inmediately (type 1 is simple fade in at place)
-    this._createCard(marker.marker, marker.building).launch(1);
+    data.marker.createCard(data.building).launch(1);
 };
 
 Map.prototype._getMarker = function() {
@@ -173,7 +173,7 @@ Map.prototype._getMarker = function() {
         var marker = this.markers[i],
             building;
         if (!marker.hasCard) {
-            building = this._getBuilding(marker.UniqueId);
+            building = this.getBuilding(marker.UniqueId);
             if (building) {
                 return  {
                     marker: marker,
@@ -186,11 +186,6 @@ Map.prototype._getMarker = function() {
 };
 
 
-Map.prototype._createCard = function(marker, building) {
-    var card = new Card(this.app, marker, building, this.lastIndex);
-    this.cards.push(card);
-    this.lastIndex++;
-    return card;
-};
+
 
 

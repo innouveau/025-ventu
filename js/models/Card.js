@@ -5,7 +5,7 @@ function Card(app, marker, building, index) {
     this.launchType = this._getLaunchType(index);
     this.index = index;
     this.position = this._getPosition(index);
-
+    this.transform = null;
 
     this.element = null;
     this.shade = null;
@@ -65,7 +65,8 @@ Card.prototype._getPosition = function(index) {
     return {
         rotate: index === 0 ? 0 : this.app.config.card.rotation * Math.random() - (this.app.config.card.rotation / 2),
         zIndex: index * this.app.config.card.zOffset,
-        shift: index * this.app.config.card.shift
+        shiftX: index * this.app.config.card.shift,
+        shiftY: index * this.app.config.card.shift
     }
 };
 
@@ -176,10 +177,52 @@ Card.prototype._remove = function() {
 
 // moves
 
+
+Card.prototype.swop = function() {
+    var self = this,
+        topCard = this.app.map.currentCard,
+        rotate = topCard.position.rotate,
+        zIndex = topCard.position.zIndex,
+        shiftX = topCard.position.shiftX,
+        shiftY = topCard.position.shiftY,
+        originalX = this.position.shiftX;
+    topCard.position.shiftX = -500;
+    this.position.shiftX = 500;
+    topCard.standardPosition();
+    this.standardPosition();
+
+    setTimeout(function(){
+        topCard.position.rotate = self.position.rotate;
+        topCard.position.zIndex = self.position.zIndex;
+        topCard.position.shiftX = originalX;
+        topCard.position.shiftY = self.position.shiftY;
+        self.position.rotate = rotate;
+        self.position.zIndex = zIndex;
+        self.position.shiftX = shiftX;
+        self.position.shiftY = shiftY;
+        topCard.standardPosition();
+        self.topOfStack();
+        topCard.marker.unselect();
+        self.app.map.currentCard = self;
+    }, 500);
+
+
+
+};
+
+Card.prototype.standardPosition = function() {
+    var thisTransform = [0,0,0,0,0,0,1,1];
+    this._setTransform(this.element, thisTransform, false);
+    this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
+};
+
+
+
 Card.prototype.topOfStack = function() {
     this.position.rotate = 0;
     this.position.zIndex = 0;
-    this.position.shift = 0;
+    this.position.shiftX = 0;
+    this.position.shiftY = 0;
     this.shade.css('opacity', 1);
     this.marker.select();
     this.toOrigin(true);
@@ -228,7 +271,7 @@ Card.prototype.toOrigin = function(unrotate) {
 Card.prototype.addToList = function (type) {
     var self = this,
         config = this.app.config.sizes.bottomBar[type],
-        scale = config.width / this.app.config.sizes.card.width,
+        scale = config.width / this.app.config.sizes.card.width * 0.99, // perspective correction
         transform = [config.x,config.y,0,0,0,0,scale,scale],
         other = type === 'love' ? 'hate' : 'love',
         next = this._next();
@@ -304,15 +347,17 @@ Card.prototype._getMarkerTransform = function() {
 
 Card.prototype._getTransform = function(transform, netto) {
     var rotate = this.position.rotate,
-        shift = this.position.shift,
+        shiftX = this.position.shiftX,
+        shiftY = this.position.shiftY,
         z = this.position.zIndex;
     if (netto) {
         rotate = 0;
-        shift = 0;
+        shiftX = 0;
+        shiftY = 0;
         z = 0;
     }
-    return 'translateX(' + (transform[0] + shift) + 'px) ' +
-        'translateY(' + (transform[1] + shift) + 'px) ' +
+    return 'translateX(' + (transform[0] + shiftX) + 'px) ' +
+        'translateY(' + (transform[1] + shiftY) + 'px) ' +
         'translateZ(' + (transform[2] - z) + 'px) ' +
         'rotateX(' + transform[3] + 'deg) ' +
         'rotateY(' + transform[4] + 'deg) ' +
@@ -322,6 +367,7 @@ Card.prototype._getTransform = function(transform, netto) {
 
 Card.prototype._setTransform = function(element, trnsf, netto) {
     var transform = this._getTransform(trnsf, netto);
+    this.transform = transform;
     element.css({
         "webkitTransform": transform,
         "MozTransform": transform,

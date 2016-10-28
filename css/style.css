@@ -1096,13 +1096,13 @@ body.ventu-application #ventu-filters {
 }
 body.ventu-application #ventu-bottom-bar {
   position: absolute;
-  right: 20px;
+  right: 50px;
   bottom: 0;
 }
 body.ventu-application #ventu-stack {
   position: absolute;
-  right: 40px;
-  top: 104px;
+  right: 120px;
+  top: 124px;
 }
 .ventu-filter-box {
   display: inline-block;
@@ -1314,10 +1314,10 @@ a.ventu-to-list:hover {
   text-decoration: none;
 }
 a.ventu-to-list.ventu-to-list-love {
-  right: 45px;
+  right: 75px;
 }
 a.ventu-to-list.ventu-to-list-hate {
-  right: 374px;
+  right: 404px;
 }
 @keyframes shift-under {
   0% {
