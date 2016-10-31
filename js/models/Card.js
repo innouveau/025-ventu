@@ -135,30 +135,16 @@ Card.prototype._launchNext = function() {
 Card.prototype.swop = function() {
     var self = this,
         topCard = this.app.map.currentCard,
-        rotate = topCard.position.rotate,
-        zIndex = topCard.position.zIndex,
-        shiftX = topCard.position.shiftX,
-        shiftY = topCard.position.shiftY,
         originalX = this.position.shiftX;
+    // pull both horizontal out of stack
     topCard.position.shiftX = -500;
     this.position.shiftX = 500;
     topCard._moveToStackPosition();
     this._moveToStackPosition();
 
     setTimeout(function(){
-        console.log(topCard.building.getCardContent().text.head);
-        topCard.position.rotate = self.position.rotate;
-        topCard.position.zIndex = self.position.zIndex;
-        topCard.position.shiftX = originalX;
-        topCard.position.shiftY = self.position.shiftY;
-        self.position.rotate = rotate;
-        self.position.zIndex = zIndex;
-        self.position.shiftX = shiftX;
-        self.position.shiftY = shiftY;
-        topCard._moveToStackPosition();
+        topCard._unsetCurrent(self.position.rotate, self.position.zIndex, originalX, self.position.shiftY);
         self._setCurrent();
-        topCard.marker.unselect();
-        self.app.map.currentCard = self;
     }, 500);
 };
 
@@ -314,8 +300,16 @@ Card.prototype._setCurrent = function() {
     this.shade.css('opacity', 1);
     this.marker.select();
     this._moveToOrigin(true);
-    this.currentCard = this;
-    console.log(this.building.getCardContent().text.head);
+    this.app.map.currentCard = this;
+};
+
+Card.prototype._unsetCurrent = function(rotate, zIndex, shiftX, shiftY) {
+    this.position.rotate = rotate;
+    this.position.zIndex = zIndex;
+    this.position.shiftX = shiftX;
+    this.position.shiftY = shiftY;
+    this._moveToStackPosition();
+    this.marker.unselect();
 };
 
 Card.prototype._setTransform = function(element, trnsf, netto) {
@@ -333,6 +327,11 @@ Card.prototype._setTransform = function(element, trnsf, netto) {
 
 
 // getters
+
+Card.prototype.getName = function() {
+    // used for testing only
+    return this.building.getCardContent().text.head;
+};
 
 Card.prototype._getPosition = function(index) {
     return {

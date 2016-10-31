@@ -20,6 +20,7 @@ Marker.prototype.create = function() {
     });
     this.marker.setVisible(false);
     this.marker.addListener('click', function() {
+        console.log("swop");
         if (!self.hasCard) {
             var building = self.parent.getBuilding(self.UniqueId),
                 card = self.createCard(building);
