@@ -604,21 +604,6 @@ body .ventu-pagewrap {
 .ventu-overlay .ventu-form button[type=submit] {
   margin-top: 20px;
 }
-.ventu-close-popup {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  font-size: 24px;
-  width: 32px;
-  height: 32px;
-  text-align: center;
-  padding-top: 8px;
-  border-radius: 16px;
-}
-.ventu-close-popup:hover {
-  background: #ddd;
-  color: #000;
-}
 .ventu-guide {
   display: none;
   background: #FFDE00;
@@ -1020,7 +1005,6 @@ body .ventu-pagewrap {
 .ventu-overlay .ventu-popup {
   margin: 100px auto;
   background: #fff;
-  padding: 30px;
   position: relative;
   display: none;
 }
@@ -1028,7 +1012,49 @@ body .ventu-pagewrap {
   width: 350px;
 }
 .ventu-overlay .ventu-popup.ventu-settings {
-  width: 350px;
+  width: 300px;
+}
+.ventu-overlay .ventu-popup .ventu-popup-head {
+  padding: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.ventu-overlay .ventu-popup .ventu-popup-head h2 {
+  margin: 0;
+}
+.ventu-overlay .ventu-popup .ventu-popup-body {
+  padding-bottom: 30px;
+}
+.ventu-overlay .ventu-popup .ventu-popup-body .dropdown-menu {
+  border-top: 0;
+  border-radius: 0;
+  box-shadow: none;
+  display: block!important;
+  float: none;
+  position: relative;
+}
+.ventu-overlay .ventu-popup .ventu-popup-body .dropdown-menu li a {
+  padding: 8px 32px;
+}
+.ventu-overlay .ventu-popup .ventu-popup-body .dropdown-menu li a:hover {
+  background: #ddd;
+}
+.ventu-overlay .ventu-popup .ventu-popup-body.with-padding {
+  padding: 30px;
+}
+.ventu-close-popup {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  padding-top: 8px;
+  border-radius: 16px;
+}
+.ventu-close-popup:hover {
+  background: #ddd;
+  color: #000;
 }
 .select2-container {
   vertical-align: top;
