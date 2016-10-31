@@ -200,12 +200,12 @@ Card.prototype._swipeHint = function(dx, dy) {
     if (dx > this.app.config.swipe.complete) {
         this.app.list.love.element.main.addClass('selected');
         this.app.list.hate.element.main.removeClass('selected');
-    } else if (dx > this.app.config.swipe._swipeHint) {
+    } else if (dx > this.app.config.swipe.suggest) {
         this.buttons.love.addClass('hover');
     } else if (dx < -this.app.config.swipe.complete) {
         this.app.list.hate.element.main.addClass('selected');
         this.app.list.love.element.main.removeClass('selected');
-    } else if (dx < -this.app.config.swipe._swipeHint) {
+    } else if (dx < -this.app.config.swipe.suggest) {
         this.buttons.hate.addClass('hover');
     } else {
         this._releaseContainers();
@@ -272,7 +272,6 @@ Card.prototype._addListener = function() {
         if (event != null && event.gesture !== null) {
             var dx = event.gesture.deltaX,
                 dy = event.gesture.deltaY;
-            //self.domElements._swipeHint.css('opacity', 0);
 
             if (dx > self.app.config.swipe.complete) {
                 self._addToList('love');

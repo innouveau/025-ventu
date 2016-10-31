@@ -1,5 +1,6 @@
 function DataFaker(app) {
     this.app = app;
+    this.searchResults = [];
     this.filter = {
         area : {
             min: 2500,
@@ -15,12 +16,14 @@ function DataFaker(app) {
 }
 
 DataFaker.prototype.getSearchResults = function(searchQuery) {
-    return [
+    var results = [
         '1077 Amsterdam (postcode)',
         'Amstelveen (stad)',
         'Amstelstraat (straat)',
         'Amstelgebouw (locatie)'
-    ]
+    ];
+    this.searchResults = results;
+    return results;
 };
 
 DataFaker.prototype.filterUpdate = function() {
@@ -51,25 +54,25 @@ DataFaker.prototype.getList = function(type) {
     }
 };
 
-DataFaker.prototype.getSelectResults = function(searchQuery, type) {
+DataFaker.prototype.getSelectResults = function(searchQuery) {
     // http://nominatim.openstreetmap.org/details.php?place_id=158832524
     // http://polygons.openstreetmap.fr/index.py
     var shape,
         zoomCenter = {lat: 52.34179, lng: 4.9254733},
         zoom = 13;
-    switch (type) {
+    switch (this.filter.searchArea.type) {
         case 'circle':
             shape = {
-                type: type,
+                type: 'circle',
                 data: {
                     center: {lat: 52.34179, lng: 4.8854733},
                     radius: this.filter.searchArea.km1 * 1000
                 }
             };
             break;
-        case 'poly':
+        case 'none':
             shape = {
-                type: type,
+                type: 'poly',
                 data: {
                     points: amsterdam
                 }
@@ -77,7 +80,7 @@ DataFaker.prototype.getSelectResults = function(searchQuery, type) {
             break;
         case 'rect':
             shape = {
-                type: type,
+                type: 'rect',
                 data: {
                     north: 52.32179,
                     south: 52.36179,
