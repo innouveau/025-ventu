@@ -6,9 +6,10 @@ function DataFaker(app) {
             max: 10000
         },
         offer: ['Koop', 'Huur'],
-        searchCircle: {
-            active: false,
-            km: 6
+        searchArea: {
+            type: 'none',
+            km1: 3,
+            km2: 2
         }
     };
 }
@@ -23,10 +24,16 @@ DataFaker.prototype.getSearchResults = function(searchQuery) {
 };
 
 DataFaker.prototype.filterUpdate = function() {
-    if (this.filter.searchCircle.active) {
-        this.app.select('1077 Amsterdam (postcode)', 'circle');
-    } else {
-        this.app.select('1077 Amsterdam (postcode)', 'poly')
+    switch (this.filter.searchArea.type) {
+        case 'none':
+            this.app.select('1077 Amsterdam (postcode)', 'poly');
+            break;
+        case 'circle':
+            this.app.select('1077 Amsterdam (postcode)', 'circle');
+            break;
+        case 'rect':
+            this.app.select('1077 Amsterdam (postcode)', 'rect');
+            break;
     }
 };
 
@@ -56,7 +63,7 @@ DataFaker.prototype.getSelectResults = function(searchQuery, type) {
                 type: type,
                 data: {
                     center: {lat: 52.34179, lng: 4.8854733},
-                    radius: this.filter.searchCircle.km * 1000
+                    radius: this.filter.searchArea.km1 * 1000
                 }
             };
             break;
@@ -65,6 +72,17 @@ DataFaker.prototype.getSelectResults = function(searchQuery, type) {
                 type: type,
                 data: {
                     points: amsterdam
+                }
+            };
+            break;
+        case 'rect':
+            shape = {
+                type: type,
+                data: {
+                    north: 52.32179,
+                    south: 52.36179,
+                    west: 4.8454733,
+                    east: 4.9254733
                 }
             };
             break

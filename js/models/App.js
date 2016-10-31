@@ -88,8 +88,10 @@ App.prototype._updateMenuBar = function(searchQuery, n) {
     var string = searchQuery;
     this.domElements.searchResults.empty();
     this.domElements.searchResults.hide();
-    if (this.service.filter.searchCircle.active) {
-        string += ' +' + this.service.filter.searchCircle.km + 'km'
+    if (this.service.filter.searchArea.type === 'circle') {
+        string += ' +' + this.service.filter.searchArea.km1 + 'km'
+    } else if (this.service.filter.searchArea.type === 'rect') {
+        string += ' +' + this.service.filter.searchArea.km1 + '×' + this.service.filter.searchArea.km2 + 'km'
     }
     this.domElements.search.val(string);
     this.domElements.searchFeedback.html(n + ' objecten gevonden');

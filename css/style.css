@@ -1216,16 +1216,19 @@ body.ventu-application #ventu-stack {
   vertical-align: top;
   line-height: 22px;
 }
-.ventu-filter-box .ventu-filter-body .ventu-filter-body-content #ventu-filter-circle {
-  width: 40px;
-  height: 24px;
-  display: none;
+.ventu-filter-box .ventu-filter-body .ventu-filter-body-content .ventu-mini-map-set {
+  margin-bottom: 12px;
 }
-.ventu-filter-box .ventu-filter-body .ventu-filter-body-content .ventu-filter-circle-cover {
-  width: 40px;
-  background: #ddd;
-  height: 24px;
+.ventu-filter-box .ventu-filter-body .ventu-filter-body-content .ventu-mini-map-set .ventu-mini-map-body {
   display: inline-block;
+  opacity: 0.3;
+  transition: all 0.5s ease;
+}
+.ventu-filter-box .ventu-filter-body .ventu-filter-body-content .ventu-mini-map-set input {
+  width: 30px;
+}
+.ventu-filter-box .ventu-filter-body .ventu-filter-body-content .ventu-mini-map-set.selected .ventu-mini-map-body {
+  opacity: 1;
 }
 .ventu-filter-box .ventu-filter-body .ventu-filter-body-content .ventu-filter-toggle {
   padding: 10px;

@@ -61,7 +61,7 @@ List.prototype.add = function(Card) {
     this.objects.unshift(Card.building);
     this._count();
     setTimeout(function(){
-        Card.destroy();
+        Card.destroy(true);
         self._appendObject(self.objects[0]);
     }, 1000)
 };

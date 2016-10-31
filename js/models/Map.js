@@ -84,6 +84,23 @@ Map.prototype._drawShape = function(data) {
                 map: this.map
             });
             break;
+        case 'rect':
+            this.shape = new google.maps.Rectangle({
+                strokeColor: this.settings.shape.strokeColor,
+                strokeOpacity: this.settings.shape.strokeOpacity,
+                strokeWeight: this.settings.shape.strokeWeight,
+                fillColor: this.settings.shape.fillColor,
+                fillOpacity: this.settings.shape.fillOpacity,
+                map: this.map,
+                bounds: {
+                    north: data.shape.data.north,
+                    south: data.shape.data.south,
+                    east: data.shape.data.east,
+                    west: data.shape.data.west
+                }
+
+            });
+            break;
     }
 
     this.map.setCenter(data.zoomCenter);
@@ -135,7 +152,7 @@ Map.prototype._showMarkers = function() {
 
 Map.prototype._removeCards = function() {
     for (var i = 0, l = this.cards.length; i < l; i++) {
-        this.cards[i].destroy();
+        this.cards[i].destroy(false);
     }
     this.cards = [];
 };

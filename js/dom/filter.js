@@ -5,14 +5,16 @@ function filterListeners() {
     // todo, collect data from model and inject in inputs
     //setFilter();
 
-    $('#ventu-filter-circle-active-toggle').click(function(){
-        if ($(this).prop('checked')) {
-            $('.ventu-filter-circle-cover').hide();
-            $('#ventu-filter-circle').show();
-        } else {
-            $('.ventu-filter-circle-cover').show();
-            $('#ventu-filter-circle').hide();
-        }
+    $('.ventu-mini-map-set input[type=radio]').on('change', function(){
+        var value = $('.ventu-mini-map-set input[name=search-area]:checked').val();
+
+        $('.ventu-mini-map-set').each(function(){
+            if($(this).hasClass('ventu-mini-map-set-' + value)) {
+                $(this).addClass('selected');
+            } else {
+                $(this).removeClass('selected');
+            }
+        })
     });
 }
 
@@ -25,6 +27,7 @@ function openFilter(element) {
 }
 
 function saveFilter(element, type) {
+    var filter = $(element).parent().parent().parent();
     closeFilter($(element).parent()[0]);
     updateFilterSummary(filter, type);
 }
@@ -61,16 +64,18 @@ function updateFilterSummary(filter, type) {
             summary = offer.join(', ');
             
             break;
-        case 'circle':
-            var km = checkFilterInput($('#ventu-filter-circle').val()),
-                active = $('#ventu-filter-circle-active-toggle').prop('checked')
-            // update model and html
-            if (active) {
-                ventu.service.filter.searchCircle.active = true;
-                ventu.service.filter.searchCircle.km = km;
-                summary = km + ' km';
+        case 'searchArea':
+            var type = $('.ventu-mini-map-set input[name=search-area]:checked').val(),
+                summary;
+            ventu.service.filter.searchArea.type = type;
+            if (type === 'circle') {
+                ventu.service.filter.searchArea.km1 = parseFloat($('#ventu-filter-circle-km').val());
+                summary = 'Cirkel (' + ventu.service.filter.searchArea.km1 + 'km)';
+            } else if (type === 'rect') {
+                ventu.service.filter.searchArea.km1 = parseFloat($('#ventu-filter-rect-km1').val());
+                ventu.service.filter.searchArea.km2 = parseFloat($('#ventu-filter-rect-km2').val());
+                summary = 'Rechthoek (' + ventu.service.filter.searchArea.km1 + '×' + ventu.service.filter.searchArea.km1 + 'km)';
             } else {
-                ventu.service.filter.searchCircle.active = false;
                 summary = 'Niet actief';
             }
             break;

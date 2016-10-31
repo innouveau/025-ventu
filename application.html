@@ -112,7 +112,7 @@
                 <div class="ventu-filter-box">
                     <div class="ventu-filter-head">
                         <div class="ventu-filter-title">
-                            Zoekcirkel:
+                            Aangepast zoekgebied:
                         </div>
                         <div class="ventu-filter-summary">
                             Niet actief
@@ -123,15 +123,32 @@
                     </div>
                     <div class="ventu-filter-body">
                         <div class="ventu-filter-body-content">
-                            Door het toevoegen van een zoekcircel wordt er in een straal van de ingestelde afstand gezocht rondom de huidige locatie.
-                            (De cirkel kan met de hand verplaatst en vergroot worden.):<br><br>
-                            <input type="checkbox" id="ventu-filter-circle-active-toggle">
-                            <span class="ventu-filter-circle-cover">&nbsp;</span>
-                            <input type="text" value="3" id="ventu-filter-circle">
-                            <span>km</span>
+                            Door het toevoegen van een zoekcircel of zoekrechthoek wordt er in een straal van de ingestelde afstand gezocht rondom de huidige locatie.
+                            (De cirkel of rechthoek kan met de hand verplaatst en vergroot worden.):<br><br>
+                            <div class="ventu-mini-map-set selected ventu-mini-map-set-none">
+                                <input type="radio" name="search-area" value="none" checked id="ventu-filter-standard">
+                                <div class="ventu-mini-map-body">
+                                    Geen aangepast zoekgebied
+                                </div>
+
+                            </div>
+                            <div class="ventu-mini-map-set ventu-mini-map-set-circle">
+                                <input type="radio" name="search-area" value="circle">
+                                <div class="ventu-mini-map-body">
+                                    <img src="img/mini-map-circle.png">
+                                    <input type="text" value="3" id="ventu-filter-circle-km"> km
+                                </div>
+                            </div>
+                            <div class="ventu-mini-map-set ventu-mini-map-set-rect">
+                                <input type="radio" name="search-area" value="rect">
+                                <div class="ventu-mini-map-body">
+                                    <img src="img/mini-map-rect.png">
+                                    <input type="text" value="2" id="ventu-filter-rect-km1"> × <input type="text" value="3" id="ventu-filter-rect-km2"> km
+                                </div>
+                            </div>
                         </div>
                         <div class="ventu-filter-buttons">
-                            <div class="bnt ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'circle')">
+                            <div class="bnt ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'searchArea')">
                                 Wijzigingen doorvoeren
                             </div>
                         </div>

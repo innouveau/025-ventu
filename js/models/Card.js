@@ -407,10 +407,13 @@ Card.prototype._removeHoverTriggers = function (){
     this.buttons.love.removeClass('hover');
 };
 
-Card.prototype.destroy = function() {
-    var index = this.app.map.cards.indexOf(this);
-    if (index > -1) {
-        this.app.map.cards.splice(index, 1);
+Card.prototype.destroy = function(removeFormArray) {
+    var index;
+    if (removeFormArray) {
+        index = this.app.map.cards.indexOf(this);
+        if (index > -1) {
+            this.app.map.cards.splice(index, 1);
+        }
     }
     this.element.remove();
     this.shade.remove();

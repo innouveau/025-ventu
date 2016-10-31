@@ -98,18 +98,30 @@
                 line-height: 22px;
             }
 
-            #ventu-filter-circle {
-                width: 40px;
-                height: 24px;
-                display: none;
+            .ventu-mini-map-set {
+
+                margin-bottom: 12px;
+
+                .ventu-mini-map-body {
+                    display: inline-block;
+                    opacity: 0.3;
+                    transition: all 0.5s ease;
+                }
+
+
+                input {
+                    width: 30px;
+                }
+
+                &.selected {
+
+                    .ventu-mini-map-body {
+                        opacity: 1;
+                    }
+
+                }
             }
 
-            .ventu-filter-circle-cover {
-                width: 40px;
-                background: #ddd;
-                height: 24px;
-                display: inline-block;
-            }
 
             .ventu-filter-toggle {
                 padding: 10px;
@@ -122,6 +134,8 @@
                     background: @ventu-color-1;
                 }
             }
+
+
         }
 
 
