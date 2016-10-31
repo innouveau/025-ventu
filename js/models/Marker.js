@@ -84,7 +84,7 @@ Marker.prototype._getPixelCoordinates = function(marker) {
     }
 };
 
-Marker.prototype.getTransfrom = function() {
+Marker.prototype.getTransform = function() {
     var position = this._getPixelCoordinates(),
         windowWidth = $(window).outerWidth(),
         markerWidth = 48,
