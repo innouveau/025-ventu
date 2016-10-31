@@ -9,10 +9,13 @@ function Config(app) {
 
     };
     this.stack = {
-        max: 20
+        max: 1
     };
     this.zoom = 0;
-    this.swipe = 200;
+    this.swipe = {
+        suggest: 100,
+        complete: 200
+    };
     this.sizes = {
         card: {
             width: 500,

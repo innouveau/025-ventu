@@ -71,7 +71,7 @@ Card.prototype._getPosition = function(index) {
 };
 
 Card.prototype._getLaunchType = function(index) {
-    if (window.environment.launchAll || (index === 0 && window.environment.intro)) {
+    if (window.environment.launchAll || (index === 0 && window.environment.floatFirst)) {
         return 0;
     } else {
         return 1;
@@ -126,21 +126,10 @@ Card.prototype.launch = function(type) {
                 self._launchNext();
             }, (0.5 * wait));
             break;
-        case 2:
-            this.element.addClass('no-transition').fadeIn(500, function(){
-                $(this).removeClass('no-transition')
-            });
-            this.shade.addClass('no-transition').fadeIn(500, function(){
-                $(this).removeClass('no-transition')
-            });
-            this.float();
-            setTimeout(function () {
-                self._launchNext();
-            }, 2200);
     }
 
     // float
-    if (this.index === 0) {
+    if (this.index === 0 && window.environment.floatFirst) {
         setTimeout(function () {
             self.float();
         }, (self.app.map.cards.length * 150 + 1000));
@@ -302,24 +291,31 @@ Card.prototype.detail = function () {
 
 
 Card.prototype.suggest = function(dx, dy) {
-    if (Math.abs(dx) > dy) {
-        if (dx > this.app.config.swipe) {
-            this.app.list.love.element.main.addClass('selected');
-            this.app.list.hate.element.main.removeClass('selected');
-        } else if (dx < -this.app.config.swipe) {
-            this.app.list.hate.element.main.addClass('selected');
-            this.app.list.love.element.main.removeClass('selected');
-        } else {
-            this._releaseContainers();
-        }
+    if (dx > this.app.config.swipe.complete) {
+        this.app.list.love.element.main.addClass('selected');
+        this.app.list.hate.element.main.removeClass('selected');
+    } else if (dx > this.app.config.swipe.suggest) {
+        this.buttons.love.addClass('hover');
+    } else if (dx < -this.app.config.swipe.complete) {
+        this.app.list.hate.element.main.addClass('selected');
+        this.app.list.love.element.main.removeClass('selected');
+    } else if (dx < -this.app.config.swipe.suggest) {
+        this.buttons.hate.addClass('hover');
     } else {
         this._releaseContainers();
+        this._removeHoverTriggers();
     }
+
 };
 
 Card.prototype._releaseContainers = function (){
     this.app.list.love.element.main.removeClass('selected');
     this.app.list.hate.element.main.removeClass('selected');
+};
+
+Card.prototype._removeHoverTriggers = function (){
+    this.buttons.hate.removeClass('hover');
+    this.buttons.love.removeClass('hover');
 };
 
 Card.prototype.destroy = function() {
@@ -423,14 +419,15 @@ Card.prototype._addListener = function() {
     });
 
     this.hammer.on('release', function(event) {
+        self._removeHoverTriggers();
         if (event != null && event.gesture !== null) {
             var dx = event.gesture.deltaX,
                 dy = event.gesture.deltaY;
             //self.domElements.suggest.css('opacity', 0);
 
-            if (dx > self.app.config.swipe) {
+            if (dx > self.app.config.swipe.complete) {
                 self.addToList('love');
-            } else if (dx < -self.app.config.swipe) {
+            } else if (dx < -self.app.config.swipe.complete) {
                 self.addToList('hate');
             } else {
                 if (dy > 200) {

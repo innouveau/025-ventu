@@ -1,6 +1,6 @@
 window.environment = {
     development: true,
-    intro: false,
+    floatFirst: false,
     autostart: true,
     launchAll: false
 };
