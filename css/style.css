@@ -1178,6 +1178,7 @@ body.ventu-application #ventu-stack {
 }
 .ventu-filter-box .ventu-filter-body {
   display: none;
+  position: relative;
 }
 .ventu-filter-box .ventu-filter-body .ventu-filter-body-content {
   padding: 20px;
@@ -1215,6 +1216,14 @@ body.ventu-application #ventu-stack {
   padding: 20px;
   margin-top: 20px;
   text-align: right;
+}
+.ventu-filter-box .ventu-filter-body .ventu-filter-buttons .ventu-filter-ready {
+  cursor: pointer;
+}
+.ventu-filter-box .ventu-filter-body .ventu-filter-close {
+  position: absolute;
+  right: 10px;
+  top: -44px;
 }
 .ventu-filter-button {
   padding: 4px 6px;

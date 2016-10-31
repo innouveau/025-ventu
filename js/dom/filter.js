@@ -24,13 +24,17 @@ function openFilter(element) {
     filter.find('.ventu-filter-body').show();
 }
 
-function closeFilter(element, type) {
-    var filter = $(element).parent().parent().parent();
+function saveFilter(element, type) {
+    closeFilter($(element).parent()[0]);
+    updateFilterSummary(filter, type);
+}
+
+function closeFilter(element) {
+    var filter = $(element).parent().parent();
     filter.removeClass('filter-active');
     filter.find('.ventu-filter-summary').show();
     filter.find('.ventu-filter-edit').removeClass('hidden');
     filter.find('.ventu-filter-body').hide();
-    updateFilterSummary(filter, type);
 }
 
 function updateFilterSummary(filter, type) {
