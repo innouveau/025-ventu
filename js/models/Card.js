@@ -42,10 +42,10 @@ Card.prototype._create = function() {
     // bind actions to buttons
     (function(self) {
         self.buttons.love.on('click', function () {
-            self.addToList('love');
+            self._addToList('love');
         });
         self.buttons.hate.on('click', function () {
-            self.addToList('hate');
+            self._addToList('hate');
         });
     })(self);
 
@@ -61,22 +61,7 @@ Card.prototype._create = function() {
     this.marker.hasCard = true;
 };
 
-Card.prototype._getPosition = function(index) {
-    return {
-        rotate: index === 0 ? 0 : this.app.config.card.rotation * Math.random() - (this.app.config.card.rotation / 2),
-        zIndex: index * this.app.config.card.zOffset,
-        shiftX: index * this.app.config.card.shift,
-        shiftY: index * this.app.config.card.shift
-    }
-};
 
-Card.prototype._getLaunchType = function(index) {
-    if (window.environment.launchAll || (index === 0 && window.environment.floatFirst)) {
-        return 0;
-    } else {
-        return 1;
-    }
-};
 
 Card.prototype.launch = function(type) {
     var self = this,
@@ -84,7 +69,7 @@ Card.prototype.launch = function(type) {
     if (!type) {
         type = this.launchType;
     }
-    thisTransform = type === 0 ? this._getMarkerTransform() : [0,0,0,0,0,0,1,1];
+    thisTransform = type === 0 ? this.marker.getTransform() : [0,0,0,0,0,0,1,1];
     // start position
     this._setTransform(this.element, thisTransform, false);
     this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
@@ -104,7 +89,7 @@ Card.prototype.launch = function(type) {
             // launch
             setTimeout(function () {
                 // keep the rotation
-                self.toOrigin(false);
+                self._moveToOrigin(false);
             }, 100);
 
             // launch next
@@ -131,41 +116,21 @@ Card.prototype.launch = function(type) {
     // float
     if (this.index === 0 && window.environment.floatFirst) {
         setTimeout(function () {
-            self.float();
+            self._moveFloat();
         }, (self.app.map.cards.length * 150 + 1000));
     }
 };
 
 Card.prototype._launchNext = function() {
-    var next = this._next();
+    var next = this._getNext();
     if (next) {
         next.launch();
     }
 };
 
 
-Card.prototype._next = function() {
-    var index = this._getIndex();
-    if (this.app.map.cards[index + 1]) {
-        return this.app.map.cards[index + 1];
-    } else {
-        return null;
-    }
-};
-
-Card.prototype._getIndex = function() {
-    return this.app.map.cards.indexOf(this);
-};
-
-Card.prototype._remove = function() {
-    var index = this._getIndex();
-    this.app.map.cards.splice(index, 1);
-};
-
-
 
 // moves
-
 
 Card.prototype.swop = function() {
     var self = this,
@@ -177,10 +142,11 @@ Card.prototype.swop = function() {
         originalX = this.position.shiftX;
     topCard.position.shiftX = -500;
     this.position.shiftX = 500;
-    topCard.standardPosition();
-    this.standardPosition();
+    topCard._moveToStackPosition();
+    this._moveToStackPosition();
 
     setTimeout(function(){
+        console.log(topCard.building.getCardContent().text.head);
         topCard.position.rotate = self.position.rotate;
         topCard.position.zIndex = self.position.zIndex;
         topCard.position.shiftX = originalX;
@@ -189,35 +155,34 @@ Card.prototype.swop = function() {
         self.position.zIndex = zIndex;
         self.position.shiftX = shiftX;
         self.position.shiftY = shiftY;
-        topCard.standardPosition();
-        self.topOfStack();
+        topCard._moveToStackPosition();
+        self._setCurrent();
         topCard.marker.unselect();
         self.app.map.currentCard = self;
     }, 500);
-
-
-
 };
 
-Card.prototype.standardPosition = function() {
+Card.prototype._moveToStackPosition = function() {
     var thisTransform = [0,0,0,0,0,0,1,1];
     this._setTransform(this.element, thisTransform, false);
     this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
 };
 
-
-
-Card.prototype.topOfStack = function() {
-    this.position.rotate = 0;
-    this.position.zIndex = 0;
-    this.position.shiftX = 0;
-    this.position.shiftY = 0;
-    this.shade.css('opacity', 1);
-    this.marker.select();
-    this.toOrigin(true);
+// todo compare this function with above. Double?
+Card.prototype._moveToOrigin = function(unrotate) {
+    var transform = [0,0,0,0,0,0,1,1];
+    if (unrotate) {
+        this.position.rotate = 0;
+    }
+    this.element.removeClass('no-transition');
+    this.shade.removeClass('no-transition');
+    this._setTransform(this.element, transform, false);
+    this._setTransform(this.shade, this._projectShade(transform, true), false);
+    this._releaseContainers();
 };
 
-Card.prototype.float = function() {
+
+Card.prototype._moveFloat = function() {
     var self = this;
     this.element.addClass('ventu-card-float');
     this.shade.addClass('ventu-card-shade-float');
@@ -226,13 +191,7 @@ Card.prototype.float = function() {
     }, 4000)
 };
 
-Card.prototype._clearfloat = function() {
-    this.element.removeClass('ventu-card-float');
-    this.shade.removeClass('ventu-card-shade-float');
-};
-
-
-Card.prototype.drag = function(dx, dy) {
+Card.prototype._moveDrag = function(dx, dy) {
     var x = dx,
         y = dy,
         rotY = dx / 5,
@@ -245,61 +204,22 @@ Card.prototype.drag = function(dx, dy) {
     this._setTransform(this.shade, this._projectShade(transform, true), false);
 };
 
-Card.prototype.toOrigin = function(unrotate) {
-    var transform = [0,0,0,0,0,0,1,1];
-    if (unrotate) {
-        this.position.rotate = 0;
-    }
-    this.element.removeClass('no-transition');
-    this.shade.removeClass('no-transition');
-    this._setTransform(this.element, transform, false);
-    this._setTransform(this.shade, this._projectShade(transform, true), false);
-    this._releaseContainers();
-};
-
-Card.prototype.addToList = function (type) {
-    var self = this,
-        config = this.app.config.sizes.bottomBar[type],
-        scale = config.width / this.app.config.sizes.card.width * 0.99, // perspective correction
-        transform = [config.x,config.y,0,0,0,0,scale,scale],
-        other = type === 'love' ? 'hate' : 'love',
-        next = this._next();
-    this.app.list[type].element.main.addClass('selected');
-    this.app.list[other].element.main.removeClass('selected');
-    this.element.removeClass('no-transition');
-    this.shade.removeClass('no-transition');
-    this._setTransform(this.element, transform, true);
-    this._setTransform(this.shade, transform, true);
-    this.element.find('.ventu-card-text').fadeOut(500);
-    this.element.find('.ventu-card-buttons').fadeOut(500);
-    this.marker.remove();
-    this.app.map.createNewCard();
-
-    setTimeout(function(){
-        self.app.list[type].add(self);
-        if (next) {
-            next.topOfStack();
-        }
-    }, 800);
-
-};
-
-Card.prototype.detail = function () {
-    this.toOrigin(true);
-    location.href = this.building.getContent().text.detailLinkUrl;
-};
+// Card.prototype.detail = function () {
+//     this._moveToOrigin(true);
+//     location.href = this.building.getContent().text.detailLinkUrl;
+// };
 
 
-Card.prototype.suggest = function(dx, dy) {
+Card.prototype._swipeHint = function(dx, dy) {
     if (dx > this.app.config.swipe.complete) {
         this.app.list.love.element.main.addClass('selected');
         this.app.list.hate.element.main.removeClass('selected');
-    } else if (dx > this.app.config.swipe.suggest) {
+    } else if (dx > this.app.config.swipe._swipeHint) {
         this.buttons.love.addClass('hover');
     } else if (dx < -this.app.config.swipe.complete) {
         this.app.list.hate.element.main.addClass('selected');
         this.app.list.love.element.main.removeClass('selected');
-    } else if (dx < -this.app.config.swipe.suggest) {
+    } else if (dx < -this.app.config.swipe._swipeHint) {
         this.buttons.hate.addClass('hover');
     } else {
         this._releaseContainers();
@@ -308,70 +228,13 @@ Card.prototype.suggest = function(dx, dy) {
 
 };
 
-Card.prototype._releaseContainers = function (){
-    this.app.list.love.element.main.removeClass('selected');
-    this.app.list.hate.element.main.removeClass('selected');
-};
 
-Card.prototype._removeHoverTriggers = function (){
-    this.buttons.hate.removeClass('hover');
-    this.buttons.love.removeClass('hover');
-};
 
-Card.prototype.destroy = function() {
-    this.element.remove();
-    this.shade.remove();
-};
+
 
 
 
 // helpers
-
-Card.prototype._getMarkerTransform = function() {
-    var position = this.marker.getPixelCoordinates(),
-        windowWidth = $(window).outerWidth(),
-        markerWidth = 48,
-        cardWidth = 500,
-        padding = 40,
-        translateX = windowWidth - padding - (0.5 * cardWidth) - position.x - 1,
-        translateY = padding,
-        scale = markerWidth / cardWidth;
-    return [-translateX, -translateY, 0, 0, 0, 0, scale, scale];
-};
-
-
-
-Card.prototype._getTransform = function(transform, netto) {
-    var rotate = this.position.rotate,
-        shiftX = this.position.shiftX,
-        shiftY = this.position.shiftY,
-        z = this.position.zIndex;
-    if (netto) {
-        rotate = 0;
-        shiftX = 0;
-        shiftY = 0;
-        z = 0;
-    }
-    return 'translateX(' + (transform[0] + shiftX) + 'px) ' +
-        'translateY(' + (transform[1] + shiftY) + 'px) ' +
-        'translateZ(' + (transform[2] - z) + 'px) ' +
-        'rotateX(' + transform[3] + 'deg) ' +
-        'rotateY(' + transform[4] + 'deg) ' +
-        'rotateZ(' + (transform[5] + rotate) + 'deg) ' +
-        'scale(' + transform[6] + ',' + transform[7] + ')';
-};
-
-Card.prototype._setTransform = function(element, trnsf, netto) {
-    var transform = this._getTransform(trnsf, netto);
-    this.transform = transform;
-    element.css({
-        "webkitTransform": transform,
-        "MozTransform": transform,
-        "msTransform": transform,
-        "OTransform": transform,
-        "transform": transform
-    });
-};
 
 Card.prototype._projectShade = function(transform, rotate) {
     var rotZ, scaleX, scaleY, depthFactor = 0.8;
@@ -413,8 +276,8 @@ Card.prototype._addListener = function() {
         if (event != null && event.gesture !== null) {
             var dx = event.gesture.deltaX,
                 dy = event.gesture.deltaY;
-            self.suggest(dx, dy);
-            self.drag(dx, dy);
+            self._swipeHint(dx, dy);
+            self._moveDrag(dx, dy);
         }
     });
 
@@ -423,19 +286,164 @@ Card.prototype._addListener = function() {
         if (event != null && event.gesture !== null) {
             var dx = event.gesture.deltaX,
                 dy = event.gesture.deltaY;
-            //self.domElements.suggest.css('opacity', 0);
+            //self.domElements._swipeHint.css('opacity', 0);
 
             if (dx > self.app.config.swipe.complete) {
-                self.addToList('love');
+                self._addToList('love');
             } else if (dx < -self.app.config.swipe.complete) {
-                self.addToList('hate');
+                self._addToList('hate');
             } else {
-                if (dy > 200) {
-                    self.detail();
-                } else {
-                    self.toOrigin(true);
+                if (dy < 200) {
+                    self._moveToOrigin(true);
                 }
             }
         }
     });
+};
+
+
+
+
+// setters
+
+Card.prototype._setCurrent = function() {
+    this.position.rotate = 0;
+    this.position.zIndex = 0;
+    this.position.shiftX = 0;
+    this.position.shiftY = 0;
+    this.shade.css('opacity', 1);
+    this.marker.select();
+    this._moveToOrigin(true);
+    this.currentCard = this;
+    console.log(this.building.getCardContent().text.head);
+};
+
+Card.prototype._setTransform = function(element, trnsf, netto) {
+    var transform = this._getTransform(trnsf, netto);
+    this.transform = transform;
+    element.css({
+        "webkitTransform": transform,
+        "MozTransform": transform,
+        "msTransform": transform,
+        "OTransform": transform,
+        "transform": transform
+    });
+};
+
+
+
+// getters
+
+Card.prototype._getPosition = function(index) {
+    return {
+        rotate: index === 0 ? 0 : this.app.config.card.rotation * Math.random() - (this.app.config.card.rotation / 2),
+        zIndex: index * this.app.config.card.zOffset,
+        shiftX: index * this.app.config.card.shift,
+        shiftY: index * this.app.config.card.shift
+    }
+};
+
+Card.prototype._getLaunchType = function(index) {
+    if (window.environment.launchAll || (index === 0 && window.environment.floatFirst)) {
+        return 0;
+    } else {
+        return 1;
+    }
+};
+
+Card.prototype._getNext = function() {
+    var index = this._getIndex();
+    if (this.app.map.cards[index + 1]) {
+        return this.app.map.cards[index + 1];
+    } else {
+        return null;
+    }
+};
+
+Card.prototype._getIndex = function() {
+    return this.app.map.cards.indexOf(this);
+};
+
+Card.prototype._getTransform = function(transform, netto) {
+    var rotate = this.position.rotate,
+        shiftX = this.position.shiftX,
+        shiftY = this.position.shiftY,
+        z = this.position.zIndex;
+    if (netto) {
+        rotate = 0;
+        shiftX = 0;
+        shiftY = 0;
+        z = 0;
+    }
+    return 'translateX(' + (transform[0] + shiftX) + 'px) ' +
+        'translateY(' + (transform[1] + shiftY) + 'px) ' +
+        'translateZ(' + (transform[2] - z) + 'px) ' +
+        'rotateX(' + transform[3] + 'deg) ' +
+        'rotateY(' + transform[4] + 'deg) ' +
+        'rotateZ(' + (transform[5] + rotate) + 'deg) ' +
+        'scale(' + transform[6] + ',' + transform[7] + ')';
+};
+
+
+
+
+
+
+
+
+// administration
+
+Card.prototype._clearfloat = function() {
+    this.element.removeClass('ventu-card-float');
+    this.shade.removeClass('ventu-card-shade-float');
+};
+
+Card.prototype._releaseContainers = function (){
+    this.app.list.love.element.main.removeClass('selected');
+    this.app.list.hate.element.main.removeClass('selected');
+};
+
+Card.prototype._removeHoverTriggers = function (){
+    this.buttons.hate.removeClass('hover');
+    this.buttons.love.removeClass('hover');
+};
+
+Card.prototype.destroy = function() {
+    var index = this.app.map.cards.indexOf(this);
+    if (index > -1) {
+        this.app.map.cards.splice(index, 1);
+    }
+    this.element.remove();
+    this.shade.remove();
+};
+
+Card.prototype._remove = function() {
+    var index = this._getIndex();
+    this.app.map.cards.splice(index, 1);
+};
+
+Card.prototype._addToList = function (type) {
+    var self = this,
+        config = this.app.config.sizes.bottomBar[type],
+        scale = config.width / this.app.config.sizes.card.width * 0.99, // perspective correction
+        transform = [config.x,config.y,0,0,0,0,scale,scale],
+        other = type === 'love' ? 'hate' : 'love',
+        next = this._getNext();
+    this.app.list[type].element.main.addClass('selected');
+    this.app.list[other].element.main.removeClass('selected');
+    this.element.removeClass('no-transition');
+    this.shade.removeClass('no-transition');
+    this._setTransform(this.element, transform, true);
+    this._setTransform(this.shade, transform, true);
+    this.element.find('.ventu-card-text').fadeOut(500);
+    this.element.find('.ventu-card-buttons').fadeOut(500);
+    this.marker.remove();
+    this.app.map.createNewCard();
+
+    setTimeout(function(){
+        self.app.list[type].add(self);
+        if (next) {
+            next._setCurrent();
+        }
+    }, 800);
 };

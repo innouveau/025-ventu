@@ -21,13 +21,14 @@ Marker.prototype.create = function() {
     this.marker.setVisible(false);
     this.marker.addListener('click', function() {
         if (!self.hasCard) {
-            var building = self.parent.getBuilding(self.UniqueId);
-            self.createCard(building);
+            var building = self.parent.getBuilding(self.UniqueId),
+                card = self.createCard(building);
+            card.launch(1);
+            card.swop();
+        } else {
+            self.card.swop();
         }
-        self.card.swop();
-        
     });
-
 };
 
 
@@ -65,7 +66,11 @@ Marker.prototype.eject = function() {
     this.marker.setMap(null);
 };
 
-Marker.prototype.getPixelCoordinates = function(marker) {
+
+
+// getters
+
+Marker.prototype._getPixelCoordinates = function(marker) {
     var scale = Math.pow(2, this.parent.map.getZoom()),
         nw = new google.maps.LatLng(
             this.parent.map.getBounds().getNorthEast().lat(),
@@ -78,3 +83,16 @@ Marker.prototype.getPixelCoordinates = function(marker) {
         y: Math.floor((worldCoordinate.y - worldCoordinateNW.y) * scale)
     }
 };
+
+Marker.prototype.getTransfrom = function() {
+    var position = this._getPixelCoordinates(),
+        windowWidth = $(window).outerWidth(),
+        markerWidth = 48,
+        cardWidth = 500,
+        padding = 40,
+        translateX = windowWidth - padding - (0.5 * cardWidth) - position.x - 1,
+        translateY = padding,
+        scale = markerWidth / cardWidth;
+    return [-translateX, -translateY, 0, 0, 0, 0, scale, scale];
+};
+

@@ -163,9 +163,24 @@ Map.prototype.getBuilding = function(UniqueId) {
 };
 
 Map.prototype.createNewCard = function() {
-    var data = this._getMarker();
-    // create a card and launch it inmediately (type 1 is simple fade in at place)
-    data.marker.createCard(data.building).launch(1);
+    var data = this._getMarker(),
+        card,
+        wait = 0;
+    // the old card is still present when the new card is created. So 1 means
+    // the new card will be the only one on the stack, therefor we reset the index
+    // so the new card will be created on top of the stack
+    if (this.cards.length === 1) {
+        this.lastIndex = 0;
+        // because this card will be on top, it would graphically interfer with
+        // the added card, we have to wait until it is disappeared
+        wait = 800
+    }
+    card = data.marker.createCard(data.building);
+    setTimeout(function(){
+        card.launch(1);
+    }, wait);
+
+
 };
 
 Map.prototype._getMarker = function() {

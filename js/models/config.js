@@ -9,7 +9,7 @@ function Config(app) {
 
     };
     this.stack = {
-        max: 1
+        max: 5
     };
     this.zoom = 0;
     this.swipe = {
