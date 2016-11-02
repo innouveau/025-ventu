@@ -1150,7 +1150,7 @@ body.ventu-application #ventu-stack {
   position: relative;
   cursor: default;
   vertical-align: top;
-  max-width: 300px;
+  max-width: 320px;
 }
 .ventu-filter-box:hover .ventu-filter-head {
   padding: 20px 40px 20px 20px;

@@ -48,7 +48,7 @@
 
 
             <div id="ventu-filters">
-                <div class="ventu-filter-box">
+                <div id="ventu-filter-area" class="ventu-filter-box">
                     <div class="ventu-filter-head">
                         <div class="ventu-filter-title">
                             Oppervlakte:
@@ -79,7 +79,7 @@
                     </div>
                 </div>
 
-                <div class="ventu-filter-box">
+                <div id="ventu-filter-offer" class="ventu-filter-box">
                     <div class="ventu-filter-head">
                         <div class="ventu-filter-title">
                             Aanbod:
@@ -94,9 +94,9 @@
                     <div class="ventu-filter-body">
                         <div class="ventu-filter-body-content">
                             Kies het type aanbod, waarop je wilt filteren:<br><br>
-                            <div class="ventu-filter-toggle ventu-filter-toggle-active" data-value="Koop">Koop</div>
-                            <div class="ventu-filter-toggle ventu-filter-toggle-active" data-value="Huur">Huur</div>
-                            <div class="ventu-filter-toggle" data-value="Beleggingen">Beleggingen</div>
+                            <div class="ventu-filter-offer-toggle ventu-filter-toggle" data-value="Koop">Koop</div>
+                            <div class="ventu-filter-offer-toggle ventu-filter-toggle" data-value="Huur">Huur</div>
+                            <div class="ventu-filter-offer-toggle ventu-filter-toggle" data-value="Beleggingen">Beleggingen</div>
                         </div>
                         <div class="ventu-filter-buttons">
                             <div class="bnt ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'offer')">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
 
-                <div class="ventu-filter-box">
+                <div id="ventu-filter-search-area" class="ventu-filter-box">
                     <div class="ventu-filter-head">
                         <div class="ventu-filter-title">
                             Aangepast zoekgebied:
@@ -125,8 +125,8 @@
                         <div class="ventu-filter-body-content">
                             Door het toevoegen van een zoekcircel of zoekrechthoek wordt er in een straal van de ingestelde afstand gezocht rondom de huidige locatie.
                             (De cirkel of rechthoek kan met de hand verplaatst en vergroot worden.):<br><br>
-                            <div class="ventu-mini-map-set selected ventu-mini-map-set-none">
-                                <input type="radio" name="search-area" value="none" checked id="ventu-filter-standard">
+                            <div class="ventu-mini-map-set ventu-mini-map-set-none">
+                                <input type="radio" name="search-area" value="none">
                                 <div class="ventu-mini-map-body">
                                     Geen aangepast zoekgebied
                                 </div>

@@ -1,4 +1,7 @@
 function filterListeners() {
+
+    initFilter();
+
     $('.ventu-filter-toggle').click(function(){
         $(this).toggleClass('ventu-filter-toggle-active');
     });
@@ -18,6 +21,48 @@ function filterListeners() {
     });
 }
 
+
+function initFilter() {
+    var type;
+    // area
+    $('#ventu-filter-area-min').val(ventu.service.filter.area.min);
+    $('#ventu-filter-area-max').val(ventu.service.filter.area.max);
+    updateFilterSummary($('#ventu-filter-area'), 'area');
+    
+    // offer
+    $('.ventu-filter-offer-toggle').each(function(){
+        if (ventu.service.filter.offer.indexOf($(this).data('value')) > -1) {
+            $(this).addClass('ventu-filter-toggle-active');
+        } else {
+            $(this).removeClass('ventu-filter-toggle-active');
+        }
+    });
+    updateFilterSummary($('#ventu-filter-offer'), 'offer');
+    
+    // search area
+    $('.ventu-mini-map-set input[name=search-area]').each(function() {
+        if (ventu.service.filter.searchArea.type === $(this).val()) {
+            type = $(this).val();
+            $(this).prop("checked", true);
+            $(this).parent().addClass('selected');
+        } else {
+            $(this).prop("checked", false);
+            $(this).parent().removeClass('selected');
+        }
+    });
+    switch (type) {
+        case 'circle':
+            $('#ventu-filter-circle-km').val(ventu.service.filter.searchArea.km1);
+            break;
+        case 'rect':
+            $('#ventu-filter-rect-km1').val(ventu.service.filter.searchArea.km1);
+            $('#ventu-filter-rect-km2').val(ventu.service.filter.searchArea.km2);
+            break;
+    }
+    updateFilterSummary($('#ventu-filter-search-area'), 'searchArea');
+    
+}
+
 function openFilter(element) {
     var filter = $(element).parent();
     filter.addClass('filter-active');
@@ -30,6 +75,7 @@ function saveFilter(element, type) {
     var filter = $(element).parent().parent().parent();
     closeFilter($(element).parent()[0]);
     updateFilterSummary(filter, type);
+    ventu.service.filterUpdate();
 }
 
 function closeFilter(element) {
@@ -74,14 +120,13 @@ function updateFilterSummary(filter, type) {
             } else if (type === 'rect') {
                 ventu.service.filter.searchArea.km1 = parseFloat($('#ventu-filter-rect-km1').val());
                 ventu.service.filter.searchArea.km2 = parseFloat($('#ventu-filter-rect-km2').val());
-                summary = 'Rechthoek (' + ventu.service.filter.searchArea.km1 + '×' + ventu.service.filter.searchArea.km1 + 'km)';
+                summary = 'Rechthoek (' + ventu.service.filter.searchArea.km1 + '×' + ventu.service.filter.searchArea.km2 + 'km)';
             } else {
                 summary = 'Niet actief';
             }
             break;
     }
     filter.find('.ventu-filter-summary').html(summary);
-    ventu.service.filterUpdate();
 }
 
 function checkFilterInput(input) {

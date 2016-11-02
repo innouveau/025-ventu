@@ -3,8 +3,8 @@ function DataFaker(app) {
     this.searchResults = [];
     this.filter = {
         area : {
-            min: 2500,
-            max: 10000
+            min: 1800,
+            max: 12000
         },
         offer: ['Koop', 'Huur'],
         searchArea: {
