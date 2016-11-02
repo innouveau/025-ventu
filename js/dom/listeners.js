@@ -23,9 +23,19 @@ function mapListeners() {
 
 function menuListeners(){
     $('.ventu-close-popup').click(function(){
-        $('.ventu-popup').fadeOut(100, function(){
-            $('.ventu-overlay').fadeOut(100);
-        });
+        closePopups();
+    });
+
+    $(document).keyup(function(e) {
+        if (e.keyCode == 27) {
+            closePopups();
+        }
+    });
+}
+
+function closePopups() {
+    $('.ventu-popup').fadeOut(100, function(){
+        $('.ventu-overlay').fadeOut(100);
     });
 }
 
@@ -40,6 +50,9 @@ function openSettings() {
         $('.ventu-settings').fadeIn(100)
     })
 }
+
+
+
 
 // select2
 
