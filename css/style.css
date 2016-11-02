@@ -625,19 +625,42 @@ body .ventu-pagewrap {
   height: 0;
   content: '';
 }
+.ventu-guide .ventu-guide-button {
+  position: absolute;
+  bottom: 10px;
+}
+.ventu-guide .ventu-guide-button.ventu-guide-close {
+  right: 10px;
+}
+.ventu-guide .ventu-guide-button .ventu-icon {
+  border-radius: 15px;
+  padding-top: 8px;
+}
+.ventu-guide .ventu-guide-button .ventu-guide-button-sub {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 8px;
+  font-style: italic;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
+  margin-right: 6px;
+}
+.ventu-guide .ventu-guide-button:hover .ventu-icon {
+  background: #fff;
+}
+.ventu-guide .ventu-guide-button:hover .ventu-guide-button-sub {
+  opacity: 1;
+}
 .ventu-guide-left:after,
 .ventu-guide-right:after {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   top: 50px;
 }
-.ventu-guide-big.ventu-guide-left:after,
-.ventu-guide-big.ventu-guide-right:after {
-  top: 75px;
-}
 .ventu-guide-left:after {
   left: -16px;
-  border-right: 16px solid #FFDE00;
+  border-right: 32px solid #FFDE00;
 }
 .ventu-guide-right:after,
 .ventu-guide-right:after {
@@ -646,27 +669,17 @@ body .ventu-pagewrap {
 }
 .ventu-guide-top:after {
   left: calc(40%);
-  top: -10px;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 16px solid #FFDE00;
+  top: -30px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 32px solid #FFDE00;
 }
 .ventu-guide-bottom:after {
   left: 145px;
-  bottom: -10px;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 16px solid #FFDE00;
-}
-.ventu-guide-button {
-  position: absolute;
-  bottom: 10px;
-}
-.ventu-guide-button.ventu-guide-next {
-  left: 16px;
-}
-.ventu-guide-button.ventu-guide-close {
-  right: 10px;
+  bottom: -30px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 32px solid #FFDE00;
 }
 .ventu-icon {
   cursor: pointer;

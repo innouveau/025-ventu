@@ -43,9 +43,11 @@ Card.prototype._create = function() {
     (function(self) {
         self.buttons.love.on('click', function () {
             self._addToList('love');
+            self.app.user.uses('buttons');
         });
         self.buttons.hate.on('click', function () {
             self._addToList('hate');
+            self.app.user.uses('buttons');
         });
     })(self);
 
@@ -440,6 +442,9 @@ Card.prototype._addToList = function (type) {
     this.element.find('.ventu-card-buttons').fadeOut(500);
     this.marker.remove();
     this.app.map.createNewCard();
+
+    // update user
+    this.app.user.didFindOut('swipe');
 
     setTimeout(function(){
         self.app.list[type].add(self);

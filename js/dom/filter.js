@@ -69,6 +69,8 @@ function openFilter(element) {
     filter.find('.ventu-filter-summary').hide();
     filter.find('.ventu-filter-edit').addClass('hidden');
     filter.find('.ventu-filter-body').show();
+    // update user
+    ventu.user.didFindOut('filter');
 }
 
 function saveFilter(element, type) {

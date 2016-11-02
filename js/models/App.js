@@ -1,6 +1,8 @@
 function App(page) {
     this.page = page;
     this.config = new Config(this);
+    this.user = new User(this, user);
+    this.guide = new Guide(this);
     this.service = this._getService();
     this.map = null;
     this.domElements = {
@@ -69,6 +71,7 @@ App.prototype.select = function(searchQuery) {
         self._updateMenuBar(searchQuery, searchData.markers.length);
         self.objects = searchData.objects;
         self.map.draw(searchData);
+        self.user.startTimer('filter')
     }
 
     if (this.page !== 'application') {
