@@ -16,6 +16,9 @@ function Config(app) {
         suggest: 100,
         complete: 200
     };
+    this.list = {
+        max: 18 // make this x * 4 - 2, so that the catcher and the more together with the tiles form a square
+    };
     this.sizes = {
         card: {
             width: 500,
