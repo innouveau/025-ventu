@@ -195,7 +195,7 @@ Map.prototype.createNewCard = function() {
         }
         card = data.marker.createCard(data.building);
         setTimeout(function () {
-            card.launch(1);
+            card.launch('soft');
         }, wait);
     }
 

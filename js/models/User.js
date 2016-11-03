@@ -33,6 +33,14 @@ User.prototype.uses = function(what) {
     }
 };
 
+User.prototype.didSee = function(what) {
+    this.did.see[what] = true;
+};
+
+User.prototype.askIfDidSee = function(what) {
+    return this.did.see[what];
+};
+
 User.prototype.startTimer = function(what) {
     var self = this,
         time,

@@ -2,7 +2,6 @@ function Card(app, marker, building, index) {
     this.app = app;
     this.marker = marker;
     this.building = building;
-    this.launchType = this._getLaunchType(index);
     this.index = index;
     this.position = this._getPosition(index);
     this.transform = null;
@@ -69,64 +68,90 @@ Card.prototype.launch = function(type) {
     var self = this,
         thisTransform;
     if (!type) {
-        type = this.launchType;
+        if (this.app.user.askIfDidSee('cardLaunch')) {
+            type = 'soft';
+        } else {
+            type = 'cool'
+        }
     }
-    thisTransform = type === 0 ? this.marker.getTransform() : [0,0,0,0,0,0,1,1];
+    thisTransform = type === 'cool' ? this.marker.getTransform() : [0,0,0,0,0,0,1,1];
     // start position
     this._setTransform(this.element, thisTransform, false);
     this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
 
 
     switch (type) {
-        case 0:
-            this.element.addClass('no-transition').fadeIn(500, function(){
-                $(this).removeClass('no-transition')
-            });
-            this.shade.addClass('no-transition').fadeIn(500, function(){
-                $(this).removeClass('no-transition')
-            });
-            this.element.addClass('slow-transition');
-            this.shade.addClass('slow-transition');
-
-            // launch
-            setTimeout(function () {
-                // keep the rotation
-                self._moveToOrigin(false);
-            }, 100);
-
-            // launch next
-            setTimeout(function () {
-                self.element.removeClass('slow-transition');
-                self.shade.removeClass('slow-transition');
-                self._launchNext();
-            }, 150);
+        case 'cool':
+            this._coolLaunch();
             break;
-        case 1:
-            var wait = 500;
-            this.element.addClass('no-transition').fadeIn(wait, function(){
-                $(this).removeClass('no-transition')
-            });
-            this.shade.addClass('no-transition').fadeIn(wait, function(){
-                $(this).removeClass('no-transition')
-            });
-            setTimeout(function () {
-                self._launchNext();
-            }, (0.5 * wait));
+        case 'soft':
+            this._softLaunch();
             break;
     }
 
     // float
-    if (this.index === 0 && window.environment.floatFirst) {
+    if (this.index === 0 && !this.app.user.askIfDidSee('cardFloat') && window.environment.floatFirst) {
         setTimeout(function () {
             self._moveFloat();
+            self.app.user.didSee('cardFloat');
         }, (self.app.map.cards.length * 150 + 1000));
     }
+};
+
+Card.prototype._softLaunch = function() {
+    var self = this,
+        wait = 500;
+    this.element.addClass('no-transition').fadeIn(wait, function(){
+        $(this).removeClass('no-transition')
+    });
+    this.shade.addClass('no-transition').fadeIn(wait, function(){
+        $(this).removeClass('no-transition')
+    });
+    setTimeout(function () {
+        self._launchNext();
+    }, (0.5 * wait));
+};
+
+Card.prototype._coolLaunch = function() {
+    var self = this,
+        next;
+    this.element.addClass('no-transition').fadeIn(500, function(){
+        $(this).removeClass('no-transition')
+    });
+    this.shade.addClass('no-transition').fadeIn(500, function(){
+        $(this).removeClass('no-transition')
+    });
+    this.element.addClass('slow-transition');
+    this.shade.addClass('slow-transition');
+
+    // launch
+    setTimeout(function () {
+        // keep the rotation
+        self._moveToOrigin(false);
+    }, 100);
+
+    // launch next
+    setTimeout(function () {
+        self.element.removeClass('slow-transition');
+        self.shade.removeClass('slow-transition');
+        next = self._launchNext();
+        if (!next) {
+            // update user when the last card is launched
+            self.app.user.didSee('cardLaunch');
+        }
+    }, 150);
+
+    // update user
+    //this.app.user.didSee('cardLaunch');
 };
 
 Card.prototype._launchNext = function() {
     var next = this._getNext();
     if (next) {
         next.launch();
+        return true;
+    } else {
+        return false;
     }
 };
 
@@ -340,14 +365,6 @@ Card.prototype._getPosition = function(index) {
         zIndex: index * this.app.config.card.zOffset,
         shiftX: index * this.app.config.card.shift,
         shiftY: index * this.app.config.card.shift
-    }
-};
-
-Card.prototype._getLaunchType = function(index) {
-    if (window.environment.launchAll || (index === 0 && window.environment.floatFirst)) {
-        return 0;
-    } else {
-        return 1;
     }
 };
 

@@ -1,12 +1,16 @@
 var user = {
     name: 'Jeroen',
     did: {
-        findout : {
+        findout: {
             filter: false,
             swiping: false
         },
-        use : {
+        use: {
             buttons: 0
+        },
+        see: {
+            cardLaunch: false,
+            cardFloat: false
         }
     }
 };

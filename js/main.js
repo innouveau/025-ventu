@@ -1,8 +1,7 @@
 window.environment = {
-    development: true,
-    floatFirst: true,
-    autostart: true,
-    launchAll: true
+    development: true, // uses the fake backend
+    autostart: true, // starts with a automated selection
+    floatFirst: true // respects user setting see.cardAnimation
 };
 
 document.ontouchmove = function(event){
