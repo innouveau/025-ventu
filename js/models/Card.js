@@ -57,8 +57,9 @@ Card.prototype._create = function() {
     shade.hide();
     this.element = card;
     this.shade = shade;
-    this.app.domElements.stack.append(shade);
-    this.app.domElements.stack.append(card);
+    this.app.domElements.stack.prepend(card);
+    this.app.domElements.stack.prepend(shade);
+
     this.marker.hasCard = true;
 };
 
@@ -250,7 +251,17 @@ Card.prototype._swipeHint = function(dx, dy) {
 // helpers
 
 Card.prototype._projectShade = function(transform, rotate) {
-    var rotZ, scaleX, scaleY, depthFactor = 0.8;
+    var rotZ,
+        scaleX,
+        scaleY,
+        z,
+        depthFactor = 0.8,
+        next = this._getNext();
+    if (next) {
+        z = -next.position.zIndex + 1
+    } else {
+        z = transform[2] - this.app.config.card.zGap;
+    }
     if (transform[6] < 0.8) {
         // reduce x shift for scaled (= closer to the ground)
         depthFactor = 1 - (transform[6] / 10);
@@ -268,7 +279,8 @@ Card.prototype._projectShade = function(transform, rotate) {
     return [
         depthFactor * transform[0] + 50,
         depthFactor * transform[1] + 50,
-        transform[2] - (0.5 * this.app.config.card.zOffset),
+        //transform[2] - (0.5 * this.app.config.card.zGap),
+        z,
         0,
         0,
         rotZ,
@@ -360,9 +372,10 @@ Card.prototype.getName = function() {
 };
 
 Card.prototype._getPosition = function(index) {
+    var gap = index === 0 ? 0 : this.app.config.card.zGap;
     return {
         rotate: index === 0 ? 0 : this.app.config.card.rotation * Math.random() - (this.app.config.card.rotation / 2),
-        zIndex: index * this.app.config.card.zOffset,
+        zIndex: index * this.app.config.card.zOffset + gap,
         shiftX: index * this.app.config.card.shift,
         shiftY: index * this.app.config.card.shift
     }

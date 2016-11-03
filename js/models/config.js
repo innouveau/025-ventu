@@ -2,7 +2,8 @@ function Config(app) {
     this.app = app;
     this.card = {
         shift: 4, // shift in stack
-        zOffset: 100, // z offset inside stack
+        zGap: 500, // if you change this, change @keyframes float-shade in card.less as well corresponding
+        zOffset: 10, // z offset inside stack
         rotation: 15
     };
     this.shade = {
