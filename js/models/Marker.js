@@ -23,10 +23,11 @@ Marker.prototype.create = function() {
         if (!self.hasCard) {
             var building = self.parent.getBuilding(self.UniqueId),
                 card = self.createCard(building);
-            card.launch(1);
-            card.swop();
+            card.launch('soft');
+            card.swap();
         } else {
-            self.card.swop();
+
+            self.card.swap();
         }
     });
 };

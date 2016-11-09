@@ -160,7 +160,7 @@ Card.prototype._launchNext = function() {
 
 // moves
 
-Card.prototype.swop = function() {
+Card.prototype.swap = function() {
     var self = this,
         topCard = this.app.map.currentCard,
         originalX = this.position.shiftX;
