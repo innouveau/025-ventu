@@ -59,8 +59,9 @@ Card.prototype._create = function() {
     this.shade = shade;
     this.app.domElements.stack.prepend(card);
     this.app.domElements.stack.prepend(shade);
-
-    this.marker.hasCard = true;
+    if (this.app.config.isMapPresent) {
+        this.marker.hasCard = true;
+    }
 };
 
 
@@ -69,7 +70,7 @@ Card.prototype.launch = function(type) {
     var self = this,
         thisTransform;
     if (!type) {
-        if (this.app.user.askIfDidSee('cardLaunch')) {
+        if (this.app.user.askIfDidSee('cardLaunch') || !this.app.config.isMapPresent) {
             type = 'soft';
         } else {
             type = 'cool'
@@ -226,13 +227,17 @@ Card.prototype._moveDrag = function(dx, dy) {
 
 Card.prototype._swipeHint = function(dx, dy) {
     if (dx > this.app.config.swipe.complete) {
-        this.app.list.love.element.main.addClass('selected');
-        this.app.list.hate.element.main.removeClass('selected');
+        if (this.app.config.isCatcherPresent) {
+            this.app.list.love.element.main.addClass('selected');
+            this.app.list.hate.element.main.removeClass('selected');
+        }
     } else if (dx > this.app.config.swipe.suggest) {
         this.buttons.love.addClass('hover');
     } else if (dx < -this.app.config.swipe.complete) {
-        this.app.list.hate.element.main.addClass('selected');
-        this.app.list.love.element.main.removeClass('selected');
+        if (this.app.config.isCatcherPresent) {
+            this.app.list.hate.element.main.addClass('selected');
+            this.app.list.love.element.main.removeClass('selected');
+        }
     } else if (dx < -this.app.config.swipe.suggest) {
         this.buttons.hate.addClass('hover');
     } else {
@@ -336,7 +341,9 @@ Card.prototype._setCurrent = function() {
     this.position.shiftX = 0;
     this.position.shiftY = 0;
     this.shade.css('opacity', 1);
-    this.marker.select();
+    if (this.app.config.isMapPresent) {
+        this.marker.select();
+    }
     this._moveToOrigin(true);
     this.app.map.currentCard = this;
 };
@@ -347,7 +354,9 @@ Card.prototype._unsetCurrent = function(rotate, zIndex, shiftX, shiftY) {
     this.position.shiftX = shiftX;
     this.position.shiftY = shiftY;
     this._moveToStackPosition();
-    this.marker.unselect();
+    if (this.app.config.isMapPresent) {
+        this.marker.unselect();
+    }
 };
 
 Card.prototype._setTransform = function(element, trnsf, netto) {
@@ -376,8 +385,8 @@ Card.prototype._getPosition = function(index) {
     return {
         rotate: index === 0 ? 0 : this.app.config.card.rotation * Math.random() - (this.app.config.card.rotation / 2),
         zIndex: index * this.app.config.card.zOffset + gap,
-        shiftX: index * this.app.config.card.shift,
-        shiftY: index * this.app.config.card.shift
+        shiftX: this.app.config.device.type === 0 ? 0 : index * this.app.config.card.shift, // no shfits for mobile, only rotate
+        shiftY: this.app.config.device.type === 0 ? 0 : index * this.app.config.card.shift
     }
 };
 
@@ -429,8 +438,10 @@ Card.prototype._clearfloat = function() {
 };
 
 Card.prototype._releaseContainers = function (){
-    this.app.list.love.element.main.removeClass('selected');
-    this.app.list.hate.element.main.removeClass('selected');
+    if (this.app.config.isCatcherPresent) {
+        this.app.list.love.element.main.removeClass('selected');
+        this.app.list.hate.element.main.removeClass('selected');
+    }
 };
 
 Card.prototype._removeHoverTriggers = function (){
@@ -462,15 +473,20 @@ Card.prototype._addToList = function (type) {
         transform = [config.x,config.y,0,0,0,0,scale,scale],
         other = type === 'love' ? 'hate' : 'love',
         next = this._getNext();
-    this.app.list[type].element.main.addClass('selected');
-    this.app.list[other].element.main.removeClass('selected');
+    if (this.app.config.isCatcherPresent) {
+        this.app.list[type].element.main.addClass('selected');
+        this.app.list[other].element.main.removeClass('selected');
+    }
     this.element.removeClass('no-transition');
     this.shade.removeClass('no-transition');
     this._setTransform(this.element, transform, true);
     this._setTransform(this.shade, transform, true);
     this.element.find('.ventu-card-text').fadeOut(500);
     this.element.find('.ventu-card-buttons').fadeOut(500);
-    this.marker.remove();
+
+    if (this.app.config.isMapPresent) {
+        this.marker.remove();
+    }
     this.app.map.createNewCard();
 
     // update user

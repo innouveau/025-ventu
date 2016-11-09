@@ -31,6 +31,7 @@ Map.prototype.init = function() {
         streetViewControl: false
     };
     this.map = new google.maps.Map(document.getElementById("ventu-canvas"), myOptions);
+    this.app.config.isMapPresent = true;
 };
 
 

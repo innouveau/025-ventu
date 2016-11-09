@@ -14,17 +14,18 @@ nav.navbar-default .navbar-header .navbar-brand {
 }
 nav.navbar-default .navbar-header .navbar-brand .ventu-identity {
   display: inline-block;
-  margin-right: 20px;
   border-right: 1px solid #727272;
-}
-nav.navbar-default .navbar-header .navbar-brand .ventu-identity img {
+  background-image: url('../img/ventu-logo-small.png');
+  background-size: cover;
+  width: 153px;
   height: 63px;
-  width: auto;
+  margin-right: 20px;
 }
 nav.navbar-default .navbar-header .ventu-map-search {
   background: #fff;
   margin-top: 18px;
   height: 32px;
+  width: 232px;
   transition: width 0.2s ease;
   border: 1px solid #727272;
   position: relative;
@@ -34,7 +35,7 @@ nav.navbar-default .navbar-header .ventu-map-search input {
   height: 32px;
   background: transparent;
   padding: 6px 12px;
-  width: 200px;
+  width: calc(100% - 36px);
   border: 0;
   transition: width 0.2s ease;
   vertical-align: top;
@@ -71,8 +72,10 @@ nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-results .v
 nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-results .ventu-map-search-result:last-child {
   border-bottom: none;
 }
-nav.navbar-default .navbar-header .select2-container {
+nav.navbar-default .navbar-header #ventu-type-picker {
+  display: inline-block;
   margin: 18px 0 0 4px;
+  vertical-align: top;
 }
 nav.navbar-default .navbar-header .ventu-search-results-feedback {
   display: inline-block;
@@ -81,18 +84,20 @@ nav.navbar-default .navbar-header .ventu-search-results-feedback {
 }
 nav.navbar-default .navbar-header .navbar-toggle {
   border-radius: 0;
-  border: 1px solid #727272;
-  margin-top: 15px;
+  border: 1px solid #333;
+  margin-top: 14px;
+  margin-right: 10px;
+  padding: 6px;
 }
 nav.navbar-default .navbar-header .navbar-toggle:hover {
-  background: #727272;
+  background: #333;
 }
 nav.navbar-default .navbar-header .navbar-toggle:hover .icon-bar {
-  background-color: #fff;
+  background-color: #00e5a9;
 }
 nav.navbar-default .navbar-header .navbar-toggle .icon-bar {
   border-radius: 0;
-  background-color: #727272;
+  background-color: #333;
   height: 1px;
 }
 nav.navbar-default #navbar {
@@ -152,54 +157,24 @@ nav.navbar-default #navbar ul li .dropdown-menu li a:hover {
     text-align: left;
   }
 }
-@media (max-width: 768px) {
-  .ventu-smartphone-popup {
+@media (max-width: 767px) {
+  nav.navbar-default .navbar-header .navbar-brand .ventu-identity {
+    background-image: url('../img/ventu-icon.png');
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+  }
+  nav.navbar-default .navbar-header .ventu-map-search {
+    margin-top: 10px;
+    width: 200px;
+  }
+  nav.navbar-default .navbar-header #ventu-type-picker {
     display: none;
-    top: 10px;
+  }
+  nav.navbar-default .navbar-header .ventu-search-results-feedback {
     position: fixed;
-    left: 10px;
-    width: calc(80%);
-    height: calc(80%);
-    overflow: auto;
-    z-index: 100000000;
-  }
-  .ventu-smartphone-popup-close {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    z-index: 1000000;
-  }
-  .dropdown-menu {
-    margin-top: 0;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border: 0!important;
-  }
-  #navbar {
-    border-top: 1px solid #727272;
-    width: 100%;
-  }
-  .ventu-menu-dropdowns {
-    padding: 0;
-    border: 0;
-  }
-  .ventu-menu-dropdowns .dropdown-toggle {
-    display: none;
-  }
-  .ventu-menu-buttons,
-  .only-smartphone {
-    display: inline-block !important;
-  }
-  .navbar-default .navbar-nav > li {
-    margin-right: 0;
-    padding: 4px 8px;
-  }
-  .navbar-default .navbar-nav > li > a {
-    margin-right: 0;
-    padding: 4px 8px;
-    display: inline-block;
+    left: 12px;
+    bottom: 16px;
   }
 }
 /* main color 1 */
@@ -1133,7 +1108,17 @@ body.ventu-application {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: pink;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeeeee+0,bbbbbb+92 */
+  background: #eeeeee;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #eeeeee 0%, #bbbbbb 92%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #eeeeee 0%, #bbbbbb 92%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #eeeeee 0%, #bbbbbb 92%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#bbbbbb', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
 }
 body.ventu-application #ventu-canvas {
   position: absolute;
@@ -1156,6 +1141,44 @@ body.ventu-application #ventu-stack {
   position: absolute;
   right: 120px;
   top: 124px;
+}
+@media (max-width: 767px) {
+  body.ventu-application #ventu-filters {
+    position: absolute;
+    left: 100%;
+    top: 50px;
+    width: 100%;
+    height: calc(100% - 50px);
+  }
+  body.ventu-application #ventu-stack {
+    width: calc(100% - 20px);
+    height: calc(100% - 170px);
+    left: 10px;
+    right: auto;
+    top: 80px;
+  }
+  body.ventu-application #ventu-stack .ventu-card,
+  body.ventu-application #ventu-stack .ventu-card-shade {
+    right: auto;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  body.ventu-application #ventu-stack .ventu-card .ventu-card-image,
+  body.ventu-application #ventu-stack .ventu-card-shade .ventu-card-image {
+    height: 35%;
+  }
+  body.ventu-application #ventu-stack .ventu-card .ventu-card-text,
+  body.ventu-application #ventu-stack .ventu-card-shade .ventu-card-text {
+    padding: 16px;
+    height: calc(65% - 40px);
+  }
+  body.ventu-application #ventu-stack .ventu-card .ventu-card-text .ventu-card-text-content .ventu-card-text-content-half,
+  body.ventu-application #ventu-stack .ventu-card-shade .ventu-card-text .ventu-card-text-content .ventu-card-text-content-half {
+    width: 100%;
+    float: none;
+    margin-bottom: 10px;
+  }
 }
 .ventu-filter-box {
   display: inline-block;
@@ -1285,6 +1308,17 @@ body.ventu-application #ventu-stack {
   perspective: 5000px;
   -webkit-perspective: 5000px;
 }
+#ventu-bottom-bar .ventu-list-counter {
+  padding: 4px 6px;
+  color: #fff;
+  display: inline-block;
+}
+#ventu-bottom-bar .ventu-list-counter.love {
+  background: #00e5a9;
+}
+#ventu-bottom-bar .ventu-list-counter.hate {
+  background: #DF0040;
+}
 #ventu-bottom-bar .ventu-bottom-bar-sub {
   padding: 0 20px 14px 20px;
   display: inline-block;
@@ -1297,17 +1331,6 @@ body.ventu-application #ventu-stack {
   margin-right: -1px;
   width: 320px;
   transform: translateY(0) translateZ(0);
-}
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-list-counter {
-  padding: 4px 6px;
-  color: #fff;
-  display: inline-block;
-}
-#ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub-love .ventu-list-counter {
-  background: #00e5a9;
-}
-#ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub-hate .ventu-list-counter {
-  background: #DF0040;
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub.selected {
   animation: shift-under 0.5s 1;
@@ -1415,6 +1438,29 @@ a.ventu-to-list.ventu-to-list-hate {
   }
   100% {
     transform: translateY(-500px) translateZ(1px);
+  }
+}
+@media (max-width: 767px) {
+  #ventu-bottom-bar {
+    height: 50px;
+    background: #fff;
+    left: 0;
+    right: auto;
+    width: 100%;
+    transform-style: flat;
+    -webkit-transform-style: flat;
+  }
+  #ventu-bottom-bar .ventu-list-counter {
+    position: absolute;
+    top: 12px;
+  }
+  #ventu-bottom-bar .ventu-list-counter.love {
+    background: #00e5a9;
+    right: 20px;
+  }
+  #ventu-bottom-bar .ventu-list-counter.hate {
+    background: #DF0040;
+    right: 60px;
   }
 }
 .ventu-card.ventu-mini-card {

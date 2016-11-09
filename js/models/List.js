@@ -19,7 +19,7 @@ List.prototype._create = function() {
     this.element.main = $('<div class="ventu-bottom-bar-sub ventu-bottom-bar-sub-' + this.type + '"></div>');
     this.element.catcher = $('<div class="ventu-bottom-bar-catcher"></div>');
     this.element.list = $('<div class="ventu-bottom-bar-list"></div>');
-    this.element.counter = $('<div class="ventu-list-counter">x</div>');
+    this.element.counter = $('<div class="ventu-list-counter ' + this.type + '">x</div>');
     this.element.more = $('<div class="ventu-list-more"></div>');
     label = $('<div class="ventu-list-label"></div>');
     label.append('Je hebt ');
@@ -33,6 +33,7 @@ List.prototype._create = function() {
     this.element.main.append(this.element.catcher);
     this.element.main.append(this.element.list);
     this.app.domElements.bottomBar.append(this.element.main);
+    this.app.config.isCatcherPresent = true;
 };
 
 

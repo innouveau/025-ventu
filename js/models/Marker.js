@@ -32,7 +32,7 @@ Marker.prototype.create = function() {
     });
 };
 
-
+// TODO move to Map?
 Marker.prototype.createCard = function(building) {
     var card = new Card(this.app, this, building, this.parent.lastIndex);
     this.card = card;

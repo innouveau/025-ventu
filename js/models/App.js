@@ -20,10 +20,22 @@ function App(page) {
 }
 
 App.prototype.init = function() {
-    this.map = new Map(this);
+    if (this.config.device.type === 0) {
+        this.map = new MapMobile(this);
+    } else {
+        this.map = new Map(this);
+    }
+    
     this._initDomElements();
-    this.list.love = new List(this, 'love', 'Interesselijst');
-    this.list.hate = new List(this, 'hate', 'Prullenbak');
+    
+    if (this.config.device.type === 0) {
+        this.list.love = new ListMobile(this, 'love', 'Interesselijst');
+        this.list.hate = new ListMobile(this, 'hate', 'Prullenbak');
+    } else {
+        this.list.love = new List(this, 'love', 'Interesselijst');
+        this.list.hate = new List(this, 'hate', 'Prullenbak');
+    }
+    
 };
 
 
@@ -71,7 +83,9 @@ App.prototype.select = function(searchQuery) {
         self._updateMenuBar(searchQuery, searchData.markers.length);
         self.objects = searchData.objects;
         self.map.draw(searchData);
-        self.user.startTimer('filter')
+        if (self.config.isMapPresent) {
+            self.user.startTimer('filter')
+        }
     }
 
     if (this.page !== 'application') {

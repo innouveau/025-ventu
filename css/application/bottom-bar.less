@@ -7,6 +7,20 @@
     perspective: 5000px;
     -webkit-perspective: 5000px;
 
+    .ventu-list-counter {
+        padding: 4px 6px;
+        color: #fff;
+        display: inline-block;
+
+        &.love {
+            background: @ventu-color-love;
+        }
+
+        &.hate {
+            background: @ventu-color-hate;
+        }
+    }
+
     .ventu-bottom-bar-sub {
         padding: 0 20px 14px 20px;
         display: inline-block;
@@ -19,21 +33,6 @@
         margin-right: -1px;
         width: 320px;
         transform: translateY(0) translateZ(0);
-
-
-        .ventu-list-counter {
-            padding: 4px 6px;
-            color: #fff;
-            display: inline-block;
-        }
-
-        &.ventu-bottom-bar-sub-love .ventu-list-counter {
-            background: @ventu-color-love;
-        }
-
-        &.ventu-bottom-bar-sub-hate .ventu-list-counter {
-            background: @ventu-color-hate;
-        }
 
         &.ventu-bottom-bar-sub.selected{
             animation: shift-under 0.5s 1;
@@ -167,4 +166,36 @@ a.ventu-to-list {
     100% {
         transform: translateY(-500px) translateZ(1px);
     }
+}
+
+
+
+
+@media (max-width: 767px) {
+
+    #ventu-bottom-bar {
+        height: 50px;
+        background: #fff;
+        left: 0;
+        right: auto;
+        width: 100%;
+        transform-style: flat;
+        -webkit-transform-style: flat;
+
+        .ventu-list-counter {
+            position: absolute;
+            top: 12px;
+
+            &.love {
+                background: @ventu-color-love;
+                right: 20px;
+            }
+
+            &.hate {
+                background: @ventu-color-hate;
+                right: 60px;
+            }
+        }
+    }
+
 }
