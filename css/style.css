@@ -35,14 +35,15 @@ nav.navbar-default .navbar-header .ventu-map-search {
 nav.navbar-default .navbar-header .ventu-map-search input {
   height: 32px;
   background: transparent;
-  padding: 6px 12px;
-  width: calc(100% - 36px);
+  padding: 6px 0 6px 12px;
+  width: calc(100% - 32px);
   border: 0;
   transition: width 0.2s ease;
   vertical-align: top;
+  float: left;
 }
 nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-tools {
-  display: inline-block;
+  float: left;
 }
 nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-tools .ventu-icon-search {
   cursor: default;
