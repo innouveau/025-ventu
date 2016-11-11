@@ -56,16 +56,21 @@ App.prototype._initDomElements = function() {
 // search
 
 App.prototype.search = function(event, element) {
+    var self = this;
     if (event.keyCode === 13) {
         this.select(this.service.searchResults[0])
     } else {
-        var searchQuery = $(element).val(),
-            results = this.service.getSearchResults(searchQuery);
-        this.domElements.searchResults.empty();
-        for (var i = 0, l = results.length; i < l; i++) {
-            var result = results[i],
-                resultElement = $('<div class="ventu-map-search-result" onclick="ventu.select(\'' + result + '\', \'poly\')"><div class="ventu-map-search-result-text">' + result + '</div></div>');
-            this.domElements.searchResults.append(resultElement);
+        var searchQuery = $(element).val();
+        this.service.getSearchResults(searchQuery, searchResultsCallback);
+
+
+        function searchResultsCallback(results) {
+            self.domElements.searchResults.empty();
+            for (var i = 0, l = results.length; i < l; i++) {
+                var result = results[i],
+                    resultElement = $('<div class="ventu-map-search-result" onclick="ventu.select(\'' + result + '\', \'poly\')"><div class="ventu-map-search-result-text">' + result + '</div></div>');
+                self.domElements.searchResults.append(resultElement);
+            }
         }
     }
 
@@ -76,9 +81,9 @@ App.prototype.search = function(event, element) {
 // select
 
 App.prototype.select = function(searchQuery) {
-    var self = this,
-        searchData = this.service.getSelectResults(searchQuery);
-    function callback(searchData) {
+    var self = this;
+
+    function selectCallback(searchData) {
         self._updateMenuBar(searchQuery, searchData.markers.length);
         self.objects = searchData.objects;
         self.map.draw(searchData);
@@ -96,11 +101,11 @@ App.prototype.select = function(searchQuery) {
             self.init();
             $('body').removeClass().addClass('ventu-application');
             self.page = 'application';
-            callback(searchData);
+            self.service.getSelectResults(searchQuery, selectCallback);
         });
 
     } else {
-        callback(searchData);
+        this.service.getSelectResults(searchQuery, selectCallback);
     }
 };
 

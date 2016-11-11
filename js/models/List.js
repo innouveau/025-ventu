@@ -38,12 +38,18 @@ List.prototype._create = function() {
 
 
 List.prototype._appendLists = function() {
-    this.objects = this.app.service.getList(this.type);
-    for (var i = 0, l = this.objects.length; i < l; i++) {
-        var item = this.objects[i];
-        this._appendObject(item);
+    var self = this;
+     this.app.service.getList(this.type, listFillCallback);
+    
+    function listFillCallback(list) {
+        self.objects = list;
+        for (var i = 0, l = self.objects.length; i < l; i++) {
+            var item = self.objects[i];
+            self._appendObject(item);
+        }
+        self._count();
     }
-    this._count();
+
 };
 
 List.prototype._appendObject = function(item) {

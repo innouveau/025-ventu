@@ -1,6 +1,7 @@
 function Config(app) {
     this.app = app;
     this.device = this._getDevice();
+    console.log(this.device);
     this.isMapPresent = null;
     this.isCatcherPresent = null;
     this.card = {
@@ -45,15 +46,16 @@ Config.prototype._getDevice = function() {
     } else if (width < 1024) {
         type = 1;
         name = 'tablet';
-        orientation = 'portrait';
     } else if (width === 1024) {
         type = 2;
         name = 'tablet';
-        orientation = 'landscape';
     } else {
         type = 3;
         name = 'desktop';
     }
+
+    orientation = (width > height) ? 'landscape' : 'portrait';
+
 
     return {
         name: name,

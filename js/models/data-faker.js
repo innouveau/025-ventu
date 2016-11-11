@@ -15,7 +15,7 @@ function DataFaker(app) {
     };
 }
 
-DataFaker.prototype.getSearchResults = function(searchQuery) {
+DataFaker.prototype.getSearchResults = function(searchQuery, searchResultsCallback) {
     var results = [
         '1077 Amsterdam (postcode)',
         'Amstelveen (stad)',
@@ -23,7 +23,7 @@ DataFaker.prototype.getSearchResults = function(searchQuery) {
         'Amstelgebouw (locatie)'
     ];
     this.searchResults = results;
-    return results;
+    searchResultsCallback(results);
 };
 
 DataFaker.prototype.filterUpdate = function() {
@@ -40,24 +40,25 @@ DataFaker.prototype.filterUpdate = function() {
     }
 };
 
-DataFaker.prototype.getList = function(type) {
+DataFaker.prototype.getList = function(type, listFillCallback) {
+    var list = [],
+        listToModel = [];
     if (type === 'love') {
-        // var list = buildings.slice(1,4),
-        //     toModel = [];
-        // for (var i = 0, l = list.length; i < l; i++) {
-        //     toModel.push(new Building(this.app, list[i]));
-        // }
-        // return toModel;
-        return [];
+        list = [];
     } else {
-        return [];
+        list = [];
     }
+    for (var i = 0, l = list.length; i < l; i++) {
+        listToModel.push(new Building (this.app, list[i]));
+    }
+    listFillCallback(listToModel);
 };
 
-DataFaker.prototype.getSelectResults = function(searchQuery) {
+DataFaker.prototype.getSelectResults = function(searchQuery, selectCallback) {
     // http://nominatim.openstreetmap.org/details.php?place_id=158832524
     // http://polygons.openstreetmap.fr/index.py
-    var shape,
+    var selectResults,
+        shape,
         zoomCenter = {lat: 52.34179, lng: 4.9254733},
         zoom = 13;
     switch (this.filter.searchArea.type) {
@@ -90,13 +91,14 @@ DataFaker.prototype.getSelectResults = function(searchQuery) {
             };
             break
     }
-    return {
+    selectResults = {
         shape: shape,
         zoomCenter: zoomCenter,
         zoom: zoom,
         markers: markers,
         objects: objects
-    }
+    };
+    selectCallback(selectResults);
 };
 
 DataFaker.prototype.translate = function(string) {

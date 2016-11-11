@@ -74,15 +74,20 @@ function openFilter(element) {
 }
 
 function saveAllFilters() {
+    updateFilterModel($('#ventu-filter-area'), 'area');
     updateFilterSummary($('#ventu-filter-area'), 'area');
+    updateFilterModel($('#ventu-filter-offer'), 'offer');
     updateFilterSummary($('#ventu-filter-offer'), 'offer');
+    updateFilterModel($('#ventu-filter-search-area'), 'searchArea');
     updateFilterSummary($('#ventu-filter-search-area'), 'searchArea');
     $('body').removeClass('to-filter');
+
 }
 
 function saveFilter(element, type) {
     var filter = $(element).parent().parent().parent();
     closeFilter($(element).parent()[0]);
+    updateFilterModel(filter, type);
     updateFilterSummary(filter, type);
     ventu.service.filterUpdate();
 }
@@ -95,15 +100,12 @@ function closeFilter(element) {
     filter.find('.ventu-filter-body').hide();
 }
 
-function updateFilterSummary(filter, type) {
+function updateFilterModel(filter, type) {
     var summary;
     switch (type) {
         case 'area':
-            // update model
             ventu.service.filter.area.min = checkFilterInput($('#ventu-filter-area-min').val());
             ventu.service.filter.area.max = checkFilterInput($('#ventu-filter-area-max').val());
-            // update html
-            summary = styleNumber(ventu.service.filter.area.min) + ' - ' + styleNumber(ventu.service.filter.area.max) + ' m²';
             break;
         case 'offer':
             // update model
@@ -115,20 +117,35 @@ function updateFilterSummary(filter, type) {
                 }
             });
             ventu.service.filter.offer = offer;
-            // update html
-            summary = offer.join(', ');
-            
             break;
         case 'searchArea':
-            var type = $('.ventu-mini-map-set input[name=search-area]:checked').val(),
-                summary;
-            ventu.service.filter.searchArea.type = type;
-            if (type === 'circle') {
+            var thisType = $('.ventu-mini-map-set input[name=search-area]:checked').val();
+            ventu.service.filter.searchArea.type = thisType;
+            if (thisType === 'circle') {
                 ventu.service.filter.searchArea.km1 = parseFloat($('#ventu-filter-circle-km').val());
-                summary = 'Cirkel (' + ventu.service.filter.searchArea.km1 + 'km)';
-            } else if (type === 'rect') {
+            } else if (thisType === 'rect') {
                 ventu.service.filter.searchArea.km1 = parseFloat($('#ventu-filter-rect-km1').val());
                 ventu.service.filter.searchArea.km2 = parseFloat($('#ventu-filter-rect-km2').val());
+            } else {
+            }
+            break;
+    }
+}
+
+function updateFilterSummary(filter, type) {
+    var summary;
+    switch (type) {
+        case 'area':
+            summary = styleNumber(ventu.service.filter.area.min) + ' - ' + styleNumber(ventu.service.filter.area.max) + ' m²';
+            break;
+        case 'offer':
+            summary = ventu.service.filter.offer.join(', ');
+            break;
+        case 'searchArea':
+            var thisType = ventu.service.filter.searchArea.type;
+            if (thisType === 'circle') {
+                summary = 'Cirkel (' + ventu.service.filter.searchArea.km1 + 'km)';
+            } else if (thisType === 'rect') {
                 summary = 'Rechthoek (' + ventu.service.filter.searchArea.km1 + '×' + ventu.service.filter.searchArea.km2 + 'km)';
             } else {
                 summary = 'Niet actief';
