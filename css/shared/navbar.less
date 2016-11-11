@@ -96,8 +96,8 @@ nav.navbar-default {
         .navbar-toggle {
             border-radius: 0;
             border: 1px solid @ventu-black;
-            margin-top: 14px;
-            margin-right: 10px;
+            margin-top: 21px;
+            margin-right: 18px;
             padding: 6px;
 
             &:hover {
@@ -165,55 +165,47 @@ nav.navbar-default {
 }
 
 
+@media (max-width: 1024px) {
 
+    // make navbar collapse on this breakpoint already
+    
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
 
-
-
-
-@media (max-width: 767px) {
-
-
-
-
-
-    nav.navbar-default {
-
-
-        .navbar-header {
-
-            .navbar-brand {
-
-
-                .ventu-identity {
-                    background-image: url('../img/ventu-icon.png');
-                    width: 50px;
-                    height: 50px;
-                    margin-right: 12px;
-                }
-            }
-
-            .ventu-map-search {
-                margin-top: 10px;
-                width: 200px;
-
-                input {
-
-                }
-            }
-
-            #ventu-type-picker {
-                display: none;
-            }
-
-
-
-            .ventu-search-results-feedback {
-                position: fixed;
-                left: 12px;
-                bottom: 16px;
-                font-weight: 700;
-            }
-        }
+    nav.navbar {
+        min-height: 63px;
 
         #navbar {
             clear: both;
@@ -222,7 +214,7 @@ nav.navbar-default {
             overflow: auto;
             background: #fff;
             border-top: @ventu-border-1;
-            box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 
             ul {
                 li {
@@ -233,7 +225,7 @@ nav.navbar-default {
                     }
 
                     &:last-child {
-                        border-bottom: 0!important;
+                        border-bottom: 0 !important;
                     }
 
                     a {
@@ -247,11 +239,63 @@ nav.navbar-default {
 
                     .dropdown-menu {
                         a {
-                            padding: 8px 32px 8px 48px!important;
+                            padding: 8px 32px 8px 48px !important;
                         }
                     }
 
                 }
+            }
+        }
+    }
+}
+
+
+
+
+@media (max-width: 767px) {
+
+
+
+
+
+    nav.navbar {
+        min-height: 50px;
+
+        .navbar-header {
+
+            .navbar-brand {
+
+                .ventu-identity {
+                    background-image: url('../img/ventu-icon.png');
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 12px;
+                }
+            }
+
+            .ventu-map-search {
+                margin-top: 10px;
+                width: 200px;
+
+            }
+
+            #ventu-type-picker {
+                display: none;
+            }
+
+
+            .navbar-toggle {
+                margin-top: 14px;
+                margin-right: 10px;
+            }
+
+
+
+            .ventu-search-results-feedback {
+                position: fixed;
+                left: 12px;
+                bottom: 16px;
+                font-weight: 700;
             }
         }
     }
