@@ -175,6 +175,7 @@ nav.navbar-default #navbar ul li .dropdown-menu li a:hover {
     position: fixed;
     left: 12px;
     bottom: 16px;
+    font-weight: 700;
   }
 }
 /* main color 1 */
@@ -662,7 +663,7 @@ body .ventu-pagewrap {
   font-family: 'ventu';
   text-align: center;
   transition: all 0.2s ease;
-  color: #727272;
+  color: #333;
 }
 .ventu-icon-white {
   color: #fff;
@@ -747,7 +748,7 @@ body .ventu-pagewrap {
 }
 .ventu-text-along-icon {
   display: inline-block;
-  padding: 11px 0 0 1px;
+  padding: 8px 0 0 1px;
   vertical-align: top;
   font-size: 10px;
 }
@@ -1402,6 +1403,19 @@ body.ventu-application #ventu-stack {
   padding-top: 10px;
   margin: 15px 12px 0 12px;
 }
+#ventu-bottom-bar #to-filter {
+  position: absolute;
+  right: 100px;
+  top: 10px;
+  display: none;
+  cursor: pointer;
+}
+#ventu-bottom-bar #to-filter .ventu-icon {
+  border: 1px solid #333;
+}
+#ventu-bottom-bar #to-filter:hover .ventu-text-along-icon {
+  border-bottom: 1px solid #333;
+}
 a.ventu-to-list {
   position: fixed;
   bottom: 9px;
@@ -1452,7 +1466,12 @@ a.ventu-to-list.ventu-to-list-hate {
   }
   #ventu-bottom-bar .ventu-list-counter {
     position: absolute;
-    top: 12px;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 7px;
   }
   #ventu-bottom-bar .ventu-list-counter.love {
     background: #00e5a9;
@@ -1461,6 +1480,9 @@ a.ventu-to-list.ventu-to-list-hate {
   #ventu-bottom-bar .ventu-list-counter.hate {
     background: #DF0040;
     right: 60px;
+  }
+  #ventu-bottom-bar #to-filter {
+    display: block;
   }
 }
 .ventu-card.ventu-mini-card {

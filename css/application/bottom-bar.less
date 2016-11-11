@@ -116,6 +116,22 @@
             }
         }
     }
+
+    #to-filter {
+        position: absolute;
+        right: 100px;
+        top: 10px;
+        display: none;
+        cursor: pointer;
+
+        .ventu-icon {
+            border: 1px solid @ventu-black;
+        }
+
+        &:hover .ventu-text-along-icon {
+            border-bottom: 1px solid @ventu-black
+        }
+    }
 }
 
 a.ventu-to-list {
@@ -184,7 +200,12 @@ a.ventu-to-list {
 
         .ventu-list-counter {
             position: absolute;
-            top: 12px;
+            top: 10px;
+            height: 30px;
+            width: 30px;
+            border-radius: 15px;
+            text-align: center;
+            padding-top: 7px;
 
             &.love {
                 background: @ventu-color-love;
@@ -195,6 +216,10 @@ a.ventu-to-list {
                 background: @ventu-color-hate;
                 right: 60px;
             }
+        }
+
+        #to-filter {
+            display: block;
         }
     }
 
