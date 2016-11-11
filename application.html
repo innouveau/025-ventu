@@ -234,16 +234,6 @@
             </div>
 
             <div class="navbar-header pull-left">
-                <div class="ventu-map-search">
-                    <input class="ventu-map-input" type="search" placeholder="Vind adres..." id="input-search-address" autocomplete="off" onkeyup="ventu.search(event, this)">
-                    <div class="ventu-map-search-tools">
-                        <div id="btn-search-address" class="ventu-icon ventu-icon-med ventu-icon-search"></div>
-                    </div>
-                    <div class="ventu-map-search-results" id="ventu-search-result">
-
-                    </div>
-                </div>
-
                 <div id="ventu-type-picker">
                     <select multiple>
                         <option value="kantoor">kantoor</option>
@@ -255,6 +245,17 @@
                         <option value="overige">overige</option>
                     </select>
                 </div>
+
+                <div class="ventu-map-search">
+                    <input class="ventu-map-input" type="search" placeholder="Vind adres..." id="input-search-address" autocomplete="off" onkeyup="ventu.search(event, this)">
+                    <div class="ventu-map-search-tools">
+                        <div id="btn-search-address" class="ventu-icon ventu-icon-med ventu-icon-search"></div>
+                    </div>
+                    <div class="ventu-map-search-results" id="ventu-search-result">
+
+                    </div>
+                </div>
+
 
                 <div class="ventu-search-results-feedback"></div>
             </div>

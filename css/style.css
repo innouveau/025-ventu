@@ -24,6 +24,7 @@ nav.navbar-default .navbar-header .navbar-brand .ventu-identity {
 nav.navbar-default .navbar-header .ventu-map-search {
   background: #fff;
   margin-top: 18px;
+  margin-left: 4px;
   height: 32px;
   width: 232px;
   transition: width 0.2s ease;
@@ -74,7 +75,7 @@ nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-results .v
 }
 nav.navbar-default .navbar-header #ventu-type-picker {
   display: inline-block;
-  margin: 18px 0 0 4px;
+  margin-top: 18px;
   vertical-align: top;
 }
 nav.navbar-default .navbar-header .ventu-search-results-feedback {
@@ -1054,6 +1055,18 @@ body .ventu-pagewrap {
 .ventu-close-popup:hover {
   background: #ddd;
   color: #000;
+}
+@media (max-width: 767px) {
+  .ventu-overlay .ventu-popup {
+    margin: 40px auto;
+    max-width: calc(100% - 40px);
+  }
+  .ventu-overlay .ventu-popup.ventu-login {
+    width: 350px;
+  }
+  .ventu-overlay .ventu-popup.ventu-settings {
+    width: 300px;
+  }
 }
 .select2-container {
   vertical-align: top;

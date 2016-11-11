@@ -162,13 +162,23 @@
 
             <div class="navbar-header pull-left">
                 <a class="navbar-brand" href="./">
-                    <div class="ventu-identity">
-                        <img src="img/ventu-logo-small.png">
-                    </div>
+                    <div class="ventu-identity"></div>
                 </a>
             </div>
 
             <div class="navbar-header pull-left">
+                <div id="ventu-type-picker">
+                    <select multiple>
+                        <option value="kantoor">kantoor</option>
+                        <option value="bedrijfsruimte">bedrijfsruimte</option>
+                        <option value="distributie">distributie</option>
+                        <option value="winkel">winkel</option>
+                        <option value="horeca">horeca</option>
+                        <option value="grond">grond</option>
+                        <option value="overige">overige</option>
+                    </select>
+                </div>
+
                 <div class="ventu-map-search">
                     <input class="ventu-map-input" type="search" placeholder="Vind adres..." id="input-search-address" autocomplete="off" onkeyup="ventu.search(this)">
                     <div class="ventu-map-search-tools">
@@ -179,15 +189,6 @@
                     </div>
                 </div>
 
-                <select multiple>
-                    <option value="kantoor">kantoor</option>
-                    <option value="bedrijfsruimte">bedrijfsruimte</option>
-                    <option value="distributie">distributie</option>
-                    <option value="winkel">winkel</option>
-                    <option value="horeca">horeca</option>
-                    <option value="grond">grond</option>
-                    <option value="overige">overige</option>
-                </select>
 
                 <div class="ventu-search-results-feedback"></div>
             </div>
