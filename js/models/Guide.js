@@ -10,8 +10,8 @@ Guide.prototype.hint = function(type) {
     switch (type) {
         case 'swiping':
             text = 'Je kunt de kaarten ook swipen.<br>Als je de kaart naar rechts sleept en dan los laat, belandt hij in je interesselijst.<br><br>Als je naar links sleept vind je hem niet interessant.';
-            position = [($(window).outerWidth() - 1000), 300];
-            direction = 'right';
+            position = this.app.isMobile() ? [((this.app.config.device.width - 300) / 2), 200] : [(this.app.config.device.width - 1000), 300];
+            direction = this.app.isMobile() ? 'top' : 'right';
             break;
         case 'filter':
             text = 'Gebruik de filters om je selectie te verkleinen.';

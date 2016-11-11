@@ -100,11 +100,8 @@ nav.navbar-default {
             padding: 6px;
 
             &:hover {
-                background: @ventu-black;
+                background: white;
 
-                .icon-bar {
-                    background-color: @ventu-color-1;
-                }
             }
 
             .icon-bar {
@@ -172,30 +169,6 @@ nav.navbar-default {
 
 
 
-@media (max-width: 1024px) {
-    /* tablet */
-
-
-    /* temp hidden */
-    .ventu-social-media {
-        display: none;
-    }
-
-    /* favorites inside menu */
-    .ventu-favorites-navigation {
-        width: 150px;
-    }
-
-    .ventu-favorites-navigation.ventu-app {
-        width: 70px;
-    }
-
-    .ventu-app .ventu-favorites-counter-container {
-        text-align: left;
-    }
-
-}
-
 @media (max-width: 767px) {
 
 
@@ -238,6 +211,46 @@ nav.navbar-default {
                 left: 12px;
                 bottom: 16px;
                 font-weight: 700;
+            }
+        }
+
+        #navbar {
+            clear: both;
+            width: 100%;
+            float: none;
+            overflow: auto;
+            background: #fff;
+            border-top: @ventu-border-1;
+            box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+
+            ul {
+                li {
+                    border-bottom: 1px solid #ddd;
+
+                    &:hover {
+                        background: transparent;
+                    }
+
+                    &:last-child {
+                        border-bottom: 0!important;
+                    }
+
+                    a {
+                        padding: 16px 32px;
+                        height: auto;
+
+                        &:hover {
+                            background: @button-hover-color;
+                        }
+                    }
+
+                    .dropdown-menu {
+                        a {
+                            padding: 8px 32px 8px 48px!important;
+                        }
+                    }
+
+                }
             }
         }
     }

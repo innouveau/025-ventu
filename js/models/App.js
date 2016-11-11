@@ -35,7 +35,6 @@ App.prototype.init = function() {
         this.list.love = new List(this, 'love', 'Interesselijst');
         this.list.hate = new List(this, 'hate', 'Prullenbak');
     }
-    
 };
 
 
@@ -83,7 +82,7 @@ App.prototype.select = function(searchQuery) {
         self._updateMenuBar(searchQuery, searchData.markers.length);
         self.objects = searchData.objects;
         self.map.draw(searchData);
-        if (self.config.isMapPresent) {
+        if (!self.isMobile()) {
             self.user.startTimer('filter')
         }
     }
@@ -117,4 +116,10 @@ App.prototype._updateMenuBar = function(searchQuery, n) {
     }
     this.domElements.search.val(string);
     this.domElements.searchFeedback.html(n + ' objecten gevonden');
+};
+
+// helpers
+
+App.prototype.isMobile = function() {
+    return this.config.device.type === 0;
 };
