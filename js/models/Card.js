@@ -259,19 +259,14 @@ Card.prototype._projectShade = function(transform, rotate) {
     var rotZ,
         scaleX,
         scaleY,
-        z,
-        depthFactor = 0.8,
-        next = this._getNext();
-    if (next) {
-        z = -next.position.zIndex + 1
-    } else {
-        z = transform[2] - this.app.config.card.zGap;
-    }
+        depthFactor = 0.8;
     if (transform[6] < 0.8) {
         // reduce x shift for scaled (= closer to the ground)
         depthFactor = 1 - (transform[6] / 10);
 
     }
+
+
     if (rotate) {
         rotZ = 0.5 * transform[5];
         scaleX = (1.2 - Math.abs(transform[0]/1000));
@@ -284,8 +279,7 @@ Card.prototype._projectShade = function(transform, rotate) {
     return [
         depthFactor * transform[0] + 50,
         depthFactor * transform[1] + 50,
-        //transform[2] - (0.5 * this.app.config.card.zGap),
-        z,
+        this.position.shadeZindex,
         0,
         0,
         rotZ,
@@ -293,6 +287,8 @@ Card.prototype._projectShade = function(transform, rotate) {
         scaleY
     ];
 };
+
+
 
 Card.prototype._addListener = function() {
     var self = this;
@@ -338,9 +334,10 @@ Card.prototype._addListener = function() {
 Card.prototype._setCurrent = function() {
     this.position.rotate = 0;
     this.position.zIndex = 0;
+    this.position.shadeZindex = -this.app.config.card.zGap;
     this.position.shiftX = 0;
     this.position.shiftY = 0;
-    this.shade.css('opacity', 1);
+    this.shade.fadeIn(100);
     if (this.app.config.isMapPresent) {
         this.marker.select();
     }
@@ -360,7 +357,7 @@ Card.prototype._unsetCurrent = function(rotate, zIndex, shiftX, shiftY) {
 };
 
 Card.prototype._setTransform = function(element, trnsf, netto) {
-    var transform = this._getTransform(trnsf, netto);
+    var transform = this._getTransform(element, trnsf, netto);
     this.transform = transform;
     element.css({
         "webkitTransform": transform,
@@ -381,10 +378,13 @@ Card.prototype.getName = function() {
 };
 
 Card.prototype._getPosition = function(index) {
-    var gap = index === 0 ? 0 : this.app.config.card.zGap;
+    var gap = index === 0 ? 0 : this.app.config.card.zGap,
+        zIndex = index * -this.app.config.card.zOffset - gap,
+        shadeZindex = index === 0 ? -this.app.config.card.zGap : zIndex - this.app.config.card.zOffset;
     return {
         rotate: index === 0 ? 0 : this.app.config.card.rotation * Math.random() - (this.app.config.card.rotation / 2),
-        zIndex: index * this.app.config.card.zOffset + gap,
+        zIndex: zIndex,
+        shadeZindex: shadeZindex,
         shiftX: this.app.config.device.type === 0 ? 0 : index * this.app.config.card.shift, // no shfits for mobile, only rotate
         shiftY: this.app.config.device.type === 0 ? 0 : index * this.app.config.card.shift
     }
@@ -403,11 +403,11 @@ Card.prototype._getIndex = function() {
     return this.app.map.cards.indexOf(this);
 };
 
-Card.prototype._getTransform = function(transform, netto) {
+Card.prototype._getTransform = function(element, transform, netto) {
     var rotate = this.position.rotate,
         shiftX = this.position.shiftX,
         shiftY = this.position.shiftY,
-        z = this.position.zIndex;
+        z = element === this.element ? this.position.zIndex : this.position.shadeZindex;
     if (netto) {
         rotate = 0;
         shiftX = 0;
@@ -416,7 +416,7 @@ Card.prototype._getTransform = function(transform, netto) {
     }
     return 'translateX(' + (transform[0] + shiftX) + 'px) ' +
         'translateY(' + (transform[1] + shiftY) + 'px) ' +
-        'translateZ(' + (transform[2] - z) + 'px) ' +
+        'translateZ(' + z + 'px) ' +
         'rotateX(' + transform[3] + 'deg) ' +
         'rotateY(' + transform[4] + 'deg) ' +
         'rotateZ(' + (transform[5] + rotate) + 'deg) ' +

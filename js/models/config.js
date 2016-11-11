@@ -13,7 +13,7 @@ function Config(app) {
 
     };
     this.stack = {
-        max: 5
+        max: 3
     };
     this.zoom = 0;
     this.swipe = {

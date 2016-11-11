@@ -158,6 +158,24 @@
     }
 }
 
+#save-all-filter {
+    display: none;
+
+
+
+        .ventu-filter-body-content {
+            text-align: right;
+
+            .ventu-filter-button {
+
+                padding: 12px;
+                margin-right: 10px;
+            }
+        }
+
+
+}
+
 
 .ventu-filter-button {
     padding: 4px 6px;
@@ -172,3 +190,96 @@
 
 
 
+@media (max-width: 767px) {
+
+    #ventu-filters {
+        height: ~'calc(100% - 50px)'!important;
+        overflow: auto;
+        border-bottom: @ventu-border-1;
+        background: #fff;
+
+        #ventu-filter-search-area.ventu-filter-box {
+            display: none;
+        }
+
+        .ventu-filter-box {
+            display: block;
+            box-shadow: none;
+            max-width: 100%;
+            border-bottom: @ventu-border-1;
+            margin: 0;
+
+            .ventu-filter-head {
+                // prevent hovering
+                padding: 20px !important;
+
+                .ventu-filter-title {
+                    font-weight: 700;
+                }
+
+                .ventu-filter-summary {
+                    display: none;
+                }
+
+            }
+
+            .ventu-filter-edit {
+                display: none !important;
+            }
+
+            .ventu-filter-body {
+                display: block;
+
+                .ventu-filter-body-content {
+                    padding: 20px;
+
+                    input {
+                        padding: 4px;
+                    }
+
+                    span {
+                        vertical-align: top;
+                        line-height: 22px;
+                    }
+
+                    .ventu-mini-map-set {
+
+                        margin-bottom: 12px;
+
+                        .ventu-mini-map-body {
+                            display: inline-block;
+                            opacity: 0.3;
+                            transition: all 0.5s ease;
+                        }
+
+                        input {
+                            width: 30px;
+                        }
+
+                        &.selected {
+
+                            .ventu-mini-map-body {
+                                opacity: 1;
+                            }
+
+                        }
+                    }
+                }
+
+                .ventu-filter-buttons {
+                    display: none;
+                }
+
+                .ventu-filter-close {
+                    display: none;
+                }
+            }
+        }
+
+        #save-all-filter {
+            display: block;
+        }
+
+    }
+
+}

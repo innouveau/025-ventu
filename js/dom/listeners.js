@@ -31,6 +31,16 @@ function menuListeners(){
             closePopups();
         }
     });
+
+    if (window.ventu.config.device.type === 0) {
+        $('#to-filter').click(function(){
+            $('body').addClass('to-filter');
+        });
+
+        $('#to-app').click(function(){
+            $('body').removeClass('to-filter');
+        });
+    }
 }
 
 function closePopups() {

@@ -73,7 +73,7 @@
                             <input type="text" value="10000" id="ventu-filter-area-max">
                         </div>
                         <div class="ventu-filter-buttons">
-                            <div class="bnt ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'area')">
+                            <div class="btn ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'area')">
                                 Wijzigingen doorvoeren
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                             <div class="ventu-filter-offer-toggle ventu-filter-toggle" data-value="Beleggingen">Beleggingen</div>
                         </div>
                         <div class="ventu-filter-buttons">
-                            <div class="bnt ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'offer')">
+                            <div class="btn ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'offer')">
                                 Wijzigingen doorvoeren
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                             </div>
                         </div>
                         <div class="ventu-filter-buttons">
-                            <div class="bnt ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'searchArea')">
+                            <div class="btn ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'searchArea')">
                                 Wijzigingen doorvoeren
                             </div>
                         </div>
@@ -180,12 +180,25 @@
                             Geen extra filters beschikbaar.
                         </div>
                         <div class="ventu-filter-buttons">
-                            <div class="bnt ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'extra')">
+                            <div class="btn ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'extra')">
                                 OK
                             </div>
                         </div>
                         <div class="ventu-filter-close ventu-close-popup ventu-icon ventu-icon-close" onclick="closeFilter(this)">
 
+                        </div>
+                    </div>
+                </div>
+
+                <div id="save-all-filter" class="ventu-filter-box">
+                    <div class="ventu-filter-body">
+                        <div class="ventu-filter-body-content">
+                            <div id="to-app" class="btn ventu-filter-button">
+                                Terug
+                            </div>
+                            <div class="btn ventu-filter-button" onclick="saveAllFilters()">
+                                Wijzigingen doorvoeren
+                            </div>
                         </div>
                     </div>
                 </div>

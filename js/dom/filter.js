@@ -73,6 +73,13 @@ function openFilter(element) {
     ventu.user.didFindOut('filter');
 }
 
+function saveAllFilters() {
+    updateFilterSummary($('#ventu-filter-area'), 'area');
+    updateFilterSummary($('#ventu-filter-offer'), 'offer');
+    updateFilterSummary($('#ventu-filter-search-area'), 'searchArea');
+    $('body').removeClass('to-filter');
+}
+
 function saveFilter(element, type) {
     var filter = $(element).parent().parent().parent();
     closeFilter($(element).parent()[0]);
