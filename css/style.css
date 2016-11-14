@@ -1588,6 +1588,7 @@ a.ventu-to-list.ventu-to-list-hate {
     right: auto;
     transform-style: flat;
     -webkit-transform-style: flat;
+    width: 100%;
   }
   #ventu-bottom-bar .ventu-list-counter {
     display: inline-block;
