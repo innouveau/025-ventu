@@ -83,14 +83,42 @@
                     </div>
                 </div>
 
+                <div id="ventu-filter-type" class="ventu-filter-box">
+                    <div class="ventu-filter-head">
+                        <div class="ventu-filter-title">
+                            Type:
+                        </div>
+                        <div class="ventu-filter-summary"></div>
+                    </div>
+                    <div class="btn ventu-filter-button ventu-filter-edit" onclick="openFilter(this)">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <div class="ventu-filter-body">
+                        <div class="ventu-filter-body-content">
+                            Kies het type object, waarop je wilt filteren:<br><br>
+                            <div class="ventu-filter-type-toggle ventu-filter-toggle" data-value="kantoor">Kantoor</div>
+                            <div class="ventu-filter-type-toggle ventu-filter-toggle" data-value="bedrijfsruimte">Bedrijfsruimte</div>
+                            <div class="ventu-filter-type-toggle ventu-filter-toggle" data-value="distributie">Distributie</div>
+                            <div class="ventu-filter-type-toggle ventu-filter-toggle" data-value="winkel">Winkel</div>
+                            <div class="ventu-filter-type-toggle ventu-filter-toggle" data-value="horeca">Horeca</div>
+                            <div class="ventu-filter-type-toggle ventu-filter-toggle" data-value="grond">Grond</div>
+                            <div class="ventu-filter-type-toggle ventu-filter-toggle" data-value="overige">Overige</div>
+                        </div>
+                        <div class="ventu-filter-buttons">
+                            <div class="btn ventu-filter-button ventu-filter-ready" onclick="saveFilter(this, 'type')">
+                                Wijzigingen doorvoeren
+                            </div>
+                        </div>
+                        <div class="ventu-filter-close ventu-close-popup ventu-icon ventu-icon-close" onclick="closeFilter(this)"></div>
+                    </div>
+                </div>
+
                 <div id="ventu-filter-offer" class="ventu-filter-box">
                     <div class="ventu-filter-head">
                         <div class="ventu-filter-title">
                             Aanbod:
                         </div>
-                        <div class="ventu-filter-summary">
-                            Koop, Huur
-                        </div>
+                        <div class="ventu-filter-summary"></div>
                     </div>
                     <div class="btn ventu-filter-button ventu-filter-edit" onclick="openFilter(this)">
                         <i class="fa fa-pencil"></i>

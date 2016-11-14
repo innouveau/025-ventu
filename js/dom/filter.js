@@ -38,6 +38,15 @@ function initFilter() {
         }
     });
     updateFilterSummary($('#ventu-filter-offer'), 'offer');
+
+    $('.ventu-filter-type-toggle').each(function(){
+        if (ventu.service.filter.type.indexOf($(this).data('value')) > -1) {
+            $(this).addClass('ventu-filter-toggle-active');
+        } else {
+            $(this).removeClass('ventu-filter-toggle-active');
+        }
+    });
+    updateFilterSummary($('#ventu-filter-type'), 'type');
     
     // search area
     $('.ventu-mini-map-set input[name=search-area]').each(function() {
@@ -78,10 +87,12 @@ function saveAllFilters() {
     updateFilterSummary($('#ventu-filter-area'), 'area');
     updateFilterModel($('#ventu-filter-offer'), 'offer');
     updateFilterSummary($('#ventu-filter-offer'), 'offer');
+    updateFilterModel($('#ventu-filter-type'), 'type');
+    updateFilterSummary($('#ventu-filter-type'), 'type');
     updateFilterModel($('#ventu-filter-search-area'), 'searchArea');
     updateFilterSummary($('#ventu-filter-search-area'), 'searchArea');
     $('body').removeClass('to-filter');
-
+    ventu.service.filterUpdate();
 }
 
 function saveFilter(element, type) {
@@ -108,15 +119,24 @@ function updateFilterModel(filter, type) {
             ventu.service.filter.area.max = checkFilterInput($('#ventu-filter-area-max').val());
             break;
         case 'offer':
-            // update model
             var offer = [];
-            filter.find('.ventu-filter-toggle').each(function(){
+            filter.find('.ventu-filter-offer-toggle').each(function(){
                 if ($(this).hasClass('ventu-filter-toggle-active')) {
                     var value = $(this).data('value');
                     offer.push(value);
                 }
             });
             ventu.service.filter.offer = offer;
+            break;
+        case 'type':
+            var types = [];
+            filter.find('.ventu-filter-type-toggle').each(function(){
+                if ($(this).hasClass('ventu-filter-toggle-active')) {
+                    var value = $(this).data('value');
+                    types.push(value);
+                }
+            });
+            ventu.service.filter.type = types;
             break;
         case 'searchArea':
             var thisType = $('.ventu-mini-map-set input[name=search-area]:checked').val();
@@ -140,6 +160,9 @@ function updateFilterSummary(filter, type) {
             break;
         case 'offer':
             summary = ventu.service.filter.offer.join(', ');
+            break;
+        case 'type':
+            summary = ventu.service.filter.type.join(', ');
             break;
         case 'searchArea':
             var thisType = ventu.service.filter.searchArea.type;

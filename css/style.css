@@ -1242,6 +1242,9 @@ body.ventu-application #ventu-stack {
     top: 80px;
   }
 }
+#ventu-filter-type {
+  display: none;
+}
 .ventu-filter-box {
   display: inline-block;
   background: #fff;
@@ -1380,6 +1383,9 @@ body.ventu-application #ventu-stack {
   }
   #ventu-filters #ventu-filter-search-area.ventu-filter-box {
     display: none;
+  }
+  #ventu-filters #ventu-filter-type {
+    display: block;
   }
   #ventu-filters .ventu-filter-box {
     display: block;

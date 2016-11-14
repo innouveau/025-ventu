@@ -7,6 +7,7 @@ function DataFaker(app) {
             max: 12000
         },
         offer: ['Koop', 'Huur'],
+        type: ['kantoor', 'bedrijfsruimte', 'distributie', 'winkel', 'horeca', 'grond', 'overige'],
         searchArea: {
             type: 'none',
             km1: 3,
@@ -27,6 +28,7 @@ DataFaker.prototype.getSearchResults = function(searchQuery, searchResultsCallba
 };
 
 DataFaker.prototype.filterUpdate = function() {
+    console.log(this.filter);
     switch (this.filter.searchArea.type) {
         case 'none':
             this.app.select('1077 Amsterdam (postcode)', 'poly');
