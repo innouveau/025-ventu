@@ -70,7 +70,7 @@ List.prototype._count = function() {
 
 List.prototype.add = function(Card) {
     var self = this;
-    Card.element.css('transform', '');
+    Card.element.css('transform', 'translateZ(' + this.app.config.card.sealevel + 'px)');
     this.element.catcher.append(Card.element);
     Card.shade.remove();
     this.element.main.removeClass('selected');

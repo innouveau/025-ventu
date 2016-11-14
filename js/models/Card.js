@@ -333,7 +333,7 @@ Card.prototype._addListener = function() {
 
 Card.prototype._setCurrent = function() {
     this.position.rotate = 0;
-    this.position.zIndex = 0;
+    this.position.zIndex = this.app.config.card.sealevel;
     this.position.shadeZindex = -this.app.config.card.zGap;
     this.position.shiftX = 0;
     this.position.shiftY = 0;
@@ -379,7 +379,7 @@ Card.prototype.getName = function() {
 
 Card.prototype._getPosition = function(index) {
     var gap = index === 0 ? 0 : this.app.config.card.zGap,
-        zIndex = index * -this.app.config.card.zOffset - gap,
+        zIndex = this.app.config.card.sealevel + (index * -this.app.config.card.zOffset) - gap,
         shadeZindex = index === 0 ? -this.app.config.card.zGap : zIndex - this.app.config.card.zOffset;
     return {
         rotate: index === 0 ? 0 : this.app.config.card.rotation * Math.random() - (this.app.config.card.rotation / 2),
