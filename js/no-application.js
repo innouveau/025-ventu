@@ -4,5 +4,4 @@ $(window).ready(function(){
     mapListeners();
     menuListeners();
     select2();
-    responsiveSizing();
 });

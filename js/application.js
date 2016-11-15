@@ -10,5 +10,4 @@ $(window).ready(function(){
 
     menuListeners();
     select2();
-    responsiveSizing();
 });

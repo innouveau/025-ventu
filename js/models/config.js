@@ -1,11 +1,11 @@
 function Config(app) {
     this.app = app;
-    this.device = this._getDevice();
+    this.device = null;
     this.browser = this._getBrowser();
     this.os = this._getOS();
     this.isMapPresent = null;
     this.isCatcherPresent = null;
-    this.card = this._getCardConfig();
+    this.card = null;
     this.shade = {
 
     };
@@ -13,10 +13,7 @@ function Config(app) {
         max: 5
     };
     this.zoom = 0;
-    this.swipe = {
-        suggest: this.device.type === 0 ? 50 : 100,
-        complete: this.device.type === 0 ? 100 : 200
-    };
+    this.swipe = null;
     this.list = {
         max: 18 // make this x * 4 - 2, so that the catcher and the more together with the tiles form a square
     };
@@ -25,15 +22,28 @@ function Config(app) {
             width: 500,
             height: 400
         },
-        bottomBar: this._getBottomBarSizes()
+        bottomBar: null
     };
     this.event = {
         ontouchmoveAllowd: false
     };
-
-    this._setBrowserSpecificStyle();
     this._initTouchMove();
+    this._addResizeListener();
+    this._resize();
 }
+
+Config.prototype._resize = function() {
+    this.device = this._getDevice();
+    this.card = this._getCardConfig();
+    this.swipe = {
+        suggest: this.device.type === 0 ? 50 : 100,
+        complete: this.device.type === 0 ? 100 : 200
+    };
+    this.sizes.bottomBar = this._getBottomBarSizes();
+    this._setBrowserSpecificStyle();
+    this._setResponsiveSettings();
+};
+
 
 Config.prototype._initTouchMove = function() {
     var self = this;
@@ -229,8 +239,10 @@ Config.prototype._getCardConfig = function() {
     }
 };
 
+
+// browser specific styles
+
 Config.prototype._setBrowserSpecificStyle = function() {
-    this._sizings();
     this._setFilterZindex();
     this._createBottomBarAnimation();
     this._createBottomBarAnimationOver();
@@ -282,7 +294,20 @@ Config.prototype._injectStyles = function(rule) {
     }).appendTo('body');
 };
 
-Config.prototype._sizings = function(rule) {
+
+
+
+// device specifice sizes
+
+
+Config.prototype._addResizeListener = function() {
+    var self = this;
+    $(window).resize(function() {
+        self._resize();
+    })
+};
+
+Config.prototype._setResponsiveSettings = function() {
     if (this.device.type === 0) {
         this._sizeSearchBar();
     }
