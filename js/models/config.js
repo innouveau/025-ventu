@@ -97,7 +97,7 @@ Config.prototype._getBottomBarSizes = function() {
         height = 40;
         y = (this.device.height - 170) / 2 + 65;
     } else {
-        cardTop = 124 + 200 - 4;// perspective correction
+        cardTop = 124 + 200;
         cardRight = 120 + 250;
         bottomBarHeight = 44;
         bottomBarShifted = 550;

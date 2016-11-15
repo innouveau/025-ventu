@@ -412,7 +412,7 @@ Card.prototype._getTransform = function(element, transform, netto) {
         rotate = 0;
         shiftX = 0;
         shiftY = 0;
-        z = 0;
+        z = this.app.config.card.sealevel;
     }
     return 'translateX(' + (transform[0] + shiftX) + 'px) ' +
         'translateY(' + (transform[1] + shiftY) + 'px) ' +

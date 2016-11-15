@@ -1467,8 +1467,6 @@ body.ventu-application #ventu-stack {
   -webkit-transform-style: preserve-3d;
   perspective-origin: 50% 50%;
   -webkit-perspective-origin: 50% 50%;
-  perspective: 5000px;
-  -webkit-perspective: 5000px;
 }
 #ventu-bottom-bar .ventu-list-counter {
   padding: 4px 6px;
