@@ -30,6 +30,7 @@ function Config(app) {
     this.event = {
         ontouchmoveAllowd: false
     };
+
     this._setBrowserSpecificStyle();
     this._initTouchMove();
 }
@@ -229,6 +230,7 @@ Config.prototype._getCardConfig = function() {
 };
 
 Config.prototype._setBrowserSpecificStyle = function() {
+    this._sizings();
     this._setFilterZindex();
     this._createBottomBarAnimation();
     this._createBottomBarAnimationOver();
@@ -280,4 +282,13 @@ Config.prototype._injectStyles = function(rule) {
     }).appendTo('body');
 };
 
+Config.prototype._sizings = function(rule) {
+    if (this.device.type === 0) {
+        this._sizeSearchBar();
+    }
+};
 
+Config.prototype._sizeSearchBar = function() {
+    var width = this.device.width - 130;
+    $('.ventu-map-search').css('width', width);
+};
