@@ -74,6 +74,11 @@ function initFilter() {
 
 function openFilter(element) {
     var filter = $(element).parent();
+    // close others first
+    $('.ventu-filter-close').each(function(){
+        closeFilter(this);
+    });
+
     filter.addClass('filter-active');
     filter.find('.ventu-filter-summary').hide();
     filter.find('.ventu-filter-edit').addClass('hidden');

@@ -1387,6 +1387,11 @@ body.ventu-application #ventu-stack {
 .ventu-filter-button:hover {
   background: #00e5a9;
 }
+@media (max-width: 768px) {
+  .ventu-filter-box {
+    max-width: 250px;
+  }
+}
 @media (max-width: 767px) {
   #ventu-filters {
     height: calc(100% - 50px) !important;
