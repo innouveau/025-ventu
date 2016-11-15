@@ -18,6 +18,11 @@ Guide.prototype.hint = function(type) {
             position = [220, 150];
             direction = 'top';
             break;
+        case 'lists':
+            text = 'Bekijk hier je lijst met interessante objecten';
+            position = [(this.app.config.device.width - 305), (this.app.config.device.height - 170)]; // because this is bottom: attention: adjust y positin to length text
+            direction = 'bottom-right';
+            break;
     }
     this._append(text, position, direction);
 };

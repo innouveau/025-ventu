@@ -299,6 +299,7 @@ Card.prototype._addListener = function() {
 
     this.hammer.on('dragstart', function() {
         self._clearfloat();
+        self.app.user.didFindOut('swiping');
     });
 
     this.hammer.on('drag', function (event) {
@@ -500,7 +501,7 @@ Card.prototype._addToList = function (type) {
     this.app.map.createNewCard();
 
     // update user
-    this.app.user.didFindOut('swipe');
+    self.app.user.uses('rating');
 
     setTimeout(function(){
         self.app.list[type].add(self);

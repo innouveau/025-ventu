@@ -22,8 +22,18 @@ User.prototype.uses = function(what) {
         case 'buttons':
             criteria = this.did.use.buttons > 3;
             topic = 'swiping';
+            this._checkCriteria(criteria, topic);
+            break;
+        case 'rating':
+            criteria = this.did.use.rating > 10;
+            topic  = 'lists';
+            this._checkCriteria(criteria, topic);
             break;
     }
+    
+};
+
+User.prototype._checkCriteria = function(criteria, topic) {
     if (criteria && !this.askIfDidFindOut(topic)) {
         // so he did a certain set of actions, but didn't find out
         // the related topic. Lets give him a hint.

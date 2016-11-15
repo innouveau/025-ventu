@@ -3,10 +3,12 @@ var user = {
     did: {
         findout: {
             filter: false,
-            swiping: false
+            swiping: false,
+            lists: false
         },
         use: {
-            buttons: 0
+            buttons: 0,
+            rating: 0
         },
         see: {
             cardLaunch: false,
