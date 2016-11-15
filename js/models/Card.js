@@ -13,6 +13,9 @@ function Card(app, marker, building, index) {
         love: null,
         hate: null
     };
+    this.status = {
+        event: 'instack'
+    };
     this._create();
     this._addListener();
 }
@@ -473,6 +476,7 @@ Card.prototype._addToList = function (type) {
         transform = [config.x,config.y,0,0,0,0,scale,scale],
         other = type === 'love' ? 'hate' : 'love',
         next = this._getNext();
+    this.status.event = 'tolist';
     if (this.app.config.isCatcherPresent) {
         this.app.list[type].element.main.addClass('selected');
         this.app.list[other].element.main.removeClass('selected');
@@ -494,7 +498,7 @@ Card.prototype._addToList = function (type) {
 
     setTimeout(function(){
         self.app.list[type].add(self);
-        if (next) {
+        if (next && next.status.event !== 'tolist') {
             next._setCurrent();
         }
     }, 800);
