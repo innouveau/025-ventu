@@ -485,8 +485,11 @@ Card.prototype._addToList = function (type) {
     this.shade.removeClass('no-transition');
     this._setTransform(this.element, transform, true);
     this._setTransform(this.shade, transform, true);
-    this.element.find('.ventu-card-text').fadeOut(500);
-    this.element.find('.ventu-card-buttons').fadeOut(500);
+
+    if (this.app.config.isCatcherPresent) {
+        this.element.find('.ventu-card-text').fadeOut(500);
+        this.element.find('.ventu-card-buttons').fadeOut(500);
+    }
 
     if (this.app.config.isMapPresent) {
         this.marker.remove();
