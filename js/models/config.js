@@ -237,8 +237,12 @@ Config.prototype._setBrowserSpecificStyle = function() {
 
 Config.prototype._setFilterZindex = function() {
     if (this.browser.browserName === 'Safari' && this.device.type > 0) {
-        console.log("!");
-        $('#ventu-filters').css('transform', 'translateZ(' + (this.card.sealevel + 250) + 'px)');
+        var top = this.card.sealevel + 250,
+            select2style = '.select2-container { transform: translateZ(' + (top + 1) + 'px); }';
+        this._injectStyles((select2style));
+        $('#ventu-filters').css('transform', 'translateZ(' + top + 'px)');
+        $('nav').css('transform', 'translateZ(' + top + 'px)');
+
     }
 };
 
