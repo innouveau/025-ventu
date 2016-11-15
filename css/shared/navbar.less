@@ -251,13 +251,7 @@ nav.navbar-default {
 }
 
 
-
-
-@media (max-width: 767px) {
-
-
-
-
+@media (max-width: 768px) {
 
     nav.navbar {
         min-height: 50px;
@@ -274,21 +268,44 @@ nav.navbar-default {
                 }
             }
 
+            #ventu-type-picker {
+                margin-top: 10px;
+            }
+
             .ventu-map-search {
                 margin-top: 10px;
                 width: 200px;
-
             }
 
-            #ventu-type-picker {
-                display: none;
+            .ventu-search-results-feedback {
+                margin-top: 20px;
             }
-
 
             .navbar-toggle {
                 margin-top: 13px;
                 margin-right: 14px;
             }
+        }
+    }
+
+}
+
+
+
+@media (max-width: 767px) {
+
+
+
+
+
+    nav.navbar {
+
+        .navbar-header {
+
+            #ventu-type-picker {
+                display: none;
+            }
+
 
 
 
