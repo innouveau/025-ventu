@@ -27,8 +27,28 @@ function Config(app) {
         },
         bottomBar: this._getBottomBarSizes()
     };
+    this.event = {
+        ontouchmoveAllowd: false
+    };
     this._setBrowserSpecificStyle();
+    this._initTouchMove();
 }
+
+Config.prototype._initTouchMove = function() {
+    var self = this;
+    document.ontouchmove = function(event){
+        if (!self.event.ontouchmoveAllowd) {
+            event.preventDefault();
+        }
+
+    };
+};
+
+Config.prototype.setTouchMove = function(setting) {
+    this.event.ontouchmoveAllowd = setting;
+};
+
+
 
 Config.prototype._getDevice = function() {
     var width = $(window).outerWidth(),
@@ -209,10 +229,19 @@ Config.prototype._getCardConfig = function() {
 };
 
 Config.prototype._setBrowserSpecificStyle = function() {
+    this._setFilterZindex();
     this._createBottomBarAnimation();
     this._createCardFloatAnimation();
     this._createShadowFloatAnimation();
 };
+
+Config.prototype._setFilterZindex = function() {
+    if (this.browser.browserName === 'Safari' && this.device.type > 0) {
+        console.log("!");
+        $('#ventu-filters').css('transform', 'translateZ(' + (this.card.sealevel + 250) + 'px)');
+    }
+};
+
 
 Config.prototype._createBottomBarAnimation = function() {
     var zBottomBarUnder = this.card.sealevel - 51,

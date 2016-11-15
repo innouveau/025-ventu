@@ -1,3 +1,6 @@
+
+// search
+
 function mapListeners() {
 
     $('.ventu-map-input').on('input', function() {
@@ -8,15 +11,6 @@ function mapListeners() {
         }
     });
 
-    $('.get-locations').click(function(){
-        // loading animation of circle
-        var button = $(this);
-        $('.ventu-map-circle').addClass('ventu-get-locations');
-        // fake killing
-        setTimeout(function(){
-            $('.ventu-map-circle').removeClass('ventu-get-locations');
-        }, 5000);
-    });
 }
 
 // menu
@@ -35,10 +29,12 @@ function menuListeners(){
     if (window.ventu.config.device.type === 0) {
         $('#to-filter').click(function(){
             $('body').addClass('to-filter');
+            ventu.config.setTouchMove(true);
         });
 
         $('#to-app').click(function(){
             $('body').removeClass('to-filter');
+            ventu.config.setTouchMove(false);
         });
     }
 }

@@ -92,6 +92,7 @@ function saveAllFilters() {
     updateFilterModel($('#ventu-filter-search-area'), 'searchArea');
     updateFilterSummary($('#ventu-filter-search-area'), 'searchArea');
     $('body').removeClass('to-filter');
+    ventu.config.setTouchMove(false);
     ventu.service.filterUpdate();
 }
 

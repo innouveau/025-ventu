@@ -4,11 +4,6 @@ window.environment = {
     floatFirst: true // respects user setting see.cardAnimation
 };
 
-// document.ontouchmove = function(event){
-//     // prevents unwanted scrolling on tablet
-//     //event.preventDefault();
-// };
-
 
 window.ventuConfig = {
     whatScreen: whatScreen(),
