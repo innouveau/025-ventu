@@ -231,6 +231,7 @@ Config.prototype._getCardConfig = function() {
 Config.prototype._setBrowserSpecificStyle = function() {
     this._setFilterZindex();
     this._createBottomBarAnimation();
+    this._createBottomBarAnimationOver();
     this._createCardFloatAnimation();
     this._createShadowFloatAnimation();
 };
@@ -244,6 +245,15 @@ Config.prototype._setFilterZindex = function() {
         $('nav').css('transform', 'translateZ(' + top + 'px)');
 
     }
+};
+
+
+
+
+Config.prototype._createBottomBarAnimationOver = function() {
+    var zBottomBarUnder = this.card.sealevel + 100,
+        bottomBarAnimationOver = '@keyframes move-over { 0%{ transform: translateY(0) translateZ(0); } 25% { transform: translateY(0) translateZ(' + zBottomBarUnder + 'px); } 100% { transform: translateY(-500px) translateZ(' + zBottomBarUnder + 'px); }}';
+    this._injectStyles(bottomBarAnimationOver);
 };
 
 
