@@ -489,6 +489,9 @@ Card.prototype._addToList = function (type) {
     if (this.app.config.isCatcherPresent) {
         this.element.find('.ventu-card-text').fadeOut(500);
         this.element.find('.ventu-card-buttons').fadeOut(500);
+    } else {
+        this.element.fadeOut(400);
+        this.shade.fadeOut(400);
     }
 
     if (this.app.config.isMapPresent) {

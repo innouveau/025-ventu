@@ -91,8 +91,8 @@ Config.prototype._getBottomBarSizes = function() {
 
     if (this.device.type === 0) {
         cardRight = this.device.width / 2 - 5;
-        loveX = cardRight- 20;
-        hateX = cardRight - 60;
+        loveX = cardRight- 20 - 16;
+        hateX = cardRight - 60 - 16;
         width = 40;
         height = 40;
         y = (this.device.height - 170) / 2 + 65;
