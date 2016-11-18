@@ -558,8 +558,8 @@ body .ventu-pagewrap {
 #ventu-stack {
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-  perspective-origin: 50% 50%;
-  -webkit-perspective-origin: 50% 50%;
+  perspective-origin: 100% 100%;
+  -webkit-perspective-origin: 100% 100%;
   perspective: 5000px;
   -webkit-perspective: 5000px;
 }
@@ -1227,6 +1227,7 @@ body.ventu-application #ventu-stack {
   position: absolute;
   right: 120px;
   top: 124px;
+  height: calc(100% - 124px);
 }
 @media (max-width: 768px) {
   body.ventu-application #ventu-filters {
@@ -1470,25 +1471,20 @@ body.ventu-application #ventu-stack {
     display: block;
   }
 }
-#ventu-bottom-bar {
-  height: 44px;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  perspective-origin: 50% 50%;
-  -webkit-perspective-origin: 50% 50%;
-}
-#ventu-bottom-bar .ventu-list-counter {
+.ventu-list-counter {
   padding: 4px 6px;
   color: #fff;
   display: inline-block;
 }
-#ventu-bottom-bar .ventu-list-counter.love {
+.ventu-list-counter.love {
   background: #00e5a9;
 }
-#ventu-bottom-bar .ventu-list-counter.hate {
+.ventu-list-counter.hate {
   background: #DF0040;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub {
+.ventu-bottom-bar-sub {
+  position: absolute;
+  top: calc(100% - 44px);
   padding: 0 20px 14px 20px;
   display: inline-block;
   float: right;
@@ -1496,40 +1492,45 @@ body.ventu-application #ventu-stack {
   background: #fff;
   border: 1px solid #727272;
   transition: all 0.5s ease;
-  position: relative;
   margin-right: -1px;
   width: 320px;
   transform: translateY(0) translateZ(0);
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub.selected {
+.ventu-bottom-bar-sub.ventu-bottom-bar-sub-love {
+  right: -70px;
+}
+.ventu-bottom-bar-sub.ventu-bottom-bar-sub-hate {
+  right: 249px;
+}
+.ventu-bottom-bar-sub.ventu-bottom-bar-sub.selected {
   animation: shift-under 0.5s 1;
   -webkit-animation: shift-under 0.5s 1;
   -webkit-animation-fill-mode: forwards;
   /* Safari 4.0 - 8.0 */
   animation-fill-mode: forwards;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub.selected .ventu-bottom-bar-catcher {
+.ventu-bottom-bar-sub.ventu-bottom-bar-sub.selected .ventu-bottom-bar-catcher {
   width: 100%;
   height: 223px;
   margin: 0;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub:hover {
+.ventu-bottom-bar-sub:hover {
   animation: move-over 0.5s 1;
   -webkit-animation: move-over 0.5s 1;
   -webkit-animation-fill-mode: forwards;
   /* Safari 4.0 - 8.0 */
   animation-fill-mode: forwards;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-header {
+.ventu-bottom-bar-sub .ventu-bottom-bar-header {
   margin-bottom: 20px;
   cursor: default;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-header .ventu-list-label {
+.ventu-bottom-bar-sub .ventu-bottom-bar-header .ventu-list-label {
   display: inline-block;
   padding-top: 10px;
   margin-right: 4px;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-catcher {
+.ventu-bottom-bar-sub .ventu-bottom-bar-catcher {
   border: 1px dashed #333;
   width: 59px;
   height: 59px;
@@ -1538,17 +1539,17 @@ body.ventu-application #ventu-stack {
   transition: all 0.2s ease;
   position: relative;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-catcher .ventu-card {
+.ventu-bottom-bar-sub .ventu-bottom-bar-catcher .ventu-card {
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-catcher .ventu-card .ventu-card-buttons {
+.ventu-bottom-bar-sub .ventu-bottom-bar-catcher .ventu-card .ventu-card-buttons {
   border: 0;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-list .ventu-bottom-bar-list-item {
+.ventu-bottom-bar-sub .ventu-bottom-bar-list .ventu-bottom-bar-list-item {
   width: 59px;
   height: 59px;
   background: #fff;
@@ -1557,12 +1558,12 @@ body.ventu-application #ventu-stack {
   margin: 5px;
   position: relative;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-list .ventu-bottom-bar-list-item .ventu-bottom-bar-list-item-image {
+.ventu-bottom-bar-sub .ventu-bottom-bar-list .ventu-bottom-bar-list-item .ventu-bottom-bar-list-item-image {
   height: 60%;
   background-size: cover;
   background-position: center center;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-list .ventu-list-more {
+.ventu-bottom-bar-sub .ventu-bottom-bar-list .ventu-list-more {
   display: inline-block;
   width: 36px;
   height: 36px;
@@ -1573,17 +1574,17 @@ body.ventu-application #ventu-stack {
   padding-top: 10px;
   margin: 15px 12px 0 12px;
 }
-#ventu-bottom-bar #to-filter {
+#to-filter {
   position: absolute;
   right: 100px;
   top: 10px;
   display: none;
   cursor: pointer;
 }
-#ventu-bottom-bar #to-filter .ventu-icon {
+#to-filter .ventu-icon {
   border: 1px solid #333;
 }
-#ventu-bottom-bar #to-filter:hover .ventu-text-along-icon {
+#to-filter:hover .ventu-text-along-icon {
   border-bottom: 1px solid #333;
 }
 a.ventu-to-list {

@@ -60,8 +60,14 @@ Card.prototype._create = function() {
     shade.hide();
     this.element = card;
     this.shade = shade;
-    this.app.domElements.stack.prepend(card);
-    this.app.domElements.stack.prepend(shade);
+    if (this.app.config.device.type > 0) {
+        card.insertAfter($('.ventu-bottom-bar-sub-love'));
+        shade.insertAfter($('.ventu-bottom-bar-sub-love'));
+    } else {
+        this.app.domElements.stack.prepend(card);
+        this.app.domElements.stack.prepend(shade);
+    }
+
     if (this.app.config.isMapPresent) {
         this.marker.hasCard = true;
     }
@@ -338,7 +344,7 @@ Card.prototype._addListener = function() {
 Card.prototype._setCurrent = function() {
     this.position.rotate = 0;
     this.position.zIndex = this.app.config.card.sealevel;
-    this.position.shadeZindex = -this.app.config.card.zGap;
+    this.position.shadeZindex = this.app.config.card.sealevel - this.app.config.card.zGap + 2;
     this.position.shiftX = 0;
     this.position.shiftY = 0;
     this.shade.fadeIn(100);
@@ -384,7 +390,7 @@ Card.prototype.getName = function() {
 Card.prototype._getPosition = function(index) {
     var gap = index === 0 ? 0 : this.app.config.card.zGap,
         zIndex = this.app.config.card.sealevel + (index * -this.app.config.card.zOffset) - gap,
-        shadeZindex = index === 0 ? -this.app.config.card.zGap : zIndex - this.app.config.card.zOffset;
+        shadeZindex = index === 0 ? this.app.config.card.sealevel - this.app.config.card.zGap + 2 : zIndex - this.app.config.card.zOffset;
     return {
         rotate: index === 0 ? 0 : this.app.config.card.rotation * Math.random() - (this.app.config.card.rotation / 2),
         zIndex: zIndex,
@@ -416,7 +422,7 @@ Card.prototype._getTransform = function(element, transform, netto) {
         rotate = 0;
         shiftX = 0;
         shiftY = 0;
-        z = this.app.config.card.sealevel;
+        z = this.app.config.card.sealevel - this.app.config.card.zGap + 2;
     }
     return 'translateX(' + (transform[0] + shiftX) + 'px) ' +
         'translateY(' + (transform[1] + shiftY) + 'px) ' +
@@ -474,7 +480,7 @@ Card.prototype._addToList = function (type) {
     var self = this,
         config = this.app.config.sizes.bottomBar[type],
         scale = config.width / this.app.config.sizes.card.width * 0.99, // perspective correction
-        transform = [config.x,config.y,0,0,0,0,scale,scale],
+        transform = [config.x, config.y, 0, 0, 0, 0, scale, scale],
         other = type === 'love' ? 'hate' : 'love',
         next = this._getNext();
     this.status.event = 'tolist';

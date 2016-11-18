@@ -250,7 +250,7 @@ Config.prototype._getCardConfig = function() {
 
 Config.prototype._setBrowserSpecificStyle = function() {
     this._setFilterZindex();
-    this._createBottomBarAnimation();
+    this._createBottomBarAnimationUnder();
     this._createBottomBarAnimationOver();
     this._createCardFloatAnimation();
     this._createShadowFloatAnimation();
@@ -271,19 +271,19 @@ Config.prototype._setFilterZindex = function() {
 
 
 Config.prototype._createBottomBarAnimationOver = function() {
-    var zBottomBarUnder = this.card.sealevel - 51,
-        baseString = '#keyframes shift-under { 0%{ #transform: translateY(0) translateZ(0); } 25% { #transform: translateY(0) translateZ(#zpx);}100% {#transform: translateY(-550px) translateZ(#zpx);}}';
+    var zBottomBarUnder = this.card.sealevel + 1,
+        baseString = '#keyframes move-over { 0%{ #transform: translateY(0) translateZ(0); } 25% { #transform: translateY(0) translateZ(#zpx);}100% {#transform: translateY(-550px) translateZ(#zpx);}}';
     this._prefixAndInject(baseString, zBottomBarUnder);
 };
 
-Config.prototype._createBottomBarAnimation = function() {
-    var zBottomBarUnder = this.card.sealevel - 51,
+Config.prototype._createBottomBarAnimationUnder = function() {
+    var zBottomBarUnder = this.card.sealevel - this.card.zGap + 1,
         baseString = '#keyframes shift-under { 0%{ #transform: translateY(0) translateZ(0); } 25% { #transform: translateY(0) translateZ(#zpx);}100% {transform: translateY(-550px) translateZ(#zpx);}}';
     this._prefixAndInject(baseString, zBottomBarUnder);
 };
 
 Config.prototype._createShadowFloatAnimation = function() {
-    var z = this.card.sealevel - this.card.zGap,
+    var z = this.card.sealevel - this.card.zGap + 2,
         baseString = '#keyframes float-shade { 0%{ #transform: translateX(50px) translateY(50px) translateZ(#zpx) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); } 25% { #transform: translateX(140px) translateY(50px) translateZ(#zpx) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); } 75% { #transform: translateX(-40px) translateY(50px) translateZ(#zpx) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); } 100% { #transform: translateX(50px) translateY(50px) translateZ(#zpx) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); }}';
     this._prefixAndInject(baseString, z);
 };

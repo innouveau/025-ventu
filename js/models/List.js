@@ -32,7 +32,7 @@ List.prototype._create = function() {
     this.element.main.append(header);
     this.element.main.append(this.element.catcher);
     this.element.main.append(this.element.list);
-    this.app.domElements.bottomBar.append(this.element.main);
+    this.app.domElements.stack.append(this.element.main);
     this.app.config.isCatcherPresent = true;
 };
 
@@ -70,7 +70,7 @@ List.prototype._count = function() {
 
 List.prototype.add = function(Card) {
     var self = this;
-    Card.element.css('transform', 'translateZ(' + this.app.config.card.sealevel + 'px)');
+    Card.element.css('transform', '');
     this.element.catcher.append(Card.element);
     Card.shade.remove();
     this.element.main.removeClass('selected');
