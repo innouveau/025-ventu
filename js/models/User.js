@@ -3,6 +3,8 @@ function User(app) {
     // things the user had done already
     this.did = user.did;
     this.timer = null;
+    // container for differenct timers. If timer complete boolean set to true
+    this.fulltime = {};
 }
 
 User.prototype.didFindOut = function(what) {
@@ -25,9 +27,12 @@ User.prototype.uses = function(what) {
             this._checkCriteria(criteria, topic);
             break;
         case 'rating':
+            var criteria2 = this.fulltime.filter && this.did.use.rating > 7,
+                topic2 = 'filter';
             criteria = this.did.use.rating > 10;
             topic  = 'lists';
             this._checkCriteria(criteria, topic);
+            this._checkCriteria(criteria2, topic2);
             break;
     }
     
@@ -67,11 +72,7 @@ User.prototype.startTimer = function(what) {
 
     if (criteria) {
         this.timer = setTimeout(function () {
-            if (!self.askIfDidFindOut(what)) {
-                self.app.guide.hint(what);
-                // don't bother again
-                self.didFindOut(what);
-            }
+            self.fulltime[what] = true;
         }, time)
     }
 };
