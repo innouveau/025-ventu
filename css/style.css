@@ -584,10 +584,12 @@ body .ventu-pagewrap {
 }
 .ventu-card-float {
   animation: float 3s 1;
+  -webkit-animation: float 3s 1;
   transition: none!important;
 }
 .ventu-card-shade-float {
   animation: float-shade 3s 1;
+  -webkit-animation: float-shade 3s 1;
   transition: none!important;
 }
 @media (max-width: 767px) {
@@ -1501,6 +1503,7 @@ body.ventu-application #ventu-stack {
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub.ventu-bottom-bar-sub.selected {
   animation: shift-under 0.5s 1;
+  -webkit-animation: shift-under 0.5s 1;
   -webkit-animation-fill-mode: forwards;
   /* Safari 4.0 - 8.0 */
   animation-fill-mode: forwards;
@@ -1512,6 +1515,7 @@ body.ventu-application #ventu-stack {
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub:hover {
   animation: move-over 0.5s 1;
+  -webkit-animation: move-over 0.5s 1;
   -webkit-animation-fill-mode: forwards;
   /* Safari 4.0 - 8.0 */
   animation-fill-mode: forwards;

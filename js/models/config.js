@@ -27,10 +27,16 @@ function Config(app) {
     this.event = {
         ontouchmoveAllowd: false
     };
+    this._init();
+
+}
+
+Config.prototype._init = function() {
+    this.inlineStyleContainer = $('<div id="inline-styles">').appendTo('body');
     this._initTouchMove();
     this._addResizeListener();
     this._resize();
-}
+};
 
 Config.prototype._resize = function() {
     this.device = this._getDevice();
@@ -265,33 +271,47 @@ Config.prototype._setFilterZindex = function() {
 
 
 Config.prototype._createBottomBarAnimationOver = function() {
-    var zBottomBarUnder = this.card.sealevel + 100,
-        bottomBarAnimationOver = '@keyframes move-over { 0%{ transform: translateY(0) translateZ(0); } 25% { transform: translateY(0) translateZ(' + zBottomBarUnder + 'px); } 100% { transform: translateY(-500px) translateZ(' + zBottomBarUnder + 'px); }}';
-    this._injectStyles(bottomBarAnimationOver);
+    var zBottomBarUnder = this.card.sealevel - 51,
+        baseString = '#keyframes shift-under { 0%{ #transform: translateY(0) translateZ(0); } 25% { #transform: translateY(0) translateZ(#zpx);}100% {#transform: translateY(-550px) translateZ(#zpx);}}';
+    this._prefixAndInject(baseString, zBottomBarUnder);
 };
-
 
 Config.prototype._createBottomBarAnimation = function() {
     var zBottomBarUnder = this.card.sealevel - 51,
-        bottomBarAnimation = '@keyframes shift-under { 0%{ transform: translateY(0) translateZ(0); } 25% { transform: translateY(0) translateZ(' + zBottomBarUnder + 'px);}100% {transform: translateY(-550px) translateZ(' + zBottomBarUnder + 'px);}}';
-    this._injectStyles(bottomBarAnimation);
-};
-
-Config.prototype._createCardFloatAnimation = function() {
-    var z = this.card.sealevel,
-        floatAnimation = '@keyframes float { 0%{ transform: translateX(0px) translateY(0px) translateZ(' + z + 'px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1,1); } 25% { transform: translateX(120px) translateY(0px) translateZ(' + z + 'px) rotateX(25deg) rotateY(20deg) rotateZ(0deg) scale(1,1); } 75% { transform: translateX(-120px) translateY(0px) translateZ(' + z + 'px) rotateX(25deg) rotateY(-20deg) rotateZ(0deg) scale(1,1); } 100% {transform: translateX(0px) translateY(0px) translateZ(' + z + 'px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1,1);}}';
-    this._injectStyles(floatAnimation);
+        baseString = '#keyframes shift-under { 0%{ #transform: translateY(0) translateZ(0); } 25% { #transform: translateY(0) translateZ(#zpx);}100% {transform: translateY(-550px) translateZ(#zpx);}}';
+    this._prefixAndInject(baseString, zBottomBarUnder);
 };
 
 Config.prototype._createShadowFloatAnimation = function() {
     var z = this.card.sealevel - this.card.zGap,
-        cardAnimation = '@keyframes float-shade { 0%{ transform: translateX(50px) translateY(50px) translateZ(' + z + 'px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); } 25% { transform: translateX(140px) translateY(50px) translateZ(' + z + 'px) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); } 75% { transform: translateX(-40px) translateY(50px) translateZ(' + z + 'px) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); } 100% { transform: translateX(50px) translateY(50px) translateZ(' + z + 'px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); }}';
+        baseString = '#keyframes float-shade { 0%{ #transform: translateX(50px) translateY(50px) translateZ(#zpx) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); } 25% { #transform: translateX(140px) translateY(50px) translateZ(#zpx) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); } 75% { #transform: translateX(-40px) translateY(50px) translateZ(#zpx) rotateX(12.5deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); } 100% { #transform: translateX(50px) translateY(50px) translateZ(#zpx) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.2,1.2); }}';
+    this._prefixAndInject(baseString, z);
 };
 
+Config.prototype._createCardFloatAnimation = function() {
+    var z = this.card.sealevel,
+        baseString = '#keyframes float { 0%{ #transform: translateX(0px) translateY(0px) translateZ(#zpx) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1,1); } 25% { #transform: translateX(120px) translateY(0px) translateZ(#zpx) rotateX(25deg) rotateY(20deg) rotateZ(0deg) scale(1,1); } 75% { #transform: translateX(-120px) translateY(0px) translateZ(#zpx) rotateX(25deg) rotateY(-20deg) rotateZ(0deg) scale(1,1); } 100% { #transform: translateX(0px) translateY(0px) translateZ(#zx) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1,1); } }';
+    this._prefixAndInject(baseString, z);
+};
+
+
+
+
+Config.prototype._prefixAndInject = function(baseString, z) {
+    this._injectStyles(this._prefixStyle('@keyframes', 'transform', baseString, z));
+    this._injectStyles(this._prefixStyle('@-moz-keyframes', '-moz-transform', baseString, z));
+    this._injectStyles(this._prefixStyle('@-webkit-keyframes', '-webkit-transform', baseString, z));
+    this._injectStyles(this._prefixStyle('@-o-keyframes', '-o-transform', baseString, z));
+    this._injectStyles(this._prefixStyle('@-ms-keyframes', '-ms-transform', baseString, z));
+};
+
+Config.prototype._prefixStyle = function(keyframes, transform, baseString, z) {
+    return baseString.replace(new RegExp('#keyframes', 'g'), keyframes).replace(new RegExp('#transform', 'g'), transform).replace(new RegExp('#z', 'g'), z);
+};
+
+
 Config.prototype._injectStyles = function(rule) {
-    var div = $('<div />', {
-        html: '&shy;<style>' + rule + '</style>'
-    }).appendTo('body');
+    this.inlineStyleContainer.append('&shy;<style>' + rule + '</style>');
 };
 
 
