@@ -61,8 +61,8 @@ Card.prototype._create = function() {
     this.element = card;
     this.shade = shade;
     if (this.app.config.device.type > 0) {
-        card.insertAfter($('.ventu-bottom-bar-sub-love'));
-        shade.insertAfter($('.ventu-bottom-bar-sub-love'));
+        card.insertAfter($('.ventu-bottom-bar-sub-hate'));
+        shade.insertAfter($('.ventu-bottom-bar-sub-hate'));
     } else {
         this.app.domElements.stack.prepend(card);
         this.app.domElements.stack.prepend(shade);
