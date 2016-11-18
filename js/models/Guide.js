@@ -20,7 +20,7 @@ Guide.prototype.hint = function(type) {
             break;
         case 'lists':
             text = 'Bekijk hier je lijst met interessante objecten';
-            position = [(this.app.config.device.width - 305), (this.app.config.device.height - 170)]; // because this is bottom: attention: adjust y positin to length text
+            position = this.app.isMobile() ? [(this.app.config.device.width - 305), (this.app.config.device.height - 170)] : [(this.app.config.device.width - 375), (this.app.config.device.height - 170)]; // because this is bottom: attention: adjust y positin to length text
             direction = 'bottom-right';
             break;
     }
