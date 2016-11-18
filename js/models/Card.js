@@ -181,7 +181,7 @@ Card.prototype.swap = function() {
     this._moveToStackPosition();
 
     setTimeout(function(){
-        topCard._unsetCurrent(self.position.rotate, self.position.zIndex, originalX, self.position.shiftY);
+        topCard._unsetCurrent(self.position.rotate, self.position.zIndex, originalX, self.position.shiftY, self.position.shadeZindex);
         self._setCurrent();
     }, 500);
 };
@@ -355,9 +355,10 @@ Card.prototype._setCurrent = function() {
     this.app.map.currentCard = this;
 };
 
-Card.prototype._unsetCurrent = function(rotate, zIndex, shiftX, shiftY) {
+Card.prototype._unsetCurrent = function(rotate, zIndex, shiftX, shiftY, shadeZindex) {
     this.position.rotate = rotate;
     this.position.zIndex = zIndex;
+    this.position.shadeZindex = shadeZindex;
     this.position.shiftX = shiftX;
     this.position.shiftY = shiftY;
     this._moveToStackPosition();
