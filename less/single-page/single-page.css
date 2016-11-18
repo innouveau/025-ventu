@@ -1,0 +1,123 @@
+.ventu-single-page .ventu-pagewrap {
+  font-size: 15px;
+  line-height: 19px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-content-block {
+  padding: 60px 40px;
+  background: #fff;
+  border-bottom: 1px solid #727272;
+}
+.ventu-single-page .ventu-pagewrap .ventu-content-block h1 {
+  text-align: left;
+  padding-bottom: 40px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-content-block h3 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-content-block p {
+  margin-bottom: 30px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-content-block .ventu-social-media {
+  display: block;
+  padding-top: 6px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-content-block .ventu-social-media a {
+  font-size: 20px;
+  margin-right: 8px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-content-block .ventu-social-media a:hover {
+  text-decoration: none;
+}
+.ventu-single-page .ventu-pagewrap #ventu-canvas-detail {
+  width: 100%;
+  height: 300px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-image-detail {
+  margin-bottom: 8px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-image-detail img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+.ventu-single-page .ventu-pagewrap .ventu-image-mini-set a {
+  height: 42px;
+  float: left;
+  margin: 0 0 4px 0;
+  padding: 2px;
+  border: 1px solid transparent;
+}
+.ventu-single-page .ventu-pagewrap .ventu-image-mini-set a:hover {
+  border: 1px solid #727272;
+}
+.ventu-single-page .ventu-pagewrap .ventu-image-mini-set a img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+.ventu-single-page .ventu-pagewrap table {
+  width: 100%;
+}
+.ventu-single-page .ventu-pagewrap table tr td {
+  border-bottom: 1px solid #ddd;
+  padding: 4px 8px;
+}
+.ventu-single-page .ventu-pagewrap table tr td:first-child {
+  font-weight: 700;
+}
+.ventu-single-page .ventu-pagewrap .ventu-3d-container {
+  text-align: center;
+}
+.ventu-single-page .ventu-pagewrap .ventu-3d-container img {
+  width: 600px;
+  max-width: 100%;
+}
+.ventu-single-page .ventu-pagewrap .ventu-facts-figures .col-md-3 {
+  background: #00e5a9;
+  height: 240px;
+  padding: 60px 30px;
+  text-align: center;
+  border: 3px solid #fff;
+}
+.ventu-single-page .ventu-pagewrap .ventu-facts-figures i.fa {
+  font-size: 40px;
+  color: #fff;
+  margin-right: 8px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-facts-figures .ventu-fact {
+  font-size: 32px;
+  padding: 10px 0 30px 0;
+  font-weight: 700;
+}
+.ventu-single-page .ventu-pagewrap .ventu-estate-mix img {
+  width: 100%;
+  margin-top: 30px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-get-in-contact {
+  background: #00e5a9;
+}
+.ventu-single-page .ventu-pagewrap .ventu-get-in-contact input[type=text],
+.ventu-single-page .ventu-pagewrap .ventu-get-in-contact textarea {
+  border: 1px solid #727272;
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-get-in-contact textarea {
+  height: 120px;
+  resize: none;
+}
+.ventu-single-page .ventu-pagewrap .ventu-page-footer {
+  background: transparent;
+  text-align: center;
+  border-bottom: 0;
+  margin-bottom: 120px;
+}
+.ventu-single-page .ventu-pagewrap .ventu-page-footer .ventu-card {
+  transition: all 0.3s ease;
+}
+.ventu-single-page .ventu-pagewrap .ventu-page-footer .ventu-card:hover {
+  transform: scale(1.1);
+}

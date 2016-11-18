@@ -1,0 +1,39 @@
+@import '../mixins';
+
+.ventu-ripple {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    opacity: 1;
+    background: inherit;
+
+}
+
+.ventu-card-button:hover .ventu-ripple,
+.ventu-card-button.hover .ventu-ripple {
+    animation: ripple 1.5s 1;
+    transition: none!important;
+}
+
+@keyframes ripple {
+    0%{
+        width: 0;
+        height: 0;
+        left: 50%;
+        top: 50%;
+        opacity: 1;
+    }
+
+    100%{
+        width: 500%;
+        height: 500%;
+        left: -200%;
+        top: -200%;
+        opacity: 0;
+    }
+
+}

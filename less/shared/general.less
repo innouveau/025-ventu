@@ -1,0 +1,39 @@
+@import '../mixins';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+
+    body {
+        font-size: 12px;
+        line-height: 17px;
+        color: #1F1F1F;
+        font-family: 'graphik';
+        background: #ddd;
+    }
+}
+
+
+input {
+    font-size: 12px;
+    color: @ventu-black;
+    outline: none;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 32px;
+    line-height: 38px;
+    margin: 50px 0 30px 0;
+}
+
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}

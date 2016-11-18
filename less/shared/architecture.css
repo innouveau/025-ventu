@@ -1,0 +1,7 @@
+body {
+  padding: 0;
+}
+body .ventu-pagewrap {
+  width: 1200px;
+  margin: 0 auto;
+}

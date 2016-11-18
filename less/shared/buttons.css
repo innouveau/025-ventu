@@ -1,0 +1,42 @@
+.btn {
+  border-radius: 0;
+  font-size: 12px;
+  padding: 16px 20px;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn.btn-big {
+  padding: 8px 16px;
+  color: #fff;
+  display: inline-block;
+  vertical-align: top;
+}
+.btn.ventu-green:hover {
+  background: #03EDAA;
+}
+.btn-with-icon {
+  padding: 4px 12px 4px 6px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+}
+.btn-with-icon.btn-big span {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 9px;
+}
+.btn-with-icon .ventu-icon {
+  padding-top: 0;
+  color: inherit;
+}
+.btn-with-icon:hover {
+  border-radius: 0;
+}
+.ventu-green {
+  background: #16E5A9;
+}
+.ventu-white {
+  background: #fff;
+  color: #1F1F1F!important;
+}

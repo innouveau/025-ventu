@@ -1,0 +1,219 @@
+@import '../mixins';
+
+.ventu-card {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    background: #fff;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective-origin: 50% 50%;
+    -webkit-perspective-origin: 50% 50%;
+    perspective: 2500px;
+    -webkit-perspective: 2500px;
+    transition: all 0.5s ease;
+    width: 500px;
+    height: 400px;
+    cursor: pointer;
+
+    &.no-transition {
+        transition: none;
+    }
+
+    &.slow-transition {
+        transition: all 1.5s ease;
+    }
+
+    .ventu-card-image {
+        width: 100%;
+        height: 45%;
+        transition: opacity 2s;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+    }
+
+    .ventu-card-text {
+        width: 100%;
+        height: ~'calc(55% - 40px)';
+        padding: 20px 30px;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 18px;
+
+        h3 {
+            font-weight: 100;
+            font-size: 24px;
+            line-height: 22px;
+            margin: 0;
+        }
+
+        h4 {
+            font-family: 'freight';
+            font-size: 16px;
+            line-height: 20px;
+            margin: 0;
+        }
+
+        .ventu-card-text-content {
+
+            padding-top: 10px;
+
+
+            .ventu-card-text-content-half {
+                float: left;
+                width: 50%;
+
+                &:first-child {
+                    padding-right: 10px;
+                }
+
+                &:last-child {
+                    padding-left: 10px;
+                }
+            }
+
+        }
+
+        ul {
+            padding-left: 10px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: underline;
+        }
+    }
+
+    .ventu-card-buttons {
+        height: 40px;
+        border-top: @ventu-border-1;
+        background: #fff;
+
+        .ventu-card-button {
+            width: 50%;
+            float: left;
+            padding-top: 7px;
+            text-align: center;
+            cursor: pointer;
+            height: 100%;
+            overflow: hidden;
+
+            .ventu-card-button-icon {
+                width: 24px;
+                height: 24px;
+                border-radius: 12px;
+                display: inline-block;
+                color: #fff;
+                text-align: center;
+                font-size: 16px;
+                padding-top: 4px;
+                font-family: 'ventu';
+                margin-right: 4px;
+                position: relative;
+
+                &.ventu-icon-hate {
+                    background: @ventu-color-hate;
+                }
+
+                &.ventu-icon-love {
+                    background: @ventu-color-love;
+                }
+
+                &.ventu-icon-details {
+                    background: @ventu-color-details;
+                }
+            }
+
+            &:not(:last-child) {
+                border-right: @ventu-border-1;
+            }
+
+            span {
+                display: inline-block;
+                vertical-align: top;
+                margin-top: 4px;
+            }
+        }
+    }
+}
+
+#ventu-stack {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective-origin: 100% 100%;
+    -webkit-perspective-origin: 100% 100%;
+    perspective: 5000px;
+    -webkit-perspective: 5000px;
+
+    .ventu-card-shade {
+        position: absolute;
+        display: none;
+        right: 0;
+        width: 500px;
+        height: 400px;
+        transition: all 0.5s ease;
+        background-image: url('../img/shade.png');
+        background-color: transparent;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        &.no-transition {
+            transition: none;
+        }
+
+        &.slow-transition {
+            transition: all 2s ease;
+        }
+    }
+}
+
+.ventu-card-float {
+    animation: float 3s 1;
+    -webkit-animation: float 3s 1;
+    transition: none!important;
+}
+
+.ventu-card-shade-float {
+    animation: float-shade 3s 1;
+    -webkit-animation: float-shade 3s 1;
+    transition: none!important;
+}
+
+
+
+
+
+@media (max-width: 767px) {
+
+    .ventu-card,
+    .ventu-card-shade {
+        right: auto;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        .ventu-card-image {
+            height: 35%;
+        }
+
+        .ventu-card-text {
+            padding: 16px;
+            height: ~'calc(65% - 40px)';
+
+            .ventu-card-text-content {
+
+                .ventu-card-text-content-half {
+                    width: 100%;
+                    float: none;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+}
+
