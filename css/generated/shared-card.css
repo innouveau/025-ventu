@@ -82,6 +82,8 @@
   cursor: pointer;
   height: 100%;
   overflow: hidden;
+  text-decoration: none;
+  color: #333;
 }
 .ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon {
   width: 24px;
@@ -102,8 +104,17 @@
 .ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-love {
   background: #00e5a9;
 }
-.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-details {
+.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-details,
+.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-home {
   background: #FF8D00;
+}
+.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-home {
+  padding-top: 3px;
+}
+.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-home:after {
+  content: '';
+  font-family: 'FontAwesome';
+  font-size: 18px;
 }
 .ventu-card .ventu-card-buttons .ventu-card-button:not(:last-child) {
   border-right: 1px solid #727272;
@@ -112,6 +123,7 @@
   display: inline-block;
   vertical-align: top;
   margin-top: 4px;
+  font-weight: 500;
 }
 #ventu-stack {
   transform-style: preserve-3d;

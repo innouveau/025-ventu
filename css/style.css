@@ -524,6 +524,8 @@ body .ventu-pagewrap {
   cursor: pointer;
   height: 100%;
   overflow: hidden;
+  text-decoration: none;
+  color: #333;
 }
 .ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon {
   width: 24px;
@@ -544,8 +546,17 @@ body .ventu-pagewrap {
 .ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-love {
   background: #00e5a9;
 }
-.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-details {
+.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-details,
+.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-home {
   background: #FF8D00;
+}
+.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-home {
+  padding-top: 3px;
+}
+.ventu-card .ventu-card-buttons .ventu-card-button .ventu-card-button-icon.ventu-icon-home:after {
+  content: '';
+  font-family: 'FontAwesome';
+  font-size: 18px;
 }
 .ventu-card .ventu-card-buttons .ventu-card-button:not(:last-child) {
   border-right: 1px solid #727272;
@@ -554,6 +565,7 @@ body .ventu-pagewrap {
   display: inline-block;
   vertical-align: top;
   margin-top: 4px;
+  font-weight: 500;
 }
 #ventu-stack {
   transform-style: preserve-3d;
@@ -794,7 +806,8 @@ body .ventu-pagewrap {
 .ventu-icon-reload:after {
   content: 'r';
 }
-.ventu-icon-prev:after {
+.ventu-icon-prev:after,
+.ventu-icon-home:after {
   content: '<';
 }
 .ventu-icon-next:after,
@@ -1189,12 +1202,54 @@ body .ventu-pagewrap {
 .select2-container .select2-dropdown .select2-results__options li.select2-results__option--highlighted[aria-selected] {
   background: #ddd;
 }
+.page-404 .card-container-404 {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  height: calc(100% - 100px);
+}
+.page-404 .card-container-404 .ventu-card {
+  display: block;
+  left: calc(50% - 250px);
+  top: calc(50% - 200px);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 40px;
+}
+.page-404 .card-container-404 .ventu-card h3 {
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+.page-404 .card-container-404 .ventu-card:nth-child(1) {
+  transform: rotate(3deg);
+}
+.page-404 .card-container-404 .ventu-card:nth-child(2) {
+  transform: rotate(-3deg);
+}
+.page-404 .card-container-404 .ventu-card .ventu-card-buttons {
+  border-top: 0;
+  text-align: center;
+  height: auto;
+}
+.page-404 .card-container-404 .ventu-card .ventu-card-buttons .ventu-card-button {
+  display: inline-block;
+  float: none;
+}
+@media (max-width: 767px) {
+  .page-404 .card-container-404 .ventu-card {
+    display: block;
+    left: 40px;
+    top: 40px;
+    width: calc(100% - 80px);
+    height: calc(100% - 80px);
+  }
+}
 body.ventu-application {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeeeee+0,bbbbbb+92 */
   background: #eeeeee;
   /* Old browsers */
   background: -moz-linear-gradient(-45deg, #eeeeee 0%, #bbbbbb 92%);
@@ -1206,24 +1261,24 @@ body.ventu-application {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#bbbbbb', GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
 }
-body.ventu-application #ventu-canvas {
+#ventu-canvas {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
 }
-body.ventu-application #ventu-filters {
+#ventu-filters {
   position: absolute;
   left: 0;
   top: 64px;
 }
-body.ventu-application #ventu-bottom-bar {
+#ventu-bottom-bar {
   position: absolute;
   right: 50px;
   bottom: 0;
 }
-body.ventu-application #ventu-stack {
+#ventu-stack {
   position: absolute;
   right: 120px;
   top: 124px;
@@ -1653,6 +1708,7 @@ a.ventu-to-list.ventu-to-list-hate {
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 4px!important;
+  font-weight: 300;
 }
 .ventu-card.ventu-mini-card .ventu-card-buttons {
   position: absolute;

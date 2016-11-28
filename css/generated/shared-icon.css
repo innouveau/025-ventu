@@ -62,7 +62,8 @@
 .ventu-icon-reload:after {
   content: 'r';
 }
-.ventu-icon-prev:after {
+.ventu-icon-prev:after,
+.ventu-icon-home:after {
   content: '<';
 }
 .ventu-icon-next:after,
