@@ -1212,7 +1212,7 @@ body .ventu-pagewrap {
 .page-404 .card-container-404 .ventu-card {
   display: block;
   left: calc(50% - 250px);
-  top: calc(50% - 200px);
+  top: calc(50% - 300px);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 40px;
