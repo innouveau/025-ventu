@@ -328,9 +328,7 @@ Card.prototype._addListener = function() {
             } else if (dx < -self.app.config.swipe.complete) {
                 self._addToList('hate');
             } else {
-                if (dy < 200) {
-                    self._moveToOrigin(true);
-                }
+                self._moveToOrigin(true);
             }
         }
     });
