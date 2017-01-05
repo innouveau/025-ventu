@@ -30,7 +30,6 @@ Card.prototype._create = function() {
         '<div class="ventu-card-image ventu-triangle ventu-triangle-bottom ventu-triangle-white" style="background-image:url(' + content.image + ')"></div>' +
         '<div class="ventu-card-text"><h4>' + content.text.sub + '</h4><h3>' + content.text.head + '</h3>' +
         '<div class="ventu-card-text-content"><div class="ventu-card-text-content-half">' + content.text.list + '</div>' +
-        '<div class="ventu-card-text-content-half">' + content.text.address + '<br><br><a href="' + content.text.detailLinkUrl + '">Lees meer</a></div></div>' +
         '</div>');
     buttonBar = $('<div class="ventu-card-buttons"></div>');
     this.buttons.love = $('<div class="ventu-card-button"><div class="ventu-card-button-icon ventu-icon-love"><div class="ventu-ripple"></div></div><span>interessant</span></div>');
