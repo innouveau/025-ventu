@@ -23,6 +23,13 @@ function filterListeners() {
 
 
 function initFilter() {
+    
+    var filter = $.sessionStorage.get('ventu-service-filter');
+
+    if (filter != null) {
+        ventu.service.filter = filter;
+    }
+
     var type;
     // area
     $('#ventu-filter-area-min').val(ventu.service.filter.area.min);
@@ -39,6 +46,7 @@ function initFilter() {
     });
     updateFilterSummary($('#ventu-filter-offer'), 'offer');
 
+    // mobile
     $('.ventu-filter-type-toggle').each(function(){
         if (ventu.service.filter.type.indexOf($(this).data('value')) > -1) {
             $(this).addClass('ventu-filter-toggle-active');
@@ -46,6 +54,11 @@ function initFilter() {
             $(this).removeClass('ventu-filter-toggle-active');
         }
     });
+
+    $('#ventu-type-picker select option').each(function (index, value) {
+        $(value).prop('selected', ventu.service.filter.type.indexOf($(this).text()) > -1).change();
+    });
+
     updateFilterSummary($('#ventu-filter-type'), 'type');
     
     // search area
@@ -61,11 +74,11 @@ function initFilter() {
     });
     switch (type) {
         case 'circle':
-            $('#ventu-filter-circle-km').val(ventu.service.filter.searchArea.km1);
+            $('#ventu-filter-circle-km').val(ventu.service.filter.searchArea.circleM);
             break;
         case 'rect':
-            $('#ventu-filter-rect-km1').val(ventu.service.filter.searchArea.km1);
-            $('#ventu-filter-rect-km2').val(ventu.service.filter.searchArea.km2);
+            $('#ventu-filter-rect-km1').val(ventu.service.filter.searchArea.rectM1);
+            $('#ventu-filter-rect-km2').val(ventu.service.filter.searchArea.rectM2);
             break;
     }
     updateFilterSummary($('#ventu-filter-search-area'), 'searchArea');
@@ -132,6 +145,13 @@ function updateFilterModel(filter, type) {
                     offer.push(value);
                 }
             });
+            if (offer.length === 0) {
+                filter.find('.ventu-filter-offer-toggle').each(function () {
+                    var value = $(this).data('value');
+                    offer.push(value);
+                    $(this).addClass('ventu-filter-toggle-active');
+                });
+            }
             ventu.service.filter.offer = offer;
             break;
         case 'type':
@@ -148,14 +168,15 @@ function updateFilterModel(filter, type) {
             var thisType = $('.ventu-mini-map-set input[name=search-area]:checked').val();
             ventu.service.filter.searchArea.type = thisType;
             if (thisType === 'circle') {
-                ventu.service.filter.searchArea.km1 = parseFloat($('#ventu-filter-circle-km').val());
+                ventu.service.filter.searchArea.circleM = parseFloat($('#ventu-filter-circle-km').val());
             } else if (thisType === 'rect') {
-                ventu.service.filter.searchArea.km1 = parseFloat($('#ventu-filter-rect-km1').val());
-                ventu.service.filter.searchArea.km2 = parseFloat($('#ventu-filter-rect-km2').val());
-            } else {
+                ventu.service.filter.searchArea.rectM1 = parseFloat($('#ventu-filter-rect-km1').val());
+                ventu.service.filter.searchArea.rectM2 = parseFloat($('#ventu-filter-rect-km2').val());
             }
             break;
     }
+
+    $.sessionStorage.set('ventu-service-filter', ventu.service.filter);
 }
 
 function updateFilterSummary(filter, type) {
@@ -165,19 +186,31 @@ function updateFilterSummary(filter, type) {
             summary = styleNumber(ventu.service.filter.area.min) + ' - ' + styleNumber(ventu.service.filter.area.max) + ' m²';
             break;
         case 'offer':
-            summary = ventu.service.filter.offer.join(', ');
+            summary = ventu.service.filter.offer.length > 0 ? ventu.service.filter.offer.join(', ') : '';
             break;
         case 'type':
-            summary = ventu.service.filter.type.join(', ');
+            summary = ventu.service.filter.type.length > 0 ? ventu.service.filter.type.join(', ') : '';
             break;
         case 'searchArea':
             var thisType = ventu.service.filter.searchArea.type;
             if (thisType === 'circle') {
-                summary = 'Cirkel (' + ventu.service.filter.searchArea.km1 + 'km)';
+                summary = 'Cirkel (' + ventu.service.filter.searchArea.circleM + 'm)';
             } else if (thisType === 'rect') {
-                summary = 'Rechthoek (' + ventu.service.filter.searchArea.km1 + '×' + ventu.service.filter.searchArea.km2 + 'km)';
+                summary = 'Rechthoek (' + ventu.service.filter.searchArea.rectM1 + '×' + ventu.service.filter.searchArea.rectM2 + 'm)';
             } else {
-                summary = 'Niet actief';
+
+                if (SearchUtil) {
+                    var timeout = SearchUtil.fetchingResources ? 500 : 0;
+
+                    setTimeout(function () {
+                        function completed(resourceValue) {
+                            summary = resourceValue;
+                        }
+                        SearchUtil.getResourceValue('Ventu2.LocalResources.Application', 'NietActief', completed);
+                    }, timeout);
+                } else {
+                    summary = 'Niet actief';
+                }
             }
             break;
     }

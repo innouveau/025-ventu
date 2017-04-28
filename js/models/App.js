@@ -1,8 +1,18 @@
 function App(page) {
+
+    // try to detect if we can use session and local storage
+    try {
+        // try to use localStorage
+        $.sessionStorage.set('ventu-session-storage', []);
+    } catch (e) {
+        // there was an error so...
+        window.location = '/Error/PrivateMode';
+    }
+
     this.page = page;
-    this.config = new Config(this);
-    this.user = new User(this, user);
-    this.guide = new Guide(this);
+    this.config = new Config();
+    this.user = new User(user);
+    this.guide = new Guide();
     this.service = this._getService();
     this.map = null;
     this.domElements = {
@@ -19,34 +29,34 @@ function App(page) {
     };
 }
 
-App.prototype.init = function() {
+App.prototype.init = function () {
     if (this.config.device.type === 0) {
-        this.map = new MapMobile(this);
+        this.map = new MapMobile();
     } else {
-        this.map = new Map(this);
+        this.map = new Map();
     }
-    
+
     this._initDomElements();
-    
+
     if (this.config.device.type === 0) {
-        this.list.love = new ListMobile(this, 'love', 'Interesselijst');
-        this.list.hate = new ListMobile(this, 'hate', 'Prullenbak');
+        this.list.love = new ListMobile('love', 'Interesselijst');
+        this.list.hate = new ListMobile('hate', 'Prullenbak');
     } else {
-        this.list.love = new List(this, 'love', 'Interesselijst');
-        this.list.hate = new List(this, 'hate', 'Prullenbak');
+        this.list.love = new List('love', 'Interesselijst');
+        this.list.hate = new List('hate', 'Prullenbak');
     }
 };
 
 
-App.prototype._getService = function() {
+App.prototype._getService = function () {
     if (window.ventuConfig.environment.development) {
-        return new DataFaker(this);
+        return new DataFaker();
     } else {
-        return new DataService(this);
+        return new DataService();
     }
 };
 
-App.prototype._initDomElements = function() {
+App.prototype._initDomElements = function () {
     this.domElements.stack = $('#ventu-stack');
     this.domElements.bottomBar = $('#ventu-bottom-bar');
 };
@@ -55,62 +65,91 @@ App.prototype._initDomElements = function() {
 
 // search
 
-App.prototype.search = function(event, element) {
+App.prototype.search = function (event, element) {
     var self = this;
-    if (event.keyCode === 13) {
-        this.select(this.service.searchResults[0])
+    if (event.keyCode === 13 &&  $(".ventu-map-search-result").first().children().first()) {
+        var obj = { Location: $(".ventu-map-search-result").first().children().first().html(), NumberOfItems: 0 };
+        if (obj.Location !== undefined) {
+            this.select(obj);
+        }
     } else {
         var searchQuery = $(element).val();
-        this.service.getSearchResults(searchQuery, searchResultsCallback);
-
 
         function searchResultsCallback(results) {
-            self.domElements.searchResults.empty();
-            for (var i = 0, l = results.length; i < l; i++) {
-                var result = results[i],
-                    resultElement = $('<div class="ventu-map-search-result" onclick="ventu.select(\'' + result + '\', \'poly\')"><div class="ventu-map-search-result-text">' + result + '</div></div>');
-                self.domElements.searchResults.append(resultElement);
-            }
-        }
-    }
+            $(element).parent().find('.ventu-map-search-results').empty();
 
+            $(results).each(function (index, result) {
+
+                var resultElement = $('<div class="ventu-map-search-result"><div class="ventu-map-search-result-text">' + result.Location + ' (' + result.NumberOfItems + ')</div></div>');
+                resultElement.on('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    ventu.service.lastSearchResult = result;
+                    ventu.select(result);
+                });
+
+                $(element).parent().find('.ventu-map-search-results').append(resultElement).show();
+            });
+        }
+
+        this.service.getSearchResults(searchQuery, searchResultsCallback);
+    }
 };
 
 
 
 // select
 
-App.prototype.select = function(searchQuery) {
+App.prototype.select = function (searchQuery, autoselect, leaveshape) {
     var self = this;
 
+    if (autoselect) {
+        self.service.setSearchFilters(searchQuery);
+        initFilter();
+    }
+
     function selectCallback(searchData) {
-        self._updateMenuBar(searchQuery, searchData.markers.length);
+        if (searchData.markers) {
+            self._updateMenuBar(searchQuery, searchData.markers.length);
+        }
         self.objects = searchData.objects;
-        self.map.draw(searchData);
+        self.map.draw(searchData, leaveshape);
         if (!self.isMobile()) {
             self.user.startTimer('filter')
         }
     }
 
-    if (this.page !== 'application') {
-        // ajax transition to application
-        $.get('./application.html').done(function(result){
-            var html = $(result).filter('#dynamic-content').children();
-            self.domElements.dynamicContent.html(html);
-            filterListeners();
-            self.init();
-            $('body').removeClass().addClass('ventu-application');
-            self.page = 'application';
-            self.service.getSelectResults(searchQuery, selectCallback);
-        });
+    var primaryUsageIds = [];
 
-    } else {
+    if ($('select').val() != null) {
+        $.each($('select').find(":selected"), function (index, value) {
+            primaryUsageIds.push($(value).data('id'));
+        });
+    }
+
+    $.sessionStorage.set('ventu-primary-usage-ids', primaryUsageIds);
+    $.sessionStorage.set('ventu-search-result', searchQuery);
+
+    if (searchQuery && searchQuery.Location) {
+        var searchText = $('<div>' + searchQuery.Location + '</div>').text();
+
+        $.sessionStorage.set('ventu-search-text', searchText);
+    }
+    else {
+        $.sessionStorage.remove('ventu-search-text');
+    }
+
+    if (this.page == 'application') {
         this.service.getSelectResults(searchQuery, selectCallback);
+    } else {
+        location.href = "/Application";
     }
 };
 
+App.prototype._updateMenuBar = function (searchQuery, n) {
 
-App.prototype._updateMenuBar = function(searchQuery, n) {
+    var _self = this;
     var string = searchQuery;
     this.domElements.searchResults.empty();
     this.domElements.searchResults.hide();
@@ -119,12 +158,30 @@ App.prototype._updateMenuBar = function(searchQuery, n) {
     } else if (this.service.filter.searchArea.type === 'rect') {
         string += ' +' + this.service.filter.searchArea.km1 + '×' + this.service.filter.searchArea.km2 + 'km'
     }
-    this.domElements.search.val(string);
-    this.domElements.searchFeedback.html(n + ' objecten gevonden');
+    this.domElements.search.val('');
+
+    var searchText = $.sessionStorage.get('ventu-search-text');
+
+    if (searchText == null) {
+        searchText = 'Totaal';
+    }
+
+    if (SearchUtil) {
+        var timeout = SearchUtil.fetchingResources ? 500 : 0;
+
+        setTimeout(function () {
+            function completed(resourceValue) {
+                _self.domElements.searchFeedback.html('<b>' + searchText + '</b><br/>' + n + ' ' + resourceValue);
+            }
+            SearchUtil.getResourceValue('Ventu2.LocalResources.Application', 'ObjectenGevonden', completed);
+        }, timeout);
+    } else {
+        this.domElements.searchFeedback.html('<b>' + searchText + '</b><br/>' + n + ' objecten gevonden');
+    }
 };
 
 // helpers
 
-App.prototype.isMobile = function() {
+App.prototype.isMobile = function () {
     return this.config.device.type === 0;
 };

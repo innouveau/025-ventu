@@ -1,21 +1,32 @@
-function MapMobile(app) {
-    this.app = app;
+function MapMobile() {
     this.init();
     this.lastIndex = 0;
     this.cards = [];
 }
 
 MapMobile.prototype.init = function() {
-    this.app.config.isMapPresent = false;
+    window.ventu.config.isMapPresent = false;
+
+    var myOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(52.6, 5),
+        sensor: 'true',
+        draggable: false,
+        streetViewControl: false
+    };
+
+    var mapContainer = document.getElementById("ventu-canvas");
+    if (mapContainer) {
+        this.map = new google.maps.Map(mapContainer, myOptions);
+    }
 };
 
 
 MapMobile.prototype.draw = function(data) {
-    var self = this;
     this.lastIndex = 0;
     this._removeCards();
     this._createCards();
-    this.currentCard = self.cards[0];
+    this.currentCard = this.cards[0];
     this.cards[0].launch();
 };
 
@@ -32,26 +43,26 @@ MapMobile.prototype._removeCards = function() {
 };
 
 MapMobile.prototype._createCards = function() {
-    var n = this.app.objects.length > this.app.config.stack.max ? this.app.config.stack.max : this.app.objects.length;
+    var n = window.ventu.objects.length > window.ventu.config.stack.max ? window.ventu.config.stack.max : window.ventu.objects.length;
     for (var i = 0; i < n; i++) {
-        var obj = this.app.objects[i],
-            building = new Building(this.app, obj);
+        var obj = window.ventu.objects[i],
+            building = new Building(obj);
         this.createCard(building);
     }
 };
 
 MapMobile.prototype.createCard = function(building) {
     // second argument is the marker. For mobile there are no markers
-    var card = new Card(this.app, null, building, this.lastIndex);
+    var card = new Card(null, building, this.lastIndex);
     this.cards.push(card);
     this.lastIndex++;
     return card;
 };
 
 MapMobile.prototype.createNewCard = function() {
-    if (this.lastIndex < this.app.objects.length) {
-        var obj = this.app.objects[this.lastIndex],
-            building = new Building(this.app, obj),
+    if (this.lastIndex < window.ventu.objects.length) {
+        var obj = window.ventu.objects[this.lastIndex],
+            building = new Building(obj),
             wait = 0,
             card;
         // the old card is still present when the new card is created. So 1 means

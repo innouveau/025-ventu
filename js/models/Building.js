@@ -1,5 +1,4 @@
-function Building(app, building) {
-    this.app = app;
+function Building(building) {
     this.uniqueId = building.UniqueId;
     // address
     this.address = building.Address;
@@ -15,15 +14,17 @@ function Building(app, building) {
     this.metrageInfo = building.MetrageInfo;
     this.broker = building.Broker;
     // extra info
-    this.imageURL = building.ImageURL;
-    this.detailLinkUrl = building.DetailLinkUrl;
+    this.imageURL = building.PhotoURL != null ? building.PhotoURL.replace('/org', '/thumb').replace('/wm', '/thumb') : null;
+    this.detailLinkUrl = '/Project/' + building.DetailLinkUrl;
     this.brochureUrl = building.BrochureUrl;
     this.videoUrl = building.VideoUrl;
     this.primaryUsage = building.PrimaryUsage;
+    this.productId = building.ProductId;
+    this.includesOrganization = building.IncludesOrganization;
 
     // temp fake data
-    this.imageURL = 'https://ventu.nl' + this.imageURL;
-    this.detailLinkUrl = './detail.html';
+    //this.imageURL = 'https://ventu.nl' + this.imageURL;
+    //this.detailLinkUrl = './detail.html';
 
 }
 
@@ -54,7 +55,7 @@ Building.prototype.getCardContent = function() {
                 function completed(resourceValue) {
                     metrageInfoText = metrageInfoText.replace('#' + resourceName + '#', resourceValue);
                 }
-                //SearchUtil.getResourceValue('App.LocalResources.Home', resourceName, completed); // todo replace this?
+                SearchUtil.getResourceValue('Ventu2.LocalResources.Home', resourceName, completed); // todo replace this?
             });
         }
         list.push(metrageInfoText);
@@ -70,7 +71,7 @@ Building.prototype.getCardContent = function() {
                 function completed(resourceValue) {
                     priceInfoText = priceInfoText.replace('#' + resourceName + '#', resourceValue);
                 }
-                //SearchUtil.getResourceValue('App.LocalResources.Home', resourceName, completed); // todo replace this?
+                SearchUtil.getResourceValue('Ventu2.LocalResources.Home', resourceName, completed); // todo replace this?
             });
         }
         list.push(priceInfoText);
@@ -95,13 +96,22 @@ Building.prototype.getCardContent = function() {
         iconResult = { style: 'video', url: this.detailLinkUrl + '#objectmovie' };
         icons.push(iconResult);
     }
+
+    var head = this.address;
+    var address = window.ventu.config.device.type > 0 ? this.fullAddressInfo + '<br><br>' : '';
+
+    if (this.productId > 0 && this.broker != null && this.broker.Logo != null && this.includesOrganization) {
+        head = this.fullAddressInfo;
+        address = '<img class="brokerLogo" src="' + this.broker.Logo + '"><br><br>';
+    }
+
     result = {
-        image: this.imageURL == null ? '/img/misc/ventu-stock-thumb.jpg' : this.imageURL,
+        image: "https://ventu.nl" + (this.imageURL == null ? '/img/misc/ventu-stock-thumb.jpg' : this.imageURL),
         text: {
-            head: this.address,
+            head: head,
             sub: this.city,
             list: this._listToUl(list),
-            address: this.fullAddressInfo,
+            address: address,
             detailLinkUrl: this.detailLinkUrl
         },
         icons: icons

@@ -1,5 +1,4 @@
-function User(app) {
-    this.app = app;
+function User() {
     // things the user had done already
     this.did = user.did;
     this.timer = null;
@@ -42,7 +41,7 @@ User.prototype._checkCriteria = function(criteria, topic) {
     if (criteria && !this.askIfDidFindOut(topic)) {
         // so he did a certain set of actions, but didn't find out
         // the related topic. Lets give him a hint.
-        this.app.guide.hint(topic);
+        window.ventu.guide.hint(topic);
         // don't bother again
         this.didFindOut(topic);
     }
@@ -67,7 +66,7 @@ User.prototype.startTimer = function(what) {
             time = 30000;
             // only bother him when there are enought markers, so
             // the user is willing to filter
-            criteria = this.app.map.markers.length > 10
+            criteria = window.ventu.map.markers.length > 10
     }
 
     if (criteria) {
