@@ -1,0 +1,36 @@
+.ventu-chat-pin {
+    position: absolute;
+    width: 75px;
+    height: 85px;
+    background-image: url(../img/chat/pin.png);
+    background-size: 100% 100%;
+    padding: 7px 0 0 7px;
+
+    .ventu-chat-pin-avatar {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background-size: cover;
+    }
+
+    .ventu-chat-message {
+        position: absolute;
+        top: 40px;
+        z-index: 1;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-radius: 6px;
+        padding: 10px;
+        width: 230px;
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+
+        &.ventu-chat-message-right {
+            left: 68px;
+        }
+
+        &.ventu-chat-message-left {
+            right: 68px;
+            text-align: right;
+        }
+    }
+}

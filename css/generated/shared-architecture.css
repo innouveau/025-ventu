@@ -2,6 +2,11 @@ body {
   padding: 0;
 }
 body .ventu-pagewrap {
-  width: 1200px;
+  width: 1280px;
   margin: 0 auto;
+}
+@media (max-width: 1280px) {
+  body .ventu-pagewrap {
+    width: 100%;
+  }
 }

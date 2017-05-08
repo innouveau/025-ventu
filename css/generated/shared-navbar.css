@@ -2,86 +2,23 @@ nav.navbar-default {
   position: fixed;
   z-index: 1000;
   background: #00e5a9 !important;
-  border-bottom: 1px solid #727272;
+  height: 60px;
+  border-bottom: 0;
 }
 nav.navbar-default .navbar-header .navbar-brand {
   padding: 0;
 }
 nav.navbar-default .navbar-header .navbar-brand .ventu-identity {
   display: inline-block;
-  border-right: 1px solid #727272;
-  background-image: url('../img/ventu-logo-small.png');
+  background-image: url('../img/identity/ventu-logo-small.png');
   background-size: cover;
   width: 153px;
-  height: 63px;
+  height: 60px;
   margin-right: 20px;
-}
-nav.navbar-default .navbar-header .ventu-map-search {
-  background: #fff;
-  margin-top: 18px;
-  margin-left: 4px;
-  height: 32px;
-  width: 232px;
-  transition: width 0.2s ease;
-  border: 1px solid #727272;
-  position: relative;
-  display: inline-block;
-}
-nav.navbar-default .navbar-header .ventu-map-search input {
-  height: 32px;
-  background: transparent;
-  padding: 6px 0 6px 12px;
-  width: calc(100% - 32px);
-  border: 0;
-  transition: width 0.2s ease;
-  vertical-align: top;
-  float: left;
-}
-nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-tools {
-  float: left;
-}
-nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-tools .ventu-icon-search {
-  cursor: default;
-}
-nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-results {
-  display: none;
-  position: absolute;
-  left: -1px;
-  top: calc(100% + 0px);
-  width: calc(100% + 2px);
-  background: #fff;
-  border: 1px solid #727272;
-  border-top: 1px solid #ddd;
-  max-height: 200px;
-  overflow: auto;
-}
-nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-results .ventu-map-search-result {
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
-}
-nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-results .ventu-map-search-result .ventu-map-search-result-text {
-  vertical-align: top;
-  padding: 8px 16px;
-}
-nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-results .ventu-map-search-result:hover {
-  background: #ddd;
-}
-nav.navbar-default .navbar-header .ventu-map-search .ventu-map-search-results .ventu-map-search-result:last-child {
-  border-bottom: none;
-}
-nav.navbar-default .navbar-header #ventu-type-picker {
-  display: inline-block;
-  margin-top: 18px;
-  vertical-align: top;
-}
-nav.navbar-default .navbar-header .ventu-search-results-feedback {
-  display: inline-block;
-  vertical-align: top;
-  margin: 26px 0 0 8px;
 }
 nav.navbar-default .navbar-header .navbar-toggle {
   border-radius: 0;
-  border: 1px solid #333;
+  border: 1px solid #17141f;
   margin-top: 21px;
   margin-right: 18px;
   padding: 6px;
@@ -91,7 +28,7 @@ nav.navbar-default .navbar-header .navbar-toggle:hover {
 }
 nav.navbar-default .navbar-header .navbar-toggle .icon-bar {
   border-radius: 0;
-  background-color: #333;
+  background-color: #17141f;
   height: 1px;
 }
 nav.navbar-default #navbar {
@@ -101,17 +38,23 @@ nav.navbar-default #navbar ul {
   height: 100%;
 }
 nav.navbar-default #navbar ul li {
-  border-left: 1px solid #727272;
-}
-nav.navbar-default #navbar ul li:hover {
+  border-left: 1px solid #dcdce2;
+  display: block;
+  height: 100%;
   background: #fff;
 }
+nav.navbar-default #navbar ul li:hover {
+  background: #dcdce2;
+}
 nav.navbar-default #navbar ul li a {
-  padding: 22px 16px;
-  font-size: 12px;
+  padding: 20px 24px;
+  font-size: 14px;
+  font-weight: 500;
   transition: all 0.2s ease;
-  color: #333;
-  height: 63px;
+  color: #03256b;
+  display: block;
+  height: 100%;
+  font-family: 'ProximaNova';
 }
 nav.navbar-default #navbar ul li .dropdown-menu {
   background-color: #fff;

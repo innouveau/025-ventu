@@ -45,14 +45,14 @@
 .select2-container .select2-dropdown .select2-results__options li {
   border-bottom: 1px solid #ddd;
   padding: 8px 16px;
-  color: #333;
+  color: #17141f;
 }
 .select2-container .select2-dropdown .select2-results__options li:last-child {
   border-bottom: 0;
 }
 .select2-container .select2-dropdown .select2-results__options li:hover {
   background: #ddd;
-  color: #333;
+  color: #17141f;
 }
 .select2-container .select2-dropdown .select2-results__options li.select2-results__option--highlighted[aria-selected] {
   background: #ddd;

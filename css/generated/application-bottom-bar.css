@@ -109,10 +109,10 @@
   cursor: pointer;
 }
 #to-filter .ventu-icon {
-  border: 1px solid #333;
+  border: 1px solid #17141f;
 }
 #to-filter:hover .ventu-text-along-icon {
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #17141f;
 }
 a.ventu-to-list {
   position: fixed;

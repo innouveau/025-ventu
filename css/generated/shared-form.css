@@ -1,0 +1,29 @@
+.ventu-overlay .ventu-form h2 {
+  margin-top: 0;
+}
+.ventu-overlay .ventu-form input[type=text] {
+  width: 100%;
+  border: 1px solid #727272;
+  color: #333;
+  margin-bottom: 20px;
+  background: transparent;
+  max-width: 400px;
+  display: block;
+  border-radius: 0;
+  box-shadow: 0;
+  padding: 8px;
+}
+.ventu-overlay .ventu-form input[type=text]:focus {
+  box-shadow: none!important;
+}
+.ventu-overlay .ventu-form .ventu-form-send {
+  margin-top: 40px;
+}
+.ventu-overlay .ventu-form a {
+  display: block;
+  margin: 2px 0 4px;
+  text-decoration: none;
+}
+.ventu-overlay .ventu-form button[type=submit] {
+  margin-top: 20px;
+}
