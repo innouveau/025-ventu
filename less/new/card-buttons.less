@@ -1,0 +1,40 @@
+.ventu-card-button {
+    width: 64px;
+    height: 64px;
+    padding: 16px;
+    border-radius: 50%;
+    background: #fff;
+
+    &.ventu-card-button--love {
+
+        .ventu-card-button-icon {
+            background: @ventu-color-love;
+            background-image: url(../img/card/love.svg);
+        }
+    }
+
+    &.ventu-card-button--hate {
+
+        .ventu-card-button-icon {
+            background-color: @ventu-color-hate;
+            background-image: url(../img/card/hate.svg);
+
+        }
+    }
+
+    &.ventu-card-button--read-more {
+
+        .ventu-card-button-icon {
+            background-color: @ventu-color-details;
+            background-image: url(../img/card/read-more.svg);
+
+        }
+    }
+
+    .ventu-card-button-icon {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+    }
+}

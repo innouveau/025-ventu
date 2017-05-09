@@ -1,0 +1,150 @@
+.ventu-chat-balloon-container {
+    position: absolute;
+    top: 40px;
+    z-index: 1;
+    width: 200px;
+
+    &.ventu-chat-balloon-right {
+        right: 68px;
+        text-align: right;
+
+        .ventu-chat-balloon {
+            float: right;
+        }
+
+        .ventu-chat-balloon-top {
+            background-image: url(../img/chat/balloon/balloon-right--top.png);
+
+            &:before {
+                background-image: url(../img/chat/balloon/balloon-right--top-left.png);
+            }
+
+            &:after {
+                background-image: url(../img/chat/balloon/balloon-right--top-right.png);
+            }
+        }
+
+        .ventu-chat-balloon-middle {
+            padding-right: 8px;
+
+            &:before {
+                background-image: url(../img/chat/balloon/balloon-right--left.png);
+            }
+
+            &:after {
+                background-image: url(../img/chat/balloon/balloon-right--right.png);
+            }
+        }
+
+        .ventu-chat-balloon-bottom {
+            background-image: url(../img/chat/balloon/balloon-right--bottom.png);
+
+            &:before {
+                background-image: url(../img/chat/balloon/balloon-right--bottom-left.png)
+            }
+
+            &:after {
+                background-image: url(../img/chat/balloon/balloon-right--bottom-right.png)
+            }
+        }
+    }
+
+    &.ventu-chat-balloon-left {
+        left: 68px;
+        text-align: left;
+
+        .ventu-chat-balloon {
+            float: left;
+        }
+
+        .ventu-chat-balloon-top {
+            background-image: url(../img/chat/balloon/balloon-left--top.png);
+
+            &:before {
+                background-image: url(../img/chat/balloon/balloon-left--top-left.png);
+            }
+
+            &:after {
+                background-image: url(../img/chat/balloon/balloon-left--top-right.png);
+            }
+        }
+
+        .ventu-chat-balloon-middle {
+            padding-left: 8px;
+
+            &:before {
+                background-image: url(../img/chat/balloon/balloon-left--left.png);
+            }
+
+            &:after {
+                background-image: url(../img/chat/balloon/balloon-left--right.png);
+            }
+        }
+
+        .ventu-chat-balloon-bottom {
+            background-image: url(../img/chat/balloon/balloon-left--bottom.png);
+
+            &:before {
+                background-image: url(../img/chat/balloon/balloon-left--bottom-left.png)
+            }
+
+            &:after {
+                background-image: url(../img/chat/balloon/balloon-left--bottom-right.png)
+            }
+        }
+    }
+}
+
+.ventu-chat-balloon {
+    display: inline-block;
+
+    .ventu-chat-balloon-top,
+    .ventu-chat-balloon-bottom,
+    .ventu-chat-balloon-middle {
+        position: relative;
+
+        &:after,
+        &:before {
+            position: absolute;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            content: '';
+            z-index: 1;
+            background-size: 100% 100%;
+        }
+
+        &:before {
+            left: -12px;
+        }
+
+        &:after {
+            right: -12px;
+        }
+    }
+
+    .ventu-chat-balloon-top,
+    .ventu-chat-balloon-bottom {
+        height: 12px;
+        background-size: 100% 100%;
+    }
+
+    .ventu-chat-balloon-middle {
+        background: #fff;
+        padding-right: 6px;
+
+        &:before {
+            height: 100%;
+        }
+
+        &:after {
+            height: 100%;
+        }
+
+
+    }
+
+
+
+
+}

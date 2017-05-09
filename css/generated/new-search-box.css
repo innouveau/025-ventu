@@ -1,0 +1,26 @@
+.ventu-search-box {
+  width: 100%;
+  border-bottom: 2px solid #cacaca;
+  position: relative;
+  height: 64px;
+  padding: 12px 0;
+  max-width: 400px;
+}
+.ventu-search-box .ventu-search-box-icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin: 8px;
+  background-image: url(../img/tools/search.svg);
+  background-size: 100% 100%;
+  float: left;
+}
+.ventu-search-box input {
+  width: calc(100% - 40px);
+  height: 40px;
+  border: 0;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 300;
+  float: left;
+}

@@ -98,44 +98,6 @@
             text-decoration: none;
             color: #333;
 
-            .ventu-card-button-icon {
-                width: 24px;
-                height: 24px;
-                border-radius: 12px;
-                display: inline-block;
-                color: #fff;
-                text-align: center;
-                font-size: 16px;
-                padding-top: 4px;
-                font-family: 'ventu';
-                margin-right: 4px;
-                position: relative;
-
-                &.ventu-icon-hate {
-                    background: @ventu-color-hate;
-                }
-
-                &.ventu-icon-love {
-                    background: @ventu-color-love;
-                }
-
-                &.ventu-icon-details,
-                &.ventu-icon-home
-                {
-                    background: @ventu-color-details;
-                }
-
-                &.ventu-icon-home {
-                    padding-top: 3px;
-                }
-
-                &.ventu-icon-home:after {
-                    content: '';
-                    font-family: 'FontAwesome';
-                    font-size: 18px;
-                }
-            }
-
             &:not(:last-child) {
                 border-right: @ventu-border-1;
             }
