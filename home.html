@@ -18,148 +18,378 @@
 </head>
 
 <body>
-<div id="dynamic-content">
-    <div class="ventu-img-stretch" style="background-image: url('img/markthal.jpg')">
-        <div class="ventu-text-overlay">
-            Hier de Ventu Dialog
+    <div id="dynamic-content">
+        <div class="container">
+
+            <nav class="navbar navbar-default">
+                <div class="navbar-header pull-right">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="navbar-header pull-left">
+                    <a class="navbar-brand" href="./">
+                        <div class="ventu-identity"></div>
+                    </a>
+                </div>
+
+                <div id="navbar" class="pull-right">
+                    <ul class="nav navbar-nav ventu-menu-buttons">
+                        <li><a href="javascript:login()">Inloggen</a></li>
+                        <li><a href="javascript:register()">Registreren</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="ventu-home-content">
+
+
+                <!-- ventu dialog -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="ventu-dialog-entry" class="ventu-home-block ventu-home-block--with-background">
+                            <div class="ventu-home-block-header">
+                                <div class="ventu-home-block-header-text ventu-home-block-header-text--white">
+                                    <h1>
+                                        Samen vinden,
+                                        doe je met Ventu
+                                    </h1>
+                                    <h5>
+                                        Het meest complete overzicht in zakelijke ruimtes
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ventu usp block -->
+                <div class="ventu-home-block row">
+                    <div class="ventu-home-block-header">
+                        <div class="ventu-home-block-header-text">
+                        <h2>
+                            De makkelijkste manier om jouw
+                            toekomstige bedrijfsruimte te vinden
+                        </h2>
+                        </div>
+                    </div>
+
+                    <div class="ventu-usp-item col-sm-4">
+                        <div class="ventu-usp-item-image">
+                            <img src="img/home/icons/search.svg">
+                        </div>
+                        <h3>
+                            Ventu vindt het voor je
+                        </h3>
+                        <div class="ventu-usp-item-text">
+                            Ventu maakt het vinden van uw nieuwe vastgoedlocatie
+                            een stuk eenvoudiger. Wij vinden voor je al het
+                            aanbod van Nederland.
+                        </div>
+                    </div>
+
+                    <div class="ventu-usp-item col-sm-4">
+                        <div class="ventu-usp-item-image">
+                            <img src="img/home/icons/network.svg">
+                        </div>
+                        <h3>
+                            Het allergrootste netwerk
+                        </h3>
+                        <div class="ventu-usp-item-text">
+                            Vind in ons aanbod 38.240 gebouwen van 2.036 aanbieders. Sinds 1 juli 2016 24.367.881 gebouwen bezocht.
+                        </div>
+                    </div>
+
+                    <div class="ventu-usp-item col-sm-4">
+                        <div class="ventu-usp-item-image">
+                            <img src="img/home/icons/information.svg">
+                        </div>
+                        <h3>
+                            Kennis is informatie
+                        </h3>
+                        <div class="ventu-usp-item-text">
+                            In onze database hebben wij de afgelopen 16 jaar een enorme historie opgebouwd van al het aanbod en transacties in Nederland.
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- ventu chat block -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="ventu-chat-entry" class="ventu-home-block ventu-home-block--with-background">
+                            <div class="ventu-home-block-header">
+                                <div class="ventu-home-block-header-text">
+                                    <h2>
+                                        Een nieuw pand vinden doe je niet alleen.
+                                        Beoordeel samen interessante opties
+                                        en kom zo tot de beste keuze!
+                                    </h2>
+                                    <h6>
+                                        Op Ventu kan je eenvoudig lijstjes maken en delen met anderen.
+                                    </h6>
+                                </div>
+                                <div class="btn orange">
+                                    Ga direct aan de slag
+                                </div>
+                            </div>
+                            <div class="ventu-chat-pins-container">
+                                <div class="ventu-chat-pin" style="left:100px; top: 30px;">
+                                    <div class="ventu-chat-pin-avatar" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>
+                                    <div class="ventu-chat-message ventu-chat-message-right">
+                                        Dit pand voldoet aan al onze wensen, goed gevonden!
+                                    </div>
+                                </div>
+
+                                <div class="ventu-chat-pin" style="left:520px; top: 120px;">
+                                    <div class="ventu-chat-pin-avatar" style="background-image:url(img/content/trudy.jpeg)"></div>
+                                    <div class="ventu-chat-message ventu-chat-message-left">
+                                        Dit is zeker een kanshebber
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ventu search entry block -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="ventu-search-entry" class="ventu-home-block ventu-home-block--with-background">
+                            <div class="col-sm-6">
+                                <div class="ventu-home-block-header ventu-home-block-header--left">
+                                    <div class="ventu-home-block-header-text">
+                                        <h2>
+                                            Ontdek het aanbod van Ventu
+                                        </h2>
+                                        <h6>
+                                            Ventu biedt het meest complete aanbod van
+                                            zakelijk onroerend goed. We presenteren de
+                                            beschikbare objecten zo overzichtelijk mogelijk
+                                            zodat jij deze makkelijk kan vergelijken en
+                                            beslissen.
+                                        </h6>
+                                    </div>
+                                    <div class="ventu-search-box">
+                                        Hier de search box
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <!-- ventu card -->
+                                <div class="ventu-card ventu-card--static"
+                                    style="-moz-user-select: none; touch-action: none; transform: translateX(50px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(-3deg) scale(1, 1); display: block;">
+                                    <div class="ventu-card-image" style="background-image:url(https://ventu.nl/media/objects/d0/15/8f/fe/d0158ffe-178d-41d7-a8af-8117df71f5bf/thumb/1.jpg)"></div>
+                                    <div class="ventu-card-text">
+                                        <h4>DC Apperlweg Moerdijk, Appelweg 14, 4782 PX, Moerdijk</h4>
+                                        <h3>Moerdijk</h3>
+                                        <div class="ventu-card-text-content">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of card -->
+
+                                <!-- ventu card -->
+                                <div class="ventu-card ventu-card--static"
+                                    style="-moz-user-select: none; touch-action: none; transform: translateX(180px) translateY(40px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(6deg) scale(1, 1); display: block;">
+                                    <div class="ventu-card-image" style="background-image:url(https://ventu.nl/media/objects/13/d7/4c/f8/13d74cf8-8bc6-43d2-ae10-7d9319cbc5a9/thumb/1.jpg)"></div>
+                                    <div class="ventu-card-text">
+                                        <h4>J.C. van Markenlaan 3, 2285 VL, Rijswijk</h4>
+                                        <h3>Rijswijk</h3>
+                                        <div class="ventu-card-text-content">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of card -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- ventu inspiration -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="ventu-home-block ventu-home-block--grey">
+                            <div class="ventu-home-block-header">
+                                <div class="ventu-home-block-header-text">
+                                    <h2>
+                                        Laat je inspireren
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="ventu-inspiration" style="background-image: url(img/content/kantoor3.jpg);">
+                                        <div class="ventu-inspiration-text">
+                                            <h3>
+                                                5x de mooiste bedrijfs skylines
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="ventu-inspiration" style="background-image: url(img/content/kantoor4.jpg);">
+                                        <div class="ventu-inspiration-text">
+                                            <h3>
+                                                Top 3 winkelstraten van Nederland
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="ventu-inspiration" style="background-image: url(img/content/kantoor2.jpg);">
+                                        <div class="ventu-inspiration-text">
+                                            <h3>
+                                                Huren vs Kopen
+                                                wat is het beste voor jou?
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="ventu-inspiration" style="background-image: url(img/content/kantoor5.jpg);">
+                                        <div class="ventu-inspiration-text">
+                                            <h3>
+                                                Combinatie panden,
+                                                een wereld van verschil
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- ventu discover -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="ventu-discover-entry" class="ventu-home-block ventu-home-block--with-background">
+                            <div class="ventu-home-block-header">
+                                <div class="ventu-home-block-header-text ventu-home-block-header-text--white">
+                                    <h2>
+                                        Het grootste aanbod van Nederland, vindt u op Ventu
+                                    </h2>
+                                    <h6>
+                                        Met 38.240 panden het grootste aanbod van Nederland
+                                    </h6>
+                                </div>
+                                <div class="btn orange">
+                                    Ga op ontdekking
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- common footer -->
+                <div id="ventu-footer" class="ventu-home-block">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="ventu-footer-menu">
+                                <a href="over-ventu.html">Over Ventu</a> |
+                                <a href="over-ventu.html">Hoe werkt Ventu </a> |
+                                <a href="over-ventu.html">Aanbieders</a> |
+                                <a href="over-ventu.html">Voor de zoeker</a> |
+                                <a href="over-ventu.html">Voor de makelaar</a> |
+                                <a href="over-ventu.html">Voor de opdrachtgever</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="ventu-footer-direct-links" class="row">
+                        <div class="col-sm-3">
+                            <h2>
+                                Vind kantoren:
+                            </h2>
+                            <a href="vind/kantoor/Amsterdam">Vind een kantoor in Amsterdam</a><br>
+                            <a href="vind/kantoor/Rotterdam">Vind een kantoor in Rotterdam</a><br>
+                            <a href="vind/kantoor/Eindhoven">Vind een kantoor in Eindhoven</a><br>
+                            <a href="vind/kantoor/Groningen">Vind een kantoor in Groningen</a><br>
+                            <a href="vind/kantoor/Enschede">Vind een kantoor in Enschede</a><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <h2>
+                                Vind bedrijfsruimtes:
+                            </h2>
+                            <a href="vind/kantoor/Amsterdam">Vind een kantoor in Amsterdam</a><br>
+                            <a href="vind/kantoor/Rotterdam">Vind een kantoor in Rotterdam</a><br>
+                            <a href="vind/kantoor/Eindhoven">Vind een kantoor in Eindhoven</a><br>
+                            <a href="vind/kantoor/Groningen">Vind een kantoor in Groningen</a><br>
+                            <a href="vind/kantoor/Enschede">Vind een kantoor in Enschede</a><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <h2>
+                                Vind winkels:
+                            </h2>
+                            <a href="vind/kantoor/Amsterdam">Vind een kantoor in Amsterdam</a><br>
+                            <a href="vind/kantoor/Rotterdam">Vind een kantoor in Rotterdam</a><br>
+                            <a href="vind/kantoor/Eindhoven">Vind een kantoor in Eindhoven</a><br>
+                            <a href="vind/kantoor/Groningen">Vind een kantoor in Groningen</a><br>
+                            <a href="vind/kantoor/Enschede">Vind een kantoor in Enschede</a><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <h2>
+                                Contact
+                            </h2>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+
         </div>
     </div>
 
-    <div class="ventu-pagewrap">
-        <div class="ventu-home-content">
-            <div class="ventu-home-block">
-                <div class="ventu-home-block-header">
-                    <div class="ventu-home-block-header-text">
-                    <h1>
-                        <nobr>De makkelijkste manier om jouw</nobr>
-                        <nobr>toekomstige bedrijfsruimte te vinden</nobr>
-                    </h1>
-                    </div>
-                </div>
-
-                <div class="ventu-usp-item">
-                    <div class="ventu-usp-item-image">
-                        <img src="img/home/icons/search.svg">
-                    </div>
-                    <h3>
-                        Ventu vindt het voor je
-                    </h3>
-                    <div class="ventu-usp-item-text">
-                        Ventu maakt het vinden van uw nieuwe vastgoedlocatie
-                        een stuk eenvoudiger. Wij vinden voor je al het
-                        aanbod van Nederland.
-                    </div>
-                </div>
-
-                <div class="ventu-usp-item">
-                    <div class="ventu-usp-item-image">
-                        <img src="img/home/icons/network.svg">
-                    </div>
-                    <h3>
-                        Het allergrootste netwerk
-                    </h3>
-                    <div class="ventu-usp-item-text">
-                        Vind in ons aanbod 38.240 gebouwen van 2.036 aanbieders. Sinds 1 juli 2016 24.367.881 gebouwen bezocht.
-                    </div>
-                </div>
-
-                <div class="ventu-usp-item">
-                    <div class="ventu-usp-item-image">
-                        <img src="img/home/icons/information.svg">
-                    </div>
-                    <h3>
-                        Kennis is informatie
-                    </h3>
-                    <div class="ventu-usp-item-text">
-                        In onze database hebben wij de afgelopen 16 jaar een enorme historie opgebouwd van al het aanbod en transacties in Nederland.
-                    </div>
-                </div>
-            </div>
 
 
 
 
 
-            <div id="ventu-chat-entry" class="ventu-home-block ventu-home-block-with-background">
-                <div class="ventu-home-block-header">
-                    <div class="ventu-home-block-header-text">
-                        <h1>
-                            <nobr>Een nieuw pand vinden doe je niet alleen.</nobr>
-                            <nobr>Beoordeel samen interessante opties</nobr>
-                            <nobr>en kom zo tot de beste keuze!</nobr>
-                        </h1>
-                        <h6>
-                            Op Ventu kan je eenvoudig lijstjes maken en delen met anderen.
-                        </h6>
-                    </div>
-                    <div class="btn orange">
-                        Ga direct aan de slag
-                    </div>
-                </div>
-                <div class="ventu-chat-pins-container">
-                    <div class="ventu-chat-pin" style="left:100px; top: 30px;">
-                        <div class="ventu-chat-pin-avatar" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>
-                        <div class="ventu-chat-message ventu-chat-message-right">
-                            Dit pand voldoet aan al onze wensen, goed gevonden!
-                        </div>
-                    </div>
 
-                    <div class="ventu-chat-pin" style="left:520px; top: 120px;">
-                        <div class="ventu-chat-pin-avatar" style="background-image:url(img/content/trudy.jpeg)"></div>
-                        <div class="ventu-chat-message ventu-chat-message-left">
-                            Dit is zeker een kanshebber
-                        </div>
-                    </div>
-                </div>
+<!--
 
-            </div>
-
-            <div class="ventu-home-block ventu-home-footer">
-                <h2>Laat horen wat u van de nieuwe Ventu applicatie vindt</h2>
-                <a href="./contact.html" class="btn btn-big btn-with-icon ventu-green">
-                    <div class="ventu-icon ventu-icon-med ventu-icon-next"></div>
-                    <span>neem contact op</span>
-                </a>
-            </div>
-
+<div class="ventu-card-buttons">
+    <div class="ventu-card-button">
+        <div class="ventu-card-button-icon ventu-icon-hate">
+            <div class="ventu-ripple"></div>
         </div>
+        <span class="NietInteressant">niet interessant</span>
+    </div>
+    <div class="ventu-card-button">
+        <div class="ventu-card-button-icon ventu-icon-love">
+            <div class="ventu-ripple"></div>
+        </div>
+        <span class="Interessant">interessant</span>
     </div>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="navbar-header pull-right">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-    </div>
+-->
 
-    <div class="navbar-header pull-left">
-        <a class="navbar-brand" href="./">
-            <div class="ventu-identity"></div>
-        </a>
-    </div>
 
-    <div id="navbar" class="navbar-collapse collapse pull-right">
-        <ul class="nav navbar-nav ventu-menu-buttons">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Menu
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="./">Home</a></li>
-                    <li><a href="#">Over Ventu</a></li>
-                    <li><a href="#">Hoe werkt Ventu?</a></li>
-                    <li><a href="#">Aanbieders</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:openSettings()">Instellingen</a></li>
-            <li><a href="javascript:openLogin()">Inloggen</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+
+
 </body>
 </html>

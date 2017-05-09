@@ -1,9 +1,8 @@
 nav.navbar-default {
-  position: fixed;
-  z-index: 1000;
   background: #00e5a9 !important;
   height: 60px;
-  border-bottom: 0;
+  border: 0!important;
+  margin: 0;
 }
 nav.navbar-default .navbar-header .navbar-brand {
   padding: 0;
