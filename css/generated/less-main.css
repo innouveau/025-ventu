@@ -2154,8 +2154,36 @@ nav.navbar-default #navbar ul li .dropdown-menu li a:hover {
 .ventu-dialog-slide-frame .ventu-dialog-navigation-button.ventu-dialog-navigation-next {
   right: 10px;
 }
+.ventu-dialog-slide-frame .ventu-dialog-navigation-button.ventu-dialog-navigation-next:hover:after {
+  border-left: 20px solid #00e5a9;
+}
+.ventu-dialog-slide-frame .ventu-dialog-navigation-button.ventu-dialog-navigation-next:after {
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 20px solid #fff;
+  content: '';
+  position: absolute;
+  left: 29px;
+  top: 22px;
+}
 .ventu-dialog-slide-frame .ventu-dialog-navigation-button.ventu-dialog-navigation-prev {
   left: 10px;
+}
+.ventu-dialog-slide-frame .ventu-dialog-navigation-button.ventu-dialog-navigation-prev:hover:after {
+  border-right: 20px solid #00e5a9;
+}
+.ventu-dialog-slide-frame .ventu-dialog-navigation-button.ventu-dialog-navigation-prev:after {
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-right: 20px solid #fff;
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 22px;
 }
 .ventu-dialog-slide-frame .ventu-dialog-slide-container {
   position: absolute;
