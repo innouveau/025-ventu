@@ -198,35 +198,6 @@ body .ventu-pagewrap {
   background: #fff;
   color: #1F1F1F!important;
 }
-.ventu-overlay .ventu-form h2 {
-  margin-top: 0;
-}
-.ventu-overlay .ventu-form input[type=text] {
-  width: 100%;
-  border: 1px solid #727272;
-  color: #333;
-  margin-bottom: 20px;
-  background: transparent;
-  max-width: 400px;
-  display: block;
-  border-radius: 0;
-  box-shadow: 0;
-  padding: 8px;
-}
-.ventu-overlay .ventu-form input[type=text]:focus {
-  box-shadow: none!important;
-}
-.ventu-overlay .ventu-form .ventu-form-send {
-  margin-top: 40px;
-}
-.ventu-overlay .ventu-form a {
-  display: block;
-  margin: 2px 0 4px;
-  text-decoration: none;
-}
-.ventu-overlay .ventu-form button[type=submit] {
-  margin-top: 20px;
-}
 .ventu-guide {
   display: none;
   background: #FFDE00;
@@ -634,82 +605,6 @@ body .ventu-pagewrap {
     left: -200%;
     top: -200%;
     opacity: 0;
-  }
-}
-.ventu-overlay {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 10000;
-}
-.ventu-overlay .ventu-popup {
-  margin: 100px auto;
-  background: #fff;
-  position: relative;
-  display: none;
-}
-.ventu-overlay .ventu-popup.ventu-login {
-  width: 350px;
-}
-.ventu-overlay .ventu-popup.ventu-settings {
-  width: 300px;
-}
-.ventu-overlay .ventu-popup .ventu-popup-head {
-  padding: 30px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-}
-.ventu-overlay .ventu-popup .ventu-popup-head h2 {
-  margin: 0;
-}
-.ventu-overlay .ventu-popup .ventu-popup-body {
-  padding-bottom: 30px;
-}
-.ventu-overlay .ventu-popup .ventu-popup-body .dropdown-menu {
-  border-top: 0;
-  border-radius: 0;
-  box-shadow: none;
-  display: block!important;
-  float: none;
-  position: relative;
-}
-.ventu-overlay .ventu-popup .ventu-popup-body .dropdown-menu li a {
-  padding: 8px 32px;
-}
-.ventu-overlay .ventu-popup .ventu-popup-body .dropdown-menu li a:hover {
-  background: #ddd;
-}
-.ventu-overlay .ventu-popup .ventu-popup-body.with-padding {
-  padding: 30px;
-}
-.ventu-close-popup {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  font-size: 24px;
-  width: 32px;
-  height: 32px;
-  text-align: center;
-  padding-top: 8px;
-  border-radius: 16px;
-}
-.ventu-close-popup:hover {
-  background: #ddd;
-  color: #000;
-}
-@media (max-width: 767px) {
-  .ventu-overlay .ventu-popup {
-    margin: 40px auto;
-    max-width: calc(100% - 40px);
-  }
-  .ventu-overlay .ventu-popup.ventu-login {
-    width: 350px;
-  }
-  .ventu-overlay .ventu-popup.ventu-settings {
-    width: 300px;
   }
 }
 .select2-container {
