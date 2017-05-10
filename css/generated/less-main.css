@@ -2010,6 +2010,8 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
   padding: 12px;
   border-bottom: 1px solid #ededec;
   cursor: pointer;
+  color: #17141f;
+  text-align: left;
 }
 .ventu-search-results .ventu-search-result:hover {
   background: #ededec;
@@ -2234,6 +2236,8 @@ nav.navbar-default .ventu-navbar #navbar ul li .dropdown-menu li a:hover {
 }
 .ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide {
   float: left;
+  color: #fff;
+  text-align: center;
 }
 .ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-slide-buttons-container {
   margin-top: 30px;
@@ -2293,4 +2297,35 @@ nav.navbar-default .ventu-navbar #navbar ul li .dropdown-menu li a:hover {
 }
 .ventu-dialog-header .ventu-dialog-header-section-labels .ventu-dialog-header-section-label.show-label {
   transform: scale(1);
+}
+.ventu-dialog-slide-area {
+  padding-top: 40px;
+}
+.ventu-dialog-slide-area span {
+  vertical-align: top;
+  padding: 4px;
+  display: inline-block;
+}
+.ventu-dialog-slide-area .ventu-dialog-area-picker {
+  display: inline-block;
+  margin: 0 4px;
+}
+.ventu-dialog-slide-area .ventu-dialog-area-picker .ventu-dialog-area-picker-label,
+.ventu-dialog-slide-area .ventu-dialog-area-picker input {
+  display: inline-block;
+  padding: 4px 6px;
+  background: #fff;
+  color: #03256b;
+  height: 30px;
+  border: 0;
+  vertical-align: top;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.ventu-dialog-slide-area .ventu-dialog-area-picker input {
+  width: 80px;
+}
+.ventu-dialog-slide-area .ventu-dialog-area-picker.ventu-dialog-area-picker--picked .ventu-dialog-area-picker-label,
+.ventu-dialog-slide-area .ventu-dialog-area-picker.ventu-dialog-area-picker--picked input {
+  background: #00e5a9;
 }

@@ -20,7 +20,7 @@ function Dialog(element) {
         query: {
             types: [],
             location: '',
-            area: []
+            area: [null, null]
         }
     };
 
@@ -163,7 +163,72 @@ Dialog.prototype.selectLocation = function(location) {
 };
 
 Dialog.prototype.createAreaSlide = function() {
+    var self = this, element, label1, label2, picker1, picker2, input1, input2;
+    element = $('<div class="ventu-dialog-slide ventu-dialog-slide-area"></div>');
+    label1 = $('<span>Vanaf</span>');
+    label2 = $('<span>tot</span>');
+    input1 = $('<input placeholder="...">');
+    input2 = $('<input placeholder="...">');
+    picker1 = $('<div class="ventu-dialog-area-picker"></div>');
+    picker1.append('<div class="ventu-dialog-area-picker-label">min</div>');
+    picker1.append(input1);
+    picker1.append('<div class="ventu-dialog-area-picker-label">m²</div>');
+    picker2 = $('<div class="ventu-dialog-area-picker"></div>');
+    picker2.append('<div class="ventu-dialog-area-picker-label">max</div>');
+    picker2.append(input2);
+    picker2.append('<div class="ventu-dialog-area-picker-label">m²</div>');
 
+
+    element.append(label1);
+    element.append(picker1);
+    element.append(label2);
+    element.append(picker2);
+
+    picker1.click(function(){
+        input1.focus();
+    });
+
+    picker2.click(function(){
+        input2.focus();
+    });
+
+    input1.keyup(function() {
+        var val = $(this).val();
+        if (val.length > 0) {
+            val = self.sanitize(val);
+            self.status.query.area[0] = val;
+            picker1.addClass('ventu-dialog-area-picker--picked');
+        } else {
+            self.status.query.area[0] = null;
+            picker1.removeClass('ventu-dialog-area-picker--picked');
+        }
+        self.status.updated['area'] = true;
+        self.updateButtons();
+    });
+
+    input2.keyup(function() {
+        var val = $(this).val();
+        if (val.length > 0) {
+            val = self.sanitize(val);
+            self.status.query.area[1] = val;
+            picker2.addClass('ventu-dialog-area-picker--picked');
+        } else {
+            self.status.query.area[1] = null;
+            picker2.removeClass('ventu-dialog-area-picker--picked');
+        }
+        self.status.updated['area'] = true;
+        self.updateButtons();
+    });
+
+    element.css('width', this.settings.size.frame );
+    this.elements.slideContainer.append(element);
+    return element;
+};
+
+Dialog.prototype.sanitize = function(val) {
+    // @walstra heb jij een mening of we nog meer moeten checken hier, gaat over
+    // de oppervlakte waarden
+    return parseFloat(val);
 };
 
 
@@ -197,7 +262,7 @@ Dialog.prototype.updateHeader = function() {
 };
 
 Dialog.prototype.updateHeaderSection = function(section) {
-    var container, timer, label, labels, counter;
+    var container, timer, label, labels, counter, i, l;
 
     labels = [];
     counter = 0;
@@ -206,7 +271,7 @@ Dialog.prototype.updateHeaderSection = function(section) {
 
     switch (section) {
         case 'types':
-            for (var i = 0, l = this.status.query.types.length; i < l; i++) {
+            for (i = 0, l = this.status.query.types.length; i < l; i++) {
                 label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.types[i] + '</div>');
                 container.append(label);
                 labels.push(label);
@@ -224,6 +289,22 @@ Dialog.prototype.updateHeaderSection = function(section) {
             label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.location + '</div>');
             container.append(label);
             label.addClass('show-label');
+            break;
+        case 'area':
+            for (i = 0, l = this.status.query.area.length; i < l; i++) {
+                label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.area[i] + 'm²</div>');
+                container.append(label);
+                labels.push(label);
+            }
+
+            timer = setInterval(function(){
+                labels[counter].addClass('show-label');
+                counter++;
+                if (counter >= l) {
+                    clearInterval(timer);
+                }
+            }, 50);
+            break;
     }
     this.status.updated[section] = false;
 };
@@ -274,6 +355,10 @@ Dialog.prototype.updateButtons = function() {
             }
             break;
         case 2:
-            this.elements.buttons.next.hide();
+            if (this.status.query.area[0] !== null && this.status.query.area[1] !== null) {
+                this.elements.buttons.next.show();
+            } else {
+                this.elements.buttons.next.hide();
+            }
     }
 };
