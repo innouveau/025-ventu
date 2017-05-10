@@ -10,4 +10,10 @@ function initialiseModules() {
             new Search($(this));
         }
     });
+
+    $('.ventu-search-open').click(function(e){
+        if ($(e.target).hasClass('ventu-search-open')) {
+            $(this).toggleClass('ventu-search-open--opened');
+        }
+    })
 }

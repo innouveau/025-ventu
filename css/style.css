@@ -108,16 +108,6 @@
 * {
   box-sizing: border-box;
 }
-html {
-  height: 100%;
-}
-html body {
-  font-size: 12px;
-  line-height: 17px;
-  color: #1F1F1F;
-  font-family: 'Alegreya Sans';
-  background: #ddd;
-}
 input {
   font-size: 12px;
   color: #17141f;
@@ -1344,9 +1334,6 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
   transform: scale(1.1);
 }
 .ventu-home-content {
-  font-size: 16px;
-  line-height: 1.25;
-  color: #17141f;
   margin-top: 60px;
 }
 #ventu-chat-entry {
@@ -1873,16 +1860,14 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
   width: 100%;
   border-bottom: 2px solid #cacaca;
   position: relative;
-  height: 64px;
-  padding: 6px 0 12px 0;
+  height: 60px;
+  padding: 4px 0 8px 0;
   max-width: 400px;
 }
 .ventu-search .ventu-search-icon {
   display: inline-block;
   background-size: 100% 100%;
   float: left;
-}
-.ventu-search.ventu-search-glass .ventu-search-icon {
   height: 24px;
   width: 24px;
   margin: 11px 10px;
@@ -1919,6 +1904,31 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 }
 .ventu-search.ventu-search--white input {
   color: #fff;
+}
+.ventu-search-open {
+  width: 60px;
+  height: 60px;
+  background: #ededec;
+  background-image: url(../img/tools/glass.svg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: relative;
+}
+.ventu-search-open .ventu-search-container {
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+.ventu-search-open.ventu-search-open--opened {
+  background-image: url(../img/tools/close.svg);
+}
+.ventu-search-open.ventu-search-open--opened .ventu-search-container {
+  width: 500px;
+  overflow: visible;
 }
 .ventu-search-results {
   position: absolute;
@@ -2374,4 +2384,8 @@ form button[type=submit] {
 }
 body {
   background: #ededec;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #17141f;
+  font-family: 'Alegreya Sans';
 }

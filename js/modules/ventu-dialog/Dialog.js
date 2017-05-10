@@ -141,7 +141,7 @@ Dialog.prototype.createTypeButton = function(type) {
 Dialog.prototype.createLocationSlide = function() {
     var searchModule, element, search;
     element = $('<div class="ventu-dialog-slide"></div>');
-    search = $('<div class="ventu-search initialise-manually ventu-search--white ventu-search-marker" ph="Zoek op plaats, naam, postcode, gebouw"></div>');
+    search = $('<div class="ventu-search initialise-manually ventu-search--white ventu-search-marker"></div>');
     // make it align in the center
     search.css({
         'width': 500,

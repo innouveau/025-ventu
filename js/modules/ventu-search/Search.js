@@ -27,6 +27,9 @@ Search.prototype.addOutput = function(dialog) {
 Search.prototype.create = function() {
     var self = this,
         placeholder = this.element.attr('ph');
+    if (!placeholder) {
+        placeholder = 'Zoek op plaats, naam, postcode, gebouw';
+    }
     this.elements.icon = $('<div class="ventu-search-icon"></div>');
     this.elements.input = $('<input placeholder="' + placeholder + '">');
     this.elements.chosen = $('<div class="ventu-search-chosen"></div>');
