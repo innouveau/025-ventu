@@ -6,7 +6,7 @@ function Search(element, callback) {
         chosen: null,
         results: null
     };
-    this.callback = null;
+    this.outerOutput = null;
     this.init();
 
 }
@@ -19,9 +19,9 @@ Search.prototype.init = function() {
 
 
 // if we want the selection of a search result do something other
-// then window.ventu.select() we can add a callback
-Search.prototype.addCallback = function(callback) {
-    this.callback = callback;
+// then window.ventu.select() we can add an outer output
+Search.prototype.addOutput = function(dialog) {
+    this.outerOutput = dialog;
 };
 
 Search.prototype.create = function() {
@@ -95,8 +95,8 @@ Search.prototype.select = function(element) {
     // maar dat weet jij beter dan ik.
     var location = element.find('.search-address').data('city');
     this.setChosen(location);
-    if (this.callback) {
-        this.callback(location);
+    if (this.outerOutput) {
+        this.outerOutput.selectLocation(location);
     } else {
         window.ventu.select(location);
     }

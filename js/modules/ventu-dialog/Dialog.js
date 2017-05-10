@@ -135,7 +135,7 @@ Dialog.prototype.createTypeButton = function(type) {
 };
 
 Dialog.prototype.createLocationSlide = function() {
-    var self = this, searchModule, element, search;
+    var searchModule, element, search;
     element = $('<div class="ventu-dialog-slide"></div>');
     search = $('<div class="ventu-search initialise-manually ventu-search--white ventu-search-marker" ph="Zoek op plaats, naam, postcode, gebouw"></div>');
     // make it align in the center
@@ -144,7 +144,7 @@ Dialog.prototype.createLocationSlide = function() {
         'margin': '0 auto'
     });
     searchModule = new Search(search);
-    searchModule.addCallback(self.selectLocation);
+    searchModule.addOutput(this);
 
     element.css('width', this.settings.size.frame );
     element.append(search);
@@ -153,7 +153,8 @@ Dialog.prototype.createLocationSlide = function() {
 };
 
 Dialog.prototype.selectLocation = function(location) {
-    console.log(location);
+    this.status.query.location = location;
+    this.status.updated['location'] = true;
 };
 
 Dialog.prototype.createAreaSlide = function() {
@@ -191,7 +192,7 @@ Dialog.prototype.updateHeader = function() {
 };
 
 Dialog.prototype.updateHeaderSection = function(section) {
-    var container, timer, labels, counter;
+    var container, timer, label, labels, counter;
 
     labels = [];
     counter = 0;
@@ -201,7 +202,7 @@ Dialog.prototype.updateHeaderSection = function(section) {
     switch (section) {
         case 'types':
             for (var i = 0, l = this.status.query.types.length; i < l; i++) {
-                var label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.types[i] + '</div>');
+                label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.types[i] + '</div>');
                 container.append(label);
                 labels.push(label);
             }
@@ -212,7 +213,12 @@ Dialog.prototype.updateHeaderSection = function(section) {
                 if (counter >= l) {
                     clearInterval(timer);
                 }
-            }, 50)
+            }, 50);
+            break;
+        case 'location':
+            label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.location + '</div>');
+            container.append(label);
+            label.addClass('show-label');
     }
     this.status.updated[section] = false;
 };
