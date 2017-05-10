@@ -1969,7 +1969,7 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 .ventu-search.ventu-search-marker .ventu-search-icon {
   height: 45px;
   width: 28px;
-  margin: 1px 8px 0 8px;
+  margin: 1px 12px 0 4px;
   background-image: url(../img/tools/marker.svg);
 }
 .ventu-search input {
@@ -1981,6 +1981,16 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
   font-weight: 300;
   float: left;
   margin-top: 5px;
+}
+.ventu-search .ventu-search-chosen {
+  position: absolute;
+  left: 40px;
+  top: 17px;
+  display: none;
+  padding: 4px;
+  color: #fff;
+  background: #00e5a9;
+  cursor: default;
 }
 .ventu-search.ventu-search--white {
   border-bottom: 2px solid #fff;

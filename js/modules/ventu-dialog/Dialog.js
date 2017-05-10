@@ -1,5 +1,4 @@
 function Dialog(element) {
-    console.log(element);
     this.element = element;
 
     this.sections = ['types', 'location', 'area'];
@@ -136,18 +135,25 @@ Dialog.prototype.createTypeButton = function(type) {
 };
 
 Dialog.prototype.createLocationSlide = function() {
-    var element, search;
+    var self = this, searchModule, element, search;
     element = $('<div class="ventu-dialog-slide"></div>');
-    search = $('<div class="ventu-search ventu-search--white ventu-search-marker" ph="Zoek op plaats, naam, postcode, gebouw"></div>');
+    search = $('<div class="ventu-search initialise-manually ventu-search--white ventu-search-marker" ph="Zoek op plaats, naam, postcode, gebouw"></div>');
     // make it align in the center
     search.css({
         'width': 500,
         'margin': '0 auto'
     });
+    searchModule = new Search(search);
+    searchModule.addCallback(self.selectLocation);
+
     element.css('width', this.settings.size.frame );
     element.append(search);
     this.elements.slideContainer.append(element);
     return element;
+};
+
+Dialog.prototype.selectLocation = function(location) {
+    console.log(location);
 };
 
 Dialog.prototype.createAreaSlide = function() {

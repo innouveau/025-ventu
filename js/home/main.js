@@ -10,6 +10,10 @@ function initialiseModules() {
     });
 
     $('.ventu-search').each(function(){
-        new Search($(this));
+        // we want the search module initialis by hand
+        // to add the custom callback
+        if (!$(this).hasClass('initialise-manually')) {
+            new Search($(this));
+        }
     });
 }
