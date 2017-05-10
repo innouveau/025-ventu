@@ -22,36 +22,34 @@
 </head>
 
 <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header pull-right">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="navbar-header pull-left">
+            <a class="navbar-brand" href="./">
+                <div class="ventu-identity"></div>
+            </a>
+        </div>
+
+        <div id="navbar" class="pull-right">
+            <ul class="nav navbar-nav ventu-menu-buttons">
+                <li><a href="javascript:login()">Inloggen</a></li>
+                <li><a href="javascript:register()">Registreren</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
     <div id="dynamic-content">
         <div class="ventu-pagewrap">
-
-            <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="ventu-pagewrap">
-                    <div class="ventu-navbar">
-                        <div class="navbar-header pull-right">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-
-                        <div class="navbar-header pull-left">
-                            <a class="navbar-brand" href="./">
-                                <div class="ventu-identity"></div>
-                            </a>
-                        </div>
-
-                        <div id="navbar" class="pull-right">
-                            <ul class="nav navbar-nav ventu-menu-buttons">
-                                <li><a href="javascript:login()">Inloggen</a></li>
-                                <li><a href="javascript:register()">Registreren</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
 
             <div class="ventu-home-content">
 
@@ -59,9 +57,9 @@
                 <!-- ventu dialog -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <div id="ventu-dialog-entry" class="ventu-home-block ventu-home-block--with-background">
-                            <div class="ventu-home-block-header">
-                                <div class="ventu-home-block-header-text ventu-home-block-header-text--white">
+                        <div id="ventu-dialog-entry" class="ventu-block ventu-block--with-background">
+                            <div class="ventu-block-header">
+                                <div class="ventu-block-header-text ventu-block-header-text--white">
                                     <h1>
                                         Samen vinden,
                                         doe je met Ventu
@@ -77,9 +75,9 @@
                 </div>
 
                 <!-- ventu usp block -->
-                <div class="ventu-home-block row">
-                    <div class="ventu-home-block-header">
-                        <div class="ventu-home-block-header-text">
+                <div class="ventu-block row">
+                    <div class="ventu-block-header">
+                        <div class="ventu-block-header-text">
                         <h2>
                             De makkelijkste manier om jouw
                             toekomstige bedrijfsruimte te vinden
@@ -131,9 +129,9 @@
                 <!-- ventu chat block -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <div id="ventu-chat-entry" class="ventu-home-block ventu-home-block--with-background">
-                            <div class="ventu-home-block-header">
-                                <div class="ventu-home-block-header-text">
+                        <div id="ventu-chat-entry" class="ventu-block ventu-block--with-background">
+                            <div class="ventu-block-header">
+                                <div class="ventu-block-header-text">
                                     <h2>
                                         Een nieuw pand vinden doe je niet alleen.
                                         Beoordeel samen interessante opties
@@ -196,10 +194,10 @@
                 <!-- ventu search entry block -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <div id="ventu-search-entry" class="ventu-home-block ventu-home-block--with-background">
+                        <div id="ventu-search-entry" class="ventu-block ventu-block--with-background">
                             <div class="col-sm-6">
-                                <div class="ventu-home-block-header ventu-home-block-header--left">
-                                    <div class="ventu-home-block-header-text">
+                                <div class="ventu-block-header ventu-block-header--left">
+                                    <div class="ventu-block-header-text">
                                         <h2>
                                             Ontdek het aanbod van Ventu
                                         </h2>
@@ -269,9 +267,9 @@
                 <!-- ventu inspiration -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="ventu-home-block ventu-home-block--grey">
-                            <div class="ventu-home-block-header">
-                                <div class="ventu-home-block-header-text">
+                        <div class="ventu-block ventu-block--grey">
+                            <div class="ventu-block-header">
+                                <div class="ventu-block-header-text">
                                     <h2>
                                         Laat je inspireren
                                     </h2>
@@ -327,9 +325,9 @@
                 <!-- ventu discover -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <div id="ventu-discover-entry" class="ventu-home-block ventu-home-block--with-background">
-                            <div class="ventu-home-block-header">
-                                <div class="ventu-home-block-header-text ventu-home-block-header-text--white">
+                        <div id="ventu-discover-entry" class="ventu-block ventu-block--with-background">
+                            <div class="ventu-block-header">
+                                <div class="ventu-block-header-text ventu-block-header-text--white">
                                     <h2>
                                         Het grootste aanbod van Nederland, vindt u op Ventu
                                     </h2>
@@ -347,13 +345,13 @@
 
 
 
-                <!-- common footer -->
-                <div id="ventu-footer" class="ventu-home-block">
+                <!-- Ventu about -->
+                <div id="ventu-about" class="ventu-block">
                     <div class="row">
                         <div class="col-sm-12">
                             <div id="ventu-footer-menu">
                                 <a href="over-ventu.html">Over Ventu</a> |
-                                <a href="over-ventu.html">Hoe werkt Ventu </a> |
+                                <a href="over-ventu.html">Hoe werkt Ventu</a> |
                                 <a href="over-ventu.html">Aanbieders</a> |
                                 <a href="over-ventu.html">Voor de zoeker</a> |
                                 <a href="over-ventu.html">Voor de makelaar</a> |
@@ -362,8 +360,12 @@
 
                         </div>
                     </div>
+                </div>
 
-                    <div id="ventu-footer-direct-links" class="row">
+
+                <!-- direct links -->
+                <div id="ventu-direct-links" class="ventu-block">
+                    <div class="row">
                         <div class="col-sm-3">
                             <h2>
                                 Vind kantoren:
@@ -405,6 +407,37 @@
 
 
 
+                <!-- ventu footer -->
+                <div id="ventu-footer" class="ventu-block">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="img/identity/ventu-icon-footer.svg">
+                            Ventu ©2017
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="ventu-footer-legal">
+                                <a href="privacybeleid.html">Privacybeleid</a> |
+                                <a href="gebruiksvoorwaarden.html">Gebruiksvoorwaarden</a> |
+                                <a href="cookiebeleid.html">Cookiebeleid</a> |
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div id="ventu-footer-social">
+                                <a href="facebook.com">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="twitter.com">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="linkedin.com">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
 
             </div>
 
@@ -413,34 +446,6 @@
 
         </div>
     </div>
-
-
-
-
-
-
-
-<!--
-
-<div class="ventu-card-buttons">
-    <div class="ventu-card-button">
-        <div class="ventu-card-button-icon ventu-icon-hate">
-            <div class="ventu-ripple"></div>
-        </div>
-        <span class="NietInteressant">niet interessant</span>
-    </div>
-    <div class="ventu-card-button">
-        <div class="ventu-card-button-icon ventu-icon-love">
-            <div class="ventu-ripple"></div>
-        </div>
-        <span class="Interessant">interessant</span>
-    </div>
-</div>
-
--->
-
-
-
 
 </body>
 </html>

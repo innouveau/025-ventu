@@ -1679,28 +1679,65 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
     margin-bottom: 10px;
   }
 }
-.ventu-home-block {
-  padding: 80px 40px;
+/* specific blocks */
+#ventu-about.ventu-block {
+  padding: 32px 90px;
+  text-align: center;
+  border-bottom: 1px solid #ededec;
 }
-.ventu-home-block.ventu-home-block--with-background {
+#ventu-direct-links.ventu-block {
+  padding: 48px 90px;
+  border-bottom: 1px solid #ededec;
+}
+#ventu-footer.ventu-block {
+  padding: 32px 90px;
+  font-family: ProximaNova;
+}
+#ventu-about h2,
+#ventu-direct-links h2 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 0.67;
+  color: #03256b;
+}
+#ventu-about h2:first-child,
+#ventu-direct-links h2:first-child {
+  margin-top: 0;
+}
+#ventu-about a,
+#ventu-direct-links a {
+  font-family: ProximaNova;
+  color: #17141f;
+  text-decoration: none;
+}
+#ventu-about a:hover,
+#ventu-direct-links a:hover {
+  color: #03256b;
+  text-decoration: underline;
+}
+/* generic blocks */
+.ventu-block {
+  padding: 80px 90px;
+}
+.ventu-block.ventu-block--with-background {
   background-size: cover;
 }
-.ventu-home-block.ventu-home-block--grey {
+.ventu-block.ventu-block--grey {
   background: #ebebeb;
 }
-.ventu-home-block .ventu-home-block-header {
+.ventu-block .ventu-block-header {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
-.ventu-home-block .ventu-home-block-header.ventu-home-block-header--left {
+.ventu-block .ventu-block-header.ventu-block-header--left {
   text-align: left;
 }
-.ventu-home-block .ventu-home-block-header .ventu-home-block-header-text {
+.ventu-block .ventu-block-header .ventu-block-header-text {
   margin-bottom: 40px;
 }
-.ventu-home-block .ventu-home-block-header .ventu-home-block-header-text h1 {
+.ventu-block .ventu-block-header .ventu-block-header-text h1 {
   font-weight: 700;
   margin: 0 0 20px 0;
   padding: 0;
@@ -1708,29 +1745,29 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
   line-height: 1;
   color: #03256b;
 }
-.ventu-home-block .ventu-home-block-header .ventu-home-block-header-text h2 {
+.ventu-block .ventu-block-header .ventu-block-header-text h2 {
   font-weight: 700;
   margin: 0 0 20px 0;
   padding: 0;
   font-size: 40px;
   color: #03256b;
 }
-.ventu-home-block .ventu-home-block-header .ventu-home-block-header-text h5 {
+.ventu-block .ventu-block-header .ventu-block-header-text h5 {
   font-size: 20px;
   line-height: 1.25;
   color: #17141f;
   margin: 0;
 }
-.ventu-home-block .ventu-home-block-header .ventu-home-block-header-text h6 {
+.ventu-block .ventu-block-header .ventu-block-header-text h6 {
   font-size: 16px;
   line-height: 1.25;
   color: #17141f;
   margin: 0;
 }
-.ventu-home-block .ventu-home-block-header .ventu-home-block-header-text.ventu-home-block-header-text--white h1,
-.ventu-home-block .ventu-home-block-header .ventu-home-block-header-text.ventu-home-block-header-text--white h2,
-.ventu-home-block .ventu-home-block-header .ventu-home-block-header-text.ventu-home-block-header-text--white h5,
-.ventu-home-block .ventu-home-block-header .ventu-home-block-header-text.ventu-home-block-header-text--white h6 {
+.ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h1,
+.ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h2,
+.ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h5,
+.ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h6 {
   color: #fff;
 }
 .ventu-inspiration {
@@ -1764,28 +1801,29 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
   max-width: 300px;
   margin: 0 auto;
 }
-#ventu-footer {
-  padding-top: 0;
+#ventu-footer #ventu-footer-legal {
+  text-align: center;
+  padding-top: 8px;
 }
-#ventu-footer a {
-  font-family: ProximaNova;
+#ventu-footer #ventu-footer-legal a {
   color: #17141f;
+}
+#ventu-footer #ventu-footer-social {
+  text-align: right;
+  padding-top: 3px;
+}
+#ventu-footer #ventu-footer-social a {
+  margin-left: 10px;
+}
+#ventu-footer #ventu-footer-social a i {
+  color: #727272;
+  font-size: 20px;
+}
+#ventu-footer #ventu-footer-social a:hover {
   text-decoration: none;
 }
-#ventu-footer a:hover {
-  color: #03256b;
-  text-decoration: underline;
-}
-#ventu-footer #ventu-footer-menu {
-  padding: 32px 0;
-  text-align: center;
-  border-bottom: 1px solid #ededec;
-}
-#ventu-footer #ventu-footer-direct-links h2 {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 0.67;
-  color: #03256b;
+#ventu-footer #ventu-footer-social a:hover i {
+  color: #00e5a9;
 }
 .ventu-chat-pin {
   position: absolute;
@@ -2020,17 +2058,14 @@ nav.navbar-default {
   height: 60px;
   border: 0!important;
   margin: 0;
-  background: transparent;
-}
-nav.navbar-default .ventu-navbar {
   width: 100%;
-  height: 60px;
   background: #00e5a9 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
-nav.navbar-default .ventu-navbar .navbar-header .navbar-brand {
+nav.navbar-default .navbar-header .navbar-brand {
   padding: 0;
 }
-nav.navbar-default .ventu-navbar .navbar-header .navbar-brand .ventu-identity {
+nav.navbar-default .navbar-header .navbar-brand .ventu-identity {
   display: inline-block;
   background-image: url('../img/identity/ventu-logo-small.png');
   background-size: cover;
@@ -2038,37 +2073,37 @@ nav.navbar-default .ventu-navbar .navbar-header .navbar-brand .ventu-identity {
   height: 60px;
   margin-right: 20px;
 }
-nav.navbar-default .ventu-navbar .navbar-header .navbar-toggle {
+nav.navbar-default .navbar-header .navbar-toggle {
   border-radius: 0;
   border: 1px solid #17141f;
   margin-top: 21px;
   margin-right: 18px;
   padding: 6px;
 }
-nav.navbar-default .ventu-navbar .navbar-header .navbar-toggle:hover {
+nav.navbar-default .navbar-header .navbar-toggle:hover {
   background: white;
 }
-nav.navbar-default .ventu-navbar .navbar-header .navbar-toggle .icon-bar {
+nav.navbar-default .navbar-header .navbar-toggle .icon-bar {
   border-radius: 0;
   background-color: #17141f;
   height: 1px;
 }
-nav.navbar-default .ventu-navbar #navbar {
+nav.navbar-default #navbar {
   height: 100%;
 }
-nav.navbar-default .ventu-navbar #navbar ul {
+nav.navbar-default #navbar ul {
   height: 100%;
 }
-nav.navbar-default .ventu-navbar #navbar ul li {
+nav.navbar-default #navbar ul li {
   border-left: 1px solid #dcdce2;
   display: block;
   height: 100%;
   background: #fff;
 }
-nav.navbar-default .ventu-navbar #navbar ul li:hover {
+nav.navbar-default #navbar ul li:hover {
   background: #dcdce2;
 }
-nav.navbar-default .ventu-navbar #navbar ul li a {
+nav.navbar-default #navbar ul li a {
   padding: 20px 24px;
   font-size: 14px;
   font-weight: 500;
@@ -2078,25 +2113,25 @@ nav.navbar-default .ventu-navbar #navbar ul li a {
   height: 100%;
   font-family: 'ProximaNova';
 }
-nav.navbar-default .ventu-navbar #navbar ul li .dropdown-menu {
+nav.navbar-default #navbar ul li .dropdown-menu {
   background-color: #fff;
   border: 0;
   height: auto;
   border-radius: 0;
   padding: 0;
 }
-nav.navbar-default .ventu-navbar #navbar ul li .dropdown-menu li {
+nav.navbar-default #navbar ul li .dropdown-menu li {
   border-left: 0;
   border-bottom: 1px solid #ddd;
 }
-nav.navbar-default .ventu-navbar #navbar ul li .dropdown-menu li:hover {
+nav.navbar-default #navbar ul li .dropdown-menu li:hover {
   background: transparent;
 }
-nav.navbar-default .ventu-navbar #navbar ul li .dropdown-menu li a {
+nav.navbar-default #navbar ul li .dropdown-menu li a {
   padding: 16px 32px;
   height: auto;
 }
-nav.navbar-default .ventu-navbar #navbar ul li .dropdown-menu li a:hover {
+nav.navbar-default #navbar ul li .dropdown-menu li a:hover {
   background: #ddd;
 }
 @media (max-width: 1024px) {
@@ -2270,7 +2305,7 @@ nav.navbar-default .ventu-navbar #navbar ul li .dropdown-menu li a:hover {
   color: #03256b;
 }
 .ventu-dialog-header {
-  height: 100px;
+  height: 140px;
   text-align: center;
 }
 .ventu-dialog-header .ventu-dialog-header-section-text {

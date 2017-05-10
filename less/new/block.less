@@ -1,27 +1,77 @@
-.ventu-home-block {
-    padding: 80px 40px;
+/* specific blocks */
 
-    &.ventu-home-block--with-background {
+#ventu-about.ventu-block {
+    padding: 32px 90px;
+    text-align: center;
+    border-bottom: 1px solid @ventu-main-grey-2;
+}
+
+#ventu-direct-links.ventu-block {
+    padding: 48px 90px;
+    border-bottom: 1px solid @ventu-main-grey-2;
+}
+
+#ventu-footer.ventu-block {
+    padding: 32px 90px;
+    font-family: ProximaNova;
+}
+
+#ventu-about,
+#ventu-direct-links {
+
+    h2 {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 0.67;
+        color: @ventu-color-2;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    a {
+        font-family: ProximaNova;
+        color: @ventu-black;
+        text-decoration: none;
+
+        &:hover {
+            color: @ventu-color-2;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+
+
+/* generic blocks */
+
+.ventu-block {
+    padding: 80px 90px;
+
+    &.ventu-block--with-background {
         background-size: cover;
     }
 
-    &.ventu-home-block--grey {
+    &.ventu-block--grey {
         background: #ebebeb;
     }
 
-    .ventu-home-block-header {
+    .ventu-block-header {
         width: 100%;
         max-width: 800px;
         margin: 0 auto;
         text-align: center;
 
-        &.ventu-home-block-header--left {
+        &.ventu-block-header--left {
             text-align: left;
         }
 
 
 
-        .ventu-home-block-header-text {
+        .ventu-block-header-text {
             margin-bottom: 40px;
 
             h1 {
@@ -55,7 +105,7 @@
                 margin: 0;
             }
 
-            &.ventu-home-block-header-text--white {
+            &.ventu-block-header-text--white {
 
 
                 h1, h2, h5, h6 {

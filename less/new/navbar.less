@@ -4,98 +4,94 @@ nav.navbar-default {
     height: 60px;
     border: 0!important;
     margin: 0;
-    background: transparent;
+    width: 100%;
+    background: @ventu-color-1!important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 
-    .ventu-navbar {
-        width: 100%;
-        height: 60px;
-        background: @ventu-color-1!important;
+    .navbar-header {
 
-        .navbar-header {
+        .navbar-brand {
+            padding: 0;
 
-            .navbar-brand {
-                padding: 0;
-
-                .ventu-identity {
-                    display: inline-block;
-                    background-image: url('../img/identity/ventu-logo-small.png');
-                    background-size: cover;
-                    width: 153px;
-                    height: 60px;
-                    margin-right: 20px;
-                }
-            }
-
-            .navbar-toggle {
-                border-radius: 0;
-                border: 1px solid @ventu-black;
-                margin-top: 21px;
-                margin-right: 18px;
-                padding: 6px;
-
-                &:hover {
-                    background: white;
-
-                }
-
-                .icon-bar {
-                    border-radius: 0;
-                    background-color: @ventu-black;
-                    height: 1px;
-                }
+            .ventu-identity {
+                display: inline-block;
+                background-image: url('../img/identity/ventu-logo-small.png');
+                background-size: cover;
+                width: 153px;
+                height: 60px;
+                margin-right: 20px;
             }
         }
 
-        #navbar {
+        .navbar-toggle {
+            border-radius: 0;
+            border: 1px solid @ventu-black;
+            margin-top: 21px;
+            margin-right: 18px;
+            padding: 6px;
+
+            &:hover {
+                background: white;
+
+            }
+
+            .icon-bar {
+                border-radius: 0;
+                background-color: @ventu-black;
+                height: 1px;
+            }
+        }
+    }
+
+    #navbar {
+        height: 100%;
+
+        ul {
             height: 100%;
 
-            ul {
+            li {
+                border-left: 1px solid @ventu-menu-bar-grey;
+                display: block;
                 height: 100%;
+                background: #fff;
 
-                li {
-                    border-left: 1px solid @ventu-menu-bar-grey;
+                &:hover {
+                    background: @ventu-menu-bar-grey;
+                }
+
+                a {
+                    padding: 20px 24px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+                    color: @ventu-color-2;
+
                     display: block;
                     height: 100%;
-                    background: #fff;
+                    font-family: 'ProximaNova';
+                }
 
-                    &:hover {
-                        background: @ventu-menu-bar-grey;
-                    }
+                .dropdown-menu {
+                    background-color: #fff;
+                    border: 0;
+                    height: auto;
+                    border-radius: 0;
+                    padding: 0;
 
-                    a {
-                        padding: 20px 24px;
-                        font-size: 14px;
-                        font-weight: 500;
-                        transition: all 0.2s ease;
-                        color: @ventu-color-2;
+                    li {
+                        border-left: 0;
+                        border-bottom: 1px solid #ddd;
 
-                        display: block;
-                        height: 100%;
-                        font-family: 'ProximaNova';
-                    }
+                        &:hover {
+                            background: transparent;
+                        }
 
-                    .dropdown-menu {
-                        background-color: #fff;
-                        border: 0;
-                        height: auto;
-                        border-radius: 0;
-                        padding: 0;
-
-                        li {
-                            border-left: 0;
-                            border-bottom: 1px solid #ddd;
+                        a {
+                            padding: 16px 32px;
+                            height: auto;
 
                             &:hover {
-                                background: transparent;
-                            }
-
-                            a {
-                                padding: 16px 32px;
-                                height: auto;
-
-                                &:hover {
-                                    background: @button-hover-color;
-                                }
+                                background: @button-hover-color;
                             }
                         }
                     }
@@ -103,6 +99,7 @@ nav.navbar-default {
             }
         }
     }
+
 }
 
 
