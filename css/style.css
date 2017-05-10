@@ -1892,12 +1892,15 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 .ventu-search .ventu-search-chosen {
   position: absolute;
   left: 40px;
-  top: 17px;
+  top: 15px;
   display: none;
   padding: 4px;
   color: #03256b;
   background: #00e5a9;
   cursor: default;
+}
+.ventu-search.ventu-search--white-label .ventu-search-chosen {
+  background: #fff;
 }
 .ventu-search.ventu-search--white {
   border-bottom: 2px solid #fff;
@@ -2182,7 +2185,7 @@ nav.navbar-default #navbar ul li .dropdown-menu li a:hover {
   border-right: 20px solid #fff;
   content: '';
   position: absolute;
-  left: 29px;
+  left: 23px;
   top: 22px;
 }
 .ventu-dialog-slide-frame .ventu-dialog-slide-container {
@@ -2345,7 +2348,7 @@ nav.navbar-default #navbar ul li .dropdown-menu li a:hover {
   width: 32px;
   height: 32px;
   text-align: center;
-  padding-top: 8px;
+  padding-top: 2px;
   border-radius: 16px;
 }
 .ventu-close-popup:hover {
