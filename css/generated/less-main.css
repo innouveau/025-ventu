@@ -136,18 +136,6 @@ h2 {
   -webkit-user-select: none;
   -o-user-select: none;
 }
-body {
-  padding: 0;
-}
-body .ventu-pagewrap {
-  width: 1280px;
-  margin: 0 auto;
-}
-@media (max-width: 1280px) {
-  body .ventu-pagewrap {
-    width: 100%;
-  }
-}
 .btn {
   border-radius: 20px;
   height: 40px;
@@ -1355,6 +1343,12 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 .ventu-single-page .ventu-pagewrap .ventu-page-footer .ventu-card:hover {
   transform: scale(1.1);
 }
+.ventu-home-content {
+  font-size: 16px;
+  line-height: 1.25;
+  color: #17141f;
+  margin-top: 60px;
+}
 #ventu-chat-entry {
   height: 800px;
   background-image: url('../img/home/ventu-samen-map.jpg');
@@ -1376,12 +1370,6 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 #ventu-dialog-entry {
   height: 800px;
   background-image: url('../img/home/discover-bg.jpg');
-}
-.ventu-home-content {
-  background: #fff;
-  font-size: 16px;
-  line-height: 1.25;
-  color: #17141f;
 }
 #ventu-home-card-container {
   height: 400px;
@@ -1613,6 +1601,7 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 /* generic blocks */
 .ventu-block {
   padding: 80px 90px;
+  background: #fff;
 }
 .ventu-block.ventu-block--with-background {
   background-size: cover;
@@ -2144,7 +2133,7 @@ nav.navbar-default #navbar ul li .dropdown-menu li a:hover {
 }
 .ventu-dialog-slide-frame .ventu-dialog-navigation-button {
   position: absolute;
-  top: 50%;
+  top: 0;
   z-index: 1;
   width: 74px;
   height: 74px;
@@ -2382,4 +2371,7 @@ form a:hover {
 }
 form button[type=submit] {
   margin-top: 20px;
+}
+body {
+  background: #ededec;
 }

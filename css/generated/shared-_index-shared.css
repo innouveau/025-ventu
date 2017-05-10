@@ -136,18 +136,6 @@ h2 {
   -webkit-user-select: none;
   -o-user-select: none;
 }
-body {
-  padding: 0;
-}
-body .ventu-pagewrap {
-  width: 1280px;
-  margin: 0 auto;
-}
-@media (max-width: 1280px) {
-  body .ventu-pagewrap {
-    width: 100%;
-  }
-}
 .btn {
   border-radius: 20px;
   height: 40px;

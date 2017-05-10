@@ -1,0 +1,43 @@
+#ventu-chat-entry {
+  height: 800px;
+  background-image: url('../img/home/ventu-samen-map.jpg');
+}
+#ventu-chat-entry .ventu-chat-pins-container {
+  position: relative;
+}
+#ventu-search-entry {
+  height: 800px;
+  background-image: url('../img/home/skyline.png');
+  background-size: contain!important;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+}
+#ventu-discover-entry {
+  height: 800px;
+  background-image: url('../img/home/discover-bg.jpg');
+}
+#ventu-dialog-entry {
+  height: 800px;
+  background-image: url('../img/home/discover-bg.jpg');
+}
+#ventu-home-card-container {
+  height: 400px;
+}
+#ventu-card-button-container {
+  position: relative;
+}
+#ventu-card-button-container .ventu-card-button {
+  position: absolute;
+}
+#ventu-card-button-container .ventu-card-button--love {
+  left: calc(50% - 210px);
+  top: 100px;
+}
+#ventu-card-button-container .ventu-card-button--hate {
+  left: calc(50% + 70px);
+  top: 100px;
+}
+#ventu-card-button-container .ventu-card-button--read-more {
+  left: calc(50% - 32px);
+  top: 200px;
+}
