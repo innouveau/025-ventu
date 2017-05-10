@@ -1,4 +1,5 @@
 function Dialog(element) {
+    console.log(element);
     this.element = element;
 
     this.sections = ['types', 'location', 'area'];
@@ -92,15 +93,17 @@ Dialog.prototype.createButtons = function() {
 Dialog.prototype.createSlides = function() {
     this.elements.slideFrame = $('<div class="ventu-dialog-slide-frame"></div>');
     this.elements.slideContainer = $('<div class="ventu-dialog-slide-container"></div>');
+    this.elements.slideContainer.css('width', this.sections.length * this.settings.size.frame)
     this.element.append(this.elements.slideFrame);
     this.elements.slideFrame.append(this.elements.slideContainer);
+
     this.elements.slides.push(this.createTypeSlide());
     this.elements.slides.push(this.createLocationSlide());
     this.elements.slides.push(this.createAreaSlide());
 };
 
 Dialog.prototype.createTypeSlide = function() {
-    var types, element, header, container;
+    var types, element, container;
     types = ['Winkel', 'Kantoor', 'Bedrijfsruimte', 'Horeca', 'Bouwgrond'];
     element = $('<div class="ventu-dialog-slide"></div>');
 
@@ -133,7 +136,18 @@ Dialog.prototype.createTypeButton = function(type) {
 };
 
 Dialog.prototype.createLocationSlide = function() {
-
+    var element, search;
+    element = $('<div class="ventu-dialog-slide"></div>');
+    search = $('<div class="ventu-search ventu-search--white ventu-search-marker" ph="Zoek op plaats, naam, postcode, gebouw"></div>');
+    // make it align in the center
+    search.css({
+        'width': 500,
+        'margin': '0 auto'
+    });
+    element.css('width', this.settings.size.frame );
+    element.append(search);
+    this.elements.slideContainer.append(element);
+    return element;
 };
 
 Dialog.prototype.createAreaSlide = function() {
@@ -171,15 +185,12 @@ Dialog.prototype.updateHeader = function() {
 };
 
 Dialog.prototype.updateHeaderSection = function(section) {
-    console.log('update section ' + section);
     var container, timer, labels, counter;
 
     labels = [];
     counter = 0;
     container = this.elements.header[section].find('.ventu-dialog-header-section-labels');
     container.empty();
-
-    console.log(container);
 
     switch (section) {
         case 'types':
@@ -188,10 +199,8 @@ Dialog.prototype.updateHeaderSection = function(section) {
                 container.append(label);
                 labels.push(label);
             }
-            console.log(labels);
 
             timer = setInterval(function(){
-                console.log(counter);
                 labels[counter].addClass('show-label');
                 counter++;
                 if (counter >= l) {
