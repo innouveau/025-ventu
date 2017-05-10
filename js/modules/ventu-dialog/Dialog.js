@@ -74,19 +74,22 @@ Dialog.prototype.createHeader = function() {
 };
 
 Dialog.prototype.createButtons = function() {
-    var self, prev, next;
+    var self;
     self = this;
-    prev = $('<div class="ventu-dialog-navigation-button ventu-dialog-navigation-prev"></div>');
-    next = $('<div class="ventu-dialog-navigation-button ventu-dialog-navigation-next"></div>');
-    prev.click(function(){
+    this.elements.buttons.prev = $('<div class="ventu-dialog-navigation-button ventu-dialog-navigation-prev"></div>');
+    this.elements.buttons.next = $('<div class="ventu-dialog-navigation-button ventu-dialog-navigation-next"></div>');
+    this.elements.buttons.prev.click(function(){
         self.prev();
     });
-    next.click(function(){
+    this.elements.buttons.next.click(function(){
         self.next();
     });
 
-    this.elements.slideFrame.append(next);
-    this.elements.slideFrame.append(prev);
+    this.elements.buttons.prev.hide();
+    this.elements.buttons.next.hide();
+
+    this.elements.slideFrame.append(this.elements.buttons.prev);
+    this.elements.slideFrame.append(this.elements.buttons.next);
 };
 
 Dialog.prototype.createSlides = function() {
@@ -130,6 +133,7 @@ Dialog.prototype.createTypeButton = function(type) {
         $(this).toggleClass('ventu-dialog-type-button--active');
         self.updateType();
         self.status.updated['types'] = true;
+        self.updateButtons();
     });
     return button;
 };
@@ -155,6 +159,7 @@ Dialog.prototype.createLocationSlide = function() {
 Dialog.prototype.selectLocation = function(location) {
     this.status.query.location = location;
     this.status.updated['location'] = true;
+    this.updateButtons();
 };
 
 Dialog.prototype.createAreaSlide = function() {
@@ -241,4 +246,34 @@ Dialog.prototype.slide = function() {
     this.status.visited[this.sections[this.status.page.current]] = true;
     this.elements.slideContainer.css('left', -this.status.page.current * this.settings.size.frame);
     this.updateHeader();
+    this.updateButtons();
+};
+
+Dialog.prototype.updateButtons = function() {
+    // prev
+    if (this.status.page.current > 0) {
+        this.elements.buttons.prev.show();
+    } else {
+        this.elements.buttons.prev.hide();
+    }
+
+    // next
+    switch (this.status.page.current) {
+        case 0:
+            if (this.status.query.types.length > 0) {
+                this.elements.buttons.next.show();
+            } else {
+                this.elements.buttons.next.hide()
+            }
+            break;
+        case 1:
+            if (this.status.query.location.length > 0) {
+                this.elements.buttons.next.show();
+            } else {
+                this.elements.buttons.next.hide();
+            }
+            break;
+        case 2:
+            this.elements.buttons.next.hide();
+    }
 };
