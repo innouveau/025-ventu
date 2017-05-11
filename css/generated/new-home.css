@@ -1,6 +1,11 @@
 .ventu-home-content {
   margin-top: 60px;
 }
+#ventu-dialog-entry {
+  height: 800px;
+  background-image: url('../img/home/rotterdam.jpg');
+  position: relative;
+}
 #ventu-chat-entry {
   height: 800px;
   background-image: url('../img/home/ventu-samen-map.jpg');
@@ -18,10 +23,6 @@
 #ventu-discover-entry {
   height: 800px;
   background-image: url('../img/home/discover-bg.jpg');
-}
-#ventu-dialog-entry {
-  height: 800px;
-  background-image: url('../img/home/rotterdam.jpg');
 }
 #ventu-home-card-container {
   height: 400px;

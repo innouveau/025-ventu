@@ -1336,6 +1336,11 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 .ventu-home-content {
   margin-top: 60px;
 }
+#ventu-dialog-entry {
+  height: 800px;
+  background-image: url('../img/home/rotterdam.jpg');
+  position: relative;
+}
 #ventu-chat-entry {
   height: 800px;
   background-image: url('../img/home/ventu-samen-map.jpg');
@@ -1353,10 +1358,6 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 #ventu-discover-entry {
   height: 800px;
   background-image: url('../img/home/discover-bg.jpg');
-}
-#ventu-dialog-entry {
-  height: 800px;
-  background-image: url('../img/home/rotterdam.jpg');
 }
 #ventu-home-card-container {
   height: 400px;
@@ -1682,7 +1683,7 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 }
 .ventu-inspiration .ventu-inspiration-text h3 {
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 700;
   text-align: center;
   color: #fff;
   max-width: 300px;
@@ -2347,4 +2348,34 @@ body {
   line-height: 1.25;
   color: #17141f;
   font-family: 'Alegreya Sans';
+}
+.ventu-continue {
+  position: absolute!important;
+  left: 0;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+.ventu-continue .ventu-continue-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ff8d00;
+  display: inline-block;
+  background-image: url(../img/tools/continue.svg);
+  background-size: 100% 100%;
+}
+.ventu-continue .ventu-continue-text {
+  max-width: 500px;
+  margin: 20px auto 0 auto;
+  color: #fff;
+}
+.ventu-pointer-area {
+  position: absolute;
+  width: 344px;
+  height: 344px;
+  background-image: url(../img/tools/ventu-pointer-area.svg);
+  background-size: 100% 100%;
+  margin: -172px 0 0 -172px;
 }
