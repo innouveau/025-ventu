@@ -2375,7 +2375,8 @@ form h2 {
   margin-top: 0;
 }
 form input[type=text],
-form input[type=password] {
+form input[type=password],
+form input[type=email] {
   width: 100%;
   border: 1px solid #727272;
   color: #333;
@@ -2391,7 +2392,8 @@ form input[type=password] {
   font-family: ProximaNova;
 }
 form input[type=text]:focus,
-form input[type=password]:focus {
+form input[type=password]:focus,
+form input[type=email]:focus {
   box-shadow: none!important;
 }
 form .ventu-form-send {
