@@ -51,7 +51,7 @@ function Dialog(element) {
 // creation
 
 Dialog.prototype.create = function() {
-    this.settings.size.frame = this.element.outerWidth();
+    this.settings.size.frame = this.element.outerWidth(); // TODO do this and the setting of slides and container again after resize
     this.createHeader();
     this.createSlides();
     this.createButtons();

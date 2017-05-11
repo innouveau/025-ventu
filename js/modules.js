@@ -18,4 +18,6 @@ function initialiseModules() {
             $(this).find('.ventu-search input').val('');
         }
     })
+    // TODO we could manually set the width of the search-box inside the search-opener
+    // so it fits perfect between the ventu logo and the buttons on its right
 }
