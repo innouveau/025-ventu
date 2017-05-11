@@ -1,0 +1,8 @@
+.ventu-contact-icon-button {
+  display: block;
+  margin-bottom: 4px;
+}
+.ventu-contact-icon-button .ventu-contact-icon-button-img {
+  display: inline-block;
+  width: 30px;
+}
