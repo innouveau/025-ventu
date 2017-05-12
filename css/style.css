@@ -2361,10 +2361,14 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #ff8d00;
+  background-color: #ff8d00;
   display: inline-block;
   background-image: url(../img/tools/continue.svg);
   background-size: 100% 100%;
+  cursor: pointer;
+}
+.ventu-continue .ventu-continue-button:hover {
+  background-color: #17141f;
 }
 .ventu-continue .ventu-continue-text {
   max-width: 500px;
