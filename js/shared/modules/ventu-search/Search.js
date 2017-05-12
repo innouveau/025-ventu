@@ -50,8 +50,10 @@ Search.prototype.addListeners = function() {
     this.elements.input.keyup(function() {
         val = $(this).val();
         if (val.length > 0) {
-            self.get(val)
+            self.setZindex(true);
+            self.get(val);
         } else {
+            self.setZindex(false);
             self.elements.results.empty();
         }
     })
@@ -103,6 +105,7 @@ Search.prototype.show = function(results) {
         html.append(result.Location + ' (' + result.NumberOfItems + ')');
         html.click(function(){
             self.select($(this));
+            self.setZindex(false);
         });
         this.elements.results.append(html);
     }
@@ -119,6 +122,21 @@ Search.prototype.select = function(element) {
         window.ventu.select(location);
     }
 };
+
+Search.prototype.setZindex = function(rise) {
+    // this is a bit of a dirty hack. But because of z-index issues and
+    // overflow issuses, the z-index of .ventu-dialog needs to rise when
+    // the results-window is poppped out
+    // outerOutput is the Dialog module
+    if (this.outerOutput && rise) {
+        this.outerOutput.element.css('z-index', 10);
+    } else {
+        this.outerOutput.element.css('z-index', 1);
+    }
+};
+
+
+
 
 Search.prototype.setChosen = function(location) {
     this.elements.input.hide();
