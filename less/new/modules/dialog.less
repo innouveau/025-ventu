@@ -1,6 +1,6 @@
 .ventu-dialog-slide-frame {
     width: 100%;
-    height: 400px;
+    height: 200px;
     overflow: hidden;
     position: relative;
 
@@ -79,6 +79,7 @@
                     text-align: center;
                     cursor: pointer;
                     display: inline-block;
+                    margin-bottom: 20px;
 
                     .ventu-dialog-type-button-icon {
                         height: 70px;
@@ -119,41 +120,6 @@
     }
 }
 
-.ventu-dialog-header {
-    height: 140px;
-    text-align: center;
-
-
-
-    .ventu-dialog-header-section-text {
-        font-size: 20px;
-        font-weight: 700;
-        color: #fff;
-        display: inline-block;
-        font-family: ProximaNova;
-        margin: 0 4px 4px 4px;
-        padding: 4px 6px;
-    }
-
-    .ventu-dialog-header-section-labels {
-        display: inline-block;
-
-        .ventu-dialog-header-section-label {
-            background: @ventu-color-1;
-            color: @ventu-color-2;
-            padding: 4px 6px;
-            margin: 0 4px 4px 4px;
-            cursor: default;
-            display: inline-block;
-            transform: scale(0.01);
-            transition: transform 0.2s ease;
-
-            &.show-label {
-                transform: scale(1);
-            }
-        }
-    }
-}
 
 .ventu-dialog-slide-area {
     padding-top: 40px;
@@ -193,4 +159,26 @@
             }
         }
     }
+}
+
+
+@media (max-width: 767px) {
+
+    .ventu-dialog-slide-frame {
+        height: 300px;
+
+        .ventu-dialog-navigation-button {
+            top: auto;
+            bottom: 0;
+
+            &.ventu-dialog-navigation-next {
+                right: 0;
+            }
+
+            &.ventu-dialog-navigation-prev {
+                left: 0;
+            }
+        }
+    }
+
 }

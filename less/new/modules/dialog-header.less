@@ -1,0 +1,47 @@
+.ventu-dialog-header {
+    height: 140px;
+    text-align: center;
+
+    .ventu-dialog-header-section-text {
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;
+        display: inline-block;
+        font-family: ProximaNova;
+        margin: 0 4px 4px 4px;
+        padding: 4px 6px;
+    }
+
+    .ventu-dialog-header-section-labels {
+        display: inline-block;
+
+        .ventu-dialog-header-section-label {
+            background: @ventu-color-1;
+            color: @ventu-color-2;
+            padding: 4px 6px;
+            margin: 0 4px 4px 4px;
+            cursor: default;
+            display: inline-block;
+            transform: scale(0.01);
+            transition: transform 0.2s ease;
+
+            &.show-label {
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    .ventu-dialog-header {
+        height: 100px;
+        text-align: left;
+
+        .ventu-dialog-header-section-text {
+            font-size: 16px;
+        }
+    }
+
+}
