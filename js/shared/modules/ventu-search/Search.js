@@ -69,6 +69,21 @@ Search.prototype.get = function(val) {
         }, {
             'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
             'NumberOfItems': 32
+        }, {
+            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+            'NumberOfItems': 32
+        }, {
+            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+            'NumberOfItems': 32
+        }, {
+            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+            'NumberOfItems': 32
+        }, {
+            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+            'NumberOfItems': 32
+        }, {
+            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+            'NumberOfItems': 32
         }
     ];
     if (results.length > 0) {
