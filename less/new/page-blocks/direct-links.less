@@ -1,0 +1,59 @@
+#ventu-about.ventu-block {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    text-align: center;
+    border-bottom: 1px solid @ventu-main-grey-2;
+}
+
+#ventu-direct-links.ventu-block {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid @ventu-main-grey-2;
+}
+
+#ventu-footer.ventu-block {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    font-family: ProximaNova;
+}
+
+#ventu-about,
+#ventu-direct-links {
+
+    h2 {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 0.67;
+        color: @ventu-color-2;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    a {
+        font-family: ProximaNova;
+        color: @ventu-black;
+        text-decoration: none;
+
+        &:hover {
+            color: @ventu-color-2;
+            text-decoration: underline;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+
+    #ventu-about,
+    #ventu-direct-links {
+
+        h2 {
+
+            &:first-child {
+                margin-top: 20px;
+            }
+        }
+    }
+
+}

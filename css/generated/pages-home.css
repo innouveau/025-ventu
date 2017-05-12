@@ -43,8 +43,8 @@
   left: calc(50% - 32px);
   top: 120px;
 }
-@media (max-width: 768px) {
-  .ventu-home-card-container {
-    margin-top: 20px;
+@media (max-width: 767px) {
+  #ventu-home-card-container {
+    margin-top: 40px;
   }
 }

@@ -35,14 +35,21 @@
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
     .ventu-search-open {
+
+            .ventu-search-container {
+                position: fixed;
+                left: 0;
+                top: 60px;
+                background: #fff;
+            }
 
         &.ventu-search-open--opened {
 
             .ventu-search-container {
-                width: 300px;
+                width: 100%;
             }
         }
     }
