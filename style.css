@@ -1303,6 +1303,8 @@ body {
   line-height: 1.25;
   color: #17141f;
   font-family: 'Alegreya Sans';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 @media (max-width: 1024px) {
   .container {
@@ -1360,6 +1362,7 @@ h3 {
 h5 {
   font-size: 20px;
   line-height: 1.25;
+  font-weight: 700;
   color: #17141f;
 }
 h6 {
