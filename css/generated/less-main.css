@@ -2413,6 +2413,10 @@ form button[type=submit] {
 .ventu-dialog-slide-area .ventu-dialog-area-picker.ventu-dialog-area-picker--picked input {
   background: #00e5a9;
 }
+.ventu-dialog-slide-area .ventu-dialog-area-picker.ventu-dialog-area-picker--error .ventu-dialog-area-picker-label,
+.ventu-dialog-slide-area .ventu-dialog-area-picker.ventu-dialog-area-picker--error input {
+  background: red;
+}
 @media (max-width: 767px) {
   .ventu-dialog-slide-frame {
     height: 300px;

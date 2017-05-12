@@ -206,74 +206,81 @@ Dialog.prototype.selectLocation = function(location) {
 };
 
 Dialog.prototype.createAreaSlide = function() {
-    var self = this, element, label1, label2, picker1, picker2, input1, input2;
+    var self = this, element, label1, label2, picker0, picker1, input1, input2, pickerset = {};
     element = $('<div id="ventu-dialog-slide-area" class="ventu-dialog-slide ventu-dialog-slide-area"></div>');
     label1 = $('<span>Vanaf</span>');
     label2 = $('<span>tot</span>');
     input1 = $('<input placeholder="...">');
     input2 = $('<input placeholder="...">');
-    picker1 = $('<div class="ventu-dialog-area-picker"></div>');
-    picker1.append('<div class="ventu-dialog-area-picker-label">min</div>');
-    picker1.append(input1);
-    picker1.append('<div class="ventu-dialog-area-picker-label">m²</div>');
-    picker2 = $('<div class="ventu-dialog-area-picker"></div>');
-    picker2.append('<div class="ventu-dialog-area-picker-label">max</div>');
-    picker2.append(input2);
-    picker2.append('<div class="ventu-dialog-area-picker-label">m²</div>');
+    pickerset.picker0 = $('<div class="ventu-dialog-area-picker"></div>');
+    pickerset.picker0.append('<div class="ventu-dialog-area-picker-label">min</div>');
+    pickerset.picker0.append(input1);
+    pickerset.picker0.append('<div class="ventu-dialog-area-picker-label">m²</div>');
+    pickerset.picker1 = $('<div class="ventu-dialog-area-picker"></div>');
+    pickerset.picker1.append('<div class="ventu-dialog-area-picker-label">max</div>');
+    pickerset.picker1.append(input2);
+    pickerset.picker1.append('<div class="ventu-dialog-area-picker-label">m²</div>');
 
 
     element.append(label1);
-    element.append(picker1);
+    element.append(pickerset.picker0);
     element.append(label2);
-    element.append(picker2);
+    element.append(pickerset.picker1);
 
-    picker1.click(function(){
+    pickerset.picker0.click(function(){
         input1.focus();
     });
 
-    picker2.click(function(){
+    pickerset.picker1.click(function(){
         input2.focus();
     });
 
     input1.keyup(function() {
-        var val = $(this).val();
-        if (val.length > 0) {
-            val = self.sanitize(val);
-            self.status.query.area[0] = val;
-            picker1.addClass('ventu-dialog-area-picker--picked');
-        } else {
-            self.status.query.area[0] = null;
-            picker1.removeClass('ventu-dialog-area-picker--picked');
-        }
-        self.status.updated['area'] = true;
-        self.updateButtons();
-        self.removeHeaderSection('area');
+        keyup(this, 0);
     });
 
     input2.keyup(function() {
-        var val = $(this).val();
-        if (val.length > 0) {
-            val = self.sanitize(val);
-            self.status.query.area[1] = val;
-            picker2.addClass('ventu-dialog-area-picker--picked');
+        keyup(this, 1);
+    });
+
+    function keyup(el, i) {
+        var san = sanitize($(el));
+        if (san.valid) {
+            self.status.query.area[i] = san.value;
+            pickerset['picker' + i].addClass('ventu-dialog-area-picker--picked');
         } else {
-            self.status.query.area[1] = null;
-            picker2.removeClass('ventu-dialog-area-picker--picked');
+            self.status.query.area[i] = null;
+            pickerset['picker' + i].removeClass('ventu-dialog-area-picker--picked');
         }
         self.status.updated['area'] = true;
         self.updateButtons();
         self.removeHeaderSection('area');
-    });
+    }
+
+    function sanitize(el) {
+        // @walstra heb jij een mening of we nog meer moeten checken hier, gaat over
+        // de oppervlakte waarden
+        var value = el.val();
+        if (!isNaN(value) && value.length > 0) {
+            el.parent().removeClass('ventu-dialog-area-picker--error');
+            return {
+                value: value,
+                valid: true
+            }
+        } else {
+            el.parent().addClass('ventu-dialog-area-picker--error');
+            return {
+                value: null,
+                valid: false
+            }
+        }
+    }
+
+
 
     element.css('width', this.settings.size.frame );
     this.elements.slideContainer.append(element);
     return element;
-};
-
-Dialog.prototype.sanitize = function(val) {
-    // @walstra heb jij een mening of we nog meer moeten checken hier, gaat over
-    // de oppervlakte waarden
-    return parseFloat(val);
 };
 
 
@@ -434,7 +441,6 @@ Dialog.prototype.removeHeaderSection = function(section) {
 Dialog.prototype.next = function() {
     this.status.page.current++;
     this.slide();
-    console.log(this.status.page.current);
     if (this.status.page.current === 4) {
         // TODO request @walstra
         var result = 'Berekend resultaat over 38.240 panden';
