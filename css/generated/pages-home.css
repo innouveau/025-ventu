@@ -1,24 +1,24 @@
 #ventu-dialog-entry {
   height: 800px;
-  background-image: url('../img/home/rotterdam.jpg');
+  background-image: url('img/home/rotterdam.jpg');
   position: relative;
 }
 #ventu-chat-entry {
   height: 800px;
-  background-image: url('../img/home/ventu-samen-map.jpg');
+  background-image: url('img/home/ventu-samen-map.jpg');
 }
 #ventu-chat-entry .ventu-chat-pins-container {
   position: relative;
   height: 400px;
 }
 #ventu-search-entry {
-  background-image: url('../img/home/skyline.png');
+  background-image: url('img/home/skyline.png');
   background-size: contain!important;
   background-position: 50% 100%;
   background-repeat: no-repeat;
 }
 #ventu-discover-entry {
-  background-image: url('../img/home/discover-bg.jpg');
+  background-image: url('img/home/discover-bg.jpg');
 }
 #ventu-home-card-container {
   height: 500px;

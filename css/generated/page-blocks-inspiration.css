@@ -1,0 +1,31 @@
+.ventu-inspiration {
+  height: 280px;
+  background-size: cover;
+  position: relative;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.09);
+  margin-bottom: 30px;
+}
+.ventu-inspiration:after {
+  position: absolute;
+  width: 70px;
+  height: 54px;
+  content: '';
+  background-image: url(img/identity/ventu-icon--inspiration.png);
+  z-index: 1;
+  left: calc(50% - 35px);
+  top: 30%;
+}
+.ventu-inspiration .ventu-inspiration-text {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: calc(30% + 74px);
+}
+.ventu-inspiration .ventu-inspiration-text h3 {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  max-width: 300px;
+  margin: 0 auto;
+}

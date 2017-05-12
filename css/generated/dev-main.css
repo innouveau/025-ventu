@@ -1348,25 +1348,25 @@ body {
 }
 #ventu-dialog-entry {
   height: 800px;
-  background-image: url('../img/home/rotterdam.jpg');
+  background-image: url('img/home/rotterdam.jpg');
   position: relative;
 }
 #ventu-chat-entry {
   height: 800px;
-  background-image: url('../img/home/ventu-samen-map.jpg');
+  background-image: url('img/home/ventu-samen-map.jpg');
 }
 #ventu-chat-entry .ventu-chat-pins-container {
   position: relative;
   height: 400px;
 }
 #ventu-search-entry {
-  background-image: url('../img/home/skyline.png');
+  background-image: url('img/home/skyline.png');
   background-size: contain!important;
   background-position: 50% 100%;
   background-repeat: no-repeat;
 }
 #ventu-discover-entry {
-  background-image: url('../img/home/discover-bg.jpg');
+  background-image: url('img/home/discover-bg.jpg');
 }
 #ventu-home-card-container {
   height: 500px;
@@ -1492,7 +1492,7 @@ nav.navbar-default #navbar ul li a {
   width: 70px;
   height: 54px;
   content: '';
-  background-image: url(../img/identity/ventu-icon--inspiration.png);
+  background-image: url(img/identity/ventu-icon--inspiration.png);
   z-index: 1;
   left: calc(50% - 35px);
   top: 30%;
@@ -1669,7 +1669,7 @@ nav.navbar-default #navbar ul li a {
   width: 500px;
   height: 400px;
   transition: all 0.5s ease;
-  background-image: url('../img/shade.png');
+  background-image: url('img/shade.png');
   background-color: transparent;
   background-size: contain;
   background-position: center center;
@@ -1850,7 +1850,7 @@ nav.navbar-default #navbar ul li a {
   position: absolute;
   width: 83px;
   height: 91px;
-  background-image: url(../img/chat/pin.png);
+  background-image: url(img/chat/pin.png);
   background-size: 100% 100%;
   padding: 10px 0 0 9px;
 }
@@ -1874,31 +1874,31 @@ nav.navbar-default #navbar ul li a {
   float: right;
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-top {
-  background-image: url(../img/chat/balloon/balloon-right--top.png);
+  background-image: url(img/chat/balloon/balloon-right--top.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-top:before {
-  background-image: url(../img/chat/balloon/balloon-right--top-left.png);
+  background-image: url(img/chat/balloon/balloon-right--top-left.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-top:after {
-  background-image: url(../img/chat/balloon/balloon-right--top-right.png);
+  background-image: url(img/chat/balloon/balloon-right--top-right.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-middle {
   padding-right: 8px;
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-middle:before {
-  background-image: url(../img/chat/balloon/balloon-right--left.png);
+  background-image: url(img/chat/balloon/balloon-right--left.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-middle:after {
-  background-image: url(../img/chat/balloon/balloon-right--right.png);
+  background-image: url(img/chat/balloon/balloon-right--right.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-bottom {
-  background-image: url(../img/chat/balloon/balloon-right--bottom.png);
+  background-image: url(img/chat/balloon/balloon-right--bottom.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-bottom:before {
-  background-image: url(../img/chat/balloon/balloon-right--bottom-left.png);
+  background-image: url(img/chat/balloon/balloon-right--bottom-left.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-bottom:after {
-  background-image: url(../img/chat/balloon/balloon-right--bottom-right.png);
+  background-image: url(img/chat/balloon/balloon-right--bottom-right.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left {
   left: 68px;
@@ -1908,31 +1908,31 @@ nav.navbar-default #navbar ul li a {
   float: left;
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-top {
-  background-image: url(../img/chat/balloon/balloon-left--top.png);
+  background-image: url(img/chat/balloon/balloon-left--top.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-top:before {
-  background-image: url(../img/chat/balloon/balloon-left--top-left.png);
+  background-image: url(img/chat/balloon/balloon-left--top-left.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-top:after {
-  background-image: url(../img/chat/balloon/balloon-left--top-right.png);
+  background-image: url(img/chat/balloon/balloon-left--top-right.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-middle {
   padding-left: 8px;
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-middle:before {
-  background-image: url(../img/chat/balloon/balloon-left--left.png);
+  background-image: url(img/chat/balloon/balloon-left--left.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-middle:after {
-  background-image: url(../img/chat/balloon/balloon-left--right.png);
+  background-image: url(img/chat/balloon/balloon-left--right.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-bottom {
-  background-image: url(../img/chat/balloon/balloon-left--bottom.png);
+  background-image: url(img/chat/balloon/balloon-left--bottom.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-bottom:before {
-  background-image: url(../img/chat/balloon/balloon-left--bottom-left.png);
+  background-image: url(img/chat/balloon/balloon-left--bottom-left.png);
 }
 .ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-bottom:after {
-  background-image: url(../img/chat/balloon/balloon-left--bottom-right.png);
+  background-image: url(img/chat/balloon/balloon-left--bottom-right.png);
 }
 .ventu-chat-balloon {
   display: inline-block;
@@ -1990,15 +1990,15 @@ nav.navbar-default #navbar ul li a {
 }
 .ventu-card-button.ventu-card-button--love .ventu-card-button-icon {
   background: #00e5a9;
-  background-image: url(../img/card/love.svg);
+  background-image: url(img/card/love.svg);
 }
 .ventu-card-button.ventu-card-button--hate .ventu-card-button-icon {
   background-color: #DF0040;
-  background-image: url(../img/card/hate.svg);
+  background-image: url(img/card/hate.svg);
 }
 .ventu-card-button.ventu-card-button--read-more .ventu-card-button-icon {
   background-color: #FF8D00;
-  background-image: url(../img/card/read-more.svg);
+  background-image: url(img/card/read-more.svg);
 }
 .ventu-card-button .ventu-card-button-icon {
   border-radius: 50%;
@@ -2146,7 +2146,7 @@ form button[type=submit] {
   border-radius: 50%;
   background-color: #ff8d00;
   display: inline-block;
-  background-image: url(../img/tools/continue.svg);
+  background-image: url(img/tools/continue.svg);
   background-size: 100% 100%;
   cursor: pointer;
 }
@@ -2162,7 +2162,7 @@ form button[type=submit] {
   position: absolute;
   width: 344px;
   height: 344px;
-  background-image: url(../img/tools/ventu-pointer-area.svg);
+  background-image: url(img/tools/ventu-pointer-area.svg);
   background-size: 100% 100%;
   margin: -172px 0 0 -172px;
 }
@@ -2332,13 +2332,13 @@ form button[type=submit] {
   height: 24px;
   width: 24px;
   margin: 11px 10px;
-  background-image: url(../img/tools/glass.svg);
+  background-image: url(img/tools/glass.svg);
 }
 .ventu-search.ventu-search-marker .ventu-search-icon {
   height: 45px;
   width: 28px;
   margin: 1px 12px 0 4px;
-  background-image: url(../img/tools/marker.svg);
+  background-image: url(img/tools/marker.svg);
 }
 .ventu-search input {
   width: calc(100% - 44px);
@@ -2373,7 +2373,7 @@ form button[type=submit] {
   width: 60px;
   height: 60px;
   background: #ededec;
-  background-image: url(../img/tools/glass.svg);
+  background-image: url(img/tools/glass.svg);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -2388,7 +2388,7 @@ form button[type=submit] {
   transition: all 0.2s ease;
 }
 .ventu-search-open.ventu-search-open--opened {
-  background-image: url(../img/tools/close.svg);
+  background-image: url(img/tools/close.svg);
 }
 .ventu-search-open.ventu-search-open--opened .ventu-search-container {
   width: 500px;
