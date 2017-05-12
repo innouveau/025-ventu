@@ -2265,6 +2265,16 @@ form button[type=submit] {
   color: #fff;
   text-align: center;
 }
+.ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-slide-end-container {
+  width: 220px;
+  padding-top: 32px;
+  margin: 20px auto 0 auto;
+  height: 120px;
+  background-image: url(img/tools/glass-results.svg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
 .ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-slide-buttons-container {
   margin-top: 30px;
   text-align: center;
@@ -2295,6 +2305,23 @@ form button[type=submit] {
 .ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-slide-buttons-container .ventu-dialog-type-button.ventu-dialog-type-button--active .ventu-dialog-type-button-label {
   background: #00e5a9;
   color: #03256b;
+}
+.ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-slide-buttons-container .ventu-dialog-transaction-button {
+  padding: 12px 24px;
+  cursor: pointer;
+  display: inline-block;
+  background: #fff;
+  border-right: 1px solid #ededec;
+  color: #03256b;
+}
+.ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-slide-buttons-container .ventu-dialog-transaction-button:last-child {
+  border-right: 0;
+}
+.ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-slide-buttons-container .ventu-dialog-transaction-button:hover {
+  background: #ededec;
+}
+.ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-slide-buttons-container .ventu-dialog-transaction-button.ventu-dialog-transaction-button--active {
+  background: #00e5a9;
 }
 .ventu-dialog-slide-area {
   padding-top: 40px;

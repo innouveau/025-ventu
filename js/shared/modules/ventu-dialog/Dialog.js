@@ -1,7 +1,7 @@
 function Dialog(element) {
     this.element = element;
 
-    this.sections = ['types', 'location', 'area'];
+    this.sections = ['types', 'location', 'area', 'transaction'];
 
     this.status = {
         page: {
@@ -10,17 +10,20 @@ function Dialog(element) {
         updated : {
             types: false,
             location: false,
-            area: false
+            area: false,
+            transaction: false
         },
         visited: {
             types: true,
             location: false,
-            area: false
+            area: false,
+            transaction: false
         },
         query: {
             types: [],
             location: '',
-            area: [null, null]
+            area: [null, null],
+            transaction: null
         }
     };
 
@@ -62,6 +65,7 @@ Dialog.prototype.createHeader = function() {
     this.elements.header.types = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">Ik ben op zoek naar</div><div class="ventu-dialog-header-section-labels"></div></div>');
     this.elements.header.location = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">In de omgeving</div><div class="ventu-dialog-header-section-labels"></div></div>');
     this.elements.header.area = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">Met een oppervlakte van</div><div class="ventu-dialog-header-section-labels"></div></div>');
+    this.elements.header.transaction = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">Om te</div><div class="ventu-dialog-header-section-labels"></div></div>');
 
     for (var i = 0, l = this.sections.length; i < l; i++) {
         var section = this.elements.header[this.sections[i]];
@@ -95,13 +99,15 @@ Dialog.prototype.createButtons = function() {
 Dialog.prototype.createSlides = function() {
     this.elements.slideFrame = $('<div class="ventu-dialog-slide-frame"></div>');
     this.elements.slideContainer = $('<div class="ventu-dialog-slide-container"></div>');
-    this.elements.slideContainer.css('width', this.sections.length * this.settings.size.frame)
+    this.elements.slideContainer.css('width', (this.sections.length + 1) * this.settings.size.frame); // +1 for end frame
     this.element.append(this.elements.slideFrame);
     this.elements.slideFrame.append(this.elements.slideContainer);
 
     this.elements.slides.push(this.createTypeSlide());
     this.elements.slides.push(this.createLocationSlide());
     this.elements.slides.push(this.createAreaSlide());
+    this.elements.slides.push(this.createTransactionSlide());
+    this.elements.slides.push(this.createEndSlide());
 };
 
 Dialog.prototype.createTypeSlide = function() {
@@ -131,6 +137,7 @@ Dialog.prototype.createTypeButton = function(type) {
     button.append(label);
     button.click(function(){
         $(this).toggleClass('ventu-dialog-type-button--active');
+        self.removeHeaderSection('types');
         self.updateType();
         self.status.updated['types'] = true;
         self.updateButtons();
@@ -159,6 +166,7 @@ Dialog.prototype.createLocationSlide = function() {
 Dialog.prototype.selectLocation = function(location) {
     this.status.query.location = location;
     this.status.updated['location'] = true;
+    this.removeHeaderSection('location');
     this.updateButtons();
 };
 
@@ -204,6 +212,7 @@ Dialog.prototype.createAreaSlide = function() {
         }
         self.status.updated['area'] = true;
         self.updateButtons();
+        self.removeHeaderSection('area');
     });
 
     input2.keyup(function() {
@@ -218,6 +227,7 @@ Dialog.prototype.createAreaSlide = function() {
         }
         self.status.updated['area'] = true;
         self.updateButtons();
+        self.removeHeaderSection('area');
     });
 
     element.css('width', this.settings.size.frame );
@@ -230,6 +240,57 @@ Dialog.prototype.sanitize = function(val) {
     // de oppervlakte waarden
     return parseFloat(val);
 };
+
+
+Dialog.prototype.createTransactionSlide = function() {
+    var transactions, element, container;
+    transactions = ['Kopen', 'Huren', 'Beleggen'];
+    element = $('<div class="ventu-dialog-slide"></div>');
+
+    container =  $('<div class="ventu-dialog-slide-buttons-container"></div>');
+    element.append(container);
+    for (var i = 0, l = transactions.length; i < l; i++) {
+        container.append(this.createTransactionButton(transactions[i]));
+    }
+    this.elements.slideContainer.append(element);
+    element.css('width', this.settings.size.frame );
+    return element;
+};
+
+Dialog.prototype.createTransactionButton = function(transaction) {
+    var self, button;
+    self = this;
+    button = $('<div class="ventu-dialog-transaction-button" transaction="' + transaction + '">' + transaction + '</div>');
+    button.click(function(){
+        var btn = this;
+        $('.ventu-dialog-transaction-button').each(function(){
+            if (this === btn) {
+                $(this).addClass('ventu-dialog-transaction-button--active');
+                self.status.query.transaction = $(this).attr('transaction');
+                self.updateButtons();
+                self.status.updated['transaction'] = true;
+                self.removeHeaderSection('transaction');
+            } else {
+                $(this).removeClass('ventu-dialog-transaction-button--active');
+            }
+        });
+    });
+    return button;
+};
+
+Dialog.prototype.createEndSlide = function() {
+    var element, container;
+    element = $('<div class="ventu-dialog-slide"></div>');
+
+    container =  $('<div class="ventu-dialog-slide-end-container">Aan het zoeken naar resultaten</div>');
+    element.append(container);
+    this.elements.slideContainer.append(element);
+    element.css('width', this.settings.size.frame );
+    return element;
+};
+
+
+
 
 
 
@@ -305,8 +366,30 @@ Dialog.prototype.updateHeaderSection = function(section) {
                 }
             }, 50);
             break;
+        case 'transaction':
+            label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.transaction + '</div>');
+            container.append(label);
+            label.addClass('show-label');
+            break;
     }
     this.status.updated[section] = false;
+};
+
+Dialog.prototype.removeHeaderSection = function(section) {
+    var n, labels, container, timer;
+    container = this.elements.header[section].find('.ventu-dialog-header-section-labels');
+    labels = container.find('.ventu-dialog-header-section-label');
+    n = labels.length - 1;
+    if (n > -1) {
+        timer = setInterval(function () {
+            $(labels[n]).removeClass('show-label');
+            n--;
+            if (n < 0) {
+                clearInterval(timer);
+                container.empty();
+            }
+        }, 50);
+    }
 };
 
 
@@ -316,6 +399,12 @@ Dialog.prototype.updateHeaderSection = function(section) {
 Dialog.prototype.next = function() {
     this.status.page.current++;
     this.slide();
+    console.log(this.status.page.current);
+    if (this.status.page.current === 4) {
+        // TODO request @walstra
+        var result = 'Berekend resultaat over 38.240 panden';
+        $('.ventu-dialog-slide-end-container').html(result);
+    }
 };
 
 Dialog.prototype.prev = function() {
@@ -360,5 +449,16 @@ Dialog.prototype.updateButtons = function() {
             } else {
                 this.elements.buttons.next.hide();
             }
+            break;
+        case 3:
+            if (this.status.query.transaction !== null) {
+                this.elements.buttons.next.show();
+            } else {
+                this.elements.buttons.next.hide();
+            }
+            break;
+        case 4:
+            this.elements.buttons.next.hide();
+            break;
     }
 };
