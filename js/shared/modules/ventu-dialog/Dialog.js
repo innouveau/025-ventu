@@ -121,10 +121,18 @@ Dialog.prototype.createSlides = function() {
     this.elements.slides.push(this.createEndSlide());
 };
 
+Dialog.prototype.addCenterLine = function(element) {
+    var centerline = $('<div class="ventu-dialog-center-line"></div>');
+    centerline.append('<div class="ventu-dialog-center-line-left"></div>');
+    centerline.append('<div class="ventu-dialog-center-line-middle"></div>');
+    centerline.append('<div class="ventu-dialog-center-line-right"></div>');
+    element.append(centerline);
+};
+
 Dialog.prototype.createTypeSlide = function() {
     var types, element, container;
     types = ['Winkel', 'Kantoor', 'Bedrijfsruimte', 'Horeca', 'Bouwgrond'];
-    element = $('<div class="ventu-dialog-slide"></div>');
+    element = $('<div id="ventu-dialog-slide-type" class="ventu-dialog-slide"></div>');
 
     container =  $('<div class="ventu-dialog-slide-buttons-container"></div>');
     element.append(container);
@@ -135,6 +143,7 @@ Dialog.prototype.createTypeSlide = function() {
     // make reusable selection
     this.elements.buttons.type = this.element.find('.ventu-dialog-type-button');
     element.css('width', this.settings.size.frame );
+    this.addCenterLine(element);
     return element;
 };
 
@@ -158,7 +167,7 @@ Dialog.prototype.createTypeButton = function(type) {
 
 Dialog.prototype.createLocationSlide = function() {
     var searchModule, element, search;
-    element = $('<div class="ventu-dialog-slide"></div>');
+    element = $('<div id="ventu-dialog-slide-location" class="ventu-dialog-slide"></div>');
     search = $('<div class="ventu-search initialise-manually ventu-search--white ventu-search-marker"></div>');
     // make it align in the center
     search.css({
@@ -170,6 +179,7 @@ Dialog.prototype.createLocationSlide = function() {
 
     element.css('width', this.settings.size.frame );
     element.append(search);
+    this.addCenterLine(element);
     this.elements.slideContainer.append(element);
     return element;
 };
@@ -183,7 +193,7 @@ Dialog.prototype.selectLocation = function(location) {
 
 Dialog.prototype.createAreaSlide = function() {
     var self = this, element, label1, label2, picker1, picker2, input1, input2;
-    element = $('<div class="ventu-dialog-slide ventu-dialog-slide-area"></div>');
+    element = $('<div id="ventu-dialog-slide-area" class="ventu-dialog-slide ventu-dialog-slide-area"></div>');
     label1 = $('<span>Vanaf</span>');
     label2 = $('<span>tot</span>');
     input1 = $('<input placeholder="...">');
@@ -242,6 +252,7 @@ Dialog.prototype.createAreaSlide = function() {
     });
 
     element.css('width', this.settings.size.frame );
+    this.addCenterLine(element);
     this.elements.slideContainer.append(element);
     return element;
 };
@@ -256,15 +267,16 @@ Dialog.prototype.sanitize = function(val) {
 Dialog.prototype.createTransactionSlide = function() {
     var transactions, element, container;
     transactions = ['Kopen', 'Huren', 'Beleggen'];
-    element = $('<div class="ventu-dialog-slide"></div>');
+    element = $('<div id="ventu-dialog-slide-transaction"  class="ventu-dialog-slide"></div>');
 
     container =  $('<div class="ventu-dialog-slide-buttons-container"></div>');
     element.append(container);
     for (var i = 0, l = transactions.length; i < l; i++) {
         container.append(this.createTransactionButton(transactions[i]));
     }
-    this.elements.slideContainer.append(element);
     element.css('width', this.settings.size.frame );
+    this.addCenterLine(element);
+    this.elements.slideContainer.append(element);
     return element;
 };
 
@@ -291,7 +303,7 @@ Dialog.prototype.createTransactionButton = function(transaction) {
 
 Dialog.prototype.createEndSlide = function() {
     var element, container;
-    element = $('<div class="ventu-dialog-slide"></div>');
+    element = $('<div id="ventu-dialog-slide-end" class="ventu-dialog-slide"></div>');
 
     container =  $('<div class="ventu-dialog-slide-end-container">Aan het zoeken naar resultaten</div>');
     element.append(container);
@@ -472,4 +484,6 @@ Dialog.prototype.updateButtons = function() {
             this.elements.buttons.next.hide();
             break;
     }
+
+    this.elements.buttons.next.show();
 };
