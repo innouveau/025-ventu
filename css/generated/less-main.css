@@ -1360,14 +1360,12 @@ body {
   height: 400px;
 }
 #ventu-search-entry {
-  height: 800px;
   background-image: url('../img/home/skyline.png');
   background-size: contain!important;
   background-position: 50% 100%;
   background-repeat: no-repeat;
 }
 #ventu-discover-entry {
-  height: 800px;
   background-image: url('../img/home/discover-bg.jpg');
 }
 #ventu-home-card-container {
@@ -1376,21 +1374,22 @@ body {
 }
 #ventu-card-button-container {
   position: relative;
+  height: 200px;
 }
 #ventu-card-button-container .ventu-card-button {
   position: absolute;
 }
 #ventu-card-button-container .ventu-card-button--love {
   left: calc(50% - 210px);
-  top: 100px;
+  top: 20px;
 }
 #ventu-card-button-container .ventu-card-button--hate {
   left: calc(50% + 70px);
-  top: 100px;
+  top: 20px;
 }
 #ventu-card-button-container .ventu-card-button--read-more {
   left: calc(50% - 32px);
-  top: 200px;
+  top: 120px;
 }
 nav.navbar-default {
   border: 0!important;
