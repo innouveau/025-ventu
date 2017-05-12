@@ -3,7 +3,7 @@
 
 function setFullscreenAndContinueButton() {
     var panelHeight = $(window).outerHeight();
-    $('#ventu-dialog-entry').css('min-height', panelHeight);
+    $('#ventu-dialog-entry').css('height', panelHeight);
     addContinueListener(panelHeight);
 }
 
