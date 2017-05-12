@@ -1,0 +1,54 @@
+.ventu-dialog-navigation-button {
+    position: absolute;
+    top: 79px;
+    z-index: 1;
+    width: 74px;
+    height: 74px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &.ventu-dialog-navigation-next {
+        right: 10px;
+
+        &:hover {
+            &:after {
+                border-left: 20px solid @ventu-color-1;
+            }
+        }
+
+        &:after {
+            width: 0;
+            height: 0;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            border-left: 20px solid #fff;
+            content: '';
+            position: absolute;
+            left: 29px;
+            top: 22px;
+        }
+    }
+
+    &.ventu-dialog-navigation-prev {
+        left: 10px;
+
+        &:hover {
+            &:after {
+                border-right: 20px solid @ventu-color-1;
+            }
+        }
+
+        &:after {
+            width: 0;
+            height: 0;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            border-right: 20px solid #fff;
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 22px;
+        }
+    }
+}

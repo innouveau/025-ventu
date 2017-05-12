@@ -2,6 +2,9 @@
   background-image: url('img/home/rotterdam.jpg');
   position: relative;
 }
+#ventu-dialog-entry h1 {
+  color: #fff;
+}
 #ventu-chat-entry {
   height: 800px;
   background-image: url('img/home/ventu-samen-map.jpg');

@@ -19,6 +19,12 @@ function Dialog(element) {
             area: false,
             transaction: false
         },
+        set: {
+            types: false,
+            location: false,
+            area: false,
+            transaction: false
+        },
         query: {
             types: [],
             location: '',
@@ -40,9 +46,17 @@ function Dialog(element) {
         slides: []
     };
 
+    this.headers = {
+        types: 'Wij zijn op zoek naar een',
+        location: 'In de omgeving',
+        area: 'Met een oppervlakte vanaf',
+        transaction: 'Om te',
+        end: ''
+    };
+
     this.settings = {
         size: {
-            body: 500,
+            body: 600,
             frame: 0
         }
     };
@@ -74,10 +88,10 @@ Dialog.prototype.resize = function() {
 
 Dialog.prototype.createHeader = function() {
     this.elements.header.main = $('<div class="ventu-dialog-header"></div>');
-    this.elements.header.types = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">Ik ben op zoek naar</div><div class="ventu-dialog-header-section-labels"></div></div>');
-    this.elements.header.location = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">In de omgeving</div><div class="ventu-dialog-header-section-labels"></div></div>');
-    this.elements.header.area = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">Met een oppervlakte van</div><div class="ventu-dialog-header-section-labels"></div></div>');
-    this.elements.header.transaction = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">Om te</div><div class="ventu-dialog-header-section-labels"></div></div>');
+    this.elements.header.types = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">' + this.headers.types + '</div><div class="ventu-dialog-header-section-labels"></div></div>');
+    this.elements.header.location = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">' + this.headers.location + '</div><div class="ventu-dialog-header-section-labels"></div></div>');
+    this.elements.header.area = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">' + this.headers.area + '</div><div class="ventu-dialog-header-section-labels"></div></div>');
+    this.elements.header.transaction = $('<div class="ventu-dialog-header-section"><div class="ventu-dialog-header-section-text">' + this.headers.transaction + '</div><div class="ventu-dialog-header-section-labels"></div></div>');
 
     for (var i = 0, l = this.sections.length; i < l; i++) {
         var section = this.elements.header[this.sections[i]];
@@ -145,44 +159,49 @@ Dialog.prototype.addCenterLine = function(element) {
     right.css('width', 0);
 };
 
+
+// slide creations
+
+Dialog.prototype.createBasicSlide = function (section) {
+    var element, content, header, body;
+
+    element = $('<div id="ventu-dialog-slide-' + section + '" class="ventu-dialog-slide"></div>');
+    content = $('<div class="ventu-dialog-slide-content"></div>');
+    header = $('<div class="ventu-dialog-slide-header"><div class="ventu-dialog-header-section-text">' + this.headers[section] + '</div></div>');
+    body = $('<div class="ventu-dialog-slide-body"></div>');
+
+    element.append(content);
+    content.append(header);
+    content.append(body);
+    this.elements.slideContainer.append(element);
+    element.css('width', this.settings.size.frame );
+    return {
+        element: element,
+        body: body
+    };
+};
+
 Dialog.prototype.createTypeSlide = function() {
-    var types, element, container;
-    types = ['Winkel', 'Kantoor', 'Bedrijfsruimte', 'Horeca', 'Bouwgrond'];
-    element = $('<div id="ventu-dialog-slide-type" class="ventu-dialog-slide"></div>');
+    var types, slide, container;
+    slide = this.createBasicSlide('types');
 
     container =  $('<div class="ventu-dialog-slide-buttons-container"></div>');
-    element.append(container);
+    slide.body.append(container);
+    types = ['Winkel', 'Kantoor', 'Bedrijfsruimte', 'Horeca', 'Bouwgrond'];
     for (var i = 0, l = types.length; i < l; i++) {
         container.append(this.createTypeButton(types[i]));
     }
-    this.elements.slideContainer.append(element);
     // make reusable selection
     this.elements.buttons.type = this.element.find('.ventu-dialog-type-button');
-    element.css('width', this.settings.size.frame );
-    return element;
+    return slide.element;
 };
 
-Dialog.prototype.createTypeButton = function(type) {
-    var self, button, icon, label;
-    self = this;
-    button = $('<div class="ventu-dialog-type-button" type="' + type + '"></div>');
-    icon = $('<div class="ventu-dialog-type-button-icon"><img src="img/dialog/types/' + type.toLowerCase() + '.svg"></div>');
-    label = $('<div class="ventu-dialog-type-button-label">' + type + '</div>');
-    button.append(icon);
-    button.append(label);
-    button.click(function(){
-        $(this).toggleClass('ventu-dialog-type-button--active');
-        self.removeHeaderSection('types');
-        self.updateType();
-        self.status.updated['types'] = true;
-        self.updateButtons();
-    });
-    return button;
-};
+
 
 Dialog.prototype.createLocationSlide = function() {
-    var searchModule, element, search;
-    element = $('<div id="ventu-dialog-slide-location" class="ventu-dialog-slide"></div>');
+    var slide, searchModule, search;
+    slide = this.createBasicSlide('location');
+
     search = $('<div class="ventu-search initialise-manually ventu-search--white ventu-search-marker"></div>');
     // make it align in the center
     search.css({
@@ -191,23 +210,14 @@ Dialog.prototype.createLocationSlide = function() {
     });
     searchModule = new Search(search);
     searchModule.addOutput(this);
-
-    element.css('width', this.settings.size.frame );
-    element.append(search);
-    this.elements.slideContainer.append(element);
-    return element;
-};
-
-Dialog.prototype.selectLocation = function(location) {
-    this.status.query.location = location;
-    this.status.updated['location'] = true;
-    this.removeHeaderSection('location');
-    this.updateButtons();
+    slide.body.append(search);
+    return slide.element;
 };
 
 Dialog.prototype.createAreaSlide = function() {
-    var self = this, element, label1, label2, picker0, picker1, input1, input2, pickerset = {};
-    element = $('<div id="ventu-dialog-slide-area" class="ventu-dialog-slide ventu-dialog-slide-area"></div>');
+    var self = this, slide, label1, label2, input1, input2, pickerset = {}, header;
+    slide = this.createBasicSlide('area');
+
     label1 = $('<span>Vanaf</span>');
     label2 = $('<span>tot</span>');
     input1 = $('<input placeholder="...">');
@@ -220,12 +230,10 @@ Dialog.prototype.createAreaSlide = function() {
     pickerset.picker1.append('<div class="ventu-dialog-area-picker-label">max</div>');
     pickerset.picker1.append(input2);
     pickerset.picker1.append('<div class="ventu-dialog-area-picker-label">m²</div>');
-
-
-    element.append(label1);
-    element.append(pickerset.picker0);
-    element.append(label2);
-    element.append(pickerset.picker1);
+    slide.body.append(label1);
+    slide.body.append(pickerset.picker0);
+    slide.body.append(label2);
+    slide.body.append(pickerset.picker1);
 
     pickerset.picker0.click(function(){
         input1.focus();
@@ -276,27 +284,75 @@ Dialog.prototype.createAreaSlide = function() {
         }
     }
 
-
-
-    element.css('width', this.settings.size.frame );
-    this.elements.slideContainer.append(element);
-    return element;
+    return slide.element;
 };
 
-
 Dialog.prototype.createTransactionSlide = function() {
-    var transactions, element, container;
-    transactions = ['Kopen', 'Huren', 'Beleggen'];
-    element = $('<div id="ventu-dialog-slide-transaction"  class="ventu-dialog-slide"></div>');
+    var transactions, slide, container;
+
+    slide = this.createBasicSlide('transaction');
 
     container =  $('<div class="ventu-dialog-slide-buttons-container"></div>');
-    element.append(container);
+    slide.body.append(container);
+    transactions = ['Kopen', 'Huren', 'Beleggen'];
     for (var i = 0, l = transactions.length; i < l; i++) {
         container.append(this.createTransactionButton(transactions[i]));
     }
-    element.css('width', this.settings.size.frame );
-    this.elements.slideContainer.append(element);
-    return element;
+    return slide.element;
+};
+
+
+Dialog.prototype.createEndSlide = function() {
+    var slide, container;
+    slide = this.createBasicSlide('end');
+
+    container =  $('<div class="ventu-dialog-slide-end-container">Aan het zoeken naar resultaten</div>');
+    slide.body.append(container);
+    return slide.element;
+};
+
+
+
+
+
+// slide elements creations
+
+Dialog.prototype.createTypeButton = function(type) {
+    var self, button, icon, label;
+    self = this;
+    button = $('<div class="ventu-dialog-type-button" type="' + type + '"></div>');
+    icon = $('<div class="ventu-dialog-type-button-icon"><img src="img/dialog/types/' + type.toLowerCase() + '.svg"></div>');
+    label = $('<div class="ventu-dialog-type-button-label">' + type + '</div>');
+    button.append(icon);
+    button.append(label);
+    button.click(function(){
+        $(this).toggleClass('ventu-dialog-type-button--active');
+        self.removeHeaderSection('types');
+        self.updateType();
+        self.status.updated['types'] = true;
+        self.updateButtons();
+    });
+    return button;
+};
+
+Dialog.prototype.updateType = function() {
+    var types = [];
+    // find active types
+    this.elements.buttons.type.each(function(){
+        if ($(this).hasClass('ventu-dialog-type-button--active')) {
+            types.push($(this).attr('type'));
+        }
+    });
+    this.status.query.types = types;
+};
+
+
+
+Dialog.prototype.selectLocation = function(location) {
+    this.status.query.location = location;
+    this.status.updated['location'] = true;
+    this.removeHeaderSection('location');
+    this.updateButtons();
 };
 
 Dialog.prototype.createTransactionButton = function(transaction) {
@@ -320,17 +376,6 @@ Dialog.prototype.createTransactionButton = function(transaction) {
     return button;
 };
 
-Dialog.prototype.createEndSlide = function() {
-    var element, container;
-    element = $('<div id="ventu-dialog-slide-end" class="ventu-dialog-slide"></div>');
-
-    container =  $('<div class="ventu-dialog-slide-end-container">Aan het zoeken naar resultaten</div>');
-    element.append(container);
-    this.elements.slideContainer.append(element);
-    element.css('width', this.settings.size.frame );
-    return element;
-};
-
 
 
 
@@ -338,30 +383,88 @@ Dialog.prototype.createEndSlide = function() {
 
 // status
 
-Dialog.prototype.updateType = function() {
-    var types = [];
-    // find active types
-    this.elements.buttons.type.each(function(){
-        if ($(this).hasClass('ventu-dialog-type-button--active')) {
-            types.push($(this).attr('type'));
-        }
-    });
-    this.status.query.types = types;
+
+
+Dialog.prototype.digest = function() {
+    this.updateSetStatus();
+    this.updateButtons();
+    this.updateHeader();
 };
+
+Dialog.prototype.updateSetStatus = function() {
+    for (var i = 0, l = this.sections.length; i < l; i++) {
+        switch (i) {
+            case 0:
+                this.status.set[this.sections[i]] = this.status.query.types.length > 0;
+                break;
+            case 1:
+                this.status.set[this.sections[i]] = this.status.query.location.length > 0;
+                break;
+            case 2:
+                this.status.set[this.sections[i]] = this.status.query.area[0] !== null && this.status.query.area[1] !== null;
+                break;
+            case 3:
+                this.status.set[this.sections[i]] = this.status.query.transaction !== null;
+                break;
+            case 4:
+                this.status.set[this.sections[i]] = false;
+                break;
+        }
+    }
+};
+
+Dialog.prototype.updateButtons = function() {
+    this.updateSetStatus();
+    // prev
+    if (this.status.page.current > 0) {
+        this.elements.buttons.prev.show();
+    } else {
+        this.elements.buttons.prev.hide();
+    }
+
+    var section = this.sections[this.status.page.current],
+        setOfCurrentSection = this.status.set[section];
+
+    if (setOfCurrentSection) {
+        this.elements.buttons.next.show();
+    } else {
+        this.elements.buttons.next.hide();
+    }
+    this.setCenterline(this.status.page.current, setOfCurrentSection);
+};
+
 
 Dialog.prototype.updateHeader = function() {
     for (var i = 0, l = this.sections.length; i < l; i++) {
         var section = this.sections[i],
             updated = this.status.updated[section],
-            visited = this.status.visited[section];
+            visited = this.status.visited[section],
+            setStatus = this.status.set[section];
         if (visited) {
-            this.elements.header[section].show();
+            //this.elements.header[section].show();
+        }
+
+        if (setStatus) {
+            this.showTopHeader(section);
+        } else {
+            this.showSlideHeader(section);
         }
 
         if (updated) {
             this.updateHeaderSection(section);
+            this.status.updated[section] = false;
         }
     }
+};
+
+Dialog.prototype.showTopHeader = function(section) {
+    this.elements.header[section].show();
+    $('#ventu-dialog-slide-' + section + ' .ventu-dialog-header-section-text').hide();
+};
+
+Dialog.prototype.showSlideHeader = function(section) {
+    this.elements.header[section].hide();
+    $('#ventu-dialog-slide-' + section + ' .ventu-dialog-header-section-text').show();
 };
 
 Dialog.prototype.updateHeaderSection = function(section) {
@@ -379,42 +482,53 @@ Dialog.prototype.updateHeaderSection = function(section) {
                 container.append(label);
                 labels.push(label);
             }
-
-            timer = setInterval(function(){
-                labels[counter].addClass('show-label');
-                counter++;
-                if (counter >= l) {
-                    clearInterval(timer);
-                }
-            }, 50);
+            if (labels.length > 0) {
+                timer = setInterval(function () {
+                    labels[counter].addClass('show-label');
+                    counter++;
+                    if (counter >= l) {
+                        clearInterval(timer);
+                    }
+                }, 50);
+            }
             break;
         case 'location':
             label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.location + '</div>');
-            container.append(label);
-            label.addClass('show-label');
+
+            if (label.length > 0) {
+                container.append(label);
+                label.addClass('show-label');
+            }
             break;
         case 'area':
             for (i = 0, l = this.status.query.area.length; i < l; i++) {
                 label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.area[i] + 'm²</div>');
                 container.append(label);
+                if (i === 0) {
+                    container.append('<span>tot</span>')
+                }
                 labels.push(label);
             }
 
-            timer = setInterval(function(){
-                labels[counter].addClass('show-label');
-                counter++;
-                if (counter >= l) {
-                    clearInterval(timer);
-                }
-            }, 50);
+            if (labels.length > 0) {
+                timer = setInterval(function () {
+                    labels[counter].addClass('show-label');
+                    counter++;
+                    if (counter >= l) {
+                        clearInterval(timer);
+                    }
+                }, 50);
+            }
             break;
         case 'transaction':
             label = $('<div class="ventu-dialog-header-section-label">' + this.status.query.transaction + '</div>');
-            container.append(label);
-            label.addClass('show-label');
+
+            if (label.length > 0) {
+                container.append(label);
+                label.addClass('show-label');
+            }
             break;
     }
-    this.status.updated[section] = false;
 };
 
 Dialog.prototype.removeHeaderSection = function(section) {
@@ -433,6 +547,10 @@ Dialog.prototype.removeHeaderSection = function(section) {
         }, 50);
     }
 };
+
+
+
+
 
 
 
@@ -456,62 +574,10 @@ Dialog.prototype.prev = function() {
 Dialog.prototype.slide = function() {
     this.status.visited[this.sections[this.status.page.current]] = true;
     this.elements.slideContainer.css('left', -this.status.page.current * this.settings.size.frame);
-    this.updateHeader();
-    this.updateButtons();
+    this.digest();
 };
 
-Dialog.prototype.updateButtons = function() {
-    // prev
-    if (this.status.page.current > 0) {
-        this.elements.buttons.prev.show();
-    } else {
-        this.elements.buttons.prev.hide();
-    }
 
-    // next
-    switch (this.status.page.current) {
-        case 0:
-            if (this.status.query.types.length > 0) {
-                this.setCenterline(this.status.page.current, true);
-                this.elements.buttons.next.show();
-            } else {
-                this.setCenterline(this.status.page.current, false);
-                this.elements.buttons.next.hide()
-            }
-            break;
-        case 1:
-            if (this.status.query.location.length > 0) {
-                this.setCenterline(this.status.page.current, true);
-                this.elements.buttons.next.show();
-            } else {
-                this.setCenterline(this.status.page.current, false);
-                this.elements.buttons.next.hide();
-            }
-            break;
-        case 2:
-            if (this.status.query.area[0] !== null && this.status.query.area[1] !== null) {
-                this.setCenterline(this.status.page.current, true);
-                this.elements.buttons.next.show();
-            } else {
-                this.setCenterline(this.status.page.current, false);
-                this.elements.buttons.next.hide();
-            }
-            break;
-        case 3:
-            if (this.status.query.transaction !== null) {
-                this.setCenterline(this.status.page.current, true);
-                this.elements.buttons.next.show();
-            } else {
-                this.setCenterline(this.status.page.current, false);
-                this.elements.buttons.next.hide();
-            }
-            break;
-        case 4:
-            this.setCenterline(this.status.page.current, false);
-            this.elements.buttons.next.hide();
-            break;
-    }
-};
 
 Dialog.prototype.setCenterline = function(page, allowed) {
     var left = $('.ventu-dialog-center-line-left'),
