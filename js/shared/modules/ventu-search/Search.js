@@ -128,10 +128,12 @@ Search.prototype.setZindex = function(rise) {
     // overflow issuses, the z-index of .ventu-dialog needs to rise when
     // the results-window is poppped out
     // outerOutput is the Dialog module
-    if (this.outerOutput && rise) {
-        this.outerOutput.element.css('z-index', 10);
-    } else {
-        this.outerOutput.element.css('z-index', 1);
+    if (this.outerOutput ) {
+        if (rise) {
+            this.outerOutput.element.css('z-index', 10);
+        } else {
+            this.outerOutput.element.css('z-index', 1);
+        }
     }
 };
 
