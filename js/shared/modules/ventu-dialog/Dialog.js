@@ -42,6 +42,7 @@ function Dialog(element) {
 
     this.settings = {
         size: {
+            body: 500,
             frame: 0
         }
     };
@@ -113,6 +114,8 @@ Dialog.prototype.createSlides = function() {
     this.elements.slideContainer.css('width', (this.sections.length + 1) * this.settings.size.frame); // +1 for end frame
     this.element.append(this.elements.slideFrame);
     this.elements.slideFrame.append(this.elements.slideContainer);
+    this.addCenterLine(this.elements.slideFrame);
+
 
     this.elements.slides.push(this.createTypeSlide());
     this.elements.slides.push(this.createLocationSlide());
@@ -122,11 +125,24 @@ Dialog.prototype.createSlides = function() {
 };
 
 Dialog.prototype.addCenterLine = function(element) {
-    var centerline = $('<div class="ventu-dialog-center-line"></div>');
-    centerline.append('<div class="ventu-dialog-center-line-left"></div>');
-    centerline.append('<div class="ventu-dialog-center-line-middle"></div>');
-    centerline.append('<div class="ventu-dialog-center-line-right"></div>');
+    var centerline = $('<div class="ventu-dialog-center-line"></div>'),
+        middle = $('<div class="ventu-dialog-center-line-middle"></div>'),
+        left = $('<div class="ventu-dialog-center-line-left"></div>'),
+        right = $('<div class="ventu-dialog-center-line-right"></div>');
+
+
+
+    centerline.append(left);
+    centerline.append(middle);
+    centerline.append(right);
     element.append(centerline);
+
+    this.settings.size.centerline = $('.ventu-dialog-center-line').outerWidth();
+    this.settings.size.side = Math.floor((this.settings.size.centerline - this.settings.size.body) / 2);
+    left.css('width', this.settings.size.side);
+    left.addClass('ventu-dialog-center-line--hidden');
+    middle.css('width', this.settings.size.body);
+    right.css('width', 0);
 };
 
 Dialog.prototype.createTypeSlide = function() {
@@ -143,7 +159,6 @@ Dialog.prototype.createTypeSlide = function() {
     // make reusable selection
     this.elements.buttons.type = this.element.find('.ventu-dialog-type-button');
     element.css('width', this.settings.size.frame );
-    this.addCenterLine(element);
     return element;
 };
 
@@ -171,7 +186,7 @@ Dialog.prototype.createLocationSlide = function() {
     search = $('<div class="ventu-search initialise-manually ventu-search--white ventu-search-marker"></div>');
     // make it align in the center
     search.css({
-        'width': 500,
+        'width': this.settings.size.body,
         'margin': '0 auto'
     });
     searchModule = new Search(search);
@@ -179,7 +194,6 @@ Dialog.prototype.createLocationSlide = function() {
 
     element.css('width', this.settings.size.frame );
     element.append(search);
-    this.addCenterLine(element);
     this.elements.slideContainer.append(element);
     return element;
 };
@@ -252,7 +266,6 @@ Dialog.prototype.createAreaSlide = function() {
     });
 
     element.css('width', this.settings.size.frame );
-    this.addCenterLine(element);
     this.elements.slideContainer.append(element);
     return element;
 };
@@ -275,7 +288,6 @@ Dialog.prototype.createTransactionSlide = function() {
         container.append(this.createTransactionButton(transactions[i]));
     }
     element.css('width', this.settings.size.frame );
-    this.addCenterLine(element);
     this.elements.slideContainer.append(element);
     return element;
 };
@@ -454,36 +466,71 @@ Dialog.prototype.updateButtons = function() {
     switch (this.status.page.current) {
         case 0:
             if (this.status.query.types.length > 0) {
+                this.setCenterline(this.status.page.current, true);
                 this.elements.buttons.next.show();
             } else {
+                this.setCenterline(this.status.page.current, false);
                 this.elements.buttons.next.hide()
             }
             break;
         case 1:
             if (this.status.query.location.length > 0) {
+                this.setCenterline(this.status.page.current, true);
                 this.elements.buttons.next.show();
             } else {
+                this.setCenterline(this.status.page.current, false);
                 this.elements.buttons.next.hide();
             }
             break;
         case 2:
             if (this.status.query.area[0] !== null && this.status.query.area[1] !== null) {
+                this.setCenterline(this.status.page.current, true);
                 this.elements.buttons.next.show();
             } else {
+                this.setCenterline(this.status.page.current, false);
                 this.elements.buttons.next.hide();
             }
             break;
         case 3:
             if (this.status.query.transaction !== null) {
+                this.setCenterline(this.status.page.current, true);
                 this.elements.buttons.next.show();
             } else {
+                this.setCenterline(this.status.page.current, false);
                 this.elements.buttons.next.hide();
             }
             break;
         case 4:
+            this.setCenterline(this.status.page.current, false);
             this.elements.buttons.next.hide();
             break;
     }
+};
 
-    this.elements.buttons.next.show();
+Dialog.prototype.setCenterline = function(page, allowed) {
+    var left = $('.ventu-dialog-center-line-left'),
+        middle = $('.ventu-dialog-center-line-middle'),
+        right = $('.ventu-dialog-center-line-right');
+
+
+    if (page === 0) {
+        left.addClass('ventu-dialog-center-line--hidden');
+    } else {
+        left.removeClass('ventu-dialog-center-line--hidden')
+    }
+
+
+    if (allowed) {
+        right.css('width', this.settings.size.side);
+    } else {
+        right.css('width', 0);
+    }
+
+    if (page === 4) {
+        middle.addClass('ventu-dialog-center-line--hidden');
+    } else {
+        middle.removeClass('ventu-dialog-center-line--hidden')
+    }
+
+
 };

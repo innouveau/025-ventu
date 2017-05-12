@@ -2168,7 +2168,6 @@ form button[type=submit] {
   bottom: 50px;
   width: 100%;
   text-align: center;
-  z-index: 10;
 }
 .ventu-continue .ventu-continue-button {
   width: 32px;
@@ -2207,8 +2206,11 @@ form button[type=submit] {
 #ventu-dialog-slide-location {
   padding-top: 42px;
 }
-#ventu-dialog-slide-location .ventu-search.ventu-search {
+#ventu-dialog-slide-location .ventu-search {
   border-bottom: 0!important;
+}
+#ventu-dialog-slide-location .ventu-search .ventu-search-results {
+  top: calc(100% - 1px) !important;
 }
 #ventu-dialog-slide-area {
   padding-top: 60px;
@@ -2224,6 +2226,37 @@ form button[type=submit] {
   height: 200px;
   overflow: hidden;
   position: relative;
+}
+.ventu-dialog-slide-frame .ventu-dialog-center-line {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  width: calc(100% - 100px);
+}
+.ventu-dialog-slide-frame .ventu-dialog-center-line > div {
+  height: 1px;
+}
+.ventu-dialog-slide-frame .ventu-dialog-center-line .ventu-dialog-center-line-left {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 16px 1px;
+  background-repeat: repeat-x;
+  float: left;
+}
+.ventu-dialog-slide-frame .ventu-dialog-center-line .ventu-dialog-center-line-left.ventu-dialog-center-line--hidden {
+  background-image: none;
+}
+.ventu-dialog-slide-frame .ventu-dialog-center-line .ventu-dialog-center-line-middle {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  float: left;
+}
+.ventu-dialog-slide-frame .ventu-dialog-center-line .ventu-dialog-center-line-middle.ventu-dialog-center-line--hidden {
+  border-bottom: none;
+}
+.ventu-dialog-slide-frame .ventu-dialog-center-line .ventu-dialog-center-line-right {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  float: left;
+  transition: width 0.5s ease;
 }
 .ventu-dialog-slide-frame .ventu-dialog-navigation-button {
   position: absolute;
@@ -2281,15 +2314,7 @@ form button[type=submit] {
   color: #fff;
   text-align: center;
   height: 100%;
-}
-.ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-center-line {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
-}
-.ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-center-line .ventu-dialog-center-line-left {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
 }
 .ventu-dialog-slide-frame .ventu-dialog-slide-container .ventu-dialog-slide .ventu-dialog-slide-end-container {
   width: 220px;
@@ -2533,6 +2558,8 @@ form button[type=submit] {
   background: #fff;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
   z-index: 100;
+  max-height: 300px;
+  overflow: auto;
 }
 .ventu-search-results .ventu-search-result {
   padding: 12px;

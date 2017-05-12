@@ -1,8 +1,12 @@
 #ventu-dialog-slide-location {
     padding-top: 42px;
 
-    .ventu-search.ventu-search {
+    .ventu-search {
         border-bottom: 0!important;
+
+        .ventu-search-results {
+            top: ~'calc(100% - 1px)'!important;
+        }
     }
 }
 
@@ -23,6 +27,45 @@
     height: 200px;
     overflow: hidden;
     position: relative;
+
+    .ventu-dialog-center-line {
+        position: absolute;
+        left: 50px;
+        top: 50%;
+        width: ~'calc(100% - 100px)';
+
+        > div {
+            height: 1px;
+        }
+
+        .ventu-dialog-center-line-left {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 0%);
+            background-position: bottom;
+            background-size: 16px 1px;
+            background-repeat: repeat-x;
+            float: left;
+
+            &.ventu-dialog-center-line--hidden {
+                background-image: none;
+            }
+        }
+
+        .ventu-dialog-center-line-middle {
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            float: left;
+
+            &.ventu-dialog-center-line--hidden {
+                border-bottom: none;
+            }
+        }
+
+        .ventu-dialog-center-line-right {
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            float: left;
+            transition: width 0.5s ease;
+        }
+
+    }
 
     .ventu-dialog-navigation-button {
         position: absolute;
@@ -91,18 +134,7 @@
             color: #fff;
             text-align: center;
             height: 100%;
-
-            .ventu-dialog-center-line {
-                position: absolute;
-                left: 0;
-                top: 50%;
-                width: 100%;
-
-                .ventu-dialog-center-line-left {
-                    border-bottom: 1px solid rgba(255,255,255,0.5);
-                }
-
-            }
+            position: relative;
 
             .ventu-dialog-slide-end-container {
                 width: 220px;
