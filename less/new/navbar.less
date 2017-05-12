@@ -1,12 +1,11 @@
 @import '../mixins';
 
 nav.navbar-default {
-    height: 60px;
     border: 0!important;
     margin: 0;
-    width: 100%;
     background: @ventu-color-1!important;
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+
 
     .navbar-header {
 
@@ -19,26 +18,27 @@ nav.navbar-default {
                 background-size: cover;
                 width: 215px;
                 height: 60px;
-                margin-right: 20px;
             }
         }
 
         .navbar-toggle {
             border-radius: 0;
-            border: 1px solid @ventu-black;
-            margin-top: 21px;
-            margin-right: 18px;
-            padding: 6px;
+            border: 0;
+            padding: 20px;
+            margin: 0;
+            width: 60px;
+            height: 60px;
+            background: white;
 
             &:hover {
-                background: white;
+                background: @ventu-color-1;
 
             }
 
             .icon-bar {
                 border-radius: 0;
-                background-color: @ventu-black;
-                height: 1px;
+                background-color: @ventu-color-2;
+                height: 3px;
             }
         }
     }
@@ -48,15 +48,16 @@ nav.navbar-default {
 
         ul {
             height: 100%;
+            margin: 0;
 
             li {
-                border-left: 1px solid @ventu-menu-bar-grey;
                 display: block;
                 height: 100%;
                 background: #fff;
+                border-left: 1px solid @ventu-main-grey-2;
 
                 &:hover {
-                    background: @ventu-menu-bar-grey;
+                    background: @ventu-main-grey-2;
                 }
 
                 a {
@@ -65,36 +66,10 @@ nav.navbar-default {
                     font-weight: 500;
                     transition: all 0.2s ease;
                     color: @ventu-color-2;
-
                     display: block;
                     height: 100%;
                     font-family: 'ProximaNova';
-                }
-
-                .dropdown-menu {
-                    background-color: #fff;
-                    border: 0;
-                    height: auto;
-                    border-radius: 0;
-                    padding: 0;
-
-                    li {
-                        border-left: 0;
-                        border-bottom: 1px solid #ddd;
-
-                        &:hover {
-                            background: transparent;
-                        }
-
-                        a {
-                            padding: 16px 32px;
-                            height: auto;
-
-                            &:hover {
-                                background: @button-hover-color;
-                            }
-                        }
-                    }
+                    text-align: right;
                 }
             }
         }
@@ -105,20 +80,38 @@ nav.navbar-default {
 @media (max-width: 768px) {
 
     nav.navbar-default {
+        background: transparent!important;
+        box-shadow: none;
 
         .navbar-header {
+            background: @ventu-color-1!important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 
             .navbar-brand {
-                padding: 0;
 
                 .ventu-identity {
-                    display: inline-block;
                     background-image: url('../img/identity/ventu-icon.svg');
-                    background-size: cover;
                     width: 82.5px;
                     height: 60px;
                 }
             }
         }
+
+        #navbar {
+
+            ul {
+
+                li {
+                    background: transparent;
+                    border-left: none;
+                }
+
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
     }
+
+
 }

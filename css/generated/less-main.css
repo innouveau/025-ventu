@@ -1333,9 +1333,6 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 .ventu-single-page .ventu-pagewrap .ventu-page-footer .ventu-card:hover {
   transform: scale(1.1);
 }
-.ventu-home-content {
-  margin-top: 60px;
-}
 #ventu-dialog-entry {
   height: 800px;
   background-image: url('../img/home/rotterdam.jpg');
@@ -1994,10 +1991,8 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
   background: #ededec;
 }
 nav.navbar-default {
-  height: 60px;
   border: 0!important;
   margin: 0;
-  width: 100%;
   background: #00e5a9 !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
@@ -2010,37 +2005,39 @@ nav.navbar-default .navbar-header .navbar-brand .ventu-identity {
   background-size: cover;
   width: 215px;
   height: 60px;
-  margin-right: 20px;
 }
 nav.navbar-default .navbar-header .navbar-toggle {
   border-radius: 0;
-  border: 1px solid #17141f;
-  margin-top: 21px;
-  margin-right: 18px;
-  padding: 6px;
+  border: 0;
+  padding: 20px;
+  margin: 0;
+  width: 60px;
+  height: 60px;
+  background: white;
 }
 nav.navbar-default .navbar-header .navbar-toggle:hover {
-  background: white;
+  background: #00e5a9;
 }
 nav.navbar-default .navbar-header .navbar-toggle .icon-bar {
   border-radius: 0;
-  background-color: #17141f;
-  height: 1px;
+  background-color: #03256b;
+  height: 3px;
 }
 nav.navbar-default #navbar {
   height: 100%;
 }
 nav.navbar-default #navbar ul {
   height: 100%;
+  margin: 0;
 }
 nav.navbar-default #navbar ul li {
-  border-left: 1px solid #dcdce2;
   display: block;
   height: 100%;
   background: #fff;
+  border-left: 1px solid #ededec;
 }
 nav.navbar-default #navbar ul li:hover {
-  background: #dcdce2;
+  background: #ededec;
 }
 nav.navbar-default #navbar ul li a {
   padding: 20px 24px;
@@ -2051,38 +2048,28 @@ nav.navbar-default #navbar ul li a {
   display: block;
   height: 100%;
   font-family: 'ProximaNova';
-}
-nav.navbar-default #navbar ul li .dropdown-menu {
-  background-color: #fff;
-  border: 0;
-  height: auto;
-  border-radius: 0;
-  padding: 0;
-}
-nav.navbar-default #navbar ul li .dropdown-menu li {
-  border-left: 0;
-  border-bottom: 1px solid #ddd;
-}
-nav.navbar-default #navbar ul li .dropdown-menu li:hover {
-  background: transparent;
-}
-nav.navbar-default #navbar ul li .dropdown-menu li a {
-  padding: 16px 32px;
-  height: auto;
-}
-nav.navbar-default #navbar ul li .dropdown-menu li a:hover {
-  background: #ddd;
+  text-align: right;
 }
 @media (max-width: 768px) {
-  nav.navbar-default .navbar-header .navbar-brand {
-    padding: 0;
+  nav.navbar-default {
+    background: transparent!important;
+    box-shadow: none;
+  }
+  nav.navbar-default .navbar-header {
+    background: #00e5a9 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   }
   nav.navbar-default .navbar-header .navbar-brand .ventu-identity {
-    display: inline-block;
     background-image: url('../img/identity/ventu-icon.svg');
-    background-size: cover;
     width: 82.5px;
     height: 60px;
+  }
+  nav.navbar-default #navbar ul li {
+    background: transparent;
+    border-left: none;
+  }
+  nav.navbar-default #navbar ul:hover {
+    background: transparent;
   }
 }
 .ventu-dialog-slide-frame {
