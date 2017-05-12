@@ -32,14 +32,19 @@
   position: absolute;
 }
 #ventu-card-button-container .ventu-card-button--love {
-  left: calc(50% - 210px);
+  left: calc(50% - 182px);
   top: 20px;
 }
 #ventu-card-button-container .ventu-card-button--hate {
-  left: calc(50% + 70px);
+  left: calc(50% + 118px);
   top: 20px;
 }
 #ventu-card-button-container .ventu-card-button--read-more {
   left: calc(50% - 32px);
   top: 120px;
+}
+@media (max-width: 768px) {
+  .ventu-home-card-container {
+    margin-top: 20px;
+  }
 }
