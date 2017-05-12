@@ -1519,6 +1519,13 @@ nav.navbar-default #navbar ul li a {
   max-width: 300px;
   margin: 0 auto;
 }
+.ventu-discover-icon-container {
+  margin: 50px 0;
+}
+.ventu-discover-icon-container .ventu-discover-icon {
+  display: inline-block;
+  margin: 0 25px;
+}
 .ventu-contact-icon-button {
   display: block;
   margin-bottom: 15px;
