@@ -12,6 +12,7 @@
 }
 #ventu-chat-entry .ventu-chat-pins-container {
   position: relative;
+  height: 400px;
 }
 #ventu-search-entry {
   height: 800px;
@@ -25,7 +26,8 @@
   background-image: url('../img/home/discover-bg.jpg');
 }
 #ventu-home-card-container {
-  height: 400px;
+  height: 500px;
+  position: relative;
 }
 #ventu-card-button-container {
   position: relative;

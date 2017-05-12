@@ -1347,6 +1347,7 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 }
 #ventu-chat-entry .ventu-chat-pins-container {
   position: relative;
+  height: 400px;
 }
 #ventu-search-entry {
   height: 800px;
@@ -1360,7 +1361,8 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
   background-image: url('../img/home/discover-bg.jpg');
 }
 #ventu-home-card-container {
-  height: 400px;
+  height: 500px;
+  position: relative;
 }
 #ventu-card-button-container {
   position: relative;
@@ -1399,10 +1401,6 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
   background: #fff;
   width: 320px;
   height: 360px;
-}
-.ventu-card.ventu-card--static {
-  cursor: default;
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
 }
 .ventu-card.ventu-card--dynamic {
   display: none;
@@ -1550,6 +1548,16 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
     margin-bottom: 10px;
   }
 }
+.ventu-card.ventu-card--static {
+  cursor: default;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 767px) {
+  .ventu-card.ventu-card--static {
+    width: 320px;
+    height: 360px;
+  }
+}
 /* specific blocks */
 #ventu-about.ventu-block {
   padding: 32px 90px;
@@ -1657,6 +1665,18 @@ body.ventu-list #ventu-list-content #ventu-list-listing {
 .ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h5,
 .ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h6 {
   color: #fff;
+}
+@media (max-width: 1024px) {
+  .ventu-block {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media (max-width: 1024px) {
+  .ventu-block {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 .ventu-inspiration {
   height: 280px;
@@ -2348,6 +2368,12 @@ body {
   line-height: 1.25;
   color: #17141f;
   font-family: 'Alegreya Sans';
+}
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+    overflow: hidden;
+  }
 }
 .ventu-continue {
   position: absolute!important;
