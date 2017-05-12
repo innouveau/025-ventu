@@ -2370,6 +2370,7 @@ form button[type=submit] {
   color: #fff;
 }
 .ventu-search-open {
+  float: right;
   width: 60px;
   height: 60px;
   background: #ededec;

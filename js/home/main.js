@@ -1,7 +1,8 @@
-$(window).ready(function(){
+$(window).ready(function() {
+
     initialiseModules();
     initialiseModals();
+    setFullscreenAndContinueButton();
 
-    setFullscreen();
 });
 

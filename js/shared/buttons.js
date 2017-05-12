@@ -1,7 +1,7 @@
 // all these are called from the specific main.js page
 // fullscreen & continue button
 
-function setFullscreen() {
+function setFullscreenAndContinueButton() {
     var panelHeight = $(window).outerHeight() - 60;
     $('#ventu-dialog-entry').css('min-height', panelHeight);
     addContinueListener(panelHeight);
@@ -14,3 +14,4 @@ function addContinueListener(panelHeight) {
         }, 500);
     })
 }
+

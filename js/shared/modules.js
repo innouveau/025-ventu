@@ -17,7 +17,25 @@ function initialiseModules() {
             $(this).find('.ventu-search-results').empty();
             $(this).find('.ventu-search input').val('');
         }
+    });
+
+    $(window).resize(function(){
+        setSearchOpeners();
+    });
+
+    setSearchOpeners();
+}
+
+function setSearchOpeners() {
+    $('.ventu-search-open').each(function () {
+        setSearchOpenerInNavbar($(this));
     })
-    // TODO we could manually set the width of the search-box inside the search-opener
-    // so it fits perfect between the ventu logo and the buttons on its right
+
+}
+
+function setSearchOpenerInNavbar(searchOpener) {
+    var remainingSpace = $(window).outerWidth();
+    remainingSpace -= $('.navbar-brand').outerWidth();
+    remainingSpace -=  $('#navbar').outerWidth();
+    searchOpener.parent().css('width', remainingSpace);
 }
