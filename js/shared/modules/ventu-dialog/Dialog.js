@@ -54,10 +54,21 @@ function Dialog(element) {
 // creation
 
 Dialog.prototype.create = function() {
-    this.settings.size.frame = this.element.outerWidth(); // TODO do this and the setting of slides and container again after resize
+    var self = this;
+    $(window).resize(function(){
+        self.resize();
+    });
+
+    this.settings.size.frame = this.element.outerWidth();
     this.createHeader();
     this.createSlides();
     this.createButtons();
+};
+
+Dialog.prototype.resize = function() {
+    this.settings.size.frame = this.element.outerWidth();
+    this.elements.slideContainer.css('width', (this.sections.length + 1) * this.settings.size.frame);
+    $('.ventu-dialog-slide').css('width', this.settings.size.frame );
 };
 
 Dialog.prototype.createHeader = function() {
