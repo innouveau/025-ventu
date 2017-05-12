@@ -11,10 +11,10 @@ nav.navbar-default .navbar-header .navbar-brand {
 }
 nav.navbar-default .navbar-header .navbar-brand .ventu-identity {
   display: inline-block;
-  background-image: url('../img/identity/ventu-logo-small.svg');
+  background-image: url('../img/identity/ventu-logo-navbar.svg');
   background-size: cover;
-  width: 153px;
-  height: 42px;
+  width: 215px;
+  height: 60px;
   margin-right: 20px;
 }
 nav.navbar-default .navbar-header .navbar-toggle {
