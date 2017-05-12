@@ -1367,6 +1367,23 @@ h6 {
   line-height: 1.25;
   color: #17141f;
 }
+@media (max-width: 767px) {
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 14px;
+  }
+}
 #ventu-dialog-entry {
   height: 800px;
   background-image: url('img/home/rotterdam.jpg');
@@ -1572,8 +1589,8 @@ nav.navbar-default #navbar ul li a {
   text-decoration: underline;
 }
 @media (max-width: 767px) {
-  #ventu-about h2:first-child,
-  #ventu-direct-links h2:first-child {
+  #ventu-about h3:first-child,
+  #ventu-direct-links h3:first-child {
     margin-top: 20px;
   }
 }
