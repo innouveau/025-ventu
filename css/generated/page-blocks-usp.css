@@ -1,0 +1,18 @@
+.ventu-usp-item {
+  text-align: center;
+}
+.ventu-usp-item .ventu-usp-item-image {
+  height: 80px;
+}
+.ventu-usp-item .ventu-usp-item-image img {
+  width: 75px;
+  height: auto;
+}
+.ventu-usp-item h3 {
+  margin: 40px 0;
+}
+@media (max-width: 767px) {
+  .ventu-usp-item {
+    margin-bottom: 50px;
+  }
+}
