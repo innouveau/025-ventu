@@ -2356,6 +2356,20 @@ form button[type=submit] {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   text-align: center;
+  animation-name: background-bounce;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes background-bounce {
+  0% {
+    background-size: 30%;
+  }
+  50% {
+    background-size: 50%;
+  }
+  100% {
+    background-size: 30%;
+  }
 }
 @media (max-width: 767px) {
   .ventu-dialog-slide-frame {
@@ -2434,18 +2448,18 @@ form button[type=submit] {
   left: 10px;
 }
 .ventu-dialog-navigation-button.ventu-dialog-navigation-prev:hover:after {
-  border-right: 20px solid #00e5a9;
+  border-right: 14px solid #00e5a9;
 }
 .ventu-dialog-navigation-button.ventu-dialog-navigation-prev:after {
   width: 0;
   height: 0;
-  border-top: 14px solid transparent;
-  border-bottom: 14px solid transparent;
-  border-right: 20px solid #fff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 14px solid #fff;
   content: '';
   position: absolute;
-  left: 23px;
-  top: 22px;
+  left: 29px;
+  top: 27px;
 }
 .ventu-dialog-header {
   height: 140px;

@@ -230,8 +230,17 @@
             background-position: 50% 50%;
             background-repeat: no-repeat;
             text-align: center;
+            animation-name: background-bounce;
+            animation-duration: 3.5s;
+            animation-iteration-count: infinite;
         }
     }
+}
+
+@keyframes background-bounce {
+    0% {background-size: 30%;}
+    50% {background-size: 50%;}
+    100% {background-size: 30%;}
 }
 
 
