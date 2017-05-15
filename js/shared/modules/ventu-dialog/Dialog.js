@@ -43,6 +43,11 @@ function Dialog(element) {
             next: null,
             type: null
         },
+        centerline: {
+            left: null,
+            center: null,
+            right: null
+        },
         slides: []
     };
 
@@ -77,6 +82,7 @@ Dialog.prototype.create = function() {
     this.settings.size.frame = this.element.outerWidth();
     this.createHeader();
     this.createSlides();
+    this.addCenterLine(this.elements.slideFrame);
     this.createButtons();
 };
 
@@ -118,8 +124,8 @@ Dialog.prototype.createButtons = function() {
     this.elements.buttons.prev.hide();
     this.elements.buttons.next.hide();
 
-    this.elements.slideFrame.append(this.elements.buttons.prev);
-    this.elements.slideFrame.append(this.elements.buttons.next);
+    this.elements.centerline.left.append(this.elements.buttons.prev);
+    this.elements.centerline.right.append(this.elements.buttons.next);
 };
 
 Dialog.prototype.createSlides = function() {
@@ -128,7 +134,7 @@ Dialog.prototype.createSlides = function() {
     this.elements.slideContainer.css('width', (this.sections.length + 1) * this.settings.size.frame); // +1 for end frame
     this.element.append(this.elements.slideFrame);
     this.elements.slideFrame.append(this.elements.slideContainer);
-    this.addCenterLine(this.elements.slideFrame);
+
 
 
     this.elements.slides.push(this.createTypeSlide());
@@ -139,24 +145,24 @@ Dialog.prototype.createSlides = function() {
 };
 
 Dialog.prototype.addCenterLine = function(element) {
-    var centerline = $('<div class="ventu-dialog-center-line"></div>'),
-        middle = $('<div class="ventu-dialog-center-line-middle"></div>'),
-        left = $('<div class="ventu-dialog-center-line-left"></div>'),
-        right = $('<div class="ventu-dialog-center-line-right"></div>');
+    var centerline = $('<div class="ventu-dialog-center-line"></div>');
+    this.elements.centerline.middle = $('<div class="ventu-dialog-center-line-middle"></div>');
+    this.elements.centerline.left = $('<div class="ventu-dialog-center-line-left"></div>');
+    this.elements.centerline.right = $('<div class="ventu-dialog-center-line-right"></div>');
 
 
 
-    centerline.append(left);
-    centerline.append(middle);
-    centerline.append(right);
+    centerline.append(this.elements.centerline.left);
+    centerline.append(this.elements.centerline.middle);
+    centerline.append(this.elements.centerline.right);
     element.append(centerline);
 
     this.settings.size.centerline = $('.ventu-dialog-center-line').outerWidth();
     this.settings.size.side = Math.floor((this.settings.size.centerline - this.settings.size.body) / 2);
-    left.css('width', this.settings.size.side);
-    left.addClass('ventu-dialog-center-line--hidden');
-    middle.css('width', this.settings.size.body);
-    right.css('width', 0);
+    this.elements.centerline.left.css('width', this.settings.size.side);
+    this.elements.centerline.left.addClass('ventu-dialog-center-line--hidden');
+    this.elements.centerline.middle.css('width', this.settings.size.body);
+    this.elements.centerline.right.css('width', 0);
 };
 
 

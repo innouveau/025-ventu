@@ -6,6 +6,7 @@
 }
 .ventu-dialog-center-line > div {
   height: 1px;
+  position: relative;
 }
 .ventu-dialog-center-line .ventu-dialog-center-line-left {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 0%);

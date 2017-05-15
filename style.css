@@ -2394,6 +2394,7 @@ form button[type=submit] {
 }
 .ventu-dialog-center-line > div {
   height: 1px;
+  position: relative;
 }
 .ventu-dialog-center-line .ventu-dialog-center-line-left {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 0%);
@@ -2419,14 +2420,14 @@ form button[type=submit] {
 }
 .ventu-dialog-navigation-button {
   position: absolute;
-  top: 79px;
+  top: calc(50% - 37px);
   z-index: 1;
   width: 74px;
   height: 74px;
   cursor: pointer;
 }
 .ventu-dialog-navigation-button.ventu-dialog-navigation-prev {
-  left: 10px;
+  left: -37px;
 }
 .ventu-dialog-navigation-button.ventu-dialog-navigation-prev:hover:after {
   border-right: 14px solid #00e5a9;
@@ -2443,7 +2444,7 @@ form button[type=submit] {
   top: 27px;
 }
 .ventu-dialog-navigation-button.ventu-dialog-navigation-next {
-  right: 10px;
+  right: -37px;
 }
 .ventu-dialog-navigation-button.ventu-dialog-navigation-next:after {
   width: 0;
