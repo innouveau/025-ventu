@@ -107,7 +107,7 @@ Dialog.prototype.createButtons = function() {
     var self;
     self = this;
     this.elements.buttons.prev = $('<div class="ventu-dialog-navigation-button ventu-dialog-navigation-prev"></div>');
-    this.elements.buttons.next = $('<div class="ventu-dialog-navigation-button ventu-dialog-navigation-next"></div>');
+    this.elements.buttons.next = $('<div class="ventu-dialog-navigation-button ventu-dialog-navigation-next waving"><div class="ventu-dialog-navigation-button-wave"></div></div>');
     this.elements.buttons.prev.click(function(){
         self.prev();
     });
@@ -557,6 +557,7 @@ Dialog.prototype.removeHeaderSection = function(section) {
 // navigation
 
 Dialog.prototype.next = function() {
+    this.elements.buttons.next.removeClass('waving');
     this.status.page.current++;
     this.slide();
     if (this.status.page.current === 4) {
