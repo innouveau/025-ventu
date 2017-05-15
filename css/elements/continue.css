@@ -1,0 +1,33 @@
+.ventu-continue {
+  position: absolute!important;
+  left: 0;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+}
+.ventu-continue .ventu-continue-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ff8d00;
+  display: inline-block;
+  background-image: url(img/tools/continue.svg);
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+.ventu-continue .ventu-continue-button:hover {
+  background-color: #17141f;
+}
+.ventu-continue .ventu-continue-text {
+  max-width: 500px;
+  margin: 20px auto 0 auto;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .ventu-continue {
+    bottom: 20px;
+  }
+  .ventu-continue .ventu-continue-text {
+    margin-top: 10px;
+  }
+}

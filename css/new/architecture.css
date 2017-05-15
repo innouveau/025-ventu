@@ -1,0 +1,15 @@
+body {
+  background: #ededec;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #17141f;
+  font-family: 'Alegreya Sans';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+    overflow: hidden;
+  }
+}

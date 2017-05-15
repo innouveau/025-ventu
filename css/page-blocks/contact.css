@@ -1,0 +1,22 @@
+.ventu-contact-icon-button {
+  display: block;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+.ventu-contact-icon-button .ventu-contact-icon-button-img {
+  display: inline-block;
+  width: 30px;
+}
+.ventu-contact-icon-button .ventu-contact-icon-button-text {
+  color: #17141f;
+  font-family: ProximaNova;
+  padding-bottom: 1px;
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+}
+.ventu-contact-icon-button:hover {
+  text-decoration: none!important;
+}
+.ventu-contact-icon-button:hover .ventu-contact-icon-button-text {
+  border-bottom: 1px solid #17141f;
+}

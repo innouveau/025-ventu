@@ -1,0 +1,45 @@
+h1 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1;
+  color: #03256b;
+}
+h2 {
+  font-weight: 700;
+  font-size: 40px;
+  color: #03256b;
+}
+h3 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 0.67;
+  color: #03256b;
+}
+h5 {
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #17141f;
+}
+h6 {
+  font-size: 16px;
+  line-height: 1.25;
+  color: #17141f;
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 14px;
+  }
+}

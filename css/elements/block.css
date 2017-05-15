@@ -1,0 +1,68 @@
+.ventu-block {
+  padding: 80px 90px;
+  background: #fff;
+}
+.ventu-block .ventu-block-color-fill {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(58, 101, 192, 0.8);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+.ventu-block.ventu-block--with-background {
+  background-size: cover;
+}
+.ventu-block.ventu-block--grey {
+  background: #ebebeb;
+}
+.ventu-block.ventu-block--with-color-fill {
+  position: relative;
+}
+.ventu-block.ventu-block--with-color-fill > *:not(.ventu-block-color-fill) {
+  position: relative;
+  z-index: 1;
+}
+.ventu-block .ventu-block-header {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.ventu-block .ventu-block-header.ventu-block-header--left {
+  text-align: left;
+}
+.ventu-block .ventu-block-header .ventu-block-header-text {
+  margin-bottom: 40px;
+}
+.ventu-block .ventu-block-header .ventu-block-header-text h1 {
+  margin: 0 0 20px 0;
+}
+.ventu-block .ventu-block-header .ventu-block-header-text h2 {
+  margin: 0 0 20px 0;
+}
+.ventu-block .ventu-block-header .ventu-block-header-text h5 {
+  margin: 0;
+}
+.ventu-block .ventu-block-header .ventu-block-header-text h6 {
+  margin: 0;
+}
+.ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h1,
+.ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h2,
+.ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h5,
+.ventu-block .ventu-block-header .ventu-block-header-text.ventu-block-header-text--white h6 {
+  color: #fff;
+}
+@media (max-width: 1024px) {
+  .ventu-block {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media (max-width: 1024px) {
+  .ventu-block {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

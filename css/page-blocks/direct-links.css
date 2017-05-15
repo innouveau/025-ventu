@@ -1,0 +1,37 @@
+#ventu-about.ventu-block {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  text-align: center;
+  border-bottom: 1px solid #ededec;
+}
+#ventu-direct-links.ventu-block {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #ededec;
+}
+#ventu-footer.ventu-block {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  font-family: ProximaNova;
+}
+#ventu-about h3:first-child,
+#ventu-direct-links h3:first-child {
+  margin-top: 0;
+}
+#ventu-about a,
+#ventu-direct-links a {
+  font-family: ProximaNova;
+  color: #17141f;
+  text-decoration: none;
+}
+#ventu-about a:hover,
+#ventu-direct-links a:hover {
+  color: #03256b;
+  text-decoration: underline;
+}
+@media (max-width: 767px) {
+  #ventu-about h3:first-child,
+  #ventu-direct-links h3:first-child {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,30 @@
+#ventu-footer #ventu-footer-legal {
+  text-align: center;
+  padding-top: 8px;
+}
+#ventu-footer #ventu-footer-legal a {
+  color: #17141f;
+}
+#ventu-footer #ventu-footer-social {
+  text-align: right;
+  padding-top: 3px;
+}
+#ventu-footer #ventu-footer-social a {
+  margin-left: 10px;
+}
+#ventu-footer #ventu-footer-social a i {
+  color: #727272;
+  font-size: 20px;
+}
+#ventu-footer #ventu-footer-social a:hover {
+  text-decoration: none;
+}
+#ventu-footer #ventu-footer-social a:hover i {
+  color: #00e5a9;
+}
+@media (max-width: 767px) {
+  #ventu-footer #ventu-footer-legal,
+  #ventu-footer #ventu-footer-social {
+    text-align: left;
+  }
+}
