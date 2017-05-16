@@ -2,6 +2,10 @@
   cursor: default;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
 }
+.ventu-card.ventu-card--grid {
+  position: relative;
+  width: 100%;
+}
 @media (max-width: 767px) {
   .ventu-card.ventu-card--static {
     width: 320px;

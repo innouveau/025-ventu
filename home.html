@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ventu</title>
+    <title>Ventu Home</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -15,17 +15,18 @@
     <script src="assets/jquery/jquery.min.js"></script>
     <script src="assets/bootstrap/bootstrap.min.js"></script>
 
-    <script src="js/home/main.js"></script>
+
     <script src="js/shared/modals.js"></script>
     <script src="js/shared/modules.js"></script>
     <script src="js/shared/buttons.js"></script>
     <script src="js/shared/modules/ventu-dialog/Dialog.js"></script>
     <script src="js/shared/modules/ventu-search/Search.js"></script>
+    <script src="js/home/main.js"></script>
 
 
 </head>
 
-<body>
+<body class="ventu-home">
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
@@ -74,9 +75,9 @@
             <div class="ventu-home-content">
 
                 <!-- ventu dialog -->
-                <div id="ventu-dialog-entry" class="ventu-block ventu-block--with-background ventu-block--with-color-fill">
-                    <div class="ventu-block-color-fill"></div>
-                    <div class="ventu-block-header">
+                <section id="ventu-dialog-entry" class="section--with-background section--with-color-fill">
+                    <div class="section-color-fill"></div>
+                    <div class="section-header">
                         <h1>
                             Samen vinden,<br>
                             doe je met Ventu
@@ -89,13 +90,13 @@
                             Met 38.240 panden het grootste aanbod van Nederland
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <!-- ventu usp block -->
-                <div class="container ventu-block">
+                <section class="container">
                     <div class="row">
-                        <div class="ventu-block-header">
-                            <div class="ventu-block-header-text">
+                        <div class="section-header">
+                            <div class="section-header-text">
                             <h2>
                                 De makkelijkste manier om jouw
                                 toekomstige bedrijfsruimte te vinden
@@ -142,16 +143,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
 
                 <!-- ventu chat block -->
-                <div id="ventu-chat-entry" class="container ventu-block ventu-block--with-background">
+                <section id="ventu-chat-entry" class="container section--with-background">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="ventu-block-header">
-                                <div class="ventu-block-header-text">
+                            <div class="section-header">
+                                <div class="section-header-text">
                                     <h2>
                                         Een nieuw pand vinden doe je niet alleen.
                                         Beoordeel samen interessante opties
@@ -210,15 +211,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
                 <!-- ventu search entry block -->
-                <div id="ventu-search-entry" class="container ventu-block ventu-block--with-background">
+                <section id="ventu-search-entry" class="container section--with-background">
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="ventu-block-header ventu-block-header--left">
-                                <div class="ventu-block-header-text">
+                            <div class="section-header section-header--left">
+                                <div class="section-header-text">
                                     <h2>
                                         Ontdek het aanbod van Ventu
                                     </h2>
@@ -283,16 +284,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
 
                 <!-- ventu inspiration -->
-                <div class="container ventu-block ventu-block--grey">
+                <section class="container section--grey">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="ventu-block-header">
-                                <div class="ventu-block-header-text">
+                            <div class="section-header">
+                                <div class="section-header-text">
                                     <h2>
                                         Laat je inspireren
                                     </h2>
@@ -341,16 +342,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
 
                 <!-- ventu discover -->
-                <div id="ventu-discover-entry" class="container ventu-block ventu-block--with-background">
+                <section id="ventu-discover-entry" class="container section--with-background">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="ventu-block-header">
-                                <div class="ventu-block-header-text ventu-block-header-text--white">
+                            <div class="section-header">
+                                <div class="section-header-text section-header-text--white">
                                     <h2>
                                         Het grootste aanbod van Nederland, vindt u op Ventu
                                     </h2>
@@ -381,11 +382,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
                 <!-- Ventu about -->
-                <div id="ventu-about" class="container ventu-block">
+                <section id="ventu-about" class="container">
                     <div class="row">
                         <div class="col-sm-12">
                             <div id="ventu-footer-menu">
@@ -398,11 +399,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
                 <!-- direct links -->
-                <div id="ventu-direct-links" class="container ventu-block">
+                <section id="ventu-direct-links" class="container">
                     <div class="row">
                         <div class="col-sm-3">
                             <h3>
@@ -472,12 +473,12 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
 
                 <!-- ventu footer -->
-                <div id="ventu-footer" class="container ventu-block">
+                <section id="ventu-footer" class="container">
                     <div class="row">
                         <div class="col-sm-3">
                             <img src="img/identity/ventu-icon-footer.svg">
@@ -504,7 +505,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
 

@@ -1,0 +1,32 @@
+#ventu-social .btn-wrapper {
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+}
+#ventu-social .btn-wrapper a {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  position: relative;
+  padding-left: 40px;
+  color: #03256b;
+}
+#ventu-social .btn-wrapper a i {
+  width: 33px;
+  height: 33px;
+  display: inline-block;
+  margin-right: 4px;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+#ventu-social .btn-wrapper a i.like {
+  background-color: #00e5a9;
+  background-image: url('img/card/love.svg');
+}
+#ventu-social .btn-wrapper a i.share {
+  background-color: #727272;
+  background-image: url('img/card/share.svg');
+}

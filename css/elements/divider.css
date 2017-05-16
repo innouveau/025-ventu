@@ -1,0 +1,8 @@
+.divider {
+  border-bottom: solid 0.5px #ededec;
+  margin: 20px 0;
+}
+section.section--small-padding .divider {
+  margin-left: -20px;
+  margin-right: -20px;
+}

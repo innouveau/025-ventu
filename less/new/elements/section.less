@@ -1,11 +1,10 @@
 @import '../../mixins';
 
-.ventu-block {
-    padding: 80px 90px;
+section {
+    padding: 70px 32px;
     background: #fff;
 
-
-    .ventu-block-color-fill {
+    .section-color-fill {
         width: 100%;
         height: 100%;
         background-color: rgba(58,101,192,0.8);
@@ -15,36 +14,56 @@
         z-index: 0;
     }
 
-    &.ventu-block--with-background {
+    &.section--transparent {
+        background: transparent;
+    }
+
+    &.section--with-background {
         background-size: cover;
     }
 
-    &.ventu-block--grey {
+    &.section--without-padding {
+        padding: 0;
+    }
+
+    &.section--without-side-padding {
+        padding: 20px 0;
+    }
+
+    &.section--small-padding {
+        padding: 20px;
+    }
+
+    &.section--with-shadow {
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    &.section--grey {
         background: #ebebeb;
     }
 
-    &.ventu-block--with-color-fill {
+    &.section--with-color-fill {
         position: relative;
         
-        > *:not(.ventu-block-color-fill) {
+        > *:not(.section-color-fill) {
             position: relative;
             z-index: 1;
         }
     }
 
-    .ventu-block-header {
+    .section-header {
         width: 100%;
         max-width: 800px;
         margin: 0 auto;
         text-align: center;
 
-        &.ventu-block-header--left {
+        &.section-header--left {
             text-align: left;
         }
 
 
 
-        .ventu-block-header-text {
+        .section-header-text {
             margin-bottom: 40px;
 
             h1 {
@@ -63,7 +82,7 @@
                 margin: 0;
             }
 
-            &.ventu-block-header-text--white {
+            &.section-header-text--white {
 
 
                 h1, h2, h5, h6 {
@@ -80,7 +99,7 @@
 // tablet
 @media (max-width: 1024px) {
 
-    .ventu-block {
+    section {
         padding-left: 40px;
         padding-right: 40px;
     }
@@ -91,7 +110,7 @@
 // smartphone
 @media (max-width: 1024px) {
 
-    .ventu-block {
+    section {
         padding-left: 20px;
         padding-right: 20px;
     }

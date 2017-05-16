@@ -1,0 +1,23 @@
+#breadcrumb {
+  margin-top: 60px;
+}
+#breadcrumb h1 {
+  font-size: 30px;
+  line-height: 0.67;
+  color: #ffffff;
+}
+#breadcrumb .breadcrumb {
+  background: none;
+  border-radius: 0;
+  padding: 20px 0;
+  margin: 0;
+}
+#breadcrumb .breadcrumb > .active,
+#breadcrumb .breadcrumb a,
+#breadcrumb .breadcrumb > li + li:before,
+#breadcrumb .breadcrumb h3 {
+  color: #fff;
+}
+#breadcrumb .breadcrumb > li + li:before {
+  content: "\3E";
+}

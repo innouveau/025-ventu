@@ -3,7 +3,7 @@
 }
 
 div.background {
-    height: 246.5px;
+    min-height: 246.5px;
     padding: 0;
     background-size:cover;
     position:absolute;
@@ -15,34 +15,15 @@ div.background {
 
 div.background::before {
     width: 100%;
- 	height: 246.5px;
+ 	min-height: 246.5px;
     background-color: rgba(3, 37, 107, 0.8);
 }
 
-#breadcrumb {
-    margin-top: 60px;
-}
 
-#breadcrumb h1 {
-    font-size: 30px;
-    line-height: 0.67;
-    color: #ffffff;
-}
 
-.breadcrumb {
-    background: none;
-    border-radius: 0;
-    padding: 20px 0;
-    margin: 0;
-}
 
-.breadcrumb>.active, .breadcrumb a, .breadcrumb > li + li:before, #breadcrumb h3 {
-    color: #ffffff;
-}
 
-.breadcrumb > li + li:before {
-    content: "\3E";
-}
+
 
 #projectCarousel {
     margin-bottom: 40px;
@@ -53,57 +34,7 @@ img.projectCarousel {
     width: 100%;
 }
 
-ol.features {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
 
-ol.features li {
-    float: left;
-    margin-right: 20px;
-}
-
-ol.features li img {
-    margin-right: 8px;
-}
-
-section.features, section.parties, section.social .btn-wrapper {
- 	background-color: #ffffff;
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-}
-
-section.social .btn-wrapper {
-    padding-bottom: 0;
-}
-
-section.social .btn-wrapper a {
-    color: #03256b;
-}
-
-section.features h4, section.parties h4 {
-    padding: 20px 20px 0 20px;
-    margin: 0;
-}
-
-section.features h5, section.parties h5 {
-    padding: 0;
-    margin: 0;
-}
-
-section.features ol {
-    list-style-type: none;
-    padding: 0;
-    line-height: 1.88;
-    margin-left: 20px;
-}
-
-.divider {
-	border-bottom: solid 0.5px #cacaca;
-    margin: 40px 0;
-}
 
 .button {
     border-radius: 100px;
@@ -128,52 +59,8 @@ button:hover {
     text-decoration: underline;
 }
 
-section.features a.button {
-    text-align: center;
-    margin: 0 auto;
-    width: 80%;
-    display: block;
-}
 
-section.features a.button, section.proximity a.button {
-    color: #ffffff;
-}
 
-section.features .divider, section.parties .divider {
-    margin: 20px 0;
-}
-
-section.social .btn-wrapper {
-    text-align: center;
-}
-
-section.social a {
-    display: inline-block;
-    /* text-align: center; */
-    height: 60px;
-    line-height: 60px;
-    position: relative;
-    padding-left: 40px;
-}
-
-section.social i {
-    width: 33px;
-    height: 33px;
-    display: inline-block;
-    margin-right: 4px;
-    position: absolute;
-    left: 0;
-    top: 15px;
-    background-repeat: no-repeat;
-}
-
-section.social i.like {
-    background-image: url('/img/project/svg/interresant.svg');
-}
-
-section.social i.share {
-    background-image: url('/img/project/svg/delen.svg');
-}
 
 section.parties .broker-logo {
     margin-bottom: 20px;
@@ -270,6 +157,10 @@ section.proximity .ventu-card .button {
     height: 100%;
     box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.09);
     margin-bottom: 40px;
+    position: relative;
+    width: auto;
+    height: auto;
+    background: none;
 }
 
 .ventu-card .ventu-card-text {
@@ -284,6 +175,8 @@ div.news {
     height:auto;
     text-align: center;
     padding: 50px 0;
+    position: relative;
+    z-index: 0;
 }
 
 div.news .row {
@@ -307,7 +200,7 @@ div.news h2, div.news h4, div.news h5, div.news p {
 
 .news-text {
     margin: 0 auto;
-    max-width: 60%;
+    max-width: 80%;
 }
 
 .news-text section.detail-text .detail-text-short {
@@ -336,11 +229,6 @@ section.contact {
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    div.background, div.background::before {
-        height: 346.5px;
-    }
-}
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
