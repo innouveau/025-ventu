@@ -1,12 +1,12 @@
-.ventu-dialog-header {
+.ventu-slider-header {
   height: 140px;
   text-align: center;
   color: #fff;
 }
-.ventu-dialog-header .ventu-dialog-header-section-labels {
+.ventu-slider-header .ventu-slider-header-section-labels {
   display: inline-block;
 }
-.ventu-dialog-header .ventu-dialog-header-section-labels .ventu-dialog-header-section-label {
+.ventu-slider-header .ventu-slider-header-section-labels .ventu-slider-header-section-label {
   background: #00e5a9;
   color: #03256b;
   padding: 4px 6px;
@@ -16,15 +16,15 @@
   transform: scale(0.01);
   transition: transform 0.2s ease;
 }
-.ventu-dialog-header .ventu-dialog-header-section-labels .ventu-dialog-header-section-label.show-label {
+.ventu-slider-header .ventu-slider-header-section-labels .ventu-slider-header-section-label.show-label {
   transform: scale(1);
 }
 @media (max-width: 767px) {
-  .ventu-dialog-header {
+  .ventu-slider-header {
     height: 100px;
     text-align: left;
   }
-  .ventu-dialog-header .ventu-dialog-header-section-text {
+  .ventu-slider-header .ventu-slider-header-section-text {
     font-size: 16px;
   }
 }

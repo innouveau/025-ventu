@@ -3,6 +3,10 @@ function initialiseModules() {
         new Dialog($(this));
     });
 
+    $('.ventu-sign-in').each(function(){
+        new SignIn($(this));
+    });
+
     $('.ventu-search').each(function(){
         // we want the search module initialis by hand
         // to add the custom callback
@@ -37,8 +41,5 @@ function setSearchOpenerInNavbar(searchOpener) {
     var remainingSpace = $(window).outerWidth();
     remainingSpace -= $('.navbar-brand').outerWidth();
     remainingSpace -=  $('#navbar').outerWidth();
-
-    console.log($('.navbar-brand').outerWidth());
-    console.log($('#navbar').outerWidth());
     searchOpener.parent().css('width', remainingSpace);
 }
