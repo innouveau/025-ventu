@@ -39,7 +39,7 @@ _Slider.prototype.initStatus = function() {
 _Slider.prototype.createSlider = function() {
     this.elements.slideFrame = $('<div class="ventu-slider-slide-frame"></div>');
     this.elements.slideContainer = $('<div class="ventu-slider-slide-container"></div>');
-    this.elements.slideContainer.css('width', (this.sections.length + 1) * this.settings.size.frame); // +1 for end frame
+    this.elements.slideContainer.css('width', this.sections.length * this.settings.size.frame);
     this.element.append(this.elements.slideFrame);
     this.elements.slideFrame.append(this.elements.slideContainer);
 };
@@ -50,12 +50,26 @@ _Slider.prototype.resize = function() {
     this.element.find('.ventu-slider-slide').css('width', this.settings.size.frame );
 };
 
-_Slider.prototype.createBasicSlide = function (section) {
+_Slider.prototype.createSlides = function() {
+    for (var i = 0, l = this.sections.length; i < l; i++) {
+        this.createSlide(this.section[i]);
+    }
+    this.elements.slides.push(this.createEmailSlide());
+};
+
+_Slider.prototype.createSlides = function() {
+    for (var i = 0, l = this.sections.length; i < l; i++) {
+        var slide = this.createSlide(i);
+        this.elements.slides.push( slide );
+    }
+};
+
+_Slider.prototype.createBasicSlide = function(section) {
     var element, content, header, body;
 
-    element = $('<div id="ventu-slider-slide-' + section + '" class="ventu-slider-slide"></div>');
+    element = $('<div id="ventu-slider-slide-' + this.sections[section].title + '" class="ventu-slider-slide"></div>');
     content = $('<div class="ventu-slider-slide-content"></div>');
-    header = $('<div class="ventu-slider-slide-header"><div class="ventu-slider-header-section-text">' + this.headers[section] + '</div></div>');
+    header = $('<div class="ventu-slider-slide-header"><div class="ventu-slider-header-section-text">' + this.sections[section].header + '</div></div>');
     body = $('<div class="ventu-slider-slide-body"></div>');
 
     element.append(content);
@@ -165,4 +179,34 @@ _Slider.prototype.setCenterline = function(page, allowed) {
 
 
 // status
+
+_Slider.prototype.updateButtons = function() {
+    var allowed;
+    if (this.settings.hasSetStatus) {
+        this.updateSetStatus();
+    }
+    // prev
+    if (this.status.page.current > 0) {
+        this.elements.buttons.prev.show();
+    } else {
+        this.elements.buttons.prev.hide();
+    }
+
+    allowed = this.isAllowed();
+
+    if (allowed) {
+        this.elements.buttons.next.show();
+    } else {
+        this.elements.buttons.next.hide();
+    }
+    this.setCenterline(this.status.page.current, allowed);
+};
+
+_Slider.prototype.digest = function() {
+    if (this.settings.hasSetStatus) {
+        this.updateSetStatus();
+    }
+    this.updateButtons(true);
+    this.updateHeader();
+};
 

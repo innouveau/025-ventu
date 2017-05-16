@@ -1475,6 +1475,9 @@ section.detail-text .detail-text-short {
   background-image: url('img/content/rotterdam.jpg');
   height: 500px;
 }
+#ventu-sign-in input {
+  background: #fff;
+}
 nav.navbar-default {
   border: 0!important;
   margin: 0;

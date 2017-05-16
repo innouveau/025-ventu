@@ -3,6 +3,25 @@ function Dialog(element) {
 
     this.sections = ['types', 'location', 'area', 'transaction'];
 
+    this.sections = [
+        {
+            title: 'types',
+            header: 'Wij zijn op zoek naar een'
+        }, {
+            title: 'location',
+            header: 'In de omgeving'
+        }, {
+            title: 'area',
+            header: 'Met een oppervlakte vanaf'
+        }, {
+            title: 'transaction',
+            header: 'Om te'
+        }, {
+            title: 'end',
+            header: ''
+        }
+    ];
+
     this.query = {
         types: [],
         location: '',
@@ -18,7 +37,7 @@ function Dialog(element) {
         buttons: {
             prev: null,
             next: null,
-            type: null
+            types: null
         },
         centerline: {
             left: null,
@@ -28,19 +47,12 @@ function Dialog(element) {
         slides: []
     };
 
-    this.headers = {
-        types: 'Wij zijn op zoek naar een',
-        location: 'In de omgeving',
-        area: 'Met een oppervlakte vanaf',
-        transaction: 'Om te',
-        end: ''
-    };
-
     this.settings = {
         size: {
             body: 600,
             frame: 0
-        }
+        },
+        hasSetStatus: true
     };
 
     this.create();
@@ -57,52 +69,63 @@ Dialog.prototype = Object.create(_Slider.prototype);
 
 Dialog.prototype.createHeader = function() {
     this.elements.header.main = $('<div class="ventu-slider-header"></div>');
-    this.elements.header.sections.push( $('<div class="ventu-slider-header-section"><div class="ventu-slider-header-section-text">' + this.headers.types + '</div><div class="ventu-slider-header-section-labels"></div></div>') );
-    this.elements.header.sections.push( $('<div class="ventu-slider-header-section"><div class="ventu-slider-header-section-text">' + this.headers.location + '</div><div class="ventu-slider-header-section-labels"></div></div>') );
-    this.elements.header.sections.push( $('<div class="ventu-slider-header-section"><div class="ventu-slider-header-section-text">' + this.headers.area + '</div><div class="ventu-slider-header-section-labels"></div></div>') );
-    this.elements.header.sections.push( $('<div class="ventu-slider-header-section"><div class="ventu-slider-header-section-text">' + this.headers.transaction + '</div><div class="ventu-slider-header-section-labels"></div></div>') );
-
     for (var i = 0, l = this.sections.length; i < l; i++) {
-        var section = this.elements.header.sections[i];
-        section.hide();
-        this.elements.header.main.append(section);
+        var section, sectionHeader;
+        section = this.sections[i];
+        sectionHeader = $('<div class="ventu-slider-header-section"><div class="ventu-slider-header-section-text">' + section.header + '</div><div class="ventu-slider-header-section-labels"></div></div>');
+        this.elements.header.sections.push(sectionHeader);
+        sectionHeader.hide();
+        this.elements.header.main.append(sectionHeader);
     }
     this.element.append(this.elements.header.main);
-
     this.updateHeader();
-};
-
-
-Dialog.prototype.createSlides = function() {
-    this.elements.slides.push(this.createTypeSlide());
-    this.elements.slides.push(this.createLocationSlide());
-    this.elements.slides.push(this.createAreaSlide());
-    this.elements.slides.push(this.createTransactionSlide());
-    this.elements.slides.push(this.createEndSlide());
 };
 
 
 
 // specific slide creations
 
-Dialog.prototype.createTypeSlide = function() {
-    var types, slide, container;
-    slide = this.createBasicSlide('types');
+Dialog.prototype.createSlide = function(i) {
+    var section, slide;
 
-    container =  $('<div class="ventu-slider-slide-buttons-container"></div>');
-    slide.body.append(container);
-    types = ['Winkel', 'Kantoor', 'Bedrijfsruimte', 'Horeca', 'Bouwgrond'];
-    for (var i = 0, l = types.length; i < l; i++) {
-        container.append(this.createTypeButton(types[i]));
+    section = this.sections[i];
+    slide = this.createBasicSlide(i);
+    switch (section.title) {
+        case 'types':
+            this.createTypeSlide(slide.body);
+            break;
+        case 'location':
+            this.createLocationSlide(slide.body);
+            break;
+        case 'area':
+            this.createAreaSlide(slide.body);
+            break;
+        case 'transaction':
+            this.createTransactionSlide(slide.body);
+            break;
+        case 'end':
+            this.createEndSlide(slide.body);
+            break;
     }
-    // make reusable selection
-    this.elements.buttons.type = this.element.find('.ventu-slider-type-button');
     return slide.element;
 };
 
-Dialog.prototype.createLocationSlide = function() {
-    var slide, searchModule, search;
-    slide = this.createBasicSlide('location');
+Dialog.prototype.createTypeSlide = function(body) {
+    var types, container;
+
+    types = ['Winkel', 'Kantoor', 'Bedrijfsruimte', 'Horeca', 'Bouwgrond'];
+    container =  $('<div class="ventu-slider-slide-buttons-container"></div>');
+    for (var i = 0, l = types.length; i < l; i++) {
+        container.append(this.createTypeButton(types[i]));
+    }
+
+    body.append(container);
+    // make reusable selection
+    this.elements.buttons.types = this.element.find('.ventu-slider-type-button');
+};
+
+Dialog.prototype.createLocationSlide = function(body) {
+    var searchModule, search;
 
     search = $('<div class="ventu-search initialise-manually ventu-search--white ventu-search-marker"></div>');
     // make it align in the center
@@ -112,13 +135,11 @@ Dialog.prototype.createLocationSlide = function() {
     });
     searchModule = new Search(search);
     searchModule.addOutput(this);
-    slide.body.append(search);
-    return slide.element;
+    body.append(search);
 };
 
-Dialog.prototype.createAreaSlide = function() {
-    var self = this, slide, label1, label2, input1, input2, pickerset = {}, header;
-    slide = this.createBasicSlide('area');
+Dialog.prototype.createAreaSlide = function(body) {
+    var self = this, label1, label2, input1, input2, pickerset = {};
 
     label1 = $('<span>Vanaf</span>');
     label2 = $('<span>tot</span>');
@@ -132,10 +153,10 @@ Dialog.prototype.createAreaSlide = function() {
     pickerset.picker1.append('<div class="ventu-slider-area-picker-label">max</div>');
     pickerset.picker1.append(input2);
     pickerset.picker1.append('<div class="ventu-slider-area-picker-label">m²</div>');
-    slide.body.append(label1);
-    slide.body.append(pickerset.picker0);
-    slide.body.append(label2);
-    slide.body.append(pickerset.picker1);
+    body.append(label1);
+    body.append(pickerset.picker0);
+    body.append(label2);
+    body.append(pickerset.picker1);
 
     pickerset.picker0.click(function(){
         input1.focus();
@@ -185,32 +206,23 @@ Dialog.prototype.createAreaSlide = function() {
             }
         }
     }
-
-    return slide.element;
 };
 
-Dialog.prototype.createTransactionSlide = function() {
-    var transactions, slide, container;
-
-    slide = this.createBasicSlide('transaction');
-
+Dialog.prototype.createTransactionSlide = function(body) {
+    var transactions, container;
     container =  $('<div class="ventu-slider-slide-buttons-container"></div>');
-    slide.body.append(container);
     transactions = ['Kopen', 'Huren', 'Beleggen'];
     for (var i = 0, l = transactions.length; i < l; i++) {
         container.append(this.createTransactionButton(transactions[i]));
     }
-    return slide.element;
+    body.append(container);
 };
 
 
-Dialog.prototype.createEndSlide = function() {
-    var slide, container;
-    slide = this.createBasicSlide('end');
-
+Dialog.prototype.createEndSlide = function(body) {
+    var container;
     container =  $('<div class="ventu-slider-slide-end-container">Aan het zoeken naar resultaten</div>');
-    slide.body.append(container);
-    return slide.element;
+    body.append(container);
 };
 
 
@@ -240,7 +252,7 @@ Dialog.prototype.createTypeButton = function(type) {
 Dialog.prototype.updateType = function() {
     var types = [];
     // find active types
-    this.elements.buttons.type.each(function(){
+    this.elements.buttons.types.each(function(){
         if ($(this).hasClass('ventu-slider-type-button--active')) {
             types.push($(this).attr('type'));
         }
@@ -285,13 +297,6 @@ Dialog.prototype.createTransactionButton = function(transaction) {
 
 // status
 
-
-
-Dialog.prototype.digest = function() {
-    this.updateSetStatus();
-    this.updateButtons();
-    this.updateHeader();
-};
 
 Dialog.prototype.updateSetStatus = function() {
     for (var i = 0, l = this.sections.length; i < l; i++) {
@@ -340,12 +345,12 @@ Dialog.prototype.updateHeader = function() {
 
 Dialog.prototype.showTopHeader = function(section) {
     this.elements.header.sections[section].show();
-    $('#ventu-slider-slide-' + this.sections[section] + ' .ventu-slider-header-section-text').hide();
+    $('#ventu-slider-slide-' + this.sections[section].title + ' .ventu-slider-header-section-text').hide();
 };
 
 Dialog.prototype.showSlideHeader = function(section) {
     this.elements.header.sections[section].hide();
-    $('#ventu-slider-slide-' + this.sections[section] + ' .ventu-slider-header-section-text').show();
+    $('#ventu-slider-slide-' + this.sections[section].title + ' .ventu-slider-header-section-text').show();
 };
 
 Dialog.prototype.updateHeaderSection = function(section) {
@@ -355,8 +360,6 @@ Dialog.prototype.updateHeaderSection = function(section) {
     counter = 0;
     container = this.elements.header.sections[section].find('.ventu-slider-header-section-labels');
     container.empty();
-
-    console.log(section);
 
     switch (section) {
         case 0:
@@ -431,22 +434,6 @@ Dialog.prototype.removeHeaderSection = function(section) {
     }
 };
 
-Dialog.prototype.updateButtons = function() {
-    var allowed;
-    this.updateSetStatus();
-    // prev
-    if (this.status.page.current > 0) {
-        this.elements.buttons.prev.show();
-    } else {
-        this.elements.buttons.prev.hide();
-    }
-
-    allowed = this.status.set[this.status.page.current];
-
-    if (allowed) {
-        this.elements.buttons.next.show();
-    } else {
-        this.elements.buttons.next.hide();
-    }
-    this.setCenterline(this.status.page.current, allowed);
+Dialog.prototype.isAllowed = function() {
+    return this.status.set[this.status.page.current];
 };
