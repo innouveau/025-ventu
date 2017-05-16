@@ -1471,6 +1471,10 @@ section.detail-text .detail-text-short {
 .news-text section.detail-text .detail-text-short {
   max-height: 62px;
 }
+#ventu-sing-in {
+  background-image: url('img/content/rotterdam.jpg');
+  height: 500px;
+}
 nav.navbar-default {
   border: 0!important;
   margin: 0;
@@ -2358,6 +2362,14 @@ section.section--transparent {
 }
 section.section--with-background {
   background-size: cover;
+}
+section.section--with-background h1,
+section.section--with-background h2,
+section.section--with-background h3,
+section.section--with-background h4,
+section.section--with-background h5,
+section.section--with-background h6 {
+  color: #fff;
 }
 section.section--without-padding {
   padding: 0;
