@@ -1,0 +1,51 @@
+/* borders < 1px don't show on tablet */
+@media (max-width: 1024px) {
+  nav.navbar-default {
+    border-bottom: 1px solid #727272;
+  }
+  .dropdown-menu,
+  .form-signin input {
+    border: 1px solid #727272;
+  }
+  .ventu-settings,
+  .ventu-social-media,
+  .ventu-menu-dropdowns {
+    border-left: 1px solid #727272;
+  }
+  .ventu-dropdown,
+  .ventu-button-white-line:hover {
+    border: 1px solid #727272;
+  }
+  .ventu-dropdown-menu-divider {
+    border-bottom: 1px solid #727272;
+  }
+  .ventu-button-white-line {
+    border: 1px solid #fff;
+  }
+  .ventu-button-white:hover,
+  .ventu-filter .slider-track-low,
+  .ventu-filter .slider-track-high {
+    /*, .ventu-icon-box */
+    border: 1px solid #1f1f1f;
+  }
+  .ventu-map-search {
+    border: 1px solid #727272;
+  }
+  .ventu-map-search-results {
+    left: -1px;
+    width: calc(102%);
+    border: 1px solid #727272;
+    border-top: 1px solid #D5D5D5;
+  }
+  .ventu-map-search-result {
+    border-bottom: 1px solid #D5D5D5;
+  }
+  .ventu-form input {
+    border-bottom: 1px solid #fff;
+  }
+  .ventu-filter-type,
+  .ventu-filter-type:hover,
+  .ventu-filter-type.active {
+    border: 1px solid #727272;
+  }
+}

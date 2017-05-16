@@ -8,11 +8,9 @@ form {
         margin-top: 0;
     }
 
-    input[type=text],
-    input[type=password],
-    input[type=email] {
+    input {
         width: 100%;
-        border: @ventu-border-1;
+        border: @ventu-main-grey-2;
         color: #333;
         margin-bottom: 20px;
         background: transparent;
@@ -28,6 +26,11 @@ form {
         &:focus {
             box-shadow: none!important;
         }
+    }
+
+    label {
+        font-weight: 400;
+        font-size: 14px;
     }
 
     .ventu-form-send {

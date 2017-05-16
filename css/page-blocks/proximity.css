@@ -1,0 +1,8 @@
+section.proximity .button {
+  margin-top: 40px;
+  display: inline-block;
+}
+section.proximity .ventu-card .button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

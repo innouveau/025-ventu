@@ -1,12 +1,15 @@
-#ventu-features ol {
+#ventu-features ol,
+#ventu-features-icons ol {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-#ventu-features ol li {
+#ventu-features ol li,
+#ventu-features-icons ol li {
   margin: 0 20px 10px 0;
 }
-#ventu-features ol li img {
+#ventu-features ol li img,
+#ventu-features-icons ol li img {
   margin-right: 8px;
 }
 section.features,

@@ -5,11 +5,9 @@ form {
 form h2 {
   margin-top: 0;
 }
-form input[type=text],
-form input[type=password],
-form input[type=email] {
+form input {
   width: 100%;
-  border: 1px solid #727272;
+  border: #ededec;
   color: #333;
   margin-bottom: 20px;
   background: transparent;
@@ -22,10 +20,12 @@ form input[type=email] {
   line-height: 1.25;
   font-family: ProximaNova;
 }
-form input[type=text]:focus,
-form input[type=password]:focus,
-form input[type=email]:focus {
+form input:focus {
   box-shadow: none!important;
+}
+form label {
+  font-weight: 400;
+  font-size: 14px;
 }
 form .ventu-form-send {
   margin-top: 40px;

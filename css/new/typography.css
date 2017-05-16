@@ -8,23 +8,42 @@ h2 {
   font-weight: 700;
   font-size: 40px;
   color: #03256b;
+  font-family: 'Alegreya Sans';
 }
 h3 {
   font-size: 30px;
   font-weight: 700;
   line-height: 1;
   color: #03256b;
+  font-family: 'Alegreya Sans';
 }
 h5 {
   font-size: 20px;
   line-height: 1.25;
   font-weight: 700;
   color: #03256b;
+  font-family: 'Alegreya Sans';
+}
+h55 {
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #03256b;
+  font-family: 'Alegreya Sans';
+  display: block;
 }
 h6 {
   font-size: 16px;
   line-height: 1.25;
   color: #17141f;
+  font-family: 'Alegreya Sans';
+}
+h7 {
+  color: #17141f;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Alegreya Sans';
+  display: block;
 }
 @media (max-width: 767px) {
   h1 {

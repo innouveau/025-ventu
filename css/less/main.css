@@ -1302,7 +1302,7 @@ body {
   font-size: 16px;
   line-height: 1.25;
   color: #17141f;
-  font-family: 'Alegreya Sans';
+  font-family: 'ProximaNova';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1352,23 +1352,42 @@ h2 {
   font-weight: 700;
   font-size: 40px;
   color: #03256b;
+  font-family: 'Alegreya Sans';
 }
 h3 {
   font-size: 30px;
   font-weight: 700;
   line-height: 1;
   color: #03256b;
+  font-family: 'Alegreya Sans';
 }
 h5 {
   font-size: 20px;
   line-height: 1.25;
   font-weight: 700;
   color: #03256b;
+  font-family: 'Alegreya Sans';
+}
+h55 {
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #03256b;
+  font-family: 'Alegreya Sans';
+  display: block;
 }
 h6 {
   font-size: 16px;
   line-height: 1.25;
   color: #17141f;
+  font-family: 'Alegreya Sans';
+}
+h7 {
+  color: #17141f;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Alegreya Sans';
+  display: block;
 }
 @media (max-width: 767px) {
   h1 {
@@ -1441,6 +1460,16 @@ body.ventu-home section {
   #ventu-home-card-container {
     margin-top: 40px;
   }
+}
+.main-col section {
+  border-bottom: solid 0.5px #ededec;
+}
+section.detail-text .detail-text-short {
+  max-height: 300px;
+  overflow-y: hidden;
+}
+.news-text section.detail-text .detail-text-short {
+  max-height: 62px;
 }
 nav.navbar-default {
   border: 0!important;
@@ -1654,15 +1683,18 @@ nav.navbar-default #navbar ul li a {
     text-align: left;
   }
 }
-#ventu-features ol {
+#ventu-features ol,
+#ventu-features-icons ol {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-#ventu-features ol li {
+#ventu-features ol li,
+#ventu-features-icons ol li {
   margin: 0 20px 10px 0;
 }
-#ventu-features ol li img {
+#ventu-features ol li img,
+#ventu-features-icons ol li img {
   margin-right: 8px;
 }
 section.features,
@@ -1747,6 +1779,44 @@ section.parties .divider {
 #ventu-social .btn-wrapper a i.share {
   background-color: #727272;
   background-image: url('img/card/share.svg');
+}
+#ventu-location .ventu-location-legend {
+  margin-top: 40px;
+}
+#ventu-location .ventu-location-legend .ventu-location-legend-section {
+  margin-bottom: 20px;
+}
+#ventu-location .ventu-location-legend .ventu-location-legend-section h55 {
+  margin-bottom: 10px;
+}
+#ventu-location .ventu-location-legend .ventu-location-legend-section .switch-wrapper {
+  margin-bottom: 6px;
+}
+#ventu-location .ventu-location-legend .ventu-location-legend-section .switch-wrapper img {
+  margin-right: 20px;
+}
+#ventu-location .ventu-location-legend .ventu-location-legend-section .legenda-wrapper {
+  margin-bottom: 2px;
+}
+#ventu-location .ventu-location-legend .ventu-location-legend-section .legenda-wrapper img {
+  margin-right: 6px;
+}
+#ventu-location .real-estate-mix {
+  margin-top: 40px;
+}
+section.detail-text .detail-text-overflow {
+  height: 80px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 32%, #ffffff);
+  margin-top: -80px;
+  position: relative;
+}
+section.proximity .button {
+  margin-top: 40px;
+  display: inline-block;
+}
+section.proximity .ventu-card .button {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .ventu-card {
   position: absolute;
@@ -2159,11 +2229,9 @@ form {
 form h2 {
   margin-top: 0;
 }
-form input[type=text],
-form input[type=password],
-form input[type=email] {
+form input {
   width: 100%;
-  border: 1px solid #727272;
+  border: #ededec;
   color: #333;
   margin-bottom: 20px;
   background: transparent;
@@ -2176,10 +2244,12 @@ form input[type=email] {
   line-height: 1.25;
   font-family: ProximaNova;
 }
-form input[type=text]:focus,
-form input[type=password]:focus,
-form input[type=email]:focus {
+form input:focus {
   box-shadow: none!important;
+}
+form label {
+  font-weight: 400;
+  font-size: 14px;
 }
 form .ventu-form-send {
   margin-top: 40px;
@@ -2240,6 +2310,12 @@ form button[type=submit] {
   background-image: url(img/tools/ventu-pointer-area.svg);
   background-size: 100% 100%;
   margin: -172px 0 0 -172px;
+}
+#ventu-carousel {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+}
+img.projectCarousel {
+  width: 100%;
 }
 #breadcrumb {
   margin-top: 60px;
