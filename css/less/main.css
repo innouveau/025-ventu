@@ -1093,7 +1093,7 @@ form h2 {
 .ventu-form input,
 form input {
   width: 100%;
-  border: #ededec;
+  border: 1px solid #ededec;
   color: #333;
   margin-bottom: 20px;
   background: transparent;
