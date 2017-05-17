@@ -285,7 +285,7 @@ body.ventu-application {
   display: inline-block;
 }
 .ventu-list-counter.love {
-  background: #00e5a9;
+  background: #2ECC71;
 }
 .ventu-list-counter.hate {
   background: #DF0040;
@@ -432,7 +432,7 @@ a.ventu-to-list.ventu-to-list-hate {
     padding-top: 7px;
   }
   #ventu-bottom-bar .ventu-list-counter.love {
-    background: #00e5a9;
+    background: #2ECC71;
     right: 20px;
   }
   #ventu-bottom-bar .ventu-list-counter.hate {

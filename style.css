@@ -938,7 +938,7 @@ body.ventu-application {
   display: inline-block;
 }
 .ventu-list-counter.love {
-  background: #00e5a9;
+  background: #2ECC71;
 }
 .ventu-list-counter.hate {
   background: #DF0040;
@@ -1085,7 +1085,7 @@ a.ventu-to-list.ventu-to-list-hate {
     padding-top: 7px;
   }
   #ventu-bottom-bar .ventu-list-counter.love {
-    background: #00e5a9;
+    background: #2ECC71;
     right: 20px;
   }
   #ventu-bottom-bar .ventu-list-counter.hate {
@@ -1825,6 +1825,88 @@ section.proximity .ventu-card .button {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.hangout-list-entry {
+  height: 150px;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  color: #fff;
+  font-family: 'ProximaNova';
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+.hangout-list-entry .hangout-list-entry-title {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-weight: 700;
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-right: 6px;
+  background-size: 100% 100%;
+  border-radius: 50%;
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-love {
+  background-color: #2ECC71;
+  background-image: url(img/icons/love.svg);
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-plus {
+  background-color: #00A2FF;
+  background-image: url(img/icons/plus.svg);
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-follow {
+  background-color: #8400C6;
+  background-image: url(img/icons/follow.svg);
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-hate {
+  background-color: #DF0040;
+  background-image: url(img/icons/hate.svg);
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-label {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 6px;
+}
+.hangout-list-entry .hangout-list-entry-content {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 14px;
+}
+.hangout-list-entry .hangout-list-entry-shared-with {
+  position: absolute;
+  left: 14px;
+  bottom: 10px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+  -moz-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  -o-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+.hangout-list-entry .hangout-list-entry-shared-with .ventu-avatar-image {
+  margin-left: -4px;
+}
+.hangout-list-entry .hangout-list-entry-shared-with .hangout-list-entry-shared-with-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #00A2FF;
+  padding-top: 6px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 14px;
+  display: inline-block;
+  margin-left: -4px;
+}
 .ventu-card {
   position: absolute;
   background: #fff;
@@ -2134,16 +2216,16 @@ section.proximity .ventu-card .button {
   background: #fff;
 }
 .ventu-card-button.ventu-card-button--love .ventu-card-button-icon {
-  background: #00e5a9;
-  background-image: url(img/card/love.svg);
+  background: #2ECC71;
+  background-image: url(img/icons/love.svg);
 }
 .ventu-card-button.ventu-card-button--hate .ventu-card-button-icon {
   background-color: #DF0040;
-  background-image: url(img/card/hate.svg);
+  background-image: url(img/icons/hate.svg);
 }
 .ventu-card-button.ventu-card-button--read-more .ventu-card-button-icon {
   background-color: #FF8D00;
-  background-image: url(img/card/read-more.svg);
+  background-image: url(img/icons/read-more.svg);
 }
 .ventu-card-button .ventu-card-button-icon {
   border-radius: 50%;
@@ -2333,6 +2415,28 @@ form button[type=submit] {
 }
 img.projectCarousel {
   width: 100%;
+}
+.ventu-avatar {
+  padding: 15px!important;
+  height: 60px!important;
+}
+.ventu-avatar .ventu-avatar-label {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: top;
+  padding-top: 6px;
+}
+.ventu-avatar-image {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-size: cover;
+  vertical-align: top;
+}
+.ventu-avatar-image.ventu-avatar-image--no-avatar {
+  background-color: #ededec;
+  background-image: url(img/icons/no-avatar.svg);
 }
 #breadcrumb {
   margin-top: 60px;

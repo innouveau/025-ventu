@@ -1,0 +1,28 @@
+@import '../../mixins';
+
+
+.ventu-avatar {
+    padding: 15px!important;
+    height: 60px!important;
+
+    .ventu-avatar-label {
+        display: inline-block;
+        margin-right: 6px;
+        vertical-align: top;
+        padding-top: 6px;
+    }
+}
+
+.ventu-avatar-image {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover;
+    vertical-align: top;
+
+    &.ventu-avatar-image--no-avatar {
+        background-color: @ventu-main-grey-2;
+        background-image: url(img/icons/no-avatar.svg);
+    }
+}

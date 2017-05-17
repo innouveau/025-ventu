@@ -6,16 +6,16 @@
   background: #fff;
 }
 .ventu-card-button.ventu-card-button--love .ventu-card-button-icon {
-  background: #00e5a9;
-  background-image: url(img/card/love.svg);
+  background: #2ECC71;
+  background-image: url(img/icons/love.svg);
 }
 .ventu-card-button.ventu-card-button--hate .ventu-card-button-icon {
   background-color: #DF0040;
-  background-image: url(img/card/hate.svg);
+  background-image: url(img/icons/hate.svg);
 }
 .ventu-card-button.ventu-card-button--read-more .ventu-card-button-icon {
   background-color: #FF8D00;
-  background-image: url(img/card/read-more.svg);
+  background-image: url(img/icons/read-more.svg);
 }
 .ventu-card-button .ventu-card-button-icon {
   border-radius: 50%;

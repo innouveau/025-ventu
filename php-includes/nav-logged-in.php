@@ -15,24 +15,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-
-        <div class="pull-right">
-            <div class="search-open-container">
-                <div class="ventu-search-open">
-                    <div class="ventu-search-container">
-                        <div class="ventu-search ventu-search--white-label"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <div class="collapse navbar-collapse pull-left" id="navbar">
+    <div class="collapse navbar-collapse pull-right" id="navbar">
         <ul class="nav navbar-nav">
-            <li><a href="javascript:openLogin()">Inloggen</a></li>
-            <li><a href="javascript:openRegister()">Registreren</a></li>
+            <li>
+                <a href="javascript:openLogin()" class="ventu-avatar">
+                    <div class="ventu-avatar-label">Mijn account</div>
+                    <div class="ventu-avatar-image" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>
+                </a>
+            </li>
         </ul>
     </div>
-
-
 </nav>
