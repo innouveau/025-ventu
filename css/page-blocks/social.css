@@ -24,9 +24,9 @@
 }
 #ventu-social .btn-wrapper a i.like {
   background-color: #00e5a9;
-  background-image: url('img/card/love.svg');
+  background-image: url('img/icons/love.svg');
 }
 #ventu-social .btn-wrapper a i.share {
   background-color: #727272;
-  background-image: url('img/card/share.svg');
+  background-image: url('img/icons/share.svg');
 }

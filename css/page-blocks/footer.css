@@ -1,3 +1,8 @@
+#ventu-footer {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  font-family: ProximaNova;
+}
 #ventu-footer #ventu-footer-legal {
   text-align: center;
   padding-top: 8px;

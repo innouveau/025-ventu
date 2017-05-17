@@ -1,0 +1,7 @@
+section.detail-text .detail-text-short {
+  max-height: 300px;
+  overflow-y: hidden;
+}
+.news-text section.detail-text .detail-text-short {
+  max-height: 62px;
+}

@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ventu Detail</title>
 
-    <script async="" src="img/temp_detail/analytics.js" style=""></script><script>
-        var localizationResources = [];
-    </script>
-
     <?php include('php-includes/standard-files.php'); ?>
 
     <link href="less/new/detail/project.css" rel="stylesheet">
@@ -20,9 +16,7 @@
 
       </head>
 
-<body cz-shortcut-listen="true">
-
-
+<body>
 
 
 <?php include('php-includes/nav.php'); ?>
@@ -36,9 +30,9 @@
 
 
 
-<div class="background container" style="background-image:url(http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/1.jpg)"></div>
+<div class="background" style="background-image:url(http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/1.jpg)"></div>
 
-<section id="breadcrumb" class="container section--transparent section--without-padding">
+<section id="breadcrumb" class="container section--transparent section--without-top-padding">
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
@@ -47,7 +41,6 @@
                 <li><a href="#">Kantoor</a></li>
                 <li class="active">Herengracht  477</li>
             </ol>
-
         </div>
     </div>
 </section>
@@ -55,59 +48,60 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 main-col">
-                <div id="ventu-carousel" class="carousel slide" data-ride="carousel">
 
-                    <ol class="carousel-indicators">
-                            <li data-target="#projectCarousel" data-slide-to="0" active="" class=""></li>
-                            <li data-target="#projectCarousel" data-slide-to="1" class=""></li>
-                            <li data-target="#projectCarousel" data-slide-to="2" class=""></li>
-                            <li data-target="#projectCarousel" data-slide-to="3" class=""></li>
-                            <li data-target="#projectCarousel" data-slide-to="4" class=""></li>
-                            <li data-target="#projectCarousel" data-slide-to="5" class="active"></li>
-                    </ol>
+            <div id="ventu-carousel" class="carousel slide" data-ride="carousel">
 
-                    <div class="carousel-inner">
-                            <div class="item aspect16by9">
-                                <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/1.jpg" data-fancybox="gallery">
-                                    <img class="projectCarousel" src="img/temp_detail/1_004.jpg">
-                                </a>
-                            </div>
-                            <div class="item aspect16by9">
-                                <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/2.jpg" data-fancybox="gallery">
-                                    <img class="projectCarousel" src="img/temp_detail/2.jpg">
-                                </a>
-                            </div>
-                            <div class="item aspect16by9">
-                                <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/3.jpg" data-fancybox="gallery">
-                                    <img class="projectCarousel" src="img/temp_detail/3.jpg">
-                                </a>
-                            </div>
-                            <div class="item aspect16by9">
-                                <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/4.jpg" data-fancybox="gallery">
-                                    <img class="projectCarousel" src="img/temp_detail/4.jpg">
-                                </a>
-                            </div>
-                            <div class="item aspect16by9">
-                                <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/5.jpg" data-fancybox="gallery">
-                                    <img class="projectCarousel" src="img/temp_detail/5.jpg">
-                                </a>
-                            </div>
-                            <div class="item aspect16by9 active">
-                                <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/6.jpg" data-fancybox="gallery">
-                                    <img class="projectCarousel" src="img/temp_detail/6.jpg">
-                                </a>
-                            </div>
-                    </div>
+                <ol class="carousel-indicators">
+                        <li data-target="#projectCarousel" data-slide-to="0" active="" class=""></li>
+                        <li data-target="#projectCarousel" data-slide-to="1" class=""></li>
+                        <li data-target="#projectCarousel" data-slide-to="2" class=""></li>
+                        <li data-target="#projectCarousel" data-slide-to="3" class=""></li>
+                        <li data-target="#projectCarousel" data-slide-to="4" class=""></li>
+                        <li data-target="#projectCarousel" data-slide-to="5" class="active"></li>
+                </ol>
 
-                    <a class="left carousel-control" href="#projectCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#projectCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                <div class="carousel-inner">
+                        <div class="item aspect16by9">
+                            <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/1.jpg" data-fancybox="gallery">
+                                <img class="projectCarousel" src="img/temp_detail/1_004.jpg">
+                            </a>
+                        </div>
+                        <div class="item aspect16by9">
+                            <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/2.jpg" data-fancybox="gallery">
+                                <img class="projectCarousel" src="img/temp_detail/2.jpg">
+                            </a>
+                        </div>
+                        <div class="item aspect16by9">
+                            <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/3.jpg" data-fancybox="gallery">
+                                <img class="projectCarousel" src="img/temp_detail/3.jpg">
+                            </a>
+                        </div>
+                        <div class="item aspect16by9">
+                            <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/4.jpg" data-fancybox="gallery">
+                                <img class="projectCarousel" src="img/temp_detail/4.jpg">
+                            </a>
+                        </div>
+                        <div class="item aspect16by9">
+                            <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/5.jpg" data-fancybox="gallery">
+                                <img class="projectCarousel" src="img/temp_detail/5.jpg">
+                            </a>
+                        </div>
+                        <div class="item aspect16by9 active">
+                            <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/6.jpg" data-fancybox="gallery">
+                                <img class="projectCarousel" src="img/temp_detail/6.jpg">
+                            </a>
+                        </div>
                 </div>
+
+                <a class="left carousel-control" href="#projectCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#projectCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
 
 
             <section id="ventu-features-icons">
@@ -163,12 +157,7 @@
             </section>
 
 
-
-
-
-                    <section class="detail-text">
-
-                    </section>
+            <section class="detail-text"></section>
 
 
             <section id="ventu-location" class="clearfix">
@@ -275,62 +264,64 @@ indruk van het woon en/of werkgebied.</p>
 
 
 
-                <section class="brochure clearfix do-not-print">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h3>Projectinformatie</h3>
-                            <p>De aanbieder heeft de complete 
-projectpresentatie in een brochure samengevat, hieronder een link om de 
-deze te kunnen downloaden. Om de brochure te kunnen lezen heb je een 
-acrobat reader nodig.</p>
+            <section class="brochure clearfix do-not-print">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>Projectinformatie</h3>
+                        <p>De aanbieder heeft de complete
+                        projectpresentatie in een brochure samengevat, hieronder een link om de
+                        deze te kunnen downloaden. Om de brochure te kunnen lezen heb je een
+                        acrobat reader nodig.</p>
 
-                            <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/docs/PI%20NL%20Herengracht%20477,%20Amsterdam%20Centrum.pdf" target="_blank">Download hier een brochure van Herengracht  477</a>
+                        <a href="http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/docs/PI%20NL%20Herengracht%20477,%20Amsterdam%20Centrum.pdf" target="_blank">
+                            Download hier een brochure van Herengracht  477
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="contact clearfix">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>Stuur ons een bericht</h3>
+                    </div>
+                </div>
+
+                <form action="/Bedankt/477" class="ventu-form contact-form" id="contact-form" method="post" novalidate="novalidate">
+                    <input name="guid" value="6dd097c3-8478-4510-a19e-529b28b8719d" type="hidden">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label for="organizationName">Bedrijfsnaam</label>
+                            <input class="form-control" id="organizationName" name="organizationName" placeholder="Bedrijfsnaam" required="" aria-required="true" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;" type="text">
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label for="phonenumber">Telefoonummer</label>
+                            <input name="phonenumber" id="phonenumber" class="form-control" placeholder="Telefoonummer" required="" aria-required="true" type="tel">
                         </div>
                     </div>
-                </section>
-
-
-
-                <section class="contact clearfix">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <h3>Stuur ons een bericht</h3>
+                        <div class="form-group col-lg-6">
+                            <label for="name">Naam</label>
+                            <input name="name" id="name" class="form-control" placeholder="Naam" required="" aria-required="true" type="text">
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label for="email">E-mailadres</label>
+                            <input name="email" id="email" class="form-control" placeholder="E-mailadres" required="" aria-required="true" type="email">
                         </div>
                     </div>
-
-                    <form action="/Bedankt/477" class="ventu-form contact-form" id="contact-form" method="post" novalidate="novalidate">
-                        <input name="guid" value="6dd097c3-8478-4510-a19e-529b28b8719d" type="hidden">
-                        <div class="row">
-                            <div class="form-group col-lg-6">
-                                <label for="organizationName">Bedrijfsnaam</label>
-                                <input class="form-control" id="organizationName" name="organizationName" placeholder="Bedrijfsnaam" required="" aria-required="true" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;" type="text">
-                            </div>
-
-                            <div class="form-group col-lg-6">
-                                <label for="phonenumber">Telefoonummer</label>
-                                <input name="phonenumber" id="phonenumber" class="form-control" placeholder="Telefoonummer" required="" aria-required="true" type="tel">
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label for="message">Bericht</label>
+                            <textarea rows="8" name="message" id="message" class="form-control" placeholder="Bericht" required="" aria-required="true"></textarea>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-lg-6">
-                                <label for="name">Naam</label>
-                                <input name="name" id="name" class="form-control" placeholder="Naam" required="" aria-required="true" type="text">
-                            </div>
-
-                            <div class="form-group col-lg-6">
-                                <label for="email">E-mailadres</label>
-                                <input name="email" id="email" class="form-control" placeholder="E-mailadres" required="" aria-required="true" type="email">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <label for="message">Bericht</label>
-                                <textarea rows="8" name="message" id="message" class="form-control" placeholder="Bericht" required="" aria-required="true"></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="button">Versturen</button>
-                    </form>
-                </section>
+                    </div>
+                    <button type="submit" class="button">Versturen</button>
+                </form>
+            </section>
         </div>
 
         <!-- end of main col -->
@@ -432,7 +423,6 @@ acrobat reader nodig.</p>
 
                         </div>
                     </div>
-
             </section>
         </div>
     </div>
@@ -442,69 +432,64 @@ acrobat reader nodig.</p>
 
 
 
-    <!-- proximity -->
-    <section class="proximity clearfix container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>Aanbod in de omgeving</h3>
-                <p>Vergelijkbaar aanbod in de omgeving, door op de presentatie te klikken, bekijk je de details.</p>
+        <!-- proximity -->
+        <section class="proximity clearfix container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Aanbod in de omgeving</h3>
+                    <p>Vergelijkbaar aanbod in de omgeving, door op de presentatie te klikken, bekijk je de details.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-sm-6 col-lg-3">
-                <?php getStaticCard(true); ?>
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <?php getStaticCard(true); ?>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <?php getStaticCard(true); ?>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <?php getStaticCard(true); ?>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <?php getStaticCard(true); ?>
+                </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <?php getStaticCard(true); ?>
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="#" class="button">Bekijk het totale aanbod in Amsterdam</a>
+                </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <?php getStaticCard(true); ?>
+        </section>
+
+
+
+        <!-- related-sites -->
+        <section class="related-cites clearfix container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Alternatieve vestigingslocaties voor je Kantoor</h3>
+                </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <?php getStaticCard(true); ?>
+
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <?php getStaticCard(true); ?>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <?php getStaticCard(true); ?>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <?php getStaticCard(true); ?>
+                </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <a href="#" class="button">Bekijk het totale aanbod in Amsterdam</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
 
 
-    <!-- related-sites -->
-    <section class="related-cites clearfix container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>Alternatieve vestigingslocaties voor je Kantoor</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-6 col-lg-3">
-                <?php getStaticCard(true); ?>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <?php getStaticCard(true); ?>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <?php getStaticCard(true); ?>
-            </div>
-        </div>
-    </section>
-
-
-
-    <?php include('php-includes/usp.php'); ?>
-
-
-
-
-
-</div>
+        <?php include('php-includes/usp.php'); ?>
+    </div>
 
 
 
@@ -516,31 +501,31 @@ acrobat reader nodig.</p>
                     <h2>Laatste nieuws in de buurt</h2>
                     <h4>Standard Life koopt Aurora Building en DC Swiss Sense</h4>
                     <h5><p>Standard Life Investments heeft het 
-kantoorgebouw Aurora gekocht voor € 40 mln en het distributiecentrum van
- Swiss Sense in Uden voor circa € 17 mln.</p></h5>
+                    kantoorgebouw Aurora gekocht voor € 40 mln en het distributiecentrum van
+                     Swiss Sense in Uden voor circa € 17 mln.</p></h5>
 
                     <section class="detail-text section--transparent">
                         <div class="detail-text-short">
                             <p>De multi tenant Aurora Building aan de 
-Stadhouderskade 2 heeft een oppervlakte van 9593 m² en de belangrijkste 
-huurder is Tommy Hilfiger Europe. Die breidde in 2013 zijn contract uit 
-van 5200 naar 7025 m².</p>
-<p>In 2006 kocht een groep private buitenlandse investeerders het pand 
-van Solidiam, naar verluidt voor een bedrag van rond € 35 mln.</p>
-<p>Het pand dateert uit 1960 en werd indertijd ontworpen door Piet Zandstra.&nbsp;</p>
-<p>Het logistieke centrum van matrassen- en beddenfabrikant Swiss Sense 
-in Uden is 23.629 m² groot en is te vinden aan Jagersveld 13-15. Swiss 
-Sense heeft een huurcontract van 10 jaar.</p>
-<p>De twee panden maken deel uit van een grotere deal in Europa. 
-Standard Life heeft ook nog&nbsp;Das Goldene Haus aan Leipziger Strasse 
-in Berlijn aangekocht en een winkelpand aan&nbsp;Chaussée d’Ixelles in 
-Brussel. De totale aankoopbedrag voor de vier gebouwen bedraagt € 108 
-mln.</p>
-<p>Bij het DC van Swiss Sense in Uden trad JLL op namens de verkoper. 
-Cushman &amp; Wakefield&nbsp;heeft de aankoop in Uden begeleid namens 
-Standard Life Investments.&nbsp;</p>
-<p>Bij Aurora was DTZ Zadelhoff betrokken namens de verkoper.</p>
-<p>&nbsp;</p>
+                            Stadhouderskade 2 heeft een oppervlakte van 9593 m² en de belangrijkste
+                            huurder is Tommy Hilfiger Europe. Die breidde in 2013 zijn contract uit
+                            van 5200 naar 7025 m².</p>
+                            <p>In 2006 kocht een groep private buitenlandse investeerders het pand
+                            van Solidiam, naar verluidt voor een bedrag van rond € 35 mln.</p>
+                            <p>Het pand dateert uit 1960 en werd indertijd ontworpen door Piet Zandstra.&nbsp;</p>
+                            <p>Het logistieke centrum van matrassen- en beddenfabrikant Swiss Sense
+                            in Uden is 23.629 m² groot en is te vinden aan Jagersveld 13-15. Swiss
+                            Sense heeft een huurcontract van 10 jaar.</p>
+                            <p>De twee panden maken deel uit van een grotere deal in Europa.
+                            Standard Life heeft ook nog&nbsp;Das Goldene Haus aan Leipziger Strasse
+                            in Berlijn aangekocht en een winkelpand aan&nbsp;Chaussée d’Ixelles in
+                            Brussel. De totale aankoopbedrag voor de vier gebouwen bedraagt € 108
+                            mln.</p>
+                            <p>Bij het DC van Swiss Sense in Uden trad JLL op namens de verkoper.
+                            Cushman &amp; Wakefield&nbsp;heeft de aankoop in Uden begeleid namens
+                            Standard Life Investments.&nbsp;</p>
+                            <p>Bij Aurora was DTZ Zadelhoff betrokken namens de verkoper.</p>
+                            <p>&nbsp;</p>
                         </div>
                         <div class="detail-text-overflow"></div>
                         <div class="text-center">
@@ -554,52 +539,13 @@ Standard Life Investments.&nbsp;</p>
     </div>
 
 
-<!-- Ventu about -->
-<div id="ventu-about" class="container ventu-block">
-    <div class="row">
-        <div class="col-sm-12">
-            <div id="ventu-footer-menu">
-
-                    <a href="http://realspotter.nl/Over">Over Ventu</a>  |                     <a href="http://realspotter.nl/Uitleg">Hoe werkt Ventu?</a>  |                     <a href="http://realspotter.nl/Aanbieders">Aanbieders</a>  |                     <a href="http://realspotter.nl/Contact/VoorDeZoeker">Voor de zoeker</a>  |                     <a href="http://realspotter.nl/Contact/VoorDeMakelaar">Voor de makelaar</a>  |                     <a href="http://realspotter.nl/Contact/VoorDeOpdrachtgever">Voor de opdrachtgever</a>
-
-            </div>
-        </div>
-    </div>
-</div>
+        <?php include('php-includes/about.php'); ?>
 
 
-<!-- ventu footer -->
-<div id="ventu-footer" class="container ventu-block">
-    <div class="row">
-        <div class="col-sm-3">
-            <img src="img/temp_detail/ventu-icon-footer.svg">
-            Ventu ©2017
-        </div>
-        <div class="col-sm-6">
-            <div id="ventu-footer-legal">
-                <a href="http://realspotter.nl/privacybeleid">Privacybeleid</a> |
-                <a href="http://realspotter.nl/gebruiksvoorwaarden">Gebruiksvoorwaarden</a> |
-                <a href="http://realspotter.nl/cookiebeleid">Cookiebeleid</a> |
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div id="ventu-footer-social">
-                <a href="https://www.facebook.com/VentuNL/">
-                    <i class="fa fa-facebook"></i>
-                </a>
-                <a href="https://twitter.com/Ventu_online/">
-                    <i class="fa fa-twitter"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/ventu_online/">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+        <?php include('php-includes/footer.php'); ?>
 
 
-<?php include('php-includes/modals.php'); ?>
+        <?php include('php-includes/modals.php'); ?>
 
 
 

@@ -165,9 +165,6 @@ body.ventu-home section {
     margin-top: 40px;
   }
 }
-.main-col section {
-  border-bottom: solid 0.5px #ededec;
-}
 section.detail-text .detail-text-short {
   max-height: 300px;
   overflow-y: hidden;
@@ -305,21 +302,10 @@ nav.navbar-default #navbar ul li a {
   display: inline-block;
   margin: 0 25px;
 }
-#ventu-about.ventu-block {
-  padding-top: 32px;
-  padding-bottom: 32px;
-  text-align: center;
-  border-bottom: 1px solid #ededec;
-}
-#ventu-direct-links.ventu-block {
+#ventu-direct-links {
   padding-top: 48px;
   padding-bottom: 48px;
   border-bottom: 1px solid #ededec;
-}
-#ventu-footer.ventu-block {
-  padding-top: 32px;
-  padding-bottom: 32px;
-  font-family: ProximaNova;
 }
 #ventu-about h3:first-child,
 #ventu-direct-links h3:first-child {
@@ -363,6 +349,11 @@ nav.navbar-default #navbar ul li a {
 }
 .ventu-contact-icon-button:hover .ventu-contact-icon-button-text {
   border-bottom: 1px solid #17141f;
+}
+#ventu-footer {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  font-family: ProximaNova;
 }
 #ventu-footer #ventu-footer-legal {
   text-align: center;
@@ -485,11 +476,11 @@ section.parties .divider {
 }
 #ventu-social .btn-wrapper a i.like {
   background-color: #00e5a9;
-  background-image: url('img/card/love.svg');
+  background-image: url('img/icons/love.svg');
 }
 #ventu-social .btn-wrapper a i.share {
   background-color: #727272;
-  background-image: url('img/card/share.svg');
+  background-image: url('img/icons/share.svg');
 }
 #ventu-location .ventu-location-legend {
   margin-top: 40px;
@@ -528,6 +519,12 @@ section.proximity .button {
 section.proximity .ventu-card .button {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+#ventu-about {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  text-align: center;
+  border-bottom: 1px solid #ededec;
 }
 .hangout-list-entry {
   height: 150px;
@@ -1415,6 +1412,7 @@ img.projectCarousel {
 #breadcrumb .breadcrumb > li + li:before,
 #breadcrumb .breadcrumb h3 {
   color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 #breadcrumb .breadcrumb > li + li:before {
   content: "\3E";
@@ -1422,6 +1420,7 @@ img.projectCarousel {
 section {
   padding: 70px 32px;
   background: #fff;
+  border-bottom: solid 0.5px #ededec;
 }
 section .section-color-fill {
   width: 100%;
@@ -1451,6 +1450,10 @@ section.section--without-padding {
 }
 section.section--without-side-padding {
   padding: 20px 0;
+}
+section.section--without-top-padding {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 section.section--small-padding {
   padding: 20px;

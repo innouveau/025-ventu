@@ -13,24 +13,17 @@
 
 </head>
 
-<body class="ventu-sign-in-page">
+    <body class="ventu-sign-in-page">
 
-<?php include('php-includes/nav.php'); ?>
+        <?php include('php-includes/nav.php'); ?>
 
+        <?php include('php-includes/sign-in.php'); ?>
 
-<!-- ventu sign-ing -->
-<section id="ventu-sign-in" class="section--with-background section--with-color-fill">
-    <div class="section-color-fill"></div>
-    <div class="ventu-sign-in"></div>
-</section>
+        <?php include('php-includes/usp.php'); ?>
 
+        <?php include('php-includes/footer.php'); ?>
 
+        <?php include('php-includes/modals.php'); ?>
 
-<?php include('php-includes/usp.php'); ?>
-
-<?php include('php-includes/footer.php'); ?>
-
-<?php include('php-includes/modals.php'); ?>
-
-</body>
+    </body>
 </html>

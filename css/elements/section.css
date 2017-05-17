@@ -1,6 +1,7 @@
 section {
   padding: 70px 32px;
   background: #fff;
+  border-bottom: solid 0.5px #ededec;
 }
 section .section-color-fill {
   width: 100%;
@@ -30,6 +31,10 @@ section.section--without-padding {
 }
 section.section--without-side-padding {
   padding: 20px 0;
+}
+section.section--without-top-padding {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 section.section--small-padding {
   padding: 20px;
