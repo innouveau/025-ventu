@@ -52,13 +52,6 @@ _Slider.prototype.resize = function() {
 
 _Slider.prototype.createSlides = function() {
     for (var i = 0, l = this.sections.length; i < l; i++) {
-        this.createSlide(this.section[i]);
-    }
-    this.elements.slides.push(this.createEmailSlide());
-};
-
-_Slider.prototype.createSlides = function() {
-    for (var i = 0, l = this.sections.length; i < l; i++) {
         var slide = this.createSlide(i);
         this.elements.slides.push( slide );
     }
@@ -129,13 +122,15 @@ _Slider.prototype.addCenterLine = function(element) {
 // navigation
 
 _Slider.prototype.next = function() {
+    var self = this;
     this.elements.buttons.next.removeClass('waving');
-    this.status.page.current++;
-    this.slide();
-    if (this.status.page.current === 4) {
-        // TODO request @walstra
-        var result = 'Berekend resultaat over 38.240 panden';
-        $('.ventu-slider-slide-end-container').html(result);
+
+    this.isAllowedToSlide(callback);
+
+
+    function callback() {
+        self.status.page.current++;
+        self.slide();
     }
 };
 
@@ -192,7 +187,7 @@ _Slider.prototype.updateButtons = function() {
         this.elements.buttons.prev.hide();
     }
 
-    allowed = this.isAllowed();
+    allowed = this.isAllowedToShowButton();
 
     if (allowed) {
         this.elements.buttons.next.show();
@@ -210,3 +205,24 @@ _Slider.prototype.digest = function() {
     this.updateHeader();
 };
 
+
+
+//
+
+_Slider.prototype.addSlides = function(sections) {
+    for (var i = 0, l = sections.length; i < l; i++) {
+        var extraSection,slide, index;
+        extraSection = sections[i];
+        // put them into the sections
+        this.sections.push(extraSection);
+        index = this.sections.length - 1;
+        // create the slide
+        slide = this.createSlide(index);
+        this.elements.slides.push( slide );
+        // add their status
+        this.status.updated[index] = false;
+        this.status.visited[index] = false;
+        this.status.set[index] = false;
+    }
+    this.elements.slideContainer.css('width', this.sections.length * this.settings.size.frame);
+};

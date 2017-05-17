@@ -434,6 +434,17 @@ Dialog.prototype.removeHeaderSection = function(section) {
     }
 };
 
-Dialog.prototype.isAllowed = function() {
+Dialog.prototype.isAllowedToShowButton = function() {
     return this.status.set[this.status.page.current];
+};
+
+Dialog.prototype.isAllowedToSlide = function(callback) {
+    if (this.status.page.current === 4) {
+        // TODO request @walstra
+        var result = 'Berekend resultaat over 38.240 panden';
+        $('.ventu-slider-slide-end-container').html(result);
+        callback();
+    } else {
+        callback();
+    }
 };
