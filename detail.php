@@ -10,44 +10,12 @@
         var localizationResources = [];
     </script>
 
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,700" rel="stylesheet">
-
+    <?php include('php-includes/standard-files.php'); ?>
 
     <link href="less/new/detail/project.css" rel="stylesheet">
-
-    <link href="style.css" rel="stylesheet">
-
+    <script src="js/home/main.js"></script>
 
 
-
-
-
-    <script>(function(e){var t=document,n=t.createElement("script");n.async=!0,n.defer=!0,n.src=e,t.getElementsByTagName("head")[0].appendChild(n)})("//c.flx1.com/119-19563.js?id=19563&m=119")</script><script async="" defer="defer" src="img/temp_detail/119-19563.js"></script><!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
-    <script type="text/javascript">
-    window.cookieconsent_options = { "message": "Deze website maakt gebruik van cookies, voor de beste ervaring klikt u voor akkoord", "dismiss": "Akkoord", "learnMore": "Meer informatie", "link": "https://ventu.nl/cookiebeleid", "theme": "light-bottom" };
-    </script>
-
-
-    <!-- End Cookie Consent plugin -->
-
-
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-78772191-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-
-
-    <script async="" defer="defer" src="img/temp_detail/px"></script><script async="" defer="defer" src="img/temp_detail/px_002"></script><script type="text/javascript" charset="UTF-8" src="img/temp_detail/common.js"></script><script type="text/javascript" charset="UTF-8" src="img/temp_detail/map.js"></script><script type="text/javascript" charset="UTF-8" src="img/temp_detail/util.js"></script><script type="text/javascript" charset="UTF-8" src="img/temp_detail/marker.js"></script><script type="text/javascript" charset="UTF-8" src="img/temp_detail/controls.js"></script><script type="text/javascript" charset="UTF-8" src="img/temp_detail/places_impl.js"></script><style type="text/css">.gm-style {
-            font: 400 11px Roboto, Arial, sans-serif;
-            text-decoration: none;
-          }
-          .gm-style img { max-width: none; }</style><script type="text/javascript" charset="UTF-8" src="img/temp_detail/onion.js"></script><script type="text/javascript" charset="UTF-8" src="img/temp_detail/stats.js"></script><link href="less/new/detail/tooltip.css" rel="stylesheet" type="text/css"><script type="text/javascript" charset="UTF-8" src="img/temp_detail/geometry.js"></script><script type="text/javascript" charset="UTF-8" src="img/temp_detail/poly.js"></script><script type="text/javascript" charset="UTF-8" src="img/temp_detail/infowindow.js"></script><script async="" defer="defer" src="img/temp_detail/ia_011"></script><script async="" defer="defer" src="img/temp_detail/ia_003"></script><script async="" defer="defer" src="img/temp_detail/ia_007"></script><script async="" defer="defer" src="img/temp_detail/ia_006"></script><script async="" defer="defer" src="img/temp_detail/ia_010"></script><script async="" defer="defer" src="img/temp_detail/ia_008"></script><script async="" defer="defer" src="img/temp_detail/ia_009"></script><script async="" defer="defer" src="img/temp_detail/ia_004"></script><script async="" defer="defer" src="img/temp_detail/ia"></script><script async="" defer="defer" src="img/temp_detail/ia_002"></script><script async="" defer="defer" src="img/temp_detail/ia_005"></script>
 
       </head>
 
@@ -56,78 +24,9 @@
 
 
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <div class="pull-left">
-            <a class="navbar-brand" href="./">
-                <div class="ventu-identity">
-                    <img class="hidden-xs" src="img/identity/ventu-logo-navbar.svg">
-                    <img class="visible-xs" src="img/identity/ventu-icon-navbar.svg">
-                </div>
-            </a>
-        </div>
-
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-
-        <div class="pull-right">
-            <div class="search-open-container">
-                <div class="ventu-search-open">
-                    <div class="ventu-search-container">
-                        <div class="ventu-search ventu-search--white-label"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<?php include('php-includes/nav.php'); ?>
 
 
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse pull-left" id="navbar">
-        <ul class="nav navbar-nav">
-            <li><a href="javascript:openLogin()">Inloggen</a></li>
-            <li><a href="javascript:openRegister()">Registreren</a></li>
-        </ul>
-    </div>
-
-
-</nav>
-
-<!-- modals -->
-<div class="ventu-overlay">
-    <!-- ventu login -->
-    <div class="ventu-login ventu-popup">
-        <div class="ventu-popup-head">
-            <h2>
-                Inloggen
-            </h2>
-        </div>
-        <div class="ventu-popup-body with-padding">
-
-    <form action="/Project/6dd097c3-8478-4510-a19e-529b28b8719d/Amsterdam/Herengracht/477" class="form-signin ventu-form" method="post">                <label class="sr-only" for="inputEmail">E-mailadres</label>
-                    <input id="inputEmail" class="form-control" name="emailAddress" placeholder="E-mailadres" required="" autofocus="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;" autocomplete="off" type="text">
-                    <label class="sr-only" for="inputPassword">Wachtwoord</label>
-                    <input id="inputPassword" class="form-control" name="password" placeholder="Wachtwoord" required="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;" autocomplete="off" type="password">
-                    <input id="inputFavorites" name="favorites" type="hidden">
-                    <div class="checkbox">
-                        <label>
-                            <input name="rememberMe" value="true" type="checkbox">
-                            Onthoud mij
-                        </label>
-                    </div>
-                    <a href="http://realspotter.nl/account/accountmaken">Maak een account</a>
-                    <a href="http://realspotter.nl/account/wachtwoordvergeten">Wachtwoord vergeten</a>
-                    <button class="btn orange btn-lg btn-primary btn-block" type="submit">Inloggen</button>
-    </form>
-        </div>
-        <div class="ventu-close-popup ventu-icon ventu-icon-close"></div>
-    </div>
-</div>
 
     
 
@@ -695,58 +594,7 @@ acrobat reader nodig.</p>
 
 
 
-    <!-- ventu usp block -->
-    <section class="container">
-        <div class="row">
-            <div class="section-header">
-                <div class="section-header-text">
-                    <h2>
-                        De makkelijkste manier om jouw
-                        toekomstige bedrijfsruimte te vinden
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="ventu-usp-item col-sm-4">
-                <div class="ventu-usp-item-image">
-                    <img src="img/icons/search.svg">
-                </div>
-                <h3>
-                    Ventu vindt het voor je
-                </h3>
-                <div class="ventu-usp-item-text">
-                    Ventu maakt het vinden van uw nieuwe vastgoedlocatie
-                    een stuk eenvoudiger. Wij vinden voor je al het
-                    aanbod van Nederland.
-                </div>
-            </div>
-
-            <div class="ventu-usp-item col-sm-4">
-                <div class="ventu-usp-item-image">
-                    <img src="img/icons/network.svg">
-                </div>
-                <h3>
-                    Het allergrootste netwerk
-                </h3>
-                <div class="ventu-usp-item-text">
-                    Vind in ons aanbod 38.240 gebouwen van 2.036 aanbieders. Sinds 1 juli 2016 24.367.881 gebouwen bezocht.
-                </div>
-            </div>
-
-            <div class="ventu-usp-item col-sm-4">
-                <div class="ventu-usp-item-image">
-                    <img src="img/icons/information.svg">
-                </div>
-                <h3>
-                    Kennis is informatie
-                </h3>
-                <div class="ventu-usp-item-text">
-                    In onze database hebben wij de afgelopen 16 jaar een enorme historie opgebouwd van al het aanbod en transacties in Nederland.
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php include('php-includes/usp.php'); ?>
 
 
 
@@ -814,6 +662,8 @@ Standard Life Investments.&nbsp;</p>
         </div>
     </div>
 </div>
+
+
 <!-- ventu footer -->
 <div id="ventu-footer" class="container ventu-block">
     <div class="row">
@@ -845,280 +695,10 @@ Standard Life Investments.&nbsp;</p>
 </div>
 
 
-<script src="img/temp_detail/ventu-assets.js"></script>
-<script src="img/temp_detail/ventu-project.js"></script>
-
-<script>
-    $(document).ready(function () {
-
-        
-
-        var fontsLoaded = $.localStorage.get('ventu-fonts');
-
-        if (fontsLoaded) {
-            $('head').append($('<link type="text/css" rel="stylesheet" href="/Content/shared/fonts.css">'));
-        } else {
-            $.when(
-
-                $.get('/fonts/ProximaNova/ProximaNova-Bold.otf', function (font) {
-                }),
-
-                $.get('/fonts/ProximaNova/ProximaNova-Light.otf', function (font) {
-                }),
-
-                $.get('/fonts/ProximaNova/ProximaNova-Regular.otf', function (font) {
-                })
-
-                
-
-            ).then(function () {
-                $.localStorage.set('ventu-fonts', true);
-                $('head').append($('<link type="text/css" rel="stylesheet" href="/Content/shared/fonts.css">'));
-            });
-        }
-
-    });
-
-</script>
-
-
-    
-
-    <script type="text/javascript" src="img/temp_detail/jsapi.js"></script>
-
-    <script type="text/javascript">
-        var google_conversion_id = 879329810;
-        var google_custom_params = window.google_tag_params;
-        var google_remarketing_only = true;
-    </script>
-    <script type="text/javascript" src="img/temp_detail/conversion.js"></script><iframe name="google_conversion_frame" title="Google conversion frame" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/879329810/?random=1494862324895&amp;cv=8&amp;fst=1494862324895&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1053&amp;u_aw=1920&amp;u_cd=24&amp;u_his=1&amp;u_tz=120&amp;u_java=false&amp;u_nplug=1&amp;u_nmime=2&amp;frm=0&amp;url=http%3A%2F%2Frealspotter.nl%2FProject%2F6dd097c3-8478-4510-a19e-529b28b8719d%2FAmsterdam%2FHerengracht%2F477%3Fc%3D1&amp;tiba=Kantoor%20te%20Huur%20in%20Amsterdam%2C%20Herengracht%20477" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" height="13" frameborder="0" width="300"></iframe>
-    <noscript>
-        <div style="display:inline;">
-            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/879329810/?value=0&amp;guid=ON&amp;script=0" />
-        </div>
-    </noscript>
-
-
-    <script type="text/javascript">
-        window.uniqueId = '6dd097c3-8478-4510-a19e-529b28b8719d';
-
-        if (window.ventuApi == null) {
-            window.ventuApi = new VentuApi();
-        }
-
-        $(document).ready(function () {
-            //$("[name='my-checkbox']").bootstrapSwitch();
-
-            // This adds the helper onto the jQuery object rather than just being global
-            $.getUrl = function (path) {
-                return '/' + path;
-            };
-        });
-
-            
-            var service;
-            window.trains = [];
-            window.shops = [];
-            window.parkingspaces = [];
-            window.horeca = [];
-
-            function initializeServices(map)
-            {
-                service = new google.maps.places.PlacesService(map);
-            }
-
-            function initializeMaps() {
-                var position = new google.maps.LatLng(52.3659977, 4.8901722);
-
-                var mapOptions = {
-                    scrollwheel: false,
-                    center: position,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    zoom: 15
-                };
-
-                var data = [];
-                var markers = [];
-
-                window.map = new google.maps.Map(document.getElementById("map-postcode"), mapOptions);
-
-                window.ventuApi.post('/Application/GetObjectsInPostcode', {postcode: '1017 BS'}).done(function (generalData) {
-                    if (generalData != null && generalData.SearchObjects != null) {
-                        $.each(generalData.SearchObjects, function (index, obj) {
-
-                            var href = location.href;
-
-                            if (href.indexOf(obj.UniqueId) == -1) {
-
-                                setTimeout(function () { // ensure localization is loaded...
-                                    var marker = window.ventuApi.createMarker(map, obj, true);
-                                    markers.push(marker);
-                                    marker.setMap(map);
-                                }, 750);
-
-                            }
-                        });
-                    }
-                });
-
-                var primarymarker = new google.maps.Marker({
-                    icon: window.ventuApi.getPrimaryMarkerIcon(),
-                    map: map,
-                    animation: google.maps.Animation.DROP,
-                    position: position,
-                    draggable: false
-                });
-                primarymarker.setMap(map);
-
-                window.ventuApi.post('/Application/GetPostcodePolygon', {postcode: '1017 BS'}).done(function (generalData) {
-                    if (generalData != undefined && generalData.length>0)
-                    {
-                        var postcodePolygon = generalData;
-                        $.each(postcodePolygon, function (index, coordinateSet) {
-                            // Construct the polygon.
-                            var polygon = new google.maps.Polygon({
-                                paths: coordinateSet,
-                                strokeColor: '#00e5a9',
-                                strokeWeight: 3,
-                                fillColor: "#000000",
-                                fillOpacity: 0.4
-                            });
-                            polygon.setMap(map);
-                        });
-                    }
-                });
-
-                initializeServices(map);
-            }
-
-            
-
-        google.load("visualization", "1", { packages: ["corechart"], 'language': 'nl-NL' });
-
-            
-            function drawPieCHart(element, titel, generalData)
-            {
-                var jsonString = generalData; // $.parseJSON(generalData);
-                var sliceSource = [];
-
-                var row, date, tbl = new google.visualization.DataTable();
-                tbl.addColumn('string', 'ObjectUsage');
-                tbl.addColumn('number', 'TotalMetrage');
-                for (var i=0;i<jsonString.length;i++) {
-                    row = jsonString[i];
-
-                    function completed(resourceValue) {
-                        tbl.addRow([
-                            resourceValue,
-                            parseFloat(row.TotalMetrage)
-                        ]);
-                    }
-
-                    var objectUsage = row.ObjectUsage;
-                    objectUsage = objectUsage.charAt(0).toUpperCase() + objectUsage.slice(1);
-                    objectUsage = objectUsage.replace(/ /g, '');
-
-                    window.ventuApi.getResourceValue('Ventu3.LocalResources.Detail', objectUsage, completed);
-
-                    var color = appendSliceSource(row.ObjectUsage);
-                    sliceSource.push(color);
-                }
-
-                var options = {
-                    //title: titel,
-                    is3D: true,
-                    legend: {
-                        position: 'right'
-                    },
-                    height:250,
-                    chartArea:{left:0,top:0,width:"100%",height:"100%"},
-                    colors: sliceSource
-                };
-
-                var chart = new google.visualization.PieChart(document.getElementById(element));
-                chart.draw(tbl, options);
-            }
-
-            function appendSliceSource(objectUsage)
-            {
-                switch(objectUsage.toLowerCase())
-                {
-                    case "kantoor":
-                    case "kantoorfunctie":
-                        color = "#00a4ff";
-                        break;
-                    case "werkplek":
-                        color = "#00e1f5";
-                        break;
-                    case "bedrijfsruimte":
-                    case "industriefunctie":
-                        color = "#ff632c";
-                        break;
-                    case "distributie":
-                        color = "#ea196d";
-                        break;
-                    case "winkel":
-                    case "winkelfunctie":
-                        color = "#00e5a9";
-                        break;
-                    case "horeca":
-                    case "bijeenkomstfunctie":
-                    case "logiesfunctie":
-                        color = "#FFE000";
-                        break;
-                    case "grond":
-                        color = "#979797";
-                        break;
-                    case "overig":
-                    case "overige gebruiksfunctie":
-                        color = "#8600c8";
-                        break;
-                    default:
-                        color = "#efefee";
-                }
-                return color;
-            }
-
-            function drawChartvastgoedmix(newData) {
-
-                window.ventuApi.post('/Application/GetRealEstateUsageMix', {postcode: '1017 BS'}).done(function(generalData){
-                    if (generalData != undefined && generalData.length>0)
-                    {
-                        function completed(resourceValue) {
-                            drawPieCHart('vastgoedmix', resourceValue + '  in m2', generalData);
-                        }
-
-                        window.ventuApi.getResourceValue('Ventu3.LocalResources.Detail', 'Gebruiksfunctie', completed);
-                    };
-                });
-
-                window.ventuApi.post('/Application/GetObjectUsageMix', {postcode: '1017 BS'}).done(function(generalData){
-                    if (generalData != undefined && generalData.length>0)
-                    {
-                        function completed(resourceValue) {
-                            drawPieCHart('usagemix', resourceValue + '  in m2', generalData);
-                        }
-
-                        window.ventuApi.getResourceValue('Ventu3.LocalResources.Detail', 'Aanbodverdeling', completed);
-                    };
-                });
-
-            }
-
-            google.setOnLoadCallback(drawChartvastgoedmix);
-            
-
-    </script><script src="img/temp_detail/a.js" type="text/javascript"></script><link href="less/new/detail/uinl.css" type="text/css" rel="stylesheet"><script src="img/temp_detail/formatnldefaultnluinlcorechartnl.js" type="text/javascript"></script>
-    <script src="img/temp_detail/js.js" async="" defer="defer"></script>
+<?php include('php-includes/modals.php'); ?>
 
 
 
-    <script src="js/shared/modals.js"></script>
-    <script src="js/shared/modules.js"></script>
-    <script src="js/shared/buttons.js"></script>
-    <script src="js/shared/modules/ventu-dialog/Dialog.js"></script>
-    <script src="js/shared/modules/ventu-search/Search.js"></script>
-    <script src="js/home/main.js"></script>
 
 
     </body>
