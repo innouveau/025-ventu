@@ -1,3 +1,4 @@
+<?php include('php-includes/static-card.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,24 +111,7 @@
 
 
             <section id="ventu-features-icons">
-                <ol class="features clearfix">
-                    <li>
-                        <img src="img/temp_detail/winkel.svg">
-                        Kantoor
-                    </li>
-                    <li>
-                        <img src="img/temp_detail/location.svg">
-                        Amsterdam
-                    </li>
-                    <li>
-                        <img src="img/temp_detail/ruler.svg">
-                        200 m²
-                    </li>
-                    <li>
-                        <img src="img/temp_detail/money.svg">
-                        Huurprijs per jaar € 72.000, Huurprijs per maand € 6.000
-                    </li>
-                </ol>
+                <?php include('php-includes/features.php');?>
             </section>
 
             <section>
@@ -469,16 +453,16 @@ acrobat reader nodig.</p>
 
         <div class="row">
             <div class="col-sm-6 col-lg-3">
-                <?php include('php-includes/static-card.php'); ?>
+                <?php getStaticCard(true); ?>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <<?php include('php-includes/static-card.php'); ?>
+                <?php getStaticCard(true); ?>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <?php include('php-includes/static-card.php'); ?>
+                <?php getStaticCard(true); ?>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <?php include('php-includes/static-card.php'); ?>
+                <?php getStaticCard(true); ?>
             </div>
         </div>
 
@@ -501,13 +485,13 @@ acrobat reader nodig.</p>
 
         <div class="row">
             <div class="col-sm-6 col-lg-3">
-                <?php include('php-includes/static-card.php'); ?>
+                <?php getStaticCard(true); ?>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <?php include('php-includes/static-card.php'); ?>
+                <?php getStaticCard(true); ?>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <?php include('php-includes/static-card.php'); ?>
+                <?php getStaticCard(true); ?>
             </div>
         </div>
     </section>

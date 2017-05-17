@@ -1,3 +1,5 @@
+<?php include('php-includes/static-card.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,7 @@
 <?php include('php-includes/nav-logged-in.php'); ?>
 
 
-<section id="ventu-hangout-list" class="container ventu-hangout-list-love">
+<section id="ventu-hangout-list" class="container ventu-hangout-list-love"> <!-- @walstra hier zijn dus ook de classes ventu-hangout-list-hate, ventu-hangout-list-share, ventu-hangout-list-follow -->
     <div class="row ventu-hangout-list-header">
         <div class="col-sm-12">
             <div class="ventu-hangout-list-back">
@@ -39,10 +41,24 @@
 <section id="ventu-hangout-list-cards" class="container">
     <div class="row">
         <div class="col-sm-4">
-            <?php include('php-includes/static-card.php'); ?>
-            <?php include('php-includes/static-card.php'); ?>
-            <?php include('php-includes/static-card.php'); ?>
-            <?php include('php-includes/static-card.php'); ?>
+            <?php getStaticCard(false); ?>
+        </div>
+        <div class="col-sm-4">
+            <?php getStaticCard(true); ?>
+        </div>
+        <div class="col-sm-4">
+            <?php getStaticCard(true); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <?php getStaticCard(true); ?>
+        </div>
+        <div class="col-sm-4">
+            <?php getStaticCard(true); ?>
+        </div>
+        <div class="col-sm-4">
+            <?php getStaticCard(true); ?>
         </div>
     </div>
 </section>
