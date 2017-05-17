@@ -468,74 +468,18 @@ acrobat reader nodig.</p>
         </div>
 
         <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="ventu-card ventu-card--static ventu-card--grid">
-                        <div class="aspect16by9">
-                            <img src="img/temp_detail/1.jpg">
-                        </div>
-
-                        <div class="ventu-card-text">
-                            <h3>Noorderstraat  4</h3>
-                            <p>
-                                1017 TV Amsterdam<br>
-                                Huurprijs per jaar € 22.500, Huurprijs per maand € 1.875<br>
-                                89 m²
-                            </p>
-                            <a class="button" href="http://realspotter.nl/Project/6DF8407C-1DB4-472E-8CFA-F52AE4A407B6/Amsterdam/Noorderstraat/4"><div class="ventu-card-button-icon ventu-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>Lees meer</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="ventu-card ventu-card--static ventu-card--grid">
-                        <div class="aspect16by9">
-                            <img src="img/temp_detail/1_006.jpg">
-                        </div>
-
-                        <div class="ventu-card-text">
-                            <h3>De Ruijterkade  107</h3>
-                            <p>
-                                1011 AB Amsterdam<br>
-                                Huurprijs: € 180 m<sup>2</sup>/jr, Huurprijs per jaar € 13.500, Huurprijs per maand € 1.125<br>
-                                75 m²
-                            </p>
-                            <a class="button" href="http://realspotter.nl/Project/94fd4086-9a07-40a5-831c-990408bfbf65/Amsterdam/De-Ruijterkade/107"><div class="ventu-card-button-icon ventu-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>Lees meer</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="ventu-card ventu-card--static ventu-card--grid">
-                        <div class="aspect16by9">
-                            <img src="img/temp_detail/1_008.jpg">
-                        </div>
-
-                        <div class="ventu-card-text">
-                            <h3>Keizersgracht  391-0</h3>
-                            <p>
-                                1016 EJ Amsterdam<br>
-                                Huurprijs per jaar € 26.400, Huurprijs per maand € 2.200<br>
-                                75 m²
-                            </p>
-                            <a class="button" href="http://realspotter.nl/Project/d051ec8c-b45f-4ac8-b4ba-870c18a9a849/Amsterdam/Keizersgracht/391-0"><div class="ventu-card-button-icon ventu-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>Lees meer</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="ventu-card ventu-card--static ventu-card--grid">
-                        <div class="aspect16by9">
-                            <img src="img/temp_detail/1_005.jpg">
-                        </div>
-
-                        <div class="ventu-card-text">
-                            <h3>Paradijsplein  5</h3>
-                            <p>
-                                1093 NJ Amsterdam<br>
-                                Huurprijs: € 155 m<sup>2</sup>/jr, Huurprijs per jaar € 15.500, Huurprijs per maand € 1.291<br>
-                                100 m²
-                            </p>
-                            <a class="button" href="http://realspotter.nl/Project/5EAAC9A7-A5A9-4A20-AA7E-63B2C12B21B8/Amsterdam/Paradijsplein/5"><div class="ventu-card-button-icon ventu-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>Lees meer</span></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-sm-6 col-lg-3">
+                <?php include('php-includes/static-card.php'); ?>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <<?php include('php-includes/static-card.php'); ?>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <?php include('php-includes/static-card.php'); ?>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <?php include('php-includes/static-card.php'); ?>
+            </div>
         </div>
 
         <div class="row">
@@ -556,39 +500,15 @@ acrobat reader nodig.</p>
         </div>
 
         <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="ventu-card ventu-card--static ventu-card--grid">
-                        <div class="aspect16by9">
-                            <img src="img/temp_detail/1_007.jpg">
-                        </div>
-                        <div class="ventu-card-text">
-                            <h3>In Haarlem 137 Kantoor objecten</h3>
-                            <a class="button" href="http://realspotter.nl/Omgeving/Haarlem/Kantoor"><div class="ventu-card-button-icon ventu-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>Bekijken</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="ventu-card ventu-card--static ventu-card--grid">
-                        <div class="aspect16by9">
-                            <img src="img/temp_detail/1_002.jpg">
-                        </div>
-                        <div class="ventu-card-text">
-                            <h3>In Zaandam 40 Kantoor objecten</h3>
-                            <a class="button" href="http://realspotter.nl/Omgeving/Zaandam/Kantoor"><div class="ventu-card-button-icon ventu-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>Bekijken</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="ventu-card ventu-card--static ventu-card--grid">
-                        <div class="aspect16by9">
-                            <img src="img/temp_detail/1_003.jpg">
-                        </div>
-                        <div class="ventu-card-text">
-                            <h3>In Alkmaar 124 Kantoor objecten</h3>
-                            <a class="button" href="http://realspotter.nl/Omgeving/Alkmaar/Kantoor"><div class="ventu-card-button-icon ventu-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span>Bekijken</span></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-sm-6 col-lg-3">
+                <?php include('php-includes/static-card.php'); ?>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <?php include('php-includes/static-card.php'); ?>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <?php include('php-includes/static-card.php'); ?>
+            </div>
         </div>
     </section>
 

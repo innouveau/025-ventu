@@ -43,3 +43,6 @@
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+#ventu-hangout-list #ventu-hangout-list-cards {
+  padding-top: 32px!important;
+}

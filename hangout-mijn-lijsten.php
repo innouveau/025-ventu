@@ -36,7 +36,7 @@
 
             <div class="hangout-list-entry" style="background-image:url(img/content/kantoor4.jpg)">
                 <div class="hangout-list-entry-title">
-                    <div class="hangout-list-entry-title-icon hangout-list-entry-title-icon-plus"></div>
+                    <div class="hangout-list-entry-title-icon hangout-list-entry-title-icon-share"></div>
                     <div class="hangout-list-entry-title-label">
                         Nieuw kantoor voor de zaak
                     </div>

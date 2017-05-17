@@ -5,6 +5,7 @@
 .ventu-card.ventu-card--grid {
   position: relative;
   width: 100%;
+  margin-bottom: 20px;
 }
 @media (max-width: 767px) {
   .ventu-card.ventu-card--static {

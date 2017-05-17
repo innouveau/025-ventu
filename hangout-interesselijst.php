@@ -35,24 +35,19 @@
 
         </div>
     </div>
+
+<section id="ventu-hangout-list-cards" class="container">
     <div class="row">
         <div class="col-sm-4">
-            <div class="ventu-card ventu-card--static"
-                 style="-moz-user-select: none; touch-action: none; transform: translateX(50px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(-3deg) scale(1, 1); display: block;">
-                <div class="ventu-card-image" style="background-image:url(https://ventu.nl/media/objects/d0/15/8f/fe/d0158ffe-178d-41d7-a8af-8117df71f5bf/thumb/1.jpg)"></div>
-                <div class="ventu-card-text">
-                    <h4>DC Apperlweg Moerdijk, Appelweg 14, 4782 PX, Moerdijk</h4>
-                    <h3>Moerdijk</h3>
-                    <div class="ventu-card-text-content">
-
-                    </div>
-                </div>
-            </div>
+            <?php include('php-includes/static-card.php'); ?>
+            <?php include('php-includes/static-card.php'); ?>
+            <?php include('php-includes/static-card.php'); ?>
+            <?php include('php-includes/static-card.php'); ?>
         </div>
-
-
     </div>
 </section>
+
+</body>
 
 
 <?php include('php-includes/about.php'); ?>

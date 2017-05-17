@@ -13,6 +13,10 @@
   background-color: #DF0040;
   background-image: url(img/icons/hate.svg);
 }
+.ventu-card-button.ventu-card-button--share .ventu-card-button-icon {
+  background-color: #00A2FF;
+  background-image: url(img/icons/share.svg);
+}
 .ventu-card-button.ventu-card-button--read-more .ventu-card-button-icon {
   background-color: #FF8D00;
   background-image: url(img/icons/read-more.svg);

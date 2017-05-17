@@ -558,7 +558,7 @@ section.proximity .ventu-card .button {
   background-color: #2ECC71;
   background-image: url(img/icons/love.svg);
 }
-.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-plus {
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-share {
   background-color: #00A2FF;
   background-image: url(img/icons/plus.svg);
 }
@@ -656,6 +656,9 @@ section.proximity .ventu-card .button {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+#ventu-hangout-list #ventu-hangout-list-cards {
+  padding-top: 32px!important;
+}
 .ventu-card {
   position: absolute;
   background: #fff;
@@ -684,16 +687,18 @@ section.proximity .ventu-card .button {
 .ventu-card .ventu-card-text {
   width: 100%;
   height: calc(100% - 200px);
-  padding: 12px;
   font-size: 13px;
   line-height: 18px;
 }
-.ventu-card .ventu-card-text h4 {
+.ventu-card .ventu-card-text .ventu-card-header {
+  padding: 12px;
+}
+.ventu-card .ventu-card-text .ventu-card-header h4 {
   font-size: 14px;
   line-height: 1.25;
   margin: 0;
 }
-.ventu-card .ventu-card-text h3 {
+.ventu-card .ventu-card-text .ventu-card-header h3 {
   font-weight: 100;
   font-size: 20px;
   font-weight: 700;
@@ -701,50 +706,42 @@ section.proximity .ventu-card .button {
   margin: 8px 0 0;
   color: #03256b;
 }
-.ventu-card .ventu-card-text .ventu-card-text-content {
-  padding-top: 10px;
+.ventu-card .ventu-card-text .ventu-features {
+  padding: 12px;
 }
-.ventu-card .ventu-card-text .ventu-card-text-content .ventu-card-text-content-half {
-  float: left;
-  width: 50%;
+.ventu-card .ventu-card-text .ventu-card-buttons {
+  border-top: 1px solid #ededec;
+  height: 51px;
+  color: #17141f;
+  font-family: ProximaNova;
+  font-size: 12px;
 }
-.ventu-card .ventu-card-text .ventu-card-text-content .ventu-card-text-content-half:first-child {
-  padding-right: 10px;
-}
-.ventu-card .ventu-card-text .ventu-card-text-content .ventu-card-text-content-half:last-child {
-  padding-left: 10px;
-}
-.ventu-card .ventu-card-text ul {
-  padding-left: 10px;
-}
-.ventu-card .ventu-card-text a {
-  color: #333;
-  text-decoration: underline;
-}
-.ventu-card .ventu-card-buttons {
-  height: 40px;
-  border-top: 1px solid #727272;
-  background: #fff;
-}
-.ventu-card .ventu-card-buttons .ventu-card-button {
+.ventu-card .ventu-card-text .ventu-card-buttons .ventu-card-button-container {
   width: 50%;
   float: left;
-  padding-top: 7px;
-  text-align: center;
   cursor: pointer;
   height: 100%;
   overflow: hidden;
   text-decoration: none;
   color: #333;
 }
-.ventu-card .ventu-card-buttons .ventu-card-button:not(:last-child) {
-  border-right: 1px solid #727272;
+.ventu-card .ventu-card-text .ventu-card-buttons .ventu-card-button-container .ventu-card-button {
+  width: 50px;
+  height: 50px;
+  padding: 9px;
+  display: inline-block;
 }
-.ventu-card .ventu-card-buttons .ventu-card-button span {
+.ventu-card .ventu-card-text .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label {
   display: inline-block;
   vertical-align: top;
-  margin-top: 4px;
-  font-weight: 500;
+  padding-top: 16px;
+}
+.ventu-card .ventu-card-text .ventu-card-buttons .ventu-card-button-container:not(:last-child) {
+  border-right: 1px solid #ededec;
+}
+.ventu-card .ventu-card-text a {
+  color: #333;
+  text-decoration: underline;
 }
 #ventu-stack {
   transform-style: preserve-3d;
@@ -815,12 +812,19 @@ section.proximity .ventu-card .button {
 .ventu-card.ventu-card--grid {
   position: relative;
   width: 100%;
+  margin-bottom: 20px;
 }
 @media (max-width: 767px) {
   .ventu-card.ventu-card--static {
     width: 320px;
     height: 360px;
   }
+}
+.ventu-card {
+  height: auto!important;
+}
+.ventu-card .ventu-card-text {
+  height: auto!important;
 }
 .ventu-search-common {
   background: #fff;
@@ -999,6 +1003,10 @@ section.proximity .ventu-card .button {
 .ventu-card-button.ventu-card-button--hate .ventu-card-button-icon {
   background-color: #DF0040;
   background-image: url(img/icons/hate.svg);
+}
+.ventu-card-button.ventu-card-button--share .ventu-card-button-icon {
+  background-color: #00A2FF;
+  background-image: url(img/icons/share.svg);
 }
 .ventu-card-button.ventu-card-button--read-more .ventu-card-button-icon {
   background-color: #FF8D00;
@@ -1214,6 +1222,45 @@ img.projectCarousel {
 .ventu-avatar-image.ventu-avatar-image--no-avatar {
   background-color: #ededec;
   background-image: url(img/icons/no-avatar.svg);
+}
+.ventu-features {
+  padding: 10px 0;
+}
+.ventu-features ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.ventu-features ul li {
+  margin: 0 20px 10px 0;
+  height: 16px;
+  padding-left: 20px;
+  position: relative;
+  display: inline-block;
+}
+.ventu-features ul li:after {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  background-size: 100% 100%;
+  content: '';
+}
+.ventu-features ul li.ventu-features-shop:after {
+  background-image: url(img/icons/shop.svg);
+}
+.ventu-features ul li.ventu-features-office:after {
+  background-image: url(img/icons/office.svg);
+}
+.ventu-features ul li.ventu-features-area:after {
+  background-image: url(img/icons/area.svg);
+}
+.ventu-features ul li.ventu-features-price:after {
+  background-image: url(img/icons/price.svg);
+}
+.ventu-features ul li.ventu-features-location:after {
+  background-image: url(img/icons/location.svg);
 }
 #breadcrumb {
   margin-top: 60px;
