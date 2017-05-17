@@ -1,0 +1,25 @@
+.ventu-search-common {
+  background: #fff;
+  border-radius: 4px;
+  position: relative;
+  height: 32px;
+}
+.ventu-search-common:after {
+  position: absolute;
+  left: 9px;
+  top: 9px;
+  width: 14px;
+  height: 14px;
+  background-image: url(img/tools/glass.svg);
+  background-size: 100% 100%;
+  content: '';
+}
+.ventu-search-common input {
+  width: calc(100% - 40px);
+  position: absolute;
+  left: 32px;
+  height: 32px;
+  background: transparent;
+  border: 0;
+  padding: 4px;
+}
