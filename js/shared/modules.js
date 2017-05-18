@@ -38,8 +38,8 @@ function setSearchOpeners() {
 }
 
 function setSearchOpenerInNavbar(searchOpener) {
-    var remainingSpace = $('body').innerWidth();
-    remainingSpace -= $('.navbar-brand').outerWidth();
-    remainingSpace -=  $('#navbar').outerWidth();
+    var remainingSpace = Math.floor($('body').innerWidth());
+    remainingSpace -= Math.ceil($('.navbar-brand').outerWidth());
+    remainingSpace -=  Math.ceil($('#navbar').outerWidth());
     searchOpener.parent().css('width', remainingSpace);
 }
