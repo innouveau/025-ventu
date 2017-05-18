@@ -71,47 +71,46 @@ Search.prototype.get = function(val) {
         }
     }
 
-    if (window.ventuApi == null) {
-        window.ventuApi = new VentuApi();
-    }
+    if (typeof VentuApi === "function") {
 
-    window.ventuApi.getSearchResults(val, callback);
-
-    /*
-    // @walstra, dit is fake data, kun jij dat vervangen?
-    var results = [
-        {
-            'Location': '<span class="search-address" data-city="Amsterdam">plaats:</span> Amsterdam',
-            'NumberOfItems': 732
-        }, {
-            'Location': '<span class="search-address" data-city="Amstelveen">plaats:</span> Amstelveen',
-            'NumberOfItems': 106
-        }, {
-            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-            'NumberOfItems': 32
-        }, {
-            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-            'NumberOfItems': 32
-        }, {
-            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-            'NumberOfItems': 32
-        }, {
-            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-            'NumberOfItems': 32
-        }, {
-            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-            'NumberOfItems': 32
-        }, {
-            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-            'NumberOfItems': 32
+        if (window.ventuApi == null) {
+            window.ventuApi = new VentuApi();
         }
-    ];
-    if (results.length > 0) {
-        this.show(results);
+
+        window.ventuApi.getSearchResults(val, callback);
+
     } else {
-        this.elements.results.empty();
+        
+        var results = [
+            {
+                'Location': '<span class="search-address" data-city="Amsterdam">plaats:</span> Amsterdam',
+                'NumberOfItems': 732
+            }, {
+                'Location': '<span class="search-address" data-city="Amstelveen">plaats:</span> Amstelveen',
+                'NumberOfItems': 106
+            }, {
+                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+                'NumberOfItems': 32
+            }, {
+                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+                'NumberOfItems': 32
+            }, {
+                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+                'NumberOfItems': 32
+            }, {
+                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+                'NumberOfItems': 32
+            }, {
+                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+                'NumberOfItems': 32
+            }, {
+                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+                'NumberOfItems': 32
+            }
+        ];
+
+        callback(results);
     }
-    */
 };
 
 Search.prototype.show = function(results) {
@@ -131,7 +130,7 @@ Search.prototype.show = function(results) {
     });
 };
 
-Search.prototype.select = function(element) {
+Search.prototype.select = function(element) {   
     var _this = this;
 
     var htmlElement = $('<div>' + element.Location + '</div>');
