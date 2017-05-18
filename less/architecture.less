@@ -1,0 +1,23 @@
+@import 'mixins';
+
+body {
+    background: @ventu-main-grey-light;
+    font-size: 16px;
+    line-height: 1.25;
+    color: @ventu-black;
+    font-family: 'ProximaNova';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+@media (max-width: 1024px) {
+
+    // overwrite bootstrap settings
+    // container is full width, padding is arranged with <section>
+    .container {
+        width: 100%;
+        overflow: hidden;
+    }
+
+}

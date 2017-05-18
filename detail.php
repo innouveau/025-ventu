@@ -9,7 +9,7 @@
 
     <?php include('php-includes/standard-files.php'); ?>
 
-    <link href="less/new/detail/project.css" rel="stylesheet">
+    <link href="less/detail/project.css" rel="stylesheet">
     <script src="js/home/main.js"></script>
 
 

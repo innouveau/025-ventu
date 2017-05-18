@@ -1,0 +1,50 @@
+@import '../mixins';
+
+.ventu-slider {
+    height: 340px;
+    position: relative;
+
+    .ventu-slider-header-section-text {
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;
+        display: inline-block;
+        font-family: ProximaNova;
+        margin: 0 4px 4px 0;
+        padding: 4px 6px 4px 0;
+    }
+
+    .ventu-slider-slide-frame {
+        height: 500px;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 140px;
+        width: 100%;
+
+        .ventu-slider-slide-container {
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+            transition: left 0.5s ease;
+
+            .ventu-slider-slide {
+                float: left;
+                color: #fff;
+                height: 100%;
+                position: relative;
+
+                .ventu-slider-slide-content {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    position: relative;
+
+                    .ventu-slider-slide-header {
+                        height: 34px;
+                    }
+                }
+            }
+        }
+    }
+}

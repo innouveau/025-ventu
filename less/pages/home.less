@@ -1,0 +1,78 @@
+@import '../mixins';
+
+
+body.ventu-home {
+    section {
+        padding: 80px 90px;
+    }
+}
+
+#ventu-dialog-entry {
+    background-image: url('img/home/rotterdam.jpg');
+    position: relative;
+
+    h1 {
+        color: #fff;
+    }
+}
+
+#ventu-chat-entry {
+    height: 800px;
+    background-image: url('img/home/ventu-samen-map.jpg');
+
+    .ventu-chat-pins-container {
+        position: relative;
+        height: 400px;
+    }
+}
+
+#ventu-search-entry{
+    background-image: url('img/home/skyline.png');
+    background-size: contain!important;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+}
+
+#ventu-discover-entry{
+    background-image: url('img/home/discover-bg.jpg');
+}
+
+
+
+#ventu-home-card-container {
+    height: 500px;
+    position: relative;
+}
+
+#ventu-card-button-container {
+    position: relative;
+    height: 200px;
+
+    .ventu-card-button {
+        position: absolute;
+    }
+
+    .ventu-card-button--love {
+        left: ~'calc(50% - 182px)';
+        top: 20px;
+    }
+
+    .ventu-card-button--hate {
+        left: ~'calc(50% + 118px)';
+        top: 20px;
+    }
+
+    .ventu-card-button--read-more {
+        left: ~'calc(50% - 32px)';
+        top: 120px;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    #ventu-home-card-container {
+        margin-top: 40px;
+    }
+}
+

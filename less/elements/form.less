@@ -1,0 +1,63 @@
+@import '../mixins';
+
+.ventu-form,
+form {
+    font-size: 16px;
+    line-height: 1.25;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    input {
+        width: 100%;
+        border: 1px solid @ventu-main-grey-light;
+        color: #333;
+        margin-bottom: 20px;
+        background: transparent;
+        max-width: 400px;
+        display: block;
+        border-radius: 0;
+        box-shadow: 0;
+        padding: 8px;
+        font-size: 16px;
+        line-height: 1.25;
+        font-family: ProximaNova;
+
+        &:focus {
+            box-shadow: none!important;
+        }
+    }
+
+    label {
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    .ventu-form-send {
+        margin-top: 40px;
+    }
+
+    .checkbox {
+
+        label {
+            line-height: 1.3;
+        }
+    }
+
+    a {
+        font-family: ProximaNova;
+        color: @ventu-black;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+            color: @ventu-color-secundary;
+            text-decoration: underline;
+        }
+    }
+
+    button[type=submit] {
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,89 @@
+@import '../mixins';
+
+
+#ventu-hangout-list {
+    padding-top: 60px!important;
+
+    &.ventu-hangout-list-love {
+        .ventu-hangout-list-header {
+            background: @ventu-color-love;
+        }
+    }
+
+    &.ventu-hangout-list-hate {
+        .ventu-hangout-list-header {
+            background: @ventu-color-hate;
+        }
+    }
+
+    &.ventu-hangout-list-share {
+        .ventu-hangout-list-header {
+            background: @ventu-color-share;
+        }
+    }
+
+    &.ventu-hangout-list-follow {
+        .ventu-hangout-list-header {
+            background: @ventu-color-follow;
+        }
+    }
+
+    .ventu-hangout-list-header {
+        color: #fff;
+        font-family: 'ProximaNova';
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        h3 {
+            color: #fff;
+            text-align: center;
+        }
+
+        .ventu-hangout-list-back {
+            height: 50px;
+            border-bottom: 1px solid #fff;
+            cursor: pointer;
+            padding: 4px 4px 4px 16px;
+            position: relative;
+
+            &:after {
+                content: '<';
+                position: absolute;
+                left: 0;
+                top: 3px;
+            }
+        }
+
+        .ventu-hangout-list-search {
+            height: 32px;
+
+            .ventu-search-common {
+                width: ~'calc(100% - 50px)';
+                float: left;
+            }
+
+            .ventu-sort {
+                width: 43px;
+                height: 32px;
+                cursor: pointer;
+                float: right;
+                background: #fff;
+                border-radius: 4px;
+                background-image: url(img/tools/sort.svg);
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    #ventu-hangout-list-cards {
+        padding-top: 32px!important;
+
+        .ventu-card--static {
+
+
+        }
+    }
+
+
+}

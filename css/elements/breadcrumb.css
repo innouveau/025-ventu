@@ -1,5 +1,6 @@
 #breadcrumb {
   margin-top: 60px;
+  border-bottom: 0;
 }
 #breadcrumb h1 {
   font-size: 30px;

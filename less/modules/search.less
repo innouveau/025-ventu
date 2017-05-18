@@ -1,0 +1,68 @@
+@import '../mixins';
+
+.ventu-search {
+    width: 100%;
+    border-bottom: 2px solid #cacaca;
+    position: relative;
+    height: 60px;
+    padding: 4px 0 8px 0;
+
+    .ventu-search-icon {
+        display: inline-block;
+        background-size: 100% 100%;
+        float: left;
+        height: 24px;
+        width: 24px;
+        margin: 11px 10px;
+        background-image: url(img/tools/glass.svg);
+    }
+
+    &.ventu-search-marker {
+
+        .ventu-search-icon {
+            height: 45px;
+            width: 28px;
+            margin: 1px 12px 0 4px;
+            background-image: url(img/tools/marker.svg);
+        }
+    }
+
+    input {
+        width: ~'calc(100% - 44px)';
+        height: 40px;
+        border: 0;
+        background: transparent;
+        font-size: 16px;
+        font-weight: 300;
+        float: left;
+        margin-top: 5px;
+    }
+
+    .ventu-search-chosen {
+        position: absolute;
+        left: 40px;
+        top: 15px;
+        height: 30px;
+        display: none;
+        padding: 6px;
+        color: @ventu-color-secundary;
+        background: @ventu-color-primary;
+        cursor: default;
+    }
+
+    &.ventu-search--white-label {
+
+        .ventu-search-chosen {
+            background: #fff;
+        }
+    }
+
+    &.ventu-search--white {
+        border-bottom: 2px solid #fff;
+
+        input {
+            color: #fff;
+        }
+    }
+}
+

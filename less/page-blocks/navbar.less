@@ -1,0 +1,99 @@
+@import '../mixins';
+
+nav.navbar-default {
+    border: 0!important;
+    margin: 0;
+    background: @ventu-color-primary!important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+
+
+    .navbar-header {
+
+        .navbar-brand {
+            padding: 0;
+        }
+
+        .navbar-toggle {
+            border-radius: 0;
+            border: 0;
+            padding: 20px;
+            margin: 0;
+            width: 60px;
+            height: 60px;
+            background: white;
+
+            &:hover {
+                background: @ventu-color-primary;
+
+            }
+
+            .icon-bar {
+                border-radius: 0;
+                background-color: @ventu-color-secundary;
+                height: 3px;
+            }
+        }
+    }
+
+    #navbar {
+        height: 100%;
+
+        ul {
+            height: 100%;
+            margin: 0;
+
+            li {
+                display: block;
+                height: 100%;
+                background: #fff;
+                border-left: 1px solid @ventu-main-grey-light;
+
+                &:hover {
+                    background: @ventu-main-grey-light;
+                }
+
+                a {
+                    padding: 20px 24px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+                    color: @ventu-color-secundary;
+                    display: block;
+                    height: 100%;
+                    font-family: 'ProximaNova';
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    nav.navbar-default {
+        background: transparent!important;
+        box-shadow: none;
+
+        .navbar-header {
+            background: @ventu-color-primary!important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+
+        #navbar {
+
+            ul {
+
+                li {
+                    background: transparent;
+                    border-left: none;
+                }
+
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+
+}

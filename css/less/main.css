@@ -1,6 +1,3 @@
-@import "assets/font-awesome/css/font-awesome.min.css";
-@import "assets/bootstrap/bootstrap.min.css";
-@import "assets/select2/select2.css";
 body {
   background: #ededec;
   font-size: 16px;
@@ -15,36 +12,6 @@ body {
     width: 100%;
     overflow: hidden;
   }
-}
-@font-face {
-  font-family: 'ventu';
-  src: url('assets/fonts/ventu.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'freight';
-  src: url('assets/fonts/freight-display.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'ProximaNova';
-  src: url('assets/fonts/ProximaNova/ProximaNova-Bold.otf');
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'ProximaNova';
-  src: url('assets/fonts/ProximaNova/ProximaNova-Light.otf');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'ProximaNova';
-  src: url('assets/fonts/ProximaNova/ProximaNova-Regular.otf');
-  font-weight: 400;
-  font-style: normal;
 }
 h1 {
   font-weight: 700;
@@ -705,9 +672,9 @@ section.proximity .ventu-card .button {
   font-size: 14px;
   line-height: 1.25;
   margin: 0;
+  color: #03256b;
 }
 .ventu-card .ventu-card-text .ventu-card-header h3 {
-  font-weight: 100;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.25;
@@ -1395,6 +1362,7 @@ img.projectCarousel {
 }
 #breadcrumb {
   margin-top: 60px;
+  border-bottom: 0;
 }
 #breadcrumb h1 {
   font-size: 30px;
@@ -1436,14 +1404,6 @@ section.section--transparent {
 }
 section.section--with-background {
   background-size: cover;
-}
-section.section--with-background h1,
-section.section--with-background h2,
-section.section--with-background h3,
-section.section--with-background h4,
-section.section--with-background h5,
-section.section--with-background h6 {
-  color: #fff;
 }
 section.section--without-padding {
   padding: 0;

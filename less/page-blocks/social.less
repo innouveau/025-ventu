@@ -1,0 +1,42 @@
+@import '../mixins';
+
+#ventu-social {
+
+    .btn-wrapper {
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+
+        a {
+            display: inline-block;
+            height: 60px;
+            line-height: 60px;
+            position: relative;
+            padding-left: 40px;
+            color: #03256b;
+
+            i {
+                width: 33px;
+                height: 33px;
+                display: inline-block;
+                margin-right: 4px;
+                position: absolute;
+                left: 0;
+                top: 15px;
+                background-repeat: no-repeat;
+                border-radius: 50%;
+
+                &.like {
+                    background-color: @ventu-color-primary;
+                    background-image: url('img/icons/love.svg');
+                }
+
+                &.share {
+                    background-color: @ventu-main-grey-dark;
+                    background-image: url('img/icons/share.svg');
+                }
+            }
+        }
+    }
+
+}

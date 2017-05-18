@@ -1,0 +1,45 @@
+@import '../mixins';
+
+#ventu-direct-links{
+    padding-top: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid @ventu-main-grey-light;
+}
+
+
+#ventu-about,
+#ventu-direct-links {
+
+    h3 {
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    a {
+        font-family: ProximaNova;
+        color: @ventu-black;
+        text-decoration: none;
+
+        &:hover {
+            color: @ventu-color-secundary;
+            text-decoration: underline;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+
+    #ventu-about,
+    #ventu-direct-links {
+
+        h3 {
+
+            &:first-child {
+                margin-top: 20px;
+            }
+        }
+    }
+
+}
