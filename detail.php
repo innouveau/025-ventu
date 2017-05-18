@@ -32,7 +32,7 @@
 
 <div class="background" style="background-image:url(http://realspotter.nl/media/objects/6d/d0/97/c3/6dd097c3-8478-4510-a19e-529b28b8719d/org/1.jpg)"></div>
 
-<section id="breadcrumb" class="container section--transparent section--without-top-padding">
+<section id="breadcrumb" class="section--transparent section--without-top-padding">
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
@@ -433,7 +433,7 @@ indruk van het woon en/of werkgebied.</p>
 
 
         <!-- proximity -->
-        <section class="proximity clearfix container">
+        <section class="proximity clearfix">
             <div class="row">
                 <div class="col-lg-12">
                     <h3>Aanbod in de omgeving</h3>
@@ -466,7 +466,7 @@ indruk van het woon en/of werkgebied.</p>
 
 
         <!-- related-sites -->
-        <section class="related-cites clearfix container">
+        <section class="related-cites clearfix">
             <div class="row">
                 <div class="col-lg-12">
                     <h3>Alternatieve vestigingslocaties voor je Kantoor</h3>
@@ -538,14 +538,18 @@ indruk van het woon en/of werkgebied.</p>
         </div>
     </div>
 
-
+    <div class="container">
         <?php include('php-includes/about.php'); ?>
 
 
         <?php include('php-includes/footer.php'); ?>
+    </div>
+
+<?php include('php-includes/modals.php'); ?>
 
 
-        <?php include('php-includes/modals.php'); ?>
+
+
 
 
 

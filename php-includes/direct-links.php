@@ -1,5 +1,4 @@
-<!-- direct links -->
-<section id="ventu-direct-links" class="container">
+<section id="ventu-direct-links">
     <div class="row">
         <div class="col-sm-3">
             <h3>

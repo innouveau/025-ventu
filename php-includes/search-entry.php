@@ -1,4 +1,4 @@
-<section id="ventu-search-entry" class="container section--with-background">
+<section id="ventu-search-entry" class="section--with-background">
     <div class="row">
         <div class="col-sm-6">
             <div class="section-header section-header--left">

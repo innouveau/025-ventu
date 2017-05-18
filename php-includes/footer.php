@@ -1,4 +1,4 @@
-<section id="ventu-footer" class="container">
+<section id="ventu-footer">
     <div class="row">
         <div class="col-sm-3">
             <img src="img/identity/ventu-icon-footer.svg">

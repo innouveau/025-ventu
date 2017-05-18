@@ -1,4 +1,4 @@
-<section id="ventu-about" class="container">
+<section id="ventu-about">
     <div class="row">
         <div class="col-sm-12">
             <div id="ventu-footer-menu">

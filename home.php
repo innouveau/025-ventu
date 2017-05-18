@@ -13,27 +13,29 @@
 
     <body class="ventu-home">
 
+
         <?php include('php-includes/nav.php'); ?>
 
         <?php include('php-includes/dialog.php'); ?>
 
-        <?php include('php-includes/usp.php'); ?>
+        <div class="container">
+            <?php include('php-includes/usp.php'); ?>
 
-        <?php include('php-includes/hangout.php'); ?>
+            <?php include('php-includes/hangout.php'); ?>
 
-        <?php include('php-includes/search-entry.php'); ?>
+            <?php include('php-includes/search-entry.php'); ?>
 
-        <?php include('php-includes/inspiration.php'); ?>
+            <?php include('php-includes/inspiration.php'); ?>
 
-        <?php include('php-includes/discover.php'); ?>
+            <?php include('php-includes/discover.php'); ?>
 
-        <?php include('php-includes/about.php'); ?>
+            <?php include('php-includes/about.php'); ?>
 
-        <?php include('php-includes/direct-links.php'); ?>
+            <?php include('php-includes/direct-links.php'); ?>
 
-        <?php include('php-includes/footer.php'); ?>
+            <?php include('php-includes/footer.php'); ?>
+        </div>
 
         <?php include('php-includes/modals.php'); ?>
-
     </body>
 </html>

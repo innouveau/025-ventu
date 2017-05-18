@@ -1,4 +1,4 @@
-<section class="container">
+<section>
     <div class="row">
         <div class="section-header">
             <div class="section-header-text">
