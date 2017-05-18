@@ -90,16 +90,16 @@ Search.prototype.show = function(results) {
     });
 };
 
-Search.prototype.select = function(element) {
-    var htmlElement = $('<div>' + element.Location + '</div>');
+Search.prototype.select = function(obj) {
+    var htmlElement = $('<div>' + obj.Location + '</div>');
     var location = htmlElement.text();
 
     this.setChosen(location);
 
     if (this.outerOutput) {
-        this.outerOutput.selectLocation(location);
+        this.outerOutput.selectLocation(obj);
     } else {
-        window.ventuApi.select(element);
+        window.ventuApi.select(obj);
     }
 };
 
@@ -131,4 +131,10 @@ Search.prototype.unsetChosen = function() {
     this.elements.chosen.hide();
     this.elements.input.val('');
     this.elements.input.show();
+    if (this.outerOutput) {
+        this.outerOutput.query.location = null;
+        this.outerOutput.removeHeaderSection(1);
+        this.outerOutput.status.updated[1] = true;
+        this.outerOutput.updateButtons();
+    }
 };

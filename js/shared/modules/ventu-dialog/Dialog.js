@@ -24,7 +24,7 @@ function Dialog(element) {
 
     this.query = {
         types: [],
-        location: '',
+        location: null,
         area: [null, null],
         transaction: null
     };
@@ -63,9 +63,6 @@ Dialog.prototype = Object.create(_Slider.prototype);
 
 
 // creation
-
-
-
 
 Dialog.prototype.createHeader = function() {
     this.elements.header.main = $('<div class="ventu-slider-header"></div>');
@@ -262,9 +259,12 @@ Dialog.prototype.updateType = function() {
 
 
 
-Dialog.prototype.selectLocation = function(location) {
-    this.query.location = location;
-    this.status.updated[0] = true;
+Dialog.prototype.selectLocation = function(obj) {
+    var htmlElement = $('<div>' + obj.Location + '</div>'),
+        location = htmlElement.text();
+
+    this.query.location = obj;
+    this.status.updated[1] = true;
     this.removeHeaderSection(1);
     this.updateButtons();
 };
@@ -305,7 +305,7 @@ Dialog.prototype.updateSetStatus = function() {
                 this.status.set[i] = this.query.types.length > 0;
                 break;
             case 1:
-                this.status.set[i] = this.query.location.length > 0;
+                this.status.set[i] = this.query.location !== null;
                 break;
             case 2:
                 this.status.set[i] = this.query.area[0] !== null && this.query.area[1] !== null;
@@ -379,7 +379,9 @@ Dialog.prototype.updateHeaderSection = function(section) {
             }
             break;
         case 1:
-            label = $('<div class="ventu-filter-label">' + this.query.location + '</div>');
+            var htmlElement = $('<div>' + this.query.location + '</div>'),
+                location = htmlElement.text();
+            label = $('<div class="ventu-filter-label">' + location + '</div>');
 
             if (label.length > 0) {
                 container.append(label);
