@@ -1,9 +1,8 @@
-function App(page) {
-    this.page = page;
-    this.config = new Config(this);
-    this.user = new User(this, user);
-    this.guide = new Guide(this);
-    this.service = this._getService();
+function App() {
+    this.config = null;
+    this.user = null;
+    this.guide = null;
+    this.service = null;
     this.map = null;
     this.domElements = {
         search: $('#input-search-address'),
@@ -17,24 +16,33 @@ function App(page) {
         love: null,
         hate: null
     };
+    this.init();
 }
 
 App.prototype.init = function() {
-    if (this.config.device.type === 0) {
-        this.map = new MapMobile(this);
-    } else {
-        this.map = new Map(this);
-    }
+    // this.config = new Config(this);
+    // this.user = new User(this, user);
+    // this.guide = new Guide(this);
+    // this.service = this._getService();
+    //
+    //
+    // if (this.config.device.type === 0) {
+    //     this.map = new MapMobile(this);
+    // } else {
+    //     this.map = new Map(this);
+    // }
+
+    this.map = new Map();
     
-    this._initDomElements();
-    
-    if (this.config.device.type === 0) {
-        this.list.love = new ListMobile(this, 'love', 'Interesselijst');
-        this.list.hate = new ListMobile(this, 'hate', 'Prullenbak');
-    } else {
-        this.list.love = new List(this, 'love', 'Interesselijst');
-        this.list.hate = new List(this, 'hate', 'Prullenbak');
-    }
+    // this._initDomElements();
+    //
+    // if (this.config.device.type === 0) {
+    //     this.list.love = new ListMobile(this, 'love', 'Interesselijst');
+    //     this.list.hate = new ListMobile(this, 'hate', 'Prullenbak');
+    // } else {
+    //     this.list.love = new List(this, 'love', 'Interesselijst');
+    //     this.list.hate = new List(this, 'hate', 'Prullenbak');
+    // }
 };
 
 

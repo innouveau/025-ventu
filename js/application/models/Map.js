@@ -1,5 +1,4 @@
-function Map(app) {
-    this.app = app;
+function Map() {
     this.icon = {
         standard: './img/markers/standard-marker.png',
         selected: './img/markers/selected-marker.png'
@@ -28,10 +27,11 @@ Map.prototype.init = function() {
         center: new google.maps.LatLng(51.7,4.6),
         sensor: 'true',
         draggable: true,
-        streetViewControl: false
+        streetViewControl: false,
+        mapTypeControl: false
     };
     this.map = new google.maps.Map(document.getElementById("ventu-canvas"), myOptions);
-    this.app.config.isMapPresent = true;
+    //this.app.config.isMapPresent = true;
 };
 
 
