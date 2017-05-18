@@ -25,7 +25,7 @@ Search.prototype.addOutput = function(dialog) {
 };
 
 Search.prototype.create = function() {
-    var self = this,
+    var _this = this,
         placeholder = this.element.attr('ph');
     if (!placeholder) {
         placeholder = 'Zoek op plaats, naam, postcode, gebouw';
@@ -36,7 +36,7 @@ Search.prototype.create = function() {
     this.elements.results = $('<div class="ventu-search-results"></div>');
 
     this.elements.chosen.click(function(){
-        self.unsetChosen();
+        _this.unsetChosen();
     });
 
     this.element.append(this.elements.icon);
@@ -46,21 +46,20 @@ Search.prototype.create = function() {
 };
 
 Search.prototype.addListeners = function() {
-    var val, self = this;
+    var val, _this = this;
     this.elements.input.keyup(function() {
         val = $(this).val();
         if (val.length > 0) {
-            self.setZindex(true);
-            self.get(val);
+            _this.setZindex(true);
+            _this.get(val);
         } else {
-            self.setZindex(false);
-            self.elements.results.empty();
+            _this.setZindex(false);
+            _this.elements.results.empty();
         }
     })
 };
 
 Search.prototype.get = function(val) {
-
     var _this = this;
 
     function callback(results) {
@@ -71,51 +70,12 @@ Search.prototype.get = function(val) {
         }
     }
 
-    if (typeof VentuApi === "function") {
-
-        if (window.ventuApi == null) {
-            window.ventuApi = new VentuApi();
-        }
-
-        window.ventuApi.getSearchResults(val, callback);
-
-    } else {
-        
-        var results = [
-            {
-                'Location': '<span class="search-address" data-city="Amsterdam">plaats:</span> Amsterdam',
-                'NumberOfItems': 732
-            }, {
-                'Location': '<span class="search-address" data-city="Amstelveen">plaats:</span> Amstelveen',
-                'NumberOfItems': 106
-            }, {
-                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-                'NumberOfItems': 32
-            }, {
-                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-                'NumberOfItems': 32
-            }, {
-                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-                'NumberOfItems': 32
-            }, {
-                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-                'NumberOfItems': 32
-            }, {
-                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-                'NumberOfItems': 32
-            }, {
-                'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
-                'NumberOfItems': 32
-            }
-        ];
-
-        callback(results);
-    }
+    window.ventuApi.getSearchResults(val, callback);
 };
 
 Search.prototype.show = function(results) {
     var _this = this;
-    _this.elements.results.empty();
+    this.elements.results.empty();
 
     $(results).each(function (index, result) {
 
@@ -130,22 +90,15 @@ Search.prototype.show = function(results) {
     });
 };
 
-Search.prototype.select = function(element) {   
-    var _this = this;
-
+Search.prototype.select = function(element) {
     var htmlElement = $('<div>' + element.Location + '</div>');
     var location = htmlElement.text();
 
-    _this.setChosen(location);
+    this.setChosen(location);
 
-    if (_this.outerOutput) {
-        _this.outerOutput.selectLocation(location);
+    if (this.outerOutput) {
+        this.outerOutput.selectLocation(location);
     } else {
-
-        if (window.ventuApi == null) {
-            window.ventuApi = new VentuApi();
-        }
-
         window.ventuApi.select(element);
     }
 };
@@ -175,9 +128,7 @@ Search.prototype.setChosen = function(location) {
 };
 
 Search.prototype.unsetChosen = function() {
-    var string = this.elements.chosen.html();
     this.elements.chosen.hide();
-    this.elements.input.val(string);
+    this.elements.input.val('');
     this.elements.input.show();
-
 };

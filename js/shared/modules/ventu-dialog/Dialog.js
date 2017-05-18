@@ -438,13 +438,18 @@ Dialog.prototype.isAllowedToShowButton = function() {
     return this.status.set[this.status.page.current];
 };
 
-Dialog.prototype.isAllowedToSlide = function(callback) {
-    if (this.status.page.current === 4) {
-        // TODO request @walstra
-        var result = 'Berekend resultaat over 38.240 panden';
-        $('.ventu-slider-slide-end-container').html(result);
-        callback();
+Dialog.prototype.isAllowedToSlide = function(slideCallback) {
+    if (this.status.page.current === 3) {
+        window.ventuApi.querySearch(this.query, searchCallback);
+
+        function searchCallback(n) {
+            var result = 'Berekend resultaat over ' + n + ' objecten';
+            $('.ventu-slider-slide-end-container').html(result);
+            console.log($('.ventu-slider-slide-end-container'));
+            slideCallback();
+        }
+
     } else {
-        callback();
+        slideCallback();
     }
 };

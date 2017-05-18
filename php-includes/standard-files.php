@@ -18,6 +18,7 @@
 <script src="js/shared/modules/_base-files/_Slider.js"></script>
 <script src="js/shared/modules/ventu-dialog/Dialog.js"></script>
 <script src="js/shared/modules/ventu-search/Search.js"></script>
+<script src="js/shared/modules/ventu-api/VentuApi.js"></script>
 
 <style>
     @font-face {

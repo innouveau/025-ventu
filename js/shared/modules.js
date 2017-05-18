@@ -1,4 +1,6 @@
 function initialiseModules() {
+    window.ventuApi = new VentuApi();
+
     $('.ventu-dialog').each(function(){
         new Dialog($(this));
     });
