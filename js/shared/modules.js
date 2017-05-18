@@ -38,7 +38,7 @@ function setSearchOpeners() {
 }
 
 function setSearchOpenerInNavbar(searchOpener) {
-    var remainingSpace = $(window).outerWidth();
+    var remainingSpace = $('body').innerWidth();
     remainingSpace -= $('.navbar-brand').outerWidth();
     remainingSpace -=  $('#navbar').outerWidth();
     searchOpener.parent().css('width', remainingSpace);
