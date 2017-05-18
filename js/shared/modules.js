@@ -34,12 +34,26 @@ function setSearchOpeners() {
     $('.ventu-search-open').each(function () {
         setSearchOpenerInNavbar($(this));
     })
-
 }
 
 function setSearchOpenerInNavbar(searchOpener) {
-    var remainingSpace = Math.floor($('body').innerWidth());
-    remainingSpace -= Math.ceil($('.navbar-brand').outerWidth());
-    remainingSpace -=  Math.ceil($('#navbar').outerWidth());
-    searchOpener.parent().css('width', remainingSpace);
+    var logoLarge, logoSmall, logoSrc, img;
+    logoLarge = $('.ventu-identity .hidden-xs');
+    logoSmall = $('.ventu-identity .visible-xs');
+    // check if the desktop or mobile logo is visible
+    if (logoLarge.css('display') === 'none') {
+        logoSrc = logoSmall.attr('src');
+    } else {
+        logoSrc = logoLarge.attr('src');
+    }
+    img = new Image();
+    img.onload = function() {
+        // do measuring when the logo image is loaded
+        // so we know the width of the navbar-brand part
+        var remainingSpace = Math.floor($('body').innerWidth());
+        remainingSpace -= Math.ceil($('.navbar-brand').outerWidth());
+        remainingSpace -=  Math.ceil($('#navbar').outerWidth());
+        searchOpener.parent().css('width', remainingSpace);
+    };
+    img.src = logoSrc;
 }
