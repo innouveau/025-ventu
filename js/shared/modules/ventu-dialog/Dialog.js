@@ -364,7 +364,7 @@ Dialog.prototype.updateHeaderSection = function(section) {
     switch (section) {
         case 0:
             for (i = 0, l = this.query.types.length; i < l; i++) {
-                label = $('<div class="ventu-slider-header-section-label">' + this.query.types[i] + '</div>');
+                label = $('<div class="ventu-filter-label">' + this.query.types[i] + '</div>');
                 container.append(label);
                 labels.push(label);
             }
@@ -379,7 +379,7 @@ Dialog.prototype.updateHeaderSection = function(section) {
             }
             break;
         case 1:
-            label = $('<div class="ventu-slider-header-section-label">' + this.query.location + '</div>');
+            label = $('<div class="ventu-filter-label">' + this.query.location + '</div>');
 
             if (label.length > 0) {
                 container.append(label);
@@ -388,7 +388,7 @@ Dialog.prototype.updateHeaderSection = function(section) {
             break;
         case 2:
             for (i = 0, l = this.query.area.length; i < l; i++) {
-                label = $('<div class="ventu-slider-header-section-label">' + this.query.area[i] + 'm²</div>');
+                label = $('<div class="ventu-filter-label">' + this.query.area[i] + 'm²</div>');
                 container.append(label);
                 if (i === 0) {
                     container.append('<span>tot</span>')
@@ -407,7 +407,7 @@ Dialog.prototype.updateHeaderSection = function(section) {
             }
             break;
         case 3:
-            label = $('<div class="ventu-slider-header-section-label">' + this.query.transaction + '</div>');
+            label = $('<div class="ventu-filter-label">' + this.query.transaction + '</div>');
 
             if (label.length > 0) {
                 container.append(label);
@@ -420,7 +420,7 @@ Dialog.prototype.updateHeaderSection = function(section) {
 Dialog.prototype.removeHeaderSection = function(section) {
     var n, labels, container, timer;
     container = this.elements.header.sections[section].find('.ventu-slider-header-section-labels');
-    labels = container.find('.ventu-slider-header-section-label');
+    labels = container.find('.ventu-filter-label');
     n = labels.length - 1;
     if (n > -1) {
         timer = setInterval(function () {

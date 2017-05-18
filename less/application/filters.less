@@ -1,0 +1,175 @@
+@import '../mixins';
+
+
+#ventu-filter-content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+
+    .ventu-filter-section {
+        border-bottom: 1px solid @ventu-main-grey-light;
+        padding: 16px;
+        font-family: ProximaNova;
+
+        .ventu-filter-header {
+            position: relative;
+
+            .ventu-filter-read-more {
+                position: absolute;
+                right: 0;
+                top: 0;
+                cursor: pointer;
+                padding-right: 14px;
+
+                :after {
+                    width: 8px;
+                    height: 5px;
+                    background-size: 100% 100%;
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 6px;
+                    background-image: url(img/tools/arrow-down.svg);
+                }
+
+                .ventu-filter-read-more-label {
+                    text-align: right;
+
+                    .ventu-filter-read-more-label--close {
+                        display: block;
+                    }
+
+                    .ventu-filter-read-more-label--open {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .ventu-filter-label-container {
+            margin-top: 16px;
+
+            .ventu-filter-label {
+
+            }
+        }
+
+
+        .ventu-filter-full-text-container {
+            height: 0;
+            overflow: hidden;
+
+            .ventu-filter-full-text {
+                border-top: 1px solid @ventu-main-grey-light;
+                padding: 16px 0;
+
+                .ventu-filter-button {
+                    padding: 6px 10px;
+                    height: 30px;
+                    margin-bottom: 12px;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:after {
+                        position: absolute;
+                        right: 10px;
+                        top: 6px;
+                        width: 20px;
+                        height: 20px;
+                        content: '';
+                        background-size: 100% 100%;
+                    }
+
+                    &:hover {
+                        background: @ventu-main-grey-light;
+                    }
+
+                    &.ventu-filter--active {
+                        background: @ventu-color-primary;
+                        color: @ventu-color-secundary;
+                    }
+
+                    &.ventu-filter-button--office:after {
+                        background-image: url(img/icons/office.svg);
+                    }
+
+                    &.ventu-filter-button--shop:after {
+                        background-image: url(img/icons/shop.svg);
+                    }
+
+                }
+            }
+        }
+
+        .ventu-filter-passive-text {
+            color: @ventu-main-grey-dark;
+            font-style: italic;
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    #ventu-filter-result {
+
+        h5 {
+            text-align: center;
+        }
+    }
+
+    #ventu-filter-tools {
+
+        .ventu-filter-tools-button {
+            position: relative;
+            cursor: pointer;
+            padding: 6px 6px 6px 34px;
+
+            &:hover {
+                background: @ventu-main-grey-light;
+            }
+
+            &:after {
+                position: absolute;
+                left: 4px;
+                top: 4px;
+                width: 20px;
+                height: 20px;
+                content: '';
+                background-size: 100% 100%;
+            }
+
+
+            &.ventu-filter-tools-button--save:after {
+                background-image: url(img/icons/save.svg);
+            }
+
+            .ventu-filter-tools-button-label {
+                text-decoration: underline;
+            }
+
+
+
+        }
+    }
+}
+
+
+
+#ventu-filter-label {
+    position: absolute;
+    left: 100%;
+    top: 116px;
+    background: @ventu-active-button;
+    color: #fff;
+    padding: 20px 10px;
+    width: 22px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    background-image: url(img/tools/label-arrow-left.svg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}

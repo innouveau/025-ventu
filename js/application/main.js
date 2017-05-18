@@ -20,7 +20,9 @@ $(window).ready(function(){
     initialiseModals();
     setFullscreenAndContinueButton();
 
-    // filterListeners();
+    filterListeners();
+
+
     // mapListeners();
     // ventu.init();
     //

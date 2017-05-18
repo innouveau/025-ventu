@@ -6,17 +6,12 @@
 .ventu-slider-header .ventu-slider-header-section-labels {
   display: inline-block;
 }
-.ventu-slider-header .ventu-slider-header-section-labels .ventu-slider-header-section-label {
-  background: #00e5a9;
-  color: #03256b;
-  padding: 4px 6px;
-  margin: 0 4px 4px 4px;
+.ventu-slider-header .ventu-slider-header-section-labels .ventu-filter-label {
   cursor: default;
-  display: inline-block;
   transform: scale(0.01);
   transition: transform 0.2s ease;
 }
-.ventu-slider-header .ventu-slider-header-section-labels .ventu-slider-header-section-label.show-label {
+.ventu-slider-header .ventu-slider-header-section-labels .ventu-filter-label.show-label {
   transform: scale(1);
 }
 @media (max-width: 767px) {

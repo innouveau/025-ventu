@@ -18,7 +18,7 @@
     <script src='assets/hammer/hammer.js'></script>
 
     <!-- ventu -->
-    <script src="js/application/dom/filter.js"></script>
+    <script src="js/application/dom/filter-listeners.js"></script>
     <script src="js/application/dom/listeners.js"></script>
 
     <script src="js/application/models/Responsive.js"></script>
@@ -51,6 +51,8 @@
     <div id="ventu-application-container">
         <div id="ventu-canvas"></div>
 
+        <?php include('php-includes/application/filters.php'); ?>
+
         <div id="ventu-bottom-bar"></div>
 
         <div id="ventu-stack"></div>
@@ -58,9 +60,11 @@
 
 
 
-    <?php include('php-includes/application/filters.php'); ?>
+
 
     <?php include('php-includes/nav.php'); ?>
+
+    <?php include('php-includes/modals.php'); ?>
 
 </body>
 </html>
