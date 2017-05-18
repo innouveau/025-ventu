@@ -20,7 +20,7 @@
   cursor: pointer;
   padding-right: 14px;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more :after {
+#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more:after {
   width: 8px;
   height: 5px;
   background-size: 100% 100%;
@@ -29,6 +29,15 @@
   right: 0;
   top: 6px;
   background-image: url(img/tools/arrow-down.svg);
+}
+#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more.ventu-filter-read-more--open:after {
+  background-image: url(img/tools/arrow-up.svg);
+}
+#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more.ventu-filter-read-more--open .ventu-filter-read-more-label .ventu-filter-read-more-label--close {
+  display: none;
+}
+#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more.ventu-filter-read-more--open .ventu-filter-read-more-label .ventu-filter-read-more-label--open {
+  display: block;
 }
 #ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more .ventu-filter-read-more-label {
   text-align: right;
@@ -43,8 +52,8 @@
   margin-top: 16px;
 }
 #ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container {
-  height: 0;
   overflow: hidden;
+  transition: all 0.2s ease;
 }
 #ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text {
   border-top: 1px solid #ededec;

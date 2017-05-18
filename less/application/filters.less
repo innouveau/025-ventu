@@ -23,7 +23,7 @@
                 cursor: pointer;
                 padding-right: 14px;
 
-                :after {
+                &:after {
                     width: 8px;
                     height: 5px;
                     background-size: 100% 100%;
@@ -32,6 +32,24 @@
                     right: 0;
                     top: 6px;
                     background-image: url(img/tools/arrow-down.svg);
+                }
+
+                &.ventu-filter-read-more--open {
+
+                    &:after {
+                        background-image: url(img/tools/arrow-up.svg);
+                    }
+
+                    .ventu-filter-read-more-label {
+
+                        .ventu-filter-read-more-label--close {
+                            display: none;
+                        }
+
+                        .ventu-filter-read-more-label--open {
+                            display: block;
+                        }
+                    }
                 }
 
                 .ventu-filter-read-more-label {
@@ -58,8 +76,8 @@
 
 
         .ventu-filter-full-text-container {
-            height: 0;
             overflow: hidden;
+            transition: all 0.2s ease;
 
             .ventu-filter-full-text {
                 border-top: 1px solid @ventu-main-grey-light;
