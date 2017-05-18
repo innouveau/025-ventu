@@ -1,4 +1,4 @@
-<section id="ventu-chat-entry" class="container section--with-background">
+<section id="ventu-chat-entry" class="section--with-background">
     <div class="row">
         <div class="col-sm-12">
             <div class="section-header">
