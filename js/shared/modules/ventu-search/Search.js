@@ -60,6 +60,24 @@ Search.prototype.addListeners = function() {
 };
 
 Search.prototype.get = function(val) {
+
+    var _this = this;
+
+    function callback(results) {
+        if (results.length > 0) {
+            _this.show(results);
+        } else {
+            _this.elements.results.empty();
+        }
+    }
+
+    if (window.ventuApi == null) {
+        window.ventuApi = new VentuApi();
+    }
+
+    window.ventuApi.getSearchResults(val, callback);
+
+    /*
     // @walstra, dit is fake data, kun jij dat vervangen?
     var results = [
         {
@@ -93,33 +111,43 @@ Search.prototype.get = function(val) {
     } else {
         this.elements.results.empty();
     }
-
+    */
 };
 
 Search.prototype.show = function(results) {
-    var self = this;
-    this.elements.results.empty();
-    for (var i = 0, l = results.length; i < l; i++) {
-        var html, result = results[i];
-        html = $('<div class="ventu-search-result">');
+    var _this = this;
+    _this.elements.results.empty();
+
+    $(results).each(function (index, result) {
+
+        var html = $('<div class="ventu-search-result">');
         html.append(result.Location + ' (' + result.NumberOfItems + ')');
-        html.click(function(){
-            self.select($(this));
-            self.setZindex(false);
+        html.click(function () {
+            _this.select(result);
+            _this.setZindex(false);
         });
-        this.elements.results.append(html);
-    }
+        _this.elements.results.append(html);
+
+    });
 };
 
 Search.prototype.select = function(element) {
-    // @walstra, ik weet niet zeker wat er in ventu.select() gegooid moet worden,
-    // maar dat weet jij beter dan ik.
-    var location = element.find('.search-address').data('city');
-    this.setChosen(location);
-    if (this.outerOutput) {
-        this.outerOutput.selectLocation(location);
+    var _this = this;
+
+    var htmlElement = $('<div>' + element.Location + '</div>');
+    var location = htmlElement.text();
+
+    _this.setChosen(location);
+
+    if (_this.outerOutput) {
+        _this.outerOutput.selectLocation(location);
     } else {
-        window.ventu.select(location);
+
+        if (window.ventuApi == null) {
+            window.ventuApi = new VentuApi();
+        }
+
+        window.ventuApi.select(element);
     }
 };
 
