@@ -17,10 +17,10 @@
     <script src="assets/select2/select2.js"></script>
     <script src='assets/hammer/hammer.js'></script>
 
-    <!-- ventu -->
-    <script src="js/application/dom/filter-listeners.js"></script>
-    <script src="js/application/dom/listeners.js"></script>
+    <!-- ventu filter -->
+    <script src="js/shared/modules/ventu-filter/Filter.js"></script>
 
+    <!-- ventu app -->
     <script src="js/application/models/Responsive.js"></script>
     <script src="js/application/models/Card.js"></script>
     <script src="js/application/models/Map.js"></script>
@@ -36,12 +36,14 @@
     <script src="js/application/models/User.js"></script>
     <script src="js/application/models/App.js"></script>
 
-
     <!-- fake data -->
     <script src="js/application/content/user.js"></script>
     <script src="js/application/content/markers.js"></script>
     <script src="js/application/content/objects.js"></script>
     <script src="js/application/content/amsterdam.js"></script>
+
+    <!-- dom -->
+    <script src="js/application/dom/filter-listeners.js"></script>
 
     <script src="js/application/main.js"></script>
 </head>

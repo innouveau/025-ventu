@@ -58,6 +58,7 @@
 #ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text {
   border-top: 1px solid #ededec;
   padding: 16px 0;
+  margin-top: 16px;
 }
 #ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button {
   padding: 6px 10px;
@@ -78,7 +79,7 @@
 #ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button:hover {
   background: #ededec;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter--active {
+#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--active {
   background: #00e5a9;
   color: #03256b;
 }

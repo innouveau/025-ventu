@@ -2,13 +2,15 @@
     <div id="ventu-filter-label"></div>
 
     <div id="ventu-filter-content">
-        <div id="ventu-filter-result" class="ventu-filter-section">
+        <div class="ventu-filter-section">
             <h5>
-                329 objecten gevonden
+                <span id="ventu-filter-result">
+                    329 objecten gevonden
+                </span>
             </h5>
         </div>
 
-        <!-- transaction -->
+        <!-- location -->
         <div id="ventu-filter-location" class="ventu-filter-section">
             <div class="ventu-filter-header">
                 Zoekopdracht:
@@ -48,15 +50,18 @@
 
             <div class="ventu-filter-full-text-container">
                 <div class="ventu-filter-full-text">
-                    <div class="ventu-filter-button ventu-filter--active ventu-filter-button--shop">
-                        Winkel
+                    <div id="ventu-filter-types-buttons">
+                        <div class="ventu-filter-button ventu-filter-button--active ventu-filter-button--shop">
+                            Winkel
+                        </div>
+                        <div class="ventu-filter-button ventu-filter-button--active ventu-filter-button--office">
+                            Kantoor
+                        </div>
+                        <div class="ventu-filter-button ventu-filter-button--parking">
+                            Parkeren
+                        </div>
                     </div>
-                    <div class="ventu-filter-button ventu-filter--active ventu-filter-button--office">
-                        Kantoor
-                    </div>
-                    <div class="ventu-filter-button ventu-filter-button--parking">
-                        Parkeren
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -109,7 +114,9 @@
 
             <div class="ventu-filter-full-text-container">
                 <div class="ventu-filter-full-text">
+                    <div id="ventu-filter-transaction-buttons">
 
+                    </div>
                 </div>
             </div>
         </div>

@@ -13,7 +13,17 @@ window.ventuConfig = {
     }
 };
 
-$(window).ready(function(){
+var searchQuery = {
+    result: 311,
+    types: ['Winkel', 'Bouwgrond'],
+    location: 'Hoogezand',
+    area: [100, 400],
+    transaction: ['Huur'],
+    searchArea: false
+};
+
+$(window).ready(function() {
+    window.filter = new Filter(searchQuery);
     window.ventu = new App();
 
     initialiseModules();
