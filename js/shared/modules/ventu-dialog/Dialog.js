@@ -14,7 +14,7 @@ function Dialog(element) {
             title: 'area',
             header: 'Met een oppervlakte vanaf'
         }, {
-            title: 'transaction',
+            title: 'transactions',
             header: 'Om te'
         }, {
             title: 'end',
@@ -26,7 +26,7 @@ function Dialog(element) {
         types: [],
         location: null,
         area: [null, null],
-        transaction: null
+        transactions: null
     };
 
     this.elements = {
@@ -97,7 +97,7 @@ Dialog.prototype.createSlide = function(i) {
         case 'area':
             this.createAreaSlide(slide.body);
             break;
-        case 'transaction':
+        case 'transactions':
             this.createTransactionSlide(slide.body);
             break;
         case 'end':
@@ -213,6 +213,8 @@ Dialog.prototype.createTransactionSlide = function(body) {
         container.append(this.createTransactionButton(transactions[i]));
     }
     body.append(container);
+    // make reusable selection
+    this.elements.buttons.transactions = this.element.find('.ventu-slider-transaction-button');
 };
 
 
@@ -274,20 +276,24 @@ Dialog.prototype.createTransactionButton = function(transaction) {
     self = this;
     button = $('<div class="ventu-slider-transaction-button" transaction="' + transaction + '">' + transaction + '</div>');
     button.click(function(){
-        var btn = this;
-        $('.ventu-slider-transaction-button').each(function(){
-            if (this === btn) {
-                $(this).addClass('ventu-slider-transaction-button--active');
-                self.query.transaction = $(this).attr('transaction');
-                self.updateButtons();
-                self.status.updated[3] = true;
-                self.removeHeaderSection(3);
-            } else {
-                $(this).removeClass('ventu-slider-transaction-button--active');
-            }
-        });
+        $(this).toggleClass('ventu-slider-transaction-button--active');
+        self.removeHeaderSection(3);
+        self.updateTransaction();
+        self.status.updated[3] = true;
+        self.updateButtons();
     });
     return button;
+};
+
+Dialog.prototype.updateTransaction = function() {
+    var transactions = [];
+    // find active transaction
+    this.elements.buttons.transactions.each(function(){
+        if ($(this).hasClass('ventu-slider-transaction-button--active')) {
+            transactions.push($(this).attr('transaction'));
+        }
+    });
+    this.query.transactions = transactions;
 };
 
 
@@ -311,7 +317,7 @@ Dialog.prototype.updateSetStatus = function() {
                 this.status.set[i] = this.query.area[0] !== null && this.query.area[1] !== null;
                 break;
             case 3:
-                this.status.set[i] = this.query.transaction !== null;
+                this.status.set[i] = this.query.transactions !== null;
                 break;
             case 4:
                 this.status.set[i] = false;
@@ -409,11 +415,19 @@ Dialog.prototype.updateHeaderSection = function(section) {
             }
             break;
         case 3:
-            label = $('<div class="ventu-filter-label">' + this.query.transaction + '</div>');
-
-            if (label.length > 0) {
+            for (i = 0, l = this.query.transactions.length; i < l; i++) {
+                label = $('<div class="ventu-filter-label">' + this.query.transactions[i] + '</div>');
                 container.append(label);
-                label.addClass('show-label');
+                labels.push(label);
+            }
+            if (labels.length > 0) {
+                timer = setInterval(function () {
+                    labels[counter].addClass('show-label');
+                    counter++;
+                    if (counter >= l) {
+                        clearInterval(timer);
+                    }
+                }, 50);
             }
             break;
     }
@@ -447,7 +461,6 @@ Dialog.prototype.isAllowedToSlide = function(slideCallback) {
         function searchCallback(n) {
             var result = 'Berekend resultaat over ' + n + ' objecten';
             $('.ventu-slider-slide-end-container').html(result);
-            console.log($('.ventu-slider-slide-end-container'));
             slideCallback();
         }
 

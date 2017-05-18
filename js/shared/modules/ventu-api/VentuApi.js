@@ -33,6 +33,7 @@ VentuApi.prototype.getSearchResults = function (string, callback) {
 };
 
 VentuApi.prototype.select = function (obj) {
+    console.log(obj);
 
 };
 

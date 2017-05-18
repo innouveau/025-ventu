@@ -74,10 +74,10 @@
 #ventu-slider-slide-location .ventu-slider-slide-body .ventu-search .ventu-search-results {
   top: calc(100% - 1px) !important;
 }
-#ventu-slider-slide-transaction .ventu-slider-slide-body {
+#ventu-slider-slide-transactions .ventu-slider-slide-body {
   padding-top: 38px;
 }
-#ventu-slider-slide-transaction .ventu-slider-slide-body .ventu-slider-transaction-button {
+#ventu-slider-slide-transactions .ventu-slider-slide-body .ventu-slider-transaction-button {
   padding: 6px 24px;
   height: 30px;
   cursor: pointer;
@@ -86,13 +86,13 @@
   border-right: 1px solid #ededec;
   color: #03256b;
 }
-#ventu-slider-slide-transaction .ventu-slider-slide-body .ventu-slider-transaction-button:last-child {
+#ventu-slider-slide-transactions .ventu-slider-slide-body .ventu-slider-transaction-button:last-child {
   border-right: 0;
 }
-#ventu-slider-slide-transaction .ventu-slider-slide-body .ventu-slider-transaction-button:hover {
+#ventu-slider-slide-transactions .ventu-slider-slide-body .ventu-slider-transaction-button:hover {
   background: #ededec;
 }
-#ventu-slider-slide-transaction .ventu-slider-slide-body .ventu-slider-transaction-button.ventu-slider-transaction-button--active {
+#ventu-slider-slide-transactions .ventu-slider-slide-body .ventu-slider-transaction-button.ventu-slider-transaction-button--active {
   background: #00e5a9;
 }
 #ventu-slider-slide-end .ventu-slider-slide-body .ventu-slider-slide-end-container {
