@@ -53,7 +53,7 @@
                                 <div class="ventu-card-button-icon"></div>
                             </div>
                             <div class="ventu-card-button-label">
-                                Laat groep zien
+                                Laat groep zien (dummy icon)
                             </div>
                         </div>
                     </div>
