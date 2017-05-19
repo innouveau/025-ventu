@@ -779,7 +779,7 @@ body.ventu-application #ventu-application-container #ventu-filters.ventu-filters
 #ventu-filter-content .ventu-filter-section:last-child {
   border-bottom: 0;
 }
-#ventu-filter-content #ventu-filter-result h5 {
+#ventu-filter-content #ventu-filter-result {
   text-align: center;
 }
 #ventu-filter-content #ventu-filter-tools .ventu-filter-tools-button {
@@ -819,6 +819,22 @@ body.ventu-application #ventu-application-container #ventu-filters.ventu-filters
   background-image: url(img/tools/label-arrow-left.svg);
   background-position: 50% 50%;
   background-repeat: no-repeat;
+}
+.ventu-filter-area-box {
+  border: 1px solid #ededec;
+  display: inline-block;
+  margin-right: 2px;
+  height: 30px;
+  padding: 0 4px;
+  color: #03256b;
+}
+.ventu-filter-area-box input {
+  border: 0;
+  padding: 4px;
+  color: #03256b;
+  width: 42px;
+  text-align: center;
+  height: 28px;
 }
 .ventu-card {
   position: absolute;

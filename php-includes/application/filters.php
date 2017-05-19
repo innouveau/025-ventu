@@ -4,9 +4,9 @@
     <div id="ventu-filter-content">
         <div class="ventu-filter-section">
             <h5>
-                <span id="ventu-filter-result">
+                <div id="ventu-filter-result">
                     329 objecten gevonden
-                </span>
+                </div>
             </h5>
         </div>
 
@@ -80,7 +80,18 @@
 
             <div class="ventu-filter-full-text-container">
                 <div class="ventu-filter-full-text">
-
+                    van
+                    <div class="ventu-filter-area-box">
+                        min
+                        <input id="ventu-filter-are-min-input">
+                        m²
+                    </div>
+                    tot
+                    <div class="ventu-filter-area-box">
+                        max
+                        <input id="ventu-filter-are-max-input">
+                        m²
+                    </div>
                 </div>
             </div>
         </div>

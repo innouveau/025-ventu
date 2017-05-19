@@ -19,7 +19,7 @@ function Filter(searchQuery) {
 
 Filter.prototype.execute = function() {
     console.log(this.query);
-    //window.ventu.search(this.query);
+    window.ventuApi.querySearch(this.query);
 };
 
 
