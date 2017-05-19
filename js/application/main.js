@@ -15,10 +15,10 @@ window.ventuConfig = {
 
 var searchQuery = {
     result: 311,
-    types: ['winkel', 'bouwgrond'],
+    types: [1,5,8],
     location: 'Hoogezand',
     area: [100, 400],
-    transaction: ['huren'],
+    transaction: [1],
     searchArea: false
 };
 

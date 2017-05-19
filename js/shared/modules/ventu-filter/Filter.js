@@ -35,10 +35,10 @@ Filter.prototype.createOptions = function() {
 Filter.prototype.createTypeOptions = function() {
     var self = this;
     this.element.typesButtons.empty();
-    for (var i = 0, l = filterContent.types.length; i < l; i++) {
-        var type = filterContent.types[i],
-            active = this.isActiveLabel('types', type),
-            button = this.getButton('type', type, active);
+    for (var i = 0, l = filterContent.primaryUsage.length; i < l; i++) {
+        var filterObject = filterContent.primaryUsageLibrary[filterContent.primaryUsage[i]],
+            active = this.isActiveLabel('types', filterObject),
+            button = this.getButton('type', filterObject, active);
             button.click(function(){
                 $(this).toggleClass('ventu-filter-button--active');
                 self.updateQueryTypes();
@@ -47,10 +47,10 @@ Filter.prototype.createTypeOptions = function() {
     }
 };
 
-Filter.prototype.isActiveLabel = function(type, label) {
+Filter.prototype.isActiveLabel = function(type, filterObject) {
     for (var i = 0, l = this.query[type].length; i < l; i++) {
         var queryLabel = this.query[type][i];
-        if (label.toLowerCase() === queryLabel.toLowerCase()) {
+        if (filterObject.id === queryLabel) {
             return true;
         }
     }
@@ -60,10 +60,10 @@ Filter.prototype.isActiveLabel = function(type, label) {
 Filter.prototype.createTransactionOptions = function() {
     var self = this;
     this.element.transactionButtons.empty();
-    for (var i = 0, l = filterContent.transactions.length; i < l; i++) {
-        var transaction = filterContent.transactions[i],
-            active = this.isActiveLabel('transaction', transaction),
-            button = this.getButton('transaction', transaction, active);
+    for (var i = 0, l = filterContent.objectType.length; i < l; i++) {
+        var filterObject = filterContent.objectTypeLibrary[filterContent.objectType[i]],
+            active = this.isActiveLabel('transaction', filterObject),
+            button = this.getButton('transaction', filterObject, active);
         button.click(function(){
             $(this).toggleClass('ventu-filter-button--active');
             self.updateQueryTransaction();
@@ -105,7 +105,7 @@ Filter.prototype.updateQueryTypes = function() {
     var types = [];
     $('#ventu-filter-types-buttons .ventu-filter-button').each(function(){
         if ($(this).hasClass('ventu-filter-button--active')) {
-            types.push($(this).attr('type'));
+            types.push(parseInt($(this).attr('type')));
         }
     });
     this.query.types = types;
@@ -128,7 +128,7 @@ Filter.prototype.updateQueryTransaction = function() {
     var transactions = [];
     $('#ventu-filter-transaction-buttons .ventu-filter-button').each(function(){
         if ($(this).hasClass('ventu-filter-button--active')) {
-            transactions.push($(this).attr('transaction'));
+            transactions.push(parseInt($(this).attr('transaction')));
         }
     });
     this.query.transaction = transactions;
@@ -163,7 +163,7 @@ Filter.prototype.updateLocation = function() {
 Filter.prototype.updateTypes = function() {
     this.element.types.empty();
     for (var i = 0, l = this.query.types.length; i < l; i++) {
-        var type = this.query.types[i],
+        var type = filterContent.primaryUsageLibrary[this.query.types[i]].translation,
             label = this.getLabel(type);
         this.element.types.append(label);
     }
@@ -177,7 +177,7 @@ Filter.prototype.updateArea = function() {
 Filter.prototype.updateTransaction = function() {
     this.element.transaction.empty();
     for (var i = 0, l = this.query.transaction.length; i < l; i++) {
-        var transaction = this.query.transaction[i],
+        var transaction = filterContent.objectTypeLibrary[this.query.transaction[i]].translation,
             label = this.getLabel(transaction);
         this.element.transaction.append(label);
     }
@@ -191,8 +191,8 @@ Filter.prototype.getLabel = function(text) {
     return $('<div class="ventu-filter-label">' + text + '</div>');
 };
 
-Filter.prototype.getButton = function(type, text, active) {
-    var button = $('<div class="ventu-filter-button ventu-filter-button--' + text.toLowerCase() + '" ' + type + '="' + text.toLowerCase() + '">' + text + '</div>');
+Filter.prototype.getButton = function(type, filterObject, active) {
+    var button = $('<div class="ventu-filter-button ventu-filter-button--' +filterObject.slug + '" ' + type + '="' + filterObject.id + '">' + filterObject.translation + '</div>');
     if (active) {
         button.addClass('ventu-filter-button--active');
     }
