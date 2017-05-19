@@ -434,7 +434,7 @@ Dialog.prototype.isAllowedToShowButton = function() {
 
 Dialog.prototype.isAllowedToSlide = function(slideCallback) {
     if (this.status.page.current === 3) {
-        window.ventuApi.querySearch(this.query, searchCallback);
+        window.ventuApi.querySearch(this.query);
 
         function searchCallback(n) {
             var result = 'Berekend resultaat over ' + n + ' objecten';

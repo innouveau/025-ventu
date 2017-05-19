@@ -33,11 +33,23 @@ VentuApi.prototype.getSearchResults = function (string, callback) {
 };
 
 VentuApi.prototype.select = function (obj) {
-    console.log(obj);
+
 
 };
 
-VentuApi.prototype.querySearch = function (query, callback) {
-    var numberOfResults = Math.round(Math.random() * 1000);
-    callback(numberOfResults);
+VentuApi.prototype.querySearch = function (query) {
+    if (this._isThisApplication()) {
+        window.ventu.redraw(fakeSearchResult);
+    } else {
+
+    }
+};
+
+VentuApi.prototype._isThisApplication = function () {
+    var path = window.location.pathname.split('/');
+    if (path[path.length - 1] === 'application.php') {
+        return true;
+    } else {
+        return false;
+    }
 };

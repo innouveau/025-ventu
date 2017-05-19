@@ -1,5 +1,4 @@
-function Config(app) {
-    this.app = app;
+function Config() {
     this.device = null;
     this.browser = this._getBrowser();
     this.os = this._getOS();
@@ -334,6 +333,10 @@ Config.prototype._setResponsiveSettings = function() {
 };
 
 Config.prototype._sizeSearchBar = function() {
-    var width = this.device.width - 130;
-    $('.ventu-map-search').css('width', width);
+
+    var element = $('.ventu-map-search');
+    if (!$(element).parent().hasClass('ventu-map-search-wrapper')) { // otherwise it will also resize the homepage search box
+        var width = this.device.width - 130;
+        $('.ventu-map-search').css('width', width);
+    }
 };

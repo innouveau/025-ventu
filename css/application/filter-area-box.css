@@ -1,3 +1,16 @@
 .ventu-filter-area-box {
-  border: 1px solid;
+  border: 1px solid #ededec;
+  display: inline-block;
+  margin-right: 2px;
+  height: 30px;
+  padding: 0 4px;
+  color: #03256b;
+}
+.ventu-filter-area-box input {
+  border: 0;
+  padding: 4px 0;
+  color: #03256b;
+  width: 42px;
+  text-align: center;
+  height: 28px;
 }

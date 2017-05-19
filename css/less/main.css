@@ -680,6 +680,16 @@ body.ventu-application #ventu-application-container #ventu-filters.ventu-filters
 body.ventu-application #ventu-application-container #ventu-filters.ventu-filters--inactive #ventu-filter-label {
   background-image: url(img/tools/label-arrow-right.svg);
 }
+body.ventu-application #ventu-application-container #ventu-stack {
+  position: absolute;
+  right: 400px;
+  top: 20px;
+}
+body.ventu-application #ventu-application-container #ventu-bottom-bar {
+  position: absolute;
+  right: 50px;
+  bottom: 0;
+}
 #ventu-filter-content {
   width: 100%;
   height: 100%;
@@ -832,7 +842,7 @@ body.ventu-application #ventu-application-container #ventu-filters.ventu-filters
 }
 .ventu-filter-area-box input {
   border: 0;
-  padding: 4px;
+  padding: 4px 0;
   color: #03256b;
   width: 42px;
   text-align: center;
@@ -2054,7 +2064,7 @@ section.section--small-padding .divider {
   position: absolute;
 }
 .ventu-card.ventu-card--dynamic {
-  display: none;
+  display: block;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   perspective-origin: 50% 50%;
@@ -2064,6 +2074,7 @@ section.section--small-padding .divider {
   transition: all 0.5s ease;
   cursor: pointer;
   box-shadow: none;
+  position: absolute;
 }
 .ventu-card.ventu-card--grid {
   height: auto;
@@ -2138,4 +2149,41 @@ section.section--small-padding .divider {
   width: 100%;
   height: 100%;
   background-size: 100% 100%;
+}
+#ventu-stack {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  perspective-origin: 100% 100%;
+  -webkit-perspective-origin: 100% 100%;
+  perspective: 5000px;
+  -webkit-perspective: 5000px;
+}
+#ventu-stack .ventu-card-shade {
+  position: absolute;
+  display: none;
+  right: 0;
+  width: 500px;
+  height: 400px;
+  transition: all 0.5s ease;
+  background-image: url('img/shade.png');
+  background-color: transparent;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#ventu-stack .ventu-card-shade.no-transition {
+  transition: none;
+}
+#ventu-stack .ventu-card-shade.slow-transition {
+  transition: all 2s ease;
+}
+.ventu-card-float {
+  animation: float 3s 1;
+  -webkit-animation: float 3s 1;
+  transition: none!important;
+}
+.ventu-card-shade-float {
+  animation: float-shade 3s 1;
+  -webkit-animation: float-shade 3s 1;
+  transition: none!important;
 }

@@ -1,7 +1,9 @@
 function Map() {
     this.icon = {
-        standard: './img/markers/standard-marker.png',
-        selected: './img/markers/selected-marker.png'
+        standard: 'img/markers/standard-marker.png',
+        selected: 'img/markers/selected-marker.png',
+        trash: 'img/markers/trash-marker.png',
+        favorite: 'img/markers/favorite-marker.png'
     };
     this.settings = {
         shape: {
@@ -14,10 +16,12 @@ function Map() {
     };
     this.currentCard = null;
     this.map = null;
-    this.shape = null;
+    this.shapes = [];
     this.markers = [];
     this.cards = [];
     this.lastIndex = 0;
+    this.markerClusterer = null;
+    this.mapHasBeenFitToBounds = false;
     this.init();
 }
 
@@ -31,29 +35,44 @@ Map.prototype.init = function() {
         mapTypeControl: false
     };
     this.map = new google.maps.Map(document.getElementById("ventu-canvas"), myOptions);
-    //this.app.config.isMapPresent = true;
 };
 
 
-Map.prototype.draw = function(data) {
+Map.prototype.draw = function(result, leaveshape) {
     var self = this;
     this.lastIndex = 0;
-    this._removeShape();
+    this._cleanUp(leaveshape);
+
+
+    if (!leaveshape && window.showGoogleMapObjects == undefined) {
+        this._drawShape(result);
+    }
+
+    if (result.markers && result.markers.length > 0) {
+        this._createMarkers(result.markers);
+        this._createCards();
+
+        if (window.showGoogleMapObjects == undefined) {
+            setTimeout(function () {
+                self._showMarkers();
+            }, 500);
+        }
+        if (self.cards.length > 0) {
+            setTimeout(function () {
+                // init launch cascade
+                self.currentCard = self.cards[0];
+                //self.cards[0].launch();
+            }, 1000);
+        }
+    }
+};
+
+Map.prototype._cleanUp = function(leaveshape) {
+    if (!leaveshape) {
+        this._removeShape();
+    }
     this._removeMarkers();
     this._removeCards();
-    this._drawShape(data);
-    this._createMarkers(data.markers);
-    this._createCards();
-    
-    setTimeout(function(){
-        self._showMarkers();
-    }, 1000);
-
-    setTimeout(function(){
-        // init launch cascade
-        self.currentCard = self.cards[0];
-        self.cards[0].launch();
-    }, 2000);
 };
 
 
@@ -61,57 +80,130 @@ Map.prototype.draw = function(data) {
 // poly
 
 Map.prototype._drawShape = function(data) {
-    switch (data.shape.type) {
-        case 'poly':
-            this.shape = new google.maps.Polygon({
-                paths: data.shape.data.points,
-                strokeColor: this.settings.shape.strokeColor,
-                strokeOpacity: this.settings.shape.strokeOpacity,
-                strokeWeight: this.settings.shape.strokeWeight,
-                fillColor: this.settings.shape.fillColor,
-                fillOpacity: this.settings.shape.fillOpacity
-            });
-            this.shape.setMap(this.map);
-            break;
-        case 'circle':
-            this.shape = new google.maps.Circle({
-                strokeColor: this.settings.shape.strokeColor,
-                strokeOpacity: this.settings.shape.strokeOpacity,
-                strokeWeight: this.settings.shape.strokeWeight,
-                fillColor: this.settings.shape.fillColor,
-                fillOpacity: this.settings.shape.fillOpacity,
-                center: data.shape.data.center,
-                radius: data.shape.data.radius,
-                map: this.map
-            });
-            break;
-        case 'rect':
-            this.shape = new google.maps.Rectangle({
-                strokeColor: this.settings.shape.strokeColor,
-                strokeOpacity: this.settings.shape.strokeOpacity,
-                strokeWeight: this.settings.shape.strokeWeight,
-                fillColor: this.settings.shape.fillColor,
-                fillOpacity: this.settings.shape.fillOpacity,
-                map: this.map,
-                bounds: {
-                    north: data.shape.data.north,
-                    south: data.shape.data.south,
-                    east: data.shape.data.east,
-                    west: data.shape.data.west
+    console.log(data.shape);
+    var self = this;
+    if (data.shape) {
+        switch (data.shape.type) {
+            case 'poly':
+
+                if (data.shape.data.points != null && data.shape.data.points.length > 0) {
+                    $.each(data.shape.data.points, function (index, points) {
+                        var shape = new google.maps.Polygon({
+                            paths: points,
+                            strokeColor: self.settings.shape.strokeColor,
+                            strokeOpacity: self.settings.shape.strokeOpacity,
+                            strokeWeight: self.settings.shape.strokeWeight,
+                            fillColor: self.settings.shape.fillColor,
+                            fillOpacity: self.settings.shape.fillOpacity
+                        });
+                        shape.setMap(self.map);
+                        self.shapes.push(shape);
+                        //self.setPolygonEvents(shape);
+                    });
                 }
 
-            });
-            break;
-    }
+                break;
+            case 'circle':
+                var shape = new google.maps.Circle({
+                    strokeColor: self.settings.shape.strokeColor,
+                    strokeOpacity: self.settings.shape.strokeOpacity,
+                    strokeWeight: self.settings.shape.strokeWeight,
+                    fillColor: self.settings.shape.fillColor,
+                    fillOpacity: self.settings.shape.fillOpacity,
+                    center: data.shape.data.center,
+                    radius: data.shape.data.radius,
+                    map: self.map,
+                    editable: true,
+                    draggable: true
+                });
+                this.shapes.push(shape);
+                this.setCircleEvents(shape);
 
-    this.map.setCenter(data.zoomCenter);
-    this.map.setZoom(data.zoom);
+                break;
+            case 'rect':
+                var shape = new google.maps.Rectangle({
+                    strokeColor: self.settings.shape.strokeColor,
+                    strokeOpacity: self.settings.shape.strokeOpacity,
+                    strokeWeight: self.settings.shape.strokeWeight,
+                    fillColor: self.settings.shape.fillColor,
+                    fillOpacity: self.settings.shape.fillOpacity,
+                    map: self.map,
+                    bounds: {
+                        north: data.shape.data.north,
+                        south: data.shape.data.south,
+                        east: data.shape.data.east,
+                        west: data.shape.data.west
+                    },
+                    draggable: true,
+                    editable: true
+
+                });
+
+                this.shapes.push(shape);
+                this.setRectangleEvents(shape);
+                break;
+        }
+    }
 };
 
-Map.prototype._removeShape = function() {
-    if (this.shape) {
-        this.shape.setMap(null);
-    }
+Map.prototype.setCircleEvents = function (shape) {
+    google.maps.event.addListener(shape, 'radius_changed', function () {
+        var radius = shape.getRadius();
+        if (radius > ventu.service.filter.searchArea.max)
+        {
+            radius = ventu.service.filter.searchArea.max;
+        }
+        else if (radius < ventu.service.filter.searchArea.min)
+        {
+            radius = ventu.service.filter.searchArea.min;
+        }
+        radius = Math.ceil(radius);
+
+        $('#ventu-filter-circle-km').val(radius);
+        ventu.service.filter.searchArea.circleM = radius;
+
+        //ventu.map.shapes = [];
+        //ventu.map.shapes.push(shape);
+
+        saveAllFilters();
+    });
+    this.setDragEndEvent(shape);
+};
+
+Map.prototype.setRectangleEvents = function (shape) {
+    //var timeout;
+    //google.maps.event.addListener(shape, 'bounds_changed', function () {
+    //    window.clearTimeout(timeout);
+    //    timeout = window.setTimeout(function () {
+    //        alert("get all objects within this rectangle");
+    //    });
+    //}, 500);
+    this.setDragEndEvent(shape);
+};
+
+//Map.prototype.setPolygonEvents = function (shape) {
+//    google.maps.event.addListener(shape, 'radius_changed', function () {
+//        alert("get all objects within this polygon");
+//    });
+//    this.setDragEndEvent(shape);
+//};
+
+Map.prototype.setDragEndEvent = function (shape) {
+    google.maps.event.addListener(shape, 'dragend', function () {
+
+        //ventu.map.shapes = [];
+        //ventu.map.shapes.push(shape);
+
+        ventu.service.filterUpdate(true);
+    });
+};
+
+Map.prototype._removeShape = function () {
+    $(this.shapes).each(function (index, shape) {
+        shape.setMap(null);
+    });
+
+    this.shapes = [];
 };
 
 
@@ -126,27 +218,118 @@ Map.prototype._removeMarkers = function() {
 };
 
 Map.prototype._createMarkers = function(markers) {
+    var self = this;
+
     for (var i = 0, l = markers.length; i < l; i++) {
-        var icon = i === 0 ? this.icon.selected : this.icon.standard,
-            marker = new Marker(this.app, this, markers[i], icon);
+        var icon = i === 0 ? this.icon.selected : this.icon.standard;
+
+        var favorites = $.sessionStorage.get('ventu-favorites');
+
+        if (favorites) {
+            $(favorites).each(function (index, element) {
+                if (element.uniqueId == markers[i].UniqueId) {
+                    icon = self.icon.favorite;
+                    return false;
+                }
+            });
+        }
+
+        var trash = $.sessionStorage.get('ventu-trash');
+
+        if (trash) {
+            $(trash).each(function (index, element) {
+                if (element.uniqueId == markers[i].UniqueId) {
+                    icon = self.icon.trash;
+                    return false;
+                }
+            });
+        }
+
+        var marker = new Marker(this, markers[i], icon);
         this.markers.push(marker);
     }
 };
 
-Map.prototype._showMarkers = function() {
-    var self = this,
-        counter = 0,
-        timer,
-        interval = 1000 / this.markers.lenght;
-    timer = setInterval(function(){
-        self.markers[counter].show();
-        counter++;
-        if (counter === self.markers.length) {
-            clearInterval(timer);
-        }
-    }, interval)
+Map.prototype._showMarkers = function () {
+
+    if (this.markerClusterer != null) {
+        this.markerClusterer.clearMarkers();
+    }
+
+    var internalMarkers = [];
+
+    $.each(this.markers, function (index, marker) {
+        internalMarkers.push(marker.marker);
+    });
+
+    var styles = [{
+        url: '/img/markerclusterer/m1.png',
+        height: 25,
+        width: 25,
+        textColor: '#ffffff',
+        textSize: 10,
+    }];
+
+
+    if (this.markerClusterer == null) {
+        this.markerClusterer = new MarkerClusterer(this.map, internalMarkers, {
+            imagePath: '/img/markerclusterer/m',
+            gridSize: 30,
+            styles: styles
+        });
+    } else {
+        this.markerClusterer.addMarkers(internalMarkers);
+    }
+
+    //markerClusterer.fitMapToMarkers();
+
+    this.fitMapToBounds();
 };
 
+Map.prototype.fitMapToBounds = function () {
+
+    this.mapHasBeenFitToBounds = true;
+
+    var bounds = new google.maps.LatLngBounds();
+
+    if (this.shapes.length > 0) {
+
+        $(this.shapes).each(function (index, shape) {
+
+            if (shape instanceof google.maps.Polygon) {
+                var path = shape.getPath();
+
+                for (var i = 0; i < path.getLength() ; i++) {
+                    var xy = path.getAt(i);
+
+                    bounds.extend(new google.maps.LatLng(xy.lat(), xy.lng()));
+                }
+            } else if (shape instanceof google.maps.Circle) {
+                bounds = shape.getBounds();
+            } else if (shape instanceof google.maps.Rectangle) {
+                bounds = shape.getBounds();
+            }
+        });
+
+    } else {
+
+        var internalMarkers = [];
+
+        $.each(this.markers, function (index, marker) {
+            bounds.extend(marker.marker.getPosition());
+        });
+
+    }
+
+    this.map.fitBounds(bounds);
+
+    //if (this.shapes.length == 0) {
+    //    this.map.setZoom(12);
+    //}
+
+    var x = Math.floor(this.map.getDiv().offsetWidth / 6);
+    this.map.panBy(x, 0);
+};
 
 
 // cards
@@ -159,22 +342,23 @@ Map.prototype._removeCards = function() {
 };
 
 Map.prototype._createCards = function() {
-    var n = this.markers.length > this.app.config.stack.max ? this.app.config.stack.max : this.markers.length;
+    var n = this.markers.length > window.ventu.config.stack.max ? window.ventu.config.stack.max : this.markers.length;
     for (var i = 0; i < n; i++) {
         var marker = this.markers[i],
             building = this.getBuilding(marker.UniqueId);
+
         if (building) {
             marker.createCard(building);
         }
-        
+
     }
 };
 
 Map.prototype.getBuilding = function(UniqueId) {
-    for (var i = 0, l = this.app.objects.length; i < l; i++) {
-        var obj = this.app.objects[i];
+    for (var i = 0, l = window.ventu.objects.length; i < l; i++) {
+        var obj = window.ventu.objects[i];
         if (obj.UniqueId === UniqueId) {
-            return new Building(this.app, obj);
+            return new Building(obj);
         }
     }
     return null;
@@ -206,7 +390,7 @@ Map.prototype._getMarker = function() {
     for (var i = 0, l = this.markers.length; i < l; i++) {
         var marker = this.markers[i],
             building;
-        if (!marker.hasCard) {
+        if (!marker.hasCard && !marker.isFavorite && !marker.isTrash) {
             building = this.getBuilding(marker.UniqueId);
             if (building) {
                 return  {

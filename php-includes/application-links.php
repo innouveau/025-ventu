@@ -3,6 +3,9 @@
 <script src="assets/bootstrap/bootstrap.min.js"></script>
 <script src="assets/select2/select2.js"></script>
 <script src='assets/hammer/hammer.js'></script>
+<script src="assets/jquery-storage/jquery.storageapi.js"></script>
+<script src="assets/jquery-storage/js.cookie.js"></script>
+<script src="assets/maps/markerclusterer.js"></script>
 
 <!-- ventu filter -->
 <script src="js/shared/modules/ventu-filter/Filter.js"></script>
@@ -23,11 +26,13 @@
 <script src="js/application/models/User.js"></script>
 <script src="js/application/models/App.js"></script>
 
+<script src="js/application/settings.js"></script>
+
 <!-- fake data -->
+<script src="js/application/content/fake-search-result.js"></script>
 <script src="js/application/content/user.js"></script>
-<script src="js/application/content/markers.js"></script>
-<script src="js/application/content/objects.js"></script>
-<script src="js/application/content/amsterdam.js"></script>
 
 <!-- dom -->
 <script src="js/application/dom/filter-listeners.js"></script>
+
+<script src="js/shared/modules/ventu-search-util/Search-util.js"></script>

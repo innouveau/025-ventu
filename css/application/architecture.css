@@ -40,3 +40,13 @@ body.ventu-application #ventu-application-container #ventu-filters.ventu-filters
 body.ventu-application #ventu-application-container #ventu-filters.ventu-filters--inactive #ventu-filter-label {
   background-image: url(img/tools/label-arrow-right.svg);
 }
+body.ventu-application #ventu-application-container #ventu-stack {
+  position: absolute;
+  right: 400px;
+  top: 20px;
+}
+body.ventu-application #ventu-application-container #ventu-bottom-bar {
+  position: absolute;
+  right: 50px;
+  bottom: 0;
+}

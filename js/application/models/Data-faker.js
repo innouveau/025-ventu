@@ -1,5 +1,4 @@
-function DataFaker(app) {
-    this.app = app;
+function DataFaker() {
     this.searchResults = [];
     this.filter = {
         area : {
@@ -28,16 +27,16 @@ DataFaker.prototype.getSearchResults = function(searchQuery, searchResultsCallba
 };
 
 DataFaker.prototype.filterUpdate = function() {
-    console.log(this.filter);
+
     switch (this.filter.searchArea.type) {
         case 'none':
-            this.app.select('1077 Amsterdam (postcode)', 'poly');
+            window.ventu.select('1077 Amsterdam (postcode)', 'poly');
             break;
         case 'circle':
-            this.app.select('1077 Amsterdam (postcode)', 'circle');
+            window.ventu.select('1077 Amsterdam (postcode)', 'circle');
             break;
         case 'rect':
-            this.app.select('1077 Amsterdam (postcode)', 'rect');
+            window.ventu.select('1077 Amsterdam (postcode)', 'rect');
             break;
     }
 };
@@ -51,7 +50,7 @@ DataFaker.prototype.getList = function(type, listFillCallback) {
         list = [];
     }
     for (var i = 0, l = list.length; i < l; i++) {
-        listToModel.push(new Building (this.app, list[i]));
+        listToModel.push(new Building (window.ventu, list[i]));
     }
     listFillCallback(listToModel);
 };
@@ -110,7 +109,7 @@ DataFaker.prototype.translate = function(string) {
 
 DataFaker.prototype.post = function(id) {
     var n = Math.round((this.buildings.length - 1) * Math.random());
-    this.app.objects.push(new Building(this.app, this.buildings[n]))
+    window.ventu.objects.push(new Building(this.buildings[n]))
 };
 
 DataFaker.prototype.sessionStore = function(objects) {

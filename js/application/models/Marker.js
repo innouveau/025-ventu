@@ -1,5 +1,4 @@
-function Marker(app, parent, data, icon) {
-    this.app = app;
+function Marker(parent, data, icon) {
     this.parent = parent;
     this.card = null;
     this.marker = null;
@@ -7,6 +6,8 @@ function Marker(app, parent, data, icon) {
     this.UniqueId = data.UniqueId;
     this.icon = icon;
     this.hasCard = false;
+    this.isFavorite = icon == window.ventu.map.icon.favorite;
+    this.isTrash = icon == window.ventu.map.icon.trash;
     this.create();
 }
 
@@ -18,13 +19,41 @@ Marker.prototype.create = function() {
         icon: this.icon,
         title: ''
     });
-    this.marker.setVisible(false);
+
+    //var lat = this.marker.position.lat();
+
+    //if (lat == 0) {
+    //    console.log('self.UniqueId ', self.UniqueId, self.coordinate.lat);
+    //}
+
+    if (window.showGoogleMapObjects !== undefined && !showGoogleMapObjects) {
+        this.marker.setVisible(false);
+    }
+
     this.marker.addListener('click', function() {
         if (!self.hasCard) {
-            var building = self.parent.getBuilding(self.UniqueId),
-                card = self.createCard(building);
-            card.launch('soft');
-            card.swap();
+
+            if (self.isFavorite) {
+                window.location.href = '/Interesselijst';
+            } else if (self.isTrash) {
+                window.location.href = '/Prullenbak';
+            } else {
+
+                var building = self.parent.getBuilding(self.UniqueId);
+
+                function callback(building) {
+                    var card = self.createCard(building);
+                    card.launch('soft');
+                    card.swap();
+                }
+
+                if (building == null) {
+                    window.ventu.service.GetObjectByUniqueId(self.UniqueId, callback);
+                } else {
+                    callback(building);
+                }
+            }
+
         } else {
 
             self.card.swap();
@@ -34,7 +63,7 @@ Marker.prototype.create = function() {
 
 // TODO move to Map?
 Marker.prototype.createCard = function(building) {
-    var card = new Card(this.app, this, building, this.parent.lastIndex);
+    var card = new Card(this, building, this.parent.lastIndex);
     this.card = card;
     this.parent.cards.push(card);
     this.parent.lastIndex++;
@@ -47,20 +76,32 @@ Marker.prototype.show = function() {
 };
 
 Marker.prototype.select = function() {
-    this.marker.setIcon(this.app.map.icon.selected);
+    this.marker.setIcon(window.ventu.map.icon.selected);
     this.marker.setZIndex(10000);
 };
 
 Marker.prototype.unselect = function() {
-    this.marker.setIcon(this.app.map.icon.standard);
+    this.marker.setIcon(window.ventu.map.icon.standard);
+    this.marker.setZIndex(0);
+};
+
+Marker.prototype.favorite = function () {
+    this.isFavorite = true;
+    this.marker.setIcon(window.ventu.map.icon.favorite);
+    this.marker.setZIndex(10000);
+};
+
+Marker.prototype.trash = function () {
+    this.isTrash = true;
+    this.marker.setIcon(window.ventu.map.icon.trash);
     this.marker.setZIndex(0);
 };
 
 
 Marker.prototype.remove = function() {
-    var index = this.app.map.markers.indexOf(this);
+    var index = window.ventu.map.markers.indexOf(this);
     this.eject();
-    this.app.map.markers.splice(index, 1);
+    window.ventu.map.markers.splice(index, 1);
 };
 
 Marker.prototype.eject = function() {

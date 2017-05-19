@@ -16,7 +16,7 @@ window.ventuConfig = {
 var searchQuery = {
     result: 311,
     types: [1,5,8],
-    location: 'Hoogezand',
+    location: 'plaats: Hoogezand',
     area: [100, 400],
     transaction: [1],
     searchArea: false
@@ -25,6 +25,11 @@ var searchQuery = {
 $(window).ready(function() {
     window.filter = new Filter(searchQuery);
     window.ventu = new App();
+    window.ventuApi = new VentuApi();
+    window.SearchUtil = new SearchUtil();
+
+
+    ventuApi.querySearch();
 
     initialiseModules();
     initialiseModals();
