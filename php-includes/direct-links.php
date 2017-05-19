@@ -36,7 +36,7 @@
             </h3>
             <a class="ventu-contact-icon-button" href="veelgestelde-vragen.html">
                 <div class="ventu-contact-icon-button-img">
-                    <img src="img/icons/react.svg">
+                    <img src="img/icons/contact/react.svg">
                 </div>
                 <div class="ventu-contact-icon-button-text">
                     Veelgestelde vragen
@@ -44,7 +44,7 @@
             </a>
             <a class="ventu-contact-icon-button" href="020-5753536">
                 <div class="ventu-contact-icon-button-img">
-                    <img src="img/icons/phone.svg">
+                    <img src="img/icons/contact/phone.svg">
                 </div>
                 <div class="ventu-contact-icon-button-text">
                     020-5753536
@@ -52,7 +52,7 @@
             </a>
             <a class="ventu-contact-icon-button" href="mailto: welkom@ventu.nl">
                 <div class="ventu-contact-icon-button-img">
-                    <img src="img/icons/react.svg">
+                    <img src="img/icons/contact/react.svg">
                 </div>
                  <div class="ventu-contact-icon-button-text">
                 welkom@ventu.nl
@@ -60,7 +60,7 @@
             </a>
             <a class="ventu-contact-icon-button" href="mailto:welkome@ventu.nl">
                 <div class="ventu-contact-icon-button-img">
-                    <img src="img/icons/react.svg">
+                    <img src="img/icons/contact/react.svg">
                 </div>
                 <div class="ventu-contact-icon-button-text">
                     welkome@ventu.nl

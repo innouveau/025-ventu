@@ -12,7 +12,7 @@
     <div class="row">
         <div class="ventu-usp-item col-sm-4">
             <div class="ventu-usp-item-image">
-                <img src="img/icons/search.svg">
+                <img src="img/illustrations/search.svg">
             </div>
             <h3>
                 Ventu vindt het voor je
@@ -26,7 +26,7 @@
 
         <div class="ventu-usp-item col-sm-4">
             <div class="ventu-usp-item-image">
-                <img src="img/icons/network.svg">
+                <img src="img/illustrations/network.svg">
             </div>
             <h3>
                 Het allergrootste netwerk
@@ -38,7 +38,7 @@
 
         <div class="ventu-usp-item col-sm-4">
             <div class="ventu-usp-item-image">
-                <img src="img/icons/information.svg">
+                <img src="img/illustrations/information.svg">
             </div>
             <h3>
                 Kennis is informatie

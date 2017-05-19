@@ -25,19 +25,19 @@
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-love {
   background-color: #2ECC71;
-  background-image: url(img/icons/love.svg);
+  background-image: url(img/icons/buttons/love.svg);
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-share {
   background-color: #00A2FF;
-  background-image: url(img/icons/plus.svg);
+  background-image: url(img/icons/buttons/plus.svg);
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-follow {
   background-color: #8400C6;
-  background-image: url(img/icons/follow.svg);
+  background-image: url(img/icons/buttons/follow.svg);
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-hate {
   background-color: #DF0040;
-  background-image: url(img/icons/hate.svg);
+  background-image: url(img/icons/buttons/hate.svg);
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-label {
   display: inline-block;
