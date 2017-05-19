@@ -34,6 +34,9 @@
                     </div>
                     <?php include('php-includes/card/buttons.php');?>
                 </div>
+
+
+
             </div>
             <div class="col-sm-4">
                 <div class="ventu-card ventu-card--static ventu-card--grid">
@@ -41,9 +44,8 @@
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards</h4>
-                            <h3>Grid Variant 1 button (group)</h3>
+                            <h3>Grid Group Entry Variant</h3>
                         </div>
-                        <?php include('php-includes/features.php');?>
                     </div>
                     <div class="ventu-card-buttons">
                         <div class="ventu-card-button-container ventu-card-button-container--full">
@@ -57,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="height:500px">
                 <div class="ventu-card ventu-card--absolute" style="-moz-user-select: none; touch-action: none; transform: translateX(50px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(-8deg) scale(1, 1);">
                     <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
                     <div class="ventu-card-text">
@@ -79,23 +81,7 @@
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards 1</h4>
-                            <h3>Float variant</h3>
-                        </div>
-                        <?php include('php-includes/features.php');?>
-                    </div>
-                    <?php include('php-includes/card/buttons.php');?>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="ventu-card ventu-card--grid ventu-card--float">
-                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
-                    <div class="ventu-card-text">
-                        <div class="ventu-card-header">
-                            <h4>Test Cards 2</h4>
-                            <h3>Float Variant</h3>
+                            <h3>Float variant (responsive)</h3>
                         </div>
                         <?php include('php-includes/features.php');?>
                     </div>

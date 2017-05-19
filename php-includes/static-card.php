@@ -16,37 +16,37 @@ $t = $texts[array_rand($texts, 1)];
             <h3>Moerdijk</h3>
         </div>
         <?php include('features.php');?>
-        <div class="ventu-card-buttons">
-        <?php
-        if ($love) { ?>
+    </div>
+    <div class="ventu-card-buttons">
+    <?php
+    if ($love) { ?>
 
-            <div class="ventu-card-button-container">
-                <div class="ventu-card-button ventu-card-button--hate">
-                    <div class="ventu-card-button-icon"></div>
-                </div>
-                <div class="ventu-card-button-label">
-                    Niet interessant
-                </div>
+        <div class="ventu-card-button-container">
+            <div class="ventu-card-button ventu-card-button--hate">
+                <div class="ventu-card-button-icon"></div>
             </div>
-            <div class="ventu-card-button-container">
-                <div class="ventu-card-button ventu-card-button--share">
-                    <div class="ventu-card-button-icon"></div>
-                </div>
-                <div class="ventu-card-button-label">
-                    Zet in gedeeld
-                </div>
+            <div class="ventu-card-button-label">
+                Niet interessant
             </div>
-            <?php } else { ?>
-            <div class="ventu-card-button-container ventu-card-button-container--full">
-                <div class="ventu-card-button ventu-card-button--hate">
-                    <div class="ventu-card-button-icon"></div>
-                </div>
-                <div class="ventu-card-button-label">
-                    Verplaats object naar de niet interessant lijst
-                </div>
-            </div>
-            <?php } ?>
         </div>
+        <div class="ventu-card-button-container">
+            <div class="ventu-card-button ventu-card-button--share">
+                <div class="ventu-card-button-icon"></div>
+            </div>
+            <div class="ventu-card-button-label">
+                Zet in gedeeld
+            </div>
+        </div>
+        <?php } else { ?>
+        <div class="ventu-card-button-container ventu-card-button-container--full">
+            <div class="ventu-card-button ventu-card-button--hate">
+                <div class="ventu-card-button-icon"></div>
+            </div>
+            <div class="ventu-card-button-label">
+                Verplaats object naar de niet interessant lijst
+            </div>
+        </div>
+        <?php } ?>
     </div>
 </div>
 <?php
