@@ -22,18 +22,51 @@
   background-size: 100% 100%;
   content: '';
 }
-.ventu-features ul li.ventu-features-shop:after {
-  background-image: url(img/icons/shop.svg);
+.ventu-features ul li.ventu-features-objectusage-1:after {
+  background-image: url(img/icons/types/office-grey.svg);
 }
-.ventu-features ul li.ventu-features-office:after {
-  background-image: url(img/icons/office.svg);
+.ventu-features ul li.ventu-features-objectusage-2:after {
+  background-image: url(img/icons/types/business-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-3:after {
+  background-image: url(img/icons/types/shop-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-4:after {
+  background-image: url(img/icons/types/catering-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-5:after {
+  background-image: url(img/icons/types/other-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-6:after {
+  background-image: url(img/icons/types/leisure-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-8:after {
+  background-image: url(img/icons/types/land-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-9:after {
+  background-image: url(img/icons/types/distribution-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-10:after {
+  background-image: url(img/icons/types/workplace-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-11:after {
+  background-image: url(img/icons/types/social-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-12:after {
+  background-image: url(img/icons/types/education-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-13:after {
+  background-image: url(img/icons/types/parking-grey.svg);
+}
+.ventu-features ul li.ventu-features-objectusage-14:after {
+  background-image: url(img/icons/types/agricultural-grey.svg);
 }
 .ventu-features ul li.ventu-features-area:after {
-  background-image: url(img/icons/area.svg);
+  background-image: url(img/icons/features/area.svg);
 }
 .ventu-features ul li.ventu-features-price:after {
-  background-image: url(img/icons/price.svg);
+  background-image: url(img/icons/features/price.svg);
 }
 .ventu-features ul li.ventu-features-location:after {
-  background-image: url(img/icons/location.svg);
+  background-image: url(img/icons/features/location.svg);
 }
