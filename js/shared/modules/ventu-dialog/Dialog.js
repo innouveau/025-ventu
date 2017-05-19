@@ -241,10 +241,7 @@ Dialog.prototype.updateType = function() {
 
 
 Dialog.prototype.selectLocation = function(obj) {
-    var htmlElement = $('<div>' + obj.Location + '</div>'),
-        location = htmlElement.text();
-
-    this.query.location = obj;
+    this.query.location = obj.Location;
     this.status.updated[1] = true;
     this.removeHeaderSection(1);
     this.updateButtons();
