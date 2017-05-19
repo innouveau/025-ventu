@@ -61,7 +61,7 @@ Filter.prototype.createTransactionOptions = function() {
     for (var i = 0, l = filterContent.transactions.length; i < l; i++) {
         var transaction = filterContent.transactions[i],
             active = this.isActiveLabel('transaction', transaction),
-            button = this.getButton('transactions', transaction, active);
+            button = this.getButton('transaction', transaction, active);
         button.click(function(){
             $(this).toggleClass('ventu-filter-button--active');
             self.updateQueryTransaction();
