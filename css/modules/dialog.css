@@ -20,6 +20,7 @@
   padding: 6px;
   height: 30px;
   display: inline-block;
+  text-transform: capitalize;
 }
 #ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button:hover .ventu-slider-type-button-label {
   background: #fff;
@@ -85,6 +86,7 @@
   background: #fff;
   border-right: 1px solid #ededec;
   color: #03256b;
+  text-transform: capitalize;
 }
 #ventu-slider-slide-transactions .ventu-slider-slide-body .ventu-slider-transaction-button:last-child {
   border-right: 0;

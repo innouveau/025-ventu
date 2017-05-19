@@ -1,11 +1,6 @@
 function Filter(searchQuery) {
     this.query = searchQuery;
 
-    this.options = {
-        types: ['winkel', 'kantoor', 'bedrijfsruimte', 'horeca', 'bouwgrond', 'werkplek', 'distributie', 'agrarisch', 'parkeren', 'onderwijs', 'leisure', 'maatschappelijk vastgoed', 'overig'],
-        transactions: ['kopen', 'huren', 'beleggen']
-    };
-
     this.element = {
         result: $('#ventu-filter-result'),
         location: $('#ventu-filter-location .ventu-filter-label-container'),
@@ -38,9 +33,10 @@ Filter.prototype.createOptions = function() {
 Filter.prototype.createTypeOptions = function() {
     var self = this;
     this.element.typesButtons.empty();
-    for (var i = 0, l = this.options.types.length; i < l; i++) {
-        var type = this.options.types[i],
-            button = this.getButton('type', type);
+    for (var i = 0, l = filterContent.types.length; i < l; i++) {
+        var type = filterContent.types[i],
+            active = this.isActiveLabel('types', type),
+            button = this.getButton('type', type, active);
             button.click(function(){
                 $(this).toggleClass('ventu-filter-button--active');
                 self.updateQueryTypes();
@@ -49,12 +45,23 @@ Filter.prototype.createTypeOptions = function() {
     }
 };
 
+Filter.prototype.isActiveLabel = function(type, label) {
+    for (var i = 0, l = this.query[type].length; i < l; i++) {
+        var queryLabel = this.query[type][i];
+        if (label.toLowerCase() === queryLabel.toLowerCase()) {
+            return true;
+        }
+    }
+    return false;
+};
+
 Filter.prototype.createTransactionOptions = function() {
     var self = this;
     this.element.transactionButtons.empty();
-    for (var i = 0, l = this.options.transactions.length; i < l; i++) {
-        var transaction = this.options.transactions[i],
-            button = this.getButton('transaction', transaction);
+    for (var i = 0, l = filterContent.transactions.length; i < l; i++) {
+        var transaction = filterContent.transactions[i],
+            active = this.isActiveLabel('transaction', transaction),
+            button = this.getButton('transactions', transaction, active);
         button.click(function(){
             $(this).toggleClass('ventu-filter-button--active');
             self.updateQueryTransaction();
@@ -144,6 +151,10 @@ Filter.prototype.getLabel = function(text) {
     return $('<div class="ventu-filter-label">' + text + '</div>');
 };
 
-Filter.prototype.getButton = function(type, text) {
-    return $('<div class="ventu-filter-button ventu-filter-button--' + text.toLowerCase() + '" ' + type + '="' + text.toLowerCase() + '">' + text + '</div>');
+Filter.prototype.getButton = function(type, text, active) {
+    var button = $('<div class="ventu-filter-button ventu-filter-button--' + text.toLowerCase() + '" ' + type + '="' + text.toLowerCase() + '">' + text + '</div>');
+    if (active) {
+        button.addClass('ventu-filter-button--active');
+    }
+    return button;
 };

@@ -108,12 +108,11 @@ Dialog.prototype.createSlide = function(i) {
 };
 
 Dialog.prototype.createTypeSlide = function(body) {
-    var types, container;
+    var container;
 
-    types = ['Winkel', 'Kantoor', 'Bedrijfsruimte', 'Horeca', 'Bouwgrond'];
     container =  $('<div class="ventu-slider-slide-buttons-container"></div>');
-    for (var i = 0, l = types.length; i < l; i++) {
-        container.append(this.createTypeButton(types[i]));
+    for (var i = 0, l = filterContent.typesMain.length; i < l; i++) {
+        container.append(this.createTypeButton(filterContent.typesMain[i]));
     }
 
     body.append(container);
@@ -206,11 +205,10 @@ Dialog.prototype.createAreaSlide = function(body) {
 };
 
 Dialog.prototype.createTransactionSlide = function(body) {
-    var transactions, container;
+    var container;
     container =  $('<div class="ventu-slider-slide-buttons-container"></div>');
-    transactions = ['Kopen', 'Huren', 'Beleggen'];
-    for (var i = 0, l = transactions.length; i < l; i++) {
-        container.append(this.createTransactionButton(transactions[i]));
+    for (var i = 0, l = filterContent.transactions.length; i < l; i++) {
+        container.append(this.createTransactionButton(filterContent.transactions[i]));
     }
     body.append(container);
     // make reusable selection

@@ -50,17 +50,7 @@
 
             <div class="ventu-filter-full-text-container">
                 <div class="ventu-filter-full-text">
-                    <div id="ventu-filter-types-buttons">
-                        <div class="ventu-filter-button ventu-filter-button--active ventu-filter-button--shop">
-                            Winkel
-                        </div>
-                        <div class="ventu-filter-button ventu-filter-button--active ventu-filter-button--office">
-                            Kantoor
-                        </div>
-                        <div class="ventu-filter-button ventu-filter-button--parking">
-                            Parkeren
-                        </div>
-                    </div>
+                    <div id="ventu-filter-types-buttons"><!-- appended dynamically --></div>
 
                 </div>
             </div>
@@ -114,9 +104,7 @@
 
             <div class="ventu-filter-full-text-container">
                 <div class="ventu-filter-full-text">
-                    <div id="ventu-filter-transaction-buttons">
-
-                    </div>
+                    <div id="ventu-filter-transaction-buttons"><!-- appended dynamically --></div>
                 </div>
             </div>
         </div>

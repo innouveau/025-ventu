@@ -66,6 +66,7 @@
   margin-bottom: 12px;
   cursor: pointer;
   position: relative;
+  text-transform: capitalize;
 }
 #ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button:after {
   position: absolute;

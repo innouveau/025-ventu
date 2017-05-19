@@ -15,6 +15,7 @@
 <script src="js/shared/modals.js"></script>
 <script src="js/shared/modules.js"></script>
 <script src="js/shared/buttons.js"></script>
+<script src="js/shared/filter-content.js"></script>
 <script src="js/shared/modules/_base-files/_Slider.js"></script>
 <script src="js/shared/modules/ventu-dialog/Dialog.js"></script>
 <script src="js/shared/modules/ventu-search/Search.js"></script>
