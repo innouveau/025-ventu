@@ -1,0 +1,37 @@
+#ventu-stack {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  perspective-origin: 100% 100%;
+  -webkit-perspective-origin: 100% 100%;
+  perspective: 5000px;
+  -webkit-perspective: 5000px;
+}
+#ventu-stack .ventu-card-shade {
+  position: absolute;
+  display: none;
+  right: 0;
+  width: 500px;
+  height: 400px;
+  transition: all 0.5s ease;
+  background-image: url('img/shade.png');
+  background-color: transparent;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#ventu-stack .ventu-card-shade.no-transition {
+  transition: none;
+}
+#ventu-stack .ventu-card-shade.slow-transition {
+  transition: all 2s ease;
+}
+.ventu-card-float {
+  animation: float 3s 1;
+  -webkit-animation: float 3s 1;
+  transition: none!important;
+}
+.ventu-card-shade-float {
+  animation: float-shade 3s 1;
+  -webkit-animation: float-shade 3s 1;
+  transition: none!important;
+}

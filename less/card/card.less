@@ -1,0 +1,89 @@
+@import '../mixins';
+
+.ventu-card {
+    position: relative;
+    background: #fff;
+    width: 320px;
+    height: 460px;
+    cursor: default;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+
+    .ventu-card-image {
+        width: 100%;
+        height: 200px;
+        transition: opacity 2s;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+    }
+
+    .ventu-card-text {
+        width: 100%;
+        height: ~'calc(100% - 251px)';
+        font-size: 13px;
+        line-height: 18px;
+
+        .ventu-card-header {
+            padding: 12px;
+
+            h4 {
+                font-size: 14px;
+                line-height: 1.25;
+                margin: 0;
+                color: @ventu-color-secundary;
+            }
+
+            h3 {
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.25;
+                margin: 8px 0 0;
+                color: @ventu-color-secundary;
+            }
+        }
+
+        .ventu-features {
+            padding: 12px;
+        }
+    }
+
+    .ventu-card-buttons {
+        border-top: 1px solid @ventu-main-grey-light;
+        height: 51px;
+        color: @ventu-black;
+        font-family: ProximaNova;
+        font-size: 12px;
+
+        .ventu-card-button-container {
+            width: 50%;
+            float: left;
+            cursor: pointer;
+            height: 100%;
+            overflow: hidden;
+            text-decoration: none;
+
+            &.ventu-card-button-container--full {
+                width: 100%;
+            }
+
+            .ventu-card-button {
+                width: 50px;
+                height: 50px;
+                padding: 9px;
+                display: inline-block;
+            }
+
+            .ventu-card-button-label {
+                display: inline-block;
+                vertical-align: top;
+                padding-top: 16px;
+            }
+
+            &:not(:last-child) {
+                border-right: 1px solid @ventu-main-grey-light;
+            }
+        }
+    }
+}
+
+

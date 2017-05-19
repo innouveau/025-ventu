@@ -1,0 +1,8 @@
+.ventu-card.ventu-card--grid {
+  height: auto;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.ventu-card.ventu-card--grid .ventu-card-text {
+  height: auto;
+}

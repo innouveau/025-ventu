@@ -1,0 +1,33 @@
+.ventu-card.ventu-card--float {
+  width: 100%;
+}
+.ventu-card.ventu-card--float .ventu-card-image {
+  width: 320px;
+  float: left;
+}
+.ventu-card.ventu-card--float .ventu-card-text {
+  float: right;
+  width: calc(100% - 320px);
+}
+.ventu-card.ventu-card--float .ventu-card-buttons {
+  width: 320px;
+  clear: both;
+  border-right: 1px solid #ededec;
+}
+@media (max-width: 767px) {
+  .ventu-card.ventu-card--float {
+    width: 100%;
+  }
+  .ventu-card.ventu-card--float .ventu-card-image {
+    width: 100%;
+    float: none;
+  }
+  .ventu-card.ventu-card--float .ventu-card-text {
+    float: none;
+    width: 100%;
+  }
+  .ventu-card.ventu-card--float .ventu-card-buttons {
+    width: 100%;
+    border-right: 0;
+  }
+}

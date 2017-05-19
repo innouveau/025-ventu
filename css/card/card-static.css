@@ -1,0 +1,6 @@
+@media (max-width: 767px) {
+  .ventu-card.ventu-card--static {
+    width: 320px;
+    height: 360px;
+  }
+}
