@@ -111,8 +111,9 @@ Dialog.prototype.createTypeSlide = function(body) {
     var container;
 
     container =  $('<div class="ventu-slider-slide-buttons-container"></div>');
-    for (var i = 0, l = filterContent.typesMain.length; i < l; i++) {
-        container.append(this.createTypeButton(filterContent.typesMain[i]));
+    for (var i = 0, l = filterContent.secondaryUsage.length; i < l; i++) {
+        var type = filterContent.primaryUsageLibrary[filterContent.secondaryUsage[i]];
+        container.append(this.createTypeButton(type));
     }
 
     body.append(container);
@@ -188,8 +189,9 @@ Dialog.prototype.createAreaSlide = function(body) {
 Dialog.prototype.createTransactionSlide = function(body) {
     var container;
     container =  $('<div class="ventu-slider-slide-buttons-container"></div>');
-    for (var i = 0, l = filterContent.transactions.length; i < l; i++) {
-        container.append(this.createTransactionButton(filterContent.transactions[i]));
+    for (var i = 0, l = filterContent.objectType.length; i < l; i++) {
+        var transaction = filterContent.objectTypeLibrary[filterContent.objectType[i]];
+        container.append(this.createTransactionButton(transaction));
     }
     body.append(container);
     // make reusable selection
@@ -212,9 +214,9 @@ Dialog.prototype.createEndSlide = function(body) {
 Dialog.prototype.createTypeButton = function(type) {
     var self, button, icon, label;
     self = this;
-    button = $('<div class="ventu-slider-type-button" type="' + type + '"></div>');
-    icon = $('<div class="ventu-slider-type-button-icon"><img src="img/dialog/types/' + type.toLowerCase() + '.svg"></div>');
-    label = $('<div class="ventu-slider-type-button-label">' + type + '</div>');
+    button = $('<div class="ventu-slider-type-button" type="' + type.id + '"></div>');
+    icon = $('<div class="ventu-slider-type-button-icon"><img src="img/icons/types/' + type.slug + '.svg"></div>');
+    label = $('<div class="ventu-slider-type-button-label">' + type.translation + '</div>');
     button.append(icon);
     button.append(label);
     button.click(function(){
@@ -250,7 +252,7 @@ Dialog.prototype.selectLocation = function(obj) {
 Dialog.prototype.createTransactionButton = function(transaction) {
     var self, button;
     self = this;
-    button = $('<div class="ventu-slider-transaction-button" transaction="' + transaction + '">' + transaction + '</div>');
+    button = $('<div class="ventu-slider-transaction-button" transaction="' + transaction.id + '">' + transaction.translation + '</div>');
     button.click(function(){
         $(this).toggleClass('ventu-slider-transaction-button--active');
         self.removeHeaderSection(3);
@@ -346,7 +348,7 @@ Dialog.prototype.updateHeaderSection = function(section) {
     switch (section) {
         case 0:
             for (i = 0, l = this.query.types.length; i < l; i++) {
-                label = $('<div class="ventu-filter-label">' + this.query.types[i] + '</div>');
+                label = $('<div class="ventu-filter-label">' + filterContent.primaryUsageLibrary[this.query.types[i]].translation + '</div>');
                 container.append(label);
                 labels.push(label);
             }
@@ -392,7 +394,7 @@ Dialog.prototype.updateHeaderSection = function(section) {
             break;
         case 3:
             for (i = 0, l = this.query.transactions.length; i < l; i++) {
-                label = $('<div class="ventu-filter-label">' + this.query.transactions[i] + '</div>');
+                label = $('<div class="ventu-filter-label">' + filterContent.objectTypeLibrary[this.query.transactions[i]].translation + '</div>');
                 container.append(label);
                 labels.push(label);
             }
