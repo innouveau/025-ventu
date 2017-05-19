@@ -39,6 +39,7 @@ function setSearchOpeners() {
 }
 
 function setSearchOpenerInNavbar(searchOpener) {
+    console.log("!");
     var logoLarge, logoSmall, logoSrc, img;
     logoLarge = $('.ventu-identity .hidden-xs');
     logoSmall = $('.ventu-identity .visible-xs');
@@ -55,6 +56,8 @@ function setSearchOpenerInNavbar(searchOpener) {
         var remainingSpace = Math.floor($('body').innerWidth());
         remainingSpace -= Math.ceil($('.navbar-brand').outerWidth());
         remainingSpace -=  Math.ceil($('#navbar').outerWidth());
+        remainingSpace -= 0.5;
+
         searchOpener.parent().css('width', remainingSpace);
     };
     img.src = logoSrc;
