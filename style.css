@@ -748,6 +748,8 @@ body.ventu-application #ventu-application-container #ventu-filters.ventu-filters
   margin-bottom: 12px;
   cursor: pointer;
   position: relative;
+}
+#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button::first-letter {
   text-transform: capitalize;
 }
 #ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button:after {
@@ -1569,6 +1571,8 @@ img.projectCarousel {
   margin: 0 4px 4px 0;
   cursor: default;
   display: inline-block;
+}
+.ventu-filter-label::first-letter {
   text-transform: capitalize;
 }
 #breadcrumb {
@@ -1714,6 +1718,8 @@ section.section--small-padding .divider {
   padding: 6px;
   height: 30px;
   display: inline-block;
+}
+#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button .ventu-slider-type-button-label::first-letter {
   text-transform: capitalize;
 }
 #ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button:hover .ventu-slider-type-button-label {
@@ -1780,6 +1786,8 @@ section.section--small-padding .divider {
   background: #fff;
   border-right: 1px solid #ededec;
   color: #03256b;
+}
+#ventu-slider-slide-transactions .ventu-slider-slide-body .ventu-slider-transaction-button::first-letter {
   text-transform: capitalize;
 }
 #ventu-slider-slide-transactions .ventu-slider-slide-body .ventu-slider-transaction-button:last-child {

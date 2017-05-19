@@ -7,6 +7,8 @@ function Filter(searchQuery) {
         types: $('#ventu-filter-types .ventu-filter-label-container'),
         areaMin: $('#ventu-filter-area-min'),
         areaMax: $('#ventu-filter-area-max'),
+        areaMinInput: $('#ventu-filter-area-min-input'),
+        areaMaxInput: $('#ventu-filter-area-max-input'),
         transaction: $('#ventu-filter-transaction .ventu-filter-label-container'),
         typesButtons: $('#ventu-filter-types-buttons'),
         transactionButtons: $('#ventu-filter-transaction-buttons')
@@ -18,7 +20,6 @@ function Filter(searchQuery) {
 //
 
 Filter.prototype.execute = function() {
-    console.log(this.query);
     window.ventuApi.querySearch(this.query);
 };
 
@@ -27,6 +28,7 @@ Filter.prototype.execute = function() {
 
 Filter.prototype.createOptions = function() {
     this.createTypeOptions();
+    this.createAreaOptions();
     this.createTransactionOptions();
 };
 
@@ -70,6 +72,33 @@ Filter.prototype.createTransactionOptions = function() {
     }
 };
 
+Filter.prototype.createAreaOptions = function() {
+    var self = this;
+    this.element.areaMinInput.val(this.query.area[0]);
+    this.element.areaMaxInput.val(this.query.area[1]);
+
+    this.element.areaMinInput.keyup(function(){
+        keyup(this, 0);
+    });
+
+    this.element.areaMaxInput.keyup(function(){
+        keyup(this, 1);
+    });
+
+    function keyup(el, i) {
+        var san = sanitizeAreaInput($(el));
+        if (san.valid) {
+            self.query.area[0] = san.value;
+        } else {
+            self.query.area[0] = null;
+            $(el).addClass('error');
+        }
+        self.updateQueryArea();
+    }
+};
+
+
+
 // update queries
 
 Filter.prototype.updateQueryTypes = function() {
@@ -81,6 +110,17 @@ Filter.prototype.updateQueryTypes = function() {
     });
     this.query.types = types;
     this.updateTypes();
+    this.execute();
+};
+
+Filter.prototype.updateQueryArea = function() {
+    var min = this.element.areaMinInput.val(),
+        max = this.element.areaMaxInput.val();
+    this.element.areaMin.html(min + '  m²');
+    this.element.areaMax.html(max + '  m²');
+    this.query.area[0] = min;
+    this.query.area[1] = max;
+    this.updateTransaction();
     this.execute();
 };
 

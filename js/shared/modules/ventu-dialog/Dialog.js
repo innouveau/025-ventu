@@ -171,7 +171,7 @@ Dialog.prototype.createAreaSlide = function(body) {
     });
 
     function keyup(el, i) {
-        var san = sanitize($(el));
+        var san = sanitizeAreaInput($(el));
         if (san.valid) {
             self.query.area[i] = san.value;
             pickerset['picker' + i].addClass('ventu-slider-area-picker--picked');
@@ -182,25 +182,6 @@ Dialog.prototype.createAreaSlide = function(body) {
         self.status.updated[2] = true;
         self.updateButtons();
         self.removeHeaderSection(2);
-    }
-
-    function sanitize(el) {
-        // @walstra heb jij een mening of we nog meer moeten checken hier, gaat over
-        // de oppervlakte waarden
-        var value = el.val();
-        if (!isNaN(value) && value.length > 0) {
-            el.parent().removeClass('ventu-slider-area-picker--error');
-            return {
-                value: value,
-                valid: true
-            }
-        } else {
-            el.parent().addClass('ventu-slider-area-picker--error');
-            return {
-                value: null,
-                valid: false
-            }
-        }
     }
 };
 

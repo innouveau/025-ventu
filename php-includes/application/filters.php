@@ -83,13 +83,13 @@
                     van
                     <div class="ventu-filter-area-box">
                         min
-                        <input id="ventu-filter-are-min-input">
+                        <input id="ventu-filter-area-min-input">
                         m²
                     </div>
                     tot
                     <div class="ventu-filter-area-box">
                         max
-                        <input id="ventu-filter-are-max-input">
+                        <input id="ventu-filter-area-max-input">
                         m²
                     </div>
                 </div>
