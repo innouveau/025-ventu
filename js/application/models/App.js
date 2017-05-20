@@ -8,12 +8,11 @@ function App() {
         bottomBar: $('#ventu-bottom-bar')
     };
     this.objects = [];
-    this.init();
 }
 
 App.prototype.init = function() {
-    this.map = new Map();
     this.config = new Config();
+    this.map = new Map();
     this.user = new User();
 };
 

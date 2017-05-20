@@ -17,8 +17,6 @@
 <script src="js/application/models/Map-mobile.js"></script>
 <script src="js/application/models/Marker.js"></script>
 <script src="js/application/models/Building.js"></script>
-<script src="js/application/models/Data-service.js"></script>
-<script src="js/application/models/Data-faker.js"></script>
 <script src="js/application/models/Config.js"></script>
 <script src="js/application/models/Guide.js"></script>
 <script src="js/application/models/List.js"></script>

@@ -2076,6 +2076,9 @@ section.section--small-padding .divider {
   box-shadow: none;
   position: absolute;
 }
+.ventu-card.ventu-card--dynamic.no-transition {
+  transition: none;
+}
 .ventu-card.ventu-card--grid {
   height: auto;
   width: 100%;

@@ -88,7 +88,7 @@ Card.prototype._create = function () {
     if (this.index === 0) {
         //shade.css('opacity', 1);
     }
-    //card.hide();
+    card.hide();
     //shade.hide();
     this.element = card;
     this.shade = shade;
@@ -122,7 +122,7 @@ Card.prototype.resetAnimation = function (element) {
             ripple[0].style.animation = '';
         }, 10);
     }
-}
+};
 
 Card.prototype.launch = function (type) {
     var self = this,
@@ -141,7 +141,6 @@ Card.prototype.launch = function (type) {
     if (window.ventu.config.device.type > 0) {
         this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
     }
-
 
     switch (type) {
         case 'cool':
@@ -298,9 +297,10 @@ Array.prototype.move = function (pos1, pos2) {
         // put element from position 1 to destination
         this[pos2] = tmp;
     }
-}
+};
 
 Card.prototype._moveToStackPosition = function () {
+    console.log('move');
     var thisTransform = [0, 0, 0, 0, 0, 0, 1, 1];
     this._setTransform(this.element, thisTransform, false);
 
@@ -661,7 +661,7 @@ Card.prototype._addToList = function (type) {
     window.ventu.user.uses('rating');
 
     setTimeout(function () {
-        window.ventu.list[type].add(self);
+        //window.ventu.list[type].add(self);
         if (next && next.status.event !== 'tolist') {
             next._setCurrent();
         }

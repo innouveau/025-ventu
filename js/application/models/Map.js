@@ -22,19 +22,27 @@ function Map() {
     this.lastIndex = 0;
     this.markerClusterer = null;
     this.mapHasBeenFitToBounds = false;
+
     this.init();
 }
 
 Map.prototype.init = function() {
-    var myOptions = {
-        zoom: 8,
-        center: new google.maps.LatLng(51.7,4.6),
+    var mapContainer,
+        myOptions = {
+        zoom: 9,
+        center: new google.maps.LatLng(52, 5),
         sensor: 'true',
         draggable: true,
-        streetViewControl: false,
-        mapTypeControl: false
+        streetViewControl: false
     };
-    this.map = new google.maps.Map(document.getElementById("ventu-canvas"), myOptions);
+
+    mapContainer = document.getElementById("ventu-canvas");
+    if (mapContainer) {
+        this.map = new google.maps.Map(mapContainer, myOptions);
+        window.ventu.config.isMapPresent = true;
+    } else {
+        window.ventu.config.isMapPresent = false;
+    }
 };
 
 
@@ -61,7 +69,7 @@ Map.prototype.draw = function(result, leaveshape) {
             setTimeout(function () {
                 // init launch cascade
                 self.currentCard = self.cards[0];
-                //self.cards[0].launch();
+                self.cards[0].launch();
             }, 1000);
         }
     }
@@ -80,13 +88,12 @@ Map.prototype._cleanUp = function(leaveshape) {
 // poly
 
 Map.prototype._drawShape = function(data) {
-    console.log(data.shape);
-    var self = this;
+    var self = this,
+        shape;
     if (data.shape) {
         switch (data.shape.type) {
             case 'poly':
-
-                if (data.shape.data.points != null && data.shape.data.points.length > 0) {
+                if (data.shape.data.points !== null && data.shape.data.points.length > 0) {
                     $.each(data.shape.data.points, function (index, points) {
                         var shape = new google.maps.Polygon({
                             paths: points,
@@ -98,13 +105,12 @@ Map.prototype._drawShape = function(data) {
                         });
                         shape.setMap(self.map);
                         self.shapes.push(shape);
-                        //self.setPolygonEvents(shape);
                     });
                 }
 
                 break;
             case 'circle':
-                var shape = new google.maps.Circle({
+                shape = new google.maps.Circle({
                     strokeColor: self.settings.shape.strokeColor,
                     strokeOpacity: self.settings.shape.strokeOpacity,
                     strokeWeight: self.settings.shape.strokeWeight,
@@ -121,7 +127,7 @@ Map.prototype._drawShape = function(data) {
 
                 break;
             case 'rect':
-                var shape = new google.maps.Rectangle({
+                shape = new google.maps.Rectangle({
                     strokeColor: self.settings.shape.strokeColor,
                     strokeOpacity: self.settings.shape.strokeOpacity,
                     strokeWeight: self.settings.shape.strokeWeight,
@@ -267,7 +273,7 @@ Map.prototype._showMarkers = function () {
         height: 25,
         width: 25,
         textColor: '#ffffff',
-        textSize: 10,
+        textSize: 10
     }];
 
 

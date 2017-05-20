@@ -25,6 +25,7 @@ var searchQuery = {
 $(window).ready(function() {
     window.filter = new Filter(searchQuery);
     window.ventu = new App();
+    ventu.init();
     window.ventuApi = new VentuApi();
     window.SearchUtil = new SearchUtil();
 

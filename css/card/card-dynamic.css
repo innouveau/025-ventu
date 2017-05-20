@@ -11,3 +11,6 @@
   box-shadow: none;
   position: absolute;
 }
+.ventu-card.ventu-card--dynamic.no-transition {
+  transition: none;
+}
