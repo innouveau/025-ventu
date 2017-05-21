@@ -2,3 +2,10 @@
 
 
 window.showGoogleMapObjects;
+
+
+var settings = {
+    card: {
+        shade: true
+    }
+};

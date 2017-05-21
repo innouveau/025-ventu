@@ -1,4 +1,5 @@
 function Card(marker, building, index) {
+    this.type = 'card';
     this.marker = marker;
     this.building = building;
     this.index = index;
@@ -7,6 +8,7 @@ function Card(marker, building, index) {
 
     this.element = null;
     this.shade = null;
+
     this.hammer = null;
     this.buttons = {
         love: null,
@@ -19,6 +21,9 @@ function Card(marker, building, index) {
     this._addListener();
 }
 
+Card.prototype = Object.create(_Element.prototype);
+
+
 Card.prototype._create = function () {
     var self = this,
         card,
@@ -26,8 +31,7 @@ Card.prototype._create = function () {
         cardText,
         cardHead,
         cardFeatures,
-        cardButtons,
-        shade;
+        cardButtons;
 
     // TODO @walstra kun je deze even goed verweven, ook in mijn repo aub. Ik heb ook een nep SearchUtil, die gewoon teruggeeft wat er in komt.
     if (SearchUtil) {
@@ -58,7 +62,9 @@ Card.prototype._create = function () {
     card.append(cardText);
     card.append(cardButtons);
 
-    shade = $('<div class="ventu-card-shade"></div>');
+    if (settings.card.shade) {
+        this.shade = new Shade(this, card);
+    }
 
     // bind actions to buttons
     (function (self) {
@@ -80,17 +86,11 @@ Card.prototype._create = function () {
         });
     })(self);
 
-    if (this.index === 0) {
-        //shade.css('opacity', 1);
-    }
     card.hide();
-    shade.hide();
     this.element = card;
-    this.shade = shade;
 
-    window.ventu.domElements.stack.append(shade);
-    window.ventu.domElements.stack.append(card);
-    // if (window.ventu.config.device.type > 0) {
+    window.ventu.domElements.stack.append(this.element);
+    // if (this.shade) {
     //     card.insertAfter($('.ventu-bottom-bar-sub-hate'));
     //     shade.insertAfter($('.ventu-bottom-bar-sub-hate'));
     // } else {
@@ -132,10 +132,10 @@ Card.prototype.launch = function (type) {
     }
     thisTransform = type === 'cool' ? this.marker.getTransform() : [0, 0, 0, 0, 0, 0, 1, 1];
     // start position
-    this._setTransform(this.element, thisTransform, false);
+    this.setTransform(thisTransform, false);
 
-    if (window.ventu.config.device.type > 0) {
-        this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
+    if (this.shade) {
+        this.shade.project(thisTransform, false);
     }
 
     switch (type) {
@@ -175,17 +175,11 @@ Card.prototype._coolLaunch = function () {
         $(this).removeClass('no-transition')
     });
 
-    if (window.ventu.config.device.type > 0) {
-        this.shade.addClass('no-transition').fadeIn(500, function () {
-            $(this).removeClass('no-transition')
-        });
+    if (this.shade) {
+        this.shade.element.fadeIn();
     }
 
     this.element.addClass('slow-transition');
-
-    if (window.ventu.config.device.type > 0) {
-        this.shade.addClass('slow-transition');
-    }
 
     // launch
     setTimeout(function () {
@@ -196,10 +190,6 @@ Card.prototype._coolLaunch = function () {
     // launch next
     setTimeout(function () {
         self.element.removeClass('slow-transition');
-
-        if (window.ventu.config.device.type > 0) {
-            self.shade.removeClass('slow-transition');
-        }
 
         next = self._launchNext();
         if (!next) {
@@ -242,15 +232,15 @@ Card.prototype.swap = function () {
         topCard._unsetCurrent(self.position.rotate, self.position.zIndex, originalX, self.position.shiftY, self.position.shadeZindex);
         self._setCurrent();
 
-        if (window.ventu.config.device.type > 0) {
-            window.ventu.domElements.stack.append(self.shade);
+        if (this.shade) {
+            window.ventu.domElements.stack.append(self.shade.element);
         }
         window.ventu.domElements.stack.append(self.element);
 
         self.marker.parent.cards.move(self.index, 0);
 
         $(self.marker.parent.cards).each(function (index, card) {
-            if (card != null) {
+            if (card !== null) {
                 card.index = index;
                 card.position = card._getPosition(index);
                 card._moveToStackPosition();
@@ -291,33 +281,27 @@ Array.prototype.move = function (pos1, pos2) {
 
 Card.prototype._moveToStackPosition = function () {
     var thisTransform = [0, 0, 0, 0, 0, 0, 1, 1];
-    this._setTransform(this.element, thisTransform, false);
+    this.setTransform(thisTransform, false);
 
-    if (window.ventu.config.device.type > 0) {
-        this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
+    if (this.shade) {
+        this.shade.project(thisTransform, false);
+        this.shade.fadeIn();
     }
-
-    if (window.ventu.config.device.type > 0) {
-        this.shade.addClass('no-transition').fadeIn(wait, function () {
-            $(this).removeClass('no-transition')
-        });
-    }
-
 };
 
-// todo compare this function with above. Double?
+// todo rename this one and above to clear distinction
 Card.prototype._moveToOrigin = function (unrotate) {
     var transform = [0, 0, 0, 0, 0, 0, 1, 1];
     if (unrotate) {
         this.position.rotate = 0;
     }
     this.element.removeClass('no-transition');
-    if (window.ventu.config.device.type > 0) {
-        this.shade.removeClass('no-transition');
+    if (this.shade) {
+        this.shade.element.removeClass('no-transition');
     }
-    this._setTransform(this.element, transform, false);
-    if (window.ventu.config.device.type > 0) {
-        this._setTransform(this.shade, this._projectShade(transform, true), false);
+    this.setTransform(transform, false);
+    if (this.shade) {
+        this.shade.project(transform, true);
     }
     this._releaseContainers();
     this.element.addClass('ventu-card--current');
@@ -327,8 +311,8 @@ Card.prototype._moveToOrigin = function (unrotate) {
 Card.prototype._moveFloat = function () {
     var self = this;
     this.element.addClass('ventu-card-float');
-    if (window.ventu.config.device.type > 0) {
-        this.shade.addClass('ventu-card-shade-float');
+    if (this.shade) {
+        this.shade.element.addClass('ventu-card-shade-float');
     }
     setTimeout(function () {
         self._clearfloat();
@@ -343,12 +327,12 @@ Card.prototype._moveDrag = function (dx, dy) {
         rotZ = dx / 20,
         transform = [x, y, 0, rotX, rotY, rotZ, 1, 1];
     this.element.addClass('no-transition');
-    if (window.ventu.config.device.type > 0) {
-        this.shade.addClass('no-transition');
+    if (this.shade) {
+        this.shade.element.addClass('no-transition');
     }
-    this._setTransform(this.element, transform, false);
-    if (window.ventu.config.device.type > 0) {
-        this._setTransform(this.shade, this._projectShade(transform, true), false);
+    this.setTransform(transform, false);
+    if (this.shade) {
+        this.shade.project(transform, true);
     }
 };
 
@@ -388,38 +372,6 @@ Card.prototype._swipeHint = function (dx, dy) {
 
 // helpers
 
-Card.prototype._projectShade = function (transform, rotate) {
-    var rotZ,
-        scaleX,
-        scaleY,
-        depthFactor = 0.8;
-    if (transform[6] < 0.8) {
-        // reduce x shift for scaled (= closer to the ground)
-        depthFactor = 1 - (transform[6] / 10);
-
-    }
-
-
-    if (rotate) {
-        rotZ = 0.5 * transform[5];
-        scaleX = (1.2 - Math.abs(transform[0] / 1000));
-        scaleY = (1.2 - Math.abs(transform[1] / 1000));
-    } else {
-        rotZ = 0;
-        scaleX = transform[6];
-        scaleY = transform[7];
-    }
-    return [
-        depthFactor * transform[0] - 50,
-        depthFactor * transform[1] + 50,
-        this.position.shadeZindex,
-        0,
-        0,
-        rotZ,
-        scaleX,
-        scaleY
-    ];
-};
 
 
 
@@ -470,8 +422,8 @@ Card.prototype._setCurrent = function () {
     this.position.shiftX = 0;
     this.position.shiftY = 0;
 
-    if (window.ventu.config.device.type > 0) {
-        this.shade.fadeIn(100);
+    if (this.shade) {
+        this.shade.element.fadeIn(100);
     }
     if (window.ventu.config.isMapPresent) {
         this.marker.select();
@@ -492,17 +444,7 @@ Card.prototype._unsetCurrent = function (rotate, zIndex, shiftX, shiftY, shadeZi
     }
 };
 
-Card.prototype._setTransform = function (element, trnsf, netto) {
-    var transform = this._getTransform(element, trnsf, netto);
-    this.transform = transform;
-    element.css({
-        "webkitTransform": transform,
-        "MozTransform": transform,
-        "msTransform": transform,
-        "OTransform": transform,
-        "transform": transform
-    });
-};
+
 
 
 
@@ -515,12 +457,10 @@ Card.prototype.getName = function () {
 
 Card.prototype._getPosition = function (index) {
     var gap = index === 0 ? 0 : window.ventu.config.card.zGap,
-        zIndex = window.ventu.config.card.sealevel + (index * -window.ventu.config.card.zOffset) - gap,
-        shadeZindex = index === 0 ? window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2 : zIndex - window.ventu.config.card.zOffset;
+        zIndex = window.ventu.config.card.sealevel + (index * -window.ventu.config.card.zOffset) - gap;
     return {
         rotate: index === 0 ? 0 : window.ventu.config.card.rotation * Math.random() - (window.ventu.config.card.rotation / 2),
         zIndex: zIndex,
-        shadeZindex: shadeZindex,
         shiftX: window.ventu.config.device.type === 0 ? 0 : index * window.ventu.config.card.shift, // no shfits for mobile, only rotate
         shiftY: window.ventu.config.device.type === 0 ? 0 : index * window.ventu.config.card.shift
     }
@@ -539,25 +479,7 @@ Card.prototype._getIndex = function () {
     return window.ventu.map.cards.indexOf(this);
 };
 
-Card.prototype._getTransform = function (element, transform, netto) {
-    var rotate = this.position.rotate,
-        shiftX = this.position.shiftX,
-        shiftY = this.position.shiftY,
-        z = element === this.element ? this.position.zIndex : this.position.shadeZindex;
-    if (netto) {
-        rotate = 0;
-        shiftX = 0;
-        shiftY = 0;
-        z = window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2;
-    }
-    return 'translateX(' + (transform[0] + shiftX) + 'px) ' +
-        'translateY(' + (transform[1] + shiftY) + 'px) ' +
-        'translateZ(' + z + 'px) ' +
-        'rotateX(' + transform[3] + 'deg) ' +
-        'rotateY(' + transform[4] + 'deg) ' +
-        'rotateZ(' + (transform[5] + rotate) + 'deg) ' +
-        'scale(' + transform[6] + ',' + transform[7] + ')';
-};
+
 
 
 
@@ -570,8 +492,8 @@ Card.prototype._getTransform = function (element, transform, netto) {
 
 Card.prototype._clearfloat = function () {
     this.element.removeClass('ventu-card-float');
-    if (window.ventu.config.device.type > 0) {
-        this.shade.removeClass('ventu-card-shade-float');
+    if (this.shade) {
+        this.shade.element.removeClass('ventu-card-shade-float');
     }
 };
 
@@ -597,8 +519,8 @@ Card.prototype.destroy = function (removeFormArray) {
     }
 
     this.element.remove();
-    if (window.ventu.config.device.type > 0) {
-        this.shade.remove();
+    if (this.shade) {
+        this.shade.element.remove();
     }
 };
 
@@ -620,12 +542,12 @@ Card.prototype._addToList = function (type) {
         window.ventu.list[other].element.main.removeClass('selected');
     }
     this.element.removeClass('no-transition');
-    if (window.ventu.config.device.type > 0) {
-        this.shade.removeClass('no-transition');
+    if (this.shade) {
+        this.shade.element.removeClass('no-transition');
     }
-    this._setTransform(this.element, transform, true);
-    if (window.ventu.config.device.type > 0) {
-        this._setTransform(this.shade, transform, true);
+    this.setTransform(transform, true);
+    if (this.shade) {
+        this.shade.project(transform, true);
     }
 
     if (window.ventu.config.isCatcherPresent) {
@@ -633,8 +555,8 @@ Card.prototype._addToList = function (type) {
         this.element.find('.ventu-card-buttons').fadeOut(500);
     } else {
         this.element.fadeOut(400);
-        if (window.ventu.config.device.type > 0) {
-            this.shade.fadeOut(400);
+        if (this.shade) {
+            this.shade.element.fadeOut(400);
         }
     }
 
