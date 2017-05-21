@@ -43,7 +43,7 @@ body.ventu-application #ventu-application-container #ventu-filters.ventu-filters
 body.ventu-application #ventu-application-container #ventu-stack {
   position: absolute;
   right: 50px;
-  top: 20px;
+  top: 50px;
 }
 body.ventu-application #ventu-application-container #ventu-bottom-bar {
   position: absolute;

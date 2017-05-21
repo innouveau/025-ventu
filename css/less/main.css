@@ -683,7 +683,7 @@ body.ventu-application #ventu-application-container #ventu-filters.ventu-filters
 body.ventu-application #ventu-application-container #ventu-stack {
   position: absolute;
   right: 50px;
-  top: 20px;
+  top: 50px;
 }
 body.ventu-application #ventu-application-container #ventu-bottom-bar {
   position: absolute;
@@ -2193,8 +2193,6 @@ section.section--small-padding .divider {
   -webkit-transform-style: preserve-3d;
   perspective-origin: 100% 100%;
   -webkit-perspective-origin: 100% 100%;
-  perspective: 5000px;
-  -webkit-perspective: 5000px;
 }
 .ventu-card-float {
   animation: float 3s 1;

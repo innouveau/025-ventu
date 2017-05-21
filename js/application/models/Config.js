@@ -227,19 +227,19 @@ Config.prototype._getOS = function() {
 Config.prototype._getCardConfig = function() {
     if (this.browser.browserName === 'Safari' && this.device.type > 0) {
         return {
-            shift: 4,
+            shift: 0,
             sealevel: 500,
             zGap: 200,
             zOffset: 10,
-            rotation: 25
+            rotation: 15
         };
     } else {
         return {
-            shift: 4,
+            shift: 0,
             sealevel: 0, // z position of top card
             zGap: 500, // if you change this, change @keyframes float-shade in card.less as well corresponding
             zOffset: 1, // z offset inside stack
-            rotation: 25
+            rotation: 15
         };
     }
 };
