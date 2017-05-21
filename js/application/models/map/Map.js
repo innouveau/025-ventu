@@ -269,7 +269,7 @@ Map.prototype._showMarkers = function () {
     });
 
     var styles = [{
-        url: '/img/markerclusterer/m1.png',
+        url: 'img/markers/markerclusterer/m1.png',
         height: 25,
         width: 25,
         textColor: '#ffffff',
@@ -279,7 +279,7 @@ Map.prototype._showMarkers = function () {
 
     if (this.markerClusterer == null) {
         this.markerClusterer = new MarkerClusterer(this.map, internalMarkers, {
-            imagePath: '/img/markerclusterer/m',
+            imagePath: '/img/markers/markerclusterer/m',
             gridSize: 30,
             styles: styles
         });

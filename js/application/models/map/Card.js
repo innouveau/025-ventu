@@ -84,11 +84,12 @@ Card.prototype._create = function () {
         //shade.css('opacity', 1);
     }
     card.hide();
-    //shade.hide();
+    shade.hide();
     this.element = card;
     this.shade = shade;
 
-    window.ventu.domElements.stack.prepend(card);
+    window.ventu.domElements.stack.append(shade);
+    window.ventu.domElements.stack.append(card);
     // if (window.ventu.config.device.type > 0) {
     //     card.insertAfter($('.ventu-bottom-bar-sub-hate'));
     //     shade.insertAfter($('.ventu-bottom-bar-sub-hate'));
@@ -162,12 +163,6 @@ Card.prototype._softLaunch = function () {
         $(this).removeClass('no-transition')
     });
 
-    if (window.ventu.config.device.type > 0) {
-        this.shade.addClass('no-transition').fadeIn(wait, function () {
-            $(this).removeClass('no-transition')
-        });
-    }
-
     setTimeout(function () {
         self._launchNext();
     }, (0.5 * wait));
@@ -214,7 +209,7 @@ Card.prototype._coolLaunch = function () {
     }, 150);
 
     // update user
-    //window.ventu.user.didSee('cardLaunch');
+    window.ventu.user.didSee('cardLaunch');
 };
 
 Card.prototype._launchNext = function () {
@@ -295,13 +290,19 @@ Array.prototype.move = function (pos1, pos2) {
 };
 
 Card.prototype._moveToStackPosition = function () {
-    console.log('move');
     var thisTransform = [0, 0, 0, 0, 0, 0, 1, 1];
     this._setTransform(this.element, thisTransform, false);
 
     if (window.ventu.config.device.type > 0) {
         this._setTransform(this.shade, this._projectShade(thisTransform, false), false);
     }
+
+    if (window.ventu.config.device.type > 0) {
+        this.shade.addClass('no-transition').fadeIn(wait, function () {
+            $(this).removeClass('no-transition')
+        });
+    }
+
 };
 
 // todo compare this function with above. Double?
@@ -319,6 +320,7 @@ Card.prototype._moveToOrigin = function (unrotate) {
         this._setTransform(this.shade, this._projectShade(transform, true), false);
     }
     this._releaseContainers();
+    this.element.addClass('ventu-card--current');
 };
 
 
@@ -408,7 +410,7 @@ Card.prototype._projectShade = function (transform, rotate) {
         scaleY = transform[7];
     }
     return [
-        depthFactor * transform[0] + 50,
+        depthFactor * transform[0] - 50,
         depthFactor * transform[1] + 50,
         this.position.shadeZindex,
         0,

@@ -1,0 +1,24 @@
+.ventu-card-shade {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 0;
+    left: auto;
+    width: 500px;
+    height: 400px;
+    transition: all .5s ease;
+    background-image: url('img/card/shade.png');
+    background-color: transparent;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+
+    &.no-transition {
+        transition: none;
+    }
+
+    &.slow-transition {
+        transition: all 2s ease;
+    }
+}
