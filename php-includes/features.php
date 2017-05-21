@@ -6,7 +6,7 @@
         <li class="ventu-features-location">
             Amsterdam
         </li>
-        <li class="ventu-features-area">
+        <li class="ventu-features-metrage">
             200 m²
         </li>
         <li class="ventu-features-price">

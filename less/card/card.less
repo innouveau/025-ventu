@@ -53,6 +53,35 @@
         font-family: ProximaNova;
         font-size: 12px;
 
+        &.ventu-card-buttons-1 {
+
+            .ventu-card-button-container {
+                width: 100%;
+            }
+        }
+
+        &.ventu-card-buttons-3 {
+
+            .ventu-card-button-container {
+                width: ~'calc(100% / 3)';
+
+                .ventu-card-button {
+                    margin: 7px auto 3px auto;
+                    width: 20px;
+                    height: 20px;
+                    padding: 0;
+                    display: block;
+                }
+
+                .ventu-card-button-label {
+                    padding-top: 0;
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+
+
         .ventu-card-button-container {
             width: 50%;
             float: left;
@@ -60,10 +89,6 @@
             height: 100%;
             overflow: hidden;
             text-decoration: none;
-
-            &.ventu-card-button-container--full {
-                width: 100%;
-            }
 
             .ventu-card-button {
                 width: 50px;

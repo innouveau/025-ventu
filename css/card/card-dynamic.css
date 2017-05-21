@@ -14,3 +14,6 @@
 .ventu-card.ventu-card--dynamic.no-transition {
   transition: none;
 }
+.ventu-card.ventu-card--dynamic .ventu-card-text {
+  height: 180px;
+}

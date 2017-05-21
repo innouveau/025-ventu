@@ -28,6 +28,83 @@
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards</h4>
+                            <h3>Grid Variant - 1 button</h3>
+                        </div>
+                        <?php include('php-includes/features.php');?>
+                    </div>
+                    <div class="ventu-card-buttons ventu-card-buttons-1">
+                        <div class="ventu-card-button-container">
+                            <div class="ventu-card-button ventu-card-button--love">
+                                <div class="ventu-card-button-icon"></div>
+                            </div>
+                            <div class="ventu-card-button-label">
+                                Interessant
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="ventu-card ventu-card--static ventu-card--grid">
+                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <div class="ventu-card-header">
+                            <h4>Test Cards</h4>
+                            <h3>Grid Variant - 2 buttons</h3>
+                        </div>
+                        <?php include('php-includes/features.php');?>
+                    </div>
+                    <?php include('php-includes/card/buttons.php');?>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="ventu-card ventu-card--static ventu-card--grid">
+                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <div class="ventu-card-header">
+                            <h4>Test Cards</h4>
+                            <h3>Grid Variant - 3 buttons</h3>
+                        </div>
+                        <?php include('php-includes/features.php');?>
+                    </div>
+                    <div class="ventu-card-buttons ventu-card-buttons-3">
+                        <div class="ventu-card-button-container">
+                            <div class="ventu-card-button ventu-card-button--hate">
+                                <div class="ventu-card-button-icon"></div>
+                            </div>
+                            <div class="ventu-card-button-label">
+                                Niet interessant
+                            </div>
+                        </div>
+                        <div class="ventu-card-button-container">
+                            <div class="ventu-card-button ventu-card-button--read-more">
+                                <div class="ventu-card-button-icon"></div>
+                            </div>
+                            <div class="ventu-card-button-label">
+                                Lees meer
+                            </div>
+                        </div>
+                        <div class="ventu-card-button-container">
+                            <div class="ventu-card-button ventu-card-button--love">
+                                <div class="ventu-card-button-icon"></div>
+                            </div>
+                            <div class="ventu-card-button-label">
+                                Interessant
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="ventu-card ventu-card--static ventu-card--grid">
+                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-text">
+                        <div class="ventu-card-header">
+                            <h4>Test Cards</h4>
                             <h3>Grid Variant</h3>
                         </div>
                         <?php include('php-includes/features.php');?>
@@ -47,8 +124,8 @@
                             <h3>Grid Group Entry Variant</h3>
                         </div>
                     </div>
-                    <div class="ventu-card-buttons">
-                        <div class="ventu-card-button-container ventu-card-button-container--full">
+                    <div class="ventu-card-buttons ventu-card-buttons-1">
+                        <div class="ventu-card-button-container">
                             <div class="ventu-card-button ventu-card-button--group">
                                 <div class="ventu-card-button-icon"></div>
                             </div>

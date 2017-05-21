@@ -11,12 +11,12 @@
 <script src="js/shared/modules/ventu-filter/Filter.js"></script>
 
 <!-- ventu app -->
+<script src="js/application/models/map/Map.js"></script>
+<script src="js/application/models/map/Map-mobile.js"></script>
+<script src="js/application/models/map/Marker.js"></script>
+<script src="js/application/models/map/Building.js"></script>
+<script src="js/application/models/map/Card.js"></script>
 <script src="js/application/models/Responsive.js"></script>
-<script src="js/application/models/Card.js"></script>
-<script src="js/application/models/Map.js"></script>
-<script src="js/application/models/Map-mobile.js"></script>
-<script src="js/application/models/Marker.js"></script>
-<script src="js/application/models/Building.js"></script>
 <script src="js/application/models/Config.js"></script>
 <script src="js/application/models/Guide.js"></script>
 <script src="js/application/models/List.js"></script>

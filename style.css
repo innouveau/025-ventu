@@ -1329,7 +1329,7 @@ img.projectCarousel {
 .ventu-features ul li.ventu-features-objectusage-14:after {
   background-image: url(img/icons/types/agricultural-grey.svg);
 }
-.ventu-features ul li.ventu-features-area:after {
+.ventu-features ul li.ventu-features-metrage:after {
   background-image: url(img/icons/features/area.svg);
 }
 .ventu-features ul li.ventu-features-price:after {
@@ -2035,6 +2035,24 @@ section.section--small-padding .divider {
   font-family: ProximaNova;
   font-size: 12px;
 }
+.ventu-card .ventu-card-buttons.ventu-card-buttons-1 .ventu-card-button-container {
+  width: 100%;
+}
+.ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container {
+  width: calc(100% / 3);
+}
+.ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container .ventu-card-button {
+  margin: 7px auto 3px auto;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: block;
+}
+.ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container .ventu-card-button-label {
+  padding-top: 0;
+  display: block;
+  text-align: center;
+}
 .ventu-card .ventu-card-buttons .ventu-card-button-container {
   width: 50%;
   float: left;
@@ -2042,9 +2060,6 @@ section.section--small-padding .divider {
   height: 100%;
   overflow: hidden;
   text-decoration: none;
-}
-.ventu-card .ventu-card-buttons .ventu-card-button-container.ventu-card-button-container--full {
-  width: 100%;
 }
 .ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button {
   width: 50px;
@@ -2078,6 +2093,9 @@ section.section--small-padding .divider {
 }
 .ventu-card.ventu-card--dynamic.no-transition {
   transition: none;
+}
+.ventu-card.ventu-card--dynamic .ventu-card-text {
+  height: 180px;
 }
 .ventu-card.ventu-card--grid {
   height: auto;
@@ -2128,7 +2146,7 @@ section.section--small-padding .divider {
   background: #fff;
 }
 .ventu-card-button.ventu-card-button--love .ventu-card-button-icon {
-  background: #2ECC71;
+  background-color: #2ECC71;
   background-image: url(img/icons/buttons/love.svg);
 }
 .ventu-card-button.ventu-card-button--hate .ventu-card-button-icon {
@@ -2141,7 +2159,7 @@ section.section--small-padding .divider {
 }
 .ventu-card-button.ventu-card-button--read-more .ventu-card-button-icon {
   background-color: #FF8D00;
-  background-image: url(img/icons/buttons/read-more.svg);
+  background-image: url(img/icons/buttons/read-more-down.svg);
 }
 .ventu-card-button.ventu-card-button--group .ventu-card-button-icon {
   background-color: #83B8C6;

@@ -20,7 +20,16 @@ function Card(marker, building, index) {
 }
 
 Card.prototype._create = function () {
+    var self = this,
+        card,
+        cardImage,
+        cardText,
+        cardHead,
+        cardFeatures,
+        cardButtons,
+        shade;
 
+    // TODO @walstra kun je deze even goed verweven, ook in mijn repo aub. Ik heb ook een nep SearchUtil, die gewoon teruggeeft wat er in komt.
     if (SearchUtil) {
         $(['LeesMeer', 'Interessant', 'NietInteressant']).each(function (index, resourceName) {
             function completed(resourceValue) {
@@ -30,32 +39,18 @@ Card.prototype._create = function () {
         });
     }
 
-    var self = this,
-        content = this.building.getCardContent(),
-        card,
-        cardImage,
-        cardText,
-        cardHead,
-        cardFeatures,
-        cardButtons,
-        shade;
-
     card = $('<div class="ventu-card ventu-card--dynamic">');
-    cardImage = $('<div class="ventu-card-image" style="background-image:url(' + content.image + ')"></div>');
+    cardImage = $('<div class="ventu-card-image" style="background-image:url(' + this.building.getCardImage() + ')"></div>');
     cardText = $('<div class="ventu-card-text">');
-    cardHead = $('<div class="ventu-card-header"><h4>' + content.text.sub + '</h4><h3>' + content.text.head + '</h3></div>');
+    cardHead = $('<div class="ventu-card-header"><h4>' + this.building.getCardCity() + '</h4><h3>' + this.building.getCardAddress() + '</h3></div>');
     cardFeatures = $('<div class="ventu-features"></div>');
-        //  +
-        //  +
-        //     '<div class="ventu-card-text-content">' +
-        //         '<div class="ventu-card-text-content-half">' + content.text.list + '</div>' +
-        //         '<div class="ventu-card-text-content-half">' + content.text.address + '<a class="details" href="' + content.text.detailLinkUrl + '"><div class="ventu-card-button-icon ventu-icon ventu-icon-details"><div class="ventu-ripple"></div></div><span class="LeesMeer">Lees meer</span></a></div>' +
-        //     '</div>' +
-        // '</div>');
-    cardButtons = $('<div class="ventu-card-buttons"></div>');
+    cardFeatures.append(this.building.getCardFeatures());
+    cardButtons = $('<div class="ventu-card-buttons ventu-card-buttons-3"></div>');
     this.buttons.love = $('<div class="ventu-card-button-container"><div class="ventu-card-button ventu-card-button--love"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Interessant</div></div></div>');
+    this.buttons.readMore = $('<div class="ventu-card-button-container"><div class="ventu-card-button ventu-card-button--read-more"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Lees meer</div></div></div>');
     this.buttons.hate = $('<div class="ventu-card-button-container"><div class="ventu-card-button ventu-card-button--hate"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Niet interessant</div></div></div>');
     cardButtons.append(this.buttons.hate);
+    cardButtons.append(this.buttons.readMore);
     cardButtons.append(this.buttons.love);
     cardText.append(cardHead);
     cardText.append(cardFeatures);
