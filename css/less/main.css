@@ -848,6 +848,43 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   text-align: center;
   height: 28px;
 }
+#ventu-bottom-bar {
+  height: 50px;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+#ventu-bottom-bar #ventu-bottom-bar-counter {
+  background: #ededec;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub {
+  border-right: 1px solid #ededec;
+  height: 100%;
+  padding: 18px 30px;
+  float: right;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  display: inline-block;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-icon.ventu-bottom-bar-icon--love {
+  background-color: #2ECC71;
+  background-image: url(img/icons/buttons/love.svg);
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-icon.ventu-bottom-bar-icon--hate {
+  background-color: #DF0040;
+  background-image: url(img/icons/buttons/hate.svg);
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-label {
+  display: inline-block;
+  vertical-align: top;
+  padding: 1px 0 0 6px;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub:last-child {
+  border-right: 0;
+}
 .ventu-search-common {
   background: #fff;
   border-radius: 4px;

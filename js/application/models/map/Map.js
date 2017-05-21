@@ -33,7 +33,8 @@ Map.prototype.init = function() {
         center: new google.maps.LatLng(52, 5),
         sensor: 'true',
         draggable: true,
-        streetViewControl: false
+        streetViewControl: false,
+        mapTypeControl: false
     };
 
     mapContainer = document.getElementById("ventu-canvas");
@@ -50,6 +51,7 @@ Map.prototype.draw = function(result, leaveshape) {
     var self = this;
     this.lastIndex = 0;
     this._cleanUp(leaveshape);
+    this.updateBottomBar(result.markers.length, 0, 0);
 
 
     if (!leaveshape && window.showGoogleMapObjects == undefined) {
@@ -407,6 +409,12 @@ Map.prototype._getMarker = function() {
         }
     }
     return null;
+};
+
+Map.prototype.updateBottomBar = function(left, hate, love) {
+    $('#ventu-bottom-bar-counter').html(left + ' objecten over');
+    $('#ventu-bottom-bar-hate .ventu-bottom-bar-label').html(hate + ' objecten');
+    $('#ventu-bottom-bar-love .ventu-bottom-bar-label').html(love + ' objecten');
 };
 
 

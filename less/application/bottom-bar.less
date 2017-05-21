@@ -1,0 +1,47 @@
+@import 'mixins';
+
+
+#ventu-bottom-bar {
+    height: 50px;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+
+    #ventu-bottom-bar-counter {
+        background: @ventu-main-grey-light;
+    }
+
+    .ventu-bottom-bar-sub {
+        border-right: 1px solid @ventu-main-grey-light;
+        height: 100%;
+        padding: 18px 30px;
+        float: right;
+
+        .ventu-bottom-bar-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-size: 100% 100%;
+            display: inline-block;
+
+            &.ventu-bottom-bar-icon--love {
+                background-color: @ventu-color-love;
+                background-image: url(img/icons/buttons/love.svg);
+            }
+
+            &.ventu-bottom-bar-icon--hate {
+                background-color: @ventu-color-hate;
+                background-image: url(img/icons/buttons/hate.svg);
+            }
+        }
+
+        .ventu-bottom-bar-label {
+            display: inline-block;
+            vertical-align: top;
+            padding: 1px 0 0 6px;
+        }
+
+        &:last-child {
+            border-right: 0;
+        }
+    }
+}

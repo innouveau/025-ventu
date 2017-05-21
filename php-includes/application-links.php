@@ -21,8 +21,6 @@
 <script src="js/application/models/Responsive.js"></script>
 <script src="js/application/models/Config.js"></script>
 <script src="js/application/models/Guide.js"></script>
-<script src="js/application/models/List.js"></script>
-<script src="js/application/models/List-mobile.js"></script>
 <script src="js/application/models/User.js"></script>
 <script src="js/application/models/App.js"></script>
 

@@ -231,7 +231,7 @@ Config.prototype._getCardConfig = function() {
             sealevel: 500,
             zGap: 200,
             zOffset: 10,
-            rotation: 15
+            rotation: 25
         };
     } else {
         return {
@@ -239,7 +239,7 @@ Config.prototype._getCardConfig = function() {
             sealevel: 0, // z position of top card
             zGap: 500, // if you change this, change @keyframes float-shade in card.less as well corresponding
             zOffset: 1, // z offset inside stack
-            rotation: 15
+            rotation: 25
         };
     }
 };
