@@ -450,11 +450,6 @@ Card.prototype._unsetCurrent = function (rotate, zIndex, shiftX, shiftY, shadeZi
 
 // getters
 
-Card.prototype.getName = function () {
-    // used for testing only
-    return this.building.getCardContent().text.head;
-};
-
 Card.prototype._getPosition = function (index) {
     var gap = index === 0 ? 0 : window.ventu.config.card.zGap,
         zIndex = window.ventu.config.card.sealevel + (index * -window.ventu.config.card.zOffset) - gap;
