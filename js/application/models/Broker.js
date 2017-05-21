@@ -68,5 +68,5 @@ Broker.prototype.getCanonicalString = function(str) {
     str = str.replace(new RegExp("--", 'g'), "-");
     str = str.lastIndexOf("-") == str.length - 1 ? str.substring(0, str.length - 1) : str;
     return str;
-}
+};
 

@@ -14,11 +14,11 @@ window.ventuConfig = {
 };
 
 var searchQuery = {
-    result: 311,
-    types: [1,5,8],
-    location: 'plaats: Hoogezand',
+    result: 21,
+    types: [3],
+    location: 'plaats: Hulst',
     area: [100, 400],
-    transaction: [1],
+    transaction: [2],
     searchArea: false
 };
 

@@ -702,6 +702,9 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   padding: 16px;
   font-family: ProximaNova;
 }
+#ventu-filter-content .ventu-filter-section h5 {
+  text-align: center;
+}
 #ventu-filter-content .ventu-filter-section .ventu-filter-header {
   position: relative;
 }
@@ -790,9 +793,6 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
 }
 #ventu-filter-content .ventu-filter-section:last-child {
   border-bottom: 0;
-}
-#ventu-filter-content #ventu-filter-result {
-  text-align: center;
 }
 #ventu-filter-content #ventu-filter-tools .ventu-filter-tools-button {
   position: relative;

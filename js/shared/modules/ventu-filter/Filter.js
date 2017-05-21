@@ -144,15 +144,10 @@ Filter.prototype.updateQueryTransaction = function() {
 // update DOM
 
 Filter.prototype.update = function() {
-    this.updateResult();
     this.updateLocation();
     this.updateTypes();
     this.updateArea();
     this.updateTransaction();
-};
-
-Filter.prototype.updateResult = function() {
-    this.element.result.html(this.query.result + ' objecten gevonden');
 };
 
 Filter.prototype.updateLocation = function() {

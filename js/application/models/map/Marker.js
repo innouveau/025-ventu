@@ -47,7 +47,7 @@ Marker.prototype.create = function() {
                     card.swap();
                 }
 
-                if (building == null) {
+                if (building === null) {
                     window.ventu.service.GetObjectByUniqueId(self.UniqueId, callback);
                 } else {
                     callback(building);
@@ -61,7 +61,6 @@ Marker.prototype.create = function() {
     });
 };
 
-// TODO move to Map?
 Marker.prototype.createCard = function(building) {
     var card = new Card(this, building, this.parent.lastIndex);
     this.card = card;
@@ -85,13 +84,13 @@ Marker.prototype.unselect = function() {
     this.marker.setZIndex(0);
 };
 
-Marker.prototype.favorite = function () {
+Marker.prototype.love = function () {
     this.isFavorite = true;
     this.marker.setIcon(window.ventu.map.icon.favorite);
     this.marker.setZIndex(10000);
 };
 
-Marker.prototype.trash = function () {
+Marker.prototype.hate = function () {
     this.isTrash = true;
     this.marker.setIcon(window.ventu.map.icon.trash);
     this.marker.setZIndex(0);

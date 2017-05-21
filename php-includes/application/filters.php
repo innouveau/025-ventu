@@ -4,9 +4,7 @@
     <div id="ventu-filter-content">
         <div class="ventu-filter-section">
             <h5>
-                <div id="ventu-filter-result">
-                    329 objecten gevonden
-                </div>
+                <span id="ventu-filter-result">329</span> <span>objecten gevonden</span>
             </h5>
         </div>
 

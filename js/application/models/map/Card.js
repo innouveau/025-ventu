@@ -90,35 +90,49 @@ Card.prototype._create = function () {
     this.element = card;
 
     window.ventu.domElements.stack.append(this.element);
-    // if (this.shade) {
-    //     card.insertAfter($('.ventu-bottom-bar-sub-hate'));
-    //     shade.insertAfter($('.ventu-bottom-bar-sub-hate'));
-    // } else {
-    //     window.ventu.domElements.stack.prepend(card);
-    //     //window.ventu.domElements.stack.prepend(shade);
-    // }
 
     if (window.ventu.config.isMapPresent) {
         this.marker.hasCard = true;
     }
 };
 
-Card.prototype.resetAnimation = function (element) {
-    var ripple = element.find('.ventu-ripple');
-    if (ripple.length > 0) {
-        ripple[0].style.webkitAnimation = 'none';
-        ripple[0].style.mozAnimation = 'none';
-        ripple[0].style.oAnimation = 'none';
-        ripple[0].style.animation = 'none';
+Card.prototype._addListener = function () {
+    var self = this;
+    this.hammer = Hammer(this.element[0]);
 
-        setTimeout(function () {
-            ripple[0].style.webkitAnimation = '';
-            ripple[0].style.mozAnimation = '';
-            ripple[0].style.oAnimation = '';
-            ripple[0].style.animation = '';
-        }, 10);
-    }
+    this.hammer.on('dragstart', function () {
+        self._clearfloat();
+        window.ventu.user.didFindOut('swiping');
+    });
+
+    this.hammer.on('drag', function (event) {
+        if (event != null && event.gesture !== null) {
+            var dx = event.gesture.deltaX,
+                dy = event.gesture.deltaY;
+            self._swipeHint(dx, dy);
+            self._moveDrag(dx, dy);
+        }
+    });
+
+    this.hammer.on('release', function (event) {
+        self._removeHoverTriggers();
+        if (event !== null && event.gesture !== null) {
+            var dx = event.gesture.deltaX,
+                dy = event.gesture.deltaY;
+
+            if (dx > window.ventu.config.swipe.complete) {
+                self._addToList('love');
+            } else if (dx < -window.ventu.config.swipe.complete) {
+                self._addToList('hate');
+            } else {
+                self._moveToOrigin(true);
+            }
+        }
+    });
 };
+
+
+// launch
 
 Card.prototype.launch = function (type) {
     var self = this,
@@ -214,18 +228,58 @@ Card.prototype._launchNext = function () {
 
 
 
-// moves
+
+
+
+// actions
+
+Card.prototype._setCurrent = function () {
+    var next;
+
+    this.position.rotate = 0;
+    this.position.zIndex = window.ventu.config.card.sealevel;
+    this.position.shadeZindex = window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2;
+    this.position.shiftX = 0;
+    this.position.shiftY = 0;
+
+    if (this.shade) {
+        this.shade.element.fadeIn(100);
+    }
+    if (window.ventu.config.isMapPresent) {
+        this.marker.select();
+    }
+    this._moveToOrigin(true);
+    this.marker.parent.currentCard = this;
+    this.element.addClass('ventu-card--current');
+    // already unrotate the next card (for nicer effect)
+    next = this._getNext();
+    if (next) {
+        next._moveToOrigin(true);
+        //next.element.addClass('ventu-card--current');
+    }
+};
+
+Card.prototype._unsetCurrent = function (rotate, zIndex, shiftX, shiftY, shadeZindex) {
+    this.position.rotate = rotate;
+    this.position.zIndex = zIndex;
+    this.position.shadeZindex = shadeZindex;
+    this.position.shiftX = shiftX;
+    this.position.shiftY = shiftY;
+    this._moveToOriginalPositionInStack();
+    if (window.ventu.config.isMapPresent) {
+        this.marker.unselect();
+    }
+};
 
 Card.prototype.swap = function () {
-
     var self = this,
         topCard = window.ventu.map.currentCard,
         originalX = this.position.shiftX;
     // pull both horizontal out of stack
     topCard.position.shiftX = -500;
     this.position.shiftX = 500;
-    topCard._moveToStackPosition();
-    this._moveToStackPosition();
+    topCard._moveToOriginalPositionInStack();
+    this._moveToOriginalPositionInStack();
 
     setTimeout(function () {
 
@@ -243,43 +297,18 @@ Card.prototype.swap = function () {
             if (card !== null) {
                 card.index = index;
                 card.position = card._getPosition(index);
-                card._moveToStackPosition();
+                card._moveToOriginalPositionInStack();
             }
         });
 
     }, 500);
 };
 
-Array.prototype.move = function (pos1, pos2) {
-    // local variables
-    var i, tmp;
-    // cast input parameters to integers
-    pos1 = parseInt(pos1, 10);
-    pos2 = parseInt(pos2, 10);
-    // if positions are different and inside array
-    if (pos1 !== pos2 &&
-        0 <= pos1 && pos1 <= this.length &&
-        0 <= pos2 && pos2 <= this.length) {
-        // save element from position 1
-        tmp = this[pos1];
-        // move element down and shift other elements up
-        if (pos1 < pos2) {
-            for (i = pos1; i < pos2; i++) {
-                this[i] = this[i + 1];
-            }
-        }
-            // move element up and shift other elements down
-        else {
-            for (i = pos1; i > pos2; i--) {
-                this[i] = this[i - 1];
-            }
-        }
-        // put element from position 1 to destination
-        this[pos2] = tmp;
-    }
-};
 
-Card.prototype._moveToStackPosition = function () {
+// moves
+
+
+Card.prototype._moveToOriginalPositionInStack = function () {
     var thisTransform = [0, 0, 0, 0, 0, 0, 1, 1];
     this.setTransform(thisTransform, false);
 
@@ -289,7 +318,6 @@ Card.prototype._moveToStackPosition = function () {
     }
 };
 
-// todo rename this one and above to clear distinction
 Card.prototype._moveToOrigin = function (unrotate) {
     var transform = [0, 0, 0, 0, 0, 0, 1, 1];
     if (unrotate) {
@@ -303,8 +331,6 @@ Card.prototype._moveToOrigin = function (unrotate) {
     if (this.shade) {
         this.shade.project(transform, true);
     }
-    this._releaseContainers();
-    this.element.addClass('ventu-card--current');
 };
 
 
@@ -342,6 +368,10 @@ Card.prototype._moveDrag = function (dx, dy) {
 // };
 
 
+
+// swiping
+
+
 Card.prototype._swipeHint = function (dx, dy) {
     if (dx > window.ventu.config.swipe.complete) {
         if (window.ventu.config.isCatcherPresent) {
@@ -358,7 +388,6 @@ Card.prototype._swipeHint = function (dx, dy) {
     } else if (dx < -window.ventu.config.swipe.suggest) {
         this.buttons.hate.addClass('hover');
     } else {
-        this._releaseContainers();
         this._removeHoverTriggers();
     }
 
@@ -372,84 +401,6 @@ Card.prototype._swipeHint = function (dx, dy) {
 
 // helpers
 
-
-
-
-Card.prototype._addListener = function () {
-    var self = this;
-    this.hammer = Hammer(this.element[0]);
-
-    this.hammer.on('dragstart', function () {
-        self._clearfloat();
-        window.ventu.user.didFindOut('swiping');
-    });
-
-    this.hammer.on('drag', function (event) {
-        if (event != null && event.gesture !== null) {
-            var dx = event.gesture.deltaX,
-                dy = event.gesture.deltaY;
-            self._swipeHint(dx, dy);
-            self._moveDrag(dx, dy);
-        }
-    });
-
-    this.hammer.on('release', function (event) {
-        self._removeHoverTriggers();
-        if (event != null && event.gesture !== null) {
-            var dx = event.gesture.deltaX,
-                dy = event.gesture.deltaY;
-
-            if (dx > window.ventu.config.swipe.complete) {
-                self._addToList('love');
-            } else if (dx < -window.ventu.config.swipe.complete) {
-                self._addToList('hate');
-            } else {
-                self._moveToOrigin(true);
-            }
-        }
-    });
-};
-
-
-
-
-// setters
-
-Card.prototype._setCurrent = function () {
-    this.position.rotate = 0;
-    this.position.zIndex = window.ventu.config.card.sealevel;
-    this.position.shadeZindex = window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2;
-    this.position.shiftX = 0;
-    this.position.shiftY = 0;
-
-    if (this.shade) {
-        this.shade.element.fadeIn(100);
-    }
-    if (window.ventu.config.isMapPresent) {
-        this.marker.select();
-    }
-    this._moveToOrigin(true);
-    window.ventu.map.currentCard = this;
-};
-
-Card.prototype._unsetCurrent = function (rotate, zIndex, shiftX, shiftY, shadeZindex) {
-    this.position.rotate = rotate;
-    this.position.zIndex = zIndex;
-    this.position.shadeZindex = shadeZindex;
-    this.position.shiftX = shiftX;
-    this.position.shiftY = shiftY;
-    this._moveToStackPosition();
-    if (window.ventu.config.isMapPresent) {
-        this.marker.unselect();
-    }
-};
-
-
-
-
-
-// getters
-
 Card.prototype._getPosition = function (index) {
     var gap = index === 0 ? 0 : window.ventu.config.card.zGap,
         zIndex = window.ventu.config.card.sealevel + (index * -window.ventu.config.card.zOffset) - gap;
@@ -462,18 +413,14 @@ Card.prototype._getPosition = function (index) {
 };
 
 Card.prototype._getNext = function () {
-    var index = this._getIndex();
-    if (window.ventu.map.cards[index + 1]) {
-        return window.ventu.map.cards[index + 1];
+    var map = this.marker.parent,
+        index = map.cards.indexOf(this);
+    if (map.cards[index + 1]) {
+        return map.cards[index + 1];
     } else {
         return null;
     }
 };
-
-Card.prototype._getIndex = function () {
-    return window.ventu.map.cards.indexOf(this);
-};
-
 
 
 
@@ -489,13 +436,6 @@ Card.prototype._clearfloat = function () {
     this.element.removeClass('ventu-card-float');
     if (this.shade) {
         this.shade.element.removeClass('ventu-card-shade-float');
-    }
-};
-
-Card.prototype._releaseContainers = function () {
-    if (window.ventu.config.isCatcherPresent) {
-        window.ventu.list.love.element.main.removeClass('selected');
-        window.ventu.list.hate.element.main.removeClass('selected');
     }
 };
 
@@ -519,65 +459,87 @@ Card.prototype.destroy = function (removeFormArray) {
     }
 };
 
-Card.prototype._remove = function () {
-    var index = this._getIndex();
-    window.ventu.map.cards.splice(index, 1);
-};
-
 Card.prototype._addToList = function (type) {
     var self = this,
+        map = this.marker.parent,
         config = window.ventu.config.sizes.bottomBar[type],
-        scale = config.width / window.ventu.config.sizes.card.width * 0.99, // perspective correction
-        transform = [config.x, config.y, 0, 0, 0, 0, scale, scale],
-        other = type === 'love' ? 'hate' : 'love',
         next = this._getNext();
+
     this.status.event = 'tolist';
-    if (window.ventu.config.isCatcherPresent) {
-        window.ventu.list[type].element.main.addClass('selected');
-        window.ventu.list[other].element.main.removeClass('selected');
-    }
-    this.element.removeClass('no-transition');
+    this.element.fadeOut(500);
     if (this.shade) {
-        this.shade.element.removeClass('no-transition');
+        this.shade.element.fadeOut(500);
     }
-    this.setTransform(transform, true);
-    if (this.shade) {
-        this.shade.project(transform, true);
-    }
-
-    if (window.ventu.config.isCatcherPresent) {
-        this.element.find('.ventu-card-text').fadeOut(500);
-        this.element.find('.ventu-card-buttons').fadeOut(500);
-    } else {
-        this.element.fadeOut(400);
-        if (this.shade) {
-            this.shade.element.fadeOut(400);
-        }
-    }
-
-    //if (window.ventu.config.isMapPresent) {
-    //    this.marker.remove();
-    //}
 
 
     if (window.ventu.config.isMapPresent) {
         this.marker.hasCard = false;
         if (type === 'love') {
-            this.marker.favorite();
+            this.marker.love();
         } else {
-            this.marker.trash();
+            this.marker.hate();
         }
-
         window.ventu.map.createNewCard();
     }
 
     // update user
     window.ventu.user.uses('rating');
 
+    // update bottom bar
+    map.status.left--;
+    map.status[type]++;
+    map.updateBottomBar();
+
     setTimeout(function () {
-        //window.ventu.list[type].add(self);
         if (next && next.status.event !== 'tolist') {
             next._setCurrent();
         }
-    }, 800);
+    }, 10);
+};
+
+Card.prototype.resetAnimation = function (element) {
+    var ripple = element.find('.ventu-ripple');
+    if (ripple.length > 0) {
+        ripple[0].style.webkitAnimation = 'none';
+        ripple[0].style.mozAnimation = 'none';
+        ripple[0].style.oAnimation = 'none';
+        ripple[0].style.animation = 'none';
+
+        setTimeout(function () {
+            ripple[0].style.webkitAnimation = '';
+            ripple[0].style.mozAnimation = '';
+            ripple[0].style.oAnimation = '';
+            ripple[0].style.animation = '';
+        }, 10);
+    }
+};
+
+// @walstra: wat doet dit?
+Array.prototype.move = function (pos1, pos2) {
+    // local variables
+    var i, tmp;
+    // cast input parameters to integers
+    pos1 = parseInt(pos1, 10);
+    pos2 = parseInt(pos2, 10);
+    // if positions are different and inside array
+    if (pos1 !== pos2 &&
+        0 <= pos1 && pos1 <= this.length &&
+        0 <= pos2 && pos2 <= this.length) {
+        // save element from position 1
+        tmp = this[pos1];
+        // move element down and shift other elements up
+        if (pos1 < pos2) {
+            for (i = pos1; i < pos2; i++) {
+                this[i] = this[i + 1];
+            }
+        }
+        // move element up and shift other elements down
+        else {
+            for (i = pos1; i > pos2; i--) {
+                this[i] = this[i - 1];
+            }
+        }
+        // put element from position 1 to destination
+        this[pos2] = tmp;
+    }
 };

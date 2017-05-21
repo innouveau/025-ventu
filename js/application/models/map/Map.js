@@ -14,6 +14,12 @@ function Map() {
             fillOpacity: 0.4
         }
     };
+    this.status = {
+        found: 0,
+        left: 0,
+        love: 0,
+        hate: 0
+    };
     this.currentCard = null;
     this.map = null;
     this.shapes = [];
@@ -51,7 +57,10 @@ Map.prototype.draw = function(result, leaveshape) {
     var self = this;
     this.lastIndex = 0;
     this._cleanUp(leaveshape);
-    this.updateBottomBar(result.markers.length, 0, 0);
+    this.status.found = result.markers.length;
+    this.status.left = result.markers.length;
+    this.updateResultBar();
+    this.updateBottomBar();
 
 
     if (!leaveshape && window.showGoogleMapObjects == undefined) {
@@ -411,10 +420,14 @@ Map.prototype._getMarker = function() {
     return null;
 };
 
-Map.prototype.updateBottomBar = function(left, hate, love) {
-    $('#ventu-bottom-bar-counter').html(left + ' objecten over');
-    $('#ventu-bottom-bar-hate .ventu-bottom-bar-label').html(hate + ' objecten');
-    $('#ventu-bottom-bar-love .ventu-bottom-bar-label').html(love + ' objecten');
+Map.prototype.updateResultBar = function() {
+    $('#ventu-filter-result').html(this.status.found);
+};
+
+Map.prototype.updateBottomBar = function() {
+    $('#ventu-bottom-bar-counter').html(this.status.left + ' objecten over');
+    $('#ventu-bottom-bar-hate .ventu-bottom-bar-label').html(this.status.hate + ' objecten');
+    $('#ventu-bottom-bar-love .ventu-bottom-bar-label').html(this.status.love + ' objecten');
 };
 
 

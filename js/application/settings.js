@@ -6,7 +6,7 @@ window.showGoogleMapObjects;
 
 var settings = {
     card: {
-        shade: false,
+        shade: true,
         spatial: true
     }
 };
