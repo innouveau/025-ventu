@@ -1169,6 +1169,10 @@ form {
 form h2 {
   margin-top: 0;
 }
+.ventu-form .ventu-form-section,
+form .ventu-form-section {
+  margin-bottom: 60px;
+}
 .ventu-form input,
 form input {
   width: 100%;
