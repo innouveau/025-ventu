@@ -6,8 +6,8 @@ function Marker(parent, data, icon) {
     this.UniqueId = data.UniqueId;
     this.icon = icon;
     this.hasCard = false;
-    this.isFavorite = icon == window.ventu.map.icon.favorite;
-    this.isTrash = icon == window.ventu.map.icon.trash;
+    this.isFavorite = icon == window.ventu.map.icon.love;
+    this.isTrash = icon == window.ventu.map.icon.hate;
     this.create();
 }
 
@@ -86,13 +86,13 @@ Marker.prototype.unselect = function() {
 
 Marker.prototype.love = function () {
     this.isFavorite = true;
-    this.marker.setIcon(window.ventu.map.icon.favorite);
+    this.marker.setIcon(window.ventu.map.icon.love);
     this.marker.setZIndex(10000);
 };
 
 Marker.prototype.hate = function () {
     this.isTrash = true;
-    this.marker.setIcon(window.ventu.map.icon.trash);
+    this.marker.setIcon(window.ventu.map.icon.hate);
     this.marker.setZIndex(0);
 };
 

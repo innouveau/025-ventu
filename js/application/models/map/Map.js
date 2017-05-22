@@ -2,8 +2,8 @@ function Map() {
     this.icon = {
         standard: 'img/markers/standard-marker.png',
         selected: 'img/markers/selected-marker.png',
-        trash: 'img/markers/marker-hate.png',
-        favorite: 'img/markers/marker-love.png'
+        hate: 'img/markers/marker-hate.png',
+        love: 'img/markers/marker-love.png'
     };
     this.settings = {
         shape: {
@@ -245,7 +245,7 @@ Map.prototype._createMarkers = function(markers) {
         if (favorites) {
             $(favorites).each(function (index, element) {
                 if (element.uniqueId == markers[i].UniqueId) {
-                    icon = self.icon.favorite;
+                    icon = self.icon.love;
                     return false;
                 }
             });
@@ -256,7 +256,7 @@ Map.prototype._createMarkers = function(markers) {
         if (trash) {
             $(trash).each(function (index, element) {
                 if (element.uniqueId == markers[i].UniqueId) {
-                    icon = self.icon.trash;
+                    icon = self.icon.hate;
                     return false;
                 }
             });
