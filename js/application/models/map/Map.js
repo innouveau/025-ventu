@@ -2,8 +2,8 @@ function Map() {
     this.icon = {
         standard: 'img/markers/standard-marker.png',
         selected: 'img/markers/selected-marker.png',
-        trash: 'img/markers/trash-marker.png',
-        favorite: 'img/markers/favorite-marker.png'
+        trash: 'img/markers/marker-hate.png',
+        favorite: 'img/markers/marker-love.png'
     };
     this.settings = {
         shape: {
@@ -235,10 +235,10 @@ Map.prototype._removeMarkers = function() {
 };
 
 Map.prototype._createMarkers = function(markers) {
-    var self = this;
+    var icon, self = this;
 
     for (var i = 0, l = markers.length; i < l; i++) {
-        var icon = i === 0 ? this.icon.selected : this.icon.standard;
+        icon = i === 0 ? this.icon.selected : this.icon.standard;
 
         var favorites = $.sessionStorage.get('ventu-favorites');
 
@@ -268,8 +268,7 @@ Map.prototype._createMarkers = function(markers) {
 };
 
 Map.prototype._showMarkers = function () {
-
-    if (this.markerClusterer != null) {
+    if (this.markerClusterer !== null) {
         this.markerClusterer.clearMarkers();
     }
 
@@ -288,7 +287,7 @@ Map.prototype._showMarkers = function () {
     }];
 
 
-    if (this.markerClusterer == null) {
+    if (this.markerClusterer === null) {
         this.markerClusterer = new MarkerClusterer(this.map, internalMarkers, {
             imagePath: '/img/markers/markerclusterer/m',
             gridSize: 30,
@@ -297,14 +296,10 @@ Map.prototype._showMarkers = function () {
     } else {
         this.markerClusterer.addMarkers(internalMarkers);
     }
-
-    //markerClusterer.fitMapToMarkers();
-
     this.fitMapToBounds();
 };
 
 Map.prototype.fitMapToBounds = function () {
-
     this.mapHasBeenFitToBounds = true;
 
     var bounds = new google.maps.LatLngBounds();
@@ -339,11 +334,6 @@ Map.prototype.fitMapToBounds = function () {
     }
 
     this.map.fitBounds(bounds);
-
-    //if (this.shapes.length == 0) {
-    //    this.map.setZoom(12);
-    //}
-
     var x = Math.floor(this.map.getDiv().offsetWidth / 6);
     this.map.panBy(x, 0);
 };

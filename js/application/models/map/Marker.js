@@ -136,4 +136,3 @@ Marker.prototype.getTransform = function() {
         scale = markerWidth / cardWidth;
     return [-translateX, -translateY, 0, 0, 0, 0, scale, scale];
 };
-
