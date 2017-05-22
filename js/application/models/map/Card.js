@@ -28,6 +28,8 @@ Card.prototype = Object.create(_Element.prototype);
 Card.prototype._create = function () {
     var self = this,
         card,
+        cardFront,
+        cardBack,
         cardImage,
         cardText,
         cardHead,
@@ -45,6 +47,8 @@ Card.prototype._create = function () {
     }
 
     card = $('<div class="ventu-card ventu-card--dynamic">');
+    cardFront = $('<div class="ventu-card-front"></div>');
+    cardBack = $('<div class="ventu-card-back"></div>');
     cardImage = $('<div class="ventu-card-image" style="background-image:url(' + this.building.getCardImage() + ')"></div>');
     cardText = $('<div class="ventu-card-text">');
     cardHead = $('<div class="ventu-card-header"><h4>' + this.building.getCardCity() + '</h4><h3>' + this.building.getCardAddress() + '</h3></div>');
@@ -59,9 +63,11 @@ Card.prototype._create = function () {
     cardButtons.append(this.buttons.love);
     cardText.append(cardHead);
     cardText.append(cardFeatures);
-    card.append(cardImage);
-    card.append(cardText);
-    card.append(cardButtons);
+    cardFront.append(cardImage);
+    cardFront.append(cardText);
+    cardFront.append(cardButtons);
+    card.append(cardBack);
+    card.append(cardFront);
 
     if (settings.card.shade) {
         this.shade = new Shade(this, card);
@@ -316,23 +322,21 @@ Card.prototype._stopFloat = function () {
 
 // TODO
 Card.prototype._swipeHint = function (dx, dy) {
-    // if (dx > window.ventu.config.swipe.complete) {
-    //     if (window.ventu.config.isCatcherPresent) {
-    //         window.ventu.list.love.element.main.addClass('selected');
-    //         window.ventu.list.hate.element.main.removeClass('selected');
-    //     }
-    // } else if (dx > window.ventu.config.swipe.suggest) {
-    //     this.buttons.love.addClass('hover');
-    // } else if (dx < -window.ventu.config.swipe.complete) {
-    //     if (window.ventu.config.isCatcherPresent) {
-    //         window.ventu.list.hate.element.main.addClass('selected');
-    //         window.ventu.list.love.element.main.removeClass('selected');
-    //     }
-    // } else if (dx < -window.ventu.config.swipe.suggest) {
-    //     this.buttons.hate.addClass('hover');
-    // } else {
-    //     this._removeHoverTriggers();
-    // }
+    if (dx > window.ventu.config.swipe.complete) {
+            window.ventu.list.love.element.main.addClass('selected');
+            window.ventu.list.hate.element.main.removeClass('selected');
+    } else if (dx > window.ventu.config.swipe.suggest) {
+        this.buttons.love.addClass('hover');
+    } else if (dx < -window.ventu.config.swipe.complete) {
+        if (window.ventu.config.isCatcherPresent) {
+            window.ventu.list.hate.element.main.addClass('selected');
+            window.ventu.list.love.element.main.removeClass('selected');
+        }
+    } else if (dx < -window.ventu.config.swipe.suggest) {
+        this.buttons.hate.addClass('hover');
+    } else {
+        this._removeHoverTriggers();
+    }
 
 };
 
