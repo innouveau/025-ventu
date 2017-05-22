@@ -143,12 +143,12 @@ section.detail-text .detail-text-short {
 .news-text section.detail-text .detail-text-short {
   max-height: 62px;
 }
-#ventu-sign-in {
-  background-image: url('img/content/rotterdam.jpg');
-  height: 500px;
+.ventu-sign-in h2 {
+  text-align: center;
 }
-#ventu-sign-in input {
-  background: #fff;
+.ventu-sign-in .ventu-sign-in-container {
+  max-width: 520px;
+  margin: 0 auto;
 }
 nav.navbar-default {
   border: 0!important;
@@ -1048,6 +1048,40 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
 .ventu-chat-balloon .ventu-chat-balloon-middle:after {
   height: 100%;
 }
+.ventu-communication-screen {
+  border-top: 1px solid #ededec;
+  padding: 40px 0 60px 0;
+}
+.ventu-communication-screen .ventu-man-container .ventu-man {
+  width: 100px;
+  height: 100px;
+  background-image: url(img/illustrations/ventu-man-100px.png);
+  background-size: 100% 100%;
+  position: relative;
+}
+.ventu-communication-screen .ventu-man-container .ventu-man .ventu-man-icon {
+  position: absolute;
+  left: 90px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-size: 100% 100%;
+}
+.ventu-communication-screen .ventu-man-container .ventu-man .ventu-man-icon.ventu-man-icon--account {
+  background-color: #ededec;
+  background-image: url(img/icons/no-avatar.svg);
+}
+.ventu-communication-screen .ventu-man-container .ventu-man .ventu-chat-balloon-container {
+  top: 80px;
+  left: 60px;
+  width: 420px;
+}
+@media (max-width: 520px) {
+  .ventu-communication-screen .ventu-man-container .ventu-man .ventu-chat-balloon-container {
+    width: calc(100% - 100px);
+  }
+}
 .ventu-overlay {
   display: none;
   position: fixed;
@@ -1155,10 +1189,28 @@ form input {
 form input:focus {
   box-shadow: none!important;
 }
+.ventu-form input[type=submit],
+form input[type=submit] {
+  width: auto;
+}
+.ventu-form input[type=submit].submit-inactive,
+form input[type=submit].submit-inactive {
+  background: #ededec;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.ventu-form input[type=submit].submit-inactive:hover,
+form input[type=submit].submit-inactive:hover {
+  color: #fff;
+}
 .ventu-form label,
 form label {
   font-weight: 400;
   font-size: 14px;
+}
+.ventu-form .ventu-input-label,
+form .ventu-input-label {
+  margin-bottom: 12px;
 }
 .ventu-form .ventu-form-send,
 form .ventu-form-send {

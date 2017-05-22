@@ -5,10 +5,6 @@ function initialiseModules() {
         new Dialog($(this));
     });
 
-    $('.ventu-sign-in').each(function(){
-        new SignIn($(this));
-    });
-
     $('.ventu-search').each(function(){
         // we want the search module initialis by hand
         // to add the custom callback

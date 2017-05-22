@@ -27,10 +27,28 @@ form input {
 form input:focus {
   box-shadow: none!important;
 }
+.ventu-form input[type=submit],
+form input[type=submit] {
+  width: auto;
+}
+.ventu-form input[type=submit].submit-inactive,
+form input[type=submit].submit-inactive {
+  background: #ededec;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.ventu-form input[type=submit].submit-inactive:hover,
+form input[type=submit].submit-inactive:hover {
+  color: #fff;
+}
 .ventu-form label,
 form label {
   font-weight: 400;
   font-size: 14px;
+}
+.ventu-form .ventu-input-label,
+form .ventu-input-label {
+  margin-bottom: 12px;
 }
 .ventu-form .ventu-form-send,
 form .ventu-form-send {

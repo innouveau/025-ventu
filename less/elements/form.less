@@ -27,11 +27,29 @@ form {
         &:focus {
             box-shadow: none!important;
         }
+
+        &[type=submit] {
+            width: auto;
+
+            &.submit-inactive {
+                background: @ventu-main-grey-light;
+                cursor: not-allowed;
+                box-shadow: none;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
     }
 
     label {
         font-weight: 400;
         font-size: 14px;
+    }
+
+    .ventu-input-label {
+        margin-bottom: 12px;
     }
 
     .ventu-form-send {

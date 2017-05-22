@@ -29,8 +29,7 @@
 
     <div class="collapse navbar-collapse pull-left" id="navbar">
         <ul class="nav navbar-nav">
-            <li><a href="javascript:openLogin()">Inloggen</a></li>
-            <li><a href="javascript:openRegister()">Registreren</a></li>
+            <li id="ventu-login-button"><a href="javascript:openLogin()">Aanmelden</a></li>
         </ul>
     </div>
 
