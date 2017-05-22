@@ -23,8 +23,8 @@
   background-image: url(img/icons/no-avatar.svg);
 }
 .ventu-communication-screen .ventu-man-container .ventu-man .ventu-chat-balloon-container {
-  top: 80px;
-  left: 60px;
+  top: 57px;
+  left: 80px;
   width: 420px;
 }
 @media (max-width: 520px) {
