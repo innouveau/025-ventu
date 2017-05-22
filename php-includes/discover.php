@@ -12,19 +12,19 @@
                 </div>
                 <div class="ventu-discover-icon-container">
                     <div class="ventu-discover-icon">
-                        <img src="img/dialog/types/winkel.svg">
+                        <img src="img/icons/types/shop.svg">
                     </div>
                     <div class="ventu-discover-icon">
-                        <img src="img/dialog/types/kantoor.svg">
+                        <img src="img/icons/types/office.svg">
                     </div>
                     <div class="ventu-discover-icon">
-                        <img src="img/dialog/types/bedrijfsruimte.svg">
+                        <img src="img/icons/types/business.svg">
                     </div>
                     <div class="ventu-discover-icon">
-                        <img src="img/dialog/types/horeca.svg">
+                        <img src="img/icons/types/catering.svg">
                     </div>
                     <div class="ventu-discover-icon">
-                        <img src="img/dialog/types/bouwgrond.svg">
+                        <img src="img/icons/types/land.svg">
                     </div>
                 </div>
                 <div class="btn orange">
