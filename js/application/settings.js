@@ -7,6 +7,9 @@ window.showGoogleMapObjects;
 var settings = {
     card: {
         shade: true,
-        spatial: true
+        spatial: true,
+        speed: {
+            next: 1
+        }
     }
 };

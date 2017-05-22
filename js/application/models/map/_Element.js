@@ -2,10 +2,10 @@ function _Element() {}
 
 _Element.prototype._getTransform = function (transform, netto) {
     if (settings.card.spatial) {
-        var rotate = this.position.rotate,
-            shiftX = this.position.shiftX,
-            shiftY = this.position.shiftY,
-            z = this.position.zIndex;
+        var rotate = this.status.stackPosition.rotate,
+            shiftX = this.status.stackPosition.shiftX,
+            shiftY = this.status.stackPosition.shiftY,
+            z = this.status.stackPosition.zIndex;
         // netto is only used by addToList()
         if (netto) {
             rotate = 0;
@@ -21,7 +21,7 @@ _Element.prototype._getTransform = function (transform, netto) {
             'rotateZ(' + (transform[5] + rotate) + 'deg) ' +
             'scale(' + transform[6] + ',' + transform[7] + ')';
     } else {
-        return 'translateX(' + transform[0] + 'px) translateY(' + transform[1] + 'px) translateZ(' + this.position.zIndex + 'px)';
+        return 'translateX(' + transform[0] + 'px) translateY(' + transform[1] + 'px) translateZ(' + this.status.stackPosition.zIndex + 'px)';
     }
 };
 

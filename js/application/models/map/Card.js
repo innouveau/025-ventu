@@ -3,18 +3,18 @@ function Card(marker, building, index) {
     this.marker = marker;
     this.building = building;
     this.index = index;
-    this.position = this._getPosition(index);
-    this.transform = null;
 
     this.element = null;
     this.shade = null;
 
-    this.hammer = null;
     this.buttons = {
         love: null,
-        hate: null
+        hate: null,
+        readMore: null
     };
     this.status = {
+        stackPosition: this._getStackPosition(index),
+        transform: [0,0,0,0,0,0,1,1],
         event: 'instack'
     };
     this._create();
@@ -23,6 +23,7 @@ function Card(marker, building, index) {
 
 Card.prototype = Object.create(_Element.prototype);
 
+// creation
 
 Card.prototype._create = function () {
     var self = this,
@@ -69,22 +70,31 @@ Card.prototype._create = function () {
     // bind actions to buttons
     (function (self) {
         self.buttons.love.on('click', function (e) {
-            self.resetAnimation($(this));
+            self._resetAnimation($(this));
 
             setTimeout(function () {
                 self._addToList('love');
                 window.ventu.user.uses('buttons');
-            }, 500);
+            }, 50);
         });
         self.buttons.hate.on('click', function (e) {
-            self.resetAnimation($(this));
+            self._resetAnimation($(this));
 
             setTimeout(function () {
                 self._addToList('hate');
                 window.ventu.user.uses('buttons');
-            }, 500);
+            }, 50);
         });
     })(self);
+
+    // first get the class
+    if (this.index === 0) {
+        card.addClass('ventu-card--current');
+    }
+    // second one is already unrotated
+    else if (this.index === 1) {
+        this.status.stackPosition.rotate = 0;
+    }
 
     card.hide();
     this.element = card;
@@ -97,57 +107,76 @@ Card.prototype._create = function () {
 };
 
 Card.prototype._addListener = function () {
-    var self = this;
-    this.hammer = Hammer(this.element[0]);
+    var self, hammer;
+    self = this;
+    hammer = Hammer(this.element[0]);
 
-    this.hammer.on('dragstart', function () {
-        self._clearfloat();
+    hammer.on('dragstart', function () {
+        self._stopFloat();
         window.ventu.user.didFindOut('swiping');
     });
 
-    this.hammer.on('drag', function (event) {
-        if (event != null && event.gesture !== null) {
+    hammer.on('drag', function (event) {
+        if (event !== null && event.gesture !== null) {
             var dx = event.gesture.deltaX,
                 dy = event.gesture.deltaY;
             self._swipeHint(dx, dy);
-            self._moveDrag(dx, dy);
+            self._drag(dx, dy);
         }
     });
 
-    this.hammer.on('release', function (event) {
+    hammer.on('release', function (event) {
         self._removeHoverTriggers();
         if (event !== null && event.gesture !== null) {
             var dx = event.gesture.deltaX,
                 dy = event.gesture.deltaY;
-
             if (dx > window.ventu.config.swipe.complete) {
                 self._addToList('love');
             } else if (dx < -window.ventu.config.swipe.complete) {
                 self._addToList('hate');
             } else {
-                self._moveToOrigin(true);
+                self._backToOrigin(true);
             }
         }
     });
 };
 
 
-// launch
+
+// 3d movements
+
+Card.prototype._setCurrent = function () {
+    var next;
+
+    this.status.stackPosition.rotate = 0;
+    this.status.stackPosition.zIndex = window.ventu.config.card.sealevel;
+    this.status.stackPosition.shadeZindex = window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2;
+    this.status.stackPosition.shiftX = 0;
+    this.status.stackPosition.shiftY = 0;
+
+    if (this.shade) {
+        this.shade.element.fadeIn(100);
+    }
+    if (window.ventu.config.isMapPresent) {
+        this.marker.select();
+    }
+    this._backToOrigin(true);
+    this.marker.parent.currentCard = this;
+    this.element.addClass('ventu-card--current');
+    // already unrotate the next card (for nicer effect)
+    next = this._getNext();
+    if (next) {
+        next._backToOrigin(true);
+        //next.element.addClass('ventu-card--current');
+    }
+};
 
 Card.prototype.launch = function (type) {
     var self = this,
-        thisTransform;
-    if (!type) {
-        if (window.ventu.user.askIfDidSee('cardLaunch') || !window.ventu.config.isMapPresent) {
-            type = 'soft';
-        } else {
-            type = 'cool'
-        }
-    }
-    thisTransform = type === 'cool' ? this.marker.getTransform() : [0, 0, 0, 0, 0, 0, 1, 1];
+        wait = window.ventu.map.cards.length * 150 + 1000,
+        thisTransform = type === 'cool' ? this.marker.getTransform() : [0, 0, 0, 0, 0, 0, 1, 1];
     // start position
     this.setTransform(thisTransform, false);
-
     if (this.shade) {
         this.shade.project(thisTransform, false);
     }
@@ -156,23 +185,23 @@ Card.prototype.launch = function (type) {
         case 'cool':
             this._coolLaunch();
             break;
-        case 'soft':
-            this._softLaunch();
+        case 'normal':
+            this._normalLaunch();
             break;
     }
 
     // float
     if (this.index === 0 && !window.ventu.user.askIfDidSee('cardFloat') && window.environment.floatFirst) {
         setTimeout(function () {
-            self._moveFloat();
+            self._float();
             window.ventu.user.didSee('cardFloat');
-        }, (window.ventu.map.cards.length * 150 + 1000));
+        }, wait);
     }
 };
 
-Card.prototype._softLaunch = function () {
+Card.prototype._normalLaunch = function () {
     var self = this,
-        wait = 500;
+        wait = 250;
     this.element.addClass('no-transition').fadeIn(wait, function () {
         $(this).removeClass('no-transition')
     });
@@ -198,7 +227,7 @@ Card.prototype._coolLaunch = function () {
     // launch
     setTimeout(function () {
         // keep the rotation
-        self._moveToOrigin(false);
+        self._backToOrigin(false);
     }, 100);
 
     // launch next
@@ -216,10 +245,21 @@ Card.prototype._coolLaunch = function () {
     window.ventu.user.didSee('cardLaunch');
 };
 
+Card.prototype._float = function() {
+    var self = this;
+    this.element.addClass('ventu-card-float');
+    if (this.shade) {
+        this.shade.element.addClass('ventu-card-shade-float');
+    }
+    setTimeout(function () {
+        self._stopFloat();
+    }, 4000)
+};
+
 Card.prototype._launchNext = function () {
     var next = this._getNext();
     if (next) {
-        next.launch();
+        next.launch('normal');
         return true;
     } else {
         return false;
@@ -229,123 +269,9 @@ Card.prototype._launchNext = function () {
 
 
 
+// 2d movements
 
-
-// actions
-
-Card.prototype._setCurrent = function () {
-    var next;
-
-    this.position.rotate = 0;
-    this.position.zIndex = window.ventu.config.card.sealevel;
-    this.position.shadeZindex = window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2;
-    this.position.shiftX = 0;
-    this.position.shiftY = 0;
-
-    if (this.shade) {
-        this.shade.element.fadeIn(100);
-    }
-    if (window.ventu.config.isMapPresent) {
-        this.marker.select();
-    }
-    this._moveToOrigin(true);
-    this.marker.parent.currentCard = this;
-    this.element.addClass('ventu-card--current');
-    // already unrotate the next card (for nicer effect)
-    next = this._getNext();
-    if (next) {
-        next._moveToOrigin(true);
-        //next.element.addClass('ventu-card--current');
-    }
-};
-
-Card.prototype._unsetCurrent = function (rotate, zIndex, shiftX, shiftY, shadeZindex) {
-    this.position.rotate = rotate;
-    this.position.zIndex = zIndex;
-    this.position.shadeZindex = shadeZindex;
-    this.position.shiftX = shiftX;
-    this.position.shiftY = shiftY;
-    this._moveToOriginalPositionInStack();
-    if (window.ventu.config.isMapPresent) {
-        this.marker.unselect();
-    }
-};
-
-Card.prototype.swap = function () {
-    var self = this,
-        topCard = window.ventu.map.currentCard,
-        originalX = this.position.shiftX;
-    // pull both horizontal out of stack
-    topCard.position.shiftX = -500;
-    this.position.shiftX = 500;
-    topCard._moveToOriginalPositionInStack();
-    this._moveToOriginalPositionInStack();
-
-    setTimeout(function () {
-
-        topCard._unsetCurrent(self.position.rotate, self.position.zIndex, originalX, self.position.shiftY, self.position.shadeZindex);
-        self._setCurrent();
-
-        if (this.shade) {
-            window.ventu.domElements.stack.append(self.shade.element);
-        }
-        window.ventu.domElements.stack.append(self.element);
-
-        self.marker.parent.cards.move(self.index, 0);
-
-        $(self.marker.parent.cards).each(function (index, card) {
-            if (card !== null) {
-                card.index = index;
-                card.position = card._getPosition(index);
-                card._moveToOriginalPositionInStack();
-            }
-        });
-
-    }, 500);
-};
-
-
-// moves
-
-
-Card.prototype._moveToOriginalPositionInStack = function () {
-    var thisTransform = [0, 0, 0, 0, 0, 0, 1, 1];
-    this.setTransform(thisTransform, false);
-
-    if (this.shade) {
-        this.shade.project(thisTransform, false);
-        this.shade.fadeIn();
-    }
-};
-
-Card.prototype._moveToOrigin = function (unrotate) {
-    var transform = [0, 0, 0, 0, 0, 0, 1, 1];
-    if (unrotate) {
-        this.position.rotate = 0;
-    }
-    this.element.removeClass('no-transition');
-    if (this.shade) {
-        this.shade.element.removeClass('no-transition');
-    }
-    this.setTransform(transform, false);
-    if (this.shade) {
-        this.shade.project(transform, true);
-    }
-};
-
-
-Card.prototype._moveFloat = function () {
-    var self = this;
-    this.element.addClass('ventu-card-float');
-    if (this.shade) {
-        this.shade.element.addClass('ventu-card-shade-float');
-    }
-    setTimeout(function () {
-        self._clearfloat();
-    }, 4000)
-};
-
-Card.prototype._moveDrag = function (dx, dy) {
+Card.prototype._drag = function (dx, dy) {
     var x = dx,
         y = dy,
         rotY = dx / 5,
@@ -362,107 +288,60 @@ Card.prototype._moveDrag = function (dx, dy) {
     }
 };
 
-// Card.prototype.detail = function () {
-//     this._moveToOrigin(true);
-//     location.href = this.building.getContent().text.detailLinkUrl;
-// };
-
-
-
-// swiping
-
-
-Card.prototype._swipeHint = function (dx, dy) {
-    if (dx > window.ventu.config.swipe.complete) {
-        if (window.ventu.config.isCatcherPresent) {
-            window.ventu.list.love.element.main.addClass('selected');
-            window.ventu.list.hate.element.main.removeClass('selected');
-        }
-    } else if (dx > window.ventu.config.swipe.suggest) {
-        this.buttons.love.addClass('hover');
-    } else if (dx < -window.ventu.config.swipe.complete) {
-        if (window.ventu.config.isCatcherPresent) {
-            window.ventu.list.hate.element.main.addClass('selected');
-            window.ventu.list.love.element.main.removeClass('selected');
-        }
-    } else if (dx < -window.ventu.config.swipe.suggest) {
-        this.buttons.hate.addClass('hover');
-    } else {
-        this._removeHoverTriggers();
+Card.prototype._backToOrigin = function (unrotate) {
+    var transform = [0, 0, 0, 0, 0, 0, 1, 1];
+    if (unrotate) {
+        this.status.stackPosition.rotate = 0;
     }
-
-};
-
-
-
-
-
-
-
-// helpers
-
-Card.prototype._getPosition = function (index) {
-    var gap = index === 0 ? 0 : window.ventu.config.card.zGap,
-        zIndex = window.ventu.config.card.sealevel + (index * -window.ventu.config.card.zOffset) - gap;
-    return {
-        rotate: index === 0 ? 0 : window.ventu.config.card.rotation * Math.random() - (window.ventu.config.card.rotation / 2),
-        zIndex: zIndex,
-        shiftX: window.ventu.config.device.type === 0 ? 0 : index * window.ventu.config.card.shift, // no shfits for mobile, only rotate
-        shiftY: window.ventu.config.device.type === 0 ? 0 : index * window.ventu.config.card.shift
+    this.element.removeClass('no-transition');
+    if (this.shade) {
+        this.shade.element.removeClass('no-transition');
+    }
+    this.setTransform(transform, false);
+    if (this.shade) {
+        this.shade.project(transform, true);
     }
 };
 
-Card.prototype._getNext = function () {
-    var map = this.marker.parent,
-        index = map.cards.indexOf(this);
-    if (map.cards[index + 1]) {
-        return map.cards[index + 1];
-    } else {
-        return null;
-    }
-};
-
-
-
-
-
-
-
-
-
-// administration
-
-Card.prototype._clearfloat = function () {
+Card.prototype._stopFloat = function () {
     this.element.removeClass('ventu-card-float');
     if (this.shade) {
         this.shade.element.removeClass('ventu-card-shade-float');
     }
 };
 
-Card.prototype._removeHoverTriggers = function () {
-    this.buttons.hate.removeClass('hover');
-    this.buttons.love.removeClass('hover');
+
+
+// swiping
+
+// TODO
+Card.prototype._swipeHint = function (dx, dy) {
+    // if (dx > window.ventu.config.swipe.complete) {
+    //     if (window.ventu.config.isCatcherPresent) {
+    //         window.ventu.list.love.element.main.addClass('selected');
+    //         window.ventu.list.hate.element.main.removeClass('selected');
+    //     }
+    // } else if (dx > window.ventu.config.swipe.suggest) {
+    //     this.buttons.love.addClass('hover');
+    // } else if (dx < -window.ventu.config.swipe.complete) {
+    //     if (window.ventu.config.isCatcherPresent) {
+    //         window.ventu.list.hate.element.main.addClass('selected');
+    //         window.ventu.list.love.element.main.removeClass('selected');
+    //     }
+    // } else if (dx < -window.ventu.config.swipe.suggest) {
+    //     this.buttons.hate.addClass('hover');
+    // } else {
+    //     this._removeHoverTriggers();
+    // }
+
 };
 
-Card.prototype.destroy = function (removeFormArray) {
-    var index;
-    if (removeFormArray) {
-        index = window.ventu.map.cards.indexOf(this);
-        if (index > -1) {
-            window.ventu.map.cards.splice(index, 1);
-        }
-    }
 
-    this.element.remove();
-    if (this.shade) {
-        this.shade.element.remove();
-    }
-};
 
-Card.prototype._addToList = function (type) {
-    var self = this,
-        map = this.marker.parent,
-        config = window.ventu.config.sizes.bottomBar[type],
+// administration
+
+Card.prototype._addToList = function(type) {
+    var map = this.marker.parent,
         next = this._getNext();
 
     this.status.event = 'tolist';
@@ -494,11 +373,56 @@ Card.prototype._addToList = function (type) {
         if (next && next.status.event !== 'tolist') {
             next._setCurrent();
         }
-    }, 10);
+    }, settings.card.speed.next);
 };
 
-Card.prototype.resetAnimation = function (element) {
-    var ripple = element.find('.ventu-ripple');
+Card.prototype.destroy = function (removeFormArray) {
+    var index;
+    if (removeFormArray) {
+        index = window.ventu.map.cards.indexOf(this);
+        if (index > -1) {
+            window.ventu.map.cards.splice(index, 1);
+        }
+    }
+
+    this.element.remove();
+    if (this.shade) {
+        this.shade.element.remove();
+    }
+};
+
+
+
+
+// getters
+
+Card.prototype._getStackPosition = function() {
+    var gap = this.index === 0 ? 0 : window.ventu.config.card.zGap,
+        zIndex = window.ventu.config.card.sealevel + (this.index * -window.ventu.config.card.zOffset) - gap;
+    return {
+        rotate: this.index === 0 ? 0 : window.ventu.config.card.rotation * Math.random() - (window.ventu.config.card.rotation / 2),
+        zIndex: zIndex,
+        shiftX: window.ventu.config.device.type === 0 ? 0 : this.index * window.ventu.config.card.shift, // no shfits for mobile, only rotate
+        shiftY: window.ventu.config.device.type === 0 ? 0 : this.index * window.ventu.config.card.shift
+    }
+};
+
+Card.prototype._getNext = function () {
+    var map = this.marker.parent,
+        index = map.cards.indexOf(this);
+    if (map.cards[index + 1]) {
+        return map.cards[index + 1];
+    } else {
+        return null;
+    }
+};
+
+
+
+// other
+
+Card.prototype._resetAnimation = function (button) {
+    var ripple = button.find('.ventu-ripple');
     if (ripple.length > 0) {
         ripple[0].style.webkitAnimation = 'none';
         ripple[0].style.mozAnimation = 'none';
@@ -512,6 +436,11 @@ Card.prototype.resetAnimation = function (element) {
             ripple[0].style.animation = '';
         }, 10);
     }
+};
+
+Card.prototype._removeHoverTriggers = function () {
+    this.buttons.hate.removeClass('hover');
+    this.buttons.love.removeClass('hover');
 };
 
 // @walstra: wat doet dit?

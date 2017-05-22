@@ -18,7 +18,8 @@ function Map() {
         found: 0,
         left: 0,
         love: 0,
-        hate: 0
+        hate: 0,
+        tilesloaded: false
     };
     this.currentCard = null;
     this.map = null;
@@ -55,6 +56,7 @@ Map.prototype.init = function() {
 
 Map.prototype.draw = function(result, leaveshape) {
     var self = this;
+    this.status.tilesloaded = false;
     this.lastIndex = 0;
     this._cleanUp(leaveshape);
     this.status.found = result.markers.length;
@@ -76,12 +78,17 @@ Map.prototype.draw = function(result, leaveshape) {
                 self._showMarkers();
             }, 500);
         }
-        if (self.cards.length > 0) {
-            setTimeout(function () {
-                // init launch cascade
-                self.currentCard = self.cards[0];
-                self.cards[0].launch();
-            }, 1000);
+        if (this.cards.length > 0) {
+            var type = self._getLaunchType();
+            this.currentCard = self.cards[0];
+            if (!this.status.tilesloaded) {
+                google.maps.event.addListenerOnce(this.map, 'tilesloaded', function() {
+                    self.cards[0].launch(type);
+                    self.status.tilesloaded = true;
+                });
+            } else {
+                this.cards[0].launch(type);
+            }
         }
     }
 };
@@ -211,7 +218,7 @@ Map.prototype.setDragEndEvent = function (shape) {
         //ventu.map.shapes = [];
         //ventu.map.shapes.push(shape);
 
-        ventu.service.filterUpdate(true);
+        window.ventuApi.select();
     });
 };
 
@@ -387,11 +394,15 @@ Map.prototype.createNewCard = function() {
         }
         card = data.marker.createCard(data.building);
         setTimeout(function () {
-            card.launch('soft');
+            card.launch('normal');
         }, wait);
     }
 
 };
+
+
+
+// getters
 
 Map.prototype._getMarker = function() {
     for (var i = 0, l = this.markers.length; i < l; i++) {
@@ -409,6 +420,18 @@ Map.prototype._getMarker = function() {
     }
     return null;
 };
+
+Map.prototype._getLaunchType = function() {
+    if (window.ventu.user.askIfDidSee('cardLaunch') || !window.ventu.config.isMapPresent) {
+        return 'normal';
+    } else {
+        return 'cool'
+    }
+};
+
+
+
+// dom
 
 Map.prototype.updateResultBar = function() {
     $('#ventu-filter-result').html(this.status.found);

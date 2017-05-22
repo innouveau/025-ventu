@@ -3,7 +3,9 @@ function Shade(card, cardElement) {
     this.card = card;
     this.element = null;
     this.transform = null;
-    this.position = this._getPosition();
+    this.status = {
+        stackPosition: this._getStackPosition()
+    };
     this.create();
 }
 
@@ -47,7 +49,7 @@ Shade.prototype.project = function (transform, rotate) {
     projected = [
         depthFactor * transform[0] - 50,
         depthFactor * transform[1] + 50,
-        this.position.zIndex,
+        this.status.stackPosition.zIndex,
         0,
         0,
         rotZ,
@@ -57,12 +59,12 @@ Shade.prototype.project = function (transform, rotate) {
     this.setTransform(projected, false);
 };
 
-Shade.prototype._getPosition = function() {
-    var zIndex = this.card.index === 0 ? window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2 : this.card.position.zIndex - window.ventu.config.card.zOffset;
+Shade.prototype._getStackPosition = function() {
+    var zIndex = this.card.index === 0 ? window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2 : this.card.status.stackPosition.zIndex - window.ventu.config.card.zOffset;
     return {
-        rotate: this.card.position.rotate,
-        shiftX: this.card.position.shiftX,
-        shiftY: this.card.position.shiftY,
+        rotate: this.card.status.stackPosition.rotate,
+        shiftX: this.card.status.stackPosition.shiftX,
+        shiftY: this.card.status.stackPosition.shiftY,
         zIndex: zIndex
     }
 };

@@ -2,6 +2,7 @@ function App() {
     this.map = null;
     this.config = null;
     this.user = null;
+    this.guide = null;
 
     this.domElements = {
         stack: $('#ventu-stack'),
@@ -14,6 +15,7 @@ App.prototype.init = function() {
     this.config = new Config();
     this.map = new Map();
     this.user = new User();
+    this.guide = new Guide();
 };
 
 App.prototype.redraw = function(result) {
