@@ -319,6 +319,10 @@ nav.navbar-default #navbar ul li a {
   display: inline-block;
   width: 30px;
 }
+.ventu-contact-icon-button .ventu-contact-icon-button-img img {
+  width: 20px;
+  height: auto;
+}
 .ventu-contact-icon-button .ventu-contact-icon-button-text {
   color: #17141f;
   font-family: ProximaNova;
