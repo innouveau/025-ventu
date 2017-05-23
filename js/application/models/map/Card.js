@@ -136,7 +136,6 @@ Card.prototype._addListener = function () {
         if (event !== null && event.gesture !== null) {
             var dx = event.gesture.deltaX,
                 dy = event.gesture.deltaY;
-            console.log(dy);
             if (dx > window.ventu.config.swipe.complete) {
                 self._addToList('love');
             } else if (dx < -window.ventu.config.swipe.complete) {
