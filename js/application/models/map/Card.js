@@ -136,10 +136,13 @@ Card.prototype._addListener = function () {
         if (event !== null && event.gesture !== null) {
             var dx = event.gesture.deltaX,
                 dy = event.gesture.deltaY;
+            console.log(dy);
             if (dx > window.ventu.config.swipe.complete) {
                 self._addToList('love');
             } else if (dx < -window.ventu.config.swipe.complete) {
                 self._addToList('hate');
+            } else if (dy > window.ventu.config.swipe.complete) {
+                self._swipeDown();
             } else {
                 self._backToOrigin(true);
             }
@@ -379,6 +382,12 @@ Card.prototype._addToList = function(type) {
         }
     }, settings.card.speed.next);
 };
+
+Card.prototype._swipeDown = function () {
+    this._backToOrigin(true);
+    window.ventuApi.seeDetail(this.building.getDetailUrl());
+};
+
 
 Card.prototype.destroy = function (removeFormArray) {
     var index;

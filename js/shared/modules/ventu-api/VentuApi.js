@@ -37,6 +37,10 @@ VentuApi.prototype.select = function (obj) {
 
 };
 
+VentuApi.prototype.seeDetail = function(url) {
+    window.location.href = url;
+};
+
 VentuApi.prototype.querySearch = function (query) {
     if (this._isThisApplication()) {
         window.ventu.redraw(fakeSearchResult);
