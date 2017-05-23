@@ -46,6 +46,7 @@ Shade.prototype.project = function (transform, rotate) {
         scaleX = transform[6];
         scaleY = transform[7];
     }
+
     projected = [
         depthFactor * transform[0] - 50,
         depthFactor * transform[1] + 50,
