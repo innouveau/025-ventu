@@ -437,6 +437,8 @@ Dialog.prototype.isAllowedToSlide = function(slideCallback) {
         
         window.ventuApi.getSelectResults(this.query);
 
+        
+
     } else {
         slideCallback();
     }

@@ -113,6 +113,8 @@ VentuApi.prototype._isThisApplication = function () {
         return false;
     }
 
+    
+
     /*
     var path = window.location.pathname.split('/'),
         lastPart = path[path.length - 1];
