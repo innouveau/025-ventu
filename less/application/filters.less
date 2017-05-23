@@ -1,7 +1,18 @@
 @import '../mixins';
 
 
+#ventu-filters {
 
+    #ventu-filter-content {
+        height: ~'calc(100% - 121px)';
+        overflow: auto;
+    }
+
+    #ventu-filter-tools {
+        height: 121px;
+        border-top: 1px solid @ventu-main-grey-light;
+    }
+}
 
 .ventu-filter-section {
     border-bottom: 1px solid @ventu-main-grey-light;
@@ -176,40 +187,5 @@
 
     &:last-child {
         border-bottom: 0;
-    }
-}
-
-#ventu-filter-tools {
-
-    .ventu-filter-tools-button {
-        position: relative;
-        cursor: pointer;
-        padding: 6px 6px 6px 34px;
-
-        &:hover {
-            background: @ventu-main-grey-light;
-        }
-
-        &:after {
-            position: absolute;
-            left: 4px;
-            top: 4px;
-            width: 20px;
-            height: 20px;
-            content: '';
-            background-size: 100% 100%;
-        }
-
-
-        &.ventu-filter-tools-button--save:after {
-            background-image: url(img/icons/save.svg);
-        }
-
-        .ventu-filter-tools-button-label {
-            text-decoration: underline;
-        }
-
-
-
     }
 }

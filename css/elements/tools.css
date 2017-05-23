@@ -1,0 +1,30 @@
+.ventu-tools-button {
+  position: relative;
+  cursor: pointer;
+  height: 60px;
+  padding: 17px 12px 18px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ededec;
+}
+.ventu-tools-button:hover {
+  background: #ededec;
+}
+.ventu-tools-button .ventu-tools-button-icon {
+  width: 25px;
+  height: 25px;
+  content: '';
+  background-size: 100% 100%;
+  display: inline-block;
+}
+.ventu-tools-button.ventu-tools-button--save .ventu-tools-button-icon {
+  background-image: url(img/tools/save-grey.svg);
+}
+.ventu-tools-button.ventu-tools-button--erase .ventu-tools-button-icon {
+  background-image: url(img/tools/erase-grey.svg);
+}
+.ventu-tools-button .ventu-tools-button-label {
+  text-decoration: underline;
+  display: inline-block;
+  vertical-align: top;
+  padding: 3px 8px;
+}
