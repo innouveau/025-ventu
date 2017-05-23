@@ -46,8 +46,9 @@ VentuApi.prototype.querySearch = function (query) {
 };
 
 VentuApi.prototype._isThisApplication = function () {
-    var path = window.location.pathname.split('/');
-    if (path[path.length - 1] === 'application.php') {
+    var path = window.location.pathname.split('/'),
+        lastPart = path[path.length - 1];
+    if (lastPart === 'application.php' || lastPart === 'application-landing.php') {
         return true;
     } else {
         return false;

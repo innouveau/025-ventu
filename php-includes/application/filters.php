@@ -1,7 +1,7 @@
-<div id="ventu-filters">
-    <div id="ventu-filter-label"></div>
+<div id="ventu-filters" class="ventu-slide-panel">
+    <div class="ventu-slide-panel-label"></div>
 
-    <div id="ventu-filter-content">
+    <div class="ventu-slide-panel-content">
         <div class="ventu-filter-section">
             <h5>
                 <span id="ventu-filter-result">329</span> <span>objecten gevonden</span>

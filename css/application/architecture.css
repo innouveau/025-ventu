@@ -27,18 +27,7 @@ body.ventu-application #ventu-application-container #ventu-canvas {
   height: 100%;
 }
 body.ventu-application #ventu-application-container #ventu-filters {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 300px;
-  height: 100%;
-  transition: all 0.3s ease;
-}
-body.ventu-application #ventu-application-container #ventu-filters.ventu-filters--inactive {
-  left: -290px;
-}
-body.ventu-application #ventu-application-container #ventu-filters.ventu-filters--inactive #ventu-filter-label {
-  background-image: url(img/tools/label-arrow-right.svg);
 }
 body.ventu-application #ventu-application-container #ventu-stack {
   position: absolute;

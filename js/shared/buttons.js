@@ -15,3 +15,8 @@ function addContinueListener(panelHeight) {
     })
 }
 
+function slidePanelListener() {
+    $('.ventu-slide-panel-label').click(function(){
+        $(this).parent().toggleClass('ventu-slide-panel--inactive');
+    })
+}

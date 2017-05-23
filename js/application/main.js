@@ -37,15 +37,5 @@ $(window).ready(function() {
     setFullscreenAndContinueButton();
 
     filterListeners();
-
-
-    // mapListeners();
-    // ventu.init();
-    //
-    // if (window.environment.autostart) {
-    //     ventu.select('1077 Amsterdam (postcode)', 'poly');
-    // }
-    //
-    // menuListeners();
-    // select2();
+    slidePanelListener();
 });

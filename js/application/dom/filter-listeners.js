@@ -1,15 +1,7 @@
 function filterListeners() {
-    filterLabelListener();
     filterSetFullTextLengths();
     filterReadMoreListeners();
 }
-
-function filterLabelListener() {
-    $('#ventu-filter-label').click(function(){
-        $(this).parent().toggleClass('ventu-filters--inactive');
-    })
-}
-
 function filterSetFullTextLengths() {
     $('.ventu-filter-full-text-container').each(function(){
         var height = $(this).outerHeight();

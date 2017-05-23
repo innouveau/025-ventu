@@ -150,6 +150,12 @@ section.detail-text .detail-text-short {
   max-width: 520px;
   margin: 0 auto;
 }
+#ventu-slide-panel-landing {
+  width: 40%;
+}
+#ventu-slide-panel-landing.ventu-slide-panel--inactive {
+  left: calc(-40% + 10px);
+}
 nav.navbar-default {
   border: 0!important;
   margin: 0;
@@ -672,18 +678,7 @@ body.ventu-application #ventu-application-container #ventu-canvas {
   height: 100%;
 }
 body.ventu-application #ventu-application-container #ventu-filters {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 300px;
-  height: 100%;
-  transition: all 0.3s ease;
-}
-body.ventu-application #ventu-application-container #ventu-filters.ventu-filters--inactive {
-  left: -290px;
-}
-body.ventu-application #ventu-application-container #ventu-filters.ventu-filters--inactive #ventu-filter-label {
-  background-image: url(img/tools/label-arrow-right.svg);
 }
 body.ventu-application #ventu-application-container #ventu-stack {
   position: absolute;
@@ -695,32 +690,25 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   right: 50px;
   bottom: 0;
 }
-#ventu-filter-content {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-}
-#ventu-filter-content .ventu-filter-section {
+.ventu-filter-section {
   border-bottom: 1px solid #ededec;
   padding: 16px;
   font-family: ProximaNova;
 }
-#ventu-filter-content .ventu-filter-section h5 {
+.ventu-filter-section h5 {
   text-align: center;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header {
+.ventu-filter-section .ventu-filter-header {
   position: relative;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more {
+.ventu-filter-section .ventu-filter-header .ventu-filter-read-more {
   position: absolute;
   right: 0;
   top: 0;
   cursor: pointer;
   padding-right: 14px;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more:after {
+.ventu-filter-section .ventu-filter-header .ventu-filter-read-more:after {
   width: 8px;
   height: 5px;
   background-size: 100% 100%;
@@ -730,47 +718,47 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   top: 6px;
   background-image: url(img/tools/arrow-down.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more.ventu-filter-read-more--open:after {
+.ventu-filter-section .ventu-filter-header .ventu-filter-read-more.ventu-filter-read-more--open:after {
   background-image: url(img/tools/arrow-up.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more.ventu-filter-read-more--open .ventu-filter-read-more-label .ventu-filter-read-more-label--close {
+.ventu-filter-section .ventu-filter-header .ventu-filter-read-more.ventu-filter-read-more--open .ventu-filter-read-more-label .ventu-filter-read-more-label--close {
   display: none;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more.ventu-filter-read-more--open .ventu-filter-read-more-label .ventu-filter-read-more-label--open {
+.ventu-filter-section .ventu-filter-header .ventu-filter-read-more.ventu-filter-read-more--open .ventu-filter-read-more-label .ventu-filter-read-more-label--open {
   display: block;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more .ventu-filter-read-more-label {
+.ventu-filter-section .ventu-filter-header .ventu-filter-read-more .ventu-filter-read-more-label {
   text-align: right;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more .ventu-filter-read-more-label .ventu-filter-read-more-label--close {
+.ventu-filter-section .ventu-filter-header .ventu-filter-read-more .ventu-filter-read-more-label .ventu-filter-read-more-label--close {
   display: block;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-header .ventu-filter-read-more .ventu-filter-read-more-label .ventu-filter-read-more-label--open {
+.ventu-filter-section .ventu-filter-header .ventu-filter-read-more .ventu-filter-read-more-label .ventu-filter-read-more-label--open {
   display: none;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-label-container {
+.ventu-filter-section .ventu-filter-label-container {
   margin-top: 16px;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container {
+.ventu-filter-section .ventu-filter-full-text-container {
   overflow: hidden;
   transition: all 0.2s ease;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text {
   border-top: 1px solid #ededec;
   padding: 16px 0;
   margin-top: 16px;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button {
   padding: 10px 12px 0 12px;
   height: 35px;
   margin-bottom: 3px;
   cursor: pointer;
   position: relative;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button::first-letter {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button::first-letter {
   text-transform: capitalize;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button:after {
   position: absolute;
   right: 12px;
   top: 5px;
@@ -779,68 +767,68 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   content: '';
   background-size: 100% 100%;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button:hover {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button:hover {
   background: #ededec;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--active {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--active {
   background: #00e5a9;
   color: #03256b;
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--office:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--office:after {
   background-image: url(img/icons/types/office-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--business:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--business:after {
   background-image: url(img/icons/types/business-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--shop:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--shop:after {
   background-image: url(img/icons/types/shop-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--catering:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--catering:after {
   background-image: url(img/icons/types/catering-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--other:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--other:after {
   background-image: url(img/icons/types/other-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--leisure:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--leisure:after {
   background-image: url(img/icons/types/leisure-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--land:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--land:after {
   background-image: url(img/icons/types/land-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--distribution:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--distribution:after {
   background-image: url(img/icons/types/distribution-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--workplace:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--workplace:after {
   background-image: url(img/icons/types/workplace-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--social:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--social:after {
   background-image: url(img/icons/types/social-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--education:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--education:after {
   background-image: url(img/icons/types/education-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--parking:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--parking:after {
   background-image: url(img/icons/types/parking-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--agricultural:after {
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--agricultural:after {
   background-image: url(img/icons/types/agricultural-grey.svg);
 }
-#ventu-filter-content .ventu-filter-section .ventu-filter-passive-text {
+.ventu-filter-section .ventu-filter-passive-text {
   color: #727272;
   font-style: italic;
 }
-#ventu-filter-content .ventu-filter-section:last-child {
+.ventu-filter-section:last-child {
   border-bottom: 0;
 }
-#ventu-filter-content #ventu-filter-tools .ventu-filter-tools-button {
+#ventu-filter-tools .ventu-filter-tools-button {
   position: relative;
   cursor: pointer;
   padding: 6px 6px 6px 34px;
 }
-#ventu-filter-content #ventu-filter-tools .ventu-filter-tools-button:hover {
+#ventu-filter-tools .ventu-filter-tools-button:hover {
   background: #ededec;
 }
-#ventu-filter-content #ventu-filter-tools .ventu-filter-tools-button:after {
+#ventu-filter-tools .ventu-filter-tools-button:after {
   position: absolute;
   left: 4px;
   top: 4px;
@@ -849,26 +837,11 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   content: '';
   background-size: 100% 100%;
 }
-#ventu-filter-content #ventu-filter-tools .ventu-filter-tools-button.ventu-filter-tools-button--save:after {
+#ventu-filter-tools .ventu-filter-tools-button.ventu-filter-tools-button--save:after {
   background-image: url(img/icons/save.svg);
 }
-#ventu-filter-content #ventu-filter-tools .ventu-filter-tools-button .ventu-filter-tools-button-label {
+#ventu-filter-tools .ventu-filter-tools-button .ventu-filter-tools-button-label {
   text-decoration: underline;
-}
-#ventu-filter-label {
-  position: absolute;
-  left: 100%;
-  top: 116px;
-  background: #ff8d00;
-  color: #fff;
-  padding: 20px 10px;
-  width: 22px;
-  height: 50px;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  background-image: url(img/tools/label-arrow-left.svg);
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
 }
 .ventu-filter-area-box {
   border: 1px solid #ededec;
@@ -1575,6 +1548,47 @@ img.projectCarousel {
 }
 .ventu-filter-label::first-letter {
   text-transform: capitalize;
+}
+.ventu-slide-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+.ventu-slide-panel .ventu-slide-panel-label {
+  position: absolute;
+  left: 100%;
+  top: 116px;
+  background: #ff8d00;
+  color: #fff;
+  padding: 20px 10px;
+  width: 22px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  background-image: url(img/tools/label-arrow-left.svg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.ventu-slide-panel.ventu-slide-panel--inactive {
+  left: -290px;
+}
+.ventu-slide-panel.ventu-slide-panel--inactive .ventu-filter-label {
+  background-image: url(img/tools/label-arrow-right.svg);
+}
+.ventu-slide-panel .ventu-slide-panel-content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.ventu-slide-panel .ventu-slide-panel-content .ventu-slide-panel-section {
+  padding: 20px;
+  border-bottom: 1px solid #ededec;
+  margin-bottom: 20px;
 }
 #breadcrumb {
   margin-top: 60px;
