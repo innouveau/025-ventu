@@ -987,7 +987,7 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   top: 9px;
   width: 14px;
   height: 14px;
-  background-image: url(img/tools/glass.svg);
+  background-image: url(img/tools/glass-grey.svg);
   background-size: 100% 100%;
   content: '';
 }
@@ -1972,7 +1972,7 @@ section.section--small-padding .divider {
   height: 24px;
   width: 24px;
   margin: 11px 10px;
-  background-image: url(img/tools/glass.svg);
+  background-image: url(img/tools/glass-grey.svg);
 }
 .ventu-search.ventu-search-marker .ventu-search-icon {
   height: 45px;
@@ -2015,8 +2015,9 @@ section.section--small-padding .divider {
   width: 60px;
   height: 60px;
   background: #ededec;
-  background-image: url(img/tools/glass.svg);
+  background-image: url(img/tools/glass-grey.svg);
   background-position: 50% 50%;
+  background-size: 25px 25px;
   background-repeat: no-repeat;
   cursor: pointer;
   position: relative;
@@ -2030,7 +2031,7 @@ section.section--small-padding .divider {
   transition: all 0.2s ease;
 }
 .ventu-search-open.ventu-search-open--opened {
-  background-image: url(img/tools/close.svg);
+  background-image: url(img/tools/close-grey.svg);
 }
 .ventu-search-open.ventu-search-open--opened .ventu-search-container {
   width: 500px;
