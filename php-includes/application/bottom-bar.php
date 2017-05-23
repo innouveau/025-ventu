@@ -6,10 +6,10 @@
             <div class="ventu-bottom-bar-label-container">
                 <div class="venu-bottom-bar-label-rotor">
                     <div class="venu-bottom-bar-label-front">
-                        <div class="ventu-bottom-bar-label-text">1</div>
+                        <div class="ventu-bottom-bar-label-text">0</div>
                     </div>
                     <div class="venu-bottom-bar-label-back">
-                        <div class="ventu-bottom-bar-label-text">2</div>
+                        <div class="ventu-bottom-bar-label-text">0</div>
                     </div>
                 </div>
             </div>
@@ -26,10 +26,10 @@
             <div class="ventu-bottom-bar-label-container">
                 <div class="venu-bottom-bar-label-rotor">
                     <div class="venu-bottom-bar-label-front">
-                        <div class="ventu-bottom-bar-label-text">1</div>
+                        <div class="ventu-bottom-bar-label-text">0</div>
                     </div>
                     <div class="venu-bottom-bar-label-back">
-                        <div class="ventu-bottom-bar-label-text">2</div>
+                        <div class="ventu-bottom-bar-label-text">0</div>
                     </div>
                 </div>
             </div>

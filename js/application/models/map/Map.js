@@ -63,8 +63,8 @@ Map.prototype.draw = function(result, leaveshape) {
     this.status.left = result.markers.length;
     this.updateResultBar();
     this.updateBottomBar();
-    // this.updateBottomBarType('love');
-    // this.updateBottomBarType('hate');
+    this.updateBottomBarType('love');
+    this.updateBottomBarType('hate');
 
 
     if (!leaveshape && window.showGoogleMapObjects == undefined) {
