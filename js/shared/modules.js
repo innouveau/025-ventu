@@ -51,7 +51,7 @@ function setSearchOpenerInNavbar(searchOpener) {
         var remainingSpace = Math.floor($('body').innerWidth());
         remainingSpace -= Math.ceil($('.navbar-brand').outerWidth());
         remainingSpace -=  Math.ceil($('#navbar').outerWidth());
-        remainingSpace -= 0.5;
+        remainingSpace -= 1;
 
         searchOpener.parent().css('width', remainingSpace);
     };

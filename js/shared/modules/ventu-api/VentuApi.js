@@ -1,4 +1,6 @@
-function VentuApi() {}
+function VentuApi() {
+    this.searchFilter = null;
+}
 
 VentuApi.prototype.getSearchResults = function (string, callback) {
     var results = [
@@ -47,7 +49,7 @@ VentuApi.prototype.querySearch = function (query) {
     this.getSelectResults(query);
 };
 
-VentuApi.prototype.setSearchFilter = function (query) {
+VentuApi.prototype.setSearchFilter = function (query, autoSearchFilter) {
 
     var searchFilter = {
         UniqueObjectIds: [],
@@ -91,7 +93,11 @@ VentuApi.prototype.setSearchFilter = function (query) {
         }
     }
 
-    $.sessionStorage.set('ventu-search-filter', JSON.stringify(searchFilter));
+    if (autoSearchFilter) {
+        searchFilter = autoSearchFilter;
+    }
+
+    this.searchFilter = searchFilter;
 
 }
 
@@ -112,16 +118,4 @@ VentuApi.prototype._isThisApplication = function () {
     } else {
         return false;
     }
-
-    
-
-    /*
-    var path = window.location.pathname.split('/'),
-        lastPart = path[path.length - 1];
-    if (lastPart === 'application.php' || lastPart === 'application-landing.php') {
-        return true;
-    } else {
-        return false;
-    }
-    */
 };
