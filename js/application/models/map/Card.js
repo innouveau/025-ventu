@@ -389,7 +389,7 @@ Card.prototype._addToList = function(type) {
     // update bottom bar
     map.status.left--;
     map.status[type]++;
-    map.updateBottomBar();
+    map.updateBottomBarType(type);
 
     setTimeout(function () {
         if (next && next.status.event !== 'tolist') {

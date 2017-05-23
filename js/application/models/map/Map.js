@@ -63,6 +63,8 @@ Map.prototype.draw = function(result, leaveshape) {
     this.status.left = result.markers.length;
     this.updateResultBar();
     this.updateBottomBar();
+    // this.updateBottomBarType('love');
+    // this.updateBottomBarType('hate');
 
 
     if (!leaveshape && window.showGoogleMapObjects == undefined) {
@@ -439,8 +441,20 @@ Map.prototype.updateResultBar = function() {
 
 Map.prototype.updateBottomBar = function() {
     $('#ventu-bottom-bar-counter').html(this.status.left + ' objecten over');
-    $('#ventu-bottom-bar-hate .ventu-bottom-bar-label').html(this.status.hate + ' objecten');
-    $('#ventu-bottom-bar-love .ventu-bottom-bar-label').html(this.status.love + ' objecten');
+};
+
+Map.prototype.updateBottomBarType = function(type) {
+    var container = $('#ventu-bottom-bar-' + type + ' .ventu-bottom-bar-label-container'),
+        label;
+    if (container.hasClass('ventu-bottom-bar-label-container--rotated')) {
+        label = container.find('.venu-bottom-bar-label-front .ventu-bottom-bar-label-text');
+    } else {
+        label = container.find('.venu-bottom-bar-label-back .ventu-bottom-bar-label-text');
+    }
+    if (parseInt(label.html()) !== this.status[type]) {
+        label.html(this.status[type]);
+        container.toggleClass('ventu-bottom-bar-label-container--rotated');
+    }
 };
 
 
