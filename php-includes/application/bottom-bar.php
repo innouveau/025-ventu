@@ -3,7 +3,19 @@
         <div class="ventu-bottom-bar-sub-status"></div>
         <div class="ventu-bottom-bar-sub-content">
             <div class="ventu-bottom-bar-icon ventu-bottom-bar-icon--love"></div>
-            <div class="ventu-bottom-bar-label"></div>
+            <div class="ventu-bottom-bar-label-container">
+                <div class="venu-bottom-bar-label-rotor">
+                    <div class="venu-bottom-bar-label-front">
+                        <div class="ventu-bottom-bar-label-text">0</div>
+                    </div>
+                    <div class="venu-bottom-bar-label-back">
+                        <div class="ventu-bottom-bar-label-text">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ventu-bottom-bar-label-text">
+                objecten
+            </div>
         </div>
     </div>
 
@@ -11,7 +23,20 @@
         <div class="ventu-bottom-bar-sub-status"></div>
         <div class="ventu-bottom-bar-sub-content">
             <div class="ventu-bottom-bar-icon ventu-bottom-bar-icon--hate"></div>
-            <div class="ventu-bottom-bar-label"></div>
+            <div class="ventu-bottom-bar-label-container">
+                <div class="venu-bottom-bar-label-rotor">
+                    <div class="venu-bottom-bar-label-front">
+                        <div class="ventu-bottom-bar-label-text">0</div>
+                    </div>
+                    <div class="venu-bottom-bar-label-back">
+                        <div class="ventu-bottom-bar-label-text">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ventu-bottom-bar-label-text">
+                objecten
+            </div>
+
         </div>
     </div>
 

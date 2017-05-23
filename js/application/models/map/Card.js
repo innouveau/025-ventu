@@ -291,6 +291,7 @@ Card.prototype._drag = function (dx, dy) {
         rotZ = dx / 20,
         transform = [x, y, 0, rotX, rotY, rotZ, 1, 1];
     this.element.addClass('no-transition');
+    this.status.transform = transform;
     if (this.shade) {
         this.shade.element.addClass('no-transition');
     }
@@ -362,17 +363,34 @@ Card.prototype._swipeRelease = function () {
 // administration
 
 Card.prototype._addToList = function(type) {
-    var map = this.marker.parent,
+    var self = this,
+        transform,
+        map = this.marker.parent,
         next = this._getNext();
 
     this._swipeRelease();
     this.status.event = 'tolist';
-    this.element.fadeOut(500);
+
+    // fade out and remove
+    transform = this.status.transform;
+    transform[0] *= 2; // increase x offset
+    transform[3] /= 3; // decline rotations
+    transform[4] /= 3;
+    transform[5] /= 3;
+    transform[6] = 0;
+    transform[7] = 0;
+
+    this.element.removeClass('no-transition');
+    this.setTransform(transform, false);
     if (this.shade) {
-        this.shade.element.fadeOut(500);
+        this.shade.project(transform, false);
     }
+    setTimeout(function () {
+        self.element.remove();
+        self.shade.element.remove();
+    }, 1500);
 
-
+    // update markers
     if (window.ventu.config.isMapPresent) {
         this.marker.hasCard = false;
         if (type === 'love') {
@@ -389,8 +407,9 @@ Card.prototype._addToList = function(type) {
     // update bottom bar
     map.status.left--;
     map.status[type]++;
-    map.updateBottomBar();
+    map.updateBottomBarType(type);
 
+    // trigger next
     setTimeout(function () {
         if (next && next.status.event !== 'tolist') {
             next._setCurrent();
