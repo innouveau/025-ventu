@@ -434,13 +434,8 @@ Dialog.prototype.isAllowedToShowButton = function() {
 
 Dialog.prototype.isAllowedToSlide = function(slideCallback) {
     if (this.status.page.current === 3) {
-        window.ventuApi.querySearch(this.query);
-
-        function searchCallback(n) {
-            var result = 'Berekend resultaat over ' + n + ' objecten';
-            $('.ventu-slider-slide-end-container').html(result);
-            slideCallback();
-        }
+        
+        window.ventuApi.getSelectResults(this.query);
 
     } else {
         slideCallback();

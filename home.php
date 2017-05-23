@@ -8,8 +8,6 @@
 
     <?php include('php-includes/standard-files.php'); ?>
 
-    <?php include('php-includes/application-links.php'); ?>
-
     <script src="js/home/main.js"></script>
 </head>
 
