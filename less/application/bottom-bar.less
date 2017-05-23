@@ -1,4 +1,4 @@
-@import 'mixins';
+@import '../mixins';
 
 
 #ventu-bottom-bar {
@@ -15,30 +15,63 @@
         height: 100%;
         padding: 18px 30px;
         float: right;
+        position: relative;
 
-        .ventu-bottom-bar-icon {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-size: 100% 100%;
-            display: inline-block;
+        .ventu-bottom-bar-sub-status {
+            position: absolute;
 
-            &.ventu-bottom-bar-icon--love {
-                background-color: @ventu-color-love;
-                background-image: url(img/icons/buttons/love.svg);
-            }
+            top: 0;
+            height: 100%;
+            content: '';
+            z-index: 0;
+        }
 
-            &.ventu-bottom-bar-icon--hate {
-                background-color: @ventu-color-hate;
-                background-image: url(img/icons/buttons/hate.svg);
+        &#ventu-bottom-bar-hate {
+
+            .ventu-bottom-bar-sub-status {
+                background: @ventu-color-hate-hover;
+                right: 0;
             }
         }
 
-        .ventu-bottom-bar-label {
-            display: inline-block;
-            vertical-align: top;
-            padding: 1px 0 0 6px;
+        &#ventu-bottom-bar-love {
+
+            .ventu-bottom-bar-sub-status {
+                left: 0;
+                background: @ventu-color-love-hover;
+            }
         }
+
+        .ventu-bottom-bar-sub-content {
+            position: relative;
+            z-index: 1;
+
+            .ventu-bottom-bar-icon {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-size: 100% 100%;
+                display: inline-block;
+
+                &.ventu-bottom-bar-icon--love {
+                    background-color: @ventu-color-love;
+                    background-image: url(img/icons/buttons/love.svg);
+                }
+
+                &.ventu-bottom-bar-icon--hate {
+                    background-color: @ventu-color-hate;
+                    background-image: url(img/icons/buttons/hate.svg);
+                }
+            }
+
+            .ventu-bottom-bar-label {
+                display: inline-block;
+                vertical-align: top;
+                padding: 1px 0 0 6px;
+            }
+        }
+
+
 
         &:last-child {
             border-right: 0;

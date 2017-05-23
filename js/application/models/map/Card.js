@@ -302,6 +302,7 @@ Card.prototype._drag = function (dx, dy) {
 
 Card.prototype._backToOrigin = function (unrotate) {
     var transform = [0, 0, 0, 0, 0, 0, 1, 1];
+    this._swipeRelease();
     if (unrotate) {
         this.status.stackPosition.rotate = 0;
     }
@@ -326,24 +327,34 @@ Card.prototype._stopFloat = function () {
 
 // swiping
 
-// TODO
 Card.prototype._swipeHint = function (dx, dy) {
     if (dx > window.ventu.config.swipe.complete) {
-            window.ventu.list.love.element.main.addClass('selected');
-            window.ventu.list.hate.element.main.removeClass('selected');
-    } else if (dx > window.ventu.config.swipe.suggest) {
-        this.buttons.love.addClass('hover');
+        // love complete
+        this._swipeHintType('love', 'hate', dx);
+    } else if (dx > 0) {
+        // love almost
+        this._swipeHintType('love', 'hate', dx);
     } else if (dx < -window.ventu.config.swipe.complete) {
-        if (window.ventu.config.isCatcherPresent) {
-            window.ventu.list.hate.element.main.addClass('selected');
-            window.ventu.list.love.element.main.removeClass('selected');
-        }
-    } else if (dx < -window.ventu.config.swipe.suggest) {
-        this.buttons.hate.addClass('hover');
+        // hate complete
+        this._swipeHintType('hate', 'love', -dx);
+    } else if (dx < 0) {
+        // hate almost
+        this._swipeHintType('hate', 'love', -dx);
     } else {
-        this._removeHoverTriggers();
+        this._swipeRelease();
     }
 
+};
+
+Card.prototype._swipeHintType = function (type, other, value) {
+    var perc = Math.min(((value / window.ventu.config.swipe.complete) * 100), 100);
+    $('#ventu-bottom-bar-' + type + ' .ventu-bottom-bar-sub-status').css('width', perc + '%');
+    $('#ventu-bottom-bar-' + other + ' .ventu-bottom-bar-sub-status').css('width', 0)
+};
+
+Card.prototype._swipeRelease = function () {
+    $('#ventu-bottom-bar-love .ventu-bottom-bar-sub-status').css('width', 0);
+    $('#ventu-bottom-bar-hate .ventu-bottom-bar-sub-status').css('width', 0)
 };
 
 
@@ -354,6 +365,7 @@ Card.prototype._addToList = function(type) {
     var map = this.marker.parent,
         next = this._getNext();
 
+    this._swipeRelease();
     this.status.event = 'tolist';
     this.element.fadeOut(500);
     if (this.shade) {
@@ -455,8 +467,10 @@ Card.prototype._resetAnimation = function (button) {
 };
 
 Card.prototype._removeHoverTriggers = function () {
-    this.buttons.hate.removeClass('hover');
-    this.buttons.love.removeClass('hover');
+    $('.ventu-bottom-bar-icon--hate').css({
+        'width': '',
+        'height': ''
+    })
 };
 
 // @walstra: wat doet dit?
