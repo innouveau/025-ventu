@@ -238,7 +238,7 @@ Config.prototype._getCardConfig = function() {
             shift: 0,
             sealevel: 0, // z position of top card
             zGap: 500, // if you change this, change @keyframes float-shade in card.less as well corresponding
-            zOffset: 1, // z offset inside stack
+            zOffset: 10, // z offset inside stack
             rotation: 25
         };
     }

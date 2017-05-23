@@ -14,7 +14,7 @@
   left: auto;
   top: 0;
   z-index: 1;
-  height: 430px;
+  height: 431px;
   width: 320px;
 }
 .ventu-card.ventu-card--dynamic.no-transition {
@@ -31,16 +31,14 @@
 .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-text {
   height: 180px;
 }
-.ventu-card.ventu-card--dynamic .ventu-card-front:after {
+.ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-blocker {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 0;
-  content: '';
-  transition: all 0.2s ease;
+  z-index: 1;
 }
 .ventu-card.ventu-card--dynamic .ventu-card-back {
   position: absolute;
@@ -62,7 +60,4 @@
   background-image: url(img/card/card-back-blue.png);
   content: '';
   border-radius: 5px;
-}
-.ventu-card.ventu-card--dynamic.ventu-card--current .ventu-card-front:after {
-  background: rgba(0, 0, 0, 0);
 }

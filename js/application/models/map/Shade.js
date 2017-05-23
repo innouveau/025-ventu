@@ -15,7 +15,7 @@ Shade.prototype = Object.create(_Element.prototype);
 Shade.prototype.create = function() {
     this.element = $('<div class="ventu-card-shade"></div>');
     this.element.hide();
-    window.ventu.domElements.stack.append(this.element);
+    window.ventu.domElements.stack.prepend(this.element);
 };
 
 Shade.prototype.fadeIn = function() {

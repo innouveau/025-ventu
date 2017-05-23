@@ -33,8 +33,8 @@
                         <?php include('php-includes/features.php');?>
                     </div>
                     <div class="ventu-card-buttons ventu-card-buttons-1">
-                        <div class="ventu-card-button-container">
-                            <div class="ventu-card-button ventu-card-button--love">
+                        <div class="ventu-card-button-container ventu-card-button--love"">
+                            <div class="ventu-card-button">
                                 <div class="ventu-card-button-icon"></div>
                             </div>
                             <div class="ventu-card-button-label">
@@ -68,24 +68,24 @@
                         <?php include('php-includes/features.php');?>
                     </div>
                     <div class="ventu-card-buttons ventu-card-buttons-3">
-                        <div class="ventu-card-button-container">
-                            <div class="ventu-card-button ventu-card-button--hate">
+                        <div class="ventu-card-button-container ventu-card-button--hate">
+                            <div class="ventu-card-button">
                                 <div class="ventu-card-button-icon"></div>
                             </div>
                             <div class="ventu-card-button-label">
                                 Niet interessant
                             </div>
                         </div>
-                        <div class="ventu-card-button-container">
-                            <div class="ventu-card-button ventu-card-button--read-more">
+                        <div class="ventu-card-button-container ventu-card-button--read-more">
+                            <div class="ventu-card-button">
                                 <div class="ventu-card-button-icon"></div>
                             </div>
                             <div class="ventu-card-button-label">
                                 Lees meer
                             </div>
                         </div>
-                        <div class="ventu-card-button-container">
-                            <div class="ventu-card-button ventu-card-button--love">
+                        <div class="ventu-card-button-container ventu-card-button--love">
+                            <div class="ventu-card-button">
                                 <div class="ventu-card-button-icon"></div>
                             </div>
                             <div class="ventu-card-button-label">
@@ -125,8 +125,8 @@
                         </div>
                     </div>
                     <div class="ventu-card-buttons ventu-card-buttons-1">
-                        <div class="ventu-card-button-container">
-                            <div class="ventu-card-button ventu-card-button--group">
+                        <div class="ventu-card-button-container ventu-card-button--group">
+                            <div class="ventu-card-button">
                                 <div class="ventu-card-button-icon"></div>
                             </div>
                             <div class="ventu-card-button-label">

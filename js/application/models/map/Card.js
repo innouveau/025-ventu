@@ -29,6 +29,7 @@ Card.prototype._create = function () {
     var self = this,
         card,
         cardFront,
+        cardBlocker,
         cardBack,
         cardImage,
         cardText,
@@ -48,6 +49,7 @@ Card.prototype._create = function () {
 
     card = $('<div class="ventu-card ventu-card--dynamic">');
     cardFront = $('<div class="ventu-card-front"></div>');
+    cardBlocker = $('<div class="ventu-card-blocker"></div>');
     cardBack = $('<div class="ventu-card-back"></div>');
     cardImage = $('<div class="ventu-card-image" style="background-image:url(' + this.building.getCardImage() + ')"></div>');
     cardText = $('<div class="ventu-card-text">');
@@ -55,9 +57,9 @@ Card.prototype._create = function () {
     cardFeatures = $('<div class="ventu-features"></div>');
     cardFeatures.append(this.building.getCardFeatures());
     cardButtons = $('<div class="ventu-card-buttons ventu-card-buttons-3"></div>');
-    this.buttons.love = $('<div class="ventu-card-button-container"><div class="ventu-card-button ventu-card-button--love"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Interessant</div></div></div>');
-    this.buttons.readMore = $('<div class="ventu-card-button-container"><div class="ventu-card-button ventu-card-button--read-more"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Lees meer</div></div></div>');
-    this.buttons.hate = $('<div class="ventu-card-button-container"><div class="ventu-card-button ventu-card-button--hate"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Niet interessant</div></div></div>');
+    this.buttons.love = $('<div class="ventu-card-button-container ventu-card-button--love"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Interessant</div></div></div>');
+    this.buttons.readMore = $('<div class="ventu-card-button-container ventu-card-button--read-more"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Lees meer</div></div></div>');
+    this.buttons.hate = $('<div class="ventu-card-button-container ventu-card-button--hate"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Niet interessant</div></div></div>');
     cardButtons.append(this.buttons.hate);
     cardButtons.append(this.buttons.readMore);
     cardButtons.append(this.buttons.love);
@@ -66,12 +68,11 @@ Card.prototype._create = function () {
     cardFront.append(cardImage);
     cardFront.append(cardText);
     cardFront.append(cardButtons);
+    cardFront.append(cardBlocker);
     card.append(cardBack);
     card.append(cardFront);
 
-    if (settings.card.shade) {
-        this.shade = new Shade(this, card);
-    }
+
 
     // bind actions to buttons
     (function (self) {
@@ -95,7 +96,7 @@ Card.prototype._create = function () {
 
     // first get the class
     if (this.index === 0) {
-        card.addClass('ventu-card--current');
+        cardBlocker.hide();
     }
     // second one is already unrotated
     else if (this.index === 1) {
@@ -105,7 +106,10 @@ Card.prototype._create = function () {
     card.hide();
     this.element = card;
 
-    window.ventu.domElements.stack.append(this.element);
+    window.ventu.domElements.stack.prepend(this.element);
+    if (settings.card.shade) {
+        this.shade = new Shade(this, card);
+    }
 
     if (window.ventu.config.isMapPresent) {
         this.marker.hasCard = true;
@@ -170,7 +174,7 @@ Card.prototype._setCurrent = function () {
     }
     this._backToOrigin(true);
     this.marker.parent.currentCard = this;
-    this.element.addClass('ventu-card--current');
+    this.element.find('.ventu-card-blocker').fadeOut(200);
     // already unrotate the next card (for nicer effect)
     next = this._getNext();
     if (next) {

@@ -1,31 +1,31 @@
-.ventu-card-button {
+.ventu-card-button-container.ventu-card-button--love .ventu-card-button-icon {
+  background-color: #2ECC71;
+  background-image: url(img/icons/buttons/love.svg);
+}
+.ventu-card-button-container.ventu-card-button--hate .ventu-card-button-icon {
+  background-color: #DF0040;
+  background-image: url(img/icons/buttons/hate.svg);
+}
+.ventu-card-button-container.ventu-card-button--share .ventu-card-button-icon {
+  background-color: #00A2FF;
+  background-image: url(img/icons/buttons/share.svg);
+}
+.ventu-card-button-container.ventu-card-button--read-more .ventu-card-button-icon {
+  background-color: #FF8D00;
+  background-image: url(img/icons/buttons/read-more-down.svg);
+}
+.ventu-card-button-container.ventu-card-button--group .ventu-card-button-icon {
+  background-color: #83B8C6;
+  background-image: url(img/icons/buttons/group.svg);
+}
+.ventu-card-button-container .ventu-card-button {
   width: 64px;
   height: 64px;
   padding: 16px;
   border-radius: 50%;
   background: #fff;
 }
-.ventu-card-button.ventu-card-button--love .ventu-card-button-icon {
-  background-color: #2ECC71;
-  background-image: url(img/icons/buttons/love.svg);
-}
-.ventu-card-button.ventu-card-button--hate .ventu-card-button-icon {
-  background-color: #DF0040;
-  background-image: url(img/icons/buttons/hate.svg);
-}
-.ventu-card-button.ventu-card-button--share .ventu-card-button-icon {
-  background-color: #00A2FF;
-  background-image: url(img/icons/buttons/share.svg);
-}
-.ventu-card-button.ventu-card-button--read-more .ventu-card-button-icon {
-  background-color: #FF8D00;
-  background-image: url(img/icons/buttons/read-more-down.svg);
-}
-.ventu-card-button.ventu-card-button--group .ventu-card-button-icon {
-  background-color: #83B8C6;
-  background-image: url(img/icons/buttons/group.svg);
-}
-.ventu-card-button .ventu-card-button-icon {
+.ventu-card-button-container .ventu-card-button .ventu-card-button-icon {
   border-radius: 50%;
   width: 100%;
   height: 100%;
