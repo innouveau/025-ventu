@@ -1,0 +1,16 @@
+#ventu-transactions .ventu-transaction-card {
+  height: 310px;
+  border-radius: 8px;
+  background-color: #ededec;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 45px 30px 30px;
+}
+#ventu-transactions .ventu-transaction-card .ventu-transaction-icon {
+  margin-bottom: 40px;
+}
+#ventu-transactions .ventu-transaction-card .ventu-transaction-icon img {
+  width: 60px;
+  height: auto;
+}

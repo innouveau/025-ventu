@@ -226,39 +226,7 @@ indruk van het woon en/of werkgebied.</p>
 
 
 
-            <section class="transactions clearfix">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3>Alle kantoor objecten in een straal van 5 km van Herengracht  477, Amsterdam.</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-6 col-sm-3 col-lg-3">
-                        <div class="well">
-                            <h2>484</h2>
-                            <h5>Transacties afgelopen kalender jaar</h5>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 col-lg-3">
-                        <div class="well">
-                            <h2>356</h2>
-                            <h5>Te Huur</h5>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 col-lg-3">
-                        <div class="well">
-                            <h2>640599 </h2>
-                            <h5>Kantoor m<sup>2</sup> in de buurt beschikbaar</h5>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 col-lg-3">
-                        <div class="well">
-                                <h2>215</h2>
-                                <h5>Gemiddelde huurprijs in de buurt</h5>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <?php include('php-includes/transactions.php'); ?>
 
 
 

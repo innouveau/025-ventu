@@ -78,13 +78,7 @@ section.parties .broker-logo {
 
 
 
-section.transactions .well {
-    height: 272px;
-	border-radius: 8px;
-	background-color: #ededec;
-    border: none;
-    text-align: center;
-}
+
 
 section.contact input, section.contact textarea {
     border: solid 1px #ededec;
