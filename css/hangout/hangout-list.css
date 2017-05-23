@@ -50,8 +50,9 @@
   float: right;
   background: #fff;
   border-radius: 4px;
-  background-image: url(img/tools/sort.svg);
+  background-image: url(img/tools/sort-grey.svg);
   background-position: 50% 50%;
+  background-size: 20px 20px;
   background-repeat: no-repeat;
 }
 #ventu-hangout-list #ventu-hangout-list-cards {

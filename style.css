@@ -452,6 +452,16 @@ section.parties .divider {
   width: 60px;
   height: auto;
 }
+#ventu-parties .broker-logo {
+  margin-bottom: 20px;
+}
+#ventu-parties .ventu-parties-contact-icon {
+  padding-top: 11px;
+}
+#ventu-parties .ventu-parties-contact-icon img {
+  width: 25px;
+  height: auto;
+}
 #ventu-social .btn-wrapper {
   text-align: center;
   background-color: #fff;
@@ -546,8 +556,8 @@ section.proximity .ventu-card .button {
   font-weight: 700;
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
   margin-right: 6px;
   background-size: 100% 100%;
@@ -563,7 +573,7 @@ section.proximity .ventu-card .button {
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-follow {
   background-color: #8400C6;
-  background-image: url(img/icons/buttons/follow.svg);
+  background-image: url(img/icons/buttons/follow-white.svg);
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-hate {
   background-color: #DF0040;
@@ -572,7 +582,7 @@ section.proximity .ventu-card .button {
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-label {
   display: inline-block;
   vertical-align: top;
-  padding-top: 6px;
+  padding-top: 8px;
 }
 .hangout-list-entry .hangout-list-entry-content {
   position: absolute;
@@ -662,8 +672,9 @@ section.proximity .ventu-card .button {
   float: right;
   background: #fff;
   border-radius: 4px;
-  background-image: url(img/tools/sort.svg);
+  background-image: url(img/tools/sort-grey.svg);
   background-position: 50% 50%;
+  background-size: 20px 20px;
   background-repeat: no-repeat;
 }
 #ventu-hangout-list #ventu-hangout-list-cards {
@@ -1478,7 +1489,7 @@ img.projectCarousel {
 }
 .ventu-avatar-image.ventu-avatar-image--no-avatar {
   background-color: #ededec;
-  background-image: url(img/icons/no-avatar.svg);
+  background-image: url(img/icons/hangout/no-avatar-grey.svg);
 }
 .ventu-features {
   padding: 10px 0;
