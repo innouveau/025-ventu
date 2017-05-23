@@ -12,19 +12,19 @@
                 </div>
                 <div class="ventu-discover-icon-container">
                     <div class="ventu-discover-icon">
-                        <img src="img/icons/types/shop.svg">
+                        <img src="img/icons/types/shop-white.svg">
                     </div>
                     <div class="ventu-discover-icon">
-                        <img src="img/icons/types/office.svg">
+                        <img src="img/icons/types/office-white.svg">
                     </div>
                     <div class="ventu-discover-icon">
-                        <img src="img/icons/types/business.svg">
+                        <img src="img/icons/types/business-white.svg">
                     </div>
                     <div class="ventu-discover-icon">
-                        <img src="img/icons/types/catering.svg">
+                        <img src="img/icons/types/catering-white.svg">
                     </div>
                     <div class="ventu-discover-icon">
-                        <img src="img/icons/types/land.svg">
+                        <img src="img/icons/types/land-white.svg">
                     </div>
                 </div>
                 <div class="btn orange">

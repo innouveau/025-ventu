@@ -273,6 +273,11 @@ nav.navbar-default #navbar ul li a {
   display: inline-block;
   margin: 0 25px;
 }
+.ventu-discover-icon-container .ventu-discover-icon img {
+  width: 45px;
+  height: auto;
+  display: block;
+}
 #ventu-direct-links {
   padding-top: 48px;
   padding-bottom: 48px;
@@ -1673,7 +1678,7 @@ section.section--small-padding .divider {
   height: 80px;
 }
 #ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button .ventu-slider-type-button-icon img {
-  width: 50px;
+  width: 45px;
   height: auto;
 }
 #ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button .ventu-slider-type-button-label {

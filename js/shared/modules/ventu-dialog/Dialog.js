@@ -215,7 +215,7 @@ Dialog.prototype.createTypeButton = function(type) {
     var self, button, icon, label;
     self = this;
     button = $('<div class="ventu-slider-type-button" type="' + type.id + '"></div>');
-    icon = $('<div class="ventu-slider-type-button-icon"><img src="img/icons/types/' + type.slug + '.svg"></div>');
+    icon = $('<div class="ventu-slider-type-button-icon"><img src="img/icons/types/' + type.slug + '-white.svg"></div>');
     label = $('<div class="ventu-slider-type-button-label">' + type.translation + '</div>');
     button.append(icon);
     button.append(label);
