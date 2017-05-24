@@ -8,11 +8,13 @@
 
     <?php include('php-includes/standard-files.php'); ?>
 
+    <script>
+        var localizationResources = [];
+    </script>
+
     <!-- google maps API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaU80wDMYEf2w7TL7Wcvoi1tPAZHUzrhA"></script>
-
-
-
+    
     <?php include('php-includes/application-links.php'); ?>
 
     <script src="js/application/main.js"></script>

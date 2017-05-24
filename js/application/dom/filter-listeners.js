@@ -1,6 +1,7 @@
 function filterListeners() {
     filterSetFullTextLengths();
     filterReadMoreListeners();
+    filterButtonListeners();
 }
 function filterSetFullTextLengths() {
     $('.ventu-filter-full-text-container').each(function(){
@@ -20,4 +21,12 @@ function filterReadMoreListeners() {
             fullText.css('height', 0);
         }
     })
+}
+
+function filterButtonListeners() {
+    $('.ventu-filter-button-container .btn').on('click', function (e) {
+        e.preventDefault();
+
+        window.filter.execute();
+    });
 }

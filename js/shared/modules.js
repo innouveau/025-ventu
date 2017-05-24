@@ -1,4 +1,14 @@
 function initialiseModules() {
+    // // try to detect if we can use session and local storage
+    // try {
+    //     // try to use localStorage
+    //     $.sessionStorage.set('ventu-session-storage', []);
+    // } catch (e) {
+    //     // there was an error so...
+    //     window.location = '/Error/PrivateMode';
+    //     return;
+    // }
+
     window.ventuApi = new VentuApi();
 
     $('.ventu-dialog').each(function(){
@@ -51,7 +61,7 @@ function setSearchOpenerInNavbar(searchOpener) {
         var remainingSpace = Math.floor($('body').innerWidth());
         remainingSpace -= Math.ceil($('.navbar-brand').outerWidth());
         remainingSpace -=  Math.ceil($('#navbar').outerWidth());
-        remainingSpace -= 0.5;
+        remainingSpace -= 1;
 
         searchOpener.parent().css('width', remainingSpace);
     };

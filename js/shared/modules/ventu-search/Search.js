@@ -99,7 +99,11 @@ Search.prototype.select = function(obj) {
     if (this.outerOutput) {
         this.outerOutput.selectLocation(obj);
     } else {
-        window.ventuApi.select(obj);
+        var query = {
+            location: obj.Location
+        };
+
+        window.ventuApi.select(query);
     }
 };
 

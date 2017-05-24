@@ -434,11 +434,7 @@ Dialog.prototype.isAllowedToShowButton = function() {
 
 Dialog.prototype.isAllowedToSlide = function(slideCallback) {
     if (this.status.page.current === 3) {
-        
-        window.ventuApi.getSelectResults(this.query);
-
-        
-
+        window.ventuApi.select(this.query);
     } else {
         slideCallback();
     }

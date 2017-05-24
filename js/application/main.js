@@ -4,7 +4,6 @@ window.environment = {
     floatFirst: true // respects user setting see.cardAnimation
 };
 
-
 window.ventuConfig = {
     whatScreen: whatScreen(),
     overlay: false,
@@ -22,20 +21,27 @@ var searchQuery = {
     searchType: ['none', 0]
 };
 
-$(window).ready(function() {
-    window.filter = new Filter(searchQuery);
-    window.ventu = new App();
-    ventu.init();
-    window.ventuApi = new VentuApi();
-    window.SearchUtil = new SearchUtil();
-
-
-    ventuApi.getSelectResults(searchQuery);
+$(window).ready(function () {
 
     initialiseModules();
     initialiseModals();
     setFullscreenAndContinueButton();
 
+    var searchQuery = window.ventuApi.getSearchQuery();
+
+    window.filter = new Filter(searchQuery);
+    window.ventu = new App();
+    window.ventu.init();
+
+    ventuApi.getSelectResults(searchQuery);
+    function callback(result) {
+        window.ventu.redraw(result);
+    }
+
+    window.ventuApi.getSelectResults(callback);
+
     filterListeners();
     slidePanelListener();
+    listListeners();
+    
 });

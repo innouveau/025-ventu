@@ -1,5 +1,5 @@
 var filterContent = {
-    primaryUsage: [1,2,3,4,5,6,8,9,10,11,12,13,14],
+    primaryUsage: [1,2,3,4,5,6,8,9],
     secondaryUsage: [1,2,3,4,8],
     objectType: [1,2,4],
 
