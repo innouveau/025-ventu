@@ -414,6 +414,12 @@ Card.prototype._addToList = function (type) {
     map.updateBottomBar();
     map.updateBottomBarType(type);
 
+    if (type === 'love') {
+        window.ventuApi.likeObject(self.building);
+    } else {
+        window.ventuApi.disLikeObject(self.building);
+    }
+
     // trigger next
     setTimeout(function () {
         if (next && next.status.event !== 'tolist') {
