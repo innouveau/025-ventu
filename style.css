@@ -1491,6 +1491,9 @@ img.projectCarousel {
   background-color: #ededec;
   background-image: url(img/icons/hangout/no-avatar-grey.svg);
 }
+.ventu-avatar-image.ventu-avatar-image--empty-profile {
+  background-image: url(img/icons/hangout/emptyprofile-white.svg);
+}
 .ventu-features {
   padding: 10px 0;
 }
