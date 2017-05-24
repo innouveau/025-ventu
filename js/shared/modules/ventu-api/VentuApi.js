@@ -3,7 +3,6 @@ function VentuApi() {
 }
 
 /* localization resources */
-$.sessionStorage.set('ventu-search-filter', JSON.stringify(_this.searchFilter));
 
 VentuApi.prototype.getResourceValue = function (resourceFile, resourceName) {
     var result = resourceName;
@@ -35,6 +34,24 @@ VentuApi.prototype.getSearchFilter = function () {
         searchFilter = _this.getDefaultSearchFilter();
     }
 
+    var uniqueObjectIds = [];
+
+    var sessionFavorites = $.sessionStorage.get('ventu-favorites');
+    if (sessionFavorites != null) {
+        $(sessionFavorites).each(function (index, building) {
+            uniqueObjectIds.push(building.uniqueId);
+        });
+    }
+
+    var sessionTrash = $.sessionStorage.get('ventu-trash');
+    if (sessionTrash != null) {
+        $(sessionTrash).each(function (index, building) {
+            uniqueObjectIds.push(building.uniqueId);
+        });
+    }
+
+    searchFilter.UniqueObjectIds = uniqueObjectIds;
+
     return searchFilter;
 }
 
@@ -56,7 +73,9 @@ VentuApi.prototype.getDefaultSearchFilter = function () {
         RectKm2: 0,
         Shape: 0,
         Street: null,
-        OrganizationGuid: null
+        OrganizationGuid: null,
+        ObjectType: null,
+        Search: null
     };
 
 }
@@ -68,13 +87,21 @@ VentuApi.prototype.setSearchFilter = function (query, autoSearchFilter) {
 
     if (query) {
 
-        $(query.types).each(function (index, typeId) {
-            searchFilter.PrimaryUsageIds.push(typeId / 1);
-        });
+        if (query.types && query.types.length > 0) {
+            searchFilter.PrimaryUsageIds = [];
 
-        $(query.transactions).each(function (index, transactionId) {
-            searchFilter.ObjectTypeIds.push(transactionId / 1)
-        });
+            $(query.types).each(function (index, typeId) {
+                searchFilter.PrimaryUsageIds.push(typeId / 1);
+            });
+        }
+
+        if (query.transactions && query.transactions.length > 0) {
+            searchFilter.ObjectTypeIds = [];
+
+            $(query.transactions).each(function (index, transactionId) {
+                searchFilter.ObjectTypeIds.push(transactionId / 1)
+            });
+        }
 
         if (query && query.location) {
             searchFilter.City = $(query.location).data('city') ? $(query.location).data('city') : null;
@@ -93,27 +120,9 @@ VentuApi.prototype.setSearchFilter = function (query, autoSearchFilter) {
     }
 
     _this.searchFilter = searchFilter;
-};
 
-VentuApi.prototype.getSelectResults = function (query) {
-    //this.setSearchFilter(query);
-
-    if (this._isThisApplication()) {
-        window.ventu.redraw(fakeSearchResult);
-    } else {
-        location.href = 'application.php';
-    }
-};
-
-VentuApi.prototype._isThisApplication = function () {
-    if (window.location.pathname.toLowerCase().indexOf('application') > 0) {
-        return true;
-    } else {
-        return false;
-    }
-};
-
-
+    $.sessionStorage.set('ventu-search-filter', JSON.stringify(_this.searchFilter));
+}
 
 /* search query */
 
@@ -123,8 +132,8 @@ VentuApi.prototype.getSearchQuery = function () {
     var searchFilter = _this.getSearchFilter();
 
     var metrageRange = searchFilter.MetrageRange.split(',');
-    var metrageStart = metrageRange.length > 0 ? metrageRange[0] : 0;
-    var metrageEnd = metrageRange.length > 1 ? metrageRange[1] : 999999;
+    var metrageStart = metrageRange.length > 0 ? metrageRange[0] / 1 : 0;
+    var metrageEnd = metrageRange.length > 1 ? metrageRange[1] / 1 : 999999;
 
     var location = null;
 
@@ -141,7 +150,7 @@ VentuApi.prototype.getSearchQuery = function () {
     }
 
     if (searchFilter.Street) {
-        location = 'postcode: ' + searchFilter.Street + ', ' + searchFilter.City;
+        location = 'straat: ' + searchFilter.Street + ', ' + searchFilter.City;
     }
 
     return {

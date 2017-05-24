@@ -19,9 +19,12 @@ function Building(building) {
     this.brochureUrl = building.BrochureUrl;
     this.videoUrl = building.VideoUrl;
     this.primaryUsage = building.PrimaryUsage;
-    this.ObjectUsageId = building.ObjectUsageId;
+    this.objectUsageId = building.ObjectUsageId;
     this.productId = building.ProductId;
     this.includesOrganization = building.IncludesOrganization;
+    this.salesHeaderLine = building.SalesHeaderLine;
+
+    this.baseObject = building;
 }
 
 Building.prototype.getCardAddress = function () {
@@ -145,7 +148,7 @@ Building.prototype._listToUl = function (list) {
         li = $('<li>' + item.content + '</li>');
         switch (item.type) {
             case 'objectusage':
-                li.addClass('ventu-features-objectusage-' + this.ObjectUsageId);
+                li.addClass('ventu-features-objectusage-' + this.objectUsageId);
                 break;
             case 'metrage':
                 li.addClass('ventu-features-metrage');
