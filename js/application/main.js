@@ -12,15 +12,6 @@ window.ventuConfig = {
     }
 };
 
-var searchQuery = {
-    result: 21,
-    types: [3],
-    location: 'plaats: Hulst',
-    area: [100, 400],
-    transaction: [2],
-    searchType: ['none', 0]
-};
-
 $(window).ready(function () {
 
     initialiseModules();
@@ -33,7 +24,6 @@ $(window).ready(function () {
     window.ventu = new App();
     window.ventu.init();
 
-    ventuApi.getSelectResults(searchQuery);
     function callback(result) {
         window.ventu.redraw(result);
     }

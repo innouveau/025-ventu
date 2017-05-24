@@ -21,10 +21,7 @@ function Filter(searchQuery) {
 
 //
 
-<<<<<<< HEAD
-Filter.prototype.execute = function() {
-    window.ventuApi.getSelectResults(this.query);
-=======
+
 Filter.prototype.execute = function () {
     var query = jQuery.extend({}, this.query);
     query.location = null;
@@ -35,7 +32,6 @@ Filter.prototype.execute = function () {
     }
 
     window.ventuApi.getSelectResults(callback);
->>>>>>> origin/master
 };
 
 
