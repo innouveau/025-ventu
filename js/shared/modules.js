@@ -1,4 +1,14 @@
 function initialiseModules() {
+    // // try to detect if we can use session and local storage
+    // try {
+    //     // try to use localStorage
+    //     $.sessionStorage.set('ventu-session-storage', []);
+    // } catch (e) {
+    //     // there was an error so...
+    //     window.location = '/Error/PrivateMode';
+    //     return;
+    // }
+
     window.ventuApi = new VentuApi();
 
     $('.ventu-dialog').each(function(){

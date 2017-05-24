@@ -4,7 +4,7 @@
     this.isBusy = false;
     this.numberOfLetters = 2;
     this.keystrokeTimeout = 350;
-    this.service = this._getService();
+    this.service = window.ventuApi;
     this.SelectedList = {};
     this.performSeachHandler = null;
 }
@@ -53,14 +53,6 @@ Broker.prototype.search = function (element) {
     
 };
 
-Broker.prototype._getService = function () {
-    if (window.ventuConfig.environment.development) {
-        return new DataFaker();
-    } else {
-        return new DataService();
-    }
-};
-
 Broker.prototype.getCanonicalString = function(str) {
 
     str = str.replace(/[/\\&;:*%,.+?\t\r ]|[\n]{2}/g, "-");
@@ -70,3 +62,33 @@ Broker.prototype.getCanonicalString = function(str) {
     return str;
 };
 
+function brokerListeners() {
+    if (window.broker != null) {
+        broker.searchBox.on('keyup', function (e) {
+            e.preventDefault();
+            var _value = $(this).val().trim();
+
+            if (broker.performSeachHandler != null) {
+                clearTimeout(broker.performSeachHandler)
+            }
+
+            broker.performSeachHandler = setTimeout(function () {
+                broker.search(_value);
+            }, broker.keystrokeTimeout);
+        });
+
+        broker.resultElement.on('click', function (e) {
+            e.preventDefault();
+
+            var _value = broker.searchBox.val().trim();
+            broker.search(_value);
+        });
+
+        $('#clear-ventu-map-input').on('click', function (e) {
+            e.preventDefault();
+
+            broker.searchBox.val('');
+            broker.resultElement.html('').hide();
+        });
+    }
+}

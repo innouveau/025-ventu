@@ -19,8 +19,16 @@ function Filter(searchQuery) {
 
 //
 
-Filter.prototype.execute = function() {
-    window.ventuApi.querySearch(this.query);
+Filter.prototype.execute = function () {
+    var query = jQuery.extend({}, this.query);
+    query.location = null;
+    window.ventuApi.setSearchFilter(query);
+
+    function callback(result) {
+        window.ventu.redraw(result);
+    }
+
+    window.ventuApi.getSelectResults(callback);
 };
 
 
@@ -39,10 +47,10 @@ Filter.prototype.createTypeOptions = function() {
         var filterObject = filterContent.primaryUsageLibrary[filterContent.primaryUsage[i]],
             active = this.isActiveLabel('types', filterObject),
             button = this.getButton('type', filterObject, active);
-            button.click(function(){
-                $(this).toggleClass('ventu-filter-button--active');
-                self.updateQueryTypes();
-            });
+        button.click(function(){
+            $(this).toggleClass('ventu-filter-button--active');
+            self.updateQueryTypes();
+        });
         this.element.typesButtons.append(button);
     }
 };
@@ -62,7 +70,7 @@ Filter.prototype.createTransactionOptions = function() {
     this.element.transactionButtons.empty();
     for (var i = 0, l = filterContent.objectType.length; i < l; i++) {
         var filterObject = filterContent.objectTypeLibrary[filterContent.objectType[i]],
-            active = this.isActiveLabel('transaction', filterObject),
+            active = this.isActiveLabel('transactions', filterObject),
             button = this.getButton('transaction', filterObject, active);
         button.click(function(){
             $(this).toggleClass('ventu-filter-button--active');
@@ -110,7 +118,7 @@ Filter.prototype.updateQueryTypes = function() {
     });
     this.query.types = types;
     this.updateTypes();
-    this.execute();
+    //this.execute();
 };
 
 Filter.prototype.updateQueryArea = function() {
@@ -120,8 +128,9 @@ Filter.prototype.updateQueryArea = function() {
     this.element.areaMax.html(max + '  m²');
     this.query.area[0] = min;
     this.query.area[1] = max;
-    this.updateTransaction();
-    this.execute();
+    this.updateArea();
+    //this.updateTransaction();
+    //this.execute();
 };
 
 Filter.prototype.updateQueryTransaction = function() {
@@ -131,9 +140,9 @@ Filter.prototype.updateQueryTransaction = function() {
             transactions.push(parseInt($(this).attr('transaction')));
         }
     });
-    this.query.transaction = transactions;
+    this.query.transactions = transactions;
     this.updateTransaction();
-    this.execute();
+    //this.execute();
 };
 
 
@@ -150,9 +159,11 @@ Filter.prototype.update = function() {
     this.updateTransaction();
 };
 
-Filter.prototype.updateLocation = function() {
-    var label = this.getLabel(this.query.location);
-    this.element.location.empty().append(label);
+Filter.prototype.updateLocation = function () {
+    if (this.query.location != null) {
+        var label = this.getLabel(this.query.location);
+        this.element.location.empty().append(label);
+    }
 };
 
 Filter.prototype.updateTypes = function() {
@@ -171,8 +182,8 @@ Filter.prototype.updateArea = function() {
 
 Filter.prototype.updateTransaction = function() {
     this.element.transaction.empty();
-    for (var i = 0, l = this.query.transaction.length; i < l; i++) {
-        var transaction = filterContent.objectTypeLibrary[this.query.transaction[i]].translation,
+    for (var i = 0, l = this.query.transactions.length; i < l; i++) {
+        var transaction = filterContent.objectTypeLibrary[this.query.transactions[i]].translation,
             label = this.getLabel(transaction);
         this.element.transaction.append(label);
     }

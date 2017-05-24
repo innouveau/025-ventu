@@ -56,7 +56,7 @@ Map.prototype.init = function() {
 
 Map.prototype.draw = function(result, leaveshape) {
     var self = this;
-    this.status.tilesloaded = false;
+    //this.status.tilesloaded = false;
     this.lastIndex = 0;
     this._cleanUp(leaveshape);
     this.status.found = result.markers.length;
@@ -357,17 +357,27 @@ Map.prototype._removeCards = function() {
     this.cards = [];
 };
 
-Map.prototype._createCards = function() {
-    var n = this.markers.length > window.ventu.config.stack.max ? window.ventu.config.stack.max : this.markers.length;
-    for (var i = 0; i < n; i++) {
-        var marker = this.markers[i],
-            building = this.getBuilding(marker.UniqueId);
+Map.prototype._createCards = function () {
 
-        if (building) {
-            marker.createCard(building);
+    var n = window.ventu.objects.length > window.ventu.config.stack.max ? window.ventu.config.stack.max : window.ventu.objects.length;
+    for (var i = 0; i < n; i++) {
+        var obj = window.ventu.objects[i];
+
+        var marker = null;
+        for (var j = 0; j < this.markers.length; j++) {
+            marker = this.markers[j];
+
+            if (marker.UniqueId == obj.UniqueId) {
+                break;
+            }
+        }
+
+        if (marker != null) {
+            marker.createCard(new Building(obj));
         }
 
     }
+
 };
 
 Map.prototype.getBuilding = function(UniqueId) {

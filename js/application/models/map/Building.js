@@ -14,8 +14,8 @@ function Building(building) {
     this.metrageInfo = building.MetrageInfo;
     this.broker = building.Broker;
     // extra info
-    this.imageURL = building.PhotoURL !== null ? building.PhotoURL.replace('/org', '/thumb').replace('/wm', '/thumb') : null;
-    this.detailLinkUrl = '/Project/' + building.DetailLinkUrl;
+    this.imageURL = building.PhotoURL !== null ? building.PhotoURL.replace('/wm', '/thumb') : null;
+    this.detailLinkUrl = '/Project/' + building.DetailLinkUrl + '?c=1';
     this.brochureUrl = building.BrochureUrl;
     this.videoUrl = building.VideoUrl;
     this.primaryUsage = building.PrimaryUsage;
@@ -24,7 +24,7 @@ function Building(building) {
     this.includesOrganization = building.IncludesOrganization;
 }
 
-Building.prototype.getCardAddress = function() {
+Building.prototype.getCardAddress = function () {
     if (this.productId > 0 && this.broker !== null && this.broker.Logo !== null && this.includesOrganization) {
         return this.fullAddressInfo;
     } else {
@@ -32,26 +32,26 @@ Building.prototype.getCardAddress = function() {
     }
 };
 
-Building.prototype.getCardCity = function() {
+Building.prototype.getCardCity = function () {
     return this.city;
 };
 
-Building.prototype.getCardImage = function() {
+Building.prototype.getCardImage = function () {
     var img = this.imageURL === null ? '/img/misc/ventu-stock-thumb.jpg' : this.imageURL;
     return 'https://ventu.nl' + img;
 };
 
-Building.prototype.getCardBrokerLogo = function() {
+Building.prototype.getCardBrokerLogo = function () {
     if (this.productId > 0 && this.broker !== null && this.broker.Logo !== null && this.includesOrganization) {
-        return'<img class="brokerLogo" src="' + this.broker.Logo + '">';
+        return '<img class="brokerLogo" src="' + this.broker.Logo + '">';
     }
 };
 
-Building.prototype.getDetailUrl = function() {
+Building.prototype.getDetailUrl = function () {
     return this.detailLinkUrl;
 };
 
-Building.prototype.getCardFeatures = function() {
+Building.prototype.getCardFeatures = function () {
     var feature,
         result,
         hasPrimaryUsageData = this._hasProperty('primaryUsage'),
@@ -74,11 +74,9 @@ Building.prototype.getCardFeatures = function() {
             result = metrageInfoText.match(/#(.*?)#/g).map(function (val) {
                 return val.replace(/#/g, '');
             });
+
             $(result).each(function (index, resourceName) {
-                function completed(resourceValue) {
-                    metrageInfoText = metrageInfoText.replace('#' + resourceName + '#', resourceValue);
-                }
-                SearchUtil.getResourceValue('Ventu2.LocalResources.Home', resourceName, completed);
+                metrageInfoText = metrageInfoText.replace('#' + resourceName + '#', window.ventuApi.getResourceValue('Ventu3.LocalResources.Home', resourceName));
             });
         }
         feature = {
@@ -95,10 +93,7 @@ Building.prototype.getCardFeatures = function() {
                 return val.replace(/#/g, '');
             });
             $(result).each(function (index, resourceName) {
-                function completed(resourceValue) {
-                    priceInfoText = priceInfoText.replace('#' + resourceName + '#', resourceValue);
-                }
-                SearchUtil.getResourceValue('Ventu2.LocalResources.Home', resourceName, completed);
+                priceInfoText = priceInfoText.replace('#' + resourceName + '#', window.ventuApi.getResourceValue('Ventu3.LocalResources.Home', resourceName));
             });
         }
         feature = {
@@ -111,7 +106,7 @@ Building.prototype.getCardFeatures = function() {
     return this._listToUl(features);
 };
 
-Building.prototype.getDetailIcons = function() {
+Building.prototype.getDetailIcons = function () {
     // TODO: do we still use this on the card?
     var iconResult, icons = [];
 
@@ -138,11 +133,11 @@ Building.prototype.getDetailIcons = function() {
 
 // helpers
 
-Building.prototype._hasProperty = function(property) {
+Building.prototype._hasProperty = function (property) {
     return this[property] != null && this[property] != undefined && this[property].length > 0;
 };
 
-Building.prototype._listToUl = function(list) {
+Building.prototype._listToUl = function (list) {
     var ul, li, item;
     ul = $('<ul></ul>');
     for (var i = 0, l = list.length; i < l; i++) {

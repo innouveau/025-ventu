@@ -14,7 +14,7 @@ function Card(marker, building, index) {
     };
     this.status = {
         stackPosition: this._getStackPosition(index),
-        transform: [0,0,0,0,0,0,1,1],
+        transform: [0, 0, 0, 0, 0, 0, 1, 1],
         event: 'instack'
     };
     this._create();
@@ -37,13 +37,9 @@ Card.prototype._create = function () {
         cardFeatures,
         cardButtons;
 
-    // TODO @walstra kun je deze even goed verweven, ook in mijn repo aub. Ik heb ook een nep SearchUtil, die gewoon teruggeeft wat er in komt.
-    if (SearchUtil) {
+    if (window.ventuApi) {
         $(['LeesMeer', 'Interessant', 'NietInteressant']).each(function (index, resourceName) {
-            function completed(resourceValue) {
-                $('span.' + resourceName).html(resourceValue);
-            }
-            SearchUtil.getResourceValue('Ventu2.LocalResources.Application', resourceName, completed);
+            $('span.' + resourceName).html(window.ventuApi.getResourceValue('Ventu3.LocalResources.Application', resourceName));
         });
     }
 
@@ -57,9 +53,9 @@ Card.prototype._create = function () {
     cardFeatures = $('<div class="ventu-features"></div>');
     cardFeatures.append(this.building.getCardFeatures());
     cardButtons = $('<div class="ventu-card-buttons ventu-card-buttons-3"></div>');
-    this.buttons.love = $('<div class="ventu-card-button-container ventu-card-button--love"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Interessant</div></div></div>');
-    this.buttons.readMore = $('<div class="ventu-card-button-container ventu-card-button--read-more"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Lees meer</div></div></div>');
-    this.buttons.hate = $('<div class="ventu-card-button-container ventu-card-button--hate"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label">Niet interessant</div></div></div>');
+    this.buttons.love = $('<div class="ventu-card-button-container ventu-card-button--love"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label"><span class="Interessant">Interessant</span></div></div></div>');
+    this.buttons.readMore = $('<div class="ventu-card-button-container ventu-card-button--read-more"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label"><span class="LeesMeer">Lees meer</span></div></div></div>');
+    this.buttons.hate = $('<div class="ventu-card-button-container ventu-card-button--hate"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label"><span class="NietInteressant">Niet interessant</span></div></div></div>');
     cardButtons.append(this.buttons.hate);
     cardButtons.append(this.buttons.readMore);
     cardButtons.append(this.buttons.love);
@@ -92,6 +88,14 @@ Card.prototype._create = function () {
                 window.ventu.user.uses('buttons');
             }, 50);
         });
+        self.buttons.readMore.on('click', function (e) {
+            self._resetAnimation($(this));
+
+            setTimeout(function () {
+                window.ventuApi.seeDetail(self.building.getDetailUrl());
+            }, 50);
+        });
+
     })(self);
 
     // first get the class
@@ -257,7 +261,7 @@ Card.prototype._coolLaunch = function () {
     window.ventu.user.didSee('cardLaunch');
 };
 
-Card.prototype._float = function() {
+Card.prototype._float = function () {
     var self = this;
     this.element.addClass('ventu-card-float');
     if (this.shade) {
@@ -362,7 +366,7 @@ Card.prototype._swipeRelease = function () {
 
 // administration
 
-Card.prototype._addToList = function(type) {
+Card.prototype._addToList = function (type) {
     var self = this,
         transform,
         map = this.marker.parent,
@@ -407,6 +411,7 @@ Card.prototype._addToList = function(type) {
     // update bottom bar
     map.status.left--;
     map.status[type]++;
+    map.updateBottomBar();
     map.updateBottomBarType(type);
 
     // trigger next
@@ -443,7 +448,7 @@ Card.prototype.destroy = function (removeFormArray) {
 
 // getters
 
-Card.prototype._getStackPosition = function() {
+Card.prototype._getStackPosition = function () {
     var gap = this.index === 0 ? 0 : window.ventu.config.card.zGap,
         zIndex = window.ventu.config.card.sealevel + (this.index * -window.ventu.config.card.zOffset) - gap;
     return {

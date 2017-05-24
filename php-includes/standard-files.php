@@ -10,7 +10,8 @@
 <!-- assets -->
 <script src="assets/jquery/jquery.min.js"></script>
 <script src="assets/bootstrap/bootstrap.min.js"></script>
-
+<script src="assets/jquery-storage/jquery.storageapi.js"></script>
+<script src="assets/jquery-storage/js.cookie.js"></script>
 
 <script src="js/shared/modals.js"></script>
 <script src="js/shared/modules.js"></script>

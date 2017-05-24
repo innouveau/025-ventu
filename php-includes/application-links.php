@@ -1,10 +1,6 @@
 <!-- assets -->
-<script src="assets/jquery/jquery.min.js"></script>
-<script src="assets/bootstrap/bootstrap.min.js"></script>
 <script src="assets/select2/select2.js"></script>
 <script src='assets/hammer/hammer.js'></script>
-<script src="assets/jquery-storage/jquery.storageapi.js"></script>
-<script src="assets/jquery-storage/js.cookie.js"></script>
 <script src="assets/maps/markerclusterer.js"></script>
 
 <!-- ventu filter -->
@@ -32,5 +28,5 @@
 
 <!-- dom -->
 <script src="js/application/dom/filter-listeners.js"></script>
+<script src="js/application/dom/list-listeners.js"></script>
 
-<script src="js/shared/modules/ventu-search-util/Search-util.js"></script>

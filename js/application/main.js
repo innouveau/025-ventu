@@ -4,7 +4,6 @@ window.environment = {
     floatFirst: true // respects user setting see.cardAnimation
 };
 
-
 window.ventuConfig = {
     whatScreen: whatScreen(),
     overlay: false,
@@ -13,29 +12,26 @@ window.ventuConfig = {
     }
 };
 
-var searchQuery = {
-    result: 21,
-    types: [3],
-    location: 'plaats: Hulst',
-    area: [100, 400],
-    transaction: [2],
-    searchArea: false
-};
-
-$(window).ready(function() {
-    window.filter = new Filter(searchQuery);
-    window.ventu = new App();
-    ventu.init();
-    window.ventuApi = new VentuApi();
-    window.SearchUtil = new SearchUtil();
-
-
-    ventuApi.querySearch();
+$(window).ready(function () {
 
     initialiseModules();
     initialiseModals();
     setFullscreenAndContinueButton();
 
+    var searchQuery = window.ventuApi.getSearchQuery();
+
+    window.filter = new Filter(searchQuery);
+    window.ventu = new App();
+    window.ventu.init();
+
+    function callback(result) {
+        window.ventu.redraw(result);
+    }
+
+    window.ventuApi.getSelectResults(callback);
+
     filterListeners();
     slidePanelListener();
+    listListeners();
+    
 });
