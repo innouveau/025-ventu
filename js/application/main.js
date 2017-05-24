@@ -18,19 +18,23 @@ $(window).ready(function () {
     initialiseModals();
     setFullscreenAndContinueButton();
 
-    var searchQuery = window.ventuApi.getSearchQuery();
+    if (typeof autoSearchFilter === 'undefined') {
 
-    window.filter = new Filter(searchQuery);
-    window.ventu = new App();
-    window.ventu.init();
+        var searchQuery = window.ventuApi.getSearchQuery();
 
-    function callback(result) {
-        window.ventu.redraw(result);
+        window.filter = new Filter(searchQuery);
+        window.ventu = new App();
+        window.ventu.init();
+
+        function callback(result) {
+            window.ventu.redraw(result);
+        }
+
+        window.ventuApi.getSelectResults(callback);
+
+        filterListeners();
     }
 
-    window.ventuApi.getSelectResults(callback);
-
-    filterListeners();
     slidePanelListener();
     listListeners();
     
