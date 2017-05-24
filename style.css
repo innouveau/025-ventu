@@ -871,6 +871,43 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
 .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--agricultural:after {
   background-image: url(img/icons/types/agricultural-grey.svg);
 }
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button {
+  cursor: pointer;
+  padding-left: 16px;
+  position: relative;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  text-align: center;
+  content: '';
+  font-size: 20px;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button.ventu-filter-search-type-button--active:after {
+  content: 'x';
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button:hover .ventu-filter-search-type-label {
+  background: #ededec;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-image {
+  display: inline-block;
+  margin-right: 6px;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-image img {
+  width: 25px;
+  height: auto;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-label {
+  display: inline-block;
+  vertical-align: top;
+  padding: 6px;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-label input {
+  width: 30px;
+  margin-left: 4px;
+}
 .ventu-filter-section .ventu-filter-passive-text {
   color: #727272;
   font-style: italic;

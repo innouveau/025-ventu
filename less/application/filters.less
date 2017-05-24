@@ -177,6 +177,58 @@
                 }
 
             }
+
+            .ventu-filter-search-type-button {
+                cursor: pointer;
+                padding-left: 16px;
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 10px;
+                    text-align: center;
+                    content: '';
+                    font-size: 20px;
+                }
+
+                &.ventu-filter-search-type-button--active {
+
+                    &:after {
+                        content: 'x';
+                    }
+                }
+
+                &:hover {
+
+                    .ventu-filter-search-type-label {
+                        background: @ventu-main-grey-light;
+                    }
+
+                }
+
+                .ventu-filter-search-type-image {
+                    display: inline-block;
+                    margin-right: 6px;
+
+                    img {
+                        width: 25px;
+                        height: auto;
+                    }
+                }
+
+                .ventu-filter-search-type-label {
+                    display: inline-block;
+                    vertical-align: top;
+                    padding: 6px;
+
+                    input {
+                        width: 30px;
+                        margin-left: 4px;
+                    }
+                }
+            }
         }
     }
 
