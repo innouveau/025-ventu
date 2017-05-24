@@ -93,35 +93,22 @@ VentuApi.prototype.setSearchFilter = function (query) {
 
     $.sessionStorage.set('ventu-search-filter', JSON.stringify(searchFilter));
 
-}
+};
 
 VentuApi.prototype.getSelectResults = function (query) {
-    this.setSearchFilter(query);
+    //this.setSearchFilter(query);
 
     if (this._isThisApplication()) {
         window.ventu.redraw(fakeSearchResult);
     } else {
         location.href = 'application.php';
     }
-}
+};
 
 VentuApi.prototype._isThisApplication = function () {
-
     if (window.location.pathname.toLowerCase().indexOf('application') > 0) {
         return true;
     } else {
         return false;
     }
-
-    
-
-    /*
-    var path = window.location.pathname.split('/'),
-        lastPart = path[path.length - 1];
-    if (lastPart === 'application.php' || lastPart === 'application-landing.php') {
-        return true;
-    } else {
-        return false;
-    }
-    */
 };

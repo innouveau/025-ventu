@@ -180,33 +180,19 @@
 
             .ventu-filter-search-type-button {
                 cursor: pointer;
-                padding-left: 16px;
                 position: relative;
+                padding: 5px;
+                height: 35px;
 
-                &:after {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    width: 10px;
-                    text-align: center;
-                    content: '';
-                    font-size: 20px;
+                &:hover {
+                    background: @ventu-main-grey-light;
                 }
 
                 &.ventu-filter-search-type-button--active {
-
-                    &:after {
-                        content: 'x';
-                    }
+                    background: @ventu-color-primary;
                 }
 
-                &:hover {
 
-                    .ventu-filter-search-type-label {
-                        background: @ventu-main-grey-light;
-                    }
-
-                }
 
                 .ventu-filter-search-type-image {
                     display: inline-block;
@@ -221,11 +207,14 @@
                 .ventu-filter-search-type-label {
                     display: inline-block;
                     vertical-align: top;
-                    padding: 6px;
+
+                    span {
+                        display: inline-block;
+                        padding: 4px 2px;
+                    }
 
                     input {
                         width: 30px;
-                        margin-left: 4px;
                     }
                 }
             }

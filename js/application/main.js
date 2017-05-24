@@ -19,7 +19,7 @@ var searchQuery = {
     location: 'plaats: Hulst',
     area: [100, 400],
     transaction: [2],
-    searchArea: false
+    searchType: ['none', 0]
 };
 
 $(window).ready(function() {
@@ -30,7 +30,7 @@ $(window).ready(function() {
     window.SearchUtil = new SearchUtil();
 
 
-    ventuApi.querySearch();
+    ventuApi.getSelectResults(searchQuery);
 
     initialiseModules();
     initialiseModals();

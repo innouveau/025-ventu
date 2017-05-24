@@ -5,13 +5,15 @@ function Filter(searchQuery) {
         result: $('#ventu-filter-result'),
         location: $('#ventu-filter-location .ventu-filter-label-container'),
         types: $('#ventu-filter-types .ventu-filter-label-container'),
+        searchArea: $('#ventu-filter-search-area .ventu-filter-label-container'),
         areaMin: $('#ventu-filter-area-min'),
         areaMax: $('#ventu-filter-area-max'),
         areaMinInput: $('#ventu-filter-area-min-input'),
         areaMaxInput: $('#ventu-filter-area-max-input'),
         transaction: $('#ventu-filter-transaction .ventu-filter-label-container'),
         typesButtons: $('#ventu-filter-types-buttons'),
-        transactionButtons: $('#ventu-filter-transaction-buttons')
+        transactionButtons: $('#ventu-filter-transaction-buttons'),
+        searchTypeButtons: $('.ventu-filter-search-type-button')
     };
     this.createOptions();
     this.update();
@@ -20,7 +22,7 @@ function Filter(searchQuery) {
 //
 
 Filter.prototype.execute = function() {
-    window.ventuApi.querySearch(this.query);
+    window.ventuApi.getSelectResults(this.query);
 };
 
 
@@ -28,8 +30,9 @@ Filter.prototype.execute = function() {
 
 Filter.prototype.createOptions = function() {
     this.createTypeOptions();
-    this.createAreaOptions();
+    this.createAreaOptions(); // no creation but listeners actually
     this.createTransactionOptions();
+    this.createSearchTypeOptions(); // no creation but listeners actually
 };
 
 Filter.prototype.createTypeOptions = function() {
@@ -97,6 +100,42 @@ Filter.prototype.createAreaOptions = function() {
     }
 };
 
+Filter.prototype.createSearchTypeOptions = function() {
+    var self = this;
+
+    this.element.searchTypeButtons.each(function(){
+        var type = $(this).attr('search-type');
+        if (type === self.query.searchType[0]) {
+            $(this).addClass('ventu-filter-search-type-button--active');
+            if (type !== 'none') {
+                $(this).find('input').val(self.query.searchType[1]);
+            }
+        }
+    });
+
+    this.element.searchTypeButtons.click(function(event){
+        // prevent a click on the ipnut to trigger
+        if (event.target !== 'input') { // TODO
+            var currentType = $(this).attr('search-type');
+            self.query.searchType[0] = currentType;
+            if (currentType !== 'none') {
+                self.query.searchType[1] = parseInt($(this).find('input').val());
+            } else {
+                self.query.searchType[1] = 0;
+            }
+            self.updateSearchType();
+            self.execute();
+        }
+    });
+
+    this.element.searchTypeButtons.find('input').each(function(){
+        $(this).keyup(function(){
+            var val = parseInt($(this).val()); // TODO validate more
+            self.query.searchType[1] = val;
+        })
+    });
+};
+
 
 
 // update queries
@@ -148,6 +187,7 @@ Filter.prototype.update = function() {
     this.updateTypes();
     this.updateArea();
     this.updateTransaction();
+    this.updateSearchType();
 };
 
 Filter.prototype.updateLocation = function() {
@@ -176,6 +216,20 @@ Filter.prototype.updateTransaction = function() {
             label = this.getLabel(transaction);
         this.element.transaction.append(label);
     }
+};
+
+Filter.prototype.updateSearchType = function() {
+    var label;
+    this.element.searchArea.empty();
+    switch (this.query.searchType[0]) {
+        case 'none':
+            label = this.getLabel('Niet actief');
+            break;
+        case 'circle':
+            label = this.getLabel('Cirkel ' + this.query.searchType[1] + 'km');
+            break;
+    }
+    this.element.searchArea.append(label);
 };
 
 
