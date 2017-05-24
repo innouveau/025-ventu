@@ -3,6 +3,7 @@ function VentuApi() {
 }
 
 /* localization resources */
+$.sessionStorage.set('ventu-search-filter', JSON.stringify(_this.searchFilter));
 
 VentuApi.prototype.getResourceValue = function (resourceFile, resourceName) {
     var result = resourceName;
@@ -92,9 +93,27 @@ VentuApi.prototype.setSearchFilter = function (query, autoSearchFilter) {
     }
 
     _this.searchFilter = searchFilter;
+};
 
-    $.sessionStorage.set('ventu-search-filter', JSON.stringify(_this.searchFilter));
-}
+VentuApi.prototype.getSelectResults = function (query) {
+    //this.setSearchFilter(query);
+
+    if (this._isThisApplication()) {
+        window.ventu.redraw(fakeSearchResult);
+    } else {
+        location.href = 'application.php';
+    }
+};
+
+VentuApi.prototype._isThisApplication = function () {
+    if (window.location.pathname.toLowerCase().indexOf('application') > 0) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+
 
 /* search query */
 
@@ -178,7 +197,7 @@ VentuApi.prototype.getSearchResults = function (search, callback) {
 
 VentuApi.prototype.getSelectResults = function (callback) {
     callback(fakeSearchResult);
-}
+};
 
 VentuApi.prototype.seeDetail = function(url) {
     window.location.href = url;

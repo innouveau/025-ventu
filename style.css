@@ -208,6 +208,25 @@ nav.navbar-default #navbar ul li a {
   height: 100%;
   font-family: 'ProximaNova';
 }
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button {
+  height: 60px;
+  padding: 17px 12px;
+}
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-size: 100% 100%;
+}
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-label {
+  color: #03256b;
+  display: inline-block;
+  vertical-align: top;
+  padding: 4px 0 0 4px;
+}
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button.ventu-nav-button--hangout-lists .ventu-nav-icon {
+  background-image: url(img/icons/hangout/list-grey.svg);
+}
 @media (max-width: 767px) {
   nav.navbar-default {
     background: transparent!important;
@@ -852,6 +871,37 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
 .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--agricultural:after {
   background-image: url(img/icons/types/agricultural-grey.svg);
 }
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button {
+  cursor: pointer;
+  position: relative;
+  padding: 5px;
+  height: 35px;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button:hover {
+  background: #ededec;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button.ventu-filter-search-type-button--active {
+  background: #00e5a9;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-image {
+  display: inline-block;
+  margin-right: 6px;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-image img {
+  width: 25px;
+  height: auto;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-label {
+  display: inline-block;
+  vertical-align: top;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-label span {
+  display: inline-block;
+  padding: 4px 2px;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-label input {
+  width: 30px;
+}
 .ventu-filter-section .ventu-filter-passive-text {
   color: #727272;
   font-style: italic;
@@ -1490,6 +1540,9 @@ img.projectCarousel {
 .ventu-avatar-image.ventu-avatar-image--no-avatar {
   background-color: #ededec;
   background-image: url(img/icons/hangout/no-avatar-grey.svg);
+}
+.ventu-avatar-image.ventu-avatar-image--empty-profile {
+  background-image: url(img/icons/hangout/emptyprofile-white.svg);
 }
 .ventu-features {
   padding: 10px 0;

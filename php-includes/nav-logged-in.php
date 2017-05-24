@@ -20,6 +20,12 @@
     <div class="collapse navbar-collapse pull-right" id="navbar">
         <ul class="nav navbar-nav">
             <li>
+                <a href="javascript:openLogin()" class="ventu-nav-icon-button ventu-nav-button--hangout-lists">
+                    <div class="ventu-nav-icon"></div>
+                    <div class="ventu-nav-label">Mijn lijsten</div>
+                </a>
+            </li>
+            <li>
                 <a href="javascript:openLogin()" class="ventu-avatar">
                     <div class="ventu-avatar-label">Mijn account</div>
                     <div class="ventu-avatar-image" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>

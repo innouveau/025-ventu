@@ -132,14 +132,29 @@
                     </div>
                 </div>
                 <div class="ventu-filter-label-container">
-                    <div class="ventu-filter-passive-text">
-                        Niet actief
-                    </div>
+
                 </div>
 
                 <div class="ventu-filter-full-text-container">
                     <div class="ventu-filter-full-text">
-
+                        <div class="ventu-filter-search-type-button" search-type="none">
+                            <div class="ventu-filter-search-type-image">
+                                <img src="img/tools/no-search-type.png">
+                            </div>
+                            <div class="ventu-filter-search-type-label">
+                                <span>Geen aangepast zoekgebied</span>
+                            </div>
+                        </div>
+                        <div class="ventu-filter-search-type-button" search-type="circle">
+                            <div class="ventu-filter-search-type-image">
+                                <img src="img/tools/search-type-circle.png">
+                            </div>
+                            <div class="ventu-filter-search-type-label">
+                                <span>Zoekcirkel (</span>
+                                <input type="text" id="ventu-filter-search-type-cirkel">
+                                <span>km)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

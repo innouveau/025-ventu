@@ -61,6 +61,34 @@ nav.navbar-default {
                     display: block;
                     height: 100%;
                     font-family: 'ProximaNova';
+
+
+                    // logged in buttons
+                    &.ventu-nav-icon-button {
+                        height: 60px;
+                        padding: 17px 12px;
+
+                        .ventu-nav-icon {
+                            display: inline-block;
+                            width: 25px;
+                            height: 25px;
+                            background-size: 100% 100%;
+                        }
+
+                        .ventu-nav-label {
+                            color: @ventu-color-secundary;
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 4px 0 0 4px;
+                        }
+
+                        &.ventu-nav-button--hangout-lists {
+
+                            .ventu-nav-icon {
+                                background-image: url(img/icons/hangout/list-grey.svg);
+                            }
+                        }
+                    }
                 }
             }
         }

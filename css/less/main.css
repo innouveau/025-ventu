@@ -208,6 +208,25 @@ nav.navbar-default #navbar ul li a {
   height: 100%;
   font-family: 'ProximaNova';
 }
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button {
+  height: 60px;
+  padding: 17px 12px;
+}
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-size: 100% 100%;
+}
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-label {
+  color: #03256b;
+  display: inline-block;
+  vertical-align: top;
+  padding: 4px 0 0 4px;
+}
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button.ventu-nav-button--hangout-lists .ventu-nav-icon {
+  background-image: url(img/icons/hangout/list-grey.svg);
+}
 @media (max-width: 767px) {
   nav.navbar-default {
     background: transparent!important;
@@ -318,6 +337,10 @@ nav.navbar-default #navbar ul li a {
 .ventu-contact-icon-button .ventu-contact-icon-button-img {
   display: inline-block;
   width: 30px;
+}
+.ventu-contact-icon-button .ventu-contact-icon-button-img img {
+  width: 20px;
+  height: auto;
 }
 .ventu-contact-icon-button .ventu-contact-icon-button-text {
   color: #17141f;
@@ -432,6 +455,32 @@ section.parties .divider {
     max-width: 60%;
   }
 }
+#ventu-transactions .ventu-transaction-card {
+  height: 310px;
+  border-radius: 8px;
+  background-color: #ededec;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 45px 30px 30px;
+}
+#ventu-transactions .ventu-transaction-card .ventu-transaction-icon {
+  margin-bottom: 40px;
+}
+#ventu-transactions .ventu-transaction-card .ventu-transaction-icon img {
+  width: 60px;
+  height: auto;
+}
+#ventu-parties .broker-logo {
+  margin-bottom: 20px;
+}
+#ventu-parties .ventu-parties-contact-icon {
+  padding-top: 11px;
+}
+#ventu-parties .ventu-parties-contact-icon img {
+  width: 25px;
+  height: auto;
+}
 #ventu-social .btn-wrapper {
   text-align: center;
   background-color: #fff;
@@ -526,8 +575,8 @@ section.proximity .ventu-card .button {
   font-weight: 700;
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
   margin-right: 6px;
   background-size: 100% 100%;
@@ -543,7 +592,7 @@ section.proximity .ventu-card .button {
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-follow {
   background-color: #8400C6;
-  background-image: url(img/icons/buttons/follow.svg);
+  background-image: url(img/icons/buttons/follow-white.svg);
 }
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-hate {
   background-color: #DF0040;
@@ -552,7 +601,7 @@ section.proximity .ventu-card .button {
 .hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-label {
   display: inline-block;
   vertical-align: top;
-  padding-top: 6px;
+  padding-top: 8px;
 }
 .hangout-list-entry .hangout-list-entry-content {
   position: absolute;
@@ -642,8 +691,9 @@ section.proximity .ventu-card .button {
   float: right;
   background: #fff;
   border-radius: 4px;
-  background-image: url(img/tools/sort.svg);
+  background-image: url(img/tools/sort-grey.svg);
   background-position: 50% 50%;
+  background-size: 20px 20px;
   background-repeat: no-repeat;
 }
 #ventu-hangout-list #ventu-hangout-list-cards {
@@ -689,6 +739,14 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   position: absolute;
   right: 50px;
   bottom: 0;
+}
+#ventu-filters #ventu-filter-content {
+  height: calc(100% - 121px);
+  overflow: auto;
+}
+#ventu-filters #ventu-filter-tools {
+  height: 121px;
+  border-top: 1px solid #ededec;
 }
 .ventu-filter-section {
   border-bottom: 1px solid #ededec;
@@ -813,35 +871,43 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
 .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-button.ventu-filter-button--agricultural:after {
   background-image: url(img/icons/types/agricultural-grey.svg);
 }
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button {
+  cursor: pointer;
+  position: relative;
+  padding: 5px;
+  height: 35px;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button:hover {
+  background: #ededec;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button.ventu-filter-search-type-button--active {
+  background: #00e5a9;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-image {
+  display: inline-block;
+  margin-right: 6px;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-image img {
+  width: 25px;
+  height: auto;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-label {
+  display: inline-block;
+  vertical-align: top;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-label span {
+  display: inline-block;
+  padding: 4px 2px;
+}
+.ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-label input {
+  width: 30px;
+}
 .ventu-filter-section .ventu-filter-passive-text {
   color: #727272;
   font-style: italic;
 }
 .ventu-filter-section:last-child {
   border-bottom: 0;
-}
-#ventu-filter-tools .ventu-filter-tools-button {
-  position: relative;
-  cursor: pointer;
-  padding: 6px 6px 6px 34px;
-}
-#ventu-filter-tools .ventu-filter-tools-button:hover {
-  background: #ededec;
-}
-#ventu-filter-tools .ventu-filter-tools-button:after {
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  width: 20px;
-  height: 20px;
-  content: '';
-  background-size: 100% 100%;
-}
-#ventu-filter-tools .ventu-filter-tools-button.ventu-filter-tools-button--save:after {
-  background-image: url(img/icons/save.svg);
-}
-#ventu-filter-tools .ventu-filter-tools-button .ventu-filter-tools-button-label {
-  text-decoration: underline;
 }
 .ventu-filter-area-box {
   border: 1px solid #ededec;
@@ -872,29 +938,134 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   height: 100%;
   padding: 18px 30px;
   float: right;
+  position: relative;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-icon {
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-status {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  content: '';
+  z-index: 0;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub#ventu-bottom-bar-hate .ventu-bottom-bar-sub-status {
+  background: rgba(223, 0, 65, 0.5);
+  right: 0;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub#ventu-bottom-bar-love .ventu-bottom-bar-sub-status {
+  left: 0;
+  background: rgba(46, 204, 113, 0.5);
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content {
+  position: relative;
+  z-index: 1;
+  width: 120px;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-icon {
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background-size: 100% 100%;
   display: inline-block;
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-icon.ventu-bottom-bar-icon--love {
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-icon.ventu-bottom-bar-icon--love {
   background-color: #2ECC71;
   background-image: url(img/icons/buttons/love.svg);
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-icon.ventu-bottom-bar-icon--hate {
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-icon.ventu-bottom-bar-icon--hate {
   background-color: #DF0040;
   background-image: url(img/icons/buttons/hate.svg);
 }
-#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-label {
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-container {
+  width: 30px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -webkit-perspective: 150px;
+  perspective: 150px;
+  -webkit-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-container .venu-bottom-bar-label-rotor {
+  transform: translateZ(-5px) rotateX(0deg);
+  transition: all 0.8s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-container .venu-bottom-bar-label-rotor > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.8s ease;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-container .venu-bottom-bar-label-rotor .venu-bottom-bar-label-front {
+  -ms-transform: translateZ(-1px) translateY(0px);
+  -webkit-transform: translateZ(-1px) translateY(0px);
+  transform: translateZ(-1px) translateY(0px);
+  opacity: 1;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-container .venu-bottom-bar-label-rotor .venu-bottom-bar-label-back {
+  -ms-transform: translateZ(-5px) rotateY(180deg) rotateZ(180deg);
+  -webkit-transform: translateZ(-5px) rotateY(180deg) rotateZ(180deg);
+  transform: translateZ(-5px) rotateY(180deg) rotateZ(180deg);
+  opacity: 0;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-container .venu-bottom-bar-label-rotor .ventu-bottom-bar-label-text {
+  text-align: right;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-container.ventu-bottom-bar-label-container--rotated .venu-bottom-bar-label-rotor {
+  transform: translateZ(-5px) rotateX(180deg);
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-container.ventu-bottom-bar-label-container--rotated .venu-bottom-bar-label-rotor .venu-bottom-bar-label-front {
+  opacity: 0;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-container.ventu-bottom-bar-label-container--rotated .venu-bottom-bar-label-rotor .venu-bottom-bar-label-back {
+  opacity: 1;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content .ventu-bottom-bar-label-text {
+  width: 30px;
+  height: 20px;
+  padding: 2px;
   display: inline-block;
   vertical-align: top;
-  padding: 1px 0 0 6px;
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub:last-child {
   border-right: 0;
+}
+.ventu-tools-button {
+  position: relative;
+  cursor: pointer;
+  height: 60px;
+  padding: 17px 12px 18px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ededec;
+}
+.ventu-tools-button:hover {
+  background: #ededec;
+}
+.ventu-tools-button .ventu-tools-button-icon {
+  width: 25px;
+  height: 25px;
+  content: '';
+  background-size: 100% 100%;
+  display: inline-block;
+}
+.ventu-tools-button.ventu-tools-button--save .ventu-tools-button-icon {
+  background-image: url(img/tools/save-grey.svg);
+}
+.ventu-tools-button.ventu-tools-button--erase .ventu-tools-button-icon {
+  background-image: url(img/tools/erase-grey.svg);
+}
+.ventu-tools-button .ventu-tools-button-label {
+  text-decoration: underline;
+  display: inline-block;
+  vertical-align: top;
+  padding: 3px 8px;
 }
 .ventu-search-common {
   background: #fff;
@@ -908,7 +1079,7 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   top: 9px;
   width: 14px;
   height: 14px;
-  background-image: url(img/tools/glass.svg);
+  background-image: url(img/tools/glass-grey.svg);
   background-size: 100% 100%;
   content: '';
 }
@@ -1368,7 +1539,10 @@ img.projectCarousel {
 }
 .ventu-avatar-image.ventu-avatar-image--no-avatar {
   background-color: #ededec;
-  background-image: url(img/icons/no-avatar.svg);
+  background-image: url(img/icons/hangout/no-avatar-grey.svg);
+}
+.ventu-avatar-image.ventu-avatar-image--empty-profile {
+  background-image: url(img/icons/hangout/emptyprofile-white.svg);
 }
 .ventu-features {
   padding: 10px 0;
@@ -1381,16 +1555,16 @@ img.projectCarousel {
 .ventu-features ul li {
   margin: 0 20px 10px 0;
   height: 16px;
-  padding-left: 20px;
+  padding-left: 21px;
   position: relative;
   display: inline-block;
 }
 .ventu-features ul li:after {
   position: absolute;
   left: 0;
-  top: 2px;
-  width: 12px;
-  height: 12px;
+  top: 0;
+  width: 15px;
+  height: 15px;
   background-size: 100% 100%;
   content: '';
 }
@@ -1434,13 +1608,13 @@ img.projectCarousel {
   background-image: url(img/icons/types/agricultural-grey.svg);
 }
 .ventu-features ul li.ventu-features-metrage:after {
-  background-image: url(img/icons/features/area.svg);
+  background-image: url(img/icons/features/area-grey.svg);
 }
 .ventu-features ul li.ventu-features-price:after {
-  background-image: url(img/icons/features/price.svg);
+  background-image: url(img/icons/features/coins-grey.svg);
 }
 .ventu-features ul li.ventu-features-location:after {
-  background-image: url(img/icons/features/location.svg);
+  background-image: url(img/icons/features/marker-grey.svg);
 }
 .ventu-icon {
   cursor: pointer;
@@ -1893,7 +2067,7 @@ section.section--small-padding .divider {
   height: 24px;
   width: 24px;
   margin: 11px 10px;
-  background-image: url(img/tools/glass.svg);
+  background-image: url(img/tools/glass-grey.svg);
 }
 .ventu-search.ventu-search-marker .ventu-search-icon {
   height: 45px;
@@ -1936,8 +2110,9 @@ section.section--small-padding .divider {
   width: 60px;
   height: 60px;
   background: #ededec;
-  background-image: url(img/tools/glass.svg);
+  background-image: url(img/tools/glass-grey.svg);
   background-position: 50% 50%;
+  background-size: 25px 25px;
   background-repeat: no-repeat;
   cursor: pointer;
   position: relative;
@@ -1951,7 +2126,7 @@ section.section--small-padding .divider {
   transition: all 0.2s ease;
 }
 .ventu-search-open.ventu-search-open--opened {
-  background-image: url(img/tools/close.svg);
+  background-image: url(img/tools/close-grey.svg);
 }
 .ventu-search-open.ventu-search-open--opened .ventu-search-container {
   width: 500px;
@@ -2283,7 +2458,7 @@ section.section--small-padding .divider {
   top: 10px;
   width: calc(100% - 20px);
   height: calc(100% - 20px);
-  background-image: url(img/card/card-back-blue.png);
+  background-image: url(img/card/card-tile.png);
   content: '';
   border-radius: 5px;
 }

@@ -50,6 +50,25 @@ nav.navbar-default #navbar ul li a {
   height: 100%;
   font-family: 'ProximaNova';
 }
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button {
+  height: 60px;
+  padding: 17px 12px;
+}
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-size: 100% 100%;
+}
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-label {
+  color: #03256b;
+  display: inline-block;
+  vertical-align: top;
+  padding: 4px 0 0 4px;
+}
+nav.navbar-default #navbar ul li a.ventu-nav-icon-button.ventu-nav-button--hangout-lists .ventu-nav-icon {
+  background-image: url(img/icons/hangout/list-grey.svg);
+}
 @media (max-width: 767px) {
   nav.navbar-default {
     background: transparent!important;
