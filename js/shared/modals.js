@@ -10,9 +10,9 @@ function initialiseModals() {
     });
 }
 
-function openLogin() {
+function openAddMemberPopup() {
     $('.ventu-overlay').fadeIn(100, function(){
-        $('.ventu-login').fadeIn(100)
+        $('.ventu-hangout-add-member').fadeIn(100)
     })
 }
 

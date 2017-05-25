@@ -22,10 +22,18 @@
 <div class="container">
     <section id="ventu-hangout-header-back" class="ventu-hangout-header--share">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-4">
                 <a class="ventu-hangout-header-back-button" href="">
                     Terug
                 </a>
+            </div>
+            <div class="col-sm-8">
+                <div class="ventu-hangout-list-members">
+                    <?php include('php-includes/hangout/members.php'); ?>
+                    <div class="ventu-hangout-list-members-label">
+                        Mijn teamleden:
+                    </div>
+                </div>
             </div>
         </div>
     </section>

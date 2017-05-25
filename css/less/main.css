@@ -625,35 +625,10 @@ section.proximity .ventu-card .button {
   right: 10px;
   bottom: 10px;
 }
-.ventu-hangout-list-entry .ventu-hangout-list-entry-shared-with {
+.ventu-hangout-list-entry .ventu-hangout-list-members {
   position: absolute;
   left: 14px;
   bottom: 10px;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  -webkit-flex-direction: row-reverse;
-  -moz-flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
-  -o-flex-direction: row-reverse;
-  flex-direction: row-reverse;
-}
-.ventu-hangout-list-entry .ventu-hangout-list-entry-shared-with .ventu-avatar-image {
-  margin-left: -4px;
-}
-.ventu-hangout-list-entry .ventu-hangout-list-entry-shared-with .ventu-hangout-list-entry-shared-with-number {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #fff;
-  color: #00A2FF;
-  padding-top: 12px;
-  font-weight: 700;
-  text-align: center;
-  display: inline-block;
-  margin-left: -4px;
 }
 .ventu-hangout-list-entry.ventu-hangout-list-entry--create .aspect16by9 {
   background: #ededec;
@@ -679,6 +654,7 @@ section.proximity .ventu-card .button {
   padding-left: 24px;
   color: #17141f;
   display: inline-block;
+  font-weight: 700;
 }
 #ventu-hangout-header-back .ventu-hangout-header-back-button:after {
   content: '';
@@ -880,6 +856,101 @@ section.proximity .ventu-card .button {
 }
 .ventu-hangout-tip-content h5 .ventu-hangout-tip-button.ventu-hangout-tip-button--profile {
   background-image: url(img/icons/hangout/emptyprofile-grey.svg);
+}
+.ventu-hangout-list-members {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+  -moz-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  -o-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+.ventu-hangout-list-members .ventu-avatar-image {
+  margin-left: -4px;
+}
+.ventu-hangout-list-members .ventu-hangout-list-entry-shared-with-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: #00A2FF;
+  padding-top: 12px;
+  font-weight: 700;
+  text-align: center;
+  display: inline-block;
+  margin-left: -4px;
+}
+.ventu-hangout-list-members .ventu-hangout-list-members-label {
+  color: #fff;
+  font-weight: 700;
+  margin-right: 16px;
+  padding-top: 10px;
+}
+.ventu-hangout-member-add-button {
+  border: 1px dashed #727272;
+  padding: 10px 36px 10px 65px;
+  position: relative;
+  height: 40px;
+  display: inline-block;
+  cursor: pointer;
+}
+.ventu-hangout-member-add-button:hover {
+  background: #ededec;
+}
+.ventu-hangout-member-add-button:after {
+  position: absolute;
+  left: 18px;
+  top: 8px;
+  width: 25px;
+  height: 25px;
+  background-size: 100% 100%;
+  content: '';
+  background-image: url(img/icons/hangout/add-member-grey.svg);
+}
+.ventu-hangout-member {
+  height: 74px;
+  border-bottom: 1px solid #ededec;
+}
+.ventu-hangout-member .ventu-hangout-member-avatar {
+  width: 74px;
+  float: left;
+  padding: 17px;
+}
+.ventu-hangout-member .ventu-hangout-member-avatar .ventu-avatar-image {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+.ventu-hangout-member .ventu-hangout-member-details {
+  float: left;
+  width: calc(100% - 148px);
+  font-size: 14px;
+  padding: 12px 20px;
+}
+.ventu-hangout-member .ventu-hangout-member-details .ventu-hangout-member-details-email a {
+  color: #727272;
+  text-decoration: none;
+}
+.ventu-hangout-member .ventu-hangout-member-details .ventu-hangout-member-details-email a:hover {
+  text-decoration: underline;
+}
+.ventu-hangout-member .ventu-hangout-member-details .ventu-hangout-member-details-role {
+  font-size: 12px;
+  color: #03256b;
+  font-weight: 700;
+}
+.ventu-hangout-member .ventu-hangout-member-button {
+  float: left;
+  width: 74px;
+  height: 100%;
+  text-align: center;
+}
+.ventu-hangout-member .ventu-hangout-member-button .ventu-tools-button {
+  width: 100%;
+  height: 100%;
+  padding: 25px;
 }
 body.ventu-application {
   position: relative;
@@ -1456,73 +1527,34 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   background: rgba(0, 0, 0, 0.8);
   z-index: 10000;
 }
-.ventu-popup {
-  margin: 100px auto;
+.ventu-overlay .ventu-popup {
+  width: 570px;
+  margin: 0 auto;
   background: #fff;
   position: relative;
   display: none;
+  top: 60px;
+  height: calc(100% - 60px);
+  overflow: auto;
 }
-.ventu-popup.ventu-login {
-  width: 350px;
-}
-.ventu-popup.ventu-settings {
-  width: 300px;
-}
-.ventu-popup .ventu-popup-head {
+.ventu-overlay .ventu-popup .ventu-popup-head {
   padding: 30px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-}
-.ventu-popup .ventu-popup-head h2 {
-  margin: 0;
-  font-weight: 700;
-  font-size: 30px;
-}
-.ventu-popup .ventu-popup-body {
-  padding-bottom: 30px;
-}
-.ventu-popup .ventu-popup-body .dropdown-menu {
-  border-top: 0;
-  border-radius: 0;
-  box-shadow: none;
-  display: block!important;
-  float: none;
-  position: relative;
-}
-.ventu-popup .ventu-popup-body .dropdown-menu li a {
-  padding: 8px 32px;
-}
-.ventu-popup .ventu-popup-body .dropdown-menu li a:hover {
-  background: #ddd;
-}
-.ventu-popup .ventu-popup-body.with-padding {
-  padding: 30px;
-}
-.ventu-close-popup {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  font-size: 24px;
-  width: 32px;
-  height: 32px;
+  border-bottom: 1px solid #ededec;
   text-align: center;
-  padding-top: 2px;
-  border-radius: 16px;
 }
-.ventu-close-popup:hover {
-  background: #ddd;
-  color: #000;
+.ventu-overlay .ventu-popup .ventu-popup-head h3 {
+  font-size: 25px;
+  margin: 0 0 20px 0;
 }
-@media (max-width: 767px) {
-  .ventu-overlay .ventu-popup {
-    margin: 40px auto;
-    max-width: calc(100% - 40px);
-  }
-  .ventu-overlay .ventu-popup.ventu-login {
-    width: 350px;
-  }
-  .ventu-overlay .ventu-popup.ventu-settings {
-    width: 300px;
-  }
+.ventu-overlay .ventu-popup-close {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 30px;
+  height: 30px;
+  background-size: 100% 100%;
+  background-image: url(img/tools/close-white.svg);
+  cursor: pointer;
 }
 .ventu-form,
 form {
@@ -1725,6 +1757,10 @@ img.projectCarousel {
 }
 .ventu-avatar-image.ventu-avatar-image--empty-profile {
   background-image: url(img/icons/hangout/emptyprofile-white.svg);
+  cursor: pointer;
+}
+.ventu-avatar-image.ventu-avatar-image--empty-profile:hover {
+  background-color: #727272;
 }
 @media (max-width: 767px) {
   .ventu-avatar-image {

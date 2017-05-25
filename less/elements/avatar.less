@@ -28,11 +28,15 @@
 
     &.ventu-avatar-image--empty-profile {
         background-image: url(img/icons/hangout/emptyprofile-white.svg);
+        cursor: pointer;
+
+        &:hover {
+            background-color: @ventu-main-grey-dark;
+        }
     }
 }
 
 @media (max-width: 767px) {
-
 
     .ventu-avatar-image {
         width: 30px;

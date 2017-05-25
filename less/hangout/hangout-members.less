@@ -1,0 +1,120 @@
+@import '../mixins';
+
+.ventu-hangout-list-members {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+    -moz-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    -o-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+
+    .ventu-avatar-image {
+        margin-left: -4px;
+    }
+
+    .ventu-hangout-list-entry-shared-with-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #fff;
+        color: @ventu-color-share;
+        padding-top: 12px;
+        font-weight: 700;
+        text-align: center;
+        display: inline-block;
+        margin-left: -4px;
+    }
+
+    .ventu-hangout-list-members-label {
+        color: #fff;
+        font-weight: 700;
+        margin-right: 16px;
+        padding-top: 10px;
+    }
+}
+
+.ventu-hangout-member-add-button {
+    border: 1px dashed @ventu-main-grey-dark;
+    padding: 10px 36px 10px 65px;
+    position: relative;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+        background: @ventu-main-grey-light;
+    }
+
+    &:after {
+        position: absolute;
+        left: 18px;
+        top: 8px;
+        width: 25px;
+        height: 25px;
+        background-size: 100% 100%;
+        content: '';
+        background-image: url(img/icons/hangout/add-member-grey.svg);
+    }
+}
+
+.ventu-hangout-member {
+    height: 74px;
+    border-bottom:1px solid @ventu-main-grey-light;
+
+
+    .ventu-hangout-member-avatar {
+        width: 74px;
+        float: left;
+        padding: 17px;
+
+        .ventu-avatar-image {
+            box-shadow: @ventu-box-shadow-3;
+        }
+    }
+
+    .ventu-hangout-member-details {
+        float: left;
+        width: ~'calc(100% - 148px)';
+        font-size: 14px;
+        padding: 12px 20px;
+
+
+        .ventu-hangout-member-details-email {
+
+            a {
+                color: @ventu-main-grey-dark;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .ventu-hangout-member-details-role {
+            font-size: 12px;
+            color: @ventu-color-secundary;
+            font-weight: 700;
+        }
+
+    }
+
+    .ventu-hangout-member-button {
+        float: left;
+        width: 74px;
+        height: 100%;
+        text-align: center;
+
+        .ventu-tools-button {
+            width: 100%;
+            height: 100%;
+            padding: 25px;
+        }
+    }
+
+
+}

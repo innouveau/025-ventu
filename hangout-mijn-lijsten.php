@@ -116,13 +116,7 @@
                                     Ik doe mee met lijst
                                 </div>
                             </div>
-                            <div class="ventu-hangout-list-entry-shared-with">
-                                <div class="ventu-hangout-list-entry-shared-with-number">+3</div>
-                                <div class="ventu-avatar-image" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>
-                                <div class="ventu-avatar-image ventu-avatar-image--empty-profile"></div>
-                                <div class="ventu-avatar-image ventu-avatar-image--no-avatar"></div>
-                                <div class="ventu-avatar-image" style="background-image:url(img/content/gp5xqleg0f8jbkxuazos.jpeg)"></div>
-                            </div>
+                            <?php include('php-includes/hangout/members.php'); ?>
                             <div class="ventu-hangout-list-entry-content">
                                 1 object
                             </div>

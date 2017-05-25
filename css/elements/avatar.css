@@ -22,6 +22,10 @@
 }
 .ventu-avatar-image.ventu-avatar-image--empty-profile {
   background-image: url(img/icons/hangout/emptyprofile-white.svg);
+  cursor: pointer;
+}
+.ventu-avatar-image.ventu-avatar-image--empty-profile:hover {
+  background-color: #727272;
 }
 @media (max-width: 767px) {
   .ventu-avatar-image {

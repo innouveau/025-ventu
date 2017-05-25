@@ -9,99 +9,60 @@
     height: 100%;
     background: rgba(0,0,0,0.8);
     z-index: 10000;
-}
 
-.ventu-popup {
-    margin: 100px auto;
-    background: #fff;
-    position: relative;
-    display: none;
+    .ventu-popup {
+        width: 570px;
+        margin: 0 auto;
+        background: #fff;
+        position: relative;
+        display: none;
+        top: 60px;
+        height: ~'calc(100% - 60px)';
+        overflow: auto;
 
-    &.ventu-login {
-        width: 350px;
-    }
-
-    &.ventu-settings {
-        width: 300px;
-    }
-
-    .ventu-popup-head {
-        padding: 30px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-
-        h2 {
-            margin: 0;
-            font-weight: 700;
-            font-size: 30px;
-        }
-    }
-
-    .ventu-popup-body {
-        padding-bottom: 30px;
-
-        .dropdown-menu {
-            border-top: 0;
-            border-radius: 0;
-            box-shadow: none;
-            display: block!important;
-            float: none;
-            position: relative;
-
-            li {
-
-                a {
-
-                    padding: 8px 32px;
-
-                    &:hover {
-                        background: @button-hover-color;
-                    }
-                }
-
-
-            }
-        }
-
-        &.with-padding {
+        .ventu-popup-head {
             padding: 30px;
-        }
-    }
-}
+            border-bottom: 1px solid @ventu-main-grey-light;
+            text-align: center;
 
-.ventu-close-popup {
-    position: absolute;
-    right: 16px;
-    top: 16px;
-    font-size: 24px;
-    width: 32px;
-    height: 32px;
-    text-align: center;
-    padding-top: 2px;
-    border-radius: 16px;
-
-    &:hover {
-        background: #ddd;
-        color: #000;
-    }
-}
-
-
-@media (max-width: 767px) {
-
-    .ventu-overlay {
-
-        .ventu-popup {
-            margin: 40px auto;
-            max-width: ~'calc(100% - 40px)';
-
-            &.ventu-login {
-                width: 350px;
-            }
-
-            &.ventu-settings {
-                width: 300px;
+            h3 {
+                font-size: 25px;
+                margin: 0 0 20px 0;
             }
         }
     }
 
+    .ventu-popup-close {
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        width: 30px;
+        height: 30px;
+        background-size: 100% 100%;
+        background-image: url(img/tools/close-white.svg);
+        cursor: pointer;
+    }
 }
+
+
+
+
+//@media (max-width: 767px) {
+//
+//    .ventu-overlay {
+//
+//        .ventu-popup {
+//            margin: 40px auto;
+//            max-width: ~'calc(100% - 40px)';
+//
+//            &.ventu-login {
+//                width: 350px;
+//            }
+//
+//            &.ventu-settings {
+//                width: 300px;
+//            }
+//        }
+//    }
+//
+//}

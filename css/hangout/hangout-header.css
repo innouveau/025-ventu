@@ -8,6 +8,7 @@
   padding-left: 24px;
   color: #17141f;
   display: inline-block;
+  font-weight: 700;
 }
 #ventu-hangout-header-back .ventu-hangout-header-back-button:after {
   content: '';

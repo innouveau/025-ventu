@@ -66,35 +66,10 @@
   right: 10px;
   bottom: 10px;
 }
-.ventu-hangout-list-entry .ventu-hangout-list-entry-shared-with {
+.ventu-hangout-list-entry .ventu-hangout-list-members {
   position: absolute;
   left: 14px;
   bottom: 10px;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  -webkit-flex-direction: row-reverse;
-  -moz-flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
-  -o-flex-direction: row-reverse;
-  flex-direction: row-reverse;
-}
-.ventu-hangout-list-entry .ventu-hangout-list-entry-shared-with .ventu-avatar-image {
-  margin-left: -4px;
-}
-.ventu-hangout-list-entry .ventu-hangout-list-entry-shared-with .ventu-hangout-list-entry-shared-with-number {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #fff;
-  color: #00A2FF;
-  padding-top: 12px;
-  font-weight: 700;
-  text-align: center;
-  display: inline-block;
-  margin-left: -4px;
 }
 .ventu-hangout-list-entry.ventu-hangout-list-entry--create .aspect16by9 {
   background: #ededec;
