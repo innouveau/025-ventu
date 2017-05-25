@@ -116,7 +116,9 @@
                                     Ik doe mee met lijst
                                 </div>
                             </div>
-                            <?php include('php-includes/hangout/members.php'); ?>
+                            <div class="ventu-hangout-list-members">
+                                <?php include('php-includes/hangout/members.php'); ?>
+                            </div>
                             <div class="ventu-hangout-list-entry-content">
                                 1 object
                             </div>
