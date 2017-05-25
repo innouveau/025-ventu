@@ -557,6 +557,9 @@ section.proximity .ventu-card .button {
   text-align: center;
   border-bottom: 1px solid #ededec;
 }
+#ventu-hangout-content-section {
+  padding-top: 30px;
+}
 .ventu-hangout-lists-wrapper {
   margin-left: 90px;
   margin-right: 90px;
@@ -666,24 +669,6 @@ section.proximity .ventu-card .button {
 .ventu-hangout-list-entry.ventu-hangout-list-entry--create:hover .aspect16by9 {
   background: #fff;
 }
-#ventu-hangout-list {
-  padding-top: 60px!important;
-}
-#ventu-hangout-list.ventu-hangout-list-love .ventu-hangout-list-header {
-  background: #2ECC71;
-}
-#ventu-hangout-list.ventu-hangout-list-hate .ventu-hangout-list-header {
-  background: #DF0040;
-}
-#ventu-hangout-list.ventu-hangout-list-share .ventu-hangout-list-header {
-  background: #00A2FF;
-}
-#ventu-hangout-list.ventu-hangout-list-follow .ventu-hangout-list-header {
-  background: #8400C6;
-}
-#ventu-hangout-list #ventu-hangout-list-cards {
-  padding-top: 32px!important;
-}
 #ventu-hangout-header-back {
   padding-top: 90px;
   padding-bottom: 30px;
@@ -738,7 +723,13 @@ section.proximity .ventu-card .button {
 #ventu-hangout-header-tools.ventu-hangout-header--share,
 #ventu-hangout-header-back.ventu-hangout-header--follow,
 #ventu-hangout-header-title.ventu-hangout-header--follow,
-#ventu-hangout-header-tools.ventu-hangout-header--follow {
+#ventu-hangout-header-tools.ventu-hangout-header--follow,
+#ventu-hangout-header-back.ventu-hangout-header--love,
+#ventu-hangout-header-title.ventu-hangout-header--love,
+#ventu-hangout-header-tools.ventu-hangout-header--love,
+#ventu-hangout-header-back.ventu-hangout-header--hate,
+#ventu-hangout-header-title.ventu-hangout-header--hate,
+#ventu-hangout-header-tools.ventu-hangout-header--hate {
   border-bottom: 1px solid #fff;
 }
 #ventu-hangout-header-back.ventu-hangout-header--share h1,
@@ -747,12 +738,24 @@ section.proximity .ventu-card .button {
 #ventu-hangout-header-back.ventu-hangout-header--follow h1,
 #ventu-hangout-header-title.ventu-hangout-header--follow h1,
 #ventu-hangout-header-tools.ventu-hangout-header--follow h1,
+#ventu-hangout-header-back.ventu-hangout-header--love h1,
+#ventu-hangout-header-title.ventu-hangout-header--love h1,
+#ventu-hangout-header-tools.ventu-hangout-header--love h1,
+#ventu-hangout-header-back.ventu-hangout-header--hate h1,
+#ventu-hangout-header-title.ventu-hangout-header--hate h1,
+#ventu-hangout-header-tools.ventu-hangout-header--hate h1,
 #ventu-hangout-header-back.ventu-hangout-header--share a,
 #ventu-hangout-header-title.ventu-hangout-header--share a,
 #ventu-hangout-header-tools.ventu-hangout-header--share a,
 #ventu-hangout-header-back.ventu-hangout-header--follow a,
 #ventu-hangout-header-title.ventu-hangout-header--follow a,
-#ventu-hangout-header-tools.ventu-hangout-header--follow a {
+#ventu-hangout-header-tools.ventu-hangout-header--follow a,
+#ventu-hangout-header-back.ventu-hangout-header--love a,
+#ventu-hangout-header-title.ventu-hangout-header--love a,
+#ventu-hangout-header-tools.ventu-hangout-header--love a,
+#ventu-hangout-header-back.ventu-hangout-header--hate a,
+#ventu-hangout-header-title.ventu-hangout-header--hate a,
+#ventu-hangout-header-tools.ventu-hangout-header--hate a {
   color: #fff;
 }
 #ventu-hangout-header-back.ventu-hangout-header--share .ventu-hangout-header-back-button:after,
@@ -760,7 +763,13 @@ section.proximity .ventu-card .button {
 #ventu-hangout-header-tools.ventu-hangout-header--share .ventu-hangout-header-back-button:after,
 #ventu-hangout-header-back.ventu-hangout-header--follow .ventu-hangout-header-back-button:after,
 #ventu-hangout-header-title.ventu-hangout-header--follow .ventu-hangout-header-back-button:after,
-#ventu-hangout-header-tools.ventu-hangout-header--follow .ventu-hangout-header-back-button:after {
+#ventu-hangout-header-tools.ventu-hangout-header--follow .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-back.ventu-hangout-header--love .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-title.ventu-hangout-header--love .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-tools.ventu-hangout-header--love .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-back.ventu-hangout-header--hate .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-title.ventu-hangout-header--hate .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-tools.ventu-hangout-header--hate .ventu-hangout-header-back-button:after {
   background-image: url(img/tools/arrow-back-white.svg);
 }
 .ventu-hangout-tools {
@@ -785,24 +794,69 @@ section.proximity .ventu-card .button {
   background-size: 20px 20px;
   background-repeat: no-repeat;
 }
+.ventu-hangout-tools .ventu-hangout-tools-sort {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+.ventu-hangout-tools .ventu-hangout-tools-sort .ventu-hangout-tools-sort-button {
+  color: #fff;
+  margin-left: 40px;
+  display: inline-block;
+  text-decoration: underline;
+}
+.ventu-hangout-tools .ventu-hangout-tools-sort .ventu-hangout-tools-sort-button:hover {
+  color: #17141f !important;
+}
+@media (max-width: 767px) {
+  .ventu-hangout-tools .ventu-hangout-tools-sort {
+    width: 43px;
+    height: 32px;
+    cursor: pointer;
+    float: right;
+    background: #fff;
+    border-radius: 4px;
+    background-image: url(img/tools/sort-grey.svg);
+    background-position: 50% 50%;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    content: '';
+  }
+}
 .ventu-hangout-tip {
   background: #ededec;
   color: #727272;
-  padding: 20px;
+  padding: 20px 80px 20px 20px;
   margin-bottom: 20px;
+  position: relative;
+}
+.ventu-hangout-tip .ventu-hangout-tip-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-image: url(img/tools/close-grey.svg);
+  background-size: 100% 100%;
 }
 .ventu-hangout-tip-content h5 {
   color: #727272;
   margin: 0 0 10px 0;
 }
-.ventu-hangout-tip-content h5 .ventu-hangout-add-button {
+.ventu-hangout-tip-content h5 .ventu-hangout-tip-button {
   width: 40px;
   height: 40px;
   background-size: 100% 100%;
-  background-image: url(img/tools/add-grey.svg);
   display: inline-block;
   margin-right: 10px;
   vertical-align: middle;
+}
+.ventu-hangout-tip-content h5 .ventu-hangout-tip-button.ventu-hangout-tip-button--add {
+  background-image: url(img/icons/hangout/add.svg);
+}
+.ventu-hangout-tip-content h5 .ventu-hangout-tip-button.ventu-hangout-tip-button--profile {
+  background-image: url(img/icons/hangout/emptyprofile-grey.svg);
 }
 body.ventu-application {
   position: relative;
@@ -2532,11 +2586,19 @@ section.section--small-padding .divider {
 .ventu-card.ventu-card--float .ventu-card-text {
   float: right;
   width: calc(100% - 320px);
+  padding: 0 18px;
 }
 .ventu-card.ventu-card--float .ventu-card-buttons {
   width: 320px;
   clear: both;
   border-right: 1px solid #ededec;
+  text-align: center;
+}
+.ventu-card.ventu-card--float .ventu-card-buttons .ventu-card-button {
+  margin: 13px 6px 0 0;
+  width: 20px;
+  height: 20px;
+  padding: 0;
 }
 @media (max-width: 767px) {
   .ventu-card.ventu-card--float {

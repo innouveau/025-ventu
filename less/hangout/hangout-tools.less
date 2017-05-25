@@ -1,3 +1,6 @@
+@import '../mixins';
+
+
 .ventu-hangout-tools {
     margin: 30px 90px 20px 90px;
 
@@ -22,4 +25,43 @@
             background-repeat: no-repeat;
         }
     }
+
+    .ventu-hangout-tools-sort {
+        text-align: center;
+        margin-top: 30px;
+        color: #fff;
+
+        .ventu-hangout-tools-sort-button {
+            color: #fff;
+            margin-left: 40px;
+            display: inline-block;
+            text-decoration: underline;
+
+            &:hover {
+                color: @ventu-black!important;
+            }
+        }
+
+    }
+}
+
+@media (max-width: 767px) {
+
+    .ventu-hangout-tools {
+
+        .ventu-hangout-tools-sort {
+            width: 43px;
+            height: 32px;
+            cursor: pointer;
+            float: right;
+            background: #fff;
+            border-radius: 4px;
+            background-image: url(img/tools/sort-grey.svg);
+            background-position: 50% 50%;
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+            content: '';
+        }
+    }
+
 }

@@ -10,7 +10,7 @@
 
     <?php include('php-includes/standard-files.php'); ?>
 
-    <script src="js/sign-in/main.js"></script>
+    <script src="js/hangout/buttons.js"></script>
 
 </head>
 
@@ -20,7 +20,7 @@
 
 
 <div class="container">
-    <section id="ventu-hangout-header-back" class="ventu-hangout-header--share">
+    <section id="ventu-hangout-header-back" class="ventu-hangout-header--love">
         <div class="row">
             <div class="col-sm-12">
                 <a class="ventu-hangout-header-back-button" href="">
@@ -30,7 +30,7 @@
         </div>
     </section>
 
-    <section id="ventu-hangout-header-title" class="ventu-hangout-header--share">
+    <section id="ventu-hangout-header-title" class="ventu-hangout-header--love">
         <div class="row">
             <div class="col-sm-12">
                 <h1>
@@ -45,16 +45,16 @@
         </div>
     </section>
 
-    <section>
+    <section id="ventu-hangout-content-section">
         <div class="ventu-hangout-lists-wrapper">
 
             <div class="ventu-hangout-tip ventu-hangout-tip-content">
                 <h5>
-                    <span class="ventu-hangout-profile-button"></span>
+                    <span class="ventu-hangout-tip-button ventu-hangout-tip-button--profile"></span>
                     Samen vinden doe je met Ventu!
                 </h5>
                 <p>
-                    Samen vinden doe je met Ventu. Daarom kan je eenvoudig op Ventu lijstjes maken en delen met anderen. Gebruik het        icoon om nieuwe objecten toe te voegen en nodig jouw collega’s per email uit om te reageren en stemmen op hun favoriete objecten.
+                    Samen vinden doe je met Ventu. Daarom kan je eenvoudig op Ventu lijstjes maken en delen met anderen. Gebruik het <span class="ventu-icon ventu-icon--in-text ventu-icon--add"></span> icoon om nieuwe objecten toe te voegen en nodig jouw collega’s per email uit om te reageren en stemmen op hun favoriete objecten.
                 </p>
             </div>
 

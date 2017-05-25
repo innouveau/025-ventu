@@ -39,7 +39,7 @@
 
 
 
-    <section>
+    <section id="ventu-hangout-content-section">
         <div class="ventu-hangout-lists-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -73,7 +73,7 @@
                             </div>
                             <div class="ventu-hangout-list-entry-content ventu-hangout-tip-content">
                                 <h5>
-                                    <span class="ventu-hangout-add-button"></span>
+                                    <span class="ventu-hangout-tip-button ventu-hangout-tip-button--add"></span>
                                     Maak hier jouw gedeelde lijst
                                 </h5>
                                 <p>

@@ -20,3 +20,32 @@
   background-size: 20px 20px;
   background-repeat: no-repeat;
 }
+.ventu-hangout-tools .ventu-hangout-tools-sort {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+.ventu-hangout-tools .ventu-hangout-tools-sort .ventu-hangout-tools-sort-button {
+  color: #fff;
+  margin-left: 40px;
+  display: inline-block;
+  text-decoration: underline;
+}
+.ventu-hangout-tools .ventu-hangout-tools-sort .ventu-hangout-tools-sort-button:hover {
+  color: #17141f !important;
+}
+@media (max-width: 767px) {
+  .ventu-hangout-tools .ventu-hangout-tools-sort {
+    width: 43px;
+    height: 32px;
+    cursor: pointer;
+    float: right;
+    background: #fff;
+    border-radius: 4px;
+    background-image: url(img/tools/sort-grey.svg);
+    background-position: 50% 50%;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    content: '';
+  }
+}

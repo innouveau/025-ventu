@@ -1,0 +1,35 @@
+.ventu-hangout-tip {
+  background: #ededec;
+  color: #727272;
+  padding: 20px 80px 20px 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.ventu-hangout-tip .ventu-hangout-tip-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-image: url(img/tools/close-grey.svg);
+  background-size: 100% 100%;
+}
+.ventu-hangout-tip-content h5 {
+  color: #727272;
+  margin: 0 0 10px 0;
+}
+.ventu-hangout-tip-content h5 .ventu-hangout-tip-button {
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.ventu-hangout-tip-content h5 .ventu-hangout-tip-button.ventu-hangout-tip-button--add {
+  background-image: url(img/icons/hangout/add.svg);
+}
+.ventu-hangout-tip-content h5 .ventu-hangout-tip-button.ventu-hangout-tip-button--profile {
+  background-image: url(img/icons/hangout/emptyprofile-grey.svg);
+}
