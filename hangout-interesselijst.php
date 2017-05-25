@@ -48,7 +48,7 @@
     <section>
         <div class="ventu-hangout-lists-wrapper">
 
-            <div class="ventu-hangout-tip">
+            <div class="ventu-hangout-tip ventu-hangout-tip-content">
                 <h5>
                     <span class="ventu-hangout-profile-button"></span>
                     Samen vinden doe je met Ventu!

@@ -71,7 +71,7 @@
                             <div class="aspect16by9">
 
                             </div>
-                            <div class="ventu-hangout-list-entry-content">
+                            <div class="ventu-hangout-list-entry-content ventu-hangout-tip-content">
                                 <h5>
                                     <span class="ventu-hangout-add-button"></span>
                                     Maak hier jouw gedeelde lijst

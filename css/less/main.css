@@ -663,19 +663,6 @@ section.proximity .ventu-card .button {
   color: #727272;
   padding: 20px;
 }
-.ventu-hangout-list-entry.ventu-hangout-list-entry--create .ventu-hangout-list-entry-content h5 {
-  color: #727272;
-  margin: 0 0 10px 0;
-}
-.ventu-hangout-list-entry.ventu-hangout-list-entry--create .ventu-hangout-list-entry-content h5 .ventu-hangout-add-button {
-  width: 40px;
-  height: 40px;
-  background-size: 100% 100%;
-  background-image: url(img/tools/add-grey.svg);
-  display: inline-block;
-  margin-right: 10px;
-  vertical-align: middle;
-}
 .ventu-hangout-list-entry.ventu-hangout-list-entry--create:hover .aspect16by9 {
   background: #fff;
 }
@@ -797,6 +784,25 @@ section.proximity .ventu-card .button {
   background-position: 50% 50%;
   background-size: 20px 20px;
   background-repeat: no-repeat;
+}
+.ventu-hangout-tip {
+  background: #ededec;
+  color: #727272;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.ventu-hangout-tip-content h5 {
+  color: #727272;
+  margin: 0 0 10px 0;
+}
+.ventu-hangout-tip-content h5 .ventu-hangout-add-button {
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+  background-image: url(img/tools/add-grey.svg);
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 body.ventu-application {
   position: relative;
