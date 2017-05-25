@@ -47,6 +47,17 @@
 
     <section>
         <div class="ventu-hangout-lists-wrapper">
+
+            <div class="ventu-hangout-tip">
+                <h5>
+                    <span class="ventu-hangout-profile-button"></span>
+                    Samen vinden doe je met Ventu!
+                </h5>
+                <p>
+                    Samen vinden doe je met Ventu. Daarom kan je eenvoudig op Ventu lijstjes maken en delen met anderen. Gebruik het        icoon om nieuwe objecten toe te voegen en nodig jouw collega’s per email uit om te reageren en stemmen op hun favoriete objecten.
+                </p>
+            </div>
+
             <?php include('php-includes/hangout/original-cards.php'); ?>
         </div>
     </section>
