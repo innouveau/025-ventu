@@ -24,7 +24,11 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="ventu-card ventu-card--static ventu-card--grid">
-                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-image">
+                        <div class="aspect16by9">
+                            <img src="img/content/kantoor2.jpg">
+                        </div>
+                    </div>
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards</h4>
@@ -46,7 +50,11 @@
             </div>
             <div class="col-sm-4">
                 <div class="ventu-card ventu-card--static ventu-card--grid">
-                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-image">
+                        <div class="aspect16by9">
+                            <img src="img/content/kantoor2.jpg">
+                        </div>
+                    </div>
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards</h4>
@@ -59,7 +67,11 @@
             </div>
             <div class="col-sm-4">
                 <div class="ventu-card ventu-card--static ventu-card--grid">
-                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-image">
+                        <div class="aspect16by9">
+                            <img src="img/content/kantoor2.jpg">
+                        </div>
+                    </div>
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards</h4>
@@ -101,7 +113,11 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="ventu-card ventu-card--static ventu-card--grid">
-                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-image">
+                        <div class="aspect16by9">
+                            <img src="img/content/kantoor2.jpg">
+                        </div>
+                    </div>
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards</h4>
@@ -117,7 +133,11 @@
             </div>
             <div class="col-sm-4">
                 <div class="ventu-card ventu-card--static ventu-card--grid">
-                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-image">
+                        <div class="aspect16by9">
+                            <img src="img/content/kantoor2.jpg">
+                        </div>
+                    </div>
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards</h4>
@@ -138,7 +158,11 @@
             </div>
             <div class="col-sm-4" style="height:500px">
                 <div class="ventu-card ventu-card--absolute" style="-moz-user-select: none; touch-action: none; transform: translateX(50px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(-8deg) scale(1, 1);">
-                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-image">
+                        <div class="aspect16by9">
+                            <img src="img/content/kantoor2.jpg">
+                        </div>
+                    </div>
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards</h4>
@@ -154,7 +178,11 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="ventu-card ventu-card--grid ventu-card--float">
-                    <div class="ventu-card-image" style="background-image:url(img/content/kantoor2.jpg)"></div>
+                    <div class="ventu-card-image">
+                        <div class="aspect16by9">
+                            <img src="img/content/kantoor2.jpg">
+                        </div>
+                    </div>
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
                             <h4>Test Cards 1</h4>
