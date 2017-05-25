@@ -9,6 +9,7 @@ function Filter(searchQuery) {
         areaMax: $('#ventu-filter-area-max'),
         areaMinInput: $('#ventu-filter-area-min-input'),
         areaMaxInput: $('#ventu-filter-area-max-input'),
+        searchType: $('#ventu-filter-search-type .ventu-filter-label-container'),
         transaction: $('#ventu-filter-transaction .ventu-filter-label-container'),
         typesButtons: $('#ventu-filter-types-buttons'),
         transactionButtons: $('#ventu-filter-transaction-buttons')
@@ -38,6 +39,7 @@ Filter.prototype.createOptions = function() {
     this.createTypeOptions();
     this.createAreaOptions();
     this.createTransactionOptions();
+    this.createSearchTypeOptions();
 };
 
 Filter.prototype.createTypeOptions = function() {
@@ -105,6 +107,37 @@ Filter.prototype.createAreaOptions = function() {
     }
 };
 
+Filter.prototype.createSearchTypeOptions = function() {
+    var self = this;
+    $('.ventu-filter-search-type-button').each(function(){
+        var button = $(this),
+            type = button.attr('search-type');
+        if (type === self.query.searchType.type) {
+            var input;
+            button.addClass('ventu-filter-search-type-button--active');
+            if (type !== 'none') {
+                input = button.find('input');
+                input.val(self.query.searchType.size);
+
+                input.keyup(function(){
+                    // only update size when the inputs button is the active button
+                    if ($(this).parent().parent().hasClass('ventu-filter-search-type-button--active')) {
+                        self.query.searchType.size = parseInt($(this).val());
+                        self.updateSearchType();
+                    }
+                })
+            }
+        }
+
+        button.click(function(event){
+            // prevent click on input
+            if (event.target.tagName.toLowerCase() !== 'input') {
+                self.updateQuerySearchArea(this);
+            }
+        })
+    })
+};
+
 
 
 // update queries
@@ -118,7 +151,7 @@ Filter.prototype.updateQueryTypes = function() {
     });
     this.query.types = types;
     this.updateTypes();
-    //this.execute();
+    this.execute();
 };
 
 Filter.prototype.updateQueryArea = function() {
@@ -129,8 +162,7 @@ Filter.prototype.updateQueryArea = function() {
     this.query.area[0] = min;
     this.query.area[1] = max;
     this.updateArea();
-    //this.updateTransaction();
-    //this.execute();
+    this.execute();
 };
 
 Filter.prototype.updateQueryTransaction = function() {
@@ -142,9 +174,27 @@ Filter.prototype.updateQueryTransaction = function() {
     });
     this.query.transactions = transactions;
     this.updateTransaction();
-    //this.execute();
+    this.execute();
 };
 
+Filter.prototype.updateQuerySearchArea = function(current) {
+    var self = this;
+    $('.ventu-filter-search-type-button').each(function(){
+        if (this === current) {
+            var input, type = $(this).attr('search-type');
+            $(this).addClass('ventu-filter-search-type-button--active');
+            self.query.searchType.type = type;
+            if (type !== 'none') {
+                input = $(this).find('input');
+                self.query.searchType.size = input.val();
+            }
+        } else {
+            $(this).removeClass('ventu-filter-search-type-button--active');
+        }
+    });
+    this.updateSearchType();
+    this.execute();
+};
 
 
 
@@ -157,6 +207,7 @@ Filter.prototype.update = function() {
     this.updateTypes();
     this.updateArea();
     this.updateTransaction();
+    this.updateSearchType();
 };
 
 Filter.prototype.updateLocation = function () {
@@ -187,6 +238,20 @@ Filter.prototype.updateTransaction = function() {
             label = this.getLabel(transaction);
         this.element.transaction.append(label);
     }
+};
+
+Filter.prototype.updateSearchType = function() {
+    var label;
+    this.element.searchType.empty();
+    switch (this.query.searchType.type) {
+        case 'none':
+            label = this.getLabel('Geen aangepast zoekgebied');
+            break;
+        case 'circle':
+            label = this.getLabel('Cirkel: ' + this.query.searchType.size + 'km');
+            break;
+    }
+    this.element.searchType.append(label);
 };
 
 

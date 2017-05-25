@@ -155,7 +155,7 @@
 }
 .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button.ventu-filter-search-type-button--none .ventu-filter-search-type-icon {
   width: calc(100% - 40px);
-  background: #fff;
+  background: transparent;
   padding: 8px;
   height: auto;
   text-align: center;
@@ -177,6 +177,7 @@
 }
 .ventu-filter-section .ventu-filter-full-text-container .ventu-filter-full-text .ventu-filter-search-type-button .ventu-filter-search-type-label input {
   width: 30px;
+  text-align: right;
 }
 .ventu-filter-section .ventu-filter-passive-text {
   color: #727272;

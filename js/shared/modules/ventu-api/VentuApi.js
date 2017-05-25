@@ -159,7 +159,10 @@ VentuApi.prototype.getSearchQuery = function () {
         location: location,
         area: [metrageStart, metrageEnd],
         transactions: searchFilter.ObjectTypeIds,
-        searchArea: false
+        searchType: {
+            type: 'circle',
+            size: 40
+        }
     };
 };
 

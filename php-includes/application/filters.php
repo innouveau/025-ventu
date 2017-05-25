@@ -121,7 +121,7 @@
             </div>
 
             <!-- search-area -->
-            <div id="ventu-filter-search-area" class="ventu-filter-section">
+            <div id="ventu-filter-search-type" class="ventu-filter-section">
                 <div class="ventu-filter-header">
                     Aangepast zoekgebied:
                     <div class="ventu-filter-read-more">
@@ -141,7 +141,7 @@
                         straal van de ingestelde afstand gezocht rondom de huidige
                         locatie (de cirkel kan met de hand verplaatst en vergroot worden):
 
-                        <div class="ventu-filter-search-type-button ventu-filter-search-type-button--none ventu-filter-search-type-button--active" search-type="none">
+                        <div class="ventu-filter-search-type-button ventu-filter-search-type-button--none" search-type="none">
                             <div class="ventu-filter-search-type-icon">
                                 <span>Geen aangepast zoekgebied</span>
                             </div>
@@ -150,7 +150,7 @@
                             <div class="ventu-filter-search-type-icon"></div>
                             <div class="ventu-filter-search-type-label">
                                 <span>Cirkel</span>
-                                <input type="text" id="ventu-filter-search-type-cirkel">
+                                <input type="text" id="ventu-filter-search-type-cirkel" value="0">
                                 <span>km</span>
                             </div>
                         </div>
