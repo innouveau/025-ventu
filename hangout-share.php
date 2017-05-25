@@ -66,7 +66,51 @@
                 </p>
             </div>
 
-            <?php include('php-includes/hangout/original-cards.php'); ?>
+
+
+            <div class="ventu-card ventu-card--grid ventu-card--float">
+            <div class="ventu-card-image">
+                <div class="aspect16by9">
+                    <a href="http://realspotter.nl/Project/Nieuwegein/Fultonbaan/16/1E87D177-2066-4047-8114-F25EEF3FBB01?c=1"><img src="http://realspotter.nl/media/objects/1E/87/D1/77/1E87D177-2066-4047-8114-F25EEF3FBB01/org/1.jpg"></a>
+                </div>
+            </div>
+
+            <div class="ventu-card-text">
+                <div class="ventu-card-header">
+                    <h4>Plettenburgh, Fultonbaan  16, 3439 NE, Nieuwegein</h4>
+                </div>
+                <div class="ventu-features">
+                    <ul>
+                        <li class="ventu-features-objectusage-1">
+                            Kantoor
+                        </li>
+                        <li class="ventu-features-location">
+                            Huur
+                        </li>
+                        <li class="ventu-features-metrage">
+                            1.115 m&sup2;
+                        </li>
+                        <li class="ventu-features-price">
+                            Huurprijs: &euro; 95 m<sup>2</sup>/jr
+                        </li>
+
+                    </ul>
+                </div>
+                <?php include('php-includes/card/rating.php'); ?>
+            </div>
+
+
+            <div class="ventu-card-buttons ventu-card-buttons-1">
+                <div class="ventu-card-button-container ventu-card-button--hate">
+                    <div class="ventu-card-button">
+                        <div class="ventu-card-button-icon"></div>
+                    </div>
+                    <div class="ventu-card-button-label">
+                        Verplaats object naar de niet interessant lijst
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 

@@ -1,0 +1,23 @@
+.ventu-hangout-reaction-balloon {
+    float: right;
+    margin: 12px 20px 0 0;
+    background: @ventu-active-button;
+    height: 25px;
+    border-radius: 12px;
+    color: #fff;
+    padding: 4px 8px 4px 30px;
+    cursor: pointer;
+    text-decoration: underline;
+    position: relative;
+
+    &:after {
+        position: absolute;
+        left: 9px;
+        top: 5px;
+        width: 15px;
+        height: 15px;
+        background-size: 100% 100%;
+        content: '';
+        background-image: url(img/icons/hangout/reaction-balloon-white.svg);
+    }
+}

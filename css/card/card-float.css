@@ -10,6 +10,25 @@
   width: calc(100% - 320px);
   padding: 0 18px;
 }
+.ventu-card.ventu-card--float .ventu-card-text .ventu-card-rating {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 51px;
+  border-top: 1px solid #ededec;
+  width: calc(100% - 320px);
+}
+.ventu-card.ventu-card--float .ventu-card-text .ventu-card-rating .ventu-card-button-container {
+  width: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 0;
+}
+.ventu-card.ventu-card--float .ventu-card-text .ventu-card-rating .ventu-card-button-container .ventu-card-button {
+  width: 25px;
+  height: 25px;
+  margin-top: 11px;
+}
 .ventu-card.ventu-card--float .ventu-card-buttons {
   width: 320px;
   clear: both;
