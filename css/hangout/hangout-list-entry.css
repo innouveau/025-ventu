@@ -117,3 +117,6 @@
   margin-right: 10px;
   vertical-align: middle;
 }
+.hangout-list-entry.hangout-list-entry--create:hover .aspect16by9 {
+  background: #fff;
+}

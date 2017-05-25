@@ -676,6 +676,9 @@ section.proximity .ventu-card .button {
   margin-right: 10px;
   vertical-align: middle;
 }
+.hangout-list-entry.hangout-list-entry--create:hover .aspect16by9 {
+  background: #fff;
+}
 #ventu-hangout-list {
   padding-top: 60px!important;
 }
