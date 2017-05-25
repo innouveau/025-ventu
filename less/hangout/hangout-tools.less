@@ -53,10 +53,23 @@
                     width: 8px;
                     height: 8px;
                     background-size: 100% 100%;
-                    background-image: url(img/tools/arrow-down-white.svg);
+
                     content: '';
+                }
 
+                &.ventu-hangout-tools-sort-button--active-down {
 
+                    &:after {
+                        background-image: url(img/tools/arrow-down-white.svg);
+                    }
+
+                }
+
+                &.ventu-hangout-tools-sort-button--active-up {
+
+                    &:after {
+                        background-image: url(img/tools/arrow-up-white.svg);
+                    }
                 }
 
                 &:hover {
