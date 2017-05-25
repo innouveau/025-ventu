@@ -137,22 +137,21 @@
 
                 <div class="ventu-filter-full-text-container">
                     <div class="ventu-filter-full-text">
-                        <div class="ventu-filter-search-type-button" search-type="none">
-                            <div class="ventu-filter-search-type-image">
-                                <img src="img/tools/no-search-type.png">
-                            </div>
-                            <div class="ventu-filter-search-type-label">
+                        Door het toevoegen van een zoekcircel wordt er in een
+                        straal van de ingestelde afstand gezocht rondom de huidige
+                        locatie (de cirkel kan met de hand verplaatst en vergroot worden):
+
+                        <div class="ventu-filter-search-type-button ventu-filter-search-type-button--none ventu-filter-search-type-button--active" search-type="none">
+                            <div class="ventu-filter-search-type-icon">
                                 <span>Geen aangepast zoekgebied</span>
                             </div>
                         </div>
-                        <div class="ventu-filter-search-type-button" search-type="circle">
-                            <div class="ventu-filter-search-type-image">
-                                <img src="img/tools/search-type-circle.png">
-                            </div>
+                        <div class="ventu-filter-search-type-button ventu-filter-search-type-button--circle" search-type="circle">
+                            <div class="ventu-filter-search-type-icon"></div>
                             <div class="ventu-filter-search-type-label">
-                                <span>Zoekcirkel (</span>
+                                <span>Cirkel</span>
                                 <input type="text" id="ventu-filter-search-type-cirkel">
-                                <span>km)</span>
+                                <span>km</span>
                             </div>
                         </div>
                     </div>

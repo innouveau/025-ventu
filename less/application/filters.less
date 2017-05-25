@@ -182,31 +182,55 @@
                 cursor: pointer;
                 position: relative;
                 padding: 5px;
-                height: 35px;
+                height: 64px;
+                background-image: url(img/tools/map-background.png);
+                background-size: cover;
+                border: 1px solid transparent;
+                margin-bottom: 6px;
 
                 &:hover {
-                    background: @ventu-main-grey-light;
+                    border: 1px solid @ventu-main-grey-dark;
                 }
 
                 &.ventu-filter-search-type-button--active {
-                    background: @ventu-color-primary;
+                    border: 1px solid @ventu-color-primary;
                 }
 
+                .ventu-filter-search-type-icon {
+                    position: absolute;
+                    left: 20px;
+                    top: 8px;
+                    width: 48px;
+                    height: 48px;
+                    background: rgba(0,0,0,0.5);
+                }
 
+                &.ventu-filter-search-type-button--none {
 
-                .ventu-filter-search-type-image {
-                    display: inline-block;
-                    margin-right: 6px;
-
-                    img {
-                        width: 25px;
+                    .ventu-filter-search-type-icon {
+                        width: ~'calc(100% - 40px)';
+                        background: #fff;
+                        padding: 8px;
                         height: auto;
+                        text-align: center;
                     }
                 }
 
+                &.ventu-filter-search-type-button--circle {
+
+                    .ventu-filter-search-type-icon {
+                        border-radius: 50%;
+                    }
+                }
+
+
                 .ventu-filter-search-type-label {
-                    display: inline-block;
-                    vertical-align: top;
+                    position: absolute;
+                    left: 80px;
+                    top: 8px;
+                    width: ~'calc(100% - 100px)';
+                    background: #fff;
+                    padding: 8px;
 
                     span {
                         display: inline-block;
