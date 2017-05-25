@@ -615,12 +615,12 @@ section.proximity .ventu-card .button {
   display: inline-block;
   vertical-align: top;
   padding-top: 8px;
+  font-size: 20px;
 }
 .hangout-list-entry .hangout-list-entry-content {
   position: absolute;
   right: 10px;
   bottom: 10px;
-  font-size: 14px;
 }
 .hangout-list-entry .hangout-list-entry-shared-with {
   position: absolute;
@@ -649,9 +649,32 @@ section.proximity .ventu-card .button {
   padding-top: 12px;
   font-weight: 700;
   text-align: center;
-  font-size: 14px;
   display: inline-block;
   margin-left: -4px;
+}
+.hangout-list-entry.hangout-list-entry--create .aspect16by9 {
+  background: #ededec;
+}
+.hangout-list-entry.hangout-list-entry--create .hangout-list-entry-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #727272;
+  padding: 20px;
+}
+.hangout-list-entry.hangout-list-entry--create .hangout-list-entry-content h5 {
+  color: #727272;
+  margin: 0 0 10px 0;
+}
+.hangout-list-entry.hangout-list-entry--create .hangout-list-entry-content h5 .hangout-add-button {
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+  background-image: url(img/tools/add-grey.svg);
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 #ventu-hangout-list {
   padding-top: 60px!important;
@@ -690,7 +713,7 @@ section.proximity .ventu-card .button {
   width: 12px;
   height: 15px;
   background-size: 100% 100%;
-  background-image: url(img/tools/arrow-back.svg);
+  background-image: url(img/tools/arrow-back-grey.svg);
 }
 #ventu-hangout-header-title {
   padding-top: 20px;
@@ -700,14 +723,67 @@ section.proximity .ventu-card .button {
   text-align: center;
   margin: 0;
 }
-#ventu-hangout-header-tools .ventu-hangout-list-tools-search {
+#ventu-hangout-header-back.ventu-hangout-header--share,
+#ventu-hangout-header-title.ventu-hangout-header--share,
+#ventu-hangout-header-tools.ventu-hangout-header--share {
+  background: #00A2FF;
+}
+#ventu-hangout-header-back.ventu-hangout-header--follow,
+#ventu-hangout-header-title.ventu-hangout-header--follow,
+#ventu-hangout-header-tools.ventu-hangout-header--follow {
+  background: #8400C6;
+}
+#ventu-hangout-header-back.ventu-hangout-header--love,
+#ventu-hangout-header-title.ventu-hangout-header--love,
+#ventu-hangout-header-tools.ventu-hangout-header--love {
+  background: #2ECC71;
+}
+#ventu-hangout-header-back.ventu-hangout-header--hate,
+#ventu-hangout-header-title.ventu-hangout-header--hate,
+#ventu-hangout-header-tools.ventu-hangout-header--hate {
+  background: #DF0040;
+}
+#ventu-hangout-header-back.ventu-hangout-header--share,
+#ventu-hangout-header-title.ventu-hangout-header--share,
+#ventu-hangout-header-tools.ventu-hangout-header--share,
+#ventu-hangout-header-back.ventu-hangout-header--follow,
+#ventu-hangout-header-title.ventu-hangout-header--follow,
+#ventu-hangout-header-tools.ventu-hangout-header--follow {
+  border-bottom: 1px solid #fff;
+}
+#ventu-hangout-header-back.ventu-hangout-header--share h1,
+#ventu-hangout-header-title.ventu-hangout-header--share h1,
+#ventu-hangout-header-tools.ventu-hangout-header--share h1,
+#ventu-hangout-header-back.ventu-hangout-header--follow h1,
+#ventu-hangout-header-title.ventu-hangout-header--follow h1,
+#ventu-hangout-header-tools.ventu-hangout-header--follow h1,
+#ventu-hangout-header-back.ventu-hangout-header--share a,
+#ventu-hangout-header-title.ventu-hangout-header--share a,
+#ventu-hangout-header-tools.ventu-hangout-header--share a,
+#ventu-hangout-header-back.ventu-hangout-header--follow a,
+#ventu-hangout-header-title.ventu-hangout-header--follow a,
+#ventu-hangout-header-tools.ventu-hangout-header--follow a {
+  color: #fff;
+}
+#ventu-hangout-header-back.ventu-hangout-header--share .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-title.ventu-hangout-header--share .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-tools.ventu-hangout-header--share .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-back.ventu-hangout-header--follow .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-title.ventu-hangout-header--follow .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-tools.ventu-hangout-header--follow .ventu-hangout-header-back-button:after {
+  background-image: url(img/tools/arrow-back-white.svg);
+}
+.ventu-hangout-tools {
+  margin: 30px 90px 20px 90px;
+}
+.ventu-hangout-tools .ventu-hangouts-tools-search {
   height: 32px;
 }
-#ventu-hangout-header-tools .ventu-hangout-list-tools-search .ventu-search-common {
+.ventu-hangout-tools .ventu-hangouts-tools-search .ventu-search-common {
   width: calc(100% - 50px);
   float: left;
 }
-#ventu-hangout-header-tools .ventu-hangout-list-tools-search .ventu-sort {
+.ventu-hangout-tools .ventu-hangouts-tools-search .ventu-sort {
   width: 43px;
   height: 32px;
   cursor: pointer;
@@ -1643,100 +1719,21 @@ img.projectCarousel {
   background-image: url(img/icons/features/marker-grey.svg);
 }
 .ventu-icon {
+  border-radius: 50%;
   cursor: pointer;
+  background-size: 100% 100%;
+}
+.ventu-icon.ventu-icon--in-text {
+  width: 20px;
+  height: 20px;
+  cursor: default;
   display: inline-block;
-  font-family: 'ventu';
-  text-align: center;
-  transition: all 0.2s ease;
-  color: #17141f;
-}
-.ventu-icon-white {
-  color: #fff;
-}
-.ventu-icon-white.ventu-icon-hover:hover {
-  color: #1F1F1F!important;
-}
-.ventu-icon:after {
-  content: 'x';
-  /* fallback when no icon content is set */
-}
-.ventu-icon-big {
-  width: 32px;
-  height: 32px;
-  margin-right: 2px;
-  padding-top: 8px;
-  font-size: 26px;
-}
-.ventu-icon-med {
-  width: 30px;
-  height: 30px;
-  margin-right: 2px;
-  padding-top: 7px;
-  font-size: 25px;
-}
-.ventu-icon-right {
-  float: right;
-  margin-right: 0;
-  margin-left: 2px;
-}
-.ventu-icon-box {
-  /*border: 0.75px solid #1F1F1F;*/
-}
-.ventu-icon-photo:after,
-.ventu-icon-image:after {
-  content: 'p';
-}
-.ventu-icon-download:after {
-  content: 'd';
-}
-.ventu-icon-search:after {
-  content: 's';
-}
-.ventu-icon-comment:after {
-  content: 'R';
-}
-.ventu-icon-add:after {
-  content: '+';
-}
-.ventu-icon-remove:after,
-.ventu-icon-close:after,
-.ventu-icon-hate:after {
-  content: 'x';
-}
-.ventu-icon-reload:after {
-  content: 'r';
-}
-.ventu-icon-prev:after,
-.ventu-icon-home:after {
-  content: '<';
-}
-.ventu-icon-next:after,
-.ventu-icon-details:after {
-  content: '>';
-}
-.ventu-icon-login:after {
-  content: 'l';
-}
-.ventu-icon-filter:after {
-  content: '-';
-}
-.ventu-icon-video:after {
-  content: 'P';
-}
-.ventu-icon-document:after {
-  content: 'D';
-}
-.ventu-icon-3d:after {
-  content: '3';
-}
-.ventu-icon-love:after {
-  content: 'L';
-}
-.ventu-text-along-icon {
-  display: inline-block;
-  padding: 8px 0 0 1px;
   vertical-align: top;
-  font-size: 10px;
+}
+.ventu-icon.ventu-icon--add {
+  background-color: #00A2FF;
+  color: #fff;
+  background-image: url(img/icons/buttons/plus.svg);
 }
 .ventu-filter-label {
   background: #00e5a9;

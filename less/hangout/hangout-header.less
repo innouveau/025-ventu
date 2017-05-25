@@ -20,7 +20,7 @@
             width: 12px;
             height: 15px;
             background-size: 100% 100%;
-            background-image: url(img/tools/arrow-back.svg);
+            background-image: url(img/tools/arrow-back-grey.svg);
         }
     }
 }
@@ -35,27 +35,39 @@
     }
 }
 
+#ventu-hangout-header-back,
+#ventu-hangout-header-title,
 #ventu-hangout-header-tools {
 
-    .ventu-hangout-list-tools-search {
-        height: 32px;
+    &.ventu-hangout-header--share {
+        background: @ventu-color-share;
+    }
 
-        .ventu-search-common {
-            width: ~'calc(100% - 50px)';
-            float: left;
+    &.ventu-hangout-header--follow {
+        background: @ventu-color-follow;
+    }
+
+    &.ventu-hangout-header--love{
+        background: @ventu-color-love;
+    }
+
+    &.ventu-hangout-header--hate {
+        background: @ventu-color-hate;
+    }
+
+    &.ventu-hangout-header--share,
+    &.ventu-hangout-header--follow {
+        border-bottom: 1px solid #fff;
+
+        h1, a {
+            color: #fff;
         }
 
-        .ventu-sort {
-            width: 43px;
-            height: 32px;
-            cursor: pointer;
-            float: right;
-            background: #fff;
-            border-radius: 4px;
-            background-image: url(img/tools/sort-grey.svg);
-            background-position: 50% 50%;
-            background-size: 20px 20px;
-            background-repeat: no-repeat;
+        .ventu-hangout-header-back-button {
+            &:after {
+                background-image: url(img/tools/arrow-back-white.svg);
+            }
         }
+
     }
 }

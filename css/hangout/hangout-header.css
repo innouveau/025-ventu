@@ -17,7 +17,7 @@
   width: 12px;
   height: 15px;
   background-size: 100% 100%;
-  background-image: url(img/tools/arrow-back.svg);
+  background-image: url(img/tools/arrow-back-grey.svg);
 }
 #ventu-hangout-header-title {
   padding-top: 20px;
@@ -27,22 +27,53 @@
   text-align: center;
   margin: 0;
 }
-#ventu-hangout-header-tools .ventu-hangout-list-tools-search {
-  height: 32px;
+#ventu-hangout-header-back.ventu-hangout-header--share,
+#ventu-hangout-header-title.ventu-hangout-header--share,
+#ventu-hangout-header-tools.ventu-hangout-header--share {
+  background: #00A2FF;
 }
-#ventu-hangout-header-tools .ventu-hangout-list-tools-search .ventu-search-common {
-  width: calc(100% - 50px);
-  float: left;
+#ventu-hangout-header-back.ventu-hangout-header--follow,
+#ventu-hangout-header-title.ventu-hangout-header--follow,
+#ventu-hangout-header-tools.ventu-hangout-header--follow {
+  background: #8400C6;
 }
-#ventu-hangout-header-tools .ventu-hangout-list-tools-search .ventu-sort {
-  width: 43px;
-  height: 32px;
-  cursor: pointer;
-  float: right;
-  background: #fff;
-  border-radius: 4px;
-  background-image: url(img/tools/sort-grey.svg);
-  background-position: 50% 50%;
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
+#ventu-hangout-header-back.ventu-hangout-header--love,
+#ventu-hangout-header-title.ventu-hangout-header--love,
+#ventu-hangout-header-tools.ventu-hangout-header--love {
+  background: #2ECC71;
+}
+#ventu-hangout-header-back.ventu-hangout-header--hate,
+#ventu-hangout-header-title.ventu-hangout-header--hate,
+#ventu-hangout-header-tools.ventu-hangout-header--hate {
+  background: #DF0040;
+}
+#ventu-hangout-header-back.ventu-hangout-header--share,
+#ventu-hangout-header-title.ventu-hangout-header--share,
+#ventu-hangout-header-tools.ventu-hangout-header--share,
+#ventu-hangout-header-back.ventu-hangout-header--follow,
+#ventu-hangout-header-title.ventu-hangout-header--follow,
+#ventu-hangout-header-tools.ventu-hangout-header--follow {
+  border-bottom: 1px solid #fff;
+}
+#ventu-hangout-header-back.ventu-hangout-header--share h1,
+#ventu-hangout-header-title.ventu-hangout-header--share h1,
+#ventu-hangout-header-tools.ventu-hangout-header--share h1,
+#ventu-hangout-header-back.ventu-hangout-header--follow h1,
+#ventu-hangout-header-title.ventu-hangout-header--follow h1,
+#ventu-hangout-header-tools.ventu-hangout-header--follow h1,
+#ventu-hangout-header-back.ventu-hangout-header--share a,
+#ventu-hangout-header-title.ventu-hangout-header--share a,
+#ventu-hangout-header-tools.ventu-hangout-header--share a,
+#ventu-hangout-header-back.ventu-hangout-header--follow a,
+#ventu-hangout-header-title.ventu-hangout-header--follow a,
+#ventu-hangout-header-tools.ventu-hangout-header--follow a {
+  color: #fff;
+}
+#ventu-hangout-header-back.ventu-hangout-header--share .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-title.ventu-hangout-header--share .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-tools.ventu-hangout-header--share .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-back.ventu-hangout-header--follow .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-title.ventu-hangout-header--follow .ventu-hangout-header-back-button:after,
+#ventu-hangout-header-tools.ventu-hangout-header--follow .ventu-hangout-header-back-button:after {
+  background-image: url(img/tools/arrow-back-white.svg);
 }

@@ -1,0 +1,119 @@
+.ventu-hangout-lists-wrapper {
+  margin-left: 90px;
+  margin-right: 90px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ededec;
+}
+.ventu-hangout-lists-wrapper h3 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.ventu-hangout-lists-wrapper:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.hangout-list-entry {
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  color: #fff;
+  font-family: 'ProximaNova';
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+.hangout-list-entry .hangout-list-entry-title {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-weight: 700;
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin-right: 6px;
+  background-size: 100% 100%;
+  border-radius: 50%;
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-love {
+  background-color: #2ECC71;
+  background-image: url(img/icons/buttons/love.svg);
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-share {
+  background-color: #00A2FF;
+  background-image: url(img/icons/buttons/plus.svg);
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-follow {
+  background-color: #8400C6;
+  background-image: url(img/icons/buttons/follow-white.svg);
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-icon.hangout-list-entry-title-icon-hate {
+  background-color: #DF0040;
+  background-image: url(img/icons/buttons/hate.svg);
+}
+.hangout-list-entry .hangout-list-entry-title .hangout-list-entry-title-label {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 8px;
+  font-size: 20px;
+}
+.hangout-list-entry .hangout-list-entry-content {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.hangout-list-entry .hangout-list-entry-shared-with {
+  position: absolute;
+  left: 14px;
+  bottom: 10px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+  -moz-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  -o-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+.hangout-list-entry .hangout-list-entry-shared-with .ventu-avatar-image {
+  margin-left: -4px;
+}
+.hangout-list-entry .hangout-list-entry-shared-with .hangout-list-entry-shared-with-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: #00A2FF;
+  padding-top: 12px;
+  font-weight: 700;
+  text-align: center;
+  display: inline-block;
+  margin-left: -4px;
+}
+.hangout-list-entry.hangout-list-entry--create .aspect16by9 {
+  background: #ededec;
+}
+.hangout-list-entry.hangout-list-entry--create .hangout-list-entry-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #727272;
+  padding: 20px;
+}
+.hangout-list-entry.hangout-list-entry--create .hangout-list-entry-content h5 {
+  color: #727272;
+  margin: 0 0 10px 0;
+}
+.hangout-list-entry.hangout-list-entry--create .hangout-list-entry-content h5 .hangout-add-button {
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+  background-image: url(img/tools/add-grey.svg);
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}

@@ -67,26 +67,26 @@
                 <div class="col-lg-6">
 
                     <a href="/Team/Team/984BB507-AAFD-4AB1-8653-2E81A41D520F">
-                        <div class="hangout-list-entry">
+                        <div class="hangout-list-entry hangout-list-entry--create">
                             <div class="aspect16by9">
-                                <img src="http://realspotter.nl/media/objects/1E/87/D1/77/1E87D177-2066-4047-8114-F25EEF3FBB01/org/1.jpg">
-                            </div>
-                            <div class="hangout-list-entry-title">
-                                <div class="hangout-list-entry-title-icon hangout-list-entry-title-icon-share"></div>
-                                <div class="hangout-list-entry-title-label">
-                                    Mijn Nieuwe Lijst
-                                </div>
-                            </div>
-                            <div class="hangout-list-entry-shared-with">
-                                <div class="hangout-list-entry-shared-with-number">+3</div>
-                                <div class="ventu-avatar-image" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>
-                                <div class="ventu-avatar-image ventu-avatar-image--empty-profile"></div>
-                                <div class="ventu-avatar-image ventu-avatar-image--no-avatar"></div>
-                                <div class="ventu-avatar-image" style="background-image:url(img/content/gp5xqleg0f8jbkxuazos.jpeg)"></div>
+
                             </div>
                             <div class="hangout-list-entry-content">
-                                2 object
+                                <h5>
+                                    <span class="hangout-add-button"></span>
+                                    Maak hier jouw gedeelde lijst
+                                </h5>
+                                <p>
+                                    <b>Samen vinden doe je met Ventu!</b><br>
+                                    Daarom kan je eenvoudig op Ventu lijstjes maken en delen met anderen. Gebruik het
+                                    <span class="ventu-icon ventu-icon--in-text ventu-icon--add"></span> icoon om nieuwe objecten toe te voegen en nodig jouw collega’s per email uit om te
+                                    reageren en stemmen op hun favoriete objecten.
+                                </p>
+                                <p>
+                                    <b>Begin met jouw lijst</b> <img src="img/tools/arrow-right-grey.svg" style="margin-left: 6px; width: 10px;">
+                                </p>
                             </div>
+
                         </div>
                     </a>
 
@@ -111,15 +111,17 @@
                                 <img src="http://realspotter.nl/media/objects/1E/87/D1/77/1E87D177-2066-4047-8114-F25EEF3FBB01/org/1.jpg">
                             </div>
                             <div class="hangout-list-entry-title">
-                                <div class="hangout-list-entry-title-icon hangout-list-entry-title-icon-share"></div>
+                                <div class="hangout-list-entry-title-icon hangout-list-entry-title-icon-follow"></div>
                                 <div class="hangout-list-entry-title-label">
                                     Ik doe mee met lijst
                                 </div>
                             </div>
                             <div class="hangout-list-entry-shared-with">
-
-                                <div class="ventu-avatar-image" style="background-image:url(https://www.gravatar.com/avatar/5455e49389af93f7c4e9ed8905c2c101?s=30&amp;r=r&amp;d=mm)"></div>
-
+                                <div class="hangout-list-entry-shared-with-number">+3</div>
+                                <div class="ventu-avatar-image" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>
+                                <div class="ventu-avatar-image ventu-avatar-image--empty-profile"></div>
+                                <div class="ventu-avatar-image ventu-avatar-image--no-avatar"></div>
+                                <div class="ventu-avatar-image" style="background-image:url(img/content/gp5xqleg0f8jbkxuazos.jpeg)"></div>
                             </div>
                             <div class="hangout-list-entry-content">
                                 1 object
