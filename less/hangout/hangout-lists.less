@@ -1,7 +1,26 @@
 @import '../mixins';
 
+
+
+.ventu-hangout-lists-wrapper {
+    margin-left: 90px;
+    margin-right: 90px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid @ventu-main-grey-light;
+
+    h3 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+
+
 .hangout-list-entry {
-    height: 150px;
     position: relative;
     background-size: cover;
     background-position: 50% 50%;
@@ -80,11 +99,12 @@
         }
 
         .hangout-list-entry-shared-with-number {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: @ventu-color-share;
-            padding-top: 6px;
+            background: #fff;
+            color: @ventu-color-share;
+            padding-top: 12px;
             font-weight: 700;
             text-align: center;
             font-size: 14px;

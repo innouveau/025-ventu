@@ -1,17 +1,17 @@
 .ventu-avatar {
-  padding: 15px!important;
+  padding: 10px!important;
   height: 60px!important;
 }
 .ventu-avatar .ventu-avatar-label {
   display: inline-block;
   margin-right: 6px;
   vertical-align: top;
-  padding-top: 6px;
+  padding-top: 10px;
 }
 .ventu-avatar-image {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-size: cover;
   vertical-align: top;
@@ -22,4 +22,10 @@
 }
 .ventu-avatar-image.ventu-avatar-image--empty-profile {
   background-image: url(img/icons/hangout/emptyprofile-white.svg);
+}
+@media (max-width: 767px) {
+  .ventu-avatar-image {
+    width: 30px;
+    height: 30px;
+  }
 }

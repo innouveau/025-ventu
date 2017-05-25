@@ -38,7 +38,11 @@
         </div>
     </div>
 
-<section id="ventu-hangout-list-cards" class="container">
+
+    <?php include('php-includes/hangout/tools.php'); ?>
+
+
+    <section id="ventu-hangout-list-cards" class="container">
     <div class="row">
         <div class="col-sm-4">
             <?php getStaticCard(false); ?>

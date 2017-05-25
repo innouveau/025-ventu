@@ -13,48 +13,6 @@
 #ventu-hangout-list.ventu-hangout-list-follow .ventu-hangout-list-header {
   background: #8400C6;
 }
-#ventu-hangout-list .ventu-hangout-list-header {
-  color: #fff;
-  font-family: 'ProximaNova';
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-#ventu-hangout-list .ventu-hangout-list-header h3 {
-  color: #fff;
-  text-align: center;
-}
-#ventu-hangout-list .ventu-hangout-list-header .ventu-hangout-list-back {
-  height: 50px;
-  border-bottom: 1px solid #fff;
-  cursor: pointer;
-  padding: 4px 4px 4px 16px;
-  position: relative;
-}
-#ventu-hangout-list .ventu-hangout-list-header .ventu-hangout-list-back:after {
-  content: '<';
-  position: absolute;
-  left: 0;
-  top: 3px;
-}
-#ventu-hangout-list .ventu-hangout-list-header .ventu-hangout-list-search {
-  height: 32px;
-}
-#ventu-hangout-list .ventu-hangout-list-header .ventu-hangout-list-search .ventu-search-common {
-  width: calc(100% - 50px);
-  float: left;
-}
-#ventu-hangout-list .ventu-hangout-list-header .ventu-hangout-list-search .ventu-sort {
-  width: 43px;
-  height: 32px;
-  cursor: pointer;
-  float: right;
-  background: #fff;
-  border-radius: 4px;
-  background-image: url(img/tools/sort-grey.svg);
-  background-position: 50% 50%;
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-}
 #ventu-hangout-list #ventu-hangout-list-cards {
   padding-top: 32px!important;
 }

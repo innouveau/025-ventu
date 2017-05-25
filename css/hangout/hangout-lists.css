@@ -1,5 +1,18 @@
+.ventu-hangout-lists-wrapper {
+  margin-left: 90px;
+  margin-right: 90px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ededec;
+}
+.ventu-hangout-lists-wrapper h3 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.ventu-hangout-lists-wrapper:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
 .hangout-list-entry {
-  height: 150px;
   position: relative;
   background-size: cover;
   background-position: 50% 50%;
@@ -69,11 +82,12 @@
   margin-left: -4px;
 }
 .hangout-list-entry .hangout-list-entry-shared-with .hangout-list-entry-shared-with-number {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: #00A2FF;
-  padding-top: 6px;
+  background: #fff;
+  color: #00A2FF;
+  padding-top: 12px;
   font-weight: 700;
   text-align: center;
   font-size: 14px;
