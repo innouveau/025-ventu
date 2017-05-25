@@ -112,24 +112,27 @@ body.ventu-home section {
   height: 500px;
   position: relative;
 }
-#ventu-card-button-container {
+#ventu-home-card-button-container {
   position: relative;
   height: 200px;
 }
-#ventu-card-button-container .ventu-card-button {
+#ventu-home-card-button-container .ventu-card-button-container {
   position: absolute;
 }
-#ventu-card-button-container .ventu-card-button--love {
+#ventu-home-card-button-container .ventu-card-button-container.ventu-card-button--love {
   left: calc(50% - 182px);
   top: 20px;
 }
-#ventu-card-button-container .ventu-card-button--hate {
+#ventu-home-card-button-container .ventu-card-button-container.ventu-card-button--hate {
   left: calc(50% + 118px);
   top: 20px;
 }
-#ventu-card-button-container .ventu-card-button--read-more {
+#ventu-home-card-button-container .ventu-card-button-container.ventu-card-button--read-more {
   left: calc(50% - 32px);
   top: 120px;
+}
+#ventu-home-card-button-container .ventu-card-button-container:hover {
+  background: transparent!important;
 }
 @media (max-width: 767px) {
   #ventu-home-card-container {

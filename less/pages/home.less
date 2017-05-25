@@ -44,28 +44,34 @@ body.ventu-home {
     position: relative;
 }
 
-#ventu-card-button-container {
+#ventu-home-card-button-container {
     position: relative;
     height: 200px;
 
-    .ventu-card-button {
+    .ventu-card-button-container {
         position: absolute;
+
+        &.ventu-card-button--love {
+            left: ~'calc(50% - 182px)';
+            top: 20px;
+        }
+
+        &.ventu-card-button--hate {
+            left: ~'calc(50% + 118px)';
+            top: 20px;
+        }
+
+        &.ventu-card-button--read-more {
+            left: ~'calc(50% - 32px)';
+            top: 120px;
+        }
+
+        &:hover {
+            background: transparent!important;
+        }
     }
 
-    .ventu-card-button--love {
-        left: ~'calc(50% - 182px)';
-        top: 20px;
-    }
 
-    .ventu-card-button--hate {
-        left: ~'calc(50% + 118px)';
-        top: 20px;
-    }
-
-    .ventu-card-button--read-more {
-        left: ~'calc(50% - 32px)';
-        top: 120px;
-    }
 }
 
 
