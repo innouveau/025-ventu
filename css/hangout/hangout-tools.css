@@ -30,9 +30,27 @@
   margin-left: 40px;
   display: inline-block;
   text-decoration: underline;
+  position: relative;
 }
 .ventu-hangout-tools .ventu-hangout-tools-sort .ventu-hangout-tools-sort-button:hover {
   color: #17141f !important;
+}
+.ventu-hangout-tools .ventu-hangout-tools-sort .ventu-hangout-tools-sort-button.ventu-hangout-tools-sort-button--active {
+  text-decoration: none;
+  font-weight: 700;
+}
+.ventu-hangout-tools .ventu-hangout-tools-sort .ventu-hangout-tools-sort-button.ventu-hangout-tools-sort-button--active:after {
+  position: absolute;
+  right: -14px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background-size: 100% 100%;
+  background-image: url(img/tools/arrow-down-white.svg);
+  content: '';
+}
+.ventu-hangout-tools .ventu-hangout-tools-sort .ventu-hangout-tools-sort-button.ventu-hangout-tools-sort-button--active:hover {
+  color: #fff!important;
 }
 @media (max-width: 767px) {
   .ventu-hangout-tools .ventu-hangout-tools-sort {

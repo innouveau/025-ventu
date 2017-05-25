@@ -6,9 +6,9 @@
     </div>
     <div class="ventu-hangout-tools-sort">
         <b>Sorteer op:</b>
-        <a href="" class="ventu-hangout-tools-sort-button">
+        <div class="ventu-hangout-tools-sort-button ventu-hangout-tools-sort-button--active">
             Recent toegevoegd
-        </a>
+        </div>
         <a href="" class="ventu-hangout-tools-sort-button">
             Naam
         </a>

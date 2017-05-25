@@ -29,7 +29,7 @@
 
     <div class="collapse navbar-collapse pull-left" id="navbar">
         <ul class="nav navbar-nav">
-            <li id="ventu-login-button"><a href="javascript:openLogin()">Aanmelden</a></li>
+            <li id="ventu-login-button"><a href="aanmelden.php">Aanmelden</a></li>
         </ul>
     </div>
 
