@@ -76,6 +76,14 @@
             background-image: url(img/icons/rating/good.svg);
 
         }
+
+        &.ventu-card-button--rating--active {
+
+            .ventu-card-button-icon {
+                background-image: url(img/icons/rating/good-active.svg);
+
+            }
+        }
     }
 
     &.ventu-card-button--rating-neutral {
@@ -87,6 +95,14 @@
         .ventu-card-button-icon {
             background-image: url(img/icons/rating/neutral.svg);
 
+        }
+
+        &.ventu-card-button--rating--active {
+
+            .ventu-card-button-icon {
+                background-image: url(img/icons/rating/neutral-active.svg);
+
+            }
         }
     }
 
@@ -100,11 +116,23 @@
             background-image: url(img/icons/rating/bad.svg);
 
         }
+
+        &.ventu-card-button--rating--active {
+
+            .ventu-card-button-icon {
+                background-image: url(img/icons/rating/bad-active.svg);
+
+            }
+        }
     }
 
     &.ventu-card-button--rating--active {
-        background-color: @ventu-main-grey-light;
+        color: @ventu-color-rating-active;
         cursor: default!important;
+
+        &:hover {
+            background-color: transparent;
+        }
     }
 
     .ventu-card-button {
