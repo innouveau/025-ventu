@@ -1020,12 +1020,12 @@ body.ventu-application #ventu-application-container #ventu-filters {
 }
 body.ventu-application #ventu-application-container #ventu-stack {
   position: absolute;
-  right: 50px;
+  right: 100px;
   top: 50px;
 }
 body.ventu-application #ventu-application-container #ventu-bottom-bar {
   position: absolute;
-  right: 50px;
+  right: 80px;
   bottom: 0;
 }
 #ventu-filters #ventu-filter-content {
