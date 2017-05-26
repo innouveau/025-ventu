@@ -46,7 +46,15 @@ MapMobile.prototype._createCards = function () {
 };
 
 MapMobile.prototype.createNewCard = function() {
-    // TODO !!!!
+    var obj, building, card;
+    if (window.ventu.objects[this.lastIndex]) {
+        obj = window.ventu.objects[this.lastIndex];
+        building = new Building(obj);
+        card = new Card(this, building, this.lastIndex);
+        card.launch('normal');
+        this.cards.push(card);
+        this.lastIndex++;
+    }
 };
 
 
