@@ -213,7 +213,7 @@ nav.navbar-default #navbar ul li a {
 }
 nav.navbar-default #navbar ul li a.ventu-nav-icon-button {
   height: 60px;
-  padding: 17px 12px;
+  padding: 17px 20px;
 }
 nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-icon {
   display: inline-block;
@@ -229,6 +229,16 @@ nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-label {
 }
 nav.navbar-default #navbar ul li a.ventu-nav-icon-button.ventu-nav-button--hangout-lists .ventu-nav-icon {
   background-image: url(img/icons/hangout/list-grey.svg);
+}
+nav.navbar-default #navbar ul li a.ventu-avatar {
+  padding: 10px 20px;
+  height: 60px;
+}
+nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: top;
+  padding-top: 10px;
 }
 @media (max-width: 767px) {
   nav.navbar-default {
@@ -1356,7 +1366,7 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   background-image: url(img/tools/save-grey.svg);
 }
 .ventu-tools-button.ventu-tools-button--erase .ventu-tools-button-icon {
-  background-image: url(img/tools/erase-grey.svg);
+  background-image: url(img/icons/hangout/erase-list-grey.svg);
 }
 .ventu-tools-button .ventu-tools-button-label {
   text-decoration: underline;
@@ -1776,16 +1786,6 @@ form button[type=submit] {
 }
 img.projectCarousel {
   width: 100%;
-}
-.ventu-avatar {
-  padding: 10px!important;
-  height: 60px!important;
-}
-.ventu-avatar .ventu-avatar-label {
-  display: inline-block;
-  margin-right: 6px;
-  vertical-align: top;
-  padding-top: 10px;
 }
 .ventu-avatar-image {
   display: inline-block;

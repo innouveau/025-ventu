@@ -52,7 +52,7 @@ nav.navbar-default #navbar ul li a {
 }
 nav.navbar-default #navbar ul li a.ventu-nav-icon-button {
   height: 60px;
-  padding: 17px 12px;
+  padding: 17px 20px;
 }
 nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-icon {
   display: inline-block;
@@ -68,6 +68,16 @@ nav.navbar-default #navbar ul li a.ventu-nav-icon-button .ventu-nav-label {
 }
 nav.navbar-default #navbar ul li a.ventu-nav-icon-button.ventu-nav-button--hangout-lists .ventu-nav-icon {
   background-image: url(img/icons/hangout/list-grey.svg);
+}
+nav.navbar-default #navbar ul li a.ventu-avatar {
+  padding: 10px 20px;
+  height: 60px;
+}
+nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: top;
+  padding-top: 10px;
 }
 @media (max-width: 767px) {
   nav.navbar-default {

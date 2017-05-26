@@ -49,24 +49,26 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="ventu-hangout-list-entry">
-                        <div class="aspect16by9">
-                            <img src="http://realspotter.nl/media/objects/1E/87/D1/77/1E87D177-2066-4047-8114-F25EEF3FBB01/org/1.jpg">
-                        </div>
-                        <div class="ventu-hangout-list-entry-title">
-                            <div class="ventu-hangout-list-entry-title-icon ventu-hangout-list-entry-title-icon-love"></div>
-                            <div class="ventu-hangout-list-entry-title-label">
-                                Mijn interesselijst
+                    <a href="hangout-interesselijst.php">
+                        <div class="ventu-hangout-list-entry">
+                            <div class="aspect16by9">
+                                <img src="http://realspotter.nl/media/objects/1E/87/D1/77/1E87D177-2066-4047-8114-F25EEF3FBB01/org/1.jpg">
+                            </div>
+                            <div class="ventu-hangout-list-entry-title">
+                                <div class="ventu-hangout-list-entry-title-icon ventu-hangout-list-entry-title-icon-love"></div>
+                                <div class="ventu-hangout-list-entry-title-label">
+                                    Mijn interesselijst
+                                </div>
+                            </div>
+                            <div class="ventu-hangout-list-entry-content">
+                                14 objecten
                             </div>
                         </div>
-                        <div class="ventu-hangout-list-entry-content">
-                            14 objecten
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-6">
 
-                    <a href="/Team/Team/984BB507-AAFD-4AB1-8653-2E81A41D520F">
+                    <a href="hangout-interesselijst.php">
                         <div class="ventu-hangout-list-entry ventu-hangout-list-entry--create">
                             <div class="aspect16by9">
 
@@ -105,7 +107,7 @@
 
                 <div class="col-lg-6">
 
-                    <a href="/Team/Team/ADA540A4-2E83-4F7C-B6EA-F9A812D8BF1A">
+                    <a href="hangout-share.php">
                         <div class="ventu-hangout-list-entry">
                             <div class="aspect16by9">
                                 <img src="http://realspotter.nl/media/objects/1E/87/D1/77/1E87D177-2066-4047-8114-F25EEF3FBB01/org/1.jpg">

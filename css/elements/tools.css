@@ -20,7 +20,7 @@
   background-image: url(img/tools/save-grey.svg);
 }
 .ventu-tools-button.ventu-tools-button--erase .ventu-tools-button-icon {
-  background-image: url(img/tools/erase-grey.svg);
+  background-image: url(img/icons/hangout/erase-list-grey.svg);
 }
 .ventu-tools-button .ventu-tools-button-label {
   text-decoration: underline;

@@ -1,13 +1,3 @@
-.ventu-avatar {
-  padding: 10px!important;
-  height: 60px!important;
-}
-.ventu-avatar .ventu-avatar-label {
-  display: inline-block;
-  margin-right: 6px;
-  vertical-align: top;
-  padding-top: 10px;
-}
 .ventu-avatar-image {
   display: inline-block;
   width: 40px;
