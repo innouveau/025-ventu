@@ -2659,16 +2659,13 @@ section.section--small-padding .divider {
   transform: translateZ(-1px);
 }
 .ventu-card.ventu-card--dynamic .ventu-card-back:after {
-  outline: 1px solid #03256b;
-  outline-offset: 5px;
   position: absolute;
   left: 10px;
   top: 10px;
   width: calc(100% - 20px);
   height: calc(100% - 20px);
-  background-image: url(img/card/card-tile.png);
+  background-image: url(img/card/card-tile.svg);
   content: '';
-  border-radius: 5px;
 }
 .ventu-card.ventu-card--grid {
   height: auto;
