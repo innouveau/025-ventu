@@ -1,6 +1,6 @@
 .ventu-slider-navigation-button {
   position: absolute;
-  top: calc(50% - 37px);
+  top: calc(50% - 35px);
   z-index: 1;
   width: 74px;
   height: 74px;
@@ -66,5 +66,13 @@
     height: 130%;
     left: -15%;
     top: -15%;
+  }
+}
+@media (max-width: 767px) {
+  .ventu-slider-navigation-button.ventu-slider-navigation-next {
+    right: -25px;
+  }
+  .ventu-slider-navigation-button.ventu-slider-navigation-prev {
+    left: -29px;
   }
 }

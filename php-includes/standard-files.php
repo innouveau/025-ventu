@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="style.css">
 
 <!-- fonts -->
-<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,700" rel="stylesheet">
+<!--<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,700" rel="stylesheet">-->
 
 <!-- assets -->
 <script src="assets/jquery/jquery.min.js"></script>

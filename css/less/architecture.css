@@ -15,5 +15,11 @@ body {
   .container {
     width: 100%;
     overflow: hidden;
+    padding: 0;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
   }
 }

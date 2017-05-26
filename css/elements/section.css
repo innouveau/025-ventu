@@ -80,8 +80,9 @@ section .section-header .section-header-text.section-header-text--white h6 {
     padding-right: 40px;
   }
 }
-@media (max-width: 1024px) {
-  section {
+@media (max-width: 767px) {
+  section,
+  body.ventu-home section {
     padding-left: 20px;
     padding-right: 20px;
   }

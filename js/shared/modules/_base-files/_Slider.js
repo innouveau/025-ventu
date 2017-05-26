@@ -109,7 +109,11 @@ _Slider.prototype.addCenterLine = function(element) {
     element.append(centerline);
 
     this.settings.size.centerline = $('.ventu-slider-center-line').outerWidth();
-    this.settings.size.side = Math.floor((this.settings.size.centerline - this.settings.size.body) / 2);
+    if (this.isMobile) {
+        this.settings.size.side = this.settings.size.body / 2;
+    } else {
+        this.settings.size.side = Math.floor((this.settings.size.centerline - this.settings.size.body) / 2);
+    }
     this.elements.centerline.left.css('width', this.settings.size.side);
     this.elements.centerline.left.addClass('ventu-slider-center-line--hidden');
     this.elements.centerline.middle.css('width', this.settings.size.body);

@@ -46,15 +46,15 @@ function Dialog(element) {
         },
         slides: []
     };
-
+    var isMobile = this.isThisMobile();
+    this.isMobile = isMobile;
     this.settings = {
         size: {
-            body: 600,
+            body: isMobile ? element.outerWidth() : 600,
             frame: 0
         },
         hasSetStatus: true
     };
-
     this.create();
 }
 
@@ -63,6 +63,10 @@ Dialog.prototype = Object.create(_Slider.prototype);
 
 
 // creation
+
+Dialog.prototype.isThisMobile = function () {
+    return $(window).outerWidth() < 768;
+};
 
 Dialog.prototype.createHeader = function() {
     this.elements.header.main = $('<div class="ventu-slider-header"></div>');

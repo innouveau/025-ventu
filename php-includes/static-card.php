@@ -9,7 +9,11 @@ $t = $texts[array_rand($texts, 1)];
 ?>
 
 <div class="ventu-card ventu-card--static ventu-card--grid">
-    <div class="ventu-card-image" style="background-image:url(img/content/<?php echo $bg; ?>)"></div>
+    <div class="ventu-card-image">
+        <div class="aspect16by9">
+            <img src="img/content/<?php echo $bg; ?>">
+        </div>
+    </div>
     <div class="ventu-card-text">
         <div class="ventu-card-header">
             <h4><?php echo $t; ?></h4>
