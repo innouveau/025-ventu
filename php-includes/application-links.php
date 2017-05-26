@@ -7,6 +7,7 @@
 <script src="js/shared/modules/ventu-filter/Filter.js"></script>
 
 <!-- ventu app -->
+<script src="js/application/models/map/_Map.js"></script>
 <script src="js/application/models/map/Map.js"></script>
 <script src="js/application/models/map/Map-mobile.js"></script>
 <script src="js/application/models/map/Marker.js"></script>

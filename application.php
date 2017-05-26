@@ -25,16 +25,12 @@
     <div id="ventu-application-container">
         <div id="ventu-canvas"></div>
 
-        <?php include('php-includes/application/filters.php'); ?>
-
         <?php include('php-includes/application/bottom-bar.php'); ?>
 
         <div id="ventu-stack"></div>
     </div>
 
-
-
-
+    <?php include('php-includes/application/filters.php'); ?>
 
     <?php include('php-includes/nav.php'); ?>
 

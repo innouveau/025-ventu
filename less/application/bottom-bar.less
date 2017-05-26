@@ -8,6 +8,17 @@
 
     #ventu-bottom-bar-counter {
         background: @ventu-main-grey-light;
+        padding: 13px 30px!important;
+
+        #ventu-filter-button {
+            display: none;
+        }
+
+        #ventu-bottom-bar-counter-label {
+            display: inline-block;
+            padding: 5px 0;
+            vertical-align: top;
+        }
     }
 
     .ventu-bottom-bar-sub {
@@ -19,7 +30,6 @@
 
         .ventu-bottom-bar-sub-status {
             position: absolute;
-
             top: 0;
             height: 100%;
             content: '';
@@ -144,4 +154,36 @@
             border-right: 0;
         }
     }
+}
+
+
+
+
+@media (max-width: 767px) {
+
+    #ventu-bottom-bar {
+        box-shadow: none;
+
+        .ventu-bottom-bar-sub {
+            padding: 18px 12px;
+            width: 80px;
+
+            .ventu-bottom-bar-sub-content {
+
+                > .ventu-bottom-bar-label-text {
+                    display: none;
+                }
+
+            }
+        }
+
+        #ventu-bottom-bar-counter {
+            width: ~'calc(100% - 160px)';
+
+            #ventu-filter-button {
+                display: inline-block;
+            }
+        }
+    }
+
 }

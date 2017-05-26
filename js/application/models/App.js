@@ -13,7 +13,11 @@ function App() {
 
 App.prototype.init = function() {
     this.config = new Config();
-    this.map = new Map();
+    if (this.config.device.type === 0) {
+        this.map = new MapMobile();
+    } else {
+        this.map = new MapMobile();
+    }
     this.user = new User();
     this.guide = new Guide();
 };
@@ -21,4 +25,14 @@ App.prototype.init = function() {
 App.prototype.redraw = function(result) {
     this.objects = result.objects;
     this.map.draw(result, false);
+};
+
+App.prototype.openFilter = function() {
+    $('#ventu-filters').show();
+    $('#ventu-stack').hide();
+};
+
+App.prototype.closeFilter = function() {
+    $('#ventu-filters').hide();
+    $('#ventu-stack').show();
 };

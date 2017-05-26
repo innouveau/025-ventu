@@ -1,6 +1,6 @@
-function Card(marker, building, index) {
+function Card(parent, building, index) {
     this.type = 'card';
-    this.marker = marker;
+    this.parent = parent;
     this.building = building;
     this.index = index;
 
@@ -116,7 +116,7 @@ Card.prototype._create = function () {
     }
 
     if (window.ventu.config.isMapPresent) {
-        this.marker.hasCard = true;
+        this.parent.hasCard = true;
     }
 };
 
@@ -174,10 +174,12 @@ Card.prototype._setCurrent = function () {
         this.shade.element.fadeIn(100);
     }
     if (window.ventu.config.isMapPresent) {
-        this.marker.select();
+        this.parent.select();
     }
     this._backToOrigin(true);
-    this.marker.parent.currentCard = this;
+    this._getMap().currentCard = this;
+
+
     this.element.find('.ventu-card-blocker').fadeOut(200);
     // already unrotate the next card (for nicer effect)
     next = this._getNext();
@@ -190,7 +192,7 @@ Card.prototype._setCurrent = function () {
 Card.prototype.launch = function (type) {
     var self = this,
         wait = window.ventu.map.cards.length * 150 + 1000,
-        thisTransform = type === 'cool' ? this.marker.getTransform() : [0, 0, 0, 0, 0, 0, 1, 1];
+        thisTransform = type === 'cool' ? this.parent.getTransform() : [0, 0, 0, 0, 0, 0, 1, 1];
     // start position
     this.setTransform(thisTransform, false);
     if (this.shade) {
@@ -369,7 +371,7 @@ Card.prototype._swipeRelease = function () {
 Card.prototype._addToList = function (type) {
     var self = this,
         transform,
-        map = this.marker.parent,
+        map = this._getMap(),
         next = this._getNext();
 
     this._swipeRelease();
@@ -396,14 +398,14 @@ Card.prototype._addToList = function (type) {
 
     // update markers
     if (window.ventu.config.isMapPresent) {
-        this.marker.hasCard = false;
+        this.parent.hasCard = false;
         if (type === 'love') {
-            this.marker.love();
+            this.parent.love();
         } else {
-            this.marker.hate();
+            this.parent.hate();
         }
-        window.ventu.map.createNewCard();
     }
+    this._getMap().createNewCard();
 
     // update user
     window.ventu.user.uses('rating');
@@ -466,12 +468,20 @@ Card.prototype._getStackPosition = function () {
 };
 
 Card.prototype._getNext = function () {
-    var map = this.marker.parent,
+    var map = this._getMap(),
         index = map.cards.indexOf(this);
     if (map.cards[index + 1]) {
         return map.cards[index + 1];
     } else {
         return null;
+    }
+};
+
+Card.prototype._getMap = function() {
+    if (window.ventu.config.isMapPresent) {
+        return this.parent.parent;
+    } else {
+        return this.parent;
     }
 };
 

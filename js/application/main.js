@@ -31,7 +31,8 @@ $(window).ready(function () {
         }
 
         window.ventuApi.getSelectResults(callback);
-
+        // keep this one after window.ventu
+        // because it needs to know the ventu.config
         filterListeners();
     }
 

@@ -40,5 +40,8 @@
         </div>
     </div>
 
-    <div id="ventu-bottom-bar-counter" class="ventu-bottom-bar-sub"></div>
+    <div id="ventu-bottom-bar-counter" class="ventu-bottom-bar-sub">
+        <div id="ventu-filter-button" onclick="ventu.openFilter()"></div>
+        <div id="ventu-bottom-bar-counter-label"></div>
+    </div>
 </div>

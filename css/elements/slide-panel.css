@@ -1,9 +1,9 @@
 .ventu-slide-panel {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 60px;
   width: 300px;
-  height: 100%;
+  height: calc(100% - 60px);
   transition: all 0.3s ease;
 }
 .ventu-slide-panel .ventu-slide-panel-label {

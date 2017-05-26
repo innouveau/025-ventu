@@ -1,4 +1,5 @@
 function Map() {
+    this.hasMap = false;
     this.icon = {
         standard: 'img/markers/standard-marker.png',
         selected: 'img/markers/selected-marker.png',
@@ -33,39 +34,16 @@ function Map() {
     this.init();
 }
 
-Map.prototype.init = function() {
-    var mapContainer,
-        myOptions = {
-        zoom: 9,
-        center: new google.maps.LatLng(52, 5),
-        sensor: 'true',
-        draggable: true,
-        streetViewControl: false,
-        mapTypeControl: false
-    };
-
-    mapContainer = document.getElementById("ventu-canvas");
-    if (mapContainer) {
-        this.map = new google.maps.Map(mapContainer, myOptions);
-        window.ventu.config.isMapPresent = true;
-    } else {
-        window.ventu.config.isMapPresent = false;
-    }
-};
-
+Map.prototype = Object.create(_Map.prototype);
 
 Map.prototype.draw = function(result, leaveshape) {
-    var self = this;
-    //this.status.tilesloaded = false;
+    var self = this,
+        launchType;
     this.lastIndex = 0;
     this._cleanUp(leaveshape);
     this.status.found = result.markers.length;
     this.status.left = result.markers.length;
-    this.updateResultBar();
-    this.updateBottomBar();
-    this.updateBottomBarType('love');
-    this.updateBottomBarType('hate');
-
+    this.updateDom();
 
     if (!leaveshape && window.showGoogleMapObjects == undefined) {
         this._drawShape(result);
@@ -81,17 +59,82 @@ Map.prototype.draw = function(result, leaveshape) {
             }, 500);
         }
         if (this.cards.length > 0) {
-            var type = self._getLaunchType();
+            launchType = self._getLaunchType();
             this.currentCard = self.cards[0];
             if (!this.status.tilesloaded) {
-                google.maps.event.addListenerOnce(this.map, 'tilesloaded', function() {
-                    self.cards[0].launch(type);
+                google.maps.event.addListenerOnce(this.map, 'tilesloaded', function () {
+                    self.cards[0].launch(LaunchType);
                     self.status.tilesloaded = true;
                 });
             } else {
-                this.cards[0].launch(type);
+                this.cards[0].launch(launchType);
             }
         }
+    }
+};
+
+
+Map.prototype.init = function() {
+    var mapContainer,
+        myOptions = {
+        zoom: 9,
+        center: new google.maps.LatLng(52, 5),
+        sensor: 'true',
+        draggable: true,
+        streetViewControl: false,
+        mapTypeControl: false
+    };
+
+    mapContainer = document.getElementById("ventu-canvas");
+    if (mapContainer) {
+        this.map = new google.maps.Map(mapContainer, myOptions);
+        window.ventu.config.isMapPresent = true;
+        this.hasMap = true;
+    } else {
+        window.ventu.config.isMapPresent = false;
+        this.hasMap = false;
+    }
+};
+
+Map.prototype._createCards = function () {
+
+    var n = window.ventu.objects.length > window.ventu.config.stack.max ? window.ventu.config.stack.max : window.ventu.objects.length;
+    for (var i = 0; i < n; i++) {
+        var obj = window.ventu.objects[i];
+
+        var marker = null;
+        for (var j = 0; j < this.markers.length; j++) {
+            marker = this.markers[j];
+
+            if (marker.UniqueId == obj.UniqueId) {
+                break;
+            }
+        }
+
+        if (marker != null) {
+            marker.createCard(new Building(obj));
+        }
+    }
+};
+
+Map.prototype.createNewCard = function() {
+    var data = this._getMarker(),
+        card,
+        wait = 0;
+    if (data) {
+        // the old card is still present when the new card is created. So 1 means
+        // the new card will be the only one on the stack, therefor we reset the index
+        // so the new card will be created on top of the stack
+        if (this.cards.length === 1) {
+            this.lastIndex = 0;
+            // because this card will be on top, it would graphically interfere with
+            // the added card, we have to wait until it is disappeared
+            wait = 800
+        }
+        card = data.marker.createCard(data.building);
+        setTimeout(function () {
+            card.launch('normal');
+        }, wait);
     }
 };
 
@@ -102,10 +145,6 @@ Map.prototype._cleanUp = function(leaveshape) {
     this._removeMarkers();
     this._removeCards();
 };
-
-
-
-// poly
 
 Map.prototype._drawShape = function(data) {
     var self = this,
@@ -206,13 +245,6 @@ Map.prototype.setRectangleEvents = function (shape) {
     //}, 500);
     this.setDragEndEvent(shape);
 };
-
-//Map.prototype.setPolygonEvents = function (shape) {
-//    google.maps.event.addListener(shape, 'radius_changed', function () {
-//        alert("get all objects within this polygon");
-//    });
-//    this.setDragEndEvent(shape);
-//};
 
 Map.prototype.setDragEndEvent = function (shape) {
     google.maps.event.addListener(shape, 'dragend', function () {
@@ -348,71 +380,6 @@ Map.prototype.fitMapToBounds = function () {
 };
 
 
-// cards
-
-Map.prototype._removeCards = function() {
-    for (var i = 0, l = this.cards.length; i < l; i++) {
-        this.cards[i].destroy(false);
-    }
-    this.cards = [];
-};
-
-Map.prototype._createCards = function () {
-
-    var n = window.ventu.objects.length > window.ventu.config.stack.max ? window.ventu.config.stack.max : window.ventu.objects.length;
-    for (var i = 0; i < n; i++) {
-        var obj = window.ventu.objects[i];
-
-        var marker = null;
-        for (var j = 0; j < this.markers.length; j++) {
-            marker = this.markers[j];
-
-            if (marker.UniqueId == obj.UniqueId) {
-                break;
-            }
-        }
-
-        if (marker != null) {
-            marker.createCard(new Building(obj));
-        }
-
-    }
-
-};
-
-Map.prototype.getBuilding = function(UniqueId) {
-    for (var i = 0, l = window.ventu.objects.length; i < l; i++) {
-        var obj = window.ventu.objects[i];
-        if (obj.UniqueId === UniqueId) {
-            return new Building(obj);
-        }
-    }
-    return null;
-};
-
-Map.prototype.createNewCard = function() {
-    var data = this._getMarker(),
-        card,
-        wait = 0;
-    if (data) {
-        // the old card is still present when the new card is created. So 1 means
-        // the new card will be the only one on the stack, therefor we reset the index
-        // so the new card will be created on top of the stack
-        if (this.cards.length === 1) {
-            this.lastIndex = 0;
-            // because this card will be on top, it would graphically interfer with
-            // the added card, we have to wait until it is disappeared
-            wait = 800
-        }
-        card = data.marker.createCard(data.building);
-        setTimeout(function () {
-            card.launch('normal');
-        }, wait);
-    }
-
-};
-
-
 
 // getters
 
@@ -432,41 +399,6 @@ Map.prototype._getMarker = function() {
     }
     return null;
 };
-
-Map.prototype._getLaunchType = function() {
-    if (window.ventu.user.askIfDidSee('cardLaunch') || !window.ventu.config.isMapPresent) {
-        return 'normal';
-    } else {
-        return 'cool'
-    }
-};
-
-
-
-// dom
-
-Map.prototype.updateResultBar = function() {
-    $('#ventu-filter-result').html(this.status.found);
-};
-
-Map.prototype.updateBottomBar = function() {
-    $('#ventu-bottom-bar-counter').html(this.status.left + ' objecten over');
-};
-
-Map.prototype.updateBottomBarType = function(type) {
-    var container = $('#ventu-bottom-bar-' + type + ' .ventu-bottom-bar-label-container'),
-        label;
-    if (container.hasClass('ventu-bottom-bar-label-container--rotated')) {
-        label = container.find('.venu-bottom-bar-label-front .ventu-bottom-bar-label-text');
-    } else {
-        label = container.find('.venu-bottom-bar-label-back .ventu-bottom-bar-label-text');
-    }
-    if (parseInt(label.html()) !== this.status[type]) {
-        label.html(this.status[type]);
-        container.toggleClass('ventu-bottom-bar-label-container--rotated');
-    }
-};
-
 
 
 

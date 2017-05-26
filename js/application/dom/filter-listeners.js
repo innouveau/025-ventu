@@ -20,7 +20,10 @@ function filterReadMoreListeners() {
         } else {
             fullText.css('height', 0);
         }
-    })
+    });
+    if (window.ventu.config.device.type === 0) {
+        $('#ventu-filters').hide();
+    }
 }
 
 function filterButtonListeners() {

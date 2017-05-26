@@ -4,7 +4,8 @@
     <div class="ventu-slide-panel-content">
 
         <div id="ventu-filter-content">
-            <div class="ventu-filter-section">
+            <div id="ventu-filter-header-section" class="ventu-filter-section">
+                <div id="ventu-filter-button-close" class="ventu-popup-close" onclick="ventu.closeFilter()"></div>
                 <h5>
                     <span id="ventu-filter-result">329</span> <span>objecten gevonden</span>
                 </h5>

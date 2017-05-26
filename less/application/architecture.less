@@ -6,12 +6,7 @@ body.ventu-application {
     height: 100%;
     overflow: hidden;
     font-size: 14px;
-
-    background: #eeeeee; /* Old browsers */
-    background: -moz-linear-gradient(-45deg,  #eeeeee 0%, #bbbbbb 92%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg,  #eeeeee 0%,#bbbbbb 92%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg,  #eeeeee 0%,#bbbbbb 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#bbbbbb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: @ventu-main-grey-dark;
 
     #ventu-application-container {
         position: absolute;
@@ -25,10 +20,6 @@ body.ventu-application {
             height: 100%;
         }
 
-        #ventu-filters {
-            width: 300px;
-        }
-
         #ventu-stack {
             position: absolute;
             right: 100px;
@@ -40,7 +31,48 @@ body.ventu-application {
             right: 80px;
             bottom: 0;
         }
+    }
 
+    #ventu-filters {
+        width: 300px;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    body.ventu-application {
+
+        #ventu-application-container {
+
+            #ventu-canvas {
+                display: none;
+            }
+
+            #ventu-stack {
+                position: absolute;
+                right: 20px;
+                top: 50px;
+            }
+
+            #ventu-bottom-bar {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+
+        #ventu-filters {
+            position: fixed;
+            left: 0;
+            top: 60px;
+            width: 100%;
+            height: ~'calc(100% - 60px)';
+            z-index: 100000;
+            // we hide this by code, because the meausuring
+            // has to be done first
+        }
     }
 
 
