@@ -63,7 +63,7 @@ Map.prototype.draw = function(result, leaveshape) {
             this.currentCard = self.cards[0];
             if (!this.status.tilesloaded) {
                 google.maps.event.addListenerOnce(this.map, 'tilesloaded', function () {
-                    self.cards[0].launch(LaunchType);
+                    self.cards[0].launch(launchType);
                     self.status.tilesloaded = true;
                 });
             } else {
