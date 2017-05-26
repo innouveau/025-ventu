@@ -51,8 +51,8 @@ body.ventu-application {
 
             #ventu-stack {
                 position: absolute;
-                right: 20px;
-                top: 50px;
+                right: ~'calc(50% - 160px)';
+                top: ~'calc(50% - 225px)';
             }
 
             #ventu-bottom-bar {
@@ -74,6 +74,19 @@ body.ventu-application {
             // has to be done first
         }
     }
+}
 
+@media (max-width: 340px) {
+
+    body.ventu-application {
+
+        #ventu-application-container {
+
+            #ventu-stack {
+                right: ~'calc(50% - 150px)';
+                top: 30px;
+            }
+        }
+    }
 
 }

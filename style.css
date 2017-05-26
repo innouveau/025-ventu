@@ -1025,8 +1025,8 @@ body.ventu-application #ventu-filters {
   }
   body.ventu-application #ventu-application-container #ventu-stack {
     position: absolute;
-    right: 20px;
-    top: 50px;
+    right: calc(50% - 160px);
+    top: calc(50% - 225px);
   }
   body.ventu-application #ventu-application-container #ventu-bottom-bar {
     position: absolute;
@@ -1041,6 +1041,12 @@ body.ventu-application #ventu-filters {
     width: 100%;
     height: calc(100% - 60px);
     z-index: 100000;
+  }
+}
+@media (max-width: 340px) {
+  body.ventu-application #ventu-application-container #ventu-stack {
+    right: calc(50% - 150px);
+    top: 30px;
   }
 }
 #ventu-filters #ventu-filter-content {
@@ -2735,6 +2741,18 @@ section.section--small-padding .divider {
   height: calc(100% - 20px);
   background-image: url(img/card/card-tile.svg);
   content: '';
+}
+@media (max-width: 340px) {
+  .ventu-card.ventu-card--dynamic {
+    width: 300px;
+    height: 385px;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-image {
+    height: 168px;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-text {
+    height: 166px;
+  }
 }
 .ventu-card.ventu-card--grid {
   height: auto;

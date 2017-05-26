@@ -36,7 +36,6 @@
 
             .ventu-card-image {
                 height: 180px;
-
             }
 
             .ventu-card-text {
@@ -73,14 +72,27 @@
                 content: '';
             }
         }
+    }
+}
 
+@media (max-width: 340px) {
 
+    .ventu-card {
 
-        &.ventu-card--current {
+        &.ventu-card--dynamic {
+            width: 300px;
+            height: 385px;
 
+            .ventu-card-front {
 
+                .ventu-card-image {
+                    height: 168px;
+                }
 
-
+                .ventu-card-text {
+                    height: 166px;
+                }
+            }
         }
     }
 }
