@@ -85,3 +85,8 @@
 .ventu-hangout-list-entry.ventu-hangout-list-entry--create:hover .aspect16by9 {
   background: #fff;
 }
+@media (max-width: 1024px) {
+  .ventu-hangout-lists-wrapper {
+    margin: 0;
+  }
+}
