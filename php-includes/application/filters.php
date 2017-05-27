@@ -54,6 +54,9 @@
                         <div id="ventu-filter-types-buttons"><!-- appended dynamically --></div>
 
                     </div>
+                    <div class="ventu-filter-button-container">
+                        <div class="btn btn-sm orange">Filter toepassen</div>
+                    </div>
                 </div>
             </div>
 
@@ -94,6 +97,9 @@
                             m²
                         </div>
                     </div>
+                    <div class="ventu-filter-button-container">
+                        <div class="btn btn-sm orange">Filter toepassen</div>
+                    </div>
                 </div>
             </div>
 
@@ -117,6 +123,9 @@
                 <div class="ventu-filter-full-text-container">
                     <div class="ventu-filter-full-text">
                         <div id="ventu-filter-transaction-buttons"><!-- appended dynamically --></div>
+                    </div>
+                    <div class="ventu-filter-button-container">
+                        <div class="btn btn-sm orange">Filter toepassen</div>
                     </div>
                 </div>
             </div>
@@ -155,6 +164,9 @@
                                 <span>km</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="ventu-filter-button-container">
+                        <div class="btn btn-sm orange">Filter toepassen</div>
                     </div>
                 </div>
             </div>

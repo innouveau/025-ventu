@@ -41,7 +41,7 @@ Building.prototype.getCardCity = function () {
 
 Building.prototype.getCardImage = function () {
     var img = this.imageURL === null ? '/img/misc/ventu-stock-thumb.jpg' : this.imageURL;
-    return 'https://ventu.nl' + img;
+    return img; //'https://ventu.nl' + img;
 };
 
 Building.prototype.getCardBrokerLogo = function () {
