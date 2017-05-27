@@ -14,3 +14,8 @@
   width: 60px;
   height: auto;
 }
+@media (max-width: 767px) {
+  .ventu-transaction-card {
+    margin-bottom: 20px;
+  }
+}

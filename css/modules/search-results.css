@@ -19,3 +19,8 @@
 .ventu-search-results .ventu-search-result:hover {
   background: #ededec;
 }
+@media (max-width: 767px) {
+  .ventu-search-results {
+    max-height: 180px;
+  }
+}

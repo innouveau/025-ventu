@@ -15,6 +15,12 @@ body {
   .container {
     width: 100%;
     overflow: hidden;
+    padding: 0;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
   }
 }
 h1 {
@@ -309,7 +315,7 @@ nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
 }
 .ventu-discover-icon-container .ventu-discover-icon {
   display: inline-block;
-  margin: 0 25px;
+  margin: 0 25px 20px 25px;
 }
 .ventu-discover-icon-container .ventu-discover-icon img {
   width: 45px;
@@ -401,6 +407,7 @@ nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
   #ventu-footer #ventu-footer-legal,
   #ventu-footer #ventu-footer-social {
     text-align: left;
+    margin: 20px 0;
   }
 }
 #ventu-features ol,
@@ -483,6 +490,11 @@ section.parties .divider {
 #ventu-transactions .ventu-transaction-card .ventu-transaction-icon img {
   width: 60px;
   height: auto;
+}
+@media (max-width: 767px) {
+  .ventu-transaction-card {
+    margin-bottom: 20px;
+  }
 }
 #ventu-parties .broker-logo {
   margin-bottom: 20px;
@@ -1979,13 +1991,20 @@ img.projectCarousel {
 .ventu-filter-label {
   background: #00e5a9;
   color: #03256b;
-  padding: 4px 6px;
+  padding: 6px;
   margin: 0 4px 4px 0;
   cursor: default;
   display: inline-block;
+  height: 30px;
 }
 .ventu-filter-label::first-letter {
   text-transform: capitalize;
+}
+@media (max-width: 767px) {
+  .ventu-filter-label {
+    height: 25px;
+    padding: 4px 6px;
+  }
 }
 .ventu-slide-panel {
   position: absolute;
@@ -2153,8 +2172,9 @@ section .section-header .section-header-text.section-header-text--white h6 {
     padding-right: 40px;
   }
 }
-@media (max-width: 1024px) {
-  section {
+@media (max-width: 767px) {
+  section,
+  body.ventu-home section {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -2170,34 +2190,34 @@ section.section--small-padding .divider {
 #ventu-slider-slide-types .ventu-slider-slide-body {
   padding-top: 10px;
 }
-#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button {
+#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container .ventu-slider-type-button {
   width: 110px;
   text-align: center;
   cursor: pointer;
   display: inline-block;
   margin-bottom: 20px;
 }
-#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button .ventu-slider-type-button-icon {
+#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container .ventu-slider-type-button .ventu-slider-type-button-icon {
   height: 80px;
 }
-#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button .ventu-slider-type-button-icon img {
+#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container .ventu-slider-type-button .ventu-slider-type-button-icon img {
   width: 45px;
   height: auto;
 }
-#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button .ventu-slider-type-button-label {
+#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container .ventu-slider-type-button .ventu-slider-type-button-label {
   color: #fff;
   padding: 6px;
   height: 30px;
   display: inline-block;
 }
-#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button .ventu-slider-type-button-label::first-letter {
+#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container .ventu-slider-type-button .ventu-slider-type-button-label::first-letter {
   text-transform: capitalize;
 }
-#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button:hover .ventu-slider-type-button-label {
+#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container .ventu-slider-type-button:hover .ventu-slider-type-button-label {
   background: #fff;
   color: #03256b;
 }
-#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-type-button.ventu-slider-type-button--active .ventu-slider-type-button-label {
+#ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container .ventu-slider-type-button.ventu-slider-type-button--active .ventu-slider-type-button-label {
   background: #00e5a9;
   color: #03256b;
 }
@@ -2223,7 +2243,6 @@ section.section--small-padding .divider {
   height: 30px;
   border: 0;
   vertical-align: top;
-  font-size: 16px;
   line-height: 1.4;
 }
 #ventu-slider-slide-area .ventu-slider-slide-body .ventu-slider-area-picker input {
@@ -2295,18 +2314,27 @@ section.section--small-padding .divider {
   }
 }
 @media (max-width: 767px) {
-  .ventu-slider-slide-frame {
-    height: 300px;
+  section#ventu-dialog-entry {
+    padding-left: 0;
+    padding-right: 0;
   }
-  .ventu-slider-slide-frame .ventu-slider-navigation-button {
-    top: auto;
-    bottom: 0;
+  #ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container {
+    text-align: center;
   }
-  .ventu-slider-slide-frame .ventu-slider-navigation-button.ventu-slider-navigation-next {
-    right: 0;
+  #ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container .ventu-slider-type-button .ventu-slider-type-button-icon {
+    height: 60px;
   }
-  .ventu-slider-slide-frame .ventu-slider-navigation-button.ventu-slider-navigation-prev {
-    left: 0;
+  #ventu-slider-slide-types .ventu-slider-slide-body .ventu-slider-slide-buttons-container .ventu-slider-type-button .ventu-slider-type-button-label {
+    padding: 4px 6px;
+    height: 25px;
+  }
+  #ventu-slider-slide-area .ventu-slider-slide-body .ventu-slider-area-picker input {
+    width: 60px;
+    padding: 4px 0;
+  }
+  #ventu-slider-slide-transactions .ventu-slider-slide-body .ventu-slider-transaction-button {
+    padding: 4px 24px;
+    height: 25px;
   }
 }
 .ventu-slider-header {
@@ -2330,9 +2358,6 @@ section.section--small-padding .divider {
   .ventu-slider-header {
     height: 100px;
     text-align: left;
-  }
-  .ventu-slider-header .ventu-slider-header-section-text {
-    font-size: 16px;
   }
 }
 .ventu-search {
@@ -2366,6 +2391,7 @@ section.section--small-padding .divider {
   font-weight: 300;
   float: left;
   margin-top: 5px;
+  outline: none;
 }
 .ventu-search .ventu-search-chosen {
   position: absolute;
@@ -2386,6 +2412,12 @@ section.section--small-padding .divider {
 }
 .ventu-search.ventu-search--white input {
   color: #fff;
+}
+@media (max-width: 767px) {
+  .ventu-search .ventu-search-chosen {
+    height: 25px;
+    padding: 4px 6px;
+  }
 }
 .ventu-search-open {
   float: right;
@@ -2446,6 +2478,11 @@ section.section--small-padding .divider {
 .ventu-search-results .ventu-search-result:hover {
   background: #ededec;
 }
+@media (max-width: 767px) {
+  .ventu-search-results {
+    max-height: 180px;
+  }
+}
 .ventu-slider {
   height: 340px;
   position: relative;
@@ -2488,6 +2525,24 @@ section.section--small-padding .divider {
 .ventu-slider .ventu-slider-slide-frame .ventu-slider-slide-container .ventu-slider-slide .ventu-slider-slide-content .ventu-slider-slide-header {
   height: 34px;
 }
+@media (max-width: 767px) {
+  .ventu-slider .ventu-slider-header {
+    padding: 0 20px;
+  }
+  .ventu-slider .ventu-slider-header .ventu-slider-header-section {
+    display: inline-block;
+  }
+  .ventu-slider .ventu-slider-header .ventu-slider-header-section .ventu-slider-header-section-text {
+    display: none;
+  }
+  .ventu-slider .ventu-slider-slide-frame {
+    top: 110px;
+    height: 300px;
+  }
+  .ventu-slider .ventu-slider-slide-frame .ventu-slider-slide-container {
+    padding: 0 20px;
+  }
+}
 .ventu-slider-center-line {
   position: absolute;
   left: 50px;
@@ -2520,9 +2575,19 @@ section.section--small-padding .divider {
   float: left;
   transition: width 0.5s ease;
 }
+@media (max-width: 767px) {
+  .ventu-slider-center-line {
+    top: 260px;
+    left: 0;
+    width: 100%;
+  }
+  .ventu-slider-center-line .ventu-slider-center-line-middle {
+    display: none!important;
+  }
+}
 .ventu-slider-navigation-button {
   position: absolute;
-  top: calc(50% - 37px);
+  top: calc(50% - 35px);
   z-index: 1;
   width: 74px;
   height: 74px;
@@ -2588,6 +2653,14 @@ section.section--small-padding .divider {
     height: 130%;
     left: -15%;
     top: -15%;
+  }
+}
+@media (max-width: 767px) {
+  .ventu-slider-navigation-button.ventu-slider-navigation-next {
+    right: -25px;
+  }
+  .ventu-slider-navigation-button.ventu-slider-navigation-prev {
+    left: -29px;
   }
 }
 .ventu-card {

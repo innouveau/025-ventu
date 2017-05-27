@@ -31,5 +31,6 @@
   #ventu-footer #ventu-footer-legal,
   #ventu-footer #ventu-footer-social {
     text-align: left;
+    margin: 20px 0;
   }
 }

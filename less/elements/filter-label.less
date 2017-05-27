@@ -1,13 +1,28 @@
+@import '../mixins';
+
+
 .ventu-filter-label {
     background: @ventu-color-primary;
     color: @ventu-color-secundary;
-    padding: 4px 6px;
+    padding: 6px;
     margin: 0 4px 4px 0;
     cursor: default;
     display: inline-block;
+    height: 30px;
 
 
     &::first-letter {
         text-transform: capitalize;
     }
+}
+
+
+
+@media (max-width: 767px) {
+
+    .ventu-filter-label {
+        height: 25px;
+        padding: 4px 6px;
+    }
+
 }

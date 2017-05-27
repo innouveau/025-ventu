@@ -17,6 +17,8 @@
                 </div>
             </div>
             <div class="ventu-chat-pins-container">
+                <div class="ventu-pointer-area" style="left:75%;top:40%"></div>
+
                 <div class="ventu-chat-pin" style="left:8%;top:5%">
                     <div class="ventu-chat-pin-avatar" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>
                     <div class="ventu-chat-balloon-container ventu-chat-balloon-left">
@@ -57,7 +59,6 @@
                     </div>
                 </div>
 
-                <div class="ventu-pointer-area" style="left:75%;top:40%"></div>
             </div>
         </div>
     </div>

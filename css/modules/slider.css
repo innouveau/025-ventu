@@ -40,3 +40,21 @@
 .ventu-slider .ventu-slider-slide-frame .ventu-slider-slide-container .ventu-slider-slide .ventu-slider-slide-content .ventu-slider-slide-header {
   height: 34px;
 }
+@media (max-width: 767px) {
+  .ventu-slider .ventu-slider-header {
+    padding: 0 20px;
+  }
+  .ventu-slider .ventu-slider-header .ventu-slider-header-section {
+    display: inline-block;
+  }
+  .ventu-slider .ventu-slider-header .ventu-slider-header-section .ventu-slider-header-section-text {
+    display: none;
+  }
+  .ventu-slider .ventu-slider-slide-frame {
+    top: 110px;
+    height: 300px;
+  }
+  .ventu-slider .ventu-slider-slide-frame .ventu-slider-slide-container {
+    padding: 0 20px;
+  }
+}
