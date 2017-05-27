@@ -30,5 +30,6 @@
 @media (max-width: 520px) {
   .ventu-communication-screen .ventu-man-container .ventu-man .ventu-chat-balloon-container {
     width: calc(100% - 100px);
+    min-width: 200px;
   }
 }

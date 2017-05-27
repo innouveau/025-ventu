@@ -89,4 +89,13 @@
   .ventu-hangout-lists-wrapper {
     margin: 0;
   }
+  .ventu-hangout-list-entry.ventu-hangout-list-entry--create .aspect16by9 {
+    display: none;
+  }
+  .ventu-hangout-list-entry.ventu-hangout-list-entry--create .ventu-hangout-list-entry-content {
+    position: relative;
+    padding: 20px;
+    height: auto;
+    background: #ededec;
+  }
 }

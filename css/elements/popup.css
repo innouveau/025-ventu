@@ -37,3 +37,8 @@
   background-image: url(img/tools/close-white.svg);
   cursor: pointer;
 }
+@media (max-width: 767px) {
+  .ventu-overlay .ventu-popup {
+    width: 100%;
+  }
+}

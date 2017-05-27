@@ -53,6 +53,17 @@
     float: none;
     width: 100%;
   }
+  .ventu-card.ventu-card--float .ventu-card-text .ventu-card-rating {
+    position: relative;
+    right: auto;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    height: 51px;
+    border-top: 1px solid #ededec;
+    width: calc(100% + 36px);
+    margin: 0 -18px;
+  }
   .ventu-card.ventu-card--float .ventu-card-buttons {
     width: 100%;
     border-right: 0;

@@ -673,6 +673,15 @@ section.proximity .ventu-card .button {
   .ventu-hangout-lists-wrapper {
     margin: 0;
   }
+  .ventu-hangout-list-entry.ventu-hangout-list-entry--create .aspect16by9 {
+    display: none;
+  }
+  .ventu-hangout-list-entry.ventu-hangout-list-entry--create .ventu-hangout-list-entry-content {
+    position: relative;
+    padding: 20px;
+    height: auto;
+    background: #ededec;
+  }
 }
 #ventu-hangout-header-back {
   padding-top: 90px;
@@ -838,18 +847,12 @@ section.proximity .ventu-card .button {
   color: #fff!important;
 }
 @media (max-width: 767px) {
+  .ventu-hangout-tools {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .ventu-hangout-tools .ventu-hangout-tools-sort {
-    width: 43px;
-    height: 32px;
-    cursor: pointer;
-    float: right;
-    background: #fff;
-    border-radius: 4px;
-    background-image: url(img/tools/sort-grey.svg);
-    background-position: 50% 50%;
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-    content: '';
+    display: none;
   }
 }
 .ventu-hangout-tip {
@@ -1661,6 +1664,7 @@ body.ventu-application #ventu-filters {
 @media (max-width: 520px) {
   .ventu-communication-screen .ventu-man-container .ventu-man .ventu-chat-balloon-container {
     width: calc(100% - 100px);
+    min-width: 200px;
   }
 }
 .ventu-overlay {
@@ -1701,6 +1705,11 @@ body.ventu-application #ventu-filters {
   background-size: 100% 100%;
   background-image: url(img/tools/close-white.svg);
   cursor: pointer;
+}
+@media (max-width: 767px) {
+  .ventu-overlay .ventu-popup {
+    width: 100%;
+  }
 }
 .ventu-form,
 form {
@@ -2894,6 +2903,17 @@ section.section--small-padding .divider {
   .ventu-card.ventu-card--float .ventu-card-text {
     float: none;
     width: 100%;
+  }
+  .ventu-card.ventu-card--float .ventu-card-text .ventu-card-rating {
+    position: relative;
+    right: auto;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    height: 51px;
+    border-top: 1px solid #ededec;
+    width: calc(100% + 36px);
+    margin: 0 -18px;
   }
   .ventu-card.ventu-card--float .ventu-card-buttons {
     width: 100%;
