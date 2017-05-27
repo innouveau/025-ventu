@@ -4,7 +4,12 @@
             <div class="ventu-card-button-icon"></div>
         </div>
         <div class="ventu-card-button-label">
-            Goed: 2
+            <div class="ventu-card-button-label-word">
+                Goed:
+            </div>
+            <div class="ventu-card-button-label-number">
+                2
+            </div>
         </div>
     </div>
 
@@ -13,7 +18,12 @@
             <div class="ventu-card-button-icon"></div>
         </div>
         <div class="ventu-card-button-label">
-            Neutraal: 2
+            <div class="ventu-card-button-label-word">
+                Neutraal:
+            </div>
+            <div class="ventu-card-button-label-number">
+                3
+            </div>
         </div>
     </div>
 
@@ -22,7 +32,12 @@
             <div class="ventu-card-button-icon"></div>
         </div>
         <div class="ventu-card-button-label">
-            Niet goed: 2
+            <div class="ventu-card-button-label-word">
+                Niet goed:
+            </div>
+            <div class="ventu-card-button-label-number">
+                2
+            </div>
         </div>
     </div>
 

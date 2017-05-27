@@ -100,6 +100,15 @@
                 display: inline-block;
                 vertical-align: top;
                 padding-top: 16px;
+
+                .ventu-card-button-label-word {
+                    display: inline-block;
+                    margin-right: 2px;
+                }
+
+                .ventu-card-button-label-number {
+                    display: inline-block;
+                }
             }
 
             &:not(:last-child) {
@@ -109,4 +118,25 @@
     }
 }
 
+
+
+@media (max-width: 767px) {
+
+    .ventu-card {
+
+        .ventu-card-buttons {
+
+            .ventu-card-button-container {
+
+                .ventu-card-button-label {
+
+                    .ventu-card-button-label-word {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+}
 

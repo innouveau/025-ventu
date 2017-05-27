@@ -81,6 +81,18 @@
   vertical-align: top;
   padding-top: 16px;
 }
+.ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label .ventu-card-button-label-word {
+  display: inline-block;
+  margin-right: 2px;
+}
+.ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label .ventu-card-button-label-number {
+  display: inline-block;
+}
 .ventu-card .ventu-card-buttons .ventu-card-button-container:not(:last-child) {
   border-right: 1px solid #ededec;
+}
+@media (max-width: 767px) {
+  .ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label .ventu-card-button-label-word {
+    display: none;
+  }
 }

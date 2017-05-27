@@ -72,6 +72,7 @@
             .ventu-card-text {
                 float: none;
                 width: 100%;
+                padding: 0;
 
                 .ventu-card-rating {
                     position: relative;
@@ -80,9 +81,18 @@
                     top: 0;
                     bottom: auto;
                     height: 51px;
+                    padding-left: 2px;
                     border-top: 1px solid @ventu-main-grey-light;
-                    width: ~'calc(100% + 36px)';
-                    margin: 0 -18px; // to stick out the border...
+                    width: 100%;
+
+                    .ventu-card-button-container {
+                        padding-left: 6px;
+                        padding-right: 6px;
+                    }
+
+                    .ventu-hangout-reaction-balloon {
+                        margin-right: 12px;
+                    }
                 }
 
             }
