@@ -144,8 +144,8 @@ Dialog.prototype.createAreaSlide = function(body) {
 
     label1 = $('<span>Vanaf</span>');
     label2 = $('<span>tot</span>');
-    input1 = $('<input placeholder="...">');
-    input2 = $('<input placeholder="...">');
+    input1 = $('<input placeholder="..." tabindex=-1>');
+    input2 = $('<input placeholder="..." tabindex=-1>');
     pickerset.picker0 = $('<div class="ventu-slider-area-picker"></div>');
     pickerset.picker0.append('<div class="ventu-slider-area-picker-label">min</div>');
     pickerset.picker0.append(input1);
@@ -165,6 +165,15 @@ Dialog.prototype.createAreaSlide = function(body) {
 
     pickerset.picker1.click(function(){
         input2.focus();
+    });
+
+    // because we disabled all tab jumping via negative tabindex
+    // we do it by code for jump from first to second tab
+    input1.keydown(function(event){
+        if (event.keyCode === 9) {
+            event.preventDefault();
+            input2.focus();
+        }
     });
 
     // second tab shouldnt jump
