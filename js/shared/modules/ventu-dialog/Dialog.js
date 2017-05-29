@@ -167,6 +167,12 @@ Dialog.prototype.createAreaSlide = function(body) {
         input2.focus();
     });
 
+    // second tab shouldnt jump
+    input2.keydown(function(event){
+        self.checkTab(event, 2);
+    });
+
+
     input1.keyup(function() {
         keyup(this, 0);
     });
@@ -441,5 +447,15 @@ Dialog.prototype.isAllowedToSlide = function(slideCallback) {
         window.ventuApi.select(this.query);
     } else {
         slideCallback();
+    }
+};
+
+
+Dialog.prototype.checkTab = function(event, section) {
+    if (event.keyCode === 9) {
+        event.preventDefault();
+        if (this.isAllowedToShowButton(section)) {
+            this.next();
+        }
     }
 };

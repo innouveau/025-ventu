@@ -47,7 +47,14 @@ Search.prototype.create = function() {
 
 Search.prototype.addListeners = function() {
     var val, _this = this;
-    this.elements.input.keyup(function() {
+    this.elements.input.keydown(function(event){
+        //manage tab when search module is inside the Dialog
+        if (_this.outerOutput) {
+            _this.outerOutput.checkTab(event, 1);
+        }
+    });
+
+    this.elements.input.keyup(function(event) {
         val = $(this).val();
         if (val.length > 0) {
             _this.setZindex(true);
@@ -56,7 +63,9 @@ Search.prototype.addListeners = function() {
             _this.setZindex(false);
             _this.elements.results.empty();
         }
-    })
+    });
+
+
 };
 
 Search.prototype.get = function(val) {
