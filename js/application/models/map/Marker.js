@@ -43,7 +43,7 @@ Marker.prototype.create = function() {
 
                 function callback(building) {
                     var card = self.createCard(building);
-                    card.launch('soft');
+                    card.launch('normal');
                     card.swap();
                 }
 

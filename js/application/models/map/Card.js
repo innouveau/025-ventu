@@ -169,7 +169,6 @@ Card.prototype._setCurrent = function () {
     this.status.stackPosition.shadeZindex = window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2;
     this.status.stackPosition.shiftX = 0;
     this.status.stackPosition.shiftY = 0;
-
     if (this.shade) {
         this.shade.element.fadeIn(100);
     }
@@ -185,7 +184,22 @@ Card.prototype._setCurrent = function () {
     next = this._getNext();
     if (next) {
         next._backToOrigin(true);
-        //next.element.addClass('ventu-card--current');
+    }
+};
+
+Card.prototype._unsetCurrent = function (rotate, zIndex, shiftX, shiftY, shadeZindex) {
+    this.status.stackPosition.rotate = rotate;
+    this.status.stackPosition.zIndex = zIndex;
+    this.status.stackPosition.shadeZindex = shadeZindex;
+    this.status.stackPosition.shiftX = shiftX;
+    this.status.stackPosition.shiftY = shiftY;
+    this.element.find('.ventu-card-blocker').fadeIn(200);
+    this._backToOrigin();
+    if (window.ventu.config.isMapPresent) {
+        this.parent.unselect();
+    }
+    if (this.shade) {
+        this.shade.element.fadeOut(100);
     }
 };
 
@@ -282,6 +296,44 @@ Card.prototype._launchNext = function () {
     } else {
         return false;
     }
+};
+
+Card.prototype.swap = function () {
+    var self = this,
+        map = this._getMap(),
+        topCard = map.currentCard,
+        originalX = this.status.stackPosition.shiftX,
+        originalY = this.status.stackPosition.shiftY;
+    // pull both horizontal out of stack
+    topCard.status.stackPosition.shiftX = -370;
+    topCard.status.stackPosition.shiftY = 20;
+    this.status.stackPosition.shiftX = 370;
+    this.status.stackPosition.shiftY = -20;
+    topCard._backToOrigin();
+    this._backToOrigin();
+
+
+    setTimeout(function () {
+        var rotation = window.ventu.config.card.rotation * (Math.random() - 0.5);
+        topCard._unsetCurrent(rotation, self.status.stackPosition.zIndex, originalX, originalY, self.status.stackPosition.shadeZindex);
+        self._setCurrent();
+
+        if (this.shade) {
+            window.ventu.domElements.stack.append(self.shade.element);
+        }
+        window.ventu.domElements.stack.append(self.element);
+
+        map.cards.move(self.index, 0);
+
+        $(map.cards).each(function (index, card) {
+            if (card !== null) {
+                card.index = index;
+                card.position = card._getStackPosition();
+                card._backToOrigin();
+            }
+        });
+
+    }, 800);
 };
 
 
@@ -393,7 +445,9 @@ Card.prototype._addToList = function (type) {
     }
     setTimeout(function () {
         self.element.remove();
-        self.shade.element.remove();
+        if (self.shade) {
+            self.shade.element.remove();
+        }
     }, 1500);
 
     // update markers
@@ -513,7 +567,6 @@ Card.prototype._removeHoverTriggers = function () {
     })
 };
 
-// @walstra: wat doet dit?
 Array.prototype.move = function (pos1, pos2) {
     // local variables
     var i, tmp;
