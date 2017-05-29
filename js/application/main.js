@@ -26,11 +26,21 @@ $(window).ready(function () {
         window.ventu = new App();
         window.ventu.init();
 
-        function callback(result) {
-            window.ventu.redraw(result);
-        }
+        if (searchFilter.Building != null ||
+            searchFilter.City != null ||
+            searchFilter.Postcode != null ||
+            searchFilter.Street != null) {
 
-        window.ventuApi.getSelectResults(callback);
+            function callback(result) {
+                window.ventu.redraw(result);
+            }
+
+            window.ventuApi.getSelectResults(callback);
+        }
+        else {
+            $('.ventu-search-open').trigger('click');
+        }
+        
         // keep this one after window.ventu
         // because it needs to know the ventu.config
         filterListeners();
