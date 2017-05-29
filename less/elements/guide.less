@@ -4,13 +4,10 @@
     display: none;
     background: #FFDE00;
     padding: 20px 20px 60px 20px;
-    font-size: 12px;
-    font-family: 'graphik';
-    font-weight: 400;
     position: fixed;
-    width: 300px;
+    width: 200px;
     z-index: 100000;
-    box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 
     .ventu-icon {
         color: #333;
@@ -26,33 +23,14 @@
     .ventu-guide-button {
         position: absolute;
         bottom: 10px;
+        cursor: pointer;
 
         &.ventu-guide-close {
             right: 10px;
-        }
-
-        .ventu-icon {
-            border-radius: 15px;
-            padding-top: 8px;
-        }
-
-        .ventu-guide-button-sub {
-            display: inline-block;
-            vertical-align: top;
-            padding-top: 8px;
-            font-style: italic;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s ease;
-            margin-right: 6px;
-        }
-
-        &:hover .ventu-icon {
-            background: #fff;
-        }
-
-        &:hover .ventu-guide-button-sub {
-            opacity: 1;
+            width: 20px;
+            height: 20px;
+            background-size: 100% 100%;
+            background-image: url(img/tools/close-grey.svg);
         }
     }
 }

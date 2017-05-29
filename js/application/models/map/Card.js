@@ -78,6 +78,7 @@ Card.prototype._create = function () {
             setTimeout(function () {
                 self._addToList('love');
                 window.ventu.user.uses('buttons');
+                window.ventu.user.uses('rating');
             }, 50);
         });
         self.buttons.hate.on('click', function (e) {
@@ -86,6 +87,7 @@ Card.prototype._create = function () {
             setTimeout(function () {
                 self._addToList('hate');
                 window.ventu.user.uses('buttons');
+                window.ventu.user.uses('rating');
             }, 50);
         });
         self.buttons.readMore.on('click', function (e) {

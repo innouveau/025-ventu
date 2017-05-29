@@ -26,12 +26,9 @@ User.prototype.uses = function(what) {
             this._checkCriteria(criteria, topic);
             break;
         case 'rating':
-            var criteria2 = this.fulltime.filter && this.did.use.rating > 7,
-                topic2 = 'filter';
-            criteria = this.did.use.rating > 10;
-            topic  = 'lists';
+            var criteria = this.did.use.rating > 20,
+                topic = 'filter';
             this._checkCriteria(criteria, topic);
-            this._checkCriteria(criteria2, topic2);
             break;
     }
     

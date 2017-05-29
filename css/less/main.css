@@ -2079,6 +2079,72 @@ img.projectCarousel {
   right: 0;
   top: 0;
 }
+.ventu-guide {
+  display: none;
+  background: #FFDE00;
+  padding: 20px 20px 60px 20px;
+  position: fixed;
+  width: 200px;
+  z-index: 100000;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.ventu-guide .ventu-icon {
+  color: #333;
+}
+.ventu-guide:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  content: '';
+}
+.ventu-guide .ventu-guide-button {
+  position: absolute;
+  bottom: 10px;
+  cursor: pointer;
+}
+.ventu-guide .ventu-guide-button.ventu-guide-close {
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-size: 100% 100%;
+  background-image: url(img/tools/close-grey.svg);
+}
+.ventu-guide-left:after,
+.ventu-guide-right:after {
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  top: 50px;
+}
+.ventu-guide-left:after {
+  left: -16px;
+  border-right: 32px solid #FFDE00;
+}
+.ventu-guide-right:after,
+.ventu-guide-right:after {
+  right: -16px;
+  border-left: 16px solid #FFDE00;
+}
+.ventu-guide-top:after {
+  left: calc(40%);
+  top: -30px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 32px solid #FFDE00;
+}
+.ventu-guide-bottom:after {
+  right: 145px;
+  bottom: -20px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 32px solid #FFDE00;
+}
+.ventu-guide-bottom-right:after {
+  right: 10px;
+  bottom: -20px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 32px solid #FFDE00;
+}
 #breadcrumb {
   margin-top: 60px;
   border-bottom: 0;
