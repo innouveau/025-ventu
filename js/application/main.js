@@ -40,7 +40,7 @@ $(window).ready(function () {
         else {
             $('.ventu-search-open').trigger('click');
         }
-        
+
         // keep this one after window.ventu
         // because it needs to know the ventu.config
         filterListeners();
