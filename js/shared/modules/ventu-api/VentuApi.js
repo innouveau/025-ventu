@@ -220,3 +220,6 @@ VentuApi.prototype.likeObject = function (building) {
 
 VentuApi.prototype.disLikeObject = function (building) {
 };
+
+VentuApi.prototype.getObjectByUniqueId = function(uniqueId, callback) {
+};

@@ -48,7 +48,7 @@ Marker.prototype.create = function() {
                 }
 
                 if (building === null) {
-                    window.ventu.service.GetObjectByUniqueId(self.UniqueId, callback);
+                    window.ventuApi.getObjectByUniqueId(self.UniqueId, callback);
                 } else {
                     callback(building);
                 }
