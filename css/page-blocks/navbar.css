@@ -6,6 +6,7 @@ nav.navbar-default {
 }
 nav.navbar-default .navbar-header .navbar-brand {
   padding: 0;
+  height: 100%;
 }
 nav.navbar-default .navbar-header .navbar-toggle {
   border-radius: 0;
@@ -94,5 +95,19 @@ nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
   }
   nav.navbar-default #navbar ul:hover {
     background: transparent;
+  }
+}
+@media (max-width: 320px) {
+  nav.navbar-default {
+    height: 40px;
+  }
+  nav.navbar-default .navbar-header .navbar-toggle {
+    padding: 12px;
+    width: 40px;
+    height: 40px;
+  }
+  nav.navbar-default .navbar-header .ventu-identity img {
+    height: 40px;
+    width: auto;
   }
 }

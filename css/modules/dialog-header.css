@@ -20,4 +20,12 @@
     height: 100px;
     text-align: left;
   }
+  .ventu-slider-header .ventu-slider-header-section-labels .ventu-filter-label:first-child {
+    margin-left: 0;
+  }
+}
+@media (max-width: 320px) {
+  .ventu-slider-header {
+    height: 80px;
+  }
 }

@@ -71,12 +71,28 @@
             height: 300px;
 
             .ventu-slider-slide-container {
-                // padding here instead of on section to create
-                // space for the centerline
-                padding: 0 20px;
+
+                .ventu-slider-slide {
+                    // padding here instead of on section to create
+                    // space for the centerline
+                    padding: 0 20px;
+                }
             }
         }
-
-
     }
+}
+
+@media (max-width: 320px) {
+
+    .ventu-slider {
+
+        .ventu-slider-header-section-text {
+            font-size: 16px;
+        }
+
+        .ventu-slider-slide-frame {
+            top: 80px;
+        }
+    }
+
 }

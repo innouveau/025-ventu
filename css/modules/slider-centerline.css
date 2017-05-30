@@ -40,3 +40,8 @@
     display: none!important;
   }
 }
+@media (max-width: 320px) {
+  .ventu-slider-center-line {
+    top: 202px;
+  }
+}

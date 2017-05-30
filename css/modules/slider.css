@@ -54,7 +54,15 @@
     top: 110px;
     height: 300px;
   }
-  .ventu-slider .ventu-slider-slide-frame .ventu-slider-slide-container {
+  .ventu-slider .ventu-slider-slide-frame .ventu-slider-slide-container .ventu-slider-slide {
     padding: 0 20px;
+  }
+}
+@media (max-width: 320px) {
+  .ventu-slider .ventu-slider-header-section-text {
+    font-size: 16px;
+  }
+  .ventu-slider .ventu-slider-slide-frame {
+    top: 80px;
   }
 }

@@ -31,8 +31,20 @@
     left: 0;
     top: 60px;
     background: #fff;
+    transition: none;
+    border-top: 1px solid #cacaca;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
   .ventu-search-open.ventu-search-open--opened .ventu-search-container {
     width: 100%;
+  }
+}
+@media (max-width: 320px) {
+  .ventu-search-open {
+    width: 40px;
+    height: 40px;
+  }
+  .ventu-search-open .ventu-search-container {
+    top: 40px;
   }
 }

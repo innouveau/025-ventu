@@ -31,3 +31,13 @@
     margin-top: 10px;
   }
 }
+@media (max-width: 320px) {
+  .ventu-continue .ventu-continue-button {
+    width: 24px;
+    height: 24px;
+  }
+  .ventu-continue .ventu-continue-text {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+}
