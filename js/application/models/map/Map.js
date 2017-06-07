@@ -18,8 +18,8 @@ function Map() {
     this.status = {
         found: 0,
         left: 0,
-        love: 0,
-        hate: 0,
+        love: window.ventuApi.getFavoriteBuildings().length,
+        hate: window.ventuApi.getTrashBuildings().length,
         tilesloaded: false
     };
     this.currentCard = null;
@@ -45,7 +45,7 @@ Map.prototype.draw = function(result, leaveshape) {
     this.status.left = result.markers.length;
     this.updateDom();
 
-    if (!leaveshape && window.showGoogleMapObjects == undefined) {
+    if (!leaveshape && window.showGoogleMapObjects === undefined) {
         this._drawShape(result);
     }
 
@@ -53,7 +53,7 @@ Map.prototype.draw = function(result, leaveshape) {
         this._createMarkers(result.markers);
         this._createCards();
 
-        if (window.showGoogleMapObjects == undefined) {
+        if (window.showGoogleMapObjects === undefined) {
             setTimeout(function () {
                 self._showMarkers();
             }, 500);
@@ -77,13 +77,13 @@ Map.prototype.draw = function(result, leaveshape) {
 Map.prototype.init = function() {
     var mapContainer,
         myOptions = {
-        zoom: 9,
-        center: new google.maps.LatLng(52, 5),
-        sensor: 'true',
-        draggable: true,
-        streetViewControl: false,
-        mapTypeControl: false
-    };
+            zoom: 9,
+            center: new google.maps.LatLng(52, 5),
+            sensor: 'true',
+            draggable: true,
+            streetViewControl: false,
+            mapTypeControl: false
+        };
 
     mapContainer = document.getElementById("ventu-canvas");
     if (mapContainer) {
@@ -106,12 +106,12 @@ Map.prototype._createCards = function () {
         for (var j = 0; j < this.markers.length; j++) {
             marker = this.markers[j];
 
-            if (marker.UniqueId == obj.UniqueId) {
+            if (marker.UniqueId === obj.UniqueId) {
                 break;
             }
         }
 
-        if (marker != null) {
+        if (marker !== null) {
             marker.createCard(new Building(obj));
         }
     }
@@ -214,23 +214,21 @@ Map.prototype._drawShape = function(data) {
 Map.prototype.setCircleEvents = function (shape) {
     google.maps.event.addListener(shape, 'radius_changed', function () {
         var radius = shape.getRadius();
-        if (radius > ventu.service.filter.searchArea.max)
-        {
-            radius = ventu.service.filter.searchArea.max;
+
+        if (window.filter) {
+            if (radius > window.filter.query.area[1]) {
+                radius = window.filter.query.area[1];
+            }
+            else if (radius < window.filter.query.area[0]) {
+                radius = window.filter.query.area[0];
+            }
+            radius = Math.ceil(radius / 1000);
+
+            window.filter.query.searchType.size = radius;
+            $('#ventu-filter-search-type-cirkel').val(radius);
+
+            window.filter.execute();
         }
-        else if (radius < ventu.service.filter.searchArea.min)
-        {
-            radius = ventu.service.filter.searchArea.min;
-        }
-        radius = Math.ceil(radius);
-
-        $('#ventu-filter-circle-km').val(radius);
-        ventu.service.filter.searchArea.circleM = radius;
-
-        //ventu.map.shapes = [];
-        //ventu.map.shapes.push(shape);
-
-        saveAllFilters();
     });
     this.setDragEndEvent(shape);
 };
@@ -249,10 +247,10 @@ Map.prototype.setRectangleEvents = function (shape) {
 Map.prototype.setDragEndEvent = function (shape) {
     google.maps.event.addListener(shape, 'dragend', function () {
 
-        //ventu.map.shapes = [];
-        //ventu.map.shapes.push(shape);
+        if (window.filter) {
+            window.filter.execute();
+        }
 
-        window.ventuApi.select();
     });
 };
 
@@ -285,7 +283,7 @@ Map.prototype._createMarkers = function(markers) {
 
         if (favorites) {
             $(favorites).each(function (index, element) {
-                if (element.uniqueId == markers[i].UniqueId) {
+                if (element.uniqueId === markers[i].UniqueId) {
                     icon = self.icon.love;
                     return false;
                 }
@@ -296,7 +294,7 @@ Map.prototype._createMarkers = function(markers) {
 
         if (trash) {
             $(trash).each(function (index, element) {
-                if (element.uniqueId == markers[i].UniqueId) {
+                if (element.uniqueId === markers[i].UniqueId) {
                     icon = self.icon.hate;
                     return false;
                 }
@@ -399,7 +397,3 @@ Map.prototype._getMarker = function() {
     }
     return null;
 };
-
-
-
-

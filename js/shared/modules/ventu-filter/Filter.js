@@ -112,21 +112,21 @@ Filter.prototype.createSearchTypeOptions = function() {
     $('.ventu-filter-search-type-button').each(function(){
         var button = $(this),
             type = button.attr('search-type');
+        var input;
         if (type === self.query.searchType.type) {
-            var input;
             button.addClass('ventu-filter-search-type-button--active');
-            if (type !== 'none') {
-                input = button.find('input');
-                input.val(self.query.searchType.size);
+        }
+        if (type !== 'none') {
+            input = button.find('input');
+            input.val(self.query.searchType.size);
 
-                input.keyup(function(){
-                    // only update size when the inputs button is the active button
-                    if ($(this).parent().parent().hasClass('ventu-filter-search-type-button--active')) {
-                        self.query.searchType.size = parseInt($(this).val());
-                        self.updateSearchType();
-                    }
-                })
-            }
+            input.keyup(function(){
+                // only update size when the inputs button is the active button
+                if ($(this).parent().parent().hasClass('ventu-filter-search-type-button--active')) {
+                    self.query.searchType.size = parseInt($(this).val());
+                    self.updateSearchType();
+                }
+            })
         }
 
         button.click(function(event){
@@ -151,7 +151,7 @@ Filter.prototype.updateQueryTypes = function() {
     });
     this.query.types = types;
     this.updateTypes();
-    this.execute();
+    //this.execute();
 };
 
 Filter.prototype.updateQueryArea = function() {
@@ -162,7 +162,7 @@ Filter.prototype.updateQueryArea = function() {
     this.query.area[0] = min;
     this.query.area[1] = max;
     this.updateArea();
-    this.execute();
+    //this.execute();
 };
 
 Filter.prototype.updateQueryTransaction = function() {
@@ -174,7 +174,7 @@ Filter.prototype.updateQueryTransaction = function() {
     });
     this.query.transactions = transactions;
     this.updateTransaction();
-    this.execute();
+    //this.execute();
 };
 
 Filter.prototype.updateQuerySearchArea = function(current) {
@@ -193,7 +193,7 @@ Filter.prototype.updateQuerySearchArea = function(current) {
         }
     });
     this.updateSearchType();
-    this.execute();
+    //this.execute();
 };
 
 
@@ -211,7 +211,7 @@ Filter.prototype.update = function() {
 };
 
 Filter.prototype.updateLocation = function () {
-    if (this.query.location != null) {
+    if (this.query.location !== null) {
         var label = this.getLabel(this.query.location);
         this.element.location.empty().append(label);
     }

@@ -52,6 +52,8 @@ VentuApi.prototype.getSearchFilter = function () {
 
     searchFilter.UniqueObjectIds = uniqueObjectIds;
 
+    searchFilter.City = 'Amsterdam';
+
     return searchFilter;
 };
 
@@ -113,6 +115,42 @@ VentuApi.prototype.setSearchFilter = function (query, autoSearchFilter) {
         if (query.area && query.area.length === 2) {
             searchFilter.MetrageRange = query.area[0] + ',' + query.area[1];
         }
+
+        if (query.searchType) {
+
+            if (query.searchType.type === 'none') {
+
+                searchFilter.Shape = 0;
+                searchFilter.CircleLat = 0;
+                searchFilter.CircleLng = 0;
+                searchFilter.Radius = 0;
+
+            } else if (query.searchType.type === 'circle' && window.ventu !== null && window.ventu.map !== null && window.ventu.map.map !== null) {
+                var latlng = window.ventu.map.map.getCenter();
+
+                $(window.ventu.map.shapes).each(function (index, shape) {
+
+                    if (shape instanceof google.maps.Polygon) {
+                    } else if (shape instanceof google.maps.Circle) {
+                        latlng = shape.getCenter();
+                    } else if (shape instanceof google.maps.Rectangle) {
+
+                    }
+                });
+
+                if (latlng !== null) {
+                    searchFilter.Shape = 1;
+                    searchFilter.CircleLat = latlng.lat();
+                    searchFilter.CircleLng = latlng.lng();
+                    searchFilter.Radius = query.searchType.size * 1000;
+                } else {
+                    searchFilter.Shape = 0;
+                    searchFilter.CircleLat = 0;
+                    searchFilter.CircleLng = 0;
+                    searchFilter.Radius = 0;
+                }
+            }
+        }
     }
 
     if (autoSearchFilter) {
@@ -153,16 +191,23 @@ VentuApi.prototype.getSearchQuery = function () {
         location = 'straat: ' + searchFilter.Street + ', ' + searchFilter.City;
     }
 
+    var searchType = {
+        type: 'none',
+        size: 4
+    };
+
+    if (searchFilter.Shape === 1) {
+        searchType.type = 'circle';
+        searchType.size = searchFilter.Radius / 1000;
+    }
+
     return {
         result: 0,
         types: searchFilter.PrimaryUsageIds,
         location: location,
         area: [metrageStart, metrageEnd],
         transactions: searchFilter.ObjectTypeIds,
-        searchType: {
-            type: 'circle',
-            size: 40
-        }
+        searchType: searchType
     };
 };
 
@@ -222,4 +267,12 @@ VentuApi.prototype.disLikeObject = function (building) {
 };
 
 VentuApi.prototype.getObjectByUniqueId = function(uniqueId, callback) {
+};
+
+VentuApi.prototype.getFavoriteBuildings = function () {
+    return [];
+};
+
+VentuApi.prototype.getTrashBuildings = function (building) {
+    return [];
 };

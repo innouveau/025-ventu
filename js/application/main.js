@@ -18,6 +18,8 @@ $(window).ready(function () {
     initialiseModals();
     setFullscreenAndContinueButton();
 
+    var searchFilter = window.ventuApi.getSearchFilter();
+    
     if (typeof autoSearchFilter === 'undefined') {
 
         var searchQuery = window.ventuApi.getSearchQuery();
