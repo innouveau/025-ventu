@@ -120,13 +120,23 @@ Filter.prototype.createSearchTypeOptions = function() {
             input = button.find('input');
             input.val(self.query.searchType.size);
 
-            input.keyup(function(){
+            function changeType() {
+                self.query.searchType.type = $(this).parent().parent().attr('search-type');
+                $('.ventu-filter-search-type-button').each(function (index, tempButton) {
+                    $(tempButton).removeClass('ventu-filter-search-type-button--active');
+                });
+
+                $(this).parent().parent().addClass('ventu-filter-search-type-button--active');
+
                 // only update size when the inputs button is the active button
                 if ($(this).parent().parent().hasClass('ventu-filter-search-type-button--active')) {
                     self.query.searchType.size = parseInt($(this).val());
                     self.updateSearchType();
                 }
-            })
+            }
+
+            input.focus(changeType);
+            input.keyup(changeType);
         }
 
         button.click(function(event){
