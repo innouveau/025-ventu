@@ -4,8 +4,18 @@ function Search(element, callback) {
         icon: null,
         input: null,
         chosen: null,
-        results: null
+        results: null,
+        resultsList: []
     };
+
+    this.status = {
+        originalSearchString: '',
+        focus: false,
+        numberOfResults: 0,
+        indexOfFocus: -1,
+        tagOfFocus: null
+    };
+
     this.outerOutput = null;
     this.init();
 
@@ -46,27 +56,49 @@ Search.prototype.create = function() {
 };
 
 Search.prototype.addListeners = function() {
-    var val, _this = this;
-    this.elements.input.keydown(function(event){
+    var val,
+        _this = this;
+
+
+    this.elements.input.keyup(function(event) {
+        var key = event.keyCode;
+
         //manage tab when search module is inside the Dialog
         if (_this.outerOutput) {
             _this.outerOutput.checkTab(event, 1);
         }
-    });
 
-    this.elements.input.keyup(function(event) {
-        val = $(this).val();
-        if (val.length > 0) {
-            _this.setZindex(true);
-            _this.get(val);
+        if (key === 40) {
+            // down
+            event.preventDefault();
+            _this.status.indexOfFocus++;
+            _this.updateFocus();
+        } else if (key === 38) {
+            // up
+            event.preventDefault();
+            _this.status.indexOfFocus--;
+            _this.updateFocus();
+        } else if (key === 13) {
+            // enter
+            event.preventDefault();
+            var tag = _this.status.tagOfFocus;
+            _this.select(tag);
         } else {
-            _this.setZindex(false);
-            _this.elements.results.empty();
+            val = $(this).val();
+            if (val.length > 0) {
+                _this.setZindex(true);
+                _this.get(val);
+                _this.status.originalSearchString = val;
+            } else {
+                _this.setZindex(false);
+                _this.elements.results.empty();
+            }
         }
-    });
-
-
+    })
 };
+
+
+// main functions
 
 Search.prototype.get = function(val) {
     var _this = this;
@@ -85,24 +117,40 @@ Search.prototype.get = function(val) {
 Search.prototype.show = function(results) {
     var _this = this;
     this.elements.results.empty();
+    this.elements.resultsList = [];
 
     $(results).each(function (index, result) {
+        var obj = {},
+            tempSelector = _this.createTagElement(result.Location);
+        obj.element = $('<div class="ventu-search-result">');
+        obj.value = _this.dataObjectToString(tempSelector);
+        obj.obj = result;
+        obj.element.append(result.Location + ' (' + result.NumberOfItems + ')');
 
-        var html = $('<div class="ventu-search-result">');
-        html.append(result.Location + ' (' + result.NumberOfItems + ')');
-        html.click(function () {
+        obj.element.click(function () {
             _this.select(result);
             _this.setZindex(false);
         });
-        _this.elements.results.append(html);
 
+        obj.element.mouseover(function() {
+            _this.status.indexOfFocus = index;
+            _this.updateFocus();
+        });
+
+        obj.element.mouseout(function() {
+            obj.element.removeClass('ventu-search-result--active');
+        });
+
+        _this.elements.results.append(obj.element);
+        _this.elements.resultsList.push(obj);
     });
+
+    this.resetFocus(results.length);
 };
 
 Search.prototype.select = function(obj) {
-    var htmlElement = $('<div>' + obj.Location + '</div>');
-    var location = htmlElement.text();
-
+    var htmlElement = this.createTagElement(obj.Location);
+    var location = this.dataObjectToString(htmlElement);
     this.setChosen(location);
 
     if (this.outerOutput) {
@@ -115,6 +163,51 @@ Search.prototype.select = function(obj) {
         window.ventuApi.select(query);
     }
 };
+
+Search.prototype.createTagElement = function(location) {
+    return $('<div>' + location + '</div>')
+};
+
+
+
+// focus
+
+Search.prototype.updateFocus = function() {
+    // loop the focus
+    // -1 is the input itself
+    if (this.status.indexOfFocus > (this.status.numberOfResults - 1)) {
+        this.status.indexOfFocus = -1;
+    } else if (this.status.indexOfFocus < -1) {
+        this.status.indexOfFocus = this.status.numberOfResults - 1;
+    }
+    if (this.status.indexOfFocus === -1) {
+        this.elements.input.focus();
+        this.elements.input.val(this.status.originalSearchString);
+
+    } else {
+        for (var i = 0, l = this.elements.resultsList.length; i < l; i++) {
+            var result = this.elements.resultsList[i];
+            if (i === this.status.indexOfFocus) {
+                result.element.addClass('ventu-search-result--active');
+                this.elements.input.val(result.value);
+                this.status.tagOfFocus = result.obj;
+            } else {
+                result.element.removeClass('ventu-search-result--active');
+            }
+        }
+    }
+};
+
+Search.prototype.resetFocus = function(resultsLength) {
+    this.status.focus = false;
+    this.status.numberOfResults =  resultsLength;
+    this.status.indexOfFocus =  -1;
+    this.status.tagOfFocus = null;
+};
+
+
+
+// helpers
 
 Search.prototype.setZindex = function(rise) {
     // this is a bit of a dirty hack. But because of z-index issues and
@@ -130,8 +223,17 @@ Search.prototype.setZindex = function(rise) {
     }
 };
 
+Search.prototype.dataObjectToString = function(selector) {
+    var dataObject = $(selector.children()[0]).data(),
+        string = '';
+    for (var key in dataObject) {
+        string += dataObject[key];
+    }
+    return string;
+};
 
 
+// dom
 
 Search.prototype.setChosen = function(location) {
     this.elements.input.hide();

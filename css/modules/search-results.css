@@ -16,7 +16,7 @@
   color: #17141f;
   text-align: left;
 }
-.ventu-search-results .ventu-search-result:hover {
+.ventu-search-results .ventu-search-result.ventu-search-result--active {
   background: #ededec;
 }
 @media (max-width: 767px) {

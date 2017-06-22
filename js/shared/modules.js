@@ -27,6 +27,7 @@ function initialiseModules() {
         if ($(e.target).hasClass('ventu-search-open')) {
             $(this).toggleClass('ventu-search-open--opened');
             $(this).find('.ventu-search-results').empty();
+            $(this).find('.ventu-search input').focus();
             $(this).find('.ventu-search input').val('');
         }
     });
