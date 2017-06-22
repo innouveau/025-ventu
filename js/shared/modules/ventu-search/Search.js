@@ -58,7 +58,7 @@ Search.prototype.create = function() {
 Search.prototype.addListeners = function() {
     var val,
         _this = this;
-
+    
 
     this.elements.input.keyup(function(event) {
         var key = event.keyCode;
@@ -73,11 +73,13 @@ Search.prototype.addListeners = function() {
             event.preventDefault();
             _this.status.indexOfFocus++;
             _this.updateFocus();
+            _this.autoScroll();
         } else if (key === 38) {
             // up
             event.preventDefault();
             _this.status.indexOfFocus--;
             _this.updateFocus();
+            _this.autoScroll();
         } else if (key === 13) {
             // enter
             event.preventDefault();
@@ -203,6 +205,32 @@ Search.prototype.resetFocus = function(resultsLength) {
     this.status.numberOfResults =  resultsLength;
     this.status.indexOfFocus =  -1;
     this.status.tagOfFocus = null;
+};
+
+Search.prototype.autoScroll = function() {
+    if (this.status.indexOfFocus > -1) {
+
+
+
+        var element = this.elements.resultsList[this.status.indexOfFocus].element,
+            scroll = this.elements.results.scrollTop(),
+            elementHeight = element.outerHeight(),
+            elementTop = element.position().top,
+            elementBottom = scroll + elementHeight + elementTop,
+            containerHeight = this.elements.results.outerHeight();
+        if (elementBottom > containerHeight + scroll) {
+            this.elements.results.animate({
+                scrollTop: elementBottom - containerHeight
+            });
+        } else if (elementTop < 0) {
+
+
+            this.elements.results.animate({
+                scrollTop: scroll + elementTop
+            });
+        }
+    }
+
 };
 
 
