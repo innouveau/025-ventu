@@ -98,6 +98,9 @@ h7 {
     font-size: 20px;
   }
 }
+#ventu-hangout-list-cards .ventu-card .ventu-card-image {
+  height: 180px;
+}
 body.ventu-home section {
   padding: 80px 90px;
 }
@@ -386,6 +389,9 @@ nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
   color: #03256b;
   text-decoration: underline;
 }
+#ventu-direct-links a {
+  display: block;
+}
 @media (max-width: 767px) {
   #ventu-about h3:first-child,
   #ventu-direct-links h3:first-child {
@@ -417,6 +423,10 @@ nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
 }
 .ventu-contact-icon-button:hover .ventu-contact-icon-button-text {
   border-bottom: 1px solid #17141f;
+}
+#ventu-contact {
+  padding-top: 32px;
+  padding-bottom: 12px;
 }
 #ventu-footer {
   padding-top: 32px;
@@ -673,7 +683,7 @@ section.proximity .ventu-card .button {
 }
 .ventu-hangout-list-entry .ventu-hangout-list-entry-title .ventu-hangout-list-entry-title-icon.ventu-hangout-list-entry-title-icon-share {
   background-color: #00A2FF;
-  background-image: url(img/icons/buttons/plus.svg);
+  background-image: url(img/icons/buttons/share.svg);
 }
 .ventu-hangout-list-entry .ventu-hangout-list-entry-title .ventu-hangout-list-entry-title-icon.ventu-hangout-list-entry-title-icon-follow {
   background-color: #8400C6;
@@ -1835,6 +1845,9 @@ form a:hover {
 form button[type=submit] {
   margin-top: 20px;
 }
+form.form-change-account {
+  margin-bottom: 60px;
+}
 .btn {
   border-radius: 20px;
   height: 40px;
@@ -1846,6 +1859,12 @@ form button[type=submit] {
   transition: all 0.2s ease;
   color: #fff;
   display: inline-block;
+}
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  height: 26px;
 }
 .btn.orange {
   background: #FE8A1A;
@@ -1949,6 +1968,11 @@ img.projectCarousel {
   border-radius: 50%;
   background-size: cover;
   vertical-align: top;
+}
+.ventu-avatar-image.ventu-avatar-image--big {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
 }
 .ventu-avatar-image.ventu-avatar-image--no-avatar {
   background-color: #ededec;
@@ -2078,7 +2102,7 @@ img.projectCarousel {
   position: absolute;
   left: 0;
   top: 60px;
-  width: 300px;
+  width: 315px;
   height: calc(100% - 60px);
   transition: all 0.3s ease;
 }
@@ -2563,6 +2587,7 @@ section.section--small-padding .divider {
   height: 60px;
   padding: 4px 0 8px 0;
   max-width: 100%;
+  background: #fff;
 }
 .ventu-search .ventu-search-icon {
   display: inline-block;
@@ -2942,7 +2967,7 @@ section.section--small-padding .divider {
   width: 100%;
 }
 .ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container {
-  width: calc(100% / 3);
+  width: 33.333333333%;
 }
 .ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container .ventu-card-button {
   margin: 7px auto 3px auto;

@@ -18,6 +18,9 @@
   color: #03256b;
   text-decoration: underline;
 }
+#ventu-direct-links a {
+  display: block;
+}
 @media (max-width: 767px) {
   #ventu-about h3:first-child,
   #ventu-direct-links h3:first-child {

@@ -78,3 +78,6 @@ form a:hover {
 form button[type=submit] {
   margin-top: 20px;
 }
+form.form-change-account {
+  margin-bottom: 60px;
+}

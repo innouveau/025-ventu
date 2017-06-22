@@ -52,7 +52,7 @@
   width: 100%;
 }
 .ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container {
-  width: calc(100% / 3);
+  width: 33.333333333%;
 }
 .ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container .ventu-card-button {
   margin: 7px auto 3px auto;

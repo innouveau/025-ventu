@@ -6,6 +6,11 @@
   background-size: cover;
   vertical-align: top;
 }
+.ventu-avatar-image.ventu-avatar-image--big {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
 .ventu-avatar-image.ventu-avatar-image--no-avatar {
   background-color: #ededec;
   background-image: url(img/icons/hangout/no-avatar-grey.svg);

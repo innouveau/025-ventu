@@ -58,7 +58,7 @@ Search.prototype.create = function() {
 Search.prototype.addListeners = function() {
     var val,
         _this = this;
-    
+
 
     this.elements.input.keyup(function(event) {
         var key = event.keyCode;

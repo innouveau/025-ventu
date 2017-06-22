@@ -231,6 +231,24 @@ VentuApi.prototype.getSearchResults = function (search, callback) {
         }, {
             'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
             'NumberOfItems': 32
+        }, {
+            'Location': '<span class="search-address" data-city="Amsterdam">plaats:</span> Amsterdam',
+            'NumberOfItems': 732
+        }, {
+            'Location': '<span class="search-address" data-city="Amstelveen">plaats:</span> Amstelveen',
+            'NumberOfItems': 106
+        }, {
+            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+            'NumberOfItems': 32
+        }, {
+            'Location': '<span class="search-address" data-city="Amsterdam">plaats:</span> Amsterdam',
+            'NumberOfItems': 732
+        }, {
+            'Location': '<span class="search-address" data-city="Amstelveen">plaats:</span> Amstelveen',
+            'NumberOfItems': 106
+        }, {
+            'Location': '<span class="search-address" data-city="Amsterdam-Duivendrecht">plaats:</span> Amsterdam-Duivendrecht',
+            'NumberOfItems': 32
         }
     ];
 
