@@ -2659,7 +2659,7 @@ section.section--small-padding .divider {
   width: 500px;
   overflow: visible;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .ventu-search-open .ventu-search-container {
     position: fixed;
     left: 0;
