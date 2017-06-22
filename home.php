@@ -33,8 +33,6 @@
 
             <?php include('php-includes/direct-links.php'); ?>
 
-            <?php include('php-includes/contact.php'); ?>
-
             <?php include('php-includes/footer.php'); ?>
         </div>
 
