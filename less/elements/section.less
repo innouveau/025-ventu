@@ -3,6 +3,8 @@
 section {
     padding: 70px 32px;
     background: #fff;
+    border-left: 1px solid @ventu-main-grey-light;
+    border-right: 1px solid @ventu-main-grey-light;
     border-bottom: @ventu-divider-border;
 
     .section-color-fill {
@@ -17,11 +19,13 @@ section {
 
     &.section--transparent {
         background: transparent;
+        border: 0;
     }
 
     &.section--with-background {
         background-size: cover;
-
+        border-left: 0;
+        border-right: 0;
     }
 
     &.section--without-padding {

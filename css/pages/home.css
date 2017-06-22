@@ -9,6 +9,9 @@ body.ventu-home section {
 #ventu-dialog-entry h2 {
   color: #fff;
 }
+#ventu-dialog-entry > .ventu-search {
+  display: none;
+}
 #ventu-chat-entry {
   height: 800px;
   background-image: url('img/home/ventu-samen-map.jpg');
@@ -53,9 +56,12 @@ body.ventu-home section {
   background: transparent!important;
 }
 @media (max-width: 767px) {
-  section#ventu-dialog-entry {
+  #ventu-dialog-entry {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  #ventu-dialog-entry > .ventu-search {
+    display: block;
   }
 }
 @media (max-width: 320px) {

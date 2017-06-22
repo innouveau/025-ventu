@@ -14,6 +14,11 @@ body.ventu-home {
     h1, h2 {
         color: #fff;
     }
+
+    // only for mobile
+    > .ventu-search {
+        display: none;
+    }
 }
 
 #ventu-chat-entry {
@@ -78,9 +83,13 @@ body.ventu-home {
 
 
 
-    section#ventu-dialog-entry {
+    #ventu-dialog-entry {
         padding-left: 20px;
         padding-right: 20px;
+
+        > .ventu-search {
+            display: block;
+        }
     }
 }
 

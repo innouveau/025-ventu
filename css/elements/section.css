@@ -1,6 +1,8 @@
 section {
   padding: 70px 32px;
   background: #fff;
+  border-left: 1px solid #ededec;
+  border-right: 1px solid #ededec;
   border-bottom: solid 0.5px #ededec;
 }
 section .section-color-fill {
@@ -14,9 +16,12 @@ section .section-color-fill {
 }
 section.section--transparent {
   background: transparent;
+  border: 0;
 }
 section.section--with-background {
   background-size: cover;
+  border-left: 0;
+  border-right: 0;
 }
 section.section--without-padding {
   padding: 0;

@@ -3,7 +3,6 @@ html {
   height: 100%;
 }
 body {
-  background: #ededec;
   font-size: 16px;
   line-height: 1.25;
   color: #17141f;
@@ -112,6 +111,9 @@ body.ventu-home section {
 #ventu-dialog-entry h2 {
   color: #fff;
 }
+#ventu-dialog-entry > .ventu-search {
+  display: none;
+}
 #ventu-chat-entry {
   height: 800px;
   background-image: url('img/home/ventu-samen-map.jpg');
@@ -156,9 +158,12 @@ body.ventu-home section {
   background: transparent!important;
 }
 @media (max-width: 767px) {
-  section#ventu-dialog-entry {
+  #ventu-dialog-entry {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  #ventu-dialog-entry > .ventu-search {
+    display: block;
   }
 }
 @media (max-width: 320px) {
@@ -2262,6 +2267,8 @@ input::placeholder {
 section {
   padding: 70px 32px;
   background: #fff;
+  border-left: 1px solid #ededec;
+  border-right: 1px solid #ededec;
   border-bottom: solid 0.5px #ededec;
 }
 section .section-color-fill {
@@ -2275,9 +2282,12 @@ section .section-color-fill {
 }
 section.section--transparent {
   background: transparent;
+  border: 0;
 }
 section.section--with-background {
   background-size: cover;
+  border-left: 0;
+  border-right: 0;
 }
 section.section--without-padding {
   padding: 0;
