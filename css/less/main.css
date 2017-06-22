@@ -1907,6 +1907,8 @@ form.form-change-account {
   display: inline-block;
   background: #FE8A1A;
   box-shadow: 1px 1px 0 #E38625;
+  margin-bottom: 1px;
+  text-decoration: none;
 }
 .btn:hover {
   background: #D87800;
@@ -1923,6 +1925,7 @@ form.form-change-account {
   font-size: 12px;
   line-height: 1.5;
   height: 26px;
+  border-radius: 13px;
 }
 .ventu-continue {
   position: absolute!important;
@@ -1942,7 +1945,7 @@ form.form-change-account {
   cursor: pointer;
 }
 .ventu-continue .ventu-continue-button:hover {
-  background-color: #17141f;
+  background-color: #D87800;
 }
 .ventu-continue .ventu-continue-text {
   max-width: 500px;

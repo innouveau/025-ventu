@@ -11,6 +11,8 @@
   display: inline-block;
   background: #FE8A1A;
   box-shadow: 1px 1px 0 #E38625;
+  margin-bottom: 1px;
+  text-decoration: none;
 }
 .btn:hover {
   background: #D87800;
@@ -27,4 +29,5 @@
   font-size: 12px;
   line-height: 1.5;
   height: 26px;
+  border-radius: 13px;
 }
