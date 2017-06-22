@@ -11,8 +11,11 @@ function initialiseModules() {
 
     window.ventuApi = new VentuApi();
 
-    $('.ventu-dialog').each(function(){
-        new Dialog($(this));
+    var screen = whatScreen();
+    $('.ventu-dialog').each(function() {
+        if (screen > 2) {
+            new Dialog($(this));
+        }
     });
 
     $('.ventu-search').each(function(){

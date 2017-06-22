@@ -8,6 +8,9 @@
         <h2>Vindt u op Ventu</h2>
     </div>
     <div class="ventu-dialog"></div>
+
+    <div class="ventu-search"></div>
+
     <div class="ventu-continue">
         <div class="ventu-continue-button"></div>
         <div class="ventu-continue-text">

@@ -52,6 +52,12 @@ body.ventu-home section {
 #ventu-home-card-button-container .ventu-card-button-container:hover {
   background: transparent!important;
 }
+@media (max-width: 767px) {
+  section#ventu-dialog-entry {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 @media (max-width: 320px) {
   #ventu-home-card-container {
     margin-top: 40px;

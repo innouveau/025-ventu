@@ -15,7 +15,6 @@
 <script src="js/application/models/map/_Element.js"></script>
 <script src="js/application/models/map/Card.js"></script>
 <script src="js/application/models/map/Shade.js"></script>
-<script src="js/application/models/Responsive.js"></script>
 <script src="js/application/models/Config.js"></script>
 <script src="js/application/models/Guide.js"></script>
 <script src="js/application/models/User.js"></script>
