@@ -255,7 +255,7 @@ Search.prototype.dataObjectToString = function(selector) {
     var dataObject = $(selector.children()[0]).data(),
         string = '';
     for (var key in dataObject) {
-        string += dataObject[key];
+        string += dataObject[key] + ' ';
     }
     return string;
 };
