@@ -16,12 +16,6 @@
   margin: 11px 10px;
   background-image: url(img/tools/glass-grey.svg);
 }
-.ventu-search.ventu-search-marker .ventu-search-icon {
-  height: 45px;
-  width: 28px;
-  margin: 1px 12px 0 4px;
-  background-image: url(img/tools/marker.svg);
-}
 .ventu-search input {
   width: calc(100% - 50px);
   height: 40px;
@@ -32,6 +26,18 @@
   float: left;
   margin-top: 5px;
   outline: none;
+}
+.ventu-search.ventu-search-marker {
+  background: transparent;
+}
+.ventu-search.ventu-search-marker .ventu-search-icon {
+  height: 45px;
+  width: 28px;
+  margin: 1px 12px 0 4px;
+  background-image: url(img/tools/marker.svg);
+}
+.ventu-search.ventu-search-marker input {
+  color: #fff;
 }
 .ventu-search .ventu-search-chosen {
   position: absolute;

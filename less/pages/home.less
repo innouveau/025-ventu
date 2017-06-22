@@ -87,6 +87,17 @@ body.ventu-home {
         padding-left: 20px;
         padding-right: 20px;
 
+        h3 {
+            color: #fff;
+            display: inline-block;
+            font-family: ProximaNova;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 80px 4px 4px 0;
+            padding: 4px 6px 4px 0;
+            text-align: center;
+        }
+
         > .ventu-search {
             display: block;
         }
@@ -102,6 +113,16 @@ body.ventu-home {
 
     #ventu-dialog-entry {
         padding-top: 40px;
+    }
+}
+
+@media (max-height: 480px) {
+
+    #ventu-dialog-entry {
+
+        h3 {
+            display: none!important;
+        }
     }
 }
 

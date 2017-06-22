@@ -162,6 +162,16 @@ body.ventu-home section {
     padding-left: 20px;
     padding-right: 20px;
   }
+  #ventu-dialog-entry h3 {
+    color: #fff;
+    display: inline-block;
+    font-family: ProximaNova;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 80px 4px 4px 0;
+    padding: 4px 6px 4px 0;
+    text-align: center;
+  }
   #ventu-dialog-entry > .ventu-search {
     display: block;
   }
@@ -172,6 +182,11 @@ body.ventu-home section {
   }
   #ventu-dialog-entry {
     padding-top: 40px;
+  }
+}
+@media (max-height: 480px) {
+  #ventu-dialog-entry h3 {
+    display: none!important;
   }
 }
 section.detail-text .detail-text-short {
@@ -339,14 +354,15 @@ nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
   transition: all 0.2s ease;
   opacity: 1;
 }
-.ventu-inspiration:hover {
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
-  -ms-transform: scale(1.02);
-  -webkit-transform: scale(1.02);
-  transform: scale(1.02);
-  opacity: 0.9;
+.ventu-inspiration::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
 }
-.ventu-inspiration:after {
+.ventu-inspiration::after {
   position: absolute;
   width: 70px;
   height: 54px;
@@ -355,6 +371,9 @@ nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
   z-index: 1;
   left: calc(50% - 35px);
   top: 30%;
+}
+.ventu-inspiration:hover::before {
+  background: rgba(3, 37, 107, 0.8);
 }
 .ventu-inspiration .ventu-inspiration-text {
   position: absolute;
@@ -2541,12 +2560,6 @@ section.section--small-padding .divider {
   margin: 11px 10px;
   background-image: url(img/tools/glass-grey.svg);
 }
-.ventu-search.ventu-search-marker .ventu-search-icon {
-  height: 45px;
-  width: 28px;
-  margin: 1px 12px 0 4px;
-  background-image: url(img/tools/marker.svg);
-}
 .ventu-search input {
   width: calc(100% - 50px);
   height: 40px;
@@ -2557,6 +2570,18 @@ section.section--small-padding .divider {
   float: left;
   margin-top: 5px;
   outline: none;
+}
+.ventu-search.ventu-search-marker {
+  background: transparent;
+}
+.ventu-search.ventu-search-marker .ventu-search-icon {
+  height: 45px;
+  width: 28px;
+  margin: 1px 12px 0 4px;
+  background-image: url(img/tools/marker.svg);
+}
+.ventu-search.ventu-search-marker input {
+  color: #fff;
 }
 .ventu-search .ventu-search-chosen {
   position: absolute;

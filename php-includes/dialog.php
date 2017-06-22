@@ -2,14 +2,16 @@
     <div class="section-color-fill"></div>
     <div class="section-header">
         <h1>
-            Samen vinden,<br>
-            doe je met Ventu
+            Het meeste aanbod kantoren, bedrijfsruimten en winkels
         </h1>
         <h2>Vindt u op Ventu</h2>
     </div>
     <div class="ventu-dialog"></div>
 
-    <div class="ventu-search"></div>
+    <h3 class="visible-xs">
+       Wij zijn op zoek in de omgeving van...
+    </h3>
+    <div class="ventu-search ventu-search-marker visible-xs"></div>
 
     <div class="ventu-continue">
         <div class="ventu-continue-button"></div>
