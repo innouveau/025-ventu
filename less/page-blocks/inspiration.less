@@ -14,15 +14,18 @@
     transition: all 0.2s ease;
     opacity: 1;
 
-    &:hover {
-        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
-        -ms-transform: scale(1.02);
-        -webkit-transform: scale(1.02);
-        transform: scale(1.02);
-        opacity: 0.9;
+
+
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
     }
 
-    &:after {
+    &::after {
         position: absolute;
         width: 70px;
         height: 54px;
@@ -31,6 +34,13 @@
         z-index: 1;
         left: ~'calc(50% - 35px)';
         top: 30%;
+    }
+
+    &:hover {
+
+        &::before {
+            background: rgba(3, 37, 107, 0.8);
+        }
     }
 
     .ventu-inspiration-text {
