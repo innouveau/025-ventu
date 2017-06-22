@@ -238,6 +238,8 @@ nav.navbar-default .navbar-header .navbar-toggle .icon-bar {
 }
 nav.navbar-default #navbar {
   height: 100%;
+  background: #fff;
+  padding: 0;
 }
 nav.navbar-default #navbar ul {
   height: 100%;
@@ -300,9 +302,16 @@ nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
     background: #00e5a9 !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   }
+  nav.navbar-default #navbar {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  }
   nav.navbar-default #navbar ul li {
     background: transparent;
     border-left: none;
+    border-bottom: 1px solid #ededec;
+  }
+  nav.navbar-default #navbar ul li:last-child {
+    border-bottom: 0;
   }
   nav.navbar-default #navbar ul:hover {
     background: transparent;

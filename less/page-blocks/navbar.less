@@ -38,6 +38,8 @@ nav.navbar-default {
 
     #navbar {
         height: 100%;
+        background: #fff;
+        padding: 0;
 
         ul {
             height: 100%;
@@ -121,12 +123,18 @@ nav.navbar-default {
         }
 
         #navbar {
+            box-shadow: @ventu-box-shadow-3;
 
             ul {
 
                 li {
                     background: transparent;
                     border-left: none;
+                    border-bottom: 1px solid @ventu-main-grey-light;
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
                 }
 
                 &:hover {
