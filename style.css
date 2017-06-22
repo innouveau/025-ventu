@@ -1169,6 +1169,9 @@ body.ventu-application #ventu-filters {
   height: calc(100% - 121px);
   overflow: auto;
 }
+#ventu-filters #ventu-filter-content #ventu-filter-header-section .ventu-popup-close {
+  display: none;
+}
 #ventu-filters #ventu-filter-tools {
   height: 121px;
   border-top: 1px solid #ededec;
@@ -1354,11 +1357,12 @@ body.ventu-application #ventu-filters {
   border-bottom: 0;
 }
 @media (max-width: 767px) {
-  #ventu-filter-header-section {
+  #ventu-filters #ventu-filter-content #ventu-filter-header-section {
     padding-top: 60px;
     position: relative;
   }
-  #ventu-filter-header-section .ventu-popup-close {
+  #ventu-filters #ventu-filter-content #ventu-filter-header-section .ventu-popup-close {
+    display: block;
     background-image: url(img/tools/close-grey.svg);
   }
 }
