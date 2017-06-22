@@ -13,7 +13,7 @@ function initialiseModules() {
 
     var screen = whatScreen();
     $('.ventu-dialog').each(function() {
-        if (screen > 2) {
+        if (screen > 0) {
             new Dialog($(this));
         }
     });
