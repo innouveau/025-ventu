@@ -50,8 +50,6 @@ nav.navbar-default #navbar ul li a {
   transition: all 0.2s ease;
   color: #03256b;
   display: block;
-  height: 100%;
-  font-family: 'ProximaNova';
 }
 nav.navbar-default #navbar ul li a.ventu-nav-icon-button {
   height: 60px;
