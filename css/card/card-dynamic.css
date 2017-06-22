@@ -73,3 +73,20 @@
     height: 166px;
   }
 }
+@media (max-height: 480px) {
+  .ventu-card.ventu-card--dynamic {
+    height: 320px;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-image {
+    height: 120px;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-text {
+    height: 150px;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-text .ventu-card-header h3 {
+    margin: 0;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-text .ventu-features {
+    padding-top: 0;
+  }
+}

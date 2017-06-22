@@ -60,3 +60,8 @@ body.ventu-application #ventu-filters {
     top: 30px;
   }
 }
+@media (max-height: 480px) {
+  body.ventu-application #ventu-application-container #ventu-stack {
+    top: 10px;
+  }
+}

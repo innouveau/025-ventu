@@ -1123,6 +1123,11 @@ body.ventu-application #ventu-filters {
     top: 30px;
   }
 }
+@media (max-height: 480px) {
+  body.ventu-application #ventu-application-container #ventu-stack {
+    top: 10px;
+  }
+}
 #ventu-filters #ventu-filter-content {
   height: calc(100% - 121px);
   overflow: auto;
@@ -2098,7 +2103,7 @@ img.projectCarousel {
 .ventu-slide-panel.ventu-slide-panel--inactive {
   left: -290px;
 }
-.ventu-slide-panel.ventu-slide-panel--inactive .ventu-filter-label {
+.ventu-slide-panel.ventu-slide-panel--inactive .ventu-slide-panel-label {
   background-image: url(img/tools/label-arrow-right.svg);
 }
 .ventu-slide-panel .ventu-slide-panel-content {
@@ -2973,7 +2978,8 @@ section.section--small-padding .divider {
 .ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label {
   display: inline-block;
   vertical-align: top;
-  padding-top: 16px;
+  padding-top: 18px;
+  color: #17141f;
 }
 .ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label .ventu-card-button-label-word {
   display: inline-block;
@@ -3066,6 +3072,23 @@ section.section--small-padding .divider {
   }
   .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-text {
     height: 166px;
+  }
+}
+@media (max-height: 480px) {
+  .ventu-card.ventu-card--dynamic {
+    height: 320px;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-image {
+    height: 120px;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-text {
+    height: 150px;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-text .ventu-card-header h3 {
+    margin: 0;
+  }
+  .ventu-card.ventu-card--dynamic .ventu-card-front .ventu-card-text .ventu-features {
+    padding-top: 0;
   }
 }
 .ventu-card.ventu-card--grid {

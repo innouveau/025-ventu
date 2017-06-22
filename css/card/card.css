@@ -84,7 +84,8 @@
 .ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label {
   display: inline-block;
   vertical-align: top;
-  padding-top: 16px;
+  padding-top: 18px;
+  color: #17141f;
 }
 .ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label .ventu-card-button-label-word {
   display: inline-block;

@@ -24,7 +24,7 @@
 .ventu-slide-panel.ventu-slide-panel--inactive {
   left: -290px;
 }
-.ventu-slide-panel.ventu-slide-panel--inactive .ventu-filter-label {
+.ventu-slide-panel.ventu-slide-panel--inactive .ventu-slide-panel-label {
   background-image: url(img/tools/label-arrow-right.svg);
 }
 .ventu-slide-panel .ventu-slide-panel-content {
