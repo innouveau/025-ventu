@@ -1,7 +1,7 @@
 .ventu-hangout-reaction-balloon {
   float: right;
   margin: 12px 20px 0 0;
-  background: #ff8d00;
+  background: #FE8A1A;
   height: 25px;
   border-radius: 12px;
   color: #fff;
@@ -9,6 +9,9 @@
   cursor: pointer;
   text-decoration: underline;
   position: relative;
+}
+.ventu-hangout-reaction-balloon:hover {
+  background: #D87800;
 }
 .ventu-hangout-reaction-balloon:after {
   position: absolute;

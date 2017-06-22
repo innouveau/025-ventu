@@ -1079,7 +1079,7 @@ section.proximity .ventu-card .button {
 .ventu-hangout-reaction-balloon {
   float: right;
   margin: 12px 20px 0 0;
-  background: #ff8d00;
+  background: #FE8A1A;
   height: 25px;
   border-radius: 12px;
   color: #fff;
@@ -1087,6 +1087,9 @@ section.proximity .ventu-card .button {
   cursor: pointer;
   text-decoration: underline;
   position: relative;
+}
+.ventu-hangout-reaction-balloon:hover {
+  background: #D87800;
 }
 .ventu-hangout-reaction-balloon:after {
   position: absolute;
@@ -1938,7 +1941,7 @@ form.form-change-account {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #ff8d00;
+  background-color: #FE8A1A;
   display: inline-block;
   background-image: url(img/tools/continue.svg);
   background-size: 100% 100%;
@@ -2133,7 +2136,7 @@ img.projectCarousel {
   position: absolute;
   left: 100%;
   top: 116px;
-  background: #ff8d00;
+  background-color: #FE8A1A;
   color: #fff;
   padding: 20px 10px;
   width: 22px;
@@ -2143,6 +2146,9 @@ img.projectCarousel {
   background-image: url(img/tools/label-arrow-left.svg);
   background-position: 50% 50%;
   background-repeat: no-repeat;
+}
+.ventu-slide-panel .ventu-slide-panel-label:hover {
+  background-color: #D87800;
 }
 .ventu-slide-panel.ventu-slide-panel--inactive {
   left: -290px;
