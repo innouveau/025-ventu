@@ -1856,19 +1856,15 @@ form.form-change-account {
   padding: 12px 20px;
   border: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0s ease;
   color: #fff;
   display: inline-block;
-}
-.btn-sm {
-  padding: 5px 10px;
-  font-size: 12px;
-  line-height: 1.5;
-  height: 26px;
-}
-.btn.orange {
   background: #FE8A1A;
   box-shadow: 1px 1px 0 #E38625;
+}
+.btn:hover {
+  background: #D87800;
+  color: #fff;
 }
 .btn.btn-big {
   padding: 8px 16px;
@@ -1876,33 +1872,11 @@ form.form-change-account {
   display: inline-block;
   vertical-align: top;
 }
-.btn.ventu-green:hover {
-  background: #03EDAA;
-}
-.btn-with-icon {
-  padding: 4px 12px 4px 6px;
-  border: 0;
-  background: transparent;
-  color: #fff;
-}
-.btn-with-icon.btn-big span {
-  display: inline-block;
-  vertical-align: top;
-  padding-top: 9px;
-}
-.btn-with-icon .ventu-icon {
-  padding-top: 0;
-  color: inherit;
-}
-.btn-with-icon:hover {
-  border-radius: 0;
-}
-.ventu-green {
-  background: #16E5A9;
-}
-.ventu-white {
-  background: #fff;
-  color: #1F1F1F!important;
+.btn.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  height: 26px;
 }
 .ventu-continue {
   position: absolute!important;
