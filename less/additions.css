@@ -1,0 +1,353 @@
+﻿
+#ventu-inspiration a:hover .ventu-inspiration {
+    box-shadow: 0 10px 30px 0 rgba(58, 101, 192, 0.8);
+}
+
+#ventu-direct-links {
+    padding: 80px 65px;
+}
+
+#ventu-direct-links a {
+    display: block;
+}
+
+.hangout-list-entry {
+    height: auto;
+}
+
+img.gravatar {
+    border-radius: 20px;
+    width: 40px;
+    margin-left: 10px;
+}
+
+img.gravatar.big {
+    border-radius: 50px;
+    width: 100px;
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+
+nav.navbar-default #navbar ul li a.gravatar {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.ventu-sign-in-page a.button-with-icon div {
+    width: 31px;
+    height: 31px;
+    border-radius: 15px;
+    float: left;
+    margin-right: 15px;
+}
+
+.ventu-sign-in-page a.button-with-icon div.icon-love {
+    background-color: #2ECC71;
+}
+
+.ventu-sign-in-page a.button-with-icon div.icon-hate {
+    background-color: #DF0040;
+}
+
+.ventu-sign-in-page a.button-with-icon div.icon-share {
+    background-color: #00A2FF;
+}
+
+.ventu-sign-in-page a.button-with-icon div.icon-group {
+    background-color: #8400c6;
+}
+
+.ventu-sign-in-page a.button-with-icon span {
+    padding-top: 5px;
+    display: block;
+}
+
+.ventu-hangout-list-entry .ventu-hangout-list-entry-title .ventu-hangout-list-entry-title-icon.ventu-hangout-list-entry-title-icon-share {
+  background-color: #00A2FF;
+  background-image: url(img/icons/buttons/share.svg);
+}
+
+.ventu-icon.ventu-icon--add {
+  background-color: #00A2FF;
+  color: #fff;
+  background-image: url(img/icons/buttons/share.svg);
+}
+.ventu-icon.ventu-icon--love {
+  background-color: #2ECC71;
+  color: #fff;
+  background-image: url(img/icons/buttons/love.svg);
+}
+.ventu-icon.ventu-icon--hate {
+  background-color: #DF0040;
+  color: #fff;
+  background-image: url(img/icons/buttons/hate.svg);
+}
+.ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container {
+  width: calc(99% / 3);
+}
+.ventu-sign-in-page .lists .row {
+    margin-bottom: 10px;
+}
+
+form.form-change-account {
+    margin-bottom: 60px;
+}
+
+.ventu-search-open {
+    background-image: url(img/tools/glass-grey.svg)
+}
+.element-hover {
+   background-color: #f5f5f5 !important;   
+}
+
+.padding-32 {
+    padding: 32px 32px;
+}
+
+body.ventu-application #ventu-application-container #ventu-filters {
+    width: 315px;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    height: 26px;
+}
+
+#ventu-hangout-list {
+    padding: 60px 15px 0 15px;
+}
+
+#ventu-hangout-list-cards .ventu-card .ventu-card-image {
+    height: 180px;
+}
+
+#ventu-bottom-bar-love, #ventu-bottom-bar-hate {
+    cursor: pointer;
+}
+
+.popover {
+    background-color: #727272;
+}
+
+.popover.top>.arrow:after {
+    border-top-color: #727272;
+}
+
+.not-in-team ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.not-in-team a {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.social-media-icons {
+    list-style-type: none;  
+    padding-left: 0;  
+    font-size: 16px;
+    font-family: 'ProximaNova';
+}
+
+.social-media-icons a {
+    color: #ffffff;
+}
+
+.social-media-icons i {
+    font-size: 1.4em;
+    width: 28px;
+}
+
+.social-media-icons i.fa-facebook {
+    color: #3B5998;
+}
+
+.social-media-icons i.fa-linkedin {
+    color: #0077B5;
+}
+
+.social-media-icons i.fa-twitter {
+    color: #00ACED;
+}
+
+.social-media-icons i.fa-google-plus {
+    color: #DC4A38;
+}
+
+.social-media-icons i.fa-pinterest {
+    color: #CB2027;
+}
+
+.ventu-hangout-add-member.ventu-popup input {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.ventu-hangout-add-member.ventu-popup label.error, .error {
+    color: #c21e32;
+}
+
+.ventu-hangout-member {
+    height: 84px;
+}
+
+.ventu-hangout-add-member.ventu-popup #messages ul {
+    list-style-type: none;
+    margin-top: 20px;
+    padding-left: 0;
+}
+
+.ventu-card-shade {
+    width: 324px;
+}
+.externalMemberContainer{
+    margin-top:20px;
+}
+
+/* ventu teamstack feedback*/
+.ventu-team-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+}
+.ventu-team-overlay .ventu-popup {
+  width: 570px;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+  display: none;
+  top: 60px;
+  height: calc(100% - 60px);
+  background-color: #ededec;
+  overflow-x: auto;
+  height: calc(100% - 108px);
+}
+
+.ventu-team-overlay .ventu-popup-bottom{
+    position:fixed;
+    bottom: 0;
+    width: inherit;
+    background-color:white;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08);
+    border:solid 0.2px #ededec;
+    padding:5px;
+}
+.teamFeedback{
+    overflow: hidden;
+}
+.teamFeedback input{
+    margin: 0;
+    border: 0;
+    max-width: 100%;
+    padding-right:31px;
+}
+.teamFeedback a{
+    background-color: #727272;
+    border-radius: 20px;
+    width: 30px;
+    float:right;
+    margin-top:-34px;
+}
+
+.ventu-team-overlay .ventu-popup .ventu-popup-head {
+  padding: 30px;
+  border-bottom: 1px solid #ededec;
+  text-align: center;
+}
+
+.ventu-team-overlay .ventu-popup .ventu-popup-head h3 {
+  font-size: 25px;
+  margin: 0 0 20px 0;
+}
+.ventu-hangout-team-chat .ventu-popup-head{
+    padding: 0 !important;
+}
+.mainphoto {
+    width:100%;
+}
+.ventu-feedback-gravatar{
+    border-radius:20px;
+}
+.ventu-feedback-container{
+    padding: 20px;
+    font-size: 12px;
+}
+.ventu-member-name{
+    color: #03256b;
+    line-height: 1.43;
+    font-weight:bold;
+}
+.ventu-feedback-container-yours .ventu-member-name, .ventu-member-date{
+    text-align:right;
+}
+.ventu-feedback{
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px 11px;
+    margin-top:20px;
+}
+p.ventu-external-member{
+    color: white;
+    text-align:center;
+}
+.ventu-feedback-container-members .ventu-feedback{
+    margin-left: 40px;
+}
+.ventu-feedback-container-yours .ventu-feedback{
+    margin-right: 40px;
+}
+
+.ventu-feedback-container-yours .ventu-feedback-gravatar {
+    float:right;
+}
+.ventu-feedback-container-members .ventu-feedback-gravatar {
+    float:left;
+}
+.external-feedback{
+  background-color: #00a2ff;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3, h4 {
+        font-size: 16px;
+    }
+
+    body, .ventu-search input {
+        font-size: 14px;
+    }
+
+    #ventu-hangout-list-cards .ventu-card .ventu-card-image {
+        height: auto;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+
+}

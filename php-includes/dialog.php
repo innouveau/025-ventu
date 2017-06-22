@@ -5,6 +5,7 @@
             Samen vinden,<br>
             doe je met Ventu
         </h1>
+        <h2>Vindt u op Ventu</h2>
     </div>
     <div class="ventu-dialog"></div>
     <div class="ventu-continue">

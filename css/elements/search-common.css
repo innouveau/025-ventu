@@ -10,7 +10,7 @@
   top: 9px;
   width: 14px;
   height: 14px;
-  background-image: url(img/tools/glass.svg);
+  background-image: url(img/tools/glass-grey.svg);
   background-size: 100% 100%;
   content: '';
 }
@@ -22,4 +22,7 @@
   background: transparent;
   border: 0;
   padding: 4px;
+  color: #17141f;
+  font-family: ProximaNova;
+  font-weight: 300;
 }

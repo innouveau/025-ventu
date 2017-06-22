@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="assets/select2/select2.css">
 
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="less/additions.css">
 
 <!-- fonts -->
 <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,700" rel="stylesheet">

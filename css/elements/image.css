@@ -1,5 +1,5 @@
 .aspect16by9 {
-  background-color: #000;
+  background-color: #17141f;
   display: block;
   height: auto;
   overflow: hidden;
@@ -15,4 +15,5 @@
   position: absolute;
   right: 0;
   top: 0;
+  width: 100%;
 }

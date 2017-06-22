@@ -105,7 +105,8 @@ body.ventu-home section {
   background-image: url('img/home/rotterdam.jpg');
   position: relative;
 }
-#ventu-dialog-entry h1 {
+#ventu-dialog-entry h1,
+#ventu-dialog-entry h2 {
   color: #fff;
 }
 #ventu-chat-entry {
@@ -314,8 +315,22 @@ nav.navbar-default #navbar ul li a.ventu-avatar .ventu-avatar-label {
   height: 280px;
   background-size: cover;
   position: relative;
-  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.09);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
+  display: block;
+  width: 100%;
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+.ventu-inspiration:hover {
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  -ms-transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+  opacity: 0.9;
 }
 .ventu-inspiration:after {
   position: absolute;
@@ -2101,7 +2116,7 @@ img.projectCarousel {
   margin-bottom: 20px;
 }
 .aspect16by9 {
-  background-color: #000;
+  background-color: #17141f;
   display: block;
   height: auto;
   overflow: hidden;
@@ -2117,6 +2132,7 @@ img.projectCarousel {
   position: absolute;
   right: 0;
   top: 0;
+  width: 100%;
 }
 .ventu-guide {
   display: none;
@@ -2184,13 +2200,38 @@ img.projectCarousel {
   border-right: 20px solid transparent;
   border-top: 32px solid #FFDE00;
 }
+input::placeholder {
+  color: inherit;
+}
+.ventu-custom-background {
+  min-height: 346.5px;
+  padding: 0;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+}
+.ventu-custom-background::before {
+  width: 100%;
+  min-height: 346.5px;
+  background-color: rgba(3, 37, 107, 0.8);
+}
+@media (max-width: 767px) {
+  .ventu-custom-background {
+    min-height: 246.5px;
+  }
+  .ventu-custom-background::before {
+    min-height: 246.5px;
+  }
+}
 #breadcrumb {
   margin-top: 60px;
   border-bottom: 0;
 }
 #breadcrumb h1 {
   font-size: 30px;
-  line-height: 0.67;
   color: #ffffff;
 }
 #breadcrumb .breadcrumb {
@@ -2860,6 +2901,11 @@ section.section--small-padding .divider {
   background-size: cover;
   background-position: center center;
   position: relative;
+}
+.ventu-card .ventu-card-image .ventu-card-broker-logo {
+  position: absolute;
+  max-height: 40px;
+  bottom: 0;
 }
 .ventu-card .ventu-card-text {
   width: 100%;

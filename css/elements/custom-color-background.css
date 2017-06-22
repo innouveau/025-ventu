@@ -1,0 +1,23 @@
+.ventu-custom-background {
+  min-height: 346.5px;
+  padding: 0;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+}
+.ventu-custom-background::before {
+  width: 100%;
+  min-height: 346.5px;
+  background-color: rgba(3, 37, 107, 0.8);
+}
+@media (max-width: 767px) {
+  .ventu-custom-background {
+    min-height: 246.5px;
+  }
+  .ventu-custom-background::before {
+    min-height: 246.5px;
+  }
+}

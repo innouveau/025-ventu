@@ -5,7 +5,8 @@ body.ventu-home section {
   background-image: url('img/home/rotterdam.jpg');
   position: relative;
 }
-#ventu-dialog-entry h1 {
+#ventu-dialog-entry h1,
+#ventu-dialog-entry h2 {
   color: #fff;
 }
 #ventu-chat-entry {
