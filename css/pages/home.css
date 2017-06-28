@@ -20,6 +20,12 @@ body.ventu-home section {
   position: relative;
   height: 400px;
 }
+#ventu-chat-entry .ventu-chat-balloon-container {
+  width: 200px;
+  z-index: 1;
+  position: absolute;
+  top: 40px;
+}
 #ventu-search-entry {
   background-image: url('img/home/skyline.png');
   background-size: contain!important;

@@ -1,0 +1,95 @@
+.ventu-popup.ventu-popup--hangout-chat {
+  background: #ededec;
+  width: 570px;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body {
+  height: calc(100% - 56px);
+  overflow: auto;
+  background: #ededec;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-hangout-chat-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container {
+  clear: both;
+  padding: 20px 0;
+  font-size: 14px;
+  position: relative;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container:last-child {
+  padding-bottom: 40px;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-hangout-member-avatar {
+  position: absolute;
+  top: 32px;
+  left: 24px;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-chat-balloon-container {
+  width: calc(100% - 88px);
+  margin-top: 36px;
+  margin-left: 64px;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-chat-balloon-container .ventu-chat-balloon .ventu-chat-balloon-middle .ventu-member-name {
+  margin-top: 0;
+  color: #03256b;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-chat-balloon-container .ventu-chat-balloon .ventu-chat-balloon-middle .ventu-member-feedback {
+  text-align: left;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-chat-balloon-container .ventu-chat-balloon .ventu-chat-balloon-middle .ventu-member-date {
+  margin-bottom: 0;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container.ventu-feedback-container-yours .ventu-hangout-member-avatar {
+  right: 24px;
+  left: auto;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container.ventu-feedback-container-yours .ventu-chat-balloon-container {
+  margin-right: 64px;
+  margin-left: 24px;
+  text-align: right;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-hangout-chat-input {
+  position: fixed;
+  bottom: 0;
+  width: inherit;
+  background-color: #fff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08);
+  border: solid 0.2px #ededec;
+  padding: 12px;
+  height: 58px;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-hangout-chat-input form {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-hangout-chat-input form input {
+  border: 0;
+  width: calc(100% - 32px);
+  height: 100%;
+  margin: 0;
+  display: inline-block;
+  max-width: 100%;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-hangout-chat-input form a#btn-add-stack-feedback {
+  float: right;
+  text-decoration: none;
+  width: 32px;
+  height: 32px;
+  background-size: 20px 20px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  background-color: #727272;
+  background-image: url(img/icons/contact/react-white.svg);
+  cursor: pointer;
+}
+p.ventu-external-member {
+  color: white;
+  text-align: center;
+}
+.external-feedback {
+  background-color: #00a2ff;
+}

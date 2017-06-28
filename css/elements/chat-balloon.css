@@ -1,76 +1,66 @@
 .ventu-chat-balloon-container {
-  position: absolute;
-  top: 40px;
-  z-index: 1;
-  width: 200px;
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right {
-  right: 68px;
-  text-align: right;
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon {
-  float: right;
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-top {
-  background-image: url(img/chat/balloon/balloon-right--top.png);
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-top:before {
-  background-image: url(img/chat/balloon/balloon-right--top-left.png);
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-top:after {
-  background-image: url(img/chat/balloon/balloon-right--top-right.png);
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-middle {
-  padding-right: 8px;
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-middle:before {
-  background-image: url(img/chat/balloon/balloon-right--left.png);
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-middle:after {
-  background-image: url(img/chat/balloon/balloon-right--right.png);
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-bottom {
-  background-image: url(img/chat/balloon/balloon-right--bottom.png);
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-bottom:before {
-  background-image: url(img/chat/balloon/balloon-right--bottom-left.png);
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-right .ventu-chat-balloon-bottom:after {
-  background-image: url(img/chat/balloon/balloon-right--bottom-right.png);
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-left {
+  display: block;
   left: 68px;
   text-align: left;
 }
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon {
-  float: left;
-}
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-top {
+.ventu-chat-balloon-container .ventu-chat-balloon-top {
   background-image: url(img/chat/balloon/balloon-left--top.png);
 }
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-top:before {
+.ventu-chat-balloon-container .ventu-chat-balloon-top:before {
   background-image: url(img/chat/balloon/balloon-left--top-left.png);
 }
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-top:after {
+.ventu-chat-balloon-container .ventu-chat-balloon-top:after {
   background-image: url(img/chat/balloon/balloon-left--top-right.png);
 }
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-middle {
+.ventu-chat-balloon-container .ventu-chat-balloon-middle {
   padding-left: 8px;
 }
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-middle:before {
+.ventu-chat-balloon-container .ventu-chat-balloon-middle:before {
   background-image: url(img/chat/balloon/balloon-left--left.png);
 }
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-middle:after {
+.ventu-chat-balloon-container .ventu-chat-balloon-middle:after {
   background-image: url(img/chat/balloon/balloon-left--right.png);
 }
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-bottom {
+.ventu-chat-balloon-container .ventu-chat-balloon-bottom {
   background-image: url(img/chat/balloon/balloon-left--bottom.png);
 }
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-bottom:before {
+.ventu-chat-balloon-container .ventu-chat-balloon-bottom:before {
   background-image: url(img/chat/balloon/balloon-left--bottom-left.png);
 }
-.ventu-chat-balloon-container.ventu-chat-balloon-left .ventu-chat-balloon-bottom:after {
+.ventu-chat-balloon-container .ventu-chat-balloon-bottom:after {
   background-image: url(img/chat/balloon/balloon-left--bottom-right.png);
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container {
+  right: 68px;
+  left: auto;
+  text-align: right;
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container .ventu-chat-balloon-top {
+  background-image: url(img/chat/balloon/balloon-right--top.png);
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container .ventu-chat-balloon-top:before {
+  background-image: url(img/chat/balloon/balloon-right--top-left.png);
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container .ventu-chat-balloon-top:after {
+  background-image: url(img/chat/balloon/balloon-right--top-right.png);
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container .ventu-chat-balloon-middle {
+  padding-right: 8px;
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container .ventu-chat-balloon-middle:before {
+  background-image: url(img/chat/balloon/balloon-right--left.png);
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container .ventu-chat-balloon-middle:after {
+  background-image: url(img/chat/balloon/balloon-right--right.png);
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container .ventu-chat-balloon-bottom {
+  background-image: url(img/chat/balloon/balloon-right--bottom.png);
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container .ventu-chat-balloon-bottom:before {
+  background-image: url(img/chat/balloon/balloon-right--bottom-left.png);
+}
+.ventu-feedback-container-yours .ventu-chat-balloon-container .ventu-chat-balloon-bottom:after {
+  background-image: url(img/chat/balloon/balloon-right--bottom-right.png);
 }
 .ventu-chat-balloon {
   display: inline-block;
