@@ -79,20 +79,7 @@
   height: 50px;
   padding: 9px;
   background: transparent;
-  display: inline-block;
-}
-.ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label {
-  display: inline-block;
-  vertical-align: top;
-  padding-top: 18px;
-  color: #17141f;
-}
-.ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label .ventu-card-button-label-word {
-  display: inline-block;
-  margin-right: 2px;
-}
-.ventu-card .ventu-card-buttons .ventu-card-button-container .ventu-card-button-label .ventu-card-button-label-number {
-  display: inline-block;
+  margin-right: 0;
 }
 .ventu-card .ventu-card-buttons .ventu-card-button-container:not(:last-child) {
   border-right: 1px solid #ededec;

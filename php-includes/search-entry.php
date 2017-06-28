@@ -66,17 +66,26 @@
                     <div class="ventu-card-button">
                         <div class="ventu-card-button-icon"></div>
                     </div>
+                    <div class="ventu-card-button-label">
+                        Interessant
+                    </div>
                 </div>
 
                 <div class="ventu-card-button-container ventu-card-button--hate">
                     <div class="ventu-card-button">
                         <div class="ventu-card-button-icon"></div>
                     </div>
+                    <div class="ventu-card-button-label">
+                        Niet Interessant
+                    </div>
                 </div>
 
                 <div class="ventu-card-button-container ventu-card-button--read-more">
                     <div class="ventu-card-button">
                         <div class="ventu-card-button-icon"></div>
+                    </div>
+                    <div class="ventu-card-button-label">
+                        Lees meer
                     </div>
                 </div>
             </div>
