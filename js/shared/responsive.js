@@ -8,9 +8,9 @@ function whatScreen(){
         return 0; // mobile
     } else if (width < 1024) {
         return 1; //table portrait
-    } else if (width < 1100) {
-        return 2; //tablet
-    } else if (width < 1400) {
+    } else if (width === 1024) {
+        return 2; // tablet landscape
+    }else if (width < 1400) {
         return 3; // laptop / small desktop
     } else {
         return 4; // big screens

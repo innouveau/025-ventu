@@ -1,4 +1,4 @@
-<section id="ventu-parties" class="clearfix section--with-shadow section--small-padding">
+<section id="ventu-parties" class="clearfix section--with-shadow section--small-padding ventu-affix">
     <h5>Contact</h5>
     <div class="divider"></div>
 

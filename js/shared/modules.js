@@ -12,11 +12,12 @@ function initialiseModules() {
     window.ventuApi = new VentuApi();
 
     var screen = whatScreen();
-    $('.ventu-dialog').each(function() {
-        if (screen > 0) {
+
+    if (screen > 0) {
+        $('.ventu-dialog').each(function () {
             new Dialog($(this));
-        }
-    });
+        });
+    }
 
     $('.ventu-search').each(function(){
         // we want the search module initialis by hand
@@ -34,6 +35,12 @@ function initialiseModules() {
             $(this).find('.ventu-search input').val('');
         }
     });
+
+    if (screen > 2) {
+        $('.ventu-affix').each(function () {
+            new Affix($(this));
+        });
+    }
 
     // $(window).resize(function(){
     //     setSearchOpeners();
