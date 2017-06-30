@@ -2623,6 +2623,11 @@ section.section--small-padding .divider {
     background-size: 30%;
   }
 }
+@media (max-width: 767px) {
+  #ventu-dialog-entry > .ventu-search {
+    z-index: 2;
+  }
+}
 .ventu-slider-header {
   height: 140px;
   text-align: center;

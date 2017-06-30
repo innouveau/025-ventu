@@ -124,3 +124,8 @@
     background-size: 30%;
   }
 }
+@media (max-width: 767px) {
+  #ventu-dialog-entry > .ventu-search {
+    z-index: 2;
+  }
+}
