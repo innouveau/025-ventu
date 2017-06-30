@@ -11,8 +11,14 @@ function initialiseModals() {
 }
 
 function openAddMemberPopup() {
-    $('.ventu-overlay').fadeIn(100, function(){
+    $('.ventu-member-overlay').fadeIn(100, function(){
         $('.ventu-hangout-add-member').fadeIn(100)
+    })
+}
+
+function openTeamChatPopup() {
+    $('.ventu-teamchat-overlay').fadeIn(100, function(){
+        $('.ventu-popup--hangout-chat').fadeIn(100)
     })
 }
 

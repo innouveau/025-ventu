@@ -112,6 +112,20 @@ VentuApi.prototype.setSearchFilter = function (query, autoSearchFilter) {
             searchFilter.Building = $(query.location).data('building') ? $(query.location).data('building') : null;
         }
 
+        if (query && query.location) {
+            searchFilter.City = $(query.location).data('city') ? $(query.location).data('city') : null;
+            searchFilter.Street = $(query.location).data('street') ? $(query.location).data('street') : null;
+            searchFilter.Postcode = $(query.location).data('postcode') ? $(query.location).data('postcode') : null;
+            searchFilter.Building = $(query.location).data('building') ? $(query.location).data('building') : null;
+        }
+        if (query.Search && query.Search !== null && query.Search.length > 0) {
+            searchFilter.Search = query.Search;
+        }
+        else
+        {
+            searchFilter.Search = null;
+        }
+
         if (query.area && query.area.length === 2) {
             searchFilter.MetrageRange = query.area[0] + ',' + query.area[1];
         }

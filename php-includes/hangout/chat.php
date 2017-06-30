@@ -1,5 +1,5 @@
-<div class="ventu-overlay" style="display: block;">
-    <div class="ventu-teamchat-popup-close ventu-popup-close"> </div>
+<div class="ventu-overlay ventu-teamchat-overlay" style="display: block;">
+    <div class="ventu-teamchat-popup-close ventu-popup-close" onclick="closePopups()"> </div>
 
 
     <div class="ventu-popup--hangout-chat ventu-popup" style="display: block;">

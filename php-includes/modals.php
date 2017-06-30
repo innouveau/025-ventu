@@ -1,4 +1,4 @@
-<div class="ventu-overlay">
+<div class="ventu-overlay ventu-member-overlay">
 
     <div class="ventu-popup-close" onclick="closePopups()">
 

@@ -159,7 +159,8 @@ Search.prototype.select = function(obj) {
         this.outerOutput.selectLocation(obj);
     } else {
         var query = {
-            location: obj.Location
+            location: obj.Location,
+            Search: this.status.originalSearchString
         };
 
         window.ventuApi.select(query);
