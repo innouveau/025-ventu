@@ -27,9 +27,6 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   right: 80px;
   bottom: 0;
 }
-body.ventu-application #ventu-filters {
-  width: 300px;
-}
 @media (max-width: 767px) {
   body.ventu-application #ventu-application-container #ventu-canvas {
     display: none;
