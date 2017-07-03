@@ -13,12 +13,13 @@ function Affix(element) {
 Affix.prototype.init = function() {
     var mainCol = $('.main-col'),
         buffer = 20,
+        graphHeight = 250,
         self = this;
     this.originalScroll = $(window).scrollTop();
     this.setOrigin();
 
     this.top = $('nav').outerHeight() + 20;
-    this.bottom = mainCol.offset().top + mainCol.outerHeight() + this.originalScroll - this.element.outerHeight() - buffer;
+    this.bottom = mainCol.offset().top + mainCol.outerHeight() + graphHeight + this.originalScroll - this.element.outerHeight() - buffer;
 
 
     $(window).scroll(function(){
