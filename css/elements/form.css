@@ -45,11 +45,6 @@ form input[type=submit].submit-inactive {
 form input[type=submit].submit-inactive:hover {
   color: #fff;
 }
-.ventu-form label,
-form label {
-  font-weight: 400;
-  font-size: 14px;
-}
 .ventu-form .ventu-input-label,
 form .ventu-input-label {
   margin-bottom: 12px;
@@ -80,4 +75,12 @@ form button[type=submit] {
 }
 form.form-change-account {
   margin-bottom: 60px;
+}
+label {
+  font-weight: 400;
+  font-size: 14px;
+}
+label.error {
+  font-weight: 300;
+  color: #c21e32;
 }

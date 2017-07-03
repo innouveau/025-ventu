@@ -2,7 +2,7 @@
     <h5>Contact</h5>
     <div class="divider"></div>
 
-    <div class="margin-left-20" itemscope="" itemtype="http://schema.org/RealEstateAgent">
+    <div itemscope="" itemtype="http://schema.org/RealEstateAgent">
         <div itemscope="" itemtype="http://schema.org/Organization" class="clearfix">
             <img itemprop="logo" class="broker-logo" src="img/temp_detail/1.png" alt="Logo CBRE">
 

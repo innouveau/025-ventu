@@ -47,11 +47,6 @@ form {
         }
     }
 
-    label {
-        font-weight: 400;
-        font-size: 14px;
-    }
-
     .ventu-input-label {
         margin-bottom: 12px;
     }
@@ -86,4 +81,15 @@ form {
 
 form.form-change-account {
     margin-bottom: 60px;
+}
+
+label {
+    font-weight: 400;
+    font-size: 14px;
+
+    &.error {
+        font-weight: 300;
+        color: @ventu-error;
+    }
+
 }

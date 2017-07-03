@@ -4,8 +4,8 @@
 #ventu-location .ventu-location-legend .ventu-location-legend-section {
   margin-bottom: 20px;
 }
-#ventu-location .ventu-location-legend .ventu-location-legend-section h55 {
-  margin-bottom: 10px;
+#ventu-location .ventu-location-legend .ventu-location-legend-section h4 {
+  margin: 20px 0 10px 0;
 }
 #ventu-location .ventu-location-legend .ventu-location-legend-section .switch-wrapper {
   margin-bottom: 6px;
@@ -21,4 +21,9 @@
 }
 #ventu-location .real-estate-mix {
   margin-top: 40px;
+}
+@media (min-width: 1200px) {
+  #ventu-location #map-postcode {
+    margin-top: 40px;
+  }
 }

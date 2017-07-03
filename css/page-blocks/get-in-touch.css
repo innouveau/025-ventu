@@ -1,0 +1,9 @@
+#ventu-get-in-touch input,
+#ventu-get-in-touch textarea {
+  border: solid 1px #ededec;
+  border-radius: 0;
+  box-shadow: none;
+}
+#ventu-get-in-touch button {
+  margin-top: 40px;
+}

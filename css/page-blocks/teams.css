@@ -1,0 +1,32 @@
+#ventu-teams {
+  margin-bottom: 20px;
+}
+#ventu-teams a.button-with-icon div {
+  width: 31px;
+  height: 31px;
+  border-radius: 15px;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+#ventu-teams a.button-with-icon div.icon-love {
+  background-color: #2ECC71;
+}
+#ventu-teams a.button-with-icon div.icon-hate {
+  background-color: #DF0040;
+}
+#ventu-teams a.button-with-icon div.icon-share {
+  background-color: #00A2FF;
+}
+#ventu-teams a.button-with-icon div.icon-follow-white {
+  background-color: #8400c6;
+}
+#ventu-teams a.button-with-icon span {
+  padding-top: 5px;
+  display: block;
+  color: #17141f;
+}
+#ventu-teams a.button-with-icon img {
+  width: 31px;
+  height: 31px;
+}

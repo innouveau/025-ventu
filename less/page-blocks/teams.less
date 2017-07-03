@@ -1,0 +1,45 @@
+@import '../mixins';
+
+
+#ventu-teams{
+    margin-bottom: 20px;
+
+    a.button-with-icon {
+
+        div {
+            width: 31px;
+            height: 31px;
+            border-radius: 15px;
+            float: left;
+            margin-right: 15px;
+            margin-bottom: 10px;
+
+            &.icon-love {
+                background-color: #2ECC71;
+            }
+
+            &.icon-hate {
+                background-color: #DF0040;
+            }
+
+            &.icon-share {
+                background-color: #00A2FF;
+            }
+
+            &.icon-follow-white {
+                background-color: #8400c6;
+            }
+        }
+
+        span {
+            padding-top: 5px;
+            display: block;
+            color: @ventu-black;
+        }
+
+        img {
+            width: 31px;
+            height: 31px;
+        }
+    }
+}

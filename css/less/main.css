@@ -10,11 +10,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.container {
+  width: 1280px;
+}
 @media (max-width: 1024px) {
   .container {
     width: 100%;
     overflow: hidden;
     padding: 0;
+  }
+}
+@media (max-width: 1024px) {
+  .main-col {
+    margin-bottom: 40px;
   }
 }
 @media (max-width: 767px) {
@@ -595,9 +603,6 @@ section.parties .divider {
     margin-bottom: 20px;
   }
 }
-#ventu-parties .broker-logo {
-  margin-bottom: 20px;
-}
 #ventu-parties .ventu-parties-contact-icon {
   padding-top: 11px;
 }
@@ -643,8 +648,8 @@ section.parties .divider {
 #ventu-location .ventu-location-legend .ventu-location-legend-section {
   margin-bottom: 20px;
 }
-#ventu-location .ventu-location-legend .ventu-location-legend-section h55 {
-  margin-bottom: 10px;
+#ventu-location .ventu-location-legend .ventu-location-legend-section h4 {
+  margin: 20px 0 10px 0;
 }
 #ventu-location .ventu-location-legend .ventu-location-legend-section .switch-wrapper {
   margin-bottom: 6px;
@@ -660,6 +665,11 @@ section.parties .divider {
 }
 #ventu-location .real-estate-mix {
   margin-top: 40px;
+}
+@media (min-width: 1200px) {
+  #ventu-location #map-postcode {
+    margin-top: 40px;
+  }
 }
 section.detail-text .detail-text-overflow {
   height: 80px;
@@ -680,6 +690,94 @@ section.proximity .ventu-card .button {
   padding-bottom: 32px;
   text-align: center;
   border-bottom: 1px solid #ededec;
+}
+.broker-logo {
+  margin-bottom: 20px;
+}
+#ventu-teams {
+  margin-bottom: 20px;
+}
+#ventu-teams a.button-with-icon div {
+  width: 31px;
+  height: 31px;
+  border-radius: 15px;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+#ventu-teams a.button-with-icon div.icon-love {
+  background-color: #2ECC71;
+}
+#ventu-teams a.button-with-icon div.icon-hate {
+  background-color: #DF0040;
+}
+#ventu-teams a.button-with-icon div.icon-share {
+  background-color: #00A2FF;
+}
+#ventu-teams a.button-with-icon div.icon-follow-white {
+  background-color: #8400c6;
+}
+#ventu-teams a.button-with-icon span {
+  padding-top: 5px;
+  display: block;
+  color: #17141f;
+}
+#ventu-teams a.button-with-icon img {
+  width: 31px;
+  height: 31px;
+}
+#ventu-get-in-touch input,
+#ventu-get-in-touch textarea {
+  border: solid 1px #ededec;
+  border-radius: 0;
+  box-shadow: none;
+}
+#ventu-get-in-touch button {
+  margin-top: 40px;
+}
+#ventu-news {
+  height: auto;
+  text-align: center;
+  padding: 50px 0;
+  position: relative;
+  z-index: 0;
+}
+#ventu-news .news-text {
+  margin: 0 auto;
+  max-width: 80%;
+  border: none !important;
+  padding: 0 !important;
+}
+#ventu-news .news-text .detail-text {
+  margin-bottom: 0;
+}
+#ventu-news .news-text .detail-text .detail-text-overflow {
+  background-image: none;
+}
+#ventu-news .news-text .detail-text .detail-text-short {
+  max-height: 62px;
+}
+#ventu-news::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  display: block;
+}
+#ventu-news .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+#ventu-news h2,
+#ventu-news h4,
+#ventu-news h5,
+#ventu-news p {
+  color: #fff;
+}
+#ventu-news .read-more {
+  color: #fff;
 }
 #ventu-hangout-content-section {
   padding-top: 30px;
@@ -1211,10 +1309,6 @@ p.ventu-external-member {
 .ventu-hangout-add-member.ventu-popup input {
   display: inline-block;
   margin-bottom: 10px;
-}
-.ventu-hangout-add-member.ventu-popup label.error,
-.ventu-hangout-add-member.ventu-popup .error {
-  color: #c21e32;
 }
 .ventu-hangout-add-member.ventu-popup #messages ul {
   list-style-type: none;
@@ -1982,11 +2076,6 @@ form input[type=submit].submit-inactive {
 form input[type=submit].submit-inactive:hover {
   color: #fff;
 }
-.ventu-form label,
-form label {
-  font-weight: 400;
-  font-size: 14px;
-}
 .ventu-form .ventu-input-label,
 form .ventu-input-label {
   margin-bottom: 12px;
@@ -2017,6 +2106,14 @@ form button[type=submit] {
 }
 form.form-change-account {
   margin-bottom: 60px;
+}
+label {
+  font-weight: 400;
+  font-size: 14px;
+}
+label.error {
+  font-weight: 300;
+  color: #c21e32;
 }
 .btn {
   border-radius: 20px;
@@ -2226,6 +2323,26 @@ img.projectCarousel {
   background-color: #00A2FF;
   color: #fff;
   background-image: url(img/icons/buttons/plus.svg);
+}
+.ventu-icon.ventu-icon--love {
+  background-color: #2ECC71;
+  color: #fff;
+  background-image: url(img/icons/buttons/love.svg);
+}
+.ventu-icon.ventu-icon--hate {
+  background-color: #DF0040;
+  color: #fff;
+  background-image: url(img/icons/buttons/hate.svg);
+}
+.ventu-icon.ventu-icon--read-more {
+  background-color: #FF8D00;
+  color: #fff;
+  background-image: url(img/icons/buttons/read-more-down.svg);
+}
+.ventu-icon.ventu-icon--share {
+  background-color: #00A2FF;
+  color: #fff;
+  background-image: url(img/icons/buttons/share.svg);
 }
 .ventu-filter-label {
   background: #00e5a9;
@@ -2460,6 +2577,38 @@ input::placeholder {
 .popover.top.popover--grey-dark > .arrow:after {
   border-top-color: #727272;
 }
+.read-more {
+  color: #727272;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+.read-more:after {
+  position: absolute;
+  right: -24px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  content: '';
+  background-color: #FF8D00;
+  background-image: url(img/icons/buttons/read-more-down.svg);
+  background-size: 100% 100%;
+}
+.read-more:hover {
+  text-decoration: underline;
+  color: #727272;
+}
+.detail-text .detail-text-short {
+  max-height: 300px;
+  overflow-y: hidden;
+}
+.detail-text .detail-text-overflow {
+  height: 80px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 32%, #ffffff);
+  margin-top: -80px;
+  position: relative;
+}
 #breadcrumb {
   margin-top: 60px;
   border-bottom: 0;
@@ -2490,6 +2639,11 @@ section {
   border-left: 1px solid #ededec;
   border-right: 1px solid #ededec;
   border-bottom: solid 0.5px #ededec;
+}
+section > h1:first-child,
+section > h2:first-child,
+section > h3:first-child {
+  margin: 0 0 20px 0;
 }
 section .section-color-fill {
   width: 100%;

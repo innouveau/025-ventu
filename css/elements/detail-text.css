@@ -1,0 +1,10 @@
+.detail-text .detail-text-short {
+  max-height: 300px;
+  overflow-y: hidden;
+}
+.detail-text .detail-text-overflow {
+  height: 80px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 32%, #ffffff);
+  margin-top: -80px;
+  position: relative;
+}
