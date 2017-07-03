@@ -16,6 +16,7 @@
 }
 #ventu-news .news-text .detail-text .detail-text-overflow {
   background-image: none;
+  margin-bottom: 20px;
 }
 #ventu-news .news-text .detail-text .detail-text-short {
   max-height: 62px;

@@ -747,6 +747,7 @@ section.proximity .ventu-card .button {
 }
 #ventu-news .news-text .detail-text .detail-text-overflow {
   background-image: none;
+  margin-bottom: 20px;
 }
 #ventu-news .news-text .detail-text .detail-text-short {
   max-height: 62px;
@@ -1178,7 +1179,7 @@ section.proximity .ventu-card .button {
 .ventu-hangout-member .ventu-hangout-member-button .ventu-tools-button {
   width: 100%;
   height: 100%;
-  padding: 25px;
+  padding: 30px 25px;
 }
 .ventu-hangout-reaction-balloon {
   float: right;
