@@ -1,22 +1,16 @@
-#ventu-location .ventu-location-legend {
-  margin-top: 40px;
-}
-#ventu-location .ventu-location-legend .ventu-location-legend-section {
-  margin-bottom: 20px;
-}
-#ventu-location .ventu-location-legend .ventu-location-legend-section h4 {
+#ventu-location h4 {
   margin: 20px 0 10px 0;
 }
-#ventu-location .ventu-location-legend .ventu-location-legend-section .switch-wrapper {
+#ventu-location .switch-wrapper {
   margin-bottom: 6px;
 }
-#ventu-location .ventu-location-legend .ventu-location-legend-section .switch-wrapper img {
+#ventu-location .switch-wrapper img {
   margin-right: 20px;
 }
-#ventu-location .ventu-location-legend .ventu-location-legend-section .legenda-wrapper {
+#ventu-location .legenda-wrapper {
   margin-bottom: 2px;
 }
-#ventu-location .ventu-location-legend .ventu-location-legend-section .legenda-wrapper img {
+#ventu-location .legenda-wrapper img {
   margin-right: 6px;
 }
 #ventu-location .real-estate-mix {
