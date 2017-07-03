@@ -26,6 +26,7 @@
   top: 57px;
   left: 80px;
   width: 420px;
+  position: absolute;
 }
 @media (max-width: 520px) {
   .ventu-communication-screen .ventu-man-container .ventu-man .ventu-chat-balloon-container {
