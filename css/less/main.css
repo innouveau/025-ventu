@@ -3467,6 +3467,7 @@ section.section--small-padding .divider {
   top: 0;
   left: auto;
   width: 500px;
+  pointer-events: none;
   height: 400px;
   transition: all .5s ease;
   background-image: url('img/card/shade.png');
