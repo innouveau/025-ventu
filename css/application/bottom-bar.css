@@ -6,6 +6,7 @@
 #ventu-bottom-bar #ventu-bottom-bar-counter {
   background: #ededec;
   padding: 13px 30px!important;
+  border-right: 1px solid #fff;
 }
 #ventu-bottom-bar #ventu-bottom-bar-counter #ventu-filter-button {
   display: none;
@@ -28,6 +29,15 @@
   height: 100%;
   content: '';
   z-index: 0;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub#ventu-bottom-bar-love,
+#ventu-bottom-bar .ventu-bottom-bar-sub#ventu-bottom-bar-hate {
+  text-decoration: none;
+  color: #17141f;
+}
+#ventu-bottom-bar .ventu-bottom-bar-sub#ventu-bottom-bar-love:hover,
+#ventu-bottom-bar .ventu-bottom-bar-sub#ventu-bottom-bar-hate:hover {
+  background: #ededec;
 }
 #ventu-bottom-bar .ventu-bottom-bar-sub#ventu-bottom-bar-hate .ventu-bottom-bar-sub-status {
   background: rgba(223, 0, 65, 0.5);

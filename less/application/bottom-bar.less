@@ -9,6 +9,7 @@
     #ventu-bottom-bar-counter {
         background: @ventu-main-grey-light;
         padding: 13px 30px!important;
+        border-right: 1px solid #fff;
 
         #ventu-filter-button {
             display: none;
@@ -34,6 +35,17 @@
             height: 100%;
             content: '';
             z-index: 0;
+        }
+
+        &#ventu-bottom-bar-love,
+        &#ventu-bottom-bar-hate {
+            text-decoration: none;
+            color: @ventu-black;
+
+            &:hover {
+
+                background: @ventu-main-grey-light;
+            }
         }
 
         &#ventu-bottom-bar-hate {
@@ -74,6 +86,7 @@
                     background-image: url(img/icons/buttons/hate.svg);
                 }
             }
+
 
             .ventu-bottom-bar-label-container {
                 width: 30px;

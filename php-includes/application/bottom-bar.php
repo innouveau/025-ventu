@@ -1,5 +1,5 @@
 <div id="ventu-bottom-bar">
-    <div id="ventu-bottom-bar-love" class="ventu-bottom-bar-sub">
+    <a href="/interesselijst" id="ventu-bottom-bar-love" class="ventu-bottom-bar-sub">
         <div class="ventu-bottom-bar-sub-status"></div>
         <div class="ventu-bottom-bar-sub-content">
             <div class="ventu-bottom-bar-icon ventu-bottom-bar-icon--love"></div>
@@ -17,9 +17,9 @@
                 objecten
             </div>
         </div>
-    </div>
+    </a>
 
-    <div id="ventu-bottom-bar-hate" class="ventu-bottom-bar-sub">
+    <a href="/prullenbak" id="ventu-bottom-bar-hate" class="ventu-bottom-bar-sub">
         <div class="ventu-bottom-bar-sub-status"></div>
         <div class="ventu-bottom-bar-sub-content">
             <div class="ventu-bottom-bar-icon ventu-bottom-bar-icon--hate"></div>
@@ -38,7 +38,7 @@
             </div>
 
         </div>
-    </div>
+    </a>
 
     <div id="ventu-bottom-bar-counter" class="ventu-bottom-bar-sub">
         <div id="ventu-filter-button" onclick="ventu.openFilter()"></div>
