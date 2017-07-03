@@ -1046,13 +1046,13 @@ section.proximity .ventu-card .button {
   background-image: url(img/icons/hangout/add-member-grey.svg);
 }
 .ventu-hangout-member {
-  height: 74px;
+  height: 84px;
   border-bottom: 1px solid #ededec;
 }
 .ventu-hangout-member .ventu-hangout-member-avatar {
   width: 74px;
   float: left;
-  padding: 17px;
+  padding: 22px 17px;
 }
 .ventu-hangout-member .ventu-hangout-member-avatar .ventu-avatar-image {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
@@ -1061,16 +1061,20 @@ section.proximity .ventu-card .button {
   float: left;
   width: calc(100% - 148px);
   font-size: 14px;
-  padding: 12px 20px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
-.ventu-hangout-member .ventu-hangout-member-details .ventu-hangout-member-details-email a {
+.ventu-hangout-member .ventu-hangout-member-details .ventu-hangout-member-details-wrapper .ventu-hangout-member-details-email a {
   color: #727272;
   text-decoration: none;
 }
-.ventu-hangout-member .ventu-hangout-member-details .ventu-hangout-member-details-email a:hover {
+.ventu-hangout-member .ventu-hangout-member-details .ventu-hangout-member-details-wrapper .ventu-hangout-member-details-email a:hover {
   text-decoration: underline;
 }
-.ventu-hangout-member .ventu-hangout-member-details .ventu-hangout-member-details-role {
+.ventu-hangout-member .ventu-hangout-member-details .ventu-hangout-member-details-wrapper .ventu-hangout-member-details-role {
   font-size: 12px;
   color: #03256b;
   font-weight: 700;
@@ -1205,6 +1209,14 @@ p.ventu-external-member {
 }
 .external-feedback {
   background-color: #00a2ff;
+}
+.ventu-hangout-add-member.ventu-popup input {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.ventu-hangout-add-member.ventu-popup label.error,
+.ventu-hangout-add-member.ventu-popup .error {
+  color: #c21e32;
 }
 body.ventu-application {
   position: relative;

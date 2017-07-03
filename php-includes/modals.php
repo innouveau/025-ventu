@@ -20,36 +20,16 @@
 
                 </div>
                 <div class="ventu-hangout-member-details">
-                    <div class="ventu-hangout-member-details-name">
-                        Liza Hopman
-                    </div>
-                    <div class="ventu-hangout-member-details-email">
-                        <a href="mailto:liza">liza@no-protocol.nl</a>
-                    </div>
-                    <div class="ventu-hangout-member-details-role">
-                        Beheerder
-                    </div>
-                </div>
-                <div class="ventu-hangout-member-button">
-                    <div class="ventu-tools-button ventu-tools-button--erase">
-                        <div class="ventu-tools-button-icon"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="ventu-hangout-member">
-                <div class="ventu-hangout-member-avatar">
-                    <div class="ventu-avatar-image" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>
-
-                </div>
-                <div class="ventu-hangout-member-details">
-                    <div class="ventu-hangout-member-details-name">
-                        Liza Hopman
-                    </div>
-                    <div class="ventu-hangout-member-details-email">
-                        <a href="mailto:liza">liza@no-protocol.nl</a>
-                    </div>
-                    <div class="ventu-hangout-member-details-role">
-                        Beheerder
+                    <div class="ventu-hangout-member-details-wrapper">
+                        <div class="ventu-hangout-member-details-name">
+                            Liza Hopman
+                        </div>
+                        <div class="ventu-hangout-member-details-email">
+                            <a href="mailto:liza">liza@no-protocol.nl</a>
+                        </div>
+                        <div class="ventu-hangout-member-details-role">
+                            Beheerder
+                        </div>
                     </div>
                 </div>
                 <div class="ventu-hangout-member-button">
@@ -64,14 +44,41 @@
 
                 </div>
                 <div class="ventu-hangout-member-details">
-                    <div class="ventu-hangout-member-details-name">
-                        Liza Hopman
+                    <div class="ventu-hangout-member-details-wrapper">
+                        <div class="ventu-hangout-member-details-name">
+                            Liza Hopman
+                        </div>
+                        <div class="ventu-hangout-member-details-email">
+                            <a href="mailto:liza">liza@no-protocol.nl</a>
+                        </div>
+                        <div class="ventu-hangout-member-details-role">
+                            Beheerder<br>
+                            Die over 2 regels valt
+                        </div>
                     </div>
-                    <div class="ventu-hangout-member-details-email">
-                        <a href="mailto:liza">liza@no-protocol.nl</a>
+                </div>
+                <div class="ventu-hangout-member-button">
+                    <div class="ventu-tools-button ventu-tools-button--erase">
+                        <div class="ventu-tools-button-icon"></div>
                     </div>
-                    <div class="ventu-hangout-member-details-role">
-                        Beheerder
+                </div>
+            </div>
+            <div class="ventu-hangout-member">
+                <div class="ventu-hangout-member-avatar">
+                    <div class="ventu-avatar-image" style="background-image:url(img/content/4c299dd05d3c6fd7208e18dbd7d824c4_400x400.jpeg)"></div>
+
+                </div>
+                <div class="ventu-hangout-member-details">
+                    <div class="ventu-hangout-member-details-wrapper">
+                        <div class="ventu-hangout-member-details-name">
+                            Liza Hopman
+                        </div>
+                        <div class="ventu-hangout-member-details-email">
+                            <a href="mailto:liza">liza@no-protocol.nl</a>
+                        </div>
+                        <div class="ventu-hangout-member-details-role">
+                            Beheerder
+                        </div>
                     </div>
                 </div>
                 <div class="ventu-hangout-member-button">

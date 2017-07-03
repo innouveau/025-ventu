@@ -62,14 +62,13 @@
 }
 
 .ventu-hangout-member {
-    height: 74px;
+    height: 84px;
     border-bottom:1px solid @ventu-main-grey-light;
-
 
     .ventu-hangout-member-avatar {
         width: 74px;
         float: left;
-        padding: 17px;
+        padding: 22px 17px;
 
         .ventu-avatar-image {
             box-shadow: @ventu-box-shadow-3;
@@ -80,25 +79,31 @@
         float: left;
         width: ~'calc(100% - 148px)';
         font-size: 14px;
-        padding: 12px 20px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
 
+        .ventu-hangout-member-details-wrapper {
 
-        .ventu-hangout-member-details-email {
+            .ventu-hangout-member-details-email {
 
-            a {
-                color: @ventu-main-grey-dark;
-                text-decoration: none;
+                a {
+                    color: @ventu-main-grey-dark;
+                    text-decoration: none;
 
-                &:hover {
-                    text-decoration: underline;
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
-        }
 
-        .ventu-hangout-member-details-role {
-            font-size: 12px;
-            color: @ventu-color-secundary;
-            font-weight: 700;
+            .ventu-hangout-member-details-role {
+                font-size: 12px;
+                color: @ventu-color-secundary;
+                font-weight: 700;
+            }
         }
 
     }

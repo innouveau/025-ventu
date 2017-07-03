@@ -1,0 +1,8 @@
+.ventu-hangout-add-member.ventu-popup input {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.ventu-hangout-add-member.ventu-popup label.error,
+.ventu-hangout-add-member.ventu-popup .error {
+  color: #c21e32;
+}

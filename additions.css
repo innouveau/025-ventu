@@ -1,54 +1,5 @@
 ﻿
 
-.social-media-icons {
-    list-style-type: none;  
-    padding-left: 0;  
-    font-size: 16px;
-    font-family: 'ProximaNova';
-}
-
-.social-media-icons a {
-    color: #ffffff;
-}
-
-.social-media-icons i {
-    font-size: 1.4em;
-    width: 28px;
-}
-
-.social-media-icons i.fa-facebook {
-    color: #3B5998;
-}
-
-.social-media-icons i.fa-linkedin {
-    color: #0077B5;
-}
-
-.social-media-icons i.fa-twitter {
-    color: #00ACED;
-}
-
-.social-media-icons i.fa-google-plus {
-    color: #DC4A38;
-}
-
-.social-media-icons i.fa-pinterest {
-    color: #CB2027;
-}
-
-.ventu-hangout-add-member.ventu-popup input {
-    display: inline-block;
-    margin-bottom: 10px;
-}
-
-.ventu-hangout-add-member.ventu-popup label.error, .error {
-    color: #c21e32;
-}
-
-.ventu-hangout-member {
-    height: 84px;
-}
-
 .ventu-hangout-add-member.ventu-popup #messages ul {
     list-style-type: none;
     margin-top: 20px;
