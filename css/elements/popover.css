@@ -22,12 +22,28 @@
   padding: 12px 20px;
   color: #17141f;
 }
+.popover .popover-content ul li a img {
+  margin-right: 10px;
+}
 .popover .popover-content ul li:last-child {
   border-bottom: 0;
 }
 .popover .popover-content ul li:hover {
   background: #fff;
 }
+.popover.popover--grey-dark .popover-content ul li {
+  background-color: #727272;
+  border-bottom: 0;
+}
+.popover.popover--grey-dark .popover-content ul li a {
+  color: #fff;
+}
+.popover.popover--grey-dark .popover-content ul li:hover a {
+  text-decoration: underline;
+}
 .popover.top > .arrow:after {
   border-top-color: #ededec;
+}
+.popover.top.popover--grey-dark > .arrow:after {
+  border-top-color: #727272;
 }

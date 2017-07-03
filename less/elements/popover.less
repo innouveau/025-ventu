@@ -24,6 +24,10 @@
                     text-decoration: none;
                     padding: 12px 20px;
                     color: @ventu-black;
+
+                    img {
+                        margin-right: 10px;
+                    }
                 }
 
                 &:last-child {
@@ -34,8 +38,33 @@
                     background: #fff;
                 }
             }
-
         }
+    }
+
+    &.popover--grey-dark {
+
+        .popover-content {
+
+            ul {
+
+                li {
+                    background-color: @ventu-main-grey-dark;
+                    border-bottom: 0;
+
+                    a {
+                        color: #fff;
+                    }
+
+                    &:hover {
+
+                        a {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     &.top {
@@ -44,6 +73,16 @@
 
             &:after {
                 border-top-color: @ventu-main-grey-light;
+            }
+        }
+
+        &.popover--grey-dark {
+
+            >.arrow {
+
+                &:after {
+                    border-top-color: @ventu-main-grey-dark;
+                }
             }
         }
     }

@@ -10,7 +10,7 @@
     <?php include('php-includes/standard-files.php'); ?>
 
     <link href="less/detail/project.css" rel="stylesheet">
-    <script src="js/home/main.js"></script>
+    <script src="js/detail/main.js"></script>
 
 
 
@@ -325,7 +325,7 @@ indruk van het woon en/of werkgebied.</p>
                     </div>
                     <div class="col-sm-6 col-lg-6">
                         <div class="btn-wrapper">
-                            <a href="javascript:void(0);"><i class="share"></i> Delen</a>
+                            <a id="shareButton" href="javascript:void(0);"><i class="share"></i> Delen</a>
                         </div>
                     </div>
                 </div>
