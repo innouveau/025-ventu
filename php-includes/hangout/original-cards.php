@@ -3,11 +3,6 @@
 <div class="row">
     <div class="col-lg-12">
 
-
-
-
-
-
         <div class="ventu-card ventu-card--grid ventu-card--float">
             <div class="ventu-card-image">
                 <div class="aspect16by9">
@@ -48,7 +43,7 @@
                         Niet interessant
                     </div>
                 </div>
-                <div class="ventu-card-button-container ventu-card-button--share">
+                <a href="javascript:void(0);" class="ventu-card-button-container ventu-card-button--share">
                     <div class="ventu-card-button">
                         <div class="ventu-card-button-icon"></div>
                     </div>
@@ -59,7 +54,7 @@
 
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 

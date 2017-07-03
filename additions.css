@@ -1,20 +1,4 @@
-﻿.popover {
-    background-color: #727272;
-}
-
-.popover.top>.arrow:after {
-    border-top-color: #727272;
-}
-
-.not-in-team ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.not-in-team a {
-    color: #ffffff;
-    cursor: pointer;
-}
+﻿
 
 .social-media-icons {
     list-style-type: none;  

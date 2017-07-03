@@ -2382,6 +2382,39 @@ input::placeholder {
     min-height: 246.5px;
   }
 }
+.popover {
+  border-radius: 0;
+  border: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 0;
+}
+.popover .popover-content {
+  padding: 0;
+}
+.popover .popover-content ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.popover .popover-content ul li {
+  border-bottom: 1px solid #fff;
+  background-color: #ededec;
+}
+.popover .popover-content ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 12px 20px;
+  color: #17141f;
+}
+.popover .popover-content ul li:last-child {
+  border-bottom: 0;
+}
+.popover .popover-content ul li:hover {
+  background: #fff;
+}
+.popover.top > .arrow:after {
+  border-top-color: #ededec;
+}
 #breadcrumb {
   margin-top: 60px;
   border-bottom: 0;
@@ -3239,6 +3272,7 @@ section.section--small-padding .divider {
   clear: both;
   border-right: 1px solid #ededec;
   text-align: center;
+  border-top: none;
 }
 .ventu-card.ventu-card--float .ventu-card-buttons .ventu-card-button {
   margin: 13px 6px 0 0;

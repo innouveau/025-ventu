@@ -34,6 +34,7 @@
   clear: both;
   border-right: 1px solid #ededec;
   text-align: center;
+  border-top: none;
 }
 .ventu-card.ventu-card--float .ventu-card-buttons .ventu-card-button {
   margin: 13px 6px 0 0;

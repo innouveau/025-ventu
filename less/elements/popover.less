@@ -1,0 +1,50 @@
+@import '../mixins';
+
+
+.popover {
+    border-radius: 0;
+    border: 0;
+    box-shadow: @ventu-box-shadow-1;
+    padding: 0;
+
+    .popover-content {
+        padding: 0;
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            li {
+                border-bottom: 1px solid #fff;
+                background-color: @ventu-main-grey-light;
+
+                a {
+                    display: block;
+                    text-decoration: none;
+                    padding: 12px 20px;
+                    color: @ventu-black;
+                }
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+
+                &:hover {
+                    background: #fff;
+                }
+            }
+
+        }
+    }
+
+    &.top {
+
+        >.arrow {
+
+            &:after {
+                border-top-color: @ventu-main-grey-light;
+            }
+        }
+    }
+}
