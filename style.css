@@ -71,13 +71,14 @@ h7 {
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 30px;
+    font-size: 26px;
   }
   h2 {
-    font-size: 25px;
+    font-size: 20px;
   }
-  h3 {
-    font-size: 25px;
+  h3,
+  h4 {
+    font-size: 16px;
   }
   h5 {
     font-size: 16px;
@@ -96,9 +97,6 @@ h7 {
   h3 {
     font-size: 20px;
   }
-}
-#ventu-hangout-list-cards .ventu-card .ventu-card-image {
-  height: 180px;
 }
 body.ventu-home section {
   padding: 80px 90px;
@@ -1217,6 +1215,14 @@ p.ventu-external-member {
 .ventu-hangout-add-member.ventu-popup label.error,
 .ventu-hangout-add-member.ventu-popup .error {
   color: #c21e32;
+}
+.ventu-hangout-add-member.ventu-popup #messages ul {
+  list-style-type: none;
+  margin-top: 20px;
+  padding-left: 0;
+}
+.ventu-hangout-add-member.ventu-popup .externalMemberContainer {
+  margin-top: 20px;
 }
 body.ventu-application {
   position: relative;
@@ -2368,8 +2374,19 @@ img.projectCarousel {
   border-right: 20px solid transparent;
   border-top: 32px solid #FFDE00;
 }
+input {
+  font-size: 16px;
+}
+input.form-control {
+  border-radius: 0;
+}
 input::placeholder {
   color: inherit;
+}
+@media (max-width: 767px) {
+  input {
+    font-size: 14px;
+  }
 }
 .ventu-custom-background {
   min-height: 346.5px;
@@ -2754,7 +2771,6 @@ section.section--small-padding .divider {
   height: 40px;
   border: 0;
   background: transparent;
-  font-size: 16px;
   font-weight: 300;
   float: left;
   margin-top: 5px;
@@ -2796,9 +2812,6 @@ section.section--small-padding .divider {
   .ventu-search .ventu-search-chosen {
     height: 25px;
     padding: 4px 6px;
-  }
-  .ventu-search input {
-    font-size: 14px;
   }
 }
 .ventu-search-open {

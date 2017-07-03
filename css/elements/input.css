@@ -1,6 +1,9 @@
 input {
   font-size: 16px;
 }
+input.form-control {
+  border-radius: 0;
+}
 input::placeholder {
   color: inherit;
 }

@@ -98,9 +98,6 @@ h7 {
     font-size: 20px;
   }
 }
-#ventu-hangout-list-cards .ventu-card .ventu-card-image {
-  height: 180px;
-}
 body.ventu-home section {
   padding: 80px 90px;
 }
@@ -2379,6 +2376,9 @@ img.projectCarousel {
 }
 input {
   font-size: 16px;
+}
+input.form-control {
+  border-radius: 0;
 }
 input::placeholder {
   color: inherit;
