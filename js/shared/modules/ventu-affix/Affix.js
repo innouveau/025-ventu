@@ -3,6 +3,7 @@ function Affix(element) {
     this.top = 0;
     this.bottom = 0;
     this.originalScroll = 0;
+    this.mainCol = null;
     this.origin = {
         top: 0,
         left: 0
@@ -11,46 +12,63 @@ function Affix(element) {
 }
 
 Affix.prototype.init = function() {
-    var mainCol = $('.main-col'),
-        buffer = 20,
-        graphHeight = 250,
-        self = this;
-    this.originalScroll = $(window).scrollTop();
+    var self = this;
+
+    this.mainCol = $('.main-col');
+    this.top = this.getTopBoundary();
+    this.bottom = this.getBottomBoundary();
+
     this.setOrigin();
-
-    this.top = $('nav').outerHeight() + 20;
-    this.bottom = mainCol.offset().top + mainCol.outerHeight() + graphHeight + this.originalScroll - this.element.outerHeight() - buffer;
-
 
     $(window).scroll(function(){
         var scroll = $(this).scrollTop();
+        self.bottom = self.getBottomBoundary();
         self.move(scroll);
     })
+};
+
+Affix.prototype.getTopBoundary = function() {
+    return $('nav').outerHeight() + 20;
+};
+
+Affix.prototype.getBottomBoundary = function() {
+    var buffer = 0,
+        graphHeight = 0;
+
+    return this.mainCol.offset().top +
+           this.mainCol.outerHeight() + graphHeight -
+           this.element.outerHeight() -
+           this.top -
+           buffer;
 };
 
 Affix.prototype.setOrigin = function() {
     var position = this.element.offset(),
         width = this.element.outerWidth();
     this.origin.left = position.left;
-    this.origin.top = position.top + this.originalScroll;
+    this.origin.top = position.top;
+
 
     this.element.css({
         position: 'fixed',
         left: position.left,
-        top: position.top,
+        top: this.getTop(this.originalScroll),
         width: width
     });
 };
 
-Affix.prototype.move = function(scroll) {
-    var top;
+Affix.prototype.move = function() {
+    this.element.css('top', this.getTop(scroll));
+};
 
+Affix.prototype.getTop = function() {
     // after reaching the bottom where the content is wider again
     // move to subzero
+    var scroll = $(window).scrollTop();
+
     if (scroll > this.bottom) {
-        this.element.css('top', this.bottom + this.top - scroll);
+        return this.bottom + this.top - scroll;
     } else {
-        top = Math.max(this.top, this.origin.top - scroll);
-        this.element.css('top', top);
+        return Math.max(this.top, this.origin.top - scroll);
     }
 };
