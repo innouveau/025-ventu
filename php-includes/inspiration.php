@@ -14,7 +14,7 @@
                     <a href="" class="ventu-inspiration" style="background-image: url(img/content/kantoor3.jpg);">
                         <div class="ventu-inspiration-text">
                             <h3>
-                                5x de mooiste bedrijfs skylines
+                                Duurste winkelstraten van Nederland, Amsterdam op eenzame hoogte
                             </h3>
                         </div>
                     </a>

@@ -28,7 +28,7 @@
   background-image: url(img/identity/ventu-icon--inspiration.png);
   z-index: 1;
   left: calc(50% - 35px);
-  top: 30%;
+  top: 25%;
 }
 .ventu-inspiration:hover::before {
   background: rgba(3, 37, 107, 0.8);
@@ -37,11 +37,11 @@
   position: absolute;
   left: 0;
   width: 100%;
-  top: calc(30% + 74px);
+  top: calc(25% + 74px);
 }
 .ventu-inspiration .ventu-inspiration-text h3 {
   text-align: center;
   color: #fff;
-  max-width: 300px;
+  max-width: 320px;
   margin: 0 auto;
 }
