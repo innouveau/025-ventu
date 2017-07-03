@@ -1,0 +1,28 @@
+@import '../mixins';
+
+
+.read-more {
+    color: @ventu-main-grey-dark;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+
+    &:after {
+
+        position: absolute;
+        right: -24px;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        content: '';
+        background-color: @ventu-color-details;
+        background-image: url(img/icons/buttons/read-more-down.svg);
+        background-size: 100% 100%;
+    }
+
+    &:hover {
+        text-decoration: underline;
+        color: @ventu-main-grey-dark;
+    }
+}

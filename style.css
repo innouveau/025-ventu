@@ -2480,6 +2480,28 @@ input::placeholder {
 .popover.top.popover--grey-dark > .arrow:after {
   border-top-color: #727272;
 }
+.read-more {
+  color: #727272;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+.read-more:after {
+  position: absolute;
+  right: -24px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  content: '';
+  background-color: #FF8D00;
+  background-image: url(img/icons/buttons/read-more-down.svg);
+  background-size: 100% 100%;
+}
+.read-more:hover {
+  text-decoration: underline;
+  color: #727272;
+}
 #breadcrumb {
   margin-top: 60px;
   border-bottom: 0;
