@@ -28,14 +28,16 @@ Affix.prototype.init = function() {
 };
 
 Affix.prototype.setOrigin = function() {
-    var position = this.element.offset();
+    var position = this.element.offset(),
+        width = this.element.outerWidth();
     this.origin.left = position.left;
     this.origin.top = position.top + this.originalScroll;
 
     this.element.css({
         position: 'fixed',
         left: position.left,
-        top: position.top
+        top: position.top,
+        width: width
     });
 };
 
