@@ -33,7 +33,7 @@ Affix.prototype.getTopBoundary = function() {
 
 Affix.prototype.getBottomBoundary = function() {
     var buffer = 0,
-        graphHeight = 0;
+        graphHeight = 250;
 
     return this.mainCol.offset().top +
            this.mainCol.outerHeight() + graphHeight -
