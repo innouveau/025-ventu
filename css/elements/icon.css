@@ -15,3 +15,23 @@
   color: #fff;
   background-image: url(img/icons/buttons/plus.svg);
 }
+.ventu-icon.ventu-icon--love {
+  background-color: #2ECC71;
+  color: #fff;
+  background-image: url(img/icons/buttons/love.svg);
+}
+.ventu-icon.ventu-icon--hate {
+  background-color: #DF0040;
+  color: #fff;
+  background-image: url(img/icons/buttons/hate.svg);
+}
+.ventu-icon.ventu-icon--read-more {
+  background-color: #FF8D00;
+  color: #fff;
+  background-image: url(img/icons/buttons/read-more-down.svg);
+}
+.ventu-icon.ventu-icon--share {
+  background-color: #00A2FF;
+  color: #fff;
+  background-image: url(img/icons/buttons/share.svg);
+}

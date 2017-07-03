@@ -595,9 +595,6 @@ section.parties .divider {
     margin-bottom: 20px;
   }
 }
-#ventu-parties .broker-logo {
-  margin-bottom: 20px;
-}
 #ventu-parties .ventu-parties-contact-icon {
   padding-top: 11px;
 }
@@ -680,6 +677,9 @@ section.proximity .ventu-card .button {
   padding-bottom: 32px;
   text-align: center;
   border-bottom: 1px solid #ededec;
+}
+.broker-logo {
+  margin-bottom: 20px;
 }
 #ventu-hangout-content-section {
   padding-top: 30px;
@@ -2227,6 +2227,26 @@ img.projectCarousel {
   color: #fff;
   background-image: url(img/icons/buttons/plus.svg);
 }
+.ventu-icon.ventu-icon--love {
+  background-color: #2ECC71;
+  color: #fff;
+  background-image: url(img/icons/buttons/love.svg);
+}
+.ventu-icon.ventu-icon--hate {
+  background-color: #DF0040;
+  color: #fff;
+  background-image: url(img/icons/buttons/hate.svg);
+}
+.ventu-icon.ventu-icon--read-more {
+  background-color: #FF8D00;
+  color: #fff;
+  background-image: url(img/icons/buttons/read-more-down.svg);
+}
+.ventu-icon.ventu-icon--share {
+  background-color: #00A2FF;
+  color: #fff;
+  background-image: url(img/icons/buttons/share.svg);
+}
 .ventu-filter-label {
   background: #00e5a9;
   color: #03256b;
@@ -2490,6 +2510,11 @@ section {
   border-left: 1px solid #ededec;
   border-right: 1px solid #ededec;
   border-bottom: solid 0.5px #ededec;
+}
+section > h1:first-child,
+section > h2:first-child,
+section > h3:first-child {
+  margin: 0 0 20px 0;
 }
 section .section-color-fill {
   width: 100%;
