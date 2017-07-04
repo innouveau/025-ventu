@@ -1,1 +1,2278 @@
-var fakeSearchResult = {"shape":{"type":"circle","data":{"center":{"lat":51.26263855655831,"lng":3.92597108340658},"radius":9999}},"zoomCenter":null,"zoom":null,"markers":[{"UniqueId":"15FA0061-1B2E-4FBD-8D61-8AD58E42F99E","ObjectUsageId":3,"Longitude":"4.0520623800","Latitude":"51.2795505800"},{"UniqueId":"A4C2CCA6-9D73-434B-8982-1B1D1C0E8218","ObjectUsageId":3,"Longitude":"4.0515448500","Latitude":"51.2815673500"},{"UniqueId":"2B4410D2-41B7-499A-A29E-FB21B8041B86","ObjectUsageId":3,"Longitude":"4.0539322800","Latitude":"51.2811210700"},{"UniqueId":"61BCD90E-6CD8-4928-AD8F-0CC180083224","ObjectUsageId":3,"Longitude":"4.0493053500","Latitude":"51.2645149600"},{"UniqueId":"89BF2F38-E229-42B0-891E-223E2F7D089A","ObjectUsageId":3,"Longitude":"4.0515405600","Latitude":"51.2822055700"},{"UniqueId":"F5F425B3-5949-4081-A448-686DEF9E9FF3","ObjectUsageId":3,"Longitude":"3.8346933000","Latitude":"51.3285120500"},{"UniqueId":"0D2B14F5-E044-4226-9A9F-0A64DD6F3F93","ObjectUsageId":3,"Longitude":"3.8335012200","Latitude":"51.3306226100"},{"UniqueId":"CDEDE3AD-6BE7-4470-876F-5176E9F256A4","ObjectUsageId":3,"Longitude":"3.9074477700","Latitude":"51.2655869100"},{"UniqueId":"b77ca27a-de94-436b-8720-a1ac93dc74bb","ObjectUsageId":3,"Longitude":"3.9076456800","Latitude":"51.2649966700"},{"UniqueId":"deae4a44-d95f-4c6e-bd58-abab0edc8efb","ObjectUsageId":3,"Longitude":"3.8343998800","Latitude":"51.3292131600"},{"UniqueId":"f4d02a24-b490-4d52-a2c2-9078de01aeec","ObjectUsageId":3,"Longitude":"3.9071983000","Latitude":"51.2650141900"},{"UniqueId":"19c95054-0ac1-4681-b8ac-06882c886bc4","ObjectUsageId":3,"Longitude":"4.0515357000","Latitude":"51.2789332300"},{"UniqueId":"04cf2a00-8c77-4711-a234-d7dccc793240","ObjectUsageId":3,"Longitude":"3.9853053300","Latitude":"51.2622556800"},{"UniqueId":"A85031B4-A33C-40CF-BFF4-F78F469D79D7","ObjectUsageId":3,"Longitude":"3.9069338800","Latitude":"51.2675407500"},{"UniqueId":"2ACAB72A-0EB3-49CA-9950-7F6D33D0D17E","ObjectUsageId":3,"Longitude":"3.9083520000","Latitude":"51.2674005000"},{"UniqueId":"ED72F65B-451E-4601-8365-AA933DD245E8","ObjectUsageId":3,"Longitude":"3.8009249400","Latitude":"51.2280464200"},{"UniqueId":"77C09C46-90A3-415F-84F9-801623D9601E","ObjectUsageId":3,"Longitude":"3.9069247800","Latitude":"51.2654222800"},{"UniqueId":"0E1BED9A-5F6C-401E-8B51-45A1AA1A8CA0","ObjectUsageId":3,"Longitude":"3.8008545400","Latitude":"51.2283162200"},{"UniqueId":"160545BD-A8F7-41E4-9F85-6012FEC0BA46","ObjectUsageId":3,"Longitude":"3.8011017700","Latitude":"51.2264895400"},{"UniqueId":"0364C17E-E4E2-4077-A445-57F01571DA34","ObjectUsageId":3,"Longitude":"3.9068079400","Latitude":"51.2661354900"},{"UniqueId":"7728CB05-BE69-4B30-9E00-057F7C1A3FBA","ObjectUsageId":3,"Longitude":"4.0491088000","Latitude":"51.2753021000"}],"objects":[{"ObjectId":243254,"UniqueId":"15FA0061-1B2E-4FBD-8D61-8AD58E42F99E","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Hulst","Street":"Gentsestraat","Number":"22","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4561 EJ","Longitude":4.05206238,"Latitude":51.27955058,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/15/FA/00/61/15FA0061-1B2E-4FBD-8D61-8AD58E42F99E/thumb/1.jpg","PhotoURL":"/media/objects/15/FA/00/61/15FA0061-1B2E-4FBD-8D61-8AD58E42F99E/org/1.jpg","Price":null,"PricePerYear":42000,"Metrage":210,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer/mevrouw","GUID":"FDA0C438A28F43888A5EF877C78577BF","Name":"Kindt & Biesbroeck Makelaardij","Address":"Overdamstraat 3","City":"Hulst","Postcode":"4561 AL","ContactPersonName":"Jeroen Verstraeten","ContactEmailAddress":"j.verstraeten@kindtenbiesbroeck.nl","PersonId":null,"Phonenumber":"1-14312129","Logo":"/media/organization/photos/3202/1.png","CanonicalName":"Kindt--Biesbroeck-Makelaardij","RenewalEmailAddress":"info@kindtenbiesbroeck.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":1,"IncludesOrganization":true,"Address":"Gentsestraat  22","BuildingAddressInfo":"Gentsestraat  22","FullAddressInfo":"Gentsestraat  22, 4561 EJ, Hulst","InsertedDateTime":"/Date(1461247663000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#HuurprijsPerJaar# &euro; 42.000, #HuurprijsPerMaand# &euro; 3.500","MetrageInfo":"210 m&sup2;","DetailLinkUrl":"15FA0061-1B2E-4FBD-8D61-8AD58E42F99E/Hulst/Gentsestraat/22","Availability":"In overleg"},{"ObjectId":196789,"UniqueId":"A4C2CCA6-9D73-434B-8982-1B1D1C0E8218","AvailabilityCustom":"30-06-2015","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Hulst","Street":"Steenstraat","Number":"34","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4561 AS","Longitude":4.05154485,"Latitude":51.28156735,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/A4/C2/CC/A6/A4C2CCA6-9D73-434B-8982-1B1D1C0E8218/thumb/1.jpg","PhotoURL":"/media/objects/A4/C2/CC/A6/A4C2CCA6-9D73-434B-8982-1B1D1C0E8218/org/1.jpg","Price":null,"PricePerYear":15000,"Metrage":124,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":3,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer/mevrouw","GUID":"FDA0C438A28F43888A5EF877C78577BF","Name":"Kindt & Biesbroeck Makelaardij","Address":"Overdamstraat 3","City":"Hulst","Postcode":"4561 AL","ContactPersonName":"Jeroen Verstraeten","ContactEmailAddress":"j.verstraeten@kindtenbiesbroeck.nl","PersonId":null,"Phonenumber":"1-14312129","Logo":"/media/organization/photos/3202/1.png","CanonicalName":"Kindt--Biesbroeck-Makelaardij","RenewalEmailAddress":"info@kindtenbiesbroeck.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":1,"IncludesOrganization":true,"Address":"Steenstraat  34","BuildingAddressInfo":"Steenstraat  34","FullAddressInfo":"Steenstraat  34, 4561 AS, Hulst","InsertedDateTime":"/Date(1432022781000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#HuurprijsPerJaar# &euro; 15.000, #HuurprijsPerMaand# &euro; 1.250","MetrageInfo":"124 m&sup2;","DetailLinkUrl":"A4C2CCA6-9D73-434B-8982-1B1D1C0E8218/Hulst/Steenstraat/34","Availability":"30-06-2015"},{"ObjectId":192453,"UniqueId":"2B4410D2-41B7-499A-A29E-FB21B8041B86","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Hulst","Street":"Lange Nieuwstraat","Number":"1","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4561 CD","Longitude":4.05393228,"Latitude":51.28112107,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/2B/44/10/D2/2B4410D2-41B7-499A-A29E-FB21B8041B86/thumb/1.jpg","PhotoURL":"/media/objects/2B/44/10/D2/2B4410D2-41B7-499A-A29E-FB21B8041B86/org/1.jpg","Price":null,"PricePerYear":11400,"Metrage":100,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer/mevrouw","GUID":"FDA0C438A28F43888A5EF877C78577BF","Name":"Kindt & Biesbroeck Makelaardij","Address":"Overdamstraat 3","City":"Hulst","Postcode":"4561 AL","ContactPersonName":"Jeroen Verstraeten","ContactEmailAddress":"j.verstraeten@kindtenbiesbroeck.nl","PersonId":null,"Phonenumber":"1-14312129","Logo":"/media/organization/photos/3202/1.png","CanonicalName":"Kindt--Biesbroeck-Makelaardij","RenewalEmailAddress":"info@kindtenbiesbroeck.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":1,"IncludesOrganization":true,"Address":"Lange Nieuwstraat  1","BuildingAddressInfo":"Lange Nieuwstraat  1","FullAddressInfo":"Lange Nieuwstraat  1, 4561 CD, Hulst","InsertedDateTime":"/Date(1420640263000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#HuurprijsPerJaar# &euro; 11.400, #HuurprijsPerMaand# &euro; 950","MetrageInfo":"100 m&sup2;","DetailLinkUrl":"2B4410D2-41B7-499A-A29E-FB21B8041B86/Hulst/Lange-Nieuwstraat/1","Availability":"In overleg"},{"ObjectId":184086,"UniqueId":"61BCD90E-6CD8-4928-AD8F-0CC180083224","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Sint Jansteen","Street":"Hemelstraat","Number":"8","NumberRangeTo":null,"NumberSuffix":"-A","Postcode":"4564 BB","Longitude":4.04930535,"Latitude":51.26451496,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/61/BC/D9/0E/61BCD90E-6CD8-4928-AD8F-0CC180083224/thumb/1.jpg","PhotoURL":"/media/objects/61/BC/D9/0E/61BCD90E-6CD8-4928-AD8F-0CC180083224/org/1.jpg","Price":null,"PricePerYear":null,"Metrage":1,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"30C04BF1561046DA8CCEC577022881B9","Name":"Witte-Boussen Vastgoed en Verhuur","Address":"Postbus 201","City":"Terneuzen","Postcode":"4530 AE","ContactPersonName":"Carin Bax-Terpstra","ContactEmailAddress":"verkoop@witteboussen.nl","PersonId":5064,"Phonenumber":"0115-618344","Logo":"/media/organization/photos/3221/1.png","CanonicalName":"Witte-Boussen-Vastgoed-en-Verhuur","RenewalEmailAddress":"verkoop@witteboussen.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":1,"IncludesOrganization":true,"Address":"Hemelstraat  8-A","BuildingAddressInfo":"Hemelstraat  8-A","FullAddressInfo":"Hemelstraat  8-A, 4564 BB, Sint Jansteen","InsertedDateTime":"/Date(1403018252000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Prijs#: #Onbekend#","MetrageInfo":"#Oppervlakte# #OpAanvraag#","DetailLinkUrl":"61BCD90E-6CD8-4928-AD8F-0CC180083224/Sint-Jansteen/Hemelstraat/8-A","Availability":"In overleg"},{"ObjectId":165434,"UniqueId":"89BF2F38-E229-42B0-891E-223E2F7D089A","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Hulst","Street":"Bierkaaistraat","Number":"10","NumberRangeTo":null,"NumberSuffix":"-a","Postcode":"4561 BC","Longitude":4.05154056,"Latitude":51.28220557,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/89/BF/2F/38/89BF2F38-E229-42B0-891E-223E2F7D089A/thumb/1.jpg","PhotoURL":"/media/objects/89/BF/2F/38/89BF2F38-E229-42B0-891E-223E2F7D089A/org/1.jpg","Price":275000,"PricePerYear":null,"Metrage":303,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer/mevrouw","GUID":"FDA0C438A28F43888A5EF877C78577BF","Name":"Kindt & Biesbroeck Makelaardij","Address":"Overdamstraat 3","City":"Hulst","Postcode":"4561 AL","ContactPersonName":"Jeroen Verstraeten","ContactEmailAddress":"j.verstraeten@kindtenbiesbroeck.nl","PersonId":null,"Phonenumber":"1-14312129","Logo":"/media/organization/photos/3202/1.png","CanonicalName":"Kindt--Biesbroeck-Makelaardij","RenewalEmailAddress":"info@kindtenbiesbroeck.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":1,"IncludesOrganization":true,"Address":"Bierkaaistraat  10-a","BuildingAddressInfo":"Bierkaaistraat  10-a","FullAddressInfo":"Bierkaaistraat  10-a, 4561 BC, Hulst","InsertedDateTime":"/Date(1370603779000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 275.000","MetrageInfo":"303 m&sup2;","DetailLinkUrl":"89BF2F38-E229-42B0-891E-223E2F7D089A/Hulst/Bierkaaistraat/10-a","Availability":"In overleg"},{"ObjectId":158035,"UniqueId":"F5F425B3-5949-4081-A448-686DEF9E9FF3","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Terneuzen","Street":"Axelsestraat","Number":"119","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4537 AG","Longitude":3.8346933,"Latitude":51.32851205,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/F5/F4/25/B3/F5F425B3-5949-4081-A448-686DEF9E9FF3/thumb/1.jpg","PhotoURL":"/media/objects/F5/F4/25/B3/F5F425B3-5949-4081-A448-686DEF9E9FF3/org/1.jpg","Price":89000,"PricePerYear":null,"Metrage":1,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer/mevrouw","GUID":"4ACF141672B34E0E849D8876E92102A1","Name":"Putter Vastgoed","Address":"Postbus 10","City":"Terneuzen","Postcode":"4530 AA","ContactPersonName":"Anco de Putter","ContactEmailAddress":"adeputter@puttervastgoed.nl","PersonId":null,"Phonenumber":"1-15611489","Logo":"/media/organization/photos/3176/1.png","CanonicalName":"Putter-Vastgoed","RenewalEmailAddress":"info@puttervastgoed.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":1,"IncludesOrganization":true,"Address":"Axelsestraat  119","BuildingAddressInfo":"Axelsestraat  119","FullAddressInfo":"Axelsestraat  119, 4537 AG, Terneuzen","InsertedDateTime":"/Date(1359473879000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 89.000","MetrageInfo":"#Oppervlakte# #OpAanvraag#","DetailLinkUrl":"F5F425B3-5949-4081-A448-686DEF9E9FF3/Terneuzen/Axelsestraat/119","Availability":"In overleg"},{"ObjectId":151609,"UniqueId":"0D2B14F5-E044-4226-9A9F-0A64DD6F3F93","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Terneuzen","Street":"Axelsestraat","Number":"86","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4537 AM","Longitude":3.83350122,"Latitude":51.33062261,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/0D/2B/14/F5/0D2B14F5-E044-4226-9A9F-0A64DD6F3F93/thumb/1.jpg","PhotoURL":"/media/objects/0D/2B/14/F5/0D2B14F5-E044-4226-9A9F-0A64DD6F3F93/org/1.jpg","Price":289500,"PricePerYear":null,"Metrage":250,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer/mevrouw","GUID":"4ACF141672B34E0E849D8876E92102A1","Name":"Putter Vastgoed","Address":"Postbus 10","City":"Terneuzen","Postcode":"4530 AA","ContactPersonName":"Anco de Putter","ContactEmailAddress":"adeputter@puttervastgoed.nl","PersonId":null,"Phonenumber":"1-15611489","Logo":"/media/organization/photos/3176/1.png","CanonicalName":"Putter-Vastgoed","RenewalEmailAddress":"info@puttervastgoed.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":1,"IncludesOrganization":true,"Address":"Axelsestraat  86","BuildingAddressInfo":"Axelsestraat  86","FullAddressInfo":"Axelsestraat  86, 4537 AM, Terneuzen","InsertedDateTime":"/Date(1349699346000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 289.500","MetrageInfo":"250 m&sup2;","DetailLinkUrl":"0D2B14F5-E044-4226-9A9F-0A64DD6F3F93/Terneuzen/Axelsestraat/86","Availability":"In overleg"},{"ObjectId":99716,"UniqueId":"CDEDE3AD-6BE7-4470-876F-5176E9F256A4","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Axel","Street":"Noordstraat","Number":"13","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4571 GB","Longitude":3.90744777,"Latitude":51.26558691,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/CD/ED/E3/AD/CDEDE3AD-6BE7-4470-876F-5176E9F256A4/thumb/1.jpg","PhotoURL":"/media/objects/CD/ED/E3/AD/CDEDE3AD-6BE7-4470-876F-5176E9F256A4/org/1.jpg","Price":129000,"PricePerYear":null,"Metrage":75,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer/mevrouw","GUID":"FDA0C438A28F43888A5EF877C78577BF","Name":"Kindt & Biesbroeck Makelaardij","Address":"Overdamstraat 3","City":"Hulst","Postcode":"4561 AL","ContactPersonName":"Jeroen Verstraeten","ContactEmailAddress":"j.verstraeten@kindtenbiesbroeck.nl","PersonId":null,"Phonenumber":"1-14312129","Logo":"/media/organization/photos/3202/1.png","CanonicalName":"Kindt--Biesbroeck-Makelaardij","RenewalEmailAddress":"info@kindtenbiesbroeck.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":1,"IncludesOrganization":true,"Address":"Noordstraat  13","BuildingAddressInfo":"Noordstraat  13","FullAddressInfo":"Noordstraat  13, 4571 GB, Axel","InsertedDateTime":"/Date(1281705137000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 129.000","MetrageInfo":"75 m&sup2;","DetailLinkUrl":"CDEDE3AD-6BE7-4470-876F-5176E9F256A4/Axel/Noordstraat/13","Availability":"In overleg"},{"ObjectId":256374,"UniqueId":"b77ca27a-de94-436b-8720-a1ac93dc74bb","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Axel","Street":"Weststraat","Number":"5","NumberRangeTo":"","NumberSuffix":"","Postcode":"4571 HJ","Longitude":3.90764568,"Latitude":51.26499667,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/b7/7c/a2/7a/b77ca27a-de94-436b-8720-a1ac93dc74bb/thumb/1.jpg","PhotoURL":"/media/objects/b7/7c/a2/7a/b77ca27a-de94-436b-8720-a1ac93dc74bb/wm/1.jpg","Price":null,"PricePerYear":10200,"Metrage":167,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":null,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"18DFF765FC8E4DED8457E6013E8DD631","Name":"Spuesens Makelaardij","Address":"Weststraat 69","City":"Axel","Postcode":"4571 HK","ContactPersonName":"E.U.H. Spuesens","ContactEmailAddress":"spuesens.nvm@zeelandnet.nl","PersonId":18663,"Phonenumber":"0115-564565","Logo":null,"CanonicalName":"Spuesens-Makelaardij","RenewalEmailAddress":"spuesens.nvm@zeelandnet.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Weststraat  5","BuildingAddressInfo":"Weststraat  5","FullAddressInfo":"Weststraat  5, 4571 HJ, Axel","InsertedDateTime":"/Date(1489700717462)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#HuurprijsPerJaar# &euro; 10.200, #HuurprijsPerMaand# &euro; 850","MetrageInfo":"167 m&sup2;","DetailLinkUrl":"b77ca27a-de94-436b-8720-a1ac93dc74bb/Axel/Weststraat/5","Availability":""},{"ObjectId":256337,"UniqueId":"deae4a44-d95f-4c6e-bd58-abab0edc8efb","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Terneuzen","Street":"Axelsestraat","Number":"122","NumberRangeTo":"","NumberSuffix":"","Postcode":"4537 AP","Longitude":3.83439988,"Latitude":51.32921316,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/de/ae/4a/44/deae4a44-d95f-4c6e-bd58-abab0edc8efb/thumb/1.jpg","PhotoURL":"/media/objects/de/ae/4a/44/deae4a44-d95f-4c6e-bd58-abab0edc8efb/wm/1.jpg","Price":299000,"PricePerYear":null,"Metrage":170,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":null,"ActivateDate":null,"SalesPriceType":"Vraagprijs","Broker":{"Salutation":"mijnheer","GUID":"4ACF141672B34E0E849D8876E92102A1","Name":"Putter Vastgoed","Address":"Postbus 10","City":"Terneuzen","Postcode":"4530 AA","ContactPersonName":"A.C. de Putter","ContactEmailAddress":"info@puttervastgoed.nl","PersonId":5019,"Phonenumber":"0115-611489","Logo":"/media/organization/photos/3176/1.png","CanonicalName":"Putter-Vastgoed","RenewalEmailAddress":"info@puttervastgoed.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Axelsestraat  122","BuildingAddressInfo":"Axelsestraat  122","FullAddressInfo":"Axelsestraat  122, 4537 AP, Terneuzen","InsertedDateTime":"/Date(1489700716853)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 299.000 {Vraagprijs}","MetrageInfo":"170 m&sup2;","DetailLinkUrl":"deae4a44-d95f-4c6e-bd58-abab0edc8efb/Terneuzen/Axelsestraat/122","Availability":""},{"ObjectId":256084,"UniqueId":"f4d02a24-b490-4d52-a2c2-9078de01aeec","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Axel","Street":"Weststraat","Number":"16","NumberRangeTo":"","NumberSuffix":"","Postcode":"4571 HL","Longitude":3.9071983,"Latitude":51.26501419,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/f4/d0/2a/24/f4d02a24-b490-4d52-a2c2-9078de01aeec/thumb/1.jpg","PhotoURL":"/media/objects/f4/d0/2a/24/f4d02a24-b490-4d52-a2c2-9078de01aeec/wm/1.jpg","Price":229500,"PricePerYear":null,"Metrage":200,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":null,"ActivateDate":null,"SalesPriceType":"Vraagprijs","Broker":{"Salutation":"mijnheer","GUID":"4ACF141672B34E0E849D8876E92102A1","Name":"Putter Vastgoed","Address":"Postbus 10","City":"Terneuzen","Postcode":"4530 AA","ContactPersonName":"A.C. de Putter","ContactEmailAddress":"info@puttervastgoed.nl","PersonId":5019,"Phonenumber":"0115-611489","Logo":"/media/organization/photos/3176/1.png","CanonicalName":"Putter-Vastgoed","RenewalEmailAddress":"info@puttervastgoed.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Weststraat  16","BuildingAddressInfo":"Weststraat  16","FullAddressInfo":"Weststraat  16, 4571 HL, Axel","InsertedDateTime":"/Date(1489700673668)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 229.500 {Vraagprijs}","MetrageInfo":"200 m&sup2;","DetailLinkUrl":"f4d02a24-b490-4d52-a2c2-9078de01aeec/Axel/Weststraat/16","Availability":""},{"ObjectId":250042,"UniqueId":"19c95054-0ac1-4681-b8ac-06882c886bc4","AvailabilityCustom":"","ObjectName":"","ObjectUsageId":3,"CountryId":null,"City":"Hulst","Street":"Gentsestraat","Number":"25","NumberRangeTo":null,"NumberSuffix":"a","Postcode":"4561 EH","Longitude":4.0515357,"Latitude":51.27893323,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/19/c9/50/54/19c95054-0ac1-4681-b8ac-06882c886bc4/thumb/1.jpg","PhotoURL":"/media/objects/19/c9/50/54/19c95054-0ac1-4681-b8ac-06882c886bc4/wm/1.jpg","Price":null,"PricePerYear":null,"Metrage":494,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":"","AvailabilityId":null,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"95B9F64E4DAF4B15B7075173A45CB503","Name":"Arca Retail Vastgoed Adviseurs (Koewacht)","Address":"","City":"","Postcode":"","ContactPersonName":"N. Fierloos","ContactEmailAddress":"nico@arcaretail.nl","PersonId":712,"Phonenumber":"0114-362454","Logo":null,"CanonicalName":"Arca-Retail-Vastgoed-Adviseurs-(Koewacht)","RenewalEmailAddress":"info@arcaretail.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":"","ProductId":0,"IncludesOrganization":true,"Address":"Gentsestraat  25a","BuildingAddressInfo":"Gentsestraat  25a","FullAddressInfo":"Gentsestraat  25a, 4561 EH, Hulst","InsertedDateTime":"/Date(1475675869754)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Prijs#: #Onbekend#","MetrageInfo":"494 m&sup2;","DetailLinkUrl":"19c95054-0ac1-4681-b8ac-06882c886bc4/Hulst/Gentsestraat/25a","Availability":""},{"ObjectId":248336,"UniqueId":"04cf2a00-8c77-4711-a234-d7dccc793240","AvailabilityCustom":"","ObjectName":"","ObjectUsageId":3,"CountryId":null,"City":"Hulst","Street":"Grote Markt","Number":"8","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4561 EB","Longitude":3.98530533,"Latitude":51.26225568,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/04/cf/2a/00/04cf2a00-8c77-4711-a234-d7dccc793240/thumb/1.jpg","PhotoURL":"/media/objects/04/cf/2a/00/04cf2a00-8c77-4711-a234-d7dccc793240/wm/1.jpg","Price":630000,"PricePerYear":null,"Metrage":1181,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":"Vraagprijs","Broker":{"Salutation":"mijnheer","GUID":"C63E816595064D70B3F0365D521A8AF7","Name":"Faasse & Fermont (Goes)","Address":"Postbus 2056","City":"Goes","Postcode":"4460 MB","ContactPersonName":"P.S. Fermont","ContactEmailAddress":"info@faasse-fermont.nl","PersonId":6381,"Phonenumber":"0113-250555","Logo":null,"CanonicalName":"Faasse--Fermont-(Goes)","RenewalEmailAddress":"info@faasse-fermont.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Grote Markt  8","BuildingAddressInfo":"Grote Markt  8","FullAddressInfo":"Grote Markt  8, 4561 EB, Hulst","InsertedDateTime":"/Date(1468500244731)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 630.000 {Vraagprijs}","MetrageInfo":"1.181 m&sup2;","DetailLinkUrl":"04cf2a00-8c77-4711-a234-d7dccc793240/Hulst/Grote-Markt/8","Availability":"In overleg"},{"ObjectId":246146,"UniqueId":"A85031B4-A33C-40CF-BFF4-F78F469D79D7","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Axel","Street":"Stationsstraat","Number":"1","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4571 LA","Longitude":3.90693388,"Latitude":51.26754075,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/A8/50/31/B4/A85031B4-A33C-40CF-BFF4-F78F469D79D7/thumb/1.jpg","PhotoURL":"/media/objects/A8/50/31/B4/A85031B4-A33C-40CF-BFF4-F78F469D79D7/wm/1.jpg","Price":295000,"PricePerYear":null,"Metrage":250,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"B27275222B6A49C88A05AB3207FF4F65","Name":"Vermeulen Makelaardij O.G.","Address":"Herengracht 7","City":"Terneuzen","Postcode":"4531 GM","ContactPersonName":"I. Vermeulen","ContactEmailAddress":"ingmar@vermeulen-makelaardij.nl","PersonId":18744,"Phonenumber":"0115-694090","Logo":null,"CanonicalName":"Vermeulen-Makelaardij-O-G","RenewalEmailAddress":"info@vermeulen-makelaardij.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Stationsstraat  1","BuildingAddressInfo":"Stationsstraat  1","FullAddressInfo":"Stationsstraat  1, 4571 LA, Axel","InsertedDateTime":"/Date(1466543208000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 295.000","MetrageInfo":"250 m&sup2;","DetailLinkUrl":"A85031B4-A33C-40CF-BFF4-F78F469D79D7/Axel/Stationsstraat/1","Availability":"In overleg"},{"ObjectId":246144,"UniqueId":"2ACAB72A-0EB3-49CA-9950-7F6D33D0D17E","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Axel","Street":"Tuinstraat","Number":"1","NumberRangeTo":null,"NumberSuffix":"a","Postcode":"4571 EX","Longitude":3.908352,"Latitude":51.2674005,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/2A/CA/B7/2A/2ACAB72A-0EB3-49CA-9950-7F6D33D0D17E/thumb/1.jpg","PhotoURL":"/media/objects/2A/CA/B7/2A/2ACAB72A-0EB3-49CA-9950-7F6D33D0D17E/wm/1.jpg","Price":279000,"PricePerYear":null,"Metrage":588,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"41E82B4352A045ECB1B3E4FBC85E0D1D","Name":"Neeskens Makelaars","Address":"Marijkelaan 2a","City":"YERSEKE","Postcode":"4401 GG","ContactPersonName":"W. Neeskens","ContactEmailAddress":"yerseke@neeskens.com","PersonId":18909,"Phonenumber":"0113-573100","Logo":null,"CanonicalName":"Neeskens-Makelaars","RenewalEmailAddress":"yerseke@neeskens.com"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Tuinstraat  1a","BuildingAddressInfo":"Tuinstraat  1a","FullAddressInfo":"Tuinstraat  1a, 4571 EX, Axel","InsertedDateTime":"/Date(1466543208000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 279.000","MetrageInfo":"588 m&sup2;","DetailLinkUrl":"2ACAB72A-0EB3-49CA-9950-7F6D33D0D17E/Axel/Tuinstraat/1a","Availability":"In overleg"},{"ObjectId":246143,"UniqueId":"ED72F65B-451E-4601-8365-AA933DD245E8","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Sas van Gent","Street":"Westkade","Number":"94","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4551 CG","Longitude":3.80092494,"Latitude":51.22804642,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/ED/72/F6/5B/ED72F65B-451E-4601-8365-AA933DD245E8/thumb/1.jpg","PhotoURL":"/media/objects/ED/72/F6/5B/ED72F65B-451E-4601-8365-AA933DD245E8/wm/1.jpg","Price":297500,"PricePerYear":null,"Metrage":282,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"20696332e6964eda8175e2a107e37a57","Name":"Bruggeman Bedrijfsmakelaardij (Wemeldinge)","Address":"Wilhelminastraat 23","City":"Wemeldinge","Postcode":"4424 BB","ContactPersonName":"J. Bruggeman","ContactEmailAddress":"info@bruggemangroep.nl","PersonId":18456,"Phonenumber":"0113-330130","Logo":null,"CanonicalName":"Bruggeman-Bedrijfsmakelaardij-(Wemeldinge)","RenewalEmailAddress":"info@bruggemangroep.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Westkade  94","BuildingAddressInfo":"Westkade  94","FullAddressInfo":"Westkade  94, 4551 CG, Sas van Gent","InsertedDateTime":"/Date(1466543208000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 297.500","MetrageInfo":"282 m&sup2;","DetailLinkUrl":"ED72F65B-451E-4601-8365-AA933DD245E8/Sas-van-Gent/Westkade/94","Availability":"In overleg"},{"ObjectId":232410,"UniqueId":"77C09C46-90A3-415F-84F9-801623D9601E","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Axel","Street":"Kerkstraat","Number":"12","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4571 BC","Longitude":3.90692478,"Latitude":51.26542228,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/77/C0/9C/46/77C09C46-90A3-415F-84F9-801623D9601E/thumb/1.jpg","PhotoURL":"/media/objects/77/C0/9C/46/77C09C46-90A3-415F-84F9-801623D9601E/wm/1.jpg","Price":229000,"PricePerYear":null,"Metrage":106,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"BAD65736AA7E4E19B5DE6CDBD23D95C1","Name":"Van Hoeve Makelaars (Terneuzen)","Address":"Herengracht 3","City":"Terneuzen","Postcode":"4531 GM","ContactPersonName":"H.J.S. van Hoeve","ContactEmailAddress":"info@vhm123.nl","PersonId":18671,"Phonenumber":"0115-621300","Logo":null,"CanonicalName":"Van-Hoeve-Makelaars-(Terneuzen)","RenewalEmailAddress":"info@vhm123.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Kerkstraat  12","BuildingAddressInfo":"Kerkstraat  12","FullAddressInfo":"Kerkstraat  12, 4571 BC, Axel","InsertedDateTime":"/Date(1450182726000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 229.000","MetrageInfo":"106 m&sup2;","DetailLinkUrl":"77C09C46-90A3-415F-84F9-801623D9601E/Axel/Kerkstraat/12","Availability":"In overleg"},{"ObjectId":227687,"UniqueId":"0E1BED9A-5F6C-401E-8B51-45A1AA1A8CA0","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Sas van Gent","Street":"Westkade","Number":"99","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4551 CG","Longitude":3.80085454,"Latitude":51.22831622,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/0E/1B/ED/9A/0E1BED9A-5F6C-401E-8B51-45A1AA1A8CA0/thumb/1.jpg","PhotoURL":"/media/objects/0E/1B/ED/9A/0E1BED9A-5F6C-401E-8B51-45A1AA1A8CA0/wm/1.jpg","Price":449000,"PricePerYear":null,"Metrage":300,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"B27275222B6A49C88A05AB3207FF4F65","Name":"Vermeulen Makelaardij O.G.","Address":"Herengracht 7","City":"Terneuzen","Postcode":"4531 GM","ContactPersonName":"I. Vermeulen","ContactEmailAddress":"ingmar@vermeulen-makelaardij.nl","PersonId":18744,"Phonenumber":"0115-694090","Logo":null,"CanonicalName":"Vermeulen-Makelaardij-O-G","RenewalEmailAddress":"info@vermeulen-makelaardij.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Westkade  99","BuildingAddressInfo":"Westkade  99","FullAddressInfo":"Westkade  99, 4551 CG, Sas van Gent","InsertedDateTime":"/Date(1450182692000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 449.000","MetrageInfo":"300 m&sup2;","DetailLinkUrl":"0E1BED9A-5F6C-401E-8B51-45A1AA1A8CA0/Sas-van-Gent/Westkade/99","Availability":"In overleg"},{"ObjectId":226657,"UniqueId":"160545BD-A8F7-41E4-9F85-6012FEC0BA46","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Sas van Gent","Street":"Gentsestraat","Number":"1","NumberRangeTo":"3","NumberSuffix":null,"Postcode":"4551 CC","Longitude":3.80110177,"Latitude":51.22648954,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/16/05/45/BD/160545BD-A8F7-41E4-9F85-6012FEC0BA46/thumb/1.jpg","PhotoURL":"/media/objects/16/05/45/BD/160545BD-A8F7-41E4-9F85-6012FEC0BA46/wm/1.jpg","Price":275000,"PricePerYear":null,"Metrage":590,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"BAD65736AA7E4E19B5DE6CDBD23D95C1","Name":"Van Hoeve Makelaars (Terneuzen)","Address":"Herengracht 3","City":"Terneuzen","Postcode":"4531 GM","ContactPersonName":"H.J.S. van Hoeve","ContactEmailAddress":"info@vhm123.nl","PersonId":18671,"Phonenumber":"0115-621300","Logo":null,"CanonicalName":"Van-Hoeve-Makelaars-(Terneuzen)","RenewalEmailAddress":"info@vhm123.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Gentsestraat  1-3","BuildingAddressInfo":"Gentsestraat  1-3","FullAddressInfo":"Gentsestraat  1-3, 4551 CC, Sas van Gent","InsertedDateTime":"/Date(1450182690000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 275.000","MetrageInfo":"590 m&sup2;","DetailLinkUrl":"160545BD-A8F7-41E4-9F85-6012FEC0BA46/Sas-van-Gent/Gentsestraat/1-3","Availability":"In overleg"},{"ObjectId":223766,"UniqueId":"0364C17E-E4E2-4077-A445-57F01571DA34","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Axel","Street":"Kerkdreef","Number":"18","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4571 GJ","Longitude":3.90680794,"Latitude":51.26613549,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/03/64/C1/7E/0364C17E-E4E2-4077-A445-57F01571DA34/thumb/1.jpg","PhotoURL":"/media/objects/03/64/C1/7E/0364C17E-E4E2-4077-A445-57F01571DA34/wm/1.jpg","Price":245000,"PricePerYear":null,"Metrage":455,"MetrageStart":null,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":null,"Broker":{"Salutation":"mijnheer","GUID":"18DFF765FC8E4DED8457E6013E8DD631","Name":"Spuesens Makelaardij","Address":"Weststraat 69","City":"Axel","Postcode":"4571 HK","ContactPersonName":"E.U.H. Spuesens","ContactEmailAddress":"spuesens.nvm@zeelandnet.nl","PersonId":18663,"Phonenumber":"0115-564565","Logo":null,"CanonicalName":"Spuesens-Makelaardij","RenewalEmailAddress":"spuesens.nvm@zeelandnet.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Kerkdreef  18","BuildingAddressInfo":"Kerkdreef  18","FullAddressInfo":"Kerkdreef  18, 4571 GJ, Axel","InsertedDateTime":"/Date(1450182675000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 245.000","MetrageInfo":"455 m&sup2;","DetailLinkUrl":"0364C17E-E4E2-4077-A445-57F01571DA34/Axel/Kerkdreef/18","Availability":"In overleg"},{"ObjectId":190561,"UniqueId":"7728CB05-BE69-4B30-9E00-057F7C1A3FBA","AvailabilityCustom":"","ObjectName":null,"ObjectUsageId":3,"CountryId":null,"City":"Hulst","Street":"Absdaalseweg","Number":"5","NumberRangeTo":null,"NumberSuffix":null,"Postcode":"4561 GD","Longitude":4.0491088,"Latitude":51.2753021,"ObjectTypeId":null,"PriceAverage":null,"PriceNOTK":false,"ImageURL":"/media/objects/77/28/CB/05/7728CB05-BE69-4B30-9E00-057F7C1A3FBA/thumb/1.jpg","PhotoURL":"/media/objects/77/28/CB/05/7728CB05-BE69-4B30-9E00-057F7C1A3FBA/wm/1.jpg","Price":1400000,"PricePerYear":60000,"Metrage":2206,"MetrageStart":875,"Statistics":0,"SalesHeaderLine":null,"AvailabilityId":2,"ActivateDate":null,"SalesPriceType":"Vraagprijs","Broker":{"Salutation":"mijnheer","GUID":"C63E816595064D70B3F0365D521A8AF7","Name":"Faasse & Fermont (Goes)","Address":"Postbus 2056","City":"Goes","Postcode":"4460 MB","ContactPersonName":"P.S. Fermont","ContactEmailAddress":"info@faasse-fermont.nl","PersonId":6381,"Phonenumber":"0113-250555","Logo":null,"CanonicalName":"Faasse--Fermont-(Goes)","RenewalEmailAddress":"info@faasse-fermont.nl"},"BrochureUrl":null,"VideoUrl":null,"TourUrl":null,"ProductId":0,"IncludesOrganization":true,"Address":"Absdaalseweg  5","BuildingAddressInfo":"Absdaalseweg  5","FullAddressInfo":"Absdaalseweg  5, 4561 GD, Hulst","InsertedDateTime":"/Date(1366376057000)/","PrimaryUsage":"Winkel","SaleOrRent":"","PriceInfo":"#Koopprijs# &euro; 1.400.000 {Vraagprijs}, #HuurprijsPerJaar# &euro; 60.000, #HuurprijsPerMaand# &euro; 5.000","MetrageInfo":"2.206 m&sup2; #Vanaf# 875m&sup2;","DetailLinkUrl":"7728CB05-BE69-4B30-9E00-057F7C1A3FBA/Hulst/Absdaalseweg/5","Availability":"In overleg"}]};
+var fakeSearchResult = {
+    "GoogleMapsObjects": [{
+        "UniqueId": "f5680f9f-9187-469c-adcd-3103520d159a",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2307748100",
+        "Latitude": "52.0936020400"
+    }, {
+        "UniqueId": "f24e81e5-ec68-473d-9f36-f8bd6fbfaae9",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2533563500",
+        "Latitude": "52.1010269700"
+    }, {
+        "UniqueId": "44a78e39-2210-45bf-b9bb-257bca0ce9f6",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2330329000",
+        "Latitude": "52.0862168500"
+    }, {
+        "UniqueId": "9ee1323c-0f52-4fcd-a004-1f43446d395c",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2462459000",
+        "Latitude": "52.0879950300"
+    }, {
+        "UniqueId": "AFEDCF4D-4DAD-46F8-BA55-5CF4EA5D8D3C",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2300470100",
+        "Latitude": "52.0889273000"
+    }, {
+        "UniqueId": "2A28A0C8-EEB3-474A-861F-F9D7FCE9E957",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2182895600",
+        "Latitude": "52.0959037400"
+    }, {
+        "UniqueId": "31BC1DEA-32C7-44BB-AE33-05C9DA76599A",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2478787300",
+        "Latitude": "52.0884194100"
+    }, {
+        "UniqueId": "b14709ba-9721-4cc5-a269-72d3bf55eabc",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2371286800",
+        "Latitude": "52.0874175400"
+    }, {
+        "UniqueId": "e391800f-625a-490b-a775-ff6e8d658e86",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2325117400",
+        "Latitude": "52.0934785000"
+    }, {
+        "UniqueId": "c342e3d3-1238-4ef0-bf56-bec1f697d41f",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2468883300",
+        "Latitude": "52.0878519900"
+    }, {
+        "UniqueId": "f4e5c660-f584-4759-b907-ee46bcb76b47",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2383896000",
+        "Latitude": "52.0811814300"
+    }, {
+        "UniqueId": "31698264-6e5a-45a6-a40c-182c8f13fe86",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2401917800",
+        "Latitude": "52.0876910400"
+    }, {
+        "UniqueId": "660b91be-86c7-4972-a37c-a4f02bab5b5b",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2442974200",
+        "Latitude": "52.0859074600"
+    }, {
+        "UniqueId": "3a844c1e-d337-4463-a7f4-cf5571beab7f",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2396855900",
+        "Latitude": "52.0863332100"
+    }, {
+        "UniqueId": "6c1a946d-2244-4b10-acee-c627284752e1",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2576383300",
+        "Latitude": "52.1041056500"
+    }, {
+        "UniqueId": "dac501e3-128e-4441-a264-3615a3e8562f",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2394883500",
+        "Latitude": "52.0842028000"
+    }, {
+        "UniqueId": "72a3c3b0-4fd3-444a-97e5-0bfc055d520c",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2424789700",
+        "Latitude": "52.0842694200"
+    }, {
+        "UniqueId": "3ca9e0ed-9e80-420c-b3dc-c10967b260d5",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2225302000",
+        "Latitude": "52.0896001300"
+    }, {
+        "UniqueId": "ed825660-2b19-4f94-9f2b-2c76b5c42f64",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2564465400",
+        "Latitude": "52.1028559300"
+    }, {
+        "UniqueId": "85916f9b-d65a-495c-b58b-b41970989b2b",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2141967000",
+        "Latitude": "52.0976504700"
+    }, {
+        "UniqueId": "58d636dc-5a7e-44b3-a42a-36b69c124a1f",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2299380500",
+        "Latitude": "52.0867160900"
+    }, {
+        "UniqueId": "9448770f-dbf5-4e73-92bb-007624fcc9ec",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2596080700",
+        "Latitude": "52.0685151600"
+    }, {
+        "UniqueId": "6f0ee671-9981-4ecb-8344-5d1db3fb1abc",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2447600800",
+        "Latitude": "52.0780614600"
+    }, {
+        "UniqueId": "3e4a7ea3-bfab-4455-8153-4818aa62f937",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2211777900",
+        "Latitude": "52.1001681600"
+    }, {
+        "UniqueId": "8cde05fe-b673-4c77-a69e-3343e7bdfbde",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2218906900",
+        "Latitude": "52.1007713600"
+    }, {
+        "UniqueId": "8bf3bb19-889f-4cc2-a047-0b7590cdef02",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2375652800",
+        "Latitude": "52.0795841000"
+    }, {
+        "UniqueId": "5441deb4-832e-45fa-8949-1bbe6d89e3e6",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2618800200",
+        "Latitude": "52.0748721500"
+    }, {
+        "UniqueId": "ad7f09d1-95d6-491d-b156-650884e64150",
+        "ObjectUsageId": 4,
+        "Longitude": "5.2456245900",
+        "Latitude": "52.1075865200"
+    }, {
+        "UniqueId": "4e2f396c-2c8f-4958-83fc-ffcfdf05a02c",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2379478500",
+        "Latitude": "52.0824122400"
+    }, {
+        "UniqueId": "9e4aaf33-7286-4af0-be41-19b93b3dff49",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2561167900",
+        "Latitude": "52.1042414100"
+    }, {
+        "UniqueId": "bba230e0-fd2a-45a4-9bbc-29e44494612d",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2582698400",
+        "Latitude": "52.0672913300"
+    }, {
+        "UniqueId": "63607a89-3f7b-479c-a258-b0a4c8635e3f",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2131300000",
+        "Latitude": "52.0904944300"
+    }, {
+        "UniqueId": "06856cc3-6dab-456d-8209-f9333f5572fe",
+        "ObjectUsageId": 4,
+        "Longitude": "5.2413407400",
+        "Latitude": "52.0888249600"
+    }, {
+        "UniqueId": "f53ff65a-2c6b-45e0-9c4f-413f06d5d3cb",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2451270700",
+        "Latitude": "52.0905842900"
+    }, {
+        "UniqueId": "6d95ce0c-e673-4d6e-a358-8d9f6978178f",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2471812100",
+        "Latitude": "52.0875107900"
+    }, {
+        "UniqueId": "f0969e17-67fb-4b46-a2f3-85efd38f53e8",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2534437800",
+        "Latitude": "52.1010720100"
+    }, {
+        "UniqueId": "66caf40d-eaaf-48f7-aa3d-dd2474bba8f6",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2426315000",
+        "Latitude": "52.0867323300"
+    }, {
+        "UniqueId": "3de1f81f-7ffb-445a-94cf-bc4545a2ccac",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2546679400",
+        "Latitude": "52.1016845700"
+    }, {
+        "UniqueId": "a8e95791-aded-4bca-bf3b-e4e7022389d0",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2387293100",
+        "Latitude": "52.0799235300"
+    }, {
+        "UniqueId": "cbd3ba31-c58d-42ae-8569-c3f09c2926cc",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2481703200",
+        "Latitude": "52.0891325100"
+    }, {
+        "UniqueId": "c31b3174-0d5f-41c2-9303-f556bd421b50",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2396138400",
+        "Latitude": "52.0815424900"
+    }, {
+        "UniqueId": "0016a8d9-ada2-4a60-bd0c-c829db0016a0",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2539246600",
+        "Latitude": "52.1013242100"
+    }, {
+        "UniqueId": "80ba5129-116d-40c9-9530-df195200948d",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2437438400",
+        "Latitude": "52.0856461400"
+    }, {
+        "UniqueId": "08e4503e-7b92-4fd3-bd2c-72e2b2609520",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2399059700",
+        "Latitude": "52.0858661100"
+    }, {
+        "UniqueId": "b1ed4fb4-4dc0-499b-9fde-b197b4998a05",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2100614300",
+        "Latitude": "52.0879102900"
+    }, {
+        "UniqueId": "2835c8e4-b92a-4517-b131-bd9740b0d7e9",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2567580400",
+        "Latitude": "52.0655999100"
+    }, {
+        "UniqueId": "87a475c0-e9b0-4c34-96b9-37a73f035bf6",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2087064800",
+        "Latitude": "52.0874139000"
+    }, {
+        "UniqueId": "2B135FD7-E82A-4864-9A42-1ED04B3962E6",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2534546400",
+        "Latitude": "52.1023213500"
+    }, {
+        "UniqueId": "835B8F20-946D-4A39-993F-8B7FF00420A1",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2408930800",
+        "Latitude": "52.0918623600"
+    }, {
+        "UniqueId": "440A8BD4-DF36-4D3E-A75C-835DB6E4CFD6",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2386520200",
+        "Latitude": "52.0856308500"
+    }, {
+        "UniqueId": "A22713F1-21FE-4A89-8CFA-6D7B36C151F8",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2477197400",
+        "Latitude": "52.0879338700"
+    }, {
+        "UniqueId": "C78363FE-1A4D-46C5-8FDA-A58E04889E39",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2415718000",
+        "Latitude": "52.0813932200"
+    }, {
+        "UniqueId": "988E52F4-0248-4B46-805E-8AAA6EF7621D",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2865099000",
+        "Latitude": "52.0907326700"
+    }, {
+        "UniqueId": "7A13CD9A-0F97-4E7E-B084-C1CE9FD35CF6",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2544202300",
+        "Latitude": "52.1015494700"
+    }, {
+        "UniqueId": "8EE2ADE7-B585-492F-892A-D3B01E48CDF1",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2539517900",
+        "Latitude": "52.1021416700"
+    }, {
+        "UniqueId": "42EEC84F-37A2-4F40-BAAD-1F1557765A7B",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2452157000",
+        "Latitude": "52.0861872000"
+    }, {
+        "UniqueId": "823BC42F-F2AC-4DAA-B022-6F6A95D397E2",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2410592200",
+        "Latitude": "52.0856698100"
+    }, {
+        "UniqueId": "2011634E-B966-4456-828A-19157CF6CB9E",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2453797500",
+        "Latitude": "52.0850638900"
+    }, {
+        "UniqueId": "5CA0018E-F834-4C7B-A666-F6AD6670DBED",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2350204200",
+        "Latitude": "52.0809614200"
+    }, {
+        "UniqueId": "13525A51-CAD7-49FD-AFC8-E595BE6C010E",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2352524000",
+        "Latitude": "52.0806972000"
+    }, {
+        "UniqueId": "72F8436A-7629-43E4-904B-B95008A17BB3",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2530595000",
+        "Latitude": "52.1026804200"
+    }, {
+        "UniqueId": "FDD22AE8-690A-4D81-9A13-5770093E54AB",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2337440200",
+        "Latitude": "52.0962723700"
+    }, {
+        "UniqueId": "7322577E-8AA4-4F89-A573-3B13947FA38F",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2419227000",
+        "Latitude": "52.0848439700"
+    }, {
+        "UniqueId": "CA2A7B42-9F3D-4A25-BDDA-41606441F9D4",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2417182500",
+        "Latitude": "52.0849066400"
+    }, {
+        "UniqueId": "DCCC4636-A410-4275-9872-A2CCE6A7A4BE",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2458428200",
+        "Latitude": "52.0955085500"
+    }, {
+        "UniqueId": "057AB144-5D2E-4EFE-BB1A-E3FB431978E4",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2197184300",
+        "Latitude": "52.1001391400"
+    }, {
+        "UniqueId": "CE3F50F3-F2D0-4A91-A376-507895DAA8F7",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2535675400",
+        "Latitude": "52.1036157500"
+    }, {
+        "UniqueId": "B9F64E69-BC07-4A71-8B57-0EA6D8373228",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2129731000",
+        "Latitude": "52.0858204100"
+    }, {
+        "UniqueId": "42BE3149-01CC-4599-A6AA-4A81CE9CCDC5",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2133942500",
+        "Latitude": "52.0863243600"
+    }, {
+        "UniqueId": "895F0EF4-25B5-4B7E-8307-A18BE3F3FF0B",
+        "ObjectUsageId": 4,
+        "Longitude": "5.2397217400",
+        "Latitude": "52.0814875700"
+    }, {
+        "UniqueId": "99CFE46A-D090-4784-8FD4-6CA65C89EA7C",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2280194900",
+        "Latitude": "52.0887538000"
+    }, {
+        "UniqueId": "E635802D-3D08-4782-920A-22484BBA7FAA",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2132032200",
+        "Latitude": "52.0866746200"
+    }, {
+        "UniqueId": "4BCE6F26-B527-490E-92B1-9A3220BA4F25",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2454519700",
+        "Latitude": "52.0898995400"
+    }, {
+        "UniqueId": "B3841687-680A-405A-B888-3E14D9501E3D",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2545267700",
+        "Latitude": "52.1037123300"
+    }, {
+        "UniqueId": "50EF0B88-C981-46A7-A24B-34CD21DD92E2",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2413088300",
+        "Latitude": "52.0851847600"
+    }, {
+        "UniqueId": "B9F9343F-8A0C-4785-A6C6-F7ED377945AF",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2425517700",
+        "Latitude": "52.0843144500"
+    }, {
+        "UniqueId": "6B4D87B4-3096-45F2-90EB-94E3E0D5B5EB",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2495870100",
+        "Latitude": "52.0927896000"
+    }, {
+        "UniqueId": "CD27104B-0DDF-40A2-B93B-37201727BBDF",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2408779800",
+        "Latitude": "52.0830900100"
+    }, {
+        "UniqueId": "59596FA1-EE0F-4F6D-95CA-E2100D3D30B9",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2550066000",
+        "Latitude": "52.1045588900"
+    }, {
+        "UniqueId": "CC701DE4-FEE2-42F2-8D72-3C80B44A6669",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2539517900",
+        "Latitude": "52.1021416700"
+    }, {
+        "UniqueId": "DBA33176-184F-46AF-A940-4F95C151805A",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2241059100",
+        "Latitude": "52.0794105400"
+    }, {
+        "UniqueId": "5EE3DC86-905B-4432-ABCB-EDEEC45384F8",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2369640400",
+        "Latitude": "52.0843074700"
+    }, {
+        "UniqueId": "98299925-3CDF-4518-BA62-45E8FD19C86D",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2323025900",
+        "Latitude": "52.0864495800"
+    }, {
+        "UniqueId": "2E1EA588-74B1-4457-BC41-ED450C55941D",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2411804100",
+        "Latitude": "52.0887708300"
+    }, {
+        "UniqueId": "2B265856-123C-48EE-8ACF-FF405EB0C67F",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2407831000",
+        "Latitude": "52.0854698600"
+    }, {
+        "UniqueId": "77724CD6-F9B3-418C-91C0-DED2E14F32D2",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2380793800",
+        "Latitude": "52.0823405000"
+    }, {
+        "UniqueId": "D7E09831-6A96-48E9-84A0-19D8B232BFC1",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2483457400",
+        "Latitude": "52.0883840100"
+    }, {
+        "UniqueId": "AB864EF5-6441-4E48-91F0-D48DA3897A29",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2507308700",
+        "Latitude": "52.0980402700"
+    }, {
+        "UniqueId": "3FC7987F-92C3-469E-B056-FEB48A492C8A",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2514530600",
+        "Latitude": "52.0933670000"
+    }, {
+        "UniqueId": "3E1867F4-BC92-4EE4-A226-22CDF1853F28",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2215719400",
+        "Latitude": "52.1001417500"
+    }, {
+        "UniqueId": "BCD4985D-A63D-4AFE-9E1D-8923B90B3981",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2447343700",
+        "Latitude": "52.0907255800"
+    }, {
+        "UniqueId": "D95E463F-9F2C-4CF7-9B87-BECA4E62E10D",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2436671800",
+        "Latitude": "52.0913534500"
+    }, {
+        "UniqueId": "D57D8978-1AA4-4C2D-8309-3BDABCAC8C39",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2418174200",
+        "Latitude": "52.0859363400"
+    }, {
+        "UniqueId": "2912F2F2-9EE7-47C6-9B69-52C72359E3E4",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2423275200",
+        "Latitude": "52.0859859500"
+    }, {
+        "UniqueId": "8DC24211-7CA5-4E2D-AF4D-ADF357D6C696",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2412756100",
+        "Latitude": "52.0864250700"
+    }, {
+        "UniqueId": "2D54BB25-D20F-4B8C-A86B-A0FE966D8829",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2417281600",
+        "Latitude": "52.0863447400"
+    }, {
+        "UniqueId": "98DDB524-ACFE-44C8-97A0-D62FD2DFD9DA",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2408079800",
+        "Latitude": "52.0867206900"
+    }, {
+        "UniqueId": "BF173033-9B42-4338-8946-861076EA40AC",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2489631100",
+        "Latitude": "52.0869106900"
+    }, {
+        "UniqueId": "3CAA4738-46E7-478D-8064-3206A9827A23",
+        "ObjectUsageId": 4,
+        "Longitude": "5.2397129300",
+        "Latitude": "52.0811992300"
+    }, {
+        "UniqueId": "C5AB02BF-99F2-41D6-92E3-6EB46465B87E",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2522311100",
+        "Latitude": "52.1015536600"
+    }, {
+        "UniqueId": "4902B5D7-E725-4871-BB61-47F8F1DA837D",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2374738200",
+        "Latitude": "52.0976463600"
+    }, {
+        "UniqueId": "43871B35-4AD8-4635-839A-8AFDBE69CC5A",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2434509400",
+        "Latitude": "52.0859873300"
+    }, {
+        "UniqueId": "06DFD231-97A9-4C44-BA8A-C7A7731E1510",
+        "ObjectUsageId": 4,
+        "Longitude": "5.2371160300",
+        "Latitude": "52.0830441200"
+    }, {
+        "UniqueId": "7842CD0C-A2F9-419B-8155-B8386953DB89",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2478944700",
+        "Latitude": "52.0880509200"
+    }, {
+        "UniqueId": "776cd3ae-14f3-46b2-8e70-c94512400731",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2467949300",
+        "Latitude": "52.1083266000"
+    }, {
+        "UniqueId": "82670AB5-BE69-4263-ADC5-D3330C072C45",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2360722300",
+        "Latitude": "52.0848546000"
+    }, {
+        "UniqueId": "13309507-CD90-4C0F-A477-439948A0995E",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2381115400",
+        "Latitude": "52.0858279000"
+    }, {
+        "UniqueId": "E50D4DB9-C048-4186-B312-CF6773E0A73D",
+        "ObjectUsageId": 2,
+        "Longitude": "5.2110432000",
+        "Latitude": "52.0886221000"
+    }, {
+        "UniqueId": "B65C5F0D-6CBB-408B-8E48-008C58AC1481",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2189225100",
+        "Latitude": "52.0905747400"
+    }, {
+        "UniqueId": "4049902d-03ae-4322-847b-8830cf649550",
+        "ObjectUsageId": 3,
+        "Longitude": "5.2452157000",
+        "Latitude": "52.0861872000"
+    }, {
+        "UniqueId": "9BD5117E-17B0-4D49-BDEF-98898C1CF398",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2276248900",
+        "Latitude": "52.1012106800"
+    }, {
+        "UniqueId": "8F26B00E-FAB7-4987-9C2E-AD89A5227E06",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2402874000",
+        "Latitude": "52.0799773000"
+    }, {
+        "UniqueId": "C5D76BCB-52BC-437C-9793-8277760F104C",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2331351500",
+        "Latitude": "52.0861810300"
+    }, {
+        "UniqueId": "7388EB90-E9FA-436D-8BA5-138E003C5F07",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2401517000",
+        "Latitude": "52.0857564000"
+    }, {
+        "UniqueId": "13D697AF-6E27-4225-ACDF-AC198841B164",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2489596600",
+        "Latitude": "52.0900209500"
+    }, {
+        "UniqueId": "1DAD6334-6B56-473C-878D-7AE37CF934CC",
+        "ObjectUsageId": 1,
+        "Longitude": "5.2400538000",
+        "Latitude": "52.0808419800"
+    }],
+    "SearchObjects": [{
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 1,
+        "ObjectId": 264876,
+        "UniqueId": "f5680f9f-9187-469c-adcd-3103520d159a",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Oude Arnhemseweg",
+        "Number": "240",
+        "NumberRangeTo": null,
+        "NumberSuffix": null,
+        "Postcode": "3705 BJ",
+        "Longitude": 5.23077481,
+        "Latitude": 52.09360204,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/f5/68/0f/9f/f5680f9f-9187-469c-adcd-3103520d159a/thumb/1.jpg",
+        "PhotoURL": "/media/objects/f5/68/0f/9f/f5680f9f-9187-469c-adcd-3103520d159a/wm/1.jpg",
+        "Price": 225000,
+        "PricePerYear": null,
+        "Metrage": 270,
+        "MetrageStart": 0,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": 2,
+        "ActivateDate": null,
+        "SalesPriceType": "Vraagprijs",
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "48d8154addfb4e59a873a4731245a9d9",
+            "Name": "WVO Bedrijfshuisvesting (Zeist)",
+            "Address": "2e Hogeweg 12",
+            "City": "Zeist",
+            "Postcode": "3701 AZ",
+            "ContactPersonName": "Robert Jan Hartman",
+            "ContactEmailAddress": "hartman@wvo.nl",
+            "PersonId": 18282,
+            "Phonenumber": "030-6920304",
+            "Logo": "/media/organization/photos/10860581/1.png",
+            "CanonicalName": "WVO-Bedrijfshuisvesting-(Zeist)",
+            "RenewalEmailAddress": "info@wvo.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 1,
+        "IncludesOrganization": true,
+        "Address": "Oude Arnhemseweg  240",
+        "BuildingAddressInfo": "Oude Arnhemseweg  240",
+        "FullAddressInfo": "Oude Arnhemseweg  240, 3705 BJ, Zeist",
+        "InsertedDateTime": "\/Date(1498130926714)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Koop",
+        "PriceInfo": "#Koopprijs# \u0026euro; 225.000 {Vraagprijs}",
+        "MetrageInfo": "270 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Oude-Arnhemseweg/240/f5680f9f-9187-469c-adcd-3103520d159a",
+        "Availability": "In overleg",
+        "ObjectType": "Koop",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 1,
+        "ObjectId": 262784,
+        "UniqueId": "f24e81e5-ec68-473d-9f36-f8bd6fbfaae9",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Bergweg",
+        "Number": "151",
+        "NumberRangeTo": null,
+        "NumberSuffix": null,
+        "Postcode": "3707 AC",
+        "Longitude": 5.25335635,
+        "Latitude": 52.10102697,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/f2/4e/81/e5/f24e81e5-ec68-473d-9f36-f8bd6fbfaae9/thumb/1.jpg",
+        "PhotoURL": "/media/objects/f2/4e/81/e5/f24e81e5-ec68-473d-9f36-f8bd6fbfaae9/wm/1.jpg",
+        "Price": 685000,
+        "PricePerYear": null,
+        "Metrage": 360,
+        "MetrageStart": 0,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": 2,
+        "ActivateDate": null,
+        "SalesPriceType": "Vraagprijs",
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "48d8154addfb4e59a873a4731245a9d9",
+            "Name": "WVO Bedrijfshuisvesting (Zeist)",
+            "Address": "2e Hogeweg 12",
+            "City": "Zeist",
+            "Postcode": "3701 AZ",
+            "ContactPersonName": "Robert Jan Hartman",
+            "ContactEmailAddress": "hartman@wvo.nl",
+            "PersonId": 18282,
+            "Phonenumber": "030-6920304",
+            "Logo": "/media/organization/photos/10860581/1.png",
+            "CanonicalName": "WVO-Bedrijfshuisvesting-(Zeist)",
+            "RenewalEmailAddress": "info@wvo.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 1,
+        "IncludesOrganization": true,
+        "Address": "Bergweg  151",
+        "BuildingAddressInfo": "Bergweg  151",
+        "FullAddressInfo": "Bergweg  151, 3707 AC, Zeist",
+        "InsertedDateTime": "\/Date(1495109328465)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Koop",
+        "PriceInfo": "#Koopprijs# \u0026euro; 685.000 {Vraagprijs}",
+        "MetrageInfo": "360 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Bergweg/151/f24e81e5-ec68-473d-9f36-f8bd6fbfaae9",
+        "Availability": "In overleg",
+        "ObjectType": "Koop",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 1,
+        "ObjectId": 255172,
+        "UniqueId": "44a78e39-2210-45bf-b9bb-257bca0ce9f6",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Utrechtseweg",
+        "Number": "101",
+        "NumberRangeTo": null,
+        "NumberSuffix": null,
+        "Postcode": "3702 AB",
+        "Longitude": 5.2330329,
+        "Latitude": 52.08621685,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/44/a7/8e/39/44a78e39-2210-45bf-b9bb-257bca0ce9f6/thumb/1.jpg",
+        "PhotoURL": "/media/objects/44/a7/8e/39/44a78e39-2210-45bf-b9bb-257bca0ce9f6/wm/1.jpg",
+        "Price": 459000,
+        "PricePerYear": null,
+        "Metrage": 315,
+        "MetrageStart": 0,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": 2,
+        "ActivateDate": null,
+        "SalesPriceType": "Vraagprijs",
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "48d8154addfb4e59a873a4731245a9d9",
+            "Name": "WVO Bedrijfshuisvesting (Zeist)",
+            "Address": "2e Hogeweg 12",
+            "City": "Zeist",
+            "Postcode": "3701 AZ",
+            "ContactPersonName": "Robert Jan Hartman",
+            "ContactEmailAddress": "hartman@wvo.nl",
+            "PersonId": 18282,
+            "Phonenumber": "030-6920304",
+            "Logo": "/media/organization/photos/10860581/1.png",
+            "CanonicalName": "WVO-Bedrijfshuisvesting-(Zeist)",
+            "RenewalEmailAddress": "info@wvo.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 1,
+        "IncludesOrganization": true,
+        "Address": "Utrechtseweg  101",
+        "BuildingAddressInfo": "Utrechtseweg  101",
+        "FullAddressInfo": "Utrechtseweg  101, 3702 AB, Zeist",
+        "InsertedDateTime": "\/Date(1489441658475)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Koop",
+        "PriceInfo": "#Koopprijs# \u0026euro; 459.000 {Vraagprijs}",
+        "MetrageInfo": "315 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Utrechtseweg/101/44a78e39-2210-45bf-b9bb-257bca0ce9f6",
+        "Availability": "In overleg",
+        "ObjectType": "Koop",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 5,
+        "ObjectId": 251874,
+        "UniqueId": "9ee1323c-0f52-4fcd-a004-1f43446d395c",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Jagerlaan",
+        "Number": "12",
+        "NumberRangeTo": null,
+        "NumberSuffix": null,
+        "Postcode": "3701 XJ",
+        "Longitude": 5.2462459,
+        "Latitude": 52.08799503,
+        "PriceAverage": 110,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/9e/e1/32/3c/9ee1323c-0f52-4fcd-a004-1f43446d395c/thumb/1.jpg",
+        "PhotoURL": "/media/objects/9e/e1/32/3c/9ee1323c-0f52-4fcd-a004-1f43446d395c/wm/1.jpg",
+        "Price": 349750,
+        "PricePerYear": null,
+        "Metrage": 248,
+        "MetrageStart": 248,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": 2,
+        "ActivateDate": null,
+        "SalesPriceType": "Vraagprijs",
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "2C9B6A051C4541B9ADFF54479A0013E2",
+            "Name": "MVGM Bedrijfshuisvesting Regio Midden (Utrecht)",
+            "Address": "Euclideslaan 251",
+            "City": "Utrecht",
+            "Postcode": "3584 BV",
+            "ContactPersonName": "R.C.T. (Rene) van Belle",
+            "ContactEmailAddress": "rct.van.belle@mvgm.nl",
+            "PersonId": 2617,
+            "Phonenumber": "R.C.T. (Rene) van Belle-088-4324925",
+            "Logo": "/media/organization/photos/1870/1.png",
+            "CanonicalName": "MVGM-Bedrijfshuisvesting-Regio-Midden-(Utrecht)",
+            "RenewalEmailAddress": "bedrijfshuisvesting.utrecht@mvgm.nl"
+        },
+        "BrochureUrl": "/media/objects/9e/e1/32/3c/9ee1323c-0f52-4fcd-a004-1f43446d395c/docs/125484_8ccf990d-987a-4a80-864f-10a543143ab7.pdf",
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 1,
+        "IncludesOrganization": true,
+        "Address": "Jagerlaan  12",
+        "BuildingAddressInfo": "Jagerlaan  12",
+        "FullAddressInfo": "Jagerlaan  12, 3701 XJ, Zeist",
+        "InsertedDateTime": "\/Date(1486478444930)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Huur \u0026 Koop",
+        "PriceInfo": "#Koopprijs# \u0026euro; 349.750 {Vraagprijs}, #Huurprijs# \u0026euro; 110 m\u003csup\u003e2\u003c/sup\u003e/jr",
+        "MetrageInfo": "248 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Jagerlaan/12/9ee1323c-0f52-4fcd-a004-1f43446d395c",
+        "Availability": "In overleg",
+        "ObjectType": "Huur \u0026 Koop",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 2,
+        "ObjectId": 245815,
+        "UniqueId": "AFEDCF4D-4DAD-46F8-BA55-5CF4EA5D8D3C",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Utrechtseweg",
+        "Number": "75",
+        "NumberRangeTo": null,
+        "NumberSuffix": null,
+        "Postcode": "3702 AA",
+        "Longitude": 5.23004701,
+        "Latitude": 52.0889273,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/AF/ED/CF/4D/AFEDCF4D-4DAD-46F8-BA55-5CF4EA5D8D3C/thumb/1.jpg",
+        "PhotoURL": "/media/objects/AF/ED/CF/4D/AFEDCF4D-4DAD-46F8-BA55-5CF4EA5D8D3C/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": null,
+        "Metrage": 2700,
+        "MetrageStart": 200,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": 1,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "48d8154addfb4e59a873a4731245a9d9",
+            "Name": "WVO Bedrijfshuisvesting (Zeist)",
+            "Address": "2e Hogeweg 12",
+            "City": "Zeist",
+            "Postcode": "3701 AZ",
+            "ContactPersonName": "Robert Jan Hartman",
+            "ContactEmailAddress": "hartman@wvo.nl",
+            "PersonId": 18282,
+            "Phonenumber": "030-6920304",
+            "Logo": "/media/organization/photos/10860581/1.png",
+            "CanonicalName": "WVO-Bedrijfshuisvesting-(Zeist)",
+            "RenewalEmailAddress": "info@wvo.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 1,
+        "IncludesOrganization": true,
+        "Address": "Utrechtseweg  75",
+        "BuildingAddressInfo": "Utrechtseweg  75",
+        "FullAddressInfo": "Utrechtseweg  75, 3702 AA, Zeist",
+        "InsertedDateTime": "\/Date(1466543205000)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#Prijs#: #Onbekend#",
+        "MetrageInfo": "2.700 m\u0026sup2; #Vanaf# 200m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Utrechtseweg/75/AFEDCF4D-4DAD-46F8-BA55-5CF4EA5D8D3C",
+        "Availability": "Per direct",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 2,
+        "ObjectId": 196396,
+        "UniqueId": "2A28A0C8-EEB3-474A-861F-F9D7FCE9E957",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "De Dreef",
+        "Number": "2",
+        "NumberRangeTo": null,
+        "NumberSuffix": null,
+        "Postcode": "3706 BR",
+        "Longitude": 5.21828956,
+        "Latitude": 52.09590374,
+        "PriceAverage": 95,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/2A/28/A0/C8/2A28A0C8-EEB3-474A-861F-F9D7FCE9E957/thumb/1.jpg",
+        "PhotoURL": "/media/objects/2A/28/A0/C8/2A28A0C8-EEB3-474A-861F-F9D7FCE9E957/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": null,
+        "Metrage": 1466,
+        "MetrageStart": 110,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": 1,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "2C9B6A051C4541B9ADFF54479A0013E2",
+            "Name": "MVGM Bedrijfshuisvesting Regio Midden (Utrecht)",
+            "Address": "Euclideslaan 251",
+            "City": "Utrecht",
+            "Postcode": "3584 BV",
+            "ContactPersonName": "R.C.T. (Rene) van Belle RT",
+            "ContactEmailAddress": "rct.van.belle@mvgm.nl",
+            "PersonId": 2617,
+            "Phonenumber": "R.C.T. (Rene) van Belle RT-088-4324925",
+            "Logo": "/media/organization/photos/1870/1.png",
+            "CanonicalName": "MVGM-Bedrijfshuisvesting-Regio-Midden-(Utrecht)",
+            "RenewalEmailAddress": "bedrijfshuisvesting.utrecht@mvgm.nl"
+        },
+        "BrochureUrl": "/media/objects/2A/28/A0/C8/2A28A0C8-EEB3-474A-861F-F9D7FCE9E957/docs/Brochure.pdf",
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 1,
+        "IncludesOrganization": true,
+        "Address": "De Dreef  2",
+        "BuildingAddressInfo": "De Dreef  2",
+        "FullAddressInfo": "De Dreef  2, 3706 BR, Zeist",
+        "InsertedDateTime": "\/Date(1430491152000)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#Huurprijs# \u0026euro; 95 m\u003csup\u003e2\u003c/sup\u003e/jr",
+        "MetrageInfo": "1.466 m\u0026sup2; #Vanaf# 110m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/De-Dreef/2/2A28A0C8-EEB3-474A-861F-F9D7FCE9E957",
+        "Availability": "Per direct",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 3,
+        "ObjectTypeId": 2,
+        "ObjectId": 187985,
+        "UniqueId": "31BC1DEA-32C7-44BB-AE33-05C9DA76599A",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Slotlaan",
+        "Number": "295",
+        "NumberRangeTo": null,
+        "NumberSuffix": null,
+        "Postcode": "3701 GJ",
+        "Longitude": 5.24787873,
+        "Latitude": 52.08841941,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/31/BC/1D/EA/31BC1DEA-32C7-44BB-AE33-05C9DA76599A/thumb/1.jpg",
+        "PhotoURL": "/media/objects/31/BC/1D/EA/31BC1DEA-32C7-44BB-AE33-05C9DA76599A/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": 21000,
+        "Metrage": 75,
+        "MetrageStart": 75,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": 2,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "8118318012F44EAFAA042FE15901DF66",
+            "Name": "IBG Brecheisen Bedrijfsmakelaars Amersfoort (Amersfoort)",
+            "Address": "Postbus 2711",
+            "City": "Amersfoort",
+            "Postcode": "3800 GG",
+            "ContactPersonName": "A.J. Henkus",
+            "ContactEmailAddress": "ghenkus@brecheisen.nl",
+            "PersonId": 6140,
+            "Phonenumber": "033-4512501",
+            "Logo": "/media/organization/photos/3736/1.png",
+            "CanonicalName": "IBG-Brecheisen-Bedrijfsmakelaars-Amersfoort-(Amersfoort)",
+            "RenewalEmailAddress": "ghenkus@brecheisen.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 1,
+        "IncludesOrganization": true,
+        "Address": "Slotlaan  295",
+        "BuildingAddressInfo": "Slotlaan  295",
+        "FullAddressInfo": "Slotlaan  295, 3701 GJ, Zeist",
+        "InsertedDateTime": "\/Date(1410516450000)\/",
+        "PrimaryUsage": "Winkel",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#HuurprijsPerJaar# \u0026euro; 21.000, #HuurprijsPerMaand# \u0026euro; 1.750",
+        "MetrageInfo": "75 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Slotlaan/295/31BC1DEA-32C7-44BB-AE33-05C9DA76599A",
+        "Availability": "In overleg",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Winkel"
+    }, {
+        "ObjectUsageId": 3,
+        "ObjectTypeId": 1,
+        "ObjectId": 265341,
+        "UniqueId": "b14709ba-9721-4cc5-a269-72d3bf55eabc",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Oude Arnhemseweg",
+        "Number": "42",
+        "NumberRangeTo": "",
+        "NumberSuffix": "",
+        "Postcode": "3702 BE",
+        "Longitude": 5.23712868,
+        "Latitude": 52.08741754,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": null,
+        "PhotoURL": null,
+        "Price": 190000,
+        "PricePerYear": null,
+        "Metrage": 93,
+        "MetrageStart": null,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": "Vraagprijs",
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "2FF2676A89FD477FBBCBC052218DA8C3",
+            "Name": "Nijland Makelaars Bilthoven",
+            "Address": "De Kwinkelier 2",
+            "City": "Bilthoven",
+            "Postcode": "3722 AP",
+            "ContactPersonName": "J. ter Burg",
+            "ContactEmailAddress": "jeroenterburg@nijland.nl",
+            "PersonId": 18962,
+            "Phonenumber": "030-2285858",
+            "Logo": null,
+            "CanonicalName": "Nijland-Makelaars-Bilthoven",
+            "RenewalEmailAddress": "bilthoven@nijland.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Oude Arnhemseweg  42",
+        "BuildingAddressInfo": "Oude Arnhemseweg  42",
+        "FullAddressInfo": "Oude Arnhemseweg  42, 3702 BE, Zeist",
+        "InsertedDateTime": "\/Date(1498543231560)\/",
+        "PrimaryUsage": "Winkel",
+        "SaleOrRent": "Koop",
+        "PriceInfo": "#Koopprijs# \u0026euro; 190.000 {Vraagprijs}",
+        "MetrageInfo": "93 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Oude-Arnhemseweg/42/b14709ba-9721-4cc5-a269-72d3bf55eabc",
+        "Availability": "",
+        "ObjectType": "Koop",
+        "ObjectUsage": "Winkel"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 5,
+        "ObjectId": 265049,
+        "UniqueId": "e391800f-625a-490b-a775-ff6e8d658e86",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "De Génestetlaan",
+        "Number": "2",
+        "NumberRangeTo": null,
+        "NumberSuffix": "f",
+        "Postcode": "3705 BV",
+        "Longitude": 5.23251174,
+        "Latitude": 52.0934785,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": null,
+        "PhotoURL": null,
+        "Price": 550000,
+        "PricePerYear": 35000,
+        "Metrage": 540,
+        "MetrageStart": null,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": "Vraagprijs",
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "6D0ADF9135F749D79FB7FD26B1E0AE6E",
+            "Name": "Klaassen Makelaars",
+            "Address": "Slotlaan 66",
+            "City": "Zeist",
+            "Postcode": "3701 GN",
+            "ContactPersonName": "D. Klaassen",
+            "ContactEmailAddress": "info@klaassenmakelaars.nl",
+            "PersonId": 18959,
+            "Phonenumber": "030-6933222",
+            "Logo": null,
+            "CanonicalName": "Klaassen-Makelaars",
+            "RenewalEmailAddress": "info@klaassenmakelaars.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "De Génestetlaan  2f",
+        "BuildingAddressInfo": "De Génestetlaan  2f",
+        "FullAddressInfo": "De Génestetlaan  2f, 3705 BV, Zeist",
+        "InsertedDateTime": "\/Date(1498543187600)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Huur \u0026 Koop",
+        "PriceInfo": "#Koopprijs# \u0026euro; 550.000 {Vraagprijs}, #HuurprijsPerJaar# \u0026euro; 35.000, #HuurprijsPerMaand# \u0026euro; 2.916",
+        "MetrageInfo": "540 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/De-Gnestetlaan/2f/e391800f-625a-490b-a775-ff6e8d658e86",
+        "Availability": "",
+        "ObjectType": "Huur \u0026 Koop",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 3,
+        "ObjectTypeId": 1,
+        "ObjectId": 264291,
+        "UniqueId": "c342e3d3-1238-4ef0-bf56-bec1f697d41f",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Slotlaan",
+        "Number": "265",
+        "NumberRangeTo": null,
+        "NumberSuffix": null,
+        "Postcode": "3701 GG",
+        "Longitude": 5.24688833,
+        "Latitude": 52.08785199,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": null,
+        "PhotoURL": null,
+        "Price": 395000,
+        "PricePerYear": null,
+        "Metrage": 200,
+        "MetrageStart": null,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": "Vraagprijs",
+        "Broker": {
+            "Salutation": "mevrouw",
+            "GUID": "B5CCDA06DF1D4F7AAA563736EAD75E51",
+            "Name": "Molenbeek Makelaars, Partner in Dynamis (Utrecht)",
+            "Address": "Emmalaan 39",
+            "City": "Utrecht",
+            "Postcode": "3581 HP",
+            "ContactPersonName": "E. Smit",
+            "ContactEmailAddress": "smit@molenbeek.nl",
+            "PersonId": 5630,
+            "Phonenumber": "030-2568811",
+            "Logo": "/media/organization/photos/134/0.png",
+            "CanonicalName": "Molenbeek-Makelaars-Partner-in-Dynamis-(Utrecht)",
+            "RenewalEmailAddress": "info@molenbeek.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Slotlaan  265",
+        "BuildingAddressInfo": "Slotlaan  265",
+        "FullAddressInfo": "Slotlaan  265, 3701 GG, Zeist",
+        "InsertedDateTime": "\/Date(1497301447462)\/",
+        "PrimaryUsage": "Winkel",
+        "SaleOrRent": "Koop",
+        "PriceInfo": "#Koopprijs# \u0026euro; 395.000 {Vraagprijs}",
+        "MetrageInfo": "200 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Slotlaan/265/c342e3d3-1238-4ef0-bf56-bec1f697d41f",
+        "Availability": "",
+        "ObjectType": "Koop",
+        "ObjectUsage": "Winkel"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 2,
+        "ObjectId": 264163,
+        "UniqueId": "f4e5c660-f584-4759-b907-ee46bcb76b47",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Het Rond",
+        "Number": "6",
+        "NumberRangeTo": "",
+        "NumberSuffix": "D",
+        "Postcode": "3701 HS",
+        "Longitude": 5.2383896,
+        "Latitude": 52.08118143,
+        "PriceAverage": 135,
+        "PriceNOTK": false,
+        "ImageURL": null,
+        "PhotoURL": null,
+        "Price": null,
+        "PricePerYear": null,
+        "Metrage": 400,
+        "MetrageStart": 200,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "F149F21F58D14A938AD219142622BB66",
+            "Name": "Nassau Bedrijfshuisvesting (Zeist)",
+            "Address": "Boulevard 1",
+            "City": "Zeist",
+            "Postcode": "3707 BK",
+            "ContactPersonName": "P. Fluitman",
+            "ContactEmailAddress": "fluitman@nassau.nl",
+            "PersonId": 17862,
+            "Phonenumber": "030-6917585",
+            "Logo": null,
+            "CanonicalName": "Nassau-Bedrijfshuisvesting-(Zeist)",
+            "RenewalEmailAddress": "info@nassau.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Het Rond  6D",
+        "BuildingAddressInfo": "Het Rond  6D",
+        "FullAddressInfo": "Het Rond  6D, 3701 HS, Zeist",
+        "InsertedDateTime": "\/Date(1497301435769)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#Huurprijs# \u0026euro; 135 m\u003csup\u003e2\u003c/sup\u003e/jr",
+        "MetrageInfo": "400 m\u0026sup2; #Vanaf# 200m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Het-Rond/6D/f4e5c660-f584-4759-b907-ee46bcb76b47",
+        "Availability": "",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 3,
+        "ObjectTypeId": 2,
+        "ObjectId": 263500,
+        "UniqueId": "31698264-6e5a-45a6-a40c-182c8f13fe86",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Voorheuvel",
+        "Number": "39",
+        "NumberRangeTo": "",
+        "NumberSuffix": "A - 41",
+        "Postcode": "3701 JB",
+        "Longitude": 5.24019178,
+        "Latitude": 52.08769104,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": null,
+        "PhotoURL": null,
+        "Price": null,
+        "PricePerYear": 57670,
+        "Metrage": 797,
+        "MetrageStart": null,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "F149F21F58D14A938AD219142622BB66",
+            "Name": "Nassau Bedrijfshuisvesting (Zeist)",
+            "Address": "Boulevard 1",
+            "City": "Zeist",
+            "Postcode": "3707 BK",
+            "ContactPersonName": "P. Fluitman",
+            "ContactEmailAddress": "fluitman@nassau.nl",
+            "PersonId": 17862,
+            "Phonenumber": "030-6917585",
+            "Logo": null,
+            "CanonicalName": "Nassau-Bedrijfshuisvesting-(Zeist)",
+            "RenewalEmailAddress": "info@nassau.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Voorheuvel  39A - 41",
+        "BuildingAddressInfo": "Voorheuvel  39A - 41",
+        "FullAddressInfo": "Voorheuvel  39A - 41, 3701 JB, Zeist",
+        "InsertedDateTime": "\/Date(1496051546126)\/",
+        "PrimaryUsage": "Winkel",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#HuurprijsPerJaar# \u0026euro; 57.670, #HuurprijsPerMaand# \u0026euro; 4.805",
+        "MetrageInfo": "797 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Voorheuvel/39A--41/31698264-6e5a-45a6-a40c-182c8f13fe86",
+        "Availability": "",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Winkel"
+    }, {
+        "ObjectUsageId": 3,
+        "ObjectTypeId": 2,
+        "ObjectId": 263382,
+        "UniqueId": "660b91be-86c7-4972-a37c-a4f02bab5b5b",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Slotlaan",
+        "Number": "173",
+        "NumberRangeTo": "",
+        "NumberSuffix": "",
+        "Postcode": "3701 GD",
+        "Longitude": 5.24429742,
+        "Latitude": 52.08590746,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/66/0b/91/be/660b91be-86c7-4972-a37c-a4f02bab5b5b/thumb/1.jpg",
+        "PhotoURL": "/media/objects/66/0b/91/be/660b91be-86c7-4972-a37c-a4f02bab5b5b/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": 52500,
+        "Metrage": 175,
+        "MetrageStart": null,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "3ce1c5a26afc41cb894664a32adbb5e8",
+            "Name": "Binc Bedrijfshuisvesting",
+            "Address": "1e Hogeweg 198",
+            "City": "Zeist",
+            "Postcode": "3701 HL",
+            "ContactPersonName": "T. de Boorder",
+            "ContactEmailAddress": "info@bincbhv.nl",
+            "PersonId": 18713,
+            "Phonenumber": "030-662443",
+            "Logo": null,
+            "CanonicalName": "Binc-Bedrijfshuisvesting",
+            "RenewalEmailAddress": "info@bincbhv.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Slotlaan  173",
+        "BuildingAddressInfo": "Slotlaan  173",
+        "FullAddressInfo": "Slotlaan  173, 3701 GD, Zeist",
+        "InsertedDateTime": "\/Date(1496003964543)\/",
+        "PrimaryUsage": "Winkel",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#HuurprijsPerJaar# \u0026euro; 52.500, #HuurprijsPerMaand# \u0026euro; 4.375",
+        "MetrageInfo": "175 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Slotlaan/173/660b91be-86c7-4972-a37c-a4f02bab5b5b",
+        "Availability": "",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Winkel"
+    }, {
+        "ObjectUsageId": 3,
+        "ObjectTypeId": 2,
+        "ObjectId": 263021,
+        "UniqueId": "3a844c1e-d337-4463-a7f4-cf5571beab7f",
+        "AvailabilityCustom": "",
+        "ObjectName": "",
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "1e Hogeweg",
+        "Number": "5",
+        "NumberRangeTo": null,
+        "NumberSuffix": null,
+        "Postcode": "3701 HG",
+        "Longitude": 5.23968559,
+        "Latitude": 52.08633321,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/3a/84/4c/1e/3a844c1e-d337-4463-a7f4-cf5571beab7f/thumb/1.jpg",
+        "PhotoURL": "/media/objects/3a/84/4c/1e/3a844c1e-d337-4463-a7f4-cf5571beab7f/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": 32400,
+        "Metrage": 145,
+        "MetrageStart": null,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "3CA0538B2A2B4243B02A56265668DB5F",
+            "Name": "Hoogveste",
+            "Address": "Oosterbrugstraat 2",
+            "City": "Sliedrecht",
+            "Postcode": "3361 BR",
+            "ContactPersonName": "H. Hoogendoorn",
+            "ContactEmailAddress": "harm@hoogveste.nl",
+            "PersonId": 18390,
+            "Phonenumber": "0184-210000",
+            "Logo": null,
+            "CanonicalName": "Hoogveste",
+            "RenewalEmailAddress": "info@hoogveste.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "1e Hogeweg  5",
+        "BuildingAddressInfo": "1e Hogeweg  5",
+        "FullAddressInfo": "1e Hogeweg  5, 3701 HG, Zeist",
+        "InsertedDateTime": "\/Date(1495402628880)\/",
+        "PrimaryUsage": "Winkel",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#HuurprijsPerJaar# \u0026euro; 32.400, #HuurprijsPerMaand# \u0026euro; 2.700",
+        "MetrageInfo": "145 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/1e-Hogeweg/5/3a844c1e-d337-4463-a7f4-cf5571beab7f",
+        "Availability": "",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Winkel"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 2,
+        "ObjectId": 262884,
+        "UniqueId": "6c1a946d-2244-4b10-acee-c627284752e1",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Huis ter Heideweg",
+        "Number": "26",
+        "NumberRangeTo": "28",
+        "NumberSuffix": null,
+        "Postcode": "3705 LZ",
+        "Longitude": 5.25763833,
+        "Latitude": 52.10410565,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/6c/1a/94/6d/6c1a946d-2244-4b10-acee-c627284752e1/thumb/1.jpg",
+        "PhotoURL": "/media/objects/6c/1a/94/6d/6c1a946d-2244-4b10-acee-c627284752e1/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": 2700,
+        "Metrage": 365,
+        "MetrageStart": 28,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mevrouw",
+            "GUID": "8CC71C053A12473BA2AB2AA660EF4AAE",
+            "Name": "Ans de Wijn Bedrijfshuisvesting (Utrecht)",
+            "Address": "Postbus 85379",
+            "City": "Utrecht",
+            "Postcode": "3508 AJ",
+            "ContactPersonName": "J.M. de Wijn",
+            "ContactEmailAddress": "bedrijven@ansdewijn.nl",
+            "PersonId": 2607,
+            "Phonenumber": "030-2322303",
+            "Logo": "/media/organization/photos/202/1.jpg",
+            "CanonicalName": "Ans-de-Wijn-Bedrijfshuisvesting-(Utrecht)",
+            "RenewalEmailAddress": "bedrijven@ansdewijn.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Huis ter Heideweg  26-28",
+        "BuildingAddressInfo": "Huis ter Heideweg  26-28",
+        "FullAddressInfo": "Huis ter Heideweg  26-28, 3705 LZ, Zeist",
+        "InsertedDateTime": "\/Date(1495570169922)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#HuurprijsPerJaar# \u0026euro; 2.700, #HuurprijsPerMaand# \u0026euro; 225",
+        "MetrageInfo": "365 m\u0026sup2; #Vanaf# 28m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Huis-ter-Heideweg/26-28/6c1a946d-2244-4b10-acee-c627284752e1",
+        "Availability": "",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 3,
+        "ObjectTypeId": 2,
+        "ObjectId": 262397,
+        "UniqueId": "dac501e3-128e-4441-a264-3615a3e8562f",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Kerkweg",
+        "Number": "9",
+        "NumberRangeTo": "",
+        "NumberSuffix": "",
+        "Postcode": "3701 HD",
+        "Longitude": 5.23948835,
+        "Latitude": 52.0842028,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/da/c5/01/e3/dac501e3-128e-4441-a264-3615a3e8562f/thumb/1.jpg",
+        "PhotoURL": "/media/objects/da/c5/01/e3/dac501e3-128e-4441-a264-3615a3e8562f/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": 10200,
+        "Metrage": 60,
+        "MetrageStart": null,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "F149F21F58D14A938AD219142622BB66",
+            "Name": "Nassau Bedrijfshuisvesting (Zeist)",
+            "Address": "Boulevard 1",
+            "City": "Zeist",
+            "Postcode": "3707 BK",
+            "ContactPersonName": "P. Fluitman",
+            "ContactEmailAddress": "fluitman@nassau.nl",
+            "PersonId": 17862,
+            "Phonenumber": "030-6917585",
+            "Logo": null,
+            "CanonicalName": "Nassau-Bedrijfshuisvesting-(Zeist)",
+            "RenewalEmailAddress": "info@nassau.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Kerkweg  9",
+        "BuildingAddressInfo": "Kerkweg  9",
+        "FullAddressInfo": "Kerkweg  9, 3701 HD, Zeist",
+        "InsertedDateTime": "\/Date(1494281411557)\/",
+        "PrimaryUsage": "Winkel",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#HuurprijsPerJaar# \u0026euro; 10.200, #HuurprijsPerMaand# \u0026euro; 850",
+        "MetrageInfo": "60 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Kerkweg/9/dac501e3-128e-4441-a264-3615a3e8562f",
+        "Availability": "",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Winkel"
+    }, {
+        "ObjectUsageId": 3,
+        "ObjectTypeId": 1,
+        "ObjectId": 262380,
+        "UniqueId": "72a3c3b0-4fd3-444a-97e5-0bfc055d520c",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Slotlaan",
+        "Number": "108",
+        "NumberRangeTo": "",
+        "NumberSuffix": "",
+        "Postcode": "3701 GR",
+        "Longitude": 5.24247897,
+        "Latitude": 52.08426942,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/72/a3/c3/b0/72a3c3b0-4fd3-444a-97e5-0bfc055d520c/thumb/1.jpg",
+        "PhotoURL": "/media/objects/72/a3/c3/b0/72a3c3b0-4fd3-444a-97e5-0bfc055d520c/wm/1.jpg",
+        "Price": 139000,
+        "PricePerYear": null,
+        "Metrage": 85,
+        "MetrageStart": null,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": "Vraagprijs",
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "16957B3A8513439DAA98E94958D2F67F",
+            "Name": "Patist Makelaardij en Taxatiebureau (Zeist)",
+            "Address": "Wilhelminalaan 24",
+            "City": "Zeist",
+            "Postcode": "3701 BK",
+            "ContactPersonName": "J.C. Patist",
+            "ContactEmailAddress": "info@patistmakelaardij.nl",
+            "PersonId": 3833,
+            "Phonenumber": "030-2077880",
+            "Logo": "/media/organization/photos/435/1.png",
+            "CanonicalName": "Patist-Makelaardij-en-Taxatiebureau-(Zeist)",
+            "RenewalEmailAddress": "info@patistmakelaardij.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Slotlaan  108",
+        "BuildingAddressInfo": "Slotlaan  108",
+        "FullAddressInfo": "Slotlaan  108, 3701 GR, Zeist",
+        "InsertedDateTime": "\/Date(1494281411182)\/",
+        "PrimaryUsage": "Winkel",
+        "SaleOrRent": "Koop",
+        "PriceInfo": "#Koopprijs# \u0026euro; 139.000 {Vraagprijs}",
+        "MetrageInfo": "85 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Slotlaan/108/72a3c3b0-4fd3-444a-97e5-0bfc055d520c",
+        "Availability": "",
+        "ObjectType": "Koop",
+        "ObjectUsage": "Winkel"
+    }, {
+        "ObjectUsageId": 2,
+        "ObjectTypeId": 2,
+        "ObjectId": 261613,
+        "UniqueId": "3ca9e0ed-9e80-420c-b3dc-c10967b260d5",
+        "AvailabilityCustom": "",
+        "ObjectName": null,
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Kroostweg",
+        "Number": "47",
+        "NumberRangeTo": "",
+        "NumberSuffix": "E",
+        "Postcode": "3704 EB",
+        "Longitude": 5.2225302,
+        "Latitude": 52.08960013,
+        "PriceAverage": null,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/3c/a9/e0/ed/3ca9e0ed-9e80-420c-b3dc-c10967b260d5/thumb/1.jpg",
+        "PhotoURL": "/media/objects/3c/a9/e0/ed/3ca9e0ed-9e80-420c-b3dc-c10967b260d5/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": 13850,
+        "Metrage": 277,
+        "MetrageStart": null,
+        "Statistics": 0,
+        "SalesHeaderLine": null,
+        "AvailabilityId": null,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mijnheer",
+            "GUID": "1416AED7D438494F9AB0D78192A1B119",
+            "Name": "IBG Brecheisen Bedrijfsmakelaars (Utrecht)",
+            "Address": "Postbus 13096",
+            "City": "Utrecht",
+            "Postcode": "3507 LB",
+            "ContactPersonName": "P. Bleijenberg",
+            "ContactEmailAddress": "pbleijenberg@brecheisen.nl",
+            "PersonId": 6337,
+            "Phonenumber": "030-2331134",
+            "Logo": "/media/organization/photos/496/1.png",
+            "CanonicalName": "IBG-Brecheisen-Bedrijfsmakelaars-(Utrecht)",
+            "RenewalEmailAddress": "info@brecheisen.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": null,
+        "TourUrl": null,
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Kroostweg  47E",
+        "BuildingAddressInfo": "Kroostweg  47E",
+        "FullAddressInfo": "Kroostweg  47E, 3704 EB, Zeist",
+        "InsertedDateTime": "\/Date(1493495792430)\/",
+        "PrimaryUsage": "Bedrijfsruimte",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#HuurprijsPerJaar# \u0026euro; 13.850, #HuurprijsPerMaand# \u0026euro; 1.154",
+        "MetrageInfo": "277 m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Kroostweg/47E/3ca9e0ed-9e80-420c-b3dc-c10967b260d5",
+        "Availability": "",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Bedrijfsruimte"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 2,
+        "ObjectId": 261362,
+        "UniqueId": "ed825660-2b19-4f94-9f2b-2c76b5c42f64",
+        "AvailabilityCustom": "",
+        "ObjectName": "",
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Huis ter Heideweg",
+        "Number": "10",
+        "NumberRangeTo": "14",
+        "NumberSuffix": null,
+        "Postcode": "3705 LZ",
+        "Longitude": 5.25644654,
+        "Latitude": 52.10285593,
+        "PriceAverage": 110,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/ed/82/56/60/ed825660-2b19-4f94-9f2b-2c76b5c42f64/thumb/1.jpg",
+        "PhotoURL": "/media/objects/ed/82/56/60/ed825660-2b19-4f94-9f2b-2c76b5c42f64/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": null,
+        "Metrage": 2250,
+        "MetrageStart": 320,
+        "Statistics": 0,
+        "SalesHeaderLine": "",
+        "AvailabilityId": 2,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mevrouw",
+            "GUID": "8CC71C053A12473BA2AB2AA660EF4AAE",
+            "Name": "Ans de Wijn Bedrijfshuisvesting (Utrecht)",
+            "Address": "Postbus 85379",
+            "City": "Utrecht",
+            "Postcode": "3508 AJ",
+            "ContactPersonName": "J.M. de Wijn",
+            "ContactEmailAddress": "bedrijven@ansdewijn.nl",
+            "PersonId": 2607,
+            "Phonenumber": "030-2322303",
+            "Logo": "/media/organization/photos/202/1.jpg",
+            "CanonicalName": "Ans-de-Wijn-Bedrijfshuisvesting-(Utrecht)",
+            "RenewalEmailAddress": "bedrijven@ansdewijn.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": "",
+        "TourUrl": "",
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Huis ter Heideweg  10-14",
+        "BuildingAddressInfo": "Huis ter Heideweg  10-14",
+        "FullAddressInfo": "Huis ter Heideweg  10-14, 3705 LZ, Zeist",
+        "InsertedDateTime": "\/Date(1493113663587)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#Huurprijs# \u0026euro; 110 m\u003csup\u003e2\u003c/sup\u003e/jr",
+        "MetrageInfo": "2.250 m\u0026sup2; #Vanaf# 320m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Huis-ter-Heideweg/10-14/ed825660-2b19-4f94-9f2b-2c76b5c42f64",
+        "Availability": "In overleg",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Kantoor"
+    }, {
+        "ObjectUsageId": 1,
+        "ObjectTypeId": 2,
+        "ObjectId": 261360,
+        "UniqueId": "85916f9b-d65a-495c-b58b-b41970989b2b",
+        "AvailabilityCustom": "",
+        "ObjectName": "",
+        "CountryId": null,
+        "City": "Zeist",
+        "Street": "Utrechtseweg",
+        "Number": "15",
+        "NumberRangeTo": "17",
+        "NumberSuffix": null,
+        "Postcode": "3704 HA",
+        "Longitude": 5.2141967,
+        "Latitude": 52.09765047,
+        "PriceAverage": 105,
+        "PriceNOTK": false,
+        "ImageURL": "/media/objects/85/91/6f/9b/85916f9b-d65a-495c-b58b-b41970989b2b/thumb/1.jpg",
+        "PhotoURL": "/media/objects/85/91/6f/9b/85916f9b-d65a-495c-b58b-b41970989b2b/wm/1.jpg",
+        "Price": null,
+        "PricePerYear": null,
+        "Metrage": 1550,
+        "MetrageStart": 250,
+        "Statistics": 0,
+        "SalesHeaderLine": "",
+        "AvailabilityId": 2,
+        "ActivateDate": null,
+        "SalesPriceType": null,
+        "Broker": {
+            "Salutation": "mevrouw",
+            "GUID": "8CC71C053A12473BA2AB2AA660EF4AAE",
+            "Name": "Ans de Wijn Bedrijfshuisvesting (Utrecht)",
+            "Address": "Postbus 85379",
+            "City": "Utrecht",
+            "Postcode": "3508 AJ",
+            "ContactPersonName": "J.M. de Wijn",
+            "ContactEmailAddress": "bedrijven@ansdewijn.nl",
+            "PersonId": 2607,
+            "Phonenumber": "030-2322303",
+            "Logo": "/media/organization/photos/202/1.jpg",
+            "CanonicalName": "Ans-de-Wijn-Bedrijfshuisvesting-(Utrecht)",
+            "RenewalEmailAddress": "bedrijven@ansdewijn.nl"
+        },
+        "BrochureUrl": null,
+        "VideoUrl": "",
+        "TourUrl": "",
+        "ProductId": 0,
+        "IncludesOrganization": true,
+        "Address": "Utrechtseweg  15-17",
+        "BuildingAddressInfo": "Utrechtseweg  15-17",
+        "FullAddressInfo": "Utrechtseweg  15-17, 3704 HA, Zeist",
+        "InsertedDateTime": "\/Date(1493113446309)\/",
+        "PrimaryUsage": "Kantoor",
+        "SaleOrRent": "Huur",
+        "PriceInfo": "#Huurprijs# \u0026euro; 105 m\u003csup\u003e2\u003c/sup\u003e/jr",
+        "MetrageInfo": "1.550 m\u0026sup2; #Vanaf# 250m\u0026sup2;",
+        "DetailLinkUrl": "Zeist/Utrechtseweg/15-17/85916f9b-d65a-495c-b58b-b41970989b2b",
+        "Availability": "In overleg",
+        "ObjectType": "Huur",
+        "ObjectUsage": "Kantoor"
+    }],
+    "TotalObjectsCount": 29936,
+    "GoogleMapsShape": [
+        [{
+            "lat": 52.0874436127,
+            "lng": 5.26383375191
+        }, {
+            "lat": 52.0807357867,
+            "lng": 5.24025570123
+        }, {
+            "lat": 52.0817410613,
+            "lng": 5.23914658582
+        }, {
+            "lat": 52.083082843,
+            "lng": 5.23690856646
+        }, {
+            "lat": 52.0838691561,
+            "lng": 5.23679796595
+        }, {
+            "lat": 52.084158164,
+            "lng": 5.23647894626
+        }, {
+            "lat": 52.0891682297,
+            "lng": 5.24159228152
+        }, {
+            "lat": 52.0904829418,
+            "lng": 5.24139977506
+        }, {
+            "lat": 52.0917289445,
+            "lng": 5.24234126897
+        }, {
+            "lat": 52.0887900369,
+            "lng": 5.2477114766
+        }, {
+            "lat": 52.0899078237,
+            "lng": 5.24973180198
+        }, {
+            "lat": 52.0905788401,
+            "lng": 5.25172585627
+        }, {
+            "lat": 52.0897365214,
+            "lng": 5.25476921306
+        }, {
+            "lat": 52.0890543864,
+            "lng": 5.25402125428
+        }, {
+            "lat": 52.0883076853,
+            "lng": 5.25500251431
+        }, {
+            "lat": 52.0873932246,
+            "lng": 5.25386861901
+        }, {
+            "lat": 52.0867402044,
+            "lng": 5.25503194605
+        }, {
+            "lat": 52.0899799998,
+            "lng": 5.26124702382
+        }, {
+            "lat": 52.0874436127,
+            "lng": 5.26383375191
+        }],
+        [{
+            "lat": 52.0957451641,
+            "lng": 5.24337605953
+        }, {
+            "lat": 52.0917289445,
+            "lng": 5.24234126897
+        }, {
+            "lat": 52.0904829418,
+            "lng": 5.24139977506
+        }, {
+            "lat": 52.0891682297,
+            "lng": 5.24159228152
+        }, {
+            "lat": 52.084158164,
+            "lng": 5.23647894626
+        }, {
+            "lat": 52.0857504943,
+            "lng": 5.2334213755
+        }, {
+            "lat": 52.0861678212,
+            "lng": 5.23158013668
+        }, {
+            "lat": 52.0872628505,
+            "lng": 5.23043827802
+        }, {
+            "lat": 52.0892039923,
+            "lng": 5.22821801873
+        }, {
+            "lat": 52.0896902077,
+            "lng": 5.22885830448
+        }, {
+            "lat": 52.0897283672,
+            "lng": 5.23051135378
+        }, {
+            "lat": 52.0957451641,
+            "lng": 5.24337605953
+        }],
+        [{
+            "lat": 52.0777292646,
+            "lng": 5.24169074625
+        }, {
+            "lat": 52.0732462791,
+            "lng": 5.2333943045
+        }, {
+            "lat": 52.0754889963,
+            "lng": 5.22945989764
+        }, {
+            "lat": 52.0685845728,
+            "lng": 5.21983085634
+        }, {
+            "lat": 52.0682224334,
+            "lng": 5.21799751725
+        }, {
+            "lat": 52.0740531933,
+            "lng": 5.20603238198
+        }, {
+            "lat": 52.0795711686,
+            "lng": 5.21517125511
+        }, {
+            "lat": 52.0791968493,
+            "lng": 5.2161208992
+        }, {
+            "lat": 52.087480491,
+            "lng": 5.22718821625
+        }, {
+            "lat": 52.0872628505,
+            "lng": 5.23043827802
+        }, {
+            "lat": 52.0861678212,
+            "lng": 5.23158013668
+        }, {
+            "lat": 52.0857504943,
+            "lng": 5.2334213755
+        }, {
+            "lat": 52.084158164,
+            "lng": 5.23647894626
+        }, {
+            "lat": 52.0838691561,
+            "lng": 5.23679796595
+        }, {
+            "lat": 52.083082843,
+            "lng": 5.23690856646
+        }, {
+            "lat": 52.0817410613,
+            "lng": 5.23914658582
+        }, {
+            "lat": 52.0807357867,
+            "lng": 5.24025570123
+        }, {
+            "lat": 52.0777292646,
+            "lng": 5.24169074625
+        }],
+        [{
+            "lat": 52.0872628505,
+            "lng": 5.23043827802
+        }, {
+            "lat": 52.087480491,
+            "lng": 5.22718821625
+        }, {
+            "lat": 52.0791968493,
+            "lng": 5.2161208992
+        }, {
+            "lat": 52.0795711686,
+            "lng": 5.21517125511
+        }, {
+            "lat": 52.0740531933,
+            "lng": 5.20603238198
+        }, {
+            "lat": 52.0769388739,
+            "lng": 5.20002980395
+        }, {
+            "lat": 52.0761897606,
+            "lng": 5.19864573064
+        }, {
+            "lat": 52.0771046744,
+            "lng": 5.19525912764
+        }, {
+            "lat": 52.085955543,
+            "lng": 5.19271606873
+        }, {
+            "lat": 52.0847817749,
+            "lng": 5.20514713836
+        }, {
+            "lat": 52.0903123379,
+            "lng": 5.21001130322
+        }, {
+            "lat": 52.0939512627,
+            "lng": 5.20859892365
+        }, {
+            "lat": 52.0973088331,
+            "lng": 5.21256084323
+        }, {
+            "lat": 52.0956132526,
+            "lng": 5.21718327016
+        }, {
+            "lat": 52.0917123481,
+            "lng": 5.22476834795
+        }, {
+            "lat": 52.0892039923,
+            "lng": 5.22821801873
+        }, {
+            "lat": 52.0872628505,
+            "lng": 5.23043827802
+        }],
+        [{
+            "lat": 52.1055148041,
+            "lng": 5.25620696847
+        }, {
+            "lat": 52.1038847128,
+            "lng": 5.2556994267
+        }, {
+            "lat": 52.1025622547,
+            "lng": 5.25381174966
+        }, {
+            "lat": 52.101566028,
+            "lng": 5.25509470661
+        }, {
+            "lat": 52.0957451641,
+            "lng": 5.24337605953
+        }, {
+            "lat": 52.0897283672,
+            "lng": 5.23051135378
+        }, {
+            "lat": 52.0896902077,
+            "lng": 5.22885830448
+        }, {
+            "lat": 52.0892039923,
+            "lng": 5.22821801873
+        }, {
+            "lat": 52.0917123481,
+            "lng": 5.22476834795
+        }, {
+            "lat": 52.0956132526,
+            "lng": 5.21718327016
+        }, {
+            "lat": 52.0994065474,
+            "lng": 5.22121295738
+        }, {
+            "lat": 52.1005300003,
+            "lng": 5.22505450347
+        }, {
+            "lat": 52.1011930001,
+            "lng": 5.23217443856
+        }, {
+            "lat": 52.1027395143,
+            "lng": 5.23963173748
+        }, {
+            "lat": 52.1074838646,
+            "lng": 5.23645291748
+        }, {
+            "lat": 52.1119252396,
+            "lng": 5.25238384278
+        }, {
+            "lat": 52.1055148041,
+            "lng": 5.25620696847
+        }],
+        [{
+            "lat": 52.1027395143,
+            "lng": 5.23963173748
+        }, {
+            "lat": 52.1011930001,
+            "lng": 5.23217443856
+        }, {
+            "lat": 52.1005300003,
+            "lng": 5.22505450347
+        }, {
+            "lat": 52.0994065474,
+            "lng": 5.22121295738
+        }, {
+            "lat": 52.0956132526,
+            "lng": 5.21718327016
+        }, {
+            "lat": 52.0973088331,
+            "lng": 5.21256084323
+        }, {
+            "lat": 52.1009382307,
+            "lng": 5.21137178863
+        }, {
+            "lat": 52.1040689968,
+            "lng": 5.22147006173
+        }, {
+            "lat": 52.1062805009,
+            "lng": 5.22051454826
+        }, {
+            "lat": 52.1074838646,
+            "lng": 5.23645291748
+        }, {
+            "lat": 52.1027395143,
+            "lng": 5.23963173748
+        }],
+        [{
+            "lat": 52.1020479244,
+            "lng": 5.32191749493
+        }, {
+            "lat": 52.0963496917,
+            "lng": 5.29870630906
+        }, {
+            "lat": 52.0935681715,
+            "lng": 5.29101136927
+        }, {
+            "lat": 52.0906981162,
+            "lng": 5.29530014238
+        }, {
+            "lat": 52.0864821074,
+            "lng": 5.29003445715
+        }, {
+            "lat": 52.0821026976,
+            "lng": 5.28421868453
+        }, {
+            "lat": 52.0778309771,
+            "lng": 5.27660225468
+        }, {
+            "lat": 52.0804514196,
+            "lng": 5.27609978638
+        }, {
+            "lat": 52.0826356593,
+            "lng": 5.27157327234
+        }, {
+            "lat": 52.0820917221,
+            "lng": 5.26959207107
+        }, {
+            "lat": 52.0828072287,
+            "lng": 5.26785994338
+        }, {
+            "lat": 52.0874436127,
+            "lng": 5.26383375191
+        }, {
+            "lat": 52.0899799998,
+            "lng": 5.26124702382
+        }, {
+            "lat": 52.0867402044,
+            "lng": 5.25503194605
+        }, {
+            "lat": 52.0873932246,
+            "lng": 5.25386861901
+        }, {
+            "lat": 52.0883076853,
+            "lng": 5.25500251431
+        }, {
+            "lat": 52.0890543864,
+            "lng": 5.25402125428
+        }, {
+            "lat": 52.0897365214,
+            "lng": 5.25476921306
+        }, {
+            "lat": 52.0905788401,
+            "lng": 5.25172585627
+        }, {
+            "lat": 52.0899078237,
+            "lng": 5.24973180198
+        }, {
+            "lat": 52.0887900369,
+            "lng": 5.2477114766
+        }, {
+            "lat": 52.0917289445,
+            "lng": 5.24234126897
+        }, {
+            "lat": 52.0957451641,
+            "lng": 5.24337605953
+        }, {
+            "lat": 52.101566028,
+            "lng": 5.25509470661
+        }, {
+            "lat": 52.1025622547,
+            "lng": 5.25381174966
+        }, {
+            "lat": 52.1038847128,
+            "lng": 5.2556994267
+        }, {
+            "lat": 52.1055148041,
+            "lng": 5.25620696847
+        }, {
+            "lat": 52.1116024636,
+            "lng": 5.28238441235
+        }, {
+            "lat": 52.114539895,
+            "lng": 5.2921225645
+        }, {
+            "lat": 52.1139118739,
+            "lng": 5.29354731019
+        }, {
+            "lat": 52.1110400226,
+            "lng": 5.30159106247
+        }, {
+            "lat": 52.1099722285,
+            "lng": 5.3066745999
+        }, {
+            "lat": 52.1095350145,
+            "lng": 5.30875555284
+        }, {
+            "lat": 52.1080671629,
+            "lng": 5.31133744601
+        }, {
+            "lat": 52.1020479244,
+            "lng": 5.32191749493
+        }],
+        [{
+            "lat": 52.0778309771,
+            "lng": 5.27660225468
+        }, {
+            "lat": 52.06664556,
+            "lng": 5.2590565373
+        }, {
+            "lat": 52.0709463429,
+            "lng": 5.25418011055
+        }, {
+            "lat": 52.0777292646,
+            "lng": 5.24169074625
+        }, {
+            "lat": 52.0807357867,
+            "lng": 5.24025570123
+        }, {
+            "lat": 52.0874436127,
+            "lng": 5.26383375191
+        }, {
+            "lat": 52.0828072287,
+            "lng": 5.26785994338
+        }, {
+            "lat": 52.0820917221,
+            "lng": 5.26959207107
+        }, {
+            "lat": 52.0826356593,
+            "lng": 5.27157327234
+        }, {
+            "lat": 52.0804514196,
+            "lng": 5.27609978638
+        }, {
+            "lat": 52.0778309771,
+            "lng": 5.27660225468
+        }],
+        [{
+            "lat": 52.06664556,
+            "lng": 5.2590565373
+        }, {
+            "lat": 52.0654139918,
+            "lng": 5.25722840067
+        }, {
+            "lat": 52.0632009798,
+            "lng": 5.25628112152
+        }, {
+            "lat": 52.0619947939,
+            "lng": 5.25152211216
+        }, {
+            "lat": 52.0585221282,
+            "lng": 5.24718893857
+        }, {
+            "lat": 52.0597274849,
+            "lng": 5.21840434868
+        }, {
+            "lat": 52.0648342237,
+            "lng": 5.22459458528
+        }, {
+            "lat": 52.0682224334,
+            "lng": 5.21799751725
+        }, {
+            "lat": 52.0685845728,
+            "lng": 5.21983085634
+        }, {
+            "lat": 52.0754889963,
+            "lng": 5.22945989764
+        }, {
+            "lat": 52.0732462791,
+            "lng": 5.2333943045
+        }, {
+            "lat": 52.0777292646,
+            "lng": 5.24169074625
+        }, {
+            "lat": 52.0709463429,
+            "lng": 5.25418011055
+        }, {
+            "lat": 52.06664556,
+            "lng": 5.2590565373
+        }]
+    ]
+}

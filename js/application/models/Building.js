@@ -1,5 +1,5 @@
-function Building(building) {
-    this.uniqueId = building.UniqueId;
+function Building(obj, building) {
+    this.obj = obj;
     // address
     this.address = building.Address;
     this.city = building.City;
@@ -23,8 +23,8 @@ function Building(building) {
     this.productId = building.ProductId;
     this.includesOrganization = building.IncludesOrganization;
     this.salesHeaderLine = building.SalesHeaderLine;
-
     this.baseObject = building;
+
 }
 
 Building.prototype.getCardAddress = function () {

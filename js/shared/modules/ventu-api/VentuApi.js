@@ -270,7 +270,24 @@ VentuApi.prototype.getSearchResults = function (search, callback) {
 };
 
 VentuApi.prototype.getSelectResults = function (callback) {
-    callback(fakeSearchResult);
+    var transformed = {
+            shape: {
+                "type": "circle",
+                "data": {
+                    "center": {
+                        "lat": 52.0863494,
+                        "lng": 5.2475419
+                    },
+                    "radius": 4000
+                }
+            },
+        zoomCenter: null,
+        zoom: null,
+        markers: fakeSearchResult.GoogleMapsObjects,
+        objects: fakeSearchResult.SearchObjects
+    };
+
+    callback(transformed);
 };
 
 VentuApi.prototype.seeDetail = function(url) {
