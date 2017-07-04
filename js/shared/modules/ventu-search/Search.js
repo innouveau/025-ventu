@@ -122,12 +122,26 @@ Search.prototype.show = function(results) {
     this.elements.resultsList = [];
 
     $(results).each(function (index, result) {
-        var obj = {},
-            tempSelector = _this.createTagElement(result.Location);
-        obj.element = $('<div class="ventu-search-result">');
-        obj.value = _this.dataObjectToString(tempSelector);
-        obj.obj = result;
-        obj.element.append(result.Location + ' (' + result.NumberOfItems + ')');
+        var obj = {};
+
+        if (typeof (VentuBrokerApi) !== 'undefined') {
+            // console.log('is ventubrokerapi');
+
+            obj.element = $('<div class="ventu-search-result">');
+            obj.value = result.Name;
+            obj.obj = result;
+            obj.element.append(result.Name);
+
+        } else {
+            // console.log('is ventuapi');
+
+            var tempSelector = _this.createTagElement(result.Location);
+            obj.element = $('<div class="ventu-search-result">');
+            obj.value = _this.dataObjectToString(tempSelector);
+            obj.obj = result;
+            obj.element.append(result.Location + ' (' + result.NumberOfItems + ')');
+
+        }
 
         obj.element.click(function () {
             _this.select(result);
@@ -150,20 +164,28 @@ Search.prototype.show = function(results) {
     this.resetFocus(results.length);
 };
 
-Search.prototype.select = function(obj) {
-    var htmlElement = this.createTagElement(obj.Location);
-    var location = this.dataObjectToString(htmlElement);
-    this.setChosen(location);
+Search.prototype.select = function (obj) {
 
-    if (this.outerOutput) {
-        this.outerOutput.selectLocation(obj);
+    if (typeof (VentuBrokerApi) !== 'undefined') {
+
+        window.ventuApi.select(obj);
+
     } else {
-        var query = {
-            location: obj.Location,
-            Search: this.status.originalSearchString
-        };
 
-        window.ventuApi.select(query);
+        var htmlElement = this.createTagElement(obj.Location);
+        var location = this.dataObjectToString(htmlElement);
+        this.setChosen(location);
+
+        if (this.outerOutput) {
+            this.outerOutput.selectLocation(obj);
+        } else {
+            var query = {
+                location: obj.Location,
+                Search: this.status.originalSearchString
+            };
+
+            window.ventuApi.select(query);
+        }
     }
 };
 

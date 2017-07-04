@@ -28,10 +28,10 @@ $(window).ready(function () {
         window.ventu = new App();
         window.ventu.init();
 
-        if (searchFilter.Building != null ||
-            searchFilter.City != null ||
-            searchFilter.Postcode != null ||
-            searchFilter.Street != null) {
+        if (searchFilter.Building !== null ||
+            searchFilter.City !== null ||
+            searchFilter.Postcode !== null ||
+            searchFilter.Street !== null) {
 
             function callback(result) {
                 window.ventu.redraw(result);
@@ -49,6 +49,6 @@ $(window).ready(function () {
     }
 
     slidePanelListener();
-    listListeners();
+    // listListeners();
     
 });
