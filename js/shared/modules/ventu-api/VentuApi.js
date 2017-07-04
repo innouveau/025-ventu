@@ -269,8 +269,9 @@ VentuApi.prototype.getSearchResults = function (search, callback) {
     callback(results);
 };
 
-VentuApi.prototype.getSelectResults = function (callback) {
-    var transformed = {
+VentuApi.prototype.getSelectResults = function (callback, second) {
+    var source = second ? fakeSearchResult2 : fakeSearchResult,
+        transformed = {
             shape: {
                 "type": "circle",
                 "data": {
@@ -283,8 +284,8 @@ VentuApi.prototype.getSelectResults = function (callback) {
             },
         zoomCenter: null,
         zoom: null,
-        markers: fakeSearchResult.GoogleMapsObjects,
-        objects: fakeSearchResult.SearchObjects
+        markers: source.GoogleMapsObjects,
+        objects: source.SearchObjects
     };
 
     callback(transformed);

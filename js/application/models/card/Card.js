@@ -172,7 +172,7 @@ Card.prototype._setCurrent = function () {
         this.obj.marker.select();
     }
     this._backToOrigin(true);
-    this._getMap().currentCard = this;
+    window.ventu.currentCard = this;
 
 
     this.element.find('.ventu-card-blocker').fadeOut(200);
@@ -296,8 +296,7 @@ Card.prototype._launchNext = function () {
 
 Card.prototype.swap = function () {
     var self = this,
-        map = this._getMap(),
-        topCard = map.currentCard,
+        topCard = window.ventu.currentCard,
         originalX = this.status.stackPosition.shiftX,
         originalY = this.status.stackPosition.shiftY;
     // pull both horizontal out of stack
@@ -416,12 +415,13 @@ Card.prototype._swipeRelease = function () {
 
 // administration
 
-Card.prototype._addToList = function (type) {
+Card.prototype._addToList = function(type) {
     var self = this,
         transform,
         manager = window.ventu.manager,
         next = this._getNext();
 
+    // ui stuff
     this._swipeRelease();
     this.status.event = 'tolist';
 
@@ -448,14 +448,16 @@ Card.prototype._addToList = function (type) {
 
     // update markers
     if (window.ventu.config.isMapPresent) {
-        this.obj.marker.hasCard = false;
         if (type === 'love') {
             this.obj.marker.love();
         } else {
             this.obj.marker.hate();
         }
     }
-    window.ventu.manager.createNewCard();
+
+    // administration and managing
+    this.obj.addedToList = true;
+    window.ventu.manager.next();
 
     // update user
     window.ventu.user.uses('rating');

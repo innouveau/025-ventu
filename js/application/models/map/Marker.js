@@ -3,9 +3,6 @@ function Marker(obj, coordinate, icon) {
     this.marker = null;
     this.coordinate = coordinate;
     this.icon = icon;
-    this.hasCard = false;
-    this.isFavorite = icon == settings.icon.love;
-    this.isTrash = icon == settings.icon.hate;
     this.create();
 }
 
@@ -24,31 +21,33 @@ Marker.prototype.create = function() {
     }
 
     this.marker.addListener('click', function() {
-        if (!self.hasCard) {
+        var obj = self.obj;
+        if (!obj.card) {
 
-            if (self.isFavorite) {
+            if (obj.status === 'love') {
                 window.location.href = '/Interesselijst';
-            } else if (self.isTrash) {
+            } else if (obj.status === 'hate') {
                 window.location.href = '/Prullenbak';
             } else {
 
-                var building = window.ventu.getBuildingById(self.UniqueId);
-
                 function callback(building) {
-                    var card = self.createCard(building);
-                    card.launch('normal');
-                    card.swap();
+                    obj.createBuilding(building);
+                    createAndLaunch();
                 }
 
-                if (building === null) {
-                    window.ventuApi.getObjectByUniqueId(self.UniqueId, callback);
+                function createAndLaunch() {
+                    obj.createCard();
+                    obj.card.launch('normal');
+                    obj.card.swap();
+                }
+
+                if (obj.isPotentialForCard()) {
+                    createAndLaunch();
                 } else {
-                    callback(building);
+                    window.ventuApi.getObjectByUniqueId(obj.UniqueId, callback);
                 }
             }
-
         } else {
-
             self.card.swap();
         }
     });
@@ -69,13 +68,13 @@ Marker.prototype.unselect = function() {
 };
 
 Marker.prototype.love = function () {
-    this.isFavorite = true;
+    this.obj.status = 'love';
     this.marker.setIcon(settings.icon.love);
     this.marker.setZIndex(10000);
 };
 
 Marker.prototype.hate = function () {
-    this.isTrash = true;
+    this.obj.status = 'hate';
     this.marker.setIcon(settings.icon.hate);
     this.marker.setZIndex(0);
 };
@@ -96,13 +95,14 @@ Marker.prototype.eject = function() {
 // getters
 
 Marker.prototype._getPixelCoordinates = function(marker) {
-    var scale = Math.pow(2, this.parent.map.getZoom()),
+    var map = window.ventu.map.map,
+        scale = Math.pow(2, map.getZoom()),
         nw = new google.maps.LatLng(
-            this.parent.map.getBounds().getNorthEast().lat(),
-            this.parent.map.getBounds().getSouthWest().lng()
+            map.getBounds().getNorthEast().lat(),
+            map.getBounds().getSouthWest().lng()
         ),
-        worldCoordinateNW = this.parent.map.getProjection().fromLatLngToPoint(nw),
-        worldCoordinate = this.parent.map.getProjection().fromLatLngToPoint(this.marker.getPosition());
+        worldCoordinateNW = map.getProjection().fromLatLngToPoint(nw),
+        worldCoordinate = map.getProjection().fromLatLngToPoint(this.marker.getPosition());
     return {
         x: Math.floor((worldCoordinate.x - worldCoordinateNW.x) * scale),
         y: Math.floor((worldCoordinate.y - worldCoordinateNW.y) * scale)

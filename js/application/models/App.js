@@ -14,6 +14,7 @@ function App() {
     };
 
     this.objects = [];
+    this.cards = [];
 
     this.currentCard = null;
 }
@@ -38,12 +39,12 @@ App.prototype.init = function() {
 // updates
 
 App.prototype.redraw = function(result) {
-    this.createObjects(result.markers);
-    this.createAndMatchBuildings(result.objects);
     if (this.map) {
         this.map.draw(result, false);
     }
-    this.manager.update(result);
+    this.createObjects(result.markers);
+    this.createAndMatchBuildings(result.objects);
+    this.manager.updateAfterDraw(result);
 };
 
 App.prototype.createObjects = function(objects) {
@@ -57,9 +58,9 @@ App.prototype.createObjects = function(objects) {
 App.prototype.createAndMatchBuildings = function(buildings) {
     for (var i = 0, l = buildings.length; i < l; i++) {
         var building = buildings[i],
-            obj = this.getObjectById(building.uniqueId);
+            obj = this.getObjectById(building.UniqueId);
         if (obj) {
-            obj.building = new Building(obj, building);
+            obj.createBuilding(building);
         } else {
             console.log('Couldnt match building (of short list) with object (of long list)');
         }
@@ -87,10 +88,10 @@ App.prototype.closeFilter = function() {
 
 // getters
 
-App.prototype.getObjectById = function(UniqueId) {
+App.prototype.getObjectById = function(uniqueId) {
     for (var i = 0, l = this.objects.length; i < l; i++) {
         var obj = this.objects[i];
-        if (obj.UniqueId === UniqueId) {
+        if (obj.uniqueId === uniqueId) {
             return obj;
         }
     }

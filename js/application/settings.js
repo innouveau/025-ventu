@@ -24,5 +24,12 @@ var settings = {
         strokeWeight: 0,
         fillColor: '#000',
         fillOpacity: 0.4
-    }
+    },
+    markerClusterStyles: [{
+        url: 'img/markers/markerclusterer/m1.png',
+        height: 25,
+        width: 25,
+        textColor: '#ffffff',
+        textSize: 10
+    }]
 };

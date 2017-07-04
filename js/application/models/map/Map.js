@@ -22,7 +22,7 @@ Map.prototype.init = function() {
             mapTypeControl: false
         };
 
-    mapContainer = document.getElementById("ventu-canvas");
+    mapContainer = document.getElementById('ventu-canvas');
     if (mapContainer) {
         this.map = new google.maps.Map(mapContainer, myOptions);
         window.ventu.config.isMapPresent = true;
@@ -32,23 +32,20 @@ Map.prototype.init = function() {
 };
 
 Map.prototype.draw = function(result, leaveshape) {
-    var self = this,
-        launchType;
+    var self = this;
     this._cleanUp(leaveshape);
 
     if (!leaveshape && window.showGoogleMapObjects === undefined) {
-        this._drawShape(result);
+        if (result.shape) {
+            this._drawShape(result.shape);
+        }
+
     }
 
-    if (result.markers && result.markers.length > 0) {
-        this.createMarkers(result.markers);
-
-
-        if (window.showGoogleMapObjects === undefined) {
-            setTimeout(function () {
-                self.showMarkers();
-            }, 500);
-        }
+    if (window.showGoogleMapObjects === undefined) {
+        setTimeout(function () {
+            self.showMarkers();
+        }, 500);
     }
 };
 
@@ -66,68 +63,66 @@ Map.prototype._cleanUp = function(leaveshape) {
     window.ventu.manager.removeCards();
 };
 
-Map.prototype._drawShape = function(data) {
+Map.prototype._drawShape = function(initialShape) {
     var self = this,
         shape;
-    if (data.shape) {
-        switch (data.shape.type) {
-            case 'poly':
-                if (data.shape.data.points !== null && data.shape.data.points.length > 0) {
-                    $.each(data.shape.data.points, function (index, points) {
-                        var shape = new google.maps.Polygon({
-                            paths: points,
-                            strokeColor: settings.shape.strokeColor,
-                            strokeOpacity: settings.shape.strokeOpacity,
-                            strokeWeight: settings.shape.strokeWeight,
-                            fillColor: settings.shape.fillColor,
-                            fillOpacity: settings.shape.fillOpacity
-                        });
-                        shape.setMap(self.map);
-                        self.shapes.push(shape);
+    switch (initialShape.type) {
+        case 'poly':
+            if (initialShape.data.points !== null && initialShape.data.points.length > 0) {
+                $.each(initialShape.data.points, function (index, points) {
+                    var shape = new google.maps.Polygon({
+                        paths: points,
+                        strokeColor: settings.shape.strokeColor,
+                        strokeOpacity: settings.shape.strokeOpacity,
+                        strokeWeight: settings.shape.strokeWeight,
+                        fillColor: settings.shape.fillColor,
+                        fillOpacity: settings.shape.fillOpacity
                     });
-                }
-
-                break;
-            case 'circle':
-                shape = new google.maps.Circle({
-                    strokeColor: settings.shape.strokeColor,
-                    strokeOpacity: settings.shape.strokeOpacity,
-                    strokeWeight: settings.shape.strokeWeight,
-                    fillColor: settings.shape.fillColor,
-                    fillOpacity: settings.shape.fillOpacity,
-                    center: data.shape.data.center,
-                    radius: data.shape.data.radius,
-                    map: self.map,
-                    editable: true,
-                    draggable: true
+                    shape.setMap(self.map);
+                    self.shapes.push(shape);
                 });
-                this.shapes.push(shape);
-                this.setCircleEvents(shape);
+            }
 
-                break;
-            case 'rect':
-                shape = new google.maps.Rectangle({
-                    strokeColor: settings.shape.strokeColor,
-                    strokeOpacity: settings.shape.strokeOpacity,
-                    strokeWeight: settings.shape.strokeWeight,
-                    fillColor: settings.shape.fillColor,
-                    fillOpacity: settings.shape.fillOpacity,
-                    map: self.map,
-                    bounds: {
-                        north: data.shape.data.north,
-                        south: data.shape.data.south,
-                        east: data.shape.data.east,
-                        west: data.shape.data.west
-                    },
-                    draggable: true,
-                    editable: true
+            break;
+        case 'circle':
+            shape = new google.maps.Circle({
+                strokeColor: settings.shape.strokeColor,
+                strokeOpacity: settings.shape.strokeOpacity,
+                strokeWeight: settings.shape.strokeWeight,
+                fillColor: settings.shape.fillColor,
+                fillOpacity: settings.shape.fillOpacity,
+                center: initialShape.data.center,
+                radius: initialShape.data.radius,
+                map: self.map,
+                editable: true,
+                draggable: true
+            });
+            this.shapes.push(shape);
+            this.setCircleEvents(shape);
 
-                });
+            break;
+        case 'rect':
+            shape = new google.maps.Rectangle({
+                strokeColor: settings.shape.strokeColor,
+                strokeOpacity: settings.shape.strokeOpacity,
+                strokeWeight: settings.shape.strokeWeight,
+                fillColor: settings.shape.fillColor,
+                fillOpacity: settings.shape.fillOpacity,
+                map: self.map,
+                bounds: {
+                    north: initialShape.data.north,
+                    south: initialShape.data.south,
+                    east: initialShape.data.east,
+                    west: initialShape.data.west
+                },
+                draggable: true,
+                editable: true
 
-                this.shapes.push(shape);
-                this.setRectangleEvents(shape);
-                break;
-        }
+            });
+
+            this.shapes.push(shape);
+            this.setRectangleEvents(shape);
+            break;
     }
 };
 
@@ -193,39 +188,6 @@ Map.prototype._removeMarkers = function() {
     this.markers = [];
 };
 
-Map.prototype.createMarkers = function(markers) {
-    var icon, self = this;
-
-    for (var i = 0, l = markers.length; i < l; i++) {
-        icon = i === 0 ? settings.icon.selected : settings.icon.standard;
-
-        var favorites = $.sessionStorage.get('ventu-favorites');
-
-        if (favorites) {
-            $(favorites).each(function (index, element) {
-                if (element.uniqueId === markers[i].UniqueId) {
-                    icon = self.icon.love;
-                    return false;
-                }
-            });
-        }
-
-        var trash = $.sessionStorage.get('ventu-trash');
-
-        if (trash) {
-            $(trash).each(function (index, element) {
-                if (element.uniqueId === markers[i].UniqueId) {
-                    icon = self.icon.hate;
-                    return false;
-                }
-            });
-        }
-
-        var marker = new Marker(this, markers[i], icon);
-        this.markers.push(marker);
-    }
-};
-
 Map.prototype.showMarkers = function () {
     if (this.markerClusterer !== null) {
         this.markerClusterer.clearMarkers();
@@ -237,20 +199,11 @@ Map.prototype.showMarkers = function () {
         internalMarkers.push(marker.marker);
     });
 
-    var styles = [{
-        url: 'img/markers/markerclusterer/m1.png',
-        height: 25,
-        width: 25,
-        textColor: '#ffffff',
-        textSize: 10
-    }];
-
-
     if (this.markerClusterer === null) {
         this.markerClusterer = new MarkerClusterer(this.map, internalMarkers, {
             imagePath: '/img/markers/markerclusterer/m',
             gridSize: 30,
-            styles: styles
+            styles: settings.markerClusterStyles
         });
     } else {
         this.markerClusterer.addMarkers(internalMarkers);
@@ -295,25 +248,4 @@ Map.prototype.fitMapToBounds = function () {
     this.map.fitBounds(bounds);
     var x = Math.floor(this.map.getDiv().offsetWidth / 6);
     this.map.panBy(x, 0);
-};
-
-
-
-// getters
-
-Map.prototype.getUnusedMarkerObject = function() {
-    for (var i = 0, l = this.markers.length; i < l; i++) {
-        var marker = this.markers[i],
-            building;
-        if (!marker.hasCard && !marker.isFavorite && !marker.isTrash) {
-            building = this.getBuilding(marker.UniqueId);
-            if (building) {
-                return  {
-                    marker: marker,
-                    building: building
-                };
-            }
-        }
-    }
-    return null;
 };

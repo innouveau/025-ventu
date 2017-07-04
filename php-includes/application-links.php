@@ -31,6 +31,7 @@
 
 <!-- fake data -->
 <script src="js/application/content/fake-search-result.js"></script>
+<script src="js/application/content/fake-search-result-2.js"></script>
 <script src="js/application/content/user.js"></script>
 
 <!-- dom -->

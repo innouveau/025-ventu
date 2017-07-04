@@ -10,24 +10,29 @@ function Manager() {
     this.lastIndex = 0;
 }
 
-Manager.prototype.update = function(result) {
+
+// init
+
+Manager.prototype.updateAfterDraw = function(result) {
     this.lastIndex = 0;
     this.status.found = result.markers.length;
     this.status.left = result.markers.length;
+    console.log(result.markers.length + ' Objects, with ' + result.objects.length + ' buildings');
     this.updateDom();
     this.createInitialCards();
     this.launch();
 };
 
 
+Manager.prototype.update = function() {
 
-// cards
+};
 
 Manager.prototype.createInitialCards = function() {
     var initialSet, objects;
     initialSet = window.ventu.objects.length > window.ventu.config.stack.max ? window.ventu.config.stack.max : window.ventu.objects.length;
-    objects = this.getObjectsWithBuilding(initialSet);
-
+    objects = this.getObjectsForNewCard(initialSet);
+    console.log('created ' + objects.length + ' cards.');
     for (var i = 0, l = objects.length; i < l; i++) {
         var obj = objects[i];
         obj.createCard(this.lastIndex);
@@ -35,12 +40,81 @@ Manager.prototype.createInitialCards = function() {
     }
 };
 
-Manager.prototype.getObjectsWithBuilding = function(n) {
+
+
+
+// managing objects and buildings
+
+Manager.prototype.next = function() {
+    var self = this,
+        wait = 0,
+        report,
+        obj = this.getSingleObjectForNewCard();
+
+    this.report();
+
+    function nextCard(newObj) {
+        if (window.ventu.cards.length === 1) {
+            // the old card is still present when the new card is created. So 1 means
+            // the new card will be the only one on the stack, therefor we reset the index
+            // so the new card will be created on top of the stack
+            self.lastIndex = 0;
+            // because this card will be on top, it would graphically interfere with
+            // the added card, we have to wait until it is disappeared
+            wait = 800
+        }
+        newObj.createCard(self.lastIndex);
+        setTimeout(function () {
+            newObj.card.launch('normal');
+        }, wait);
+        self.lastIndex++;
+    }
+
+    if (obj) {
+        nextCard(obj)
+    } else {
+        console.log('no more cards to create from this set');
+        report = this.report();
+        // we need more building info from the api
+        if (report.objects > report.withBuilding) {
+
+            function callbackAfterInject(result) {
+                window.ventu.createAndMatchBuildings(result.objects);
+                obj = self.getSingleObjectForNewCard();
+                if (obj) {
+                    nextCard(obj);
+                } else {
+                    // this shouldnt be possible irl situations
+                    console.log('something went wrong. The newly added buildings couldnt be matched with the existing objects');
+                }
+
+            }
+
+            console.log('got new cards!');
+            window.ventuApi.getSelectResults(callbackAfterInject, true); // todo remove this second argument, for testing only
+        } else {
+            // nothing more to load, wait until stack is finished and show
+            // 'search further' message TODO
+        }
+    }
+};
+
+Manager.prototype.getSingleObjectForNewCard = function() {
+    var objects = this.getObjectsForNewCard(1);
+    if (objects.length) {
+        return objects[0];
+    } else {
+        return null;
+    }
+
+};
+
+Manager.prototype.getObjectsForNewCard = function(n) {
     var objects = [],
         i = 0;
-    while (objects.length <= n && i < window.ventu.objects.length) {
+    while (objects.length < n && i < window.ventu.objects.length) {
         var obj = window.ventu.objects[i];
-        if (obj.building) {
+        if (obj.isPotentialForCard()) {
             objects.push(obj);
 
         }
@@ -49,6 +123,33 @@ Manager.prototype.getObjectsWithBuilding = function(n) {
     return objects;
 };
 
+Manager.prototype.report = function() {
+    var report = {
+        objects: 0,
+        withBuilding: 0,
+        withCard: 0,
+        addedToList: 0,
+        potentialCards: 0
+    };
+    for (var i = 0, l = window.ventu.objects.length; i < l; i++) {
+        var obj = window.ventu.objects[i];
+        report.objects++;
+        if (obj.card) {
+            report.withCard++;
+        }
+        if (obj.building) {
+            report.withBuilding++;
+        }
+        if (obj.addedToList) {
+            report.addedToList++;
+        }
+        if (obj.building && !obj.card) {
+            report.potentialCards++;
+        }
+    }
+    console.log(report);
+    return report;
+};
 
 
 
@@ -56,6 +157,8 @@ Manager.prototype.getObjectsWithBuilding = function(n) {
 
 
 
+
+// card actions
 
 Manager.prototype.launch = function() {
     var launchType;
@@ -83,38 +186,7 @@ Manager.prototype.removeCards = function() {
     window.ventu.cards = [];
 };
 
-Manager.prototype.createNewCard = function() {
-    var card;
-    if (window.ventu.config.isMapPresent) {
-        var data = window.ventu.map.getUnusedMarkerObject(),
-            wait = 0;
-        if (data) {
-            // the old card is still present when the new card is created. So 1 means
-            // the new card will be the only one on the stack, therefor we reset the index
-            // so the new card will be created on top of the stack
-            if (window.ventu.cards.length === 1) {
-                this.lastIndex = 0;
-                // because this card will be on top, it would graphically interfere with
-                // the added card, we have to wait until it is disappeared
-                wait = 800
-            }
-            card = data.marker.createCard(data.building);
-            setTimeout(function () {
-                card.launch('normal');
-            }, wait);
-        }
-    } else {
-            var obj, building;
-            if (window.ventu.objects[this.lastIndex]) {
-                obj = window.ventu.objects[this.lastIndex];
-                building = new Building(obj);
-                card = new Card(this, building, this.lastIndex);
-                card.launch('normal');
-                window.ventu.cards.push(card);
-                this.lastIndex++;
-            }
-    }
-};
+
 
 
 // getters
