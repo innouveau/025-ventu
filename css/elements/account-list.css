@@ -1,0 +1,45 @@
+#ventu-account-lists .col-spacer {
+  height: 60px;
+}
+#ventu-account-lists .ventu-icon-spacer {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-top: 12px;
+}
+#ventu-account-lists .ventu-icon {
+  margin-top: 12px;
+  cursor: default;
+}
+#ventu-account-lists .ventu-account-list-label {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: 700;
+  margin: 12px 0 0 18px;
+  padding-top: 6px;
+}
+#ventu-account-lists .ventu-account-list-label.ventu-account-list-label-light {
+  font-weight: 400;
+  font-size: 14px;
+}
+#ventu-account-lists a:hover {
+  text-decoration: none;
+}
+#ventu-account-lists a:hover .ventu-account-list-label {
+  color: #17141f;
+  text-decoration: underline;
+}
+#ventu-account-lists .ventu-tools-button {
+  border-bottom: 0;
+}
+#ventu-account-lists .ventu-tools-button:hover {
+  background: transparent;
+}
+#ventu-account-lists .ventu-tools-button:hover .ventu-tools-button-label {
+  text-decoration: underline;
+}
+#ventu-account-lists .ventu-tools-button .ventu-tools-button-label {
+  font-size: 14px;
+  text-decoration: none;
+  color: #727272;
+}

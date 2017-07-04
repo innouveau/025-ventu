@@ -17,20 +17,19 @@ h3 {
   color: #03256b;
   font-family: 'Alegreya Sans';
 }
+h4 {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+  color: #03256b;
+  font-family: 'Alegreya Sans';
+}
 h5 {
   font-size: 20px;
   line-height: 1.25;
   font-weight: 700;
   color: #03256b;
   font-family: 'Alegreya Sans';
-}
-h55 {
-  font-size: 18px;
-  line-height: 1.25;
-  font-weight: 700;
-  color: #03256b;
-  font-family: 'Alegreya Sans';
-  display: block;
 }
 h6 {
   font-size: 16px;
@@ -44,6 +43,9 @@ h7 {
   text-transform: uppercase;
   font-family: 'Alegreya Sans';
   display: block;
+}
+a {
+  color: #17141f;
 }
 @media (max-width: 767px) {
   h1 {
