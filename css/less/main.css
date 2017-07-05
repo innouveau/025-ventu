@@ -2642,11 +2642,11 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
 }
+#ventu-account-lists a .ventu-icon {
+  cursor: pointer;
+}
 #ventu-account-lists a:hover {
   text-decoration: none;
-}
-#ventu-account-lists a:hover .ventu-icon {
-  cursor: pointer;
 }
 #ventu-account-lists a:hover .ventu-account-list-label {
   color: #17141f;
