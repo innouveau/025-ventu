@@ -2645,6 +2645,9 @@ input::placeholder {
 #ventu-account-lists a:hover {
   text-decoration: none;
 }
+#ventu-account-lists a:hover .ventu-icon {
+  cursor: pointer;
+}
 #ventu-account-lists a:hover .ventu-account-list-label {
   color: #17141f;
   text-decoration: underline;
