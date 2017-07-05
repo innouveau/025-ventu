@@ -21,6 +21,7 @@
 <script src="js/shared/filter-content.js"></script>
 <script src="js/shared/modules/_base-files/_Slider.js"></script>
 <script src="js/shared/modules/ventu-dialog/Dialog.js"></script>
+<script src="js/shared/modules/ventu-dialog/Centerline.js"></script>
 <script src="js/shared/modules/ventu-search/Search.js"></script>
 <script src="js/shared/modules/ventu-affix/Affix.js"></script>
 <script src="js/shared/modules/ventu-api/VentuApi.js"></script>

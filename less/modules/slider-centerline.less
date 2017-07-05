@@ -2,9 +2,10 @@
 
 .ventu-slider-center-line {
     position: absolute;
-    left: 50px;
-    top: 116px;
-    width: ~'calc(100% - 100px)';
+    top: 250px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 
     > div {
         height: 1px;
@@ -40,16 +41,18 @@
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
 
     .ventu-slider-center-line {
-        top: 260px;
-        left: 0;
-        width: 100%;
+        top: 248px;
+    }
+}
 
-        .ventu-slider-center-line-middle {
-            display: none!important;
-        }
+@media (max-width: 768px) {
+
+    .ventu-slider-center-line {
+        width: ~'calc(100% + 100px)';
+        left: -50px;
     }
 }
 

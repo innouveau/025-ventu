@@ -34,23 +34,13 @@ function Dialog(element) {
             main: null,
             sections: []
         },
-        buttons: {
-            prev: null,
-            next: null,
-            types: null
-        },
-        centerline: {
-            left: null,
-            center: null,
-            right: null
-        },
-        slides: []
+        slides: [],
+        buttons: {}
     };
     var isMobile = this.isThisMobile();
     this.isMobile = isMobile;
     this.settings = {
         size: {
-            body: isMobile ? element.outerWidth() : 600,
             frame: 0
         },
         hasSetStatus: true
@@ -59,7 +49,6 @@ function Dialog(element) {
 }
 
 Dialog.prototype = Object.create(_Slider.prototype);
-
 
 
 // creation

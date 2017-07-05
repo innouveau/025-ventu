@@ -15,8 +15,7 @@ _Slider.prototype.create = function() {
     this.createHeader();
     this.createSlider();
     this.createSlides();
-    this.addCenterLine(this.elements.slideFrame);
-    this.createButtons();
+    this.centerline = new Centerline(this);
 };
 
 _Slider.prototype.initStatus = function() {
@@ -48,6 +47,12 @@ _Slider.prototype.resize = function() {
     this.settings.size.frame = this.element.outerWidth();
     this.elements.slideContainer.css('width', (this.sections.length + 1) * this.settings.size.frame);
     this.element.find('.ventu-slider-slide').css('width', this.settings.size.frame );
+    this.elements.slideContainer.css('left', -this.status.page.current * this.settings.size.frame);
+    this.centerline.resize();
+};
+
+_Slider.prototype.getBodySize = function() {
+    return Math.max(this.element.outerWidth(), 600);
 };
 
 _Slider.prototype.createSlides = function() {
@@ -76,49 +81,11 @@ _Slider.prototype.createBasicSlide = function(section) {
     };
 };
 
-_Slider.prototype.createButtons = function() {
-    var self;
-    self = this;
-    this.elements.buttons.prev = $('<div class="ventu-slider-navigation-button ventu-slider-navigation-prev"></div>');
-    this.elements.buttons.next = $('<div class="ventu-slider-navigation-button ventu-slider-navigation-next waving"><div class="ventu-slider-navigation-button-wave"></div></div>');
-    this.elements.buttons.prev.click(function(){
-        self.prev();
-    });
-    this.elements.buttons.next.click(function(){
-        self.next();
-    });
-
-    this.elements.buttons.prev.hide();
-    this.elements.buttons.next.hide();
-
-    this.elements.centerline.left.append(this.elements.buttons.prev);
-    this.elements.centerline.right.append(this.elements.buttons.next);
-};
-
-_Slider.prototype.addCenterLine = function(element) {
-    var centerline = $('<div class="ventu-slider-center-line"></div>');
-    this.elements.centerline.middle = $('<div class="ventu-slider-center-line-middle"></div>');
-    this.elements.centerline.left = $('<div class="ventu-slider-center-line-left"></div>');
-    this.elements.centerline.right = $('<div class="ventu-slider-center-line-right"></div>');
 
 
 
-    centerline.append(this.elements.centerline.left);
-    centerline.append(this.elements.centerline.middle);
-    centerline.append(this.elements.centerline.right);
-    element.append(centerline);
 
-    this.settings.size.centerline = $('.ventu-slider-center-line').outerWidth();
-    if (this.isMobile) {
-        this.settings.size.side = this.settings.size.body / 2;
-    } else {
-        this.settings.size.side = Math.floor((this.settings.size.centerline - this.settings.size.body) / 2);
-    }
-    this.elements.centerline.left.css('width', this.settings.size.side);
-    this.elements.centerline.left.addClass('ventu-slider-center-line--hidden');
-    this.elements.centerline.middle.css('width', this.settings.size.body);
-    this.elements.centerline.right.css('width', 0);
-};
+
 
 
 
@@ -127,7 +94,7 @@ _Slider.prototype.addCenterLine = function(element) {
 
 _Slider.prototype.next = function() {
     var self = this;
-    this.elements.buttons.next.removeClass('waving');
+    this.centerline.elements.buttons.next.removeClass('waving');
 
     this.isAllowedToSlide(callback);
 
@@ -149,31 +116,7 @@ _Slider.prototype.slide = function() {
     this.digest();
 };
 
-_Slider.prototype.setCenterline = function(page, allowed) {
-    var left = $('.ventu-slider-center-line-left'),
-        middle = $('.ventu-slider-center-line-middle'),
-        right = $('.ventu-slider-center-line-right');
 
-
-    if (page === 0) {
-        left.addClass('ventu-slider-center-line--hidden');
-    } else {
-        left.removeClass('ventu-slider-center-line--hidden')
-    }
-
-
-    if (allowed) {
-        right.css('width', this.settings.size.side);
-    } else {
-        right.css('width', 0);
-    }
-
-    if (page === 4) {
-        middle.addClass('ventu-slider-center-line--hidden');
-    } else {
-        middle.removeClass('ventu-slider-center-line--hidden')
-    }
-};
 
 
 
@@ -186,19 +129,19 @@ _Slider.prototype.updateButtons = function() {
     }
     // prev
     if (this.status.page.current > 0) {
-        this.elements.buttons.prev.show();
+        this.centerline.elements.buttons.prev.show();
     } else {
-        this.elements.buttons.prev.hide();
+        this.centerline.elements.buttons.prev.hide();
     }
 
     allowed = this.isAllowedToShowButton();
 
     if (allowed) {
-        this.elements.buttons.next.show();
+        this.centerline.elements.buttons.next.show();
     } else {
-        this.elements.buttons.next.hide();
+        this.centerline.elements.buttons.next.hide();
     }
-    this.setCenterline(this.status.page.current, allowed);
+    this.centerline.update();
 };
 
 _Slider.prototype.digest = function() {
