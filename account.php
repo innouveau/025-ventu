@@ -52,7 +52,7 @@
                     </div>
                     <input type="text" name="name" id="name" class="form-control" placeholder="Naam" value="Jan Willem H. de Graaf" required autofocus />
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-3 col-sm-4">
                     <div class="ventu-input-label">
                         E-mailadres
                     </div>
@@ -104,7 +104,7 @@
 
         <div id="ventu-account-lists">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-xs-9 col-sm-4">
                     <a href="/Interesselijst">
                         <div class="ventu-icon ventu-icon--love"></div>
                         <span class="ventu-account-list-label">
@@ -112,7 +112,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-3 col-sm-4">
                     <div class="ventu-tools-button ventu-tools-button--erase">
                         <div class="ventu-tools-button-label">
                             Wis deze lijst
@@ -123,7 +123,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-xs-9 col-sm-4">
                     <a href="/Interesselijst">
                         <div class="ventu-icon ventu-icon--share"></div>
                         <span class="ventu-account-list-label">
@@ -131,7 +131,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-3 col-sm-4">
                     <div class="ventu-tools-button ventu-tools-button--erase">
                         <div class="ventu-tools-button-label">
                             Wis deze lijst
@@ -142,7 +142,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-xs-9 col-sm-4">
                     <a href="/Interesselijst">
                         <div class="ventu-icon ventu-icon--hate"></div>
                         <span class="ventu-account-list-label">
@@ -150,7 +150,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-3 col-sm-4">
                     <div class="ventu-tools-button ventu-tools-button--erase">
                         <div class="ventu-tools-button-label">
                             Wis deze lijst
@@ -167,7 +167,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-xs-9 col-sm-4">
                     <div class="ventu-icon ventu-icon--follow"></div>
                     <span class="ventu-account-list-label">
                         lijsten die ik volg
@@ -176,7 +176,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-xs-9 col-sm-4">
                     <a href="">
                         <div class="ventu-icon-spacer"></div>
                         <span class="ventu-account-list-label ventu-account-list-label-light">
@@ -184,7 +184,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-3 col-sm-4">
                     <div class="ventu-tools-button ventu-tools-button--erase">
                         <div class="ventu-tools-button-label">
                             Wis deze lijst
@@ -195,7 +195,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-xs-9 col-sm-4">
                     <a href="">
                         <div class="ventu-icon-spacer"></div>
                         <span class="ventu-account-list-label ventu-account-list-label-light">
@@ -203,7 +203,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-3 col-sm-4">
                     <div class="ventu-tools-button ventu-tools-button--erase">
                         <div class="ventu-tools-button-label">
                             Wis deze lijst
@@ -214,7 +214,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-xs-9 col-sm-4">
                     <a href="">
                         <div class="ventu-icon-spacer"></div>
                         <span class="ventu-account-list-label ventu-account-list-label-light">
@@ -222,7 +222,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-3 col-sm-4">
                     <div class="ventu-tools-button ventu-tools-button--erase">
                         <div class="ventu-tools-button-label">
                             Wis deze lijst
