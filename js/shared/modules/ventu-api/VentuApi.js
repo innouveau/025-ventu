@@ -262,8 +262,26 @@ VentuApi.prototype.getSearchResults = function (search, callback, refreshGUIFilt
     callback(results);
 };
 
-VentuApi.prototype.getSelectResults = function (callback) {
-    callback(fakeSearchResult);
+VentuApi.prototype.getSelectResults = function (callback, second) {
+    var source = second ? fakeSearchResult2 : fakeSearchResult,
+        transformed = {
+            shape: {
+                "type": "circle",
+                "data": {
+                    "center": {
+                        "lat": 52.0863494,
+                        "lng": 5.2475419
+                    },
+                    "radius": 4000
+                }
+            },
+        zoomCenter: null,
+        zoom: null,
+        markers: source.GoogleMapsObjects,
+        objects: source.SearchObjects
+    };
+
+    callback(transformed);
 };
 
 VentuApi.prototype.seeDetail = function(url) {

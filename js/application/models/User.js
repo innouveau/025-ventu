@@ -2,6 +2,8 @@ function User() {
     // things the user had done already
     this.did = user.did;
     this.timer = null;
+    this.loveObjects = $.sessionStorage.get('ventu-favorites');
+    this.hateObjects = $.sessionStorage.get('ventu-trash');
     // container for differenct timers. If timer complete boolean set to true
     this.fulltime = {};
 }

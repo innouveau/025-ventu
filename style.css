@@ -49,20 +49,19 @@ h3 {
   color: #03256b;
   font-family: 'Alegreya Sans';
 }
+h4 {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+  color: #03256b;
+  font-family: 'Alegreya Sans';
+}
 h5 {
   font-size: 20px;
   line-height: 1.25;
   font-weight: 700;
   color: #03256b;
   font-family: 'Alegreya Sans';
-}
-h55 {
-  font-size: 18px;
-  line-height: 1.25;
-  font-weight: 700;
-  color: #03256b;
-  font-family: 'Alegreya Sans';
-  display: block;
 }
 h6 {
   font-size: 16px;
@@ -76,6 +75,9 @@ h7 {
   text-transform: uppercase;
   font-family: 'Alegreya Sans';
   display: block;
+}
+a {
+  color: #17141f;
 }
 @media (max-width: 767px) {
   h1 {
@@ -1945,8 +1947,7 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   height: 100%;
 }
 .ventu-communication-screen {
-  border-top: 1px solid #ededec;
-  padding: 40px 0 60px 0;
+  padding-bottom: 60px;
 }
 .ventu-communication-screen .ventu-man-container .ventu-man {
   width: 100px;
@@ -2115,7 +2116,7 @@ label.error {
   height: 40px;
   font-size: 16px;
   line-height: 1;
-  padding: 12px 20px;
+  padding: 12px 60px;
   border: 0;
   cursor: pointer;
   transition: all 0s ease;
@@ -2311,6 +2312,9 @@ img.projectCarousel {
   border-radius: 50%;
   cursor: pointer;
   background-size: 100% 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
 }
 .ventu-icon.ventu-icon--in-text {
   width: 20px;
@@ -2343,6 +2347,11 @@ img.projectCarousel {
   background-color: #00A2FF;
   color: #fff;
   background-image: url(img/icons/buttons/share.svg);
+}
+.ventu-icon.ventu-icon--follow {
+  background-color: #8400C6;
+  color: #fff;
+  background-image: url(img/icons/buttons/follow-white.svg);
 }
 .ventu-filter-label {
   background: #00e5a9;
@@ -2609,6 +2618,59 @@ input::placeholder {
   margin-top: -80px;
   position: relative;
 }
+#ventu-account-lists .col-spacer {
+  height: 60px;
+}
+#ventu-account-lists .ventu-icon-spacer {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-top: 12px;
+}
+#ventu-account-lists .ventu-icon {
+  margin-top: 12px;
+  cursor: default;
+}
+#ventu-account-lists .ventu-account-list-label {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: 700;
+  margin: 12px 0 0 18px;
+  padding-top: 6px;
+}
+#ventu-account-lists .ventu-account-list-label.ventu-account-list-label-light {
+  font-weight: 400;
+  font-size: 14px;
+}
+#ventu-account-lists a .ventu-icon {
+  cursor: pointer;
+}
+#ventu-account-lists a:hover {
+  text-decoration: none;
+}
+#ventu-account-lists a:hover .ventu-account-list-label {
+  color: #17141f;
+  text-decoration: underline;
+}
+#ventu-account-lists .ventu-tools-button {
+  border-bottom: 0;
+}
+#ventu-account-lists .ventu-tools-button:hover {
+  background: transparent;
+}
+#ventu-account-lists .ventu-tools-button:hover .ventu-tools-button-label {
+  text-decoration: underline;
+}
+#ventu-account-lists .ventu-tools-button .ventu-tools-button-label {
+  font-size: 14px;
+  text-decoration: none;
+  color: #727272;
+}
+@media (max-width: 767px) {
+  #ventu-account-lists .ventu-tools-button .ventu-tools-button-label {
+    display: none;
+  }
+}
 #breadcrumb {
   margin-top: 60px;
   border-bottom: 0;
@@ -2654,6 +2716,14 @@ section .section-color-fill {
   top: 0;
   z-index: 0;
 }
+section.header-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+section.header-section h1 {
+  text-align: center;
+  margin: 0;
+}
 section.section--transparent {
   background: transparent;
   border: 0;
@@ -2689,6 +2759,18 @@ section.section--with-color-fill > *:not(.section-color-fill) {
   position: relative;
   z-index: 1;
 }
+section .sub-section {
+  margin: 0 90px 40px 90px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ededec;
+}
+section .sub-section:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+section .sub-section h4 {
+  margin-bottom: 60px;
+}
 section .section-header {
   width: 100%;
   max-width: 800px;
@@ -2723,6 +2805,10 @@ section .section-header .section-header-text.section-header-text--white h6 {
   section {
     padding-left: 40px;
     padding-right: 40px;
+  }
+  section .sub-section {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 @media (max-width: 767px) {

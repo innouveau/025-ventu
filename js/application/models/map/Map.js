@@ -1,78 +1,15 @@
 function Map() {
-    this.hasMap = false;
-    this.icon = {
-        standard: 'img/markers/standard-marker.png',
-        selected: 'img/markers/selected-marker.png',
-        hate: 'img/markers/marker-hate.png',
-        love: 'img/markers/marker-love.png'
-    };
-    this.settings = {
-        shape: {
-            strokeColor: 'transparent',
-            strokeOpacity: 0,
-            strokeWeight: 0,
-            fillColor: '#000',
-            fillOpacity: 0.4
-        }
-    };
     this.status = {
-        found: 0,
-        left: 0,
-        love: window.ventuApi.getFavoriteBuildings().length,
-        hate: window.ventuApi.getTrashBuildings().length,
-        tilesloaded: false
+        tilesloaded: false,
+        mapHasBeenFitToBounds: false
     };
-    this.currentCard = null;
+
     this.map = null;
     this.shapes = [];
     this.markers = [];
-    this.cards = [];
-    this.lastIndex = 0;
     this.markerClusterer = null;
-    this.mapHasBeenFitToBounds = false;
-
     this.init();
 }
-
-Map.prototype = Object.create(_Map.prototype);
-
-Map.prototype.draw = function(result, leaveshape) {
-    var self = this,
-        launchType;
-    this.lastIndex = 0;
-    this._cleanUp(leaveshape);
-    this.status.found = result.markers.length;
-    this.status.left = result.markers.length;
-    this.updateDom();
-
-    if (!leaveshape && window.showGoogleMapObjects === undefined) {
-        this._drawShape(result);
-    }
-
-    if (result.markers && result.markers.length > 0) {
-        this._createMarkers(result.markers);
-        this._createCards();
-
-        if (window.showGoogleMapObjects === undefined) {
-            setTimeout(function () {
-                self._showMarkers();
-            }, 500);
-        }
-        if (this.cards.length > 0) {
-            launchType = self._getLaunchType();
-            this.currentCard = self.cards[0];
-            if (!this.status.tilesloaded) {
-                google.maps.event.addListenerOnce(this.map, 'tilesloaded', function () {
-                    self.cards[0].launch(launchType);
-                    self.status.tilesloaded = true;
-                });
-            } else {
-                this.cards[0].launch(launchType);
-            }
-        }
-    }
-};
-
 
 Map.prototype.init = function() {
     var mapContainer,
@@ -85,129 +22,107 @@ Map.prototype.init = function() {
             mapTypeControl: false
         };
 
-    mapContainer = document.getElementById("ventu-canvas");
+    mapContainer = document.getElementById('ventu-canvas');
     if (mapContainer) {
         this.map = new google.maps.Map(mapContainer, myOptions);
         window.ventu.config.isMapPresent = true;
-        this.hasMap = true;
     } else {
         window.ventu.config.isMapPresent = false;
-        this.hasMap = false;
     }
 };
 
-Map.prototype._createCards = function () {
+Map.prototype.draw = function(result, leaveshape) {
+    var self = this;
+    this._cleanUp(leaveshape);
 
-    var n = window.ventu.objects.length > window.ventu.config.stack.max ? window.ventu.config.stack.max : window.ventu.objects.length;
-    for (var i = 0; i < n; i++) {
-        var obj = window.ventu.objects[i];
-
-        var marker = null;
-        for (var j = 0; j < this.markers.length; j++) {
-            marker = this.markers[j];
-
-            if (marker.UniqueId === obj.UniqueId) {
-                break;
-            }
+    if (!leaveshape && window.showGoogleMapObjects === undefined) {
+        if (result.shape) {
+            this._drawShape(result.shape);
         }
 
-        if (marker !== null) {
-            marker.createCard(new Building(obj));
-        }
     }
-};
 
-Map.prototype.createNewCard = function() {
-    var data = this._getMarker(),
-        card,
-        wait = 0;
-    if (data) {
-        // the old card is still present when the new card is created. So 1 means
-        // the new card will be the only one on the stack, therefor we reset the index
-        // so the new card will be created on top of the stack
-        if (this.cards.length === 1) {
-            this.lastIndex = 0;
-            // because this card will be on top, it would graphically interfere with
-            // the added card, we have to wait until it is disappeared
-            wait = 800
-        }
-        card = data.marker.createCard(data.building);
+    if (window.showGoogleMapObjects === undefined) {
         setTimeout(function () {
-            card.launch('normal');
-        }, wait);
+            self.showMarkers();
+        }, 500);
     }
 };
+
+
+
+
+
+
 
 Map.prototype._cleanUp = function(leaveshape) {
     if (!leaveshape) {
         this._removeShape();
     }
     this._removeMarkers();
-    this._removeCards();
+    window.ventu.manager.removeCards();
 };
 
-Map.prototype._drawShape = function(data) {
+Map.prototype._drawShape = function(initialShape) {
     var self = this,
         shape;
-    if (data.shape) {
-        switch (data.shape.type) {
-            case 'poly':
-                if (data.shape.data.points !== null && data.shape.data.points.length > 0) {
-                    $.each(data.shape.data.points, function (index, points) {
-                        var shape = new google.maps.Polygon({
-                            paths: points,
-                            strokeColor: self.settings.shape.strokeColor,
-                            strokeOpacity: self.settings.shape.strokeOpacity,
-                            strokeWeight: self.settings.shape.strokeWeight,
-                            fillColor: self.settings.shape.fillColor,
-                            fillOpacity: self.settings.shape.fillOpacity
-                        });
-                        shape.setMap(self.map);
-                        self.shapes.push(shape);
+    switch (initialShape.type) {
+        case 'poly':
+            if (initialShape.data.points !== null && initialShape.data.points.length > 0) {
+                $.each(initialShape.data.points, function (index, points) {
+                    var shape = new google.maps.Polygon({
+                        paths: points,
+                        strokeColor: settings.shape.strokeColor,
+                        strokeOpacity: settings.shape.strokeOpacity,
+                        strokeWeight: settings.shape.strokeWeight,
+                        fillColor: settings.shape.fillColor,
+                        fillOpacity: settings.shape.fillOpacity
                     });
-                }
-
-                break;
-            case 'circle':
-                shape = new google.maps.Circle({
-                    strokeColor: self.settings.shape.strokeColor,
-                    strokeOpacity: self.settings.shape.strokeOpacity,
-                    strokeWeight: self.settings.shape.strokeWeight,
-                    fillColor: self.settings.shape.fillColor,
-                    fillOpacity: self.settings.shape.fillOpacity,
-                    center: data.shape.data.center,
-                    radius: data.shape.data.radius,
-                    map: self.map,
-                    editable: true,
-                    draggable: true
+                    shape.setMap(self.map);
+                    self.shapes.push(shape);
                 });
-                this.shapes.push(shape);
-                this.setCircleEvents(shape);
+            }
 
-                break;
-            case 'rect':
-                shape = new google.maps.Rectangle({
-                    strokeColor: self.settings.shape.strokeColor,
-                    strokeOpacity: self.settings.shape.strokeOpacity,
-                    strokeWeight: self.settings.shape.strokeWeight,
-                    fillColor: self.settings.shape.fillColor,
-                    fillOpacity: self.settings.shape.fillOpacity,
-                    map: self.map,
-                    bounds: {
-                        north: data.shape.data.north,
-                        south: data.shape.data.south,
-                        east: data.shape.data.east,
-                        west: data.shape.data.west
-                    },
-                    draggable: true,
-                    editable: true
+            break;
+        case 'circle':
+            shape = new google.maps.Circle({
+                strokeColor: settings.shape.strokeColor,
+                strokeOpacity: settings.shape.strokeOpacity,
+                strokeWeight: settings.shape.strokeWeight,
+                fillColor: settings.shape.fillColor,
+                fillOpacity: settings.shape.fillOpacity,
+                center: initialShape.data.center,
+                radius: initialShape.data.radius,
+                map: self.map,
+                editable: true,
+                draggable: true
+            });
+            this.shapes.push(shape);
+            this.setCircleEvents(shape);
 
-                });
+            break;
+        case 'rect':
+            shape = new google.maps.Rectangle({
+                strokeColor: settings.shape.strokeColor,
+                strokeOpacity: settings.shape.strokeOpacity,
+                strokeWeight: settings.shape.strokeWeight,
+                fillColor: settings.shape.fillColor,
+                fillOpacity: settings.shape.fillOpacity,
+                map: self.map,
+                bounds: {
+                    north: initialShape.data.north,
+                    south: initialShape.data.south,
+                    east: initialShape.data.east,
+                    west: initialShape.data.west
+                },
+                draggable: true,
+                editable: true
 
-                this.shapes.push(shape);
-                this.setRectangleEvents(shape);
-                break;
-        }
+            });
+
+            this.shapes.push(shape);
+            this.setRectangleEvents(shape);
+            break;
     }
 };
 
@@ -273,40 +188,7 @@ Map.prototype._removeMarkers = function() {
     this.markers = [];
 };
 
-Map.prototype._createMarkers = function(markers) {
-    var icon, self = this;
-
-    for (var i = 0, l = markers.length; i < l; i++) {
-        icon = i === 0 ? this.icon.selected : this.icon.standard;
-
-        var favorites = $.sessionStorage.get('ventu-favorites');
-
-        if (favorites) {
-            $(favorites).each(function (index, element) {
-                if (element.uniqueId === markers[i].UniqueId) {
-                    icon = self.icon.love;
-                    return false;
-                }
-            });
-        }
-
-        var trash = $.sessionStorage.get('ventu-trash');
-
-        if (trash) {
-            $(trash).each(function (index, element) {
-                if (element.uniqueId === markers[i].UniqueId) {
-                    icon = self.icon.hate;
-                    return false;
-                }
-            });
-        }
-
-        var marker = new Marker(this, markers[i], icon);
-        this.markers.push(marker);
-    }
-};
-
-Map.prototype._showMarkers = function () {
+Map.prototype.showMarkers = function () {
     if (this.markerClusterer !== null) {
         this.markerClusterer.clearMarkers();
     }
@@ -317,20 +199,11 @@ Map.prototype._showMarkers = function () {
         internalMarkers.push(marker.marker);
     });
 
-    var styles = [{
-        url: 'img/markers/markerclusterer/m1.png',
-        height: 25,
-        width: 25,
-        textColor: '#ffffff',
-        textSize: 10
-    }];
-
-
     if (this.markerClusterer === null) {
         this.markerClusterer = new MarkerClusterer(this.map, internalMarkers, {
             imagePath: '/img/markers/markerclusterer/m',
             gridSize: 30,
-            styles: styles
+            styles: settings.markerClusterStyles
         });
     } else {
         this.markerClusterer.addMarkers(internalMarkers);
@@ -375,25 +248,4 @@ Map.prototype.fitMapToBounds = function () {
     this.map.fitBounds(bounds);
     var x = Math.floor(this.map.getDiv().offsetWidth / 6);
     this.map.panBy(x, 0);
-};
-
-
-
-// getters
-
-Map.prototype._getMarker = function() {
-    for (var i = 0, l = this.markers.length; i < l; i++) {
-        var marker = this.markers[i],
-            building;
-        if (!marker.hasCard && !marker.isFavorite && !marker.isTrash) {
-            building = this.getBuilding(marker.UniqueId);
-            if (building) {
-                return  {
-                    marker: marker,
-                    building: building
-                };
-            }
-        }
-    }
-    return null;
 };

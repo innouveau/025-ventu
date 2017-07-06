@@ -1,7 +1,6 @@
-function Card(parent, building, index) {
+function Card(obj, index) {
     this.type = 'card';
-    this.parent = parent;
-    this.building = building;
+    this.obj = obj;
     this.index = index;
 
     this.element = null;
@@ -47,11 +46,11 @@ Card.prototype._create = function () {
     cardFront = $('<div class="ventu-card-front"></div>');
     cardBlocker = $('<div class="ventu-card-blocker"></div>');
     cardBack = $('<div class="ventu-card-back"></div>');
-    cardImage = $('<div class="ventu-card-image" style="background-image:url(' + this.building.getCardImage() + ')"></div>');
+    cardImage = $('<div class="ventu-card-image" style="background-image:url(' + this.obj.building.getCardImage() + ')"></div>');
     cardText = $('<div class="ventu-card-text">');
-    cardHead = $('<div class="ventu-card-header"><h4>' + this.building.getCardCity() + '</h4><h3>' + this.building.getCardAddress() + '</h3></div>');
+    cardHead = $('<div class="ventu-card-header"><h4>' + this.obj.building.getCardCity() + '</h4><h3>' + this.obj.building.getCardAddress() + '</h3></div>');
     cardFeatures = $('<div class="ventu-features"></div>');
-    cardFeatures.append(this.building.getCardFeatures());
+    cardFeatures.append(this.obj.building.getCardFeatures());
     cardButtons = $('<div class="ventu-card-buttons ventu-card-buttons-3"></div>');
     this.buttons.love = $('<div class="ventu-card-button-container ventu-card-button--love"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label"><span class="Interessant">Interessant</span></div></div></div>');
     this.buttons.readMore = $('<div class="ventu-card-button-container ventu-card-button--read-more"><div class="ventu-card-button"><div class="ventu-card-button-icon"></div></div><div class="ventu-card-button-label"><span class="LeesMeer">Lees meer</span></div></div></div>');
@@ -94,7 +93,7 @@ Card.prototype._create = function () {
             self._resetAnimation($(this));
 
             setTimeout(function () {
-                window.ventuApi.seeDetail(self.building.getDetailUrl());
+                window.ventuApi.seeDetail(self.obj.building.getDetailUrl());
             }, 50);
         });
 
@@ -108,17 +107,12 @@ Card.prototype._create = function () {
     else if (this.index === 1) {
         this.status.stackPosition.rotate = 0;
     }
-
     card.hide();
     this.element = card;
 
     window.ventu.domElements.stack.prepend(this.element);
     if (settings.card.shade) {
         this.shade = new Shade(this, card);
-    }
-
-    if (window.ventu.config.isMapPresent) {
-        this.parent.hasCard = true;
     }
 };
 
@@ -175,10 +169,10 @@ Card.prototype._setCurrent = function () {
         this.shade.element.fadeIn(100);
     }
     if (window.ventu.config.isMapPresent) {
-        this.parent.select();
+        this.obj.marker.select();
     }
     this._backToOrigin(true);
-    this._getMap().currentCard = this;
+    window.ventu.currentCard = this;
 
 
     this.element.find('.ventu-card-blocker').fadeOut(200);
@@ -198,7 +192,7 @@ Card.prototype._unsetCurrent = function (rotate, zIndex, shiftX, shiftY, shadeZi
     this.element.find('.ventu-card-blocker').fadeIn(200);
     this._backToOrigin();
     if (window.ventu.config.isMapPresent) {
-        this.parent.unselect();
+        this.obj.marker.unselect();
     }
     if (this.shade) {
         this.shade.element.fadeOut(100);
@@ -207,8 +201,8 @@ Card.prototype._unsetCurrent = function (rotate, zIndex, shiftX, shiftY, shadeZi
 
 Card.prototype.launch = function (type) {
     var self = this,
-        wait = window.ventu.map.cards.length * 150 + 1000,
-        thisTransform = type === 'cool' ? this.parent.getTransform() : [0, 0, 0, 0, 0, 0, 1, 1];
+        wait = window.ventu.cards.length * 150 + 1000,
+        thisTransform = type === 'cool' ? this.obj.marker.getTransform() : [0, 0, 0, 0, 0, 0, 1, 1];
     // start position
     this.setTransform(thisTransform, false);
     if (this.shade) {
@@ -302,8 +296,7 @@ Card.prototype._launchNext = function () {
 
 Card.prototype.swap = function () {
     var self = this,
-        map = this._getMap(),
-        topCard = map.currentCard,
+        topCard = window.ventu.currentCard,
         originalX = this.status.stackPosition.shiftX,
         originalY = this.status.stackPosition.shiftY;
     // pull both horizontal out of stack
@@ -325,9 +318,9 @@ Card.prototype.swap = function () {
         }
         window.ventu.domElements.stack.append(self.element);
 
-        map.cards.move(self.index, 0);
+        window.ventu.cards.move(self.index, 0);
 
-        $(map.cards).each(function (index, card) {
+        $(window.ventu.cards).each(function (index, card) {
             if (card !== null) {
                 card.index = index;
                 card.position = card._getStackPosition();
@@ -422,12 +415,13 @@ Card.prototype._swipeRelease = function () {
 
 // administration
 
-Card.prototype._addToList = function (type) {
+Card.prototype._addToList = function(type) {
     var self = this,
         transform,
-        map = this._getMap(),
+        manager = window.ventu.manager,
         next = this._getNext();
 
+    // ui stuff
     this._swipeRelease();
     this.status.event = 'tolist';
 
@@ -454,28 +448,30 @@ Card.prototype._addToList = function (type) {
 
     // update markers
     if (window.ventu.config.isMapPresent) {
-        this.parent.hasCard = false;
         if (type === 'love') {
-            this.parent.love();
+            this.obj.marker.love();
         } else {
-            this.parent.hate();
+            this.obj.marker.hate();
         }
     }
-    this._getMap().createNewCard();
+
+    // administration and managing
+    this.obj.addedToList = true;
+    window.ventu.manager.next();
 
     // update user
     window.ventu.user.uses('rating');
 
     // update bottom bar
-    map.status.left--;
-    map.status[type]++;
-    map.updateBottomBar();
-    map.updateBottomBarType(type);
+    manager.status.left--;
+    manager.status[type]++;
+    manager.updateBottomBar();
+    manager.updateBottomBarType(type);
 
     if (type === 'love') {
-        window.ventuApi.likeObject(self.building);
+        window.ventuApi.likeObject(self.obj.building);
     } else {
-        window.ventuApi.disLikeObject(self.building);
+        window.ventuApi.disLikeObject(self.obj.building);
     }
 
     // trigger next
@@ -488,16 +484,16 @@ Card.prototype._addToList = function (type) {
 
 Card.prototype._swipeDown = function () {
     this._backToOrigin(true);
-    window.ventuApi.seeDetail(this.building.getDetailUrl());
+    window.ventuApi.seeDetail(this.obj.building.getDetailUrl());
 };
 
 
 Card.prototype.destroy = function (removeFormArray) {
     var index;
     if (removeFormArray) {
-        index = window.ventu.map.cards.indexOf(this);
+        index = window.ventu.cards.indexOf(this);
         if (index > -1) {
-            window.ventu.map.cards.splice(index, 1);
+            window.ventu.cards.splice(index, 1);
         }
     }
 
@@ -524,23 +520,13 @@ Card.prototype._getStackPosition = function () {
 };
 
 Card.prototype._getNext = function () {
-    var map = this._getMap(),
-        index = map.cards.indexOf(this);
-    if (map.cards[index + 1]) {
-        return map.cards[index + 1];
+    var index = window.ventu.cards.indexOf(this);
+    if (window.ventu.cards[index + 1]) {
+        return window.ventu.cards[index + 1];
     } else {
         return null;
     }
 };
-
-Card.prototype._getMap = function() {
-    if (window.ventu.config.isMapPresent) {
-        return this.parent.parent;
-    } else {
-        return this.parent;
-    }
-};
-
 
 
 // other

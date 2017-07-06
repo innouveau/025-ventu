@@ -1,13 +1,8 @@
-function Marker(parent, data, icon) {
-    this.parent = parent;
-    this.card = null;
+function Marker(obj, coordinate, icon) {
+    this.obj = obj;
     this.marker = null;
-    this.coordinate = {lat: parseFloat(data.Latitude), lng: parseFloat(data.Longitude)};
-    this.UniqueId = data.UniqueId;
+    this.coordinate = coordinate;
     this.icon = icon;
-    this.hasCard = false;
-    this.isFavorite = icon == window.ventu.map.icon.love;
-    this.isTrash = icon == window.ventu.map.icon.hate;
     this.create();
 }
 
@@ -15,59 +10,47 @@ Marker.prototype.create = function() {
     var self = this;
     this.marker = new google.maps.Marker({
         position: this.coordinate,
-        map: this.parent.map,
+        map: window.ventu.map.map,
         icon: this.icon,
         title: ''
     });
 
-    //var lat = this.marker.position.lat();
-
-    //if (lat == 0) {
-    //    console.log('self.UniqueId ', self.UniqueId, self.coordinate.lat);
-    //}
 
     if (window.showGoogleMapObjects !== undefined && !showGoogleMapObjects) {
         this.marker.setVisible(false);
     }
 
     this.marker.addListener('click', function() {
-        if (!self.hasCard) {
+        var obj = self.obj;
+        if (!obj.card) {
 
-            if (self.isFavorite) {
+            if (obj.status === 'love') {
                 window.location.href = '/Interesselijst';
-            } else if (self.isTrash) {
+            } else if (obj.status === 'hate') {
                 window.location.href = '/Prullenbak';
             } else {
 
-                var building = self.parent.getBuilding(self.UniqueId);
-
                 function callback(building) {
-                    var card = self.createCard(building);
-                    card.launch('normal');
-                    card.swap();
+                    obj.createBuilding(building);
+                    createAndLaunch();
                 }
 
-                if (building === null) {
-                    window.ventuApi.getObjectByUniqueId(self.UniqueId, callback);
+                function createAndLaunch() {
+                    obj.createCard();
+                    obj.card.launch('normal');
+                    obj.card.swap();
+                }
+
+                if (obj.isPotentialForCard()) {
+                    createAndLaunch();
                 } else {
-                    callback(building);
+                    window.ventuApi.getObjectByUniqueId(obj.UniqueId, callback);
                 }
             }
-
         } else {
-
             self.card.swap();
         }
     });
-};
-
-Marker.prototype.createCard = function(building) {
-    var card = new Card(this, building, this.parent.lastIndex);
-    this.card = card;
-    this.parent.cards.push(card);
-    this.parent.lastIndex++;
-    this.hasCard = true;
-    return card;
 };
 
 Marker.prototype.show = function() {
@@ -75,24 +58,24 @@ Marker.prototype.show = function() {
 };
 
 Marker.prototype.select = function() {
-    this.marker.setIcon(window.ventu.map.icon.selected);
+    this.marker.setIcon(settings.icon.selected);
     this.marker.setZIndex(10000);
 };
 
 Marker.prototype.unselect = function() {
-    this.marker.setIcon(window.ventu.map.icon.standard);
+    this.marker.setIcon(settings.icon.standard);
     this.marker.setZIndex(0);
 };
 
 Marker.prototype.love = function () {
-    this.isFavorite = true;
-    this.marker.setIcon(window.ventu.map.icon.love);
+    this.obj.status = 'love';
+    this.marker.setIcon(settings.icon.love);
     this.marker.setZIndex(10000);
 };
 
 Marker.prototype.hate = function () {
-    this.isTrash = true;
-    this.marker.setIcon(window.ventu.map.icon.hate);
+    this.obj.status = 'hate';
+    this.marker.setIcon(settings.icon.hate);
     this.marker.setZIndex(0);
 };
 
@@ -112,13 +95,14 @@ Marker.prototype.eject = function() {
 // getters
 
 Marker.prototype._getPixelCoordinates = function(marker) {
-    var scale = Math.pow(2, this.parent.map.getZoom()),
+    var map = window.ventu.map.map,
+        scale = Math.pow(2, map.getZoom()),
         nw = new google.maps.LatLng(
-            this.parent.map.getBounds().getNorthEast().lat(),
-            this.parent.map.getBounds().getSouthWest().lng()
+            map.getBounds().getNorthEast().lat(),
+            map.getBounds().getSouthWest().lng()
         ),
-        worldCoordinateNW = this.parent.map.getProjection().fromLatLngToPoint(nw),
-        worldCoordinate = this.parent.map.getProjection().fromLatLngToPoint(this.marker.getPosition());
+        worldCoordinateNW = map.getProjection().fromLatLngToPoint(nw),
+        worldCoordinate = map.getProjection().fromLatLngToPoint(this.marker.getPosition());
     return {
         x: Math.floor((worldCoordinate.x - worldCoordinateNW.x) * scale),
         y: Math.floor((worldCoordinate.y - worldCoordinateNW.y) * scale)

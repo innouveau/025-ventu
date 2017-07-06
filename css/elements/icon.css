@@ -2,6 +2,9 @@
   border-radius: 50%;
   cursor: pointer;
   background-size: 100% 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
 }
 .ventu-icon.ventu-icon--in-text {
   width: 20px;
@@ -34,4 +37,9 @@
   background-color: #00A2FF;
   color: #fff;
   background-image: url(img/icons/buttons/share.svg);
+}
+.ventu-icon.ventu-icon--follow {
+  background-color: #8400C6;
+  color: #fff;
+  background-image: url(img/icons/buttons/follow-white.svg);
 }

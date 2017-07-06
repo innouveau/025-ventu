@@ -1,0 +1,84 @@
+@import '../mixins';
+
+
+#ventu-account-lists {
+
+    .col-spacer {
+        height: 60px;
+    }
+
+    .ventu-icon-spacer {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-top: 12px;
+    }
+
+    .ventu-icon {
+        margin-top: 12px;
+        cursor: default;
+    }
+
+    .ventu-account-list-label {
+        display: inline-block;
+        vertical-align: top;
+        font-weight: 700;
+        margin: 12px 0 0 18px;
+        padding-top: 6px;
+
+        &.ventu-account-list-label-light {
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+
+    a {
+
+        .ventu-icon {
+            cursor: pointer;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+
+
+            .ventu-account-list-label {
+                color: @ventu-black;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .ventu-tools-button {
+        border-bottom: 0;
+
+        &:hover {
+            background: transparent;
+
+            .ventu-tools-button-label {
+                text-decoration: underline;
+            }
+        }
+
+        .ventu-tools-button-label {
+            font-size: 14px;
+            text-decoration: none;
+            color: @ventu-main-grey-dark;
+        }
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    #ventu-account-lists {
+
+        .ventu-tools-button {
+
+            .ventu-tools-button-label {
+                display: none;
+            }
+        }
+    }
+}
