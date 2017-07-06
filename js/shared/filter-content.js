@@ -86,6 +86,11 @@ var filterContent = {
             id: 4,
             slug: 'investment',
             translation: 'Belegging'
+        },
+        '5': {
+            id: 5,
+            slug: 'letsale',
+            translation: 'Huur en koop'
         }
     }
 };

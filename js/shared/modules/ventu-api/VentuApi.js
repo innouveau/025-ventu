@@ -77,28 +77,28 @@ VentuApi.prototype.getDefaultSearchFilter = function () {
         Street: null,
         OrganizationGuid: null,
         ObjectType: null,
-        Search: null
+        Search: null,
+        RefreshGUIFilter: false
     };
 
 };
 
-VentuApi.prototype.setSearchFilter = function (query, autoSearchFilter) {
+VentuApi.prototype.setSearchFilter = function (query, autoSearchFilter, useDefaultSearchFilter) {
     var _this = this;
 
-    var searchFilter = _this.getSearchFilter();
+    var searchFilter = useDefaultSearchFilter ? _this.getDefaultSearchFilter() : _this.getSearchFilter();
 
     if (query) {
 
+        searchFilter.PrimaryUsageIds = [];
         if (query.types && query.types.length > 0) {
-            searchFilter.PrimaryUsageIds = [];
-
             $(query.types).each(function (index, typeId) {
                 searchFilter.PrimaryUsageIds.push(typeId / 1);
             });
         }
 
+        searchFilter.ObjectTypeIds = [];
         if (query.transactions && query.transactions.length > 0) {
-            searchFilter.ObjectTypeIds = [];
 
             $(query.transactions).each(function (index, transactionId) {
                 searchFilter.ObjectTypeIds.push(transactionId / 1)
@@ -112,17 +112,9 @@ VentuApi.prototype.setSearchFilter = function (query, autoSearchFilter) {
             searchFilter.Building = $(query.location).data('building') ? $(query.location).data('building') : null;
         }
 
-        if (query && query.location) {
-            searchFilter.City = $(query.location).data('city') ? $(query.location).data('city') : null;
-            searchFilter.Street = $(query.location).data('street') ? $(query.location).data('street') : null;
-            searchFilter.Postcode = $(query.location).data('postcode') ? $(query.location).data('postcode') : null;
-            searchFilter.Building = $(query.location).data('building') ? $(query.location).data('building') : null;
-        }
-        if (query.Search && query.Search !== null && query.Search.length > 0) {
-            searchFilter.Search = query.Search;
-        }
-        else
-        {
+        if (query.search && query.search !== null && query.search.length > 0) {
+            searchFilter.Search = query.search;
+        } else {
             searchFilter.Search = null;
         }
 
@@ -217,6 +209,7 @@ VentuApi.prototype.getSearchQuery = function () {
 
     return {
         result: 0,
+        search: searchFilter.Search,
         types: searchFilter.PrimaryUsageIds,
         location: location,
         area: [metrageStart, metrageEnd],
@@ -234,7 +227,7 @@ VentuApi.prototype.select = function (query) {
     location.href = 'application.php';
 };
 
-VentuApi.prototype.getSearchResults = function (search, callback) {
+VentuApi.prototype.getSearchResults = function (search, callback, refreshGUIFilter) {
     var results = [
         {
             'Location': '<span class="search-address" data-city="Amsterdam">plaats:</span> Amsterdam',

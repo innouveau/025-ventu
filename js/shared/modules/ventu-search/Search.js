@@ -84,7 +84,10 @@ Search.prototype.addListeners = function() {
             // enter
             event.preventDefault();
             var tag = _this.status.tagOfFocus;
-            _this.select(tag);
+
+            if (tag) {
+                _this.select(tag);
+            }
         } else {
             val = $(this).val();
             if (val.length > 0) {
@@ -113,7 +116,7 @@ Search.prototype.get = function(val) {
         }
     }
 
-    window.ventuApi.getSearchResults(val, callback);
+    window.ventuApi.getSearchResults(val, callback, this.outerOutput === null);
 };
 
 Search.prototype.show = function(results) {
@@ -125,16 +128,12 @@ Search.prototype.show = function(results) {
         var obj = {};
 
         if (typeof (VentuBrokerApi) !== 'undefined') {
-            // console.log('is ventubrokerapi');
-
             obj.element = $('<div class="ventu-search-result">');
             obj.value = result.Name;
             obj.obj = result;
             obj.element.append(result.Name);
 
         } else {
-            // console.log('is ventuapi');
-
             var tempSelector = _this.createTagElement(result.Location);
             obj.element = $('<div class="ventu-search-result">');
             obj.value = _this.dataObjectToString(tempSelector);
@@ -181,7 +180,7 @@ Search.prototype.select = function (obj) {
         } else {
             var query = {
                 location: obj.Location,
-                Search: this.status.originalSearchString
+                search: this.status.originalSearchString
             };
 
             window.ventuApi.select(query);
