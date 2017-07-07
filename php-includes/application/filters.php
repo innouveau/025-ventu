@@ -87,13 +87,13 @@
                         van
                         <div class="ventu-filter-area-box">
                             min
-                            <input id="ventu-filter-area-min-input">
+                            <input id="ventu-filter-area-min-input" type="number" maxlength="7" min="0" max="999999">
                             m²
                         </div>
                         tot
                         <div class="ventu-filter-area-box">
                             max
-                            <input id="ventu-filter-area-max-input">
+                            <input id="ventu-filter-area-max-input" type="number" maxlength="7" min="0" max="999999" >
                             m²
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                             <div class="ventu-filter-search-type-icon"></div>
                             <div class="ventu-filter-search-type-label">
                                 <span>Cirkel</span>
-                                <input type="text" id="ventu-filter-search-type-cirkel" value="0">
+                                <input type="text" id="ventu-filter-search-type-cirkel" value="0" tabindex="-1">
                                 <span>km</span>
                             </div>
                         </div>

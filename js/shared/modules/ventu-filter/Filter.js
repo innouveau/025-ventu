@@ -87,22 +87,27 @@ Filter.prototype.createAreaOptions = function() {
     this.element.areaMinInput.val(this.query.area[0]);
     this.element.areaMaxInput.val(this.query.area[1]);
 
-    this.element.areaMinInput.keyup(function(){
-        keyup(this, 0);
+    this.element.areaMinInput.keyup(function (e) {
+        keyup(this, 0, e);
     });
 
-    this.element.areaMaxInput.keyup(function(){
-        keyup(this, 1);
+    this.element.areaMaxInput.keyup(function (e) {
+        keyup(this, 1, e);
     });
 
-    function keyup(el, i) {
-        var san = sanitizeAreaInput($(el));
-        if (san.valid) {
-            self.query.area[0] = san.value;
-        } else {
-            self.query.area[0] = null;
-            $(el).addClass('error');
+    function keyup(el, i, e) {
+        e.preventDefault();
+
+        var element = $(el);
+        var value = element.val() / 1;
+        var min = element.attr('min') / 1;
+        var max = element.attr('max') / 1;
+
+        if (value < min || value > max) {
+            return;
         }
+
+        self.query.area[i] = value;
         self.updateQueryArea();
     }
 };
