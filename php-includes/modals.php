@@ -101,8 +101,8 @@
     </div>
     <div id="ventu-modal-footer">
         <div id="ventu-modal-confirm">
-            <div id="ventu-modal-confirm-yes" class="btn"></div>
-            <div id="ventu-modal-confirm-no" class="btn"></div>
+            <div id="ventu-modal-confirm-yes" class="btn">Ja</div>
+            <div id="ventu-modal-confirm-no" class="btn">Nee</div>
         </div>
     </div>
     <div id="ventu-modal-close"></div>

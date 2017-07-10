@@ -51,8 +51,6 @@ var modal = (function () {
             noButton = $('#ventu-modal-confirm-no'),
             confirmDiv = $('#ventu-modal-confirm');
         message(head, body, false);
-        yesButton.html(translate.translate('yes'));
-        noButton.html(translate.translate('no'));
         confirmDiv.show();
         yesButton.click(function() {
             _clearUpConfirm(confirmDiv, yesButton, noButton);

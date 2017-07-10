@@ -55,7 +55,5 @@ $(window).ready(function () {
         console.log('test');
     }
 
-    modal.confirm('test', 'Lorem ipsum', c);
-
 
 });
