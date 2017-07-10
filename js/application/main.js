@@ -51,4 +51,7 @@ $(window).ready(function () {
     slidePanelListener();
     // listListeners();
 
+    modal.message('Alles gezien', 'Start een nieuwe zoekopdracht om nieuwe kaarten te bekijken', false, true)
+
+
 });

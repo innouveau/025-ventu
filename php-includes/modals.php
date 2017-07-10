@@ -93,7 +93,7 @@
 </div>
 
 
-<div id="ventu-modal" class="ventu-hangout-tip ventu-hangout-tip-content">
+<div id="ventu-modal">
     <h5 id="ventu-modal-head"></h5>
     <div id="ventu-modal-body"></div>
     <div id="ventu-modal-search">
