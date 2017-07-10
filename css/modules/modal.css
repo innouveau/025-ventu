@@ -12,6 +12,16 @@
 #ventu-modal.error {
   color: #d9534f;
 }
+#ventu-modal #ventu-modal-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-image: url(img/tools/close-grey.svg);
+  background-size: 100% 100%;
+}
 #ventu-modal #ventu-modal-search {
   display: none;
   margin-top: 40px;

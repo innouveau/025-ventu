@@ -105,5 +105,5 @@
             <div id="ventu-modal-confirm-no" class="btn"></div>
         </div>
     </div>
-    <div id="ventu-modal-close" class="ventu-hangout-tip-close"></div>
+    <div id="ventu-modal-close"></div>
 </div>

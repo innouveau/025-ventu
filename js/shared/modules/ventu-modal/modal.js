@@ -46,7 +46,7 @@ var modal = (function () {
 
     };
 
-    confirm = function(head, body, callback, scope) {
+    confirm = function(head, body, callback) {
         var yesButton = $('#ventu-modal-confirm-yes'),
             noButton = $('#ventu-modal-confirm-no'),
             confirmDiv = $('#ventu-modal-confirm');
@@ -57,9 +57,6 @@ var modal = (function () {
         yesButton.click(function() {
             _clearUpConfirm(confirmDiv, yesButton, noButton);
             callback();
-            if (scope) {
-                scope.$apply();
-            }
         });
         noButton.click(function() {
             _clearUpConfirm(confirmDiv, yesButton, noButton);
