@@ -1,0 +1,17 @@
+#ventu-modal {
+  position: absolute;
+  width: 400px;
+  left: calc(50% - 200px);
+  z-index: 10000;
+  top: 200px;
+  display: none;
+  padding: 20px!important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+#ventu-modal.error {
+  color: #d9534f;
+}
+#ventu-modal #ventu-modal-search {
+  display: none;
+  margin-top: 40px;
+}

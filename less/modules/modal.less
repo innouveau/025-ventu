@@ -1,0 +1,21 @@
+@import '../mixins';
+
+#ventu-modal {
+    position: absolute;
+    width: 400px;
+    left: ~'calc(50% - 200px)';
+    z-index: 10000;
+    top: 200px;
+    display: none;
+    padding: 20px!important;
+    box-shadow: @ventu-box-shadow-1;
+
+    &.error {
+        color: #d9534f;
+    }
+
+    #ventu-modal-search {
+        display: none;
+        margin-top: 40px;
+    }
+}

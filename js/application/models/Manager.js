@@ -92,9 +92,8 @@ Manager.prototype.next = function() {
 
             console.log('got new cards!');
             window.ventuApi.getSelectResults(callbackAfterInject, true); // todo remove this second argument, for testing only
-        } else {
-            // nothing more to load, wait until stack is finished and show
-            // 'search further' message TODO
+        } else if (report.objects === report.addedToList) {
+            modal.message('Alles gezien', 'Start een nieuwe zoekopdracht om nieuwe kaarten te bekijken', false, true)
         }
     }
 };

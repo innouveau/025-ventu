@@ -25,7 +25,7 @@
 <script src="js/shared/modules/ventu-search/Search.js"></script>
 <script src="js/shared/modules/ventu-affix/Affix.js"></script>
 <script src="js/shared/modules/ventu-api/VentuApi.js"></script>
-
+<script src="js/shared/modules/ventu-modal/modal.js"></script>
 
 
 

@@ -91,3 +91,19 @@
 
     </div>
 </div>
+
+
+<div id="ventu-modal" class="ventu-hangout-tip ventu-hangout-tip-content">
+    <h5 id="ventu-modal-head"></h5>
+    <div id="ventu-modal-body"></div>
+    <div id="ventu-modal-search">
+        <div class="ventu-search"></div>
+    </div>
+    <div id="ventu-modal-footer">
+        <div id="ventu-modal-confirm">
+            <div id="ventu-modal-confirm-yes" class="btn"></div>
+            <div id="ventu-modal-confirm-no" class="btn"></div>
+        </div>
+    </div>
+    <div id="ventu-modal-close" class="ventu-hangout-tip-close"></div>
+</div>

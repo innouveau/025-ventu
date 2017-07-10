@@ -50,5 +50,5 @@ $(window).ready(function () {
 
     slidePanelListener();
     // listListeners();
-    
+
 });
