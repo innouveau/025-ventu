@@ -1834,6 +1834,7 @@ body.ventu-application #ventu-application-container #ventu-bottom-bar {
   height: 60px;
   border-radius: 50%;
   background-size: cover;
+  background-position: 50% 50%;
 }
 .ventu-chat-balloon-container {
   display: block;
