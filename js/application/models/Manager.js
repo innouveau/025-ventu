@@ -93,7 +93,7 @@ Manager.prototype.next = function() {
             console.log('got new cards!');
             window.ventuApi.getSelectResults(callbackAfterInject, true); // todo remove this second argument, for testing only
         } else if (report.objects === report.addedToList) {
-            modal.message('Alles gezien', 'Start een nieuwe zoekopdracht om nieuwe kaarten te bekijken', false, true)
+            modal.message('Alles gezien', 'Start een nieuwe zoekopdracht om nieuwe kaarten te bekijken', false, true);
         }
     }
 };
