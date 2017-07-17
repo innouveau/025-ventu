@@ -22,8 +22,13 @@
                 a {
                     display: block;
                     text-decoration: none;
-                    padding: 12px 20px;
+                    padding: 12px 16px;
                     color: @ventu-black;
+
+                    .ventu-icon {
+                        margin-right: 10px;
+                        cursor: pointer;
+                    }
 
                     img {
                         margin-right: 10px;
@@ -70,6 +75,8 @@
     &.top {
 
         >.arrow {
+            z-index: -1;
+            bottom: -6px;
 
             &:after {
                 border-top-color: @ventu-main-grey-light;
