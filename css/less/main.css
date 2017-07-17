@@ -3202,31 +3202,33 @@ section.section--small-padding .divider {
   position: absolute;
   top: 250px;
   width: 100%;
-  max-width: 1400px;
+}
+.ventu-slider-center-line .ventu-slider-center-line-wrapper {
+  max-width: 1300px;
   margin: 0 auto;
 }
-.ventu-slider-center-line > div {
+.ventu-slider-center-line .ventu-slider-center-line-wrapper > div {
   height: 1px;
   position: relative;
 }
-.ventu-slider-center-line .ventu-slider-center-line-left {
+.ventu-slider-center-line .ventu-slider-center-line-wrapper .ventu-slider-center-line-left {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 0%);
   background-position: bottom;
   background-size: 16px 1px;
   background-repeat: repeat-x;
   float: left;
 }
-.ventu-slider-center-line .ventu-slider-center-line-left.ventu-slider-center-line--hidden {
+.ventu-slider-center-line .ventu-slider-center-line-wrapper .ventu-slider-center-line-left.ventu-slider-center-line--hidden {
   background-image: none;
 }
-.ventu-slider-center-line .ventu-slider-center-line-middle {
+.ventu-slider-center-line .ventu-slider-center-line-wrapper .ventu-slider-center-line-middle {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   float: left;
 }
-.ventu-slider-center-line .ventu-slider-center-line-middle.ventu-slider-center-line--hidden {
+.ventu-slider-center-line .ventu-slider-center-line-wrapper .ventu-slider-center-line-middle.ventu-slider-center-line--hidden {
   border-bottom: none;
 }
-.ventu-slider-center-line .ventu-slider-center-line-right {
+.ventu-slider-center-line .ventu-slider-center-line-wrapper .ventu-slider-center-line-right {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   float: left;
   transition: width 0.5s ease;

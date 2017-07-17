@@ -29,14 +29,15 @@ Centerline.prototype.create = function() {
 };
 
 Centerline.prototype.createCenterline = function() {
-    var centerline = $('<div class="ventu-slider-center-line"></div>');
+    var centerline, wrapper;
+    centerline = $('<div class="ventu-slider-center-line"></div>');
+    wrapper = $('<div class="ventu-slider-center-line-wrapper"></div>');
     this.elements.centerline.middle = $('<div class="ventu-slider-center-line-middle"></div>');
     this.elements.centerline.left = $('<div class="ventu-slider-center-line-left"></div>');
     this.elements.centerline.right = $('<div class="ventu-slider-center-line-right"></div>');
 
-    centerline.append(this.elements.centerline.left);
-    centerline.append(this.elements.centerline.middle);
-    centerline.append(this.elements.centerline.right);
+    centerline.append(wrapper);
+    wrapper.append(this.elements.centerline.left).append(this.elements.centerline.middle).append(this.elements.centerline.right);
     this.parent.element.append(centerline);
 };
 
@@ -61,7 +62,7 @@ Centerline.prototype.createButtons = function() {
 
 Centerline.prototype.resize = function() {
     this.settings.size.body = $('.ventu-slider-slide-content').outerWidth();
-    this.settings.size.centerline = $('.ventu-slider-center-line').outerWidth();
+    this.settings.size.centerline = $('.ventu-slider-center-line-wrapper').outerWidth();
     this.parent.settings.size.side = Math.floor((this.settings.size.centerline - this.settings.size.body) / 2);
 
     this.elements.centerline.left.css('width', this.parent.settings.size.side).addClass('ventu-slider-center-line--hidden');
