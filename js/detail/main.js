@@ -1,9 +1,15 @@
 $(window).ready(function() {
+    var screen = whatScreen();
+
+    if (screen === 0) {
+        new Scroll();
+    }
 
     initialiseModules();
     initialiseModals();
     setFullscreenAndContinueButton();
     addPopoverListenerForShare();
+
 
 });
 

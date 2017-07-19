@@ -23,6 +23,7 @@
 
 
 
+
     
 
 
@@ -103,11 +104,14 @@
                 </a>
             </div>
 
+            <div id="ventu-scroll-anchors"><!-- filled by modules/ventu-scroll/Scroll.js --></div>
+
 
             <section id="ventu-features-icons">
                 <?php include('php-includes/features.php');?>
             </section>
 
+            <a class="ventu-scroll-anchor" name="omschrijving"></a>
             <section>
                 <h3>Projectomschrijving</h3>
 
@@ -221,6 +225,7 @@ indruk van het woon en/of werkgebied.</p>
 
             <?php include('php-includes/teams.php'); ?>
 
+            <a class="ventu-scroll-anchor" name="kenmerken"></a>
             <?php include('php-includes/detail-features.php'); ?>
 
             <section id="ventu-social" class="clearfix section--without-side-padding section--transparent">
@@ -238,6 +243,7 @@ indruk van het woon en/of werkgebied.</p>
                 </div>
             </section>
 
+            <a class="ventu-scroll-anchor" name="contact"></a>
             <?php include('php-includes/parties.php'); ?>
         </div>
     </div>

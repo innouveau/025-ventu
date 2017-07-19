@@ -58,7 +58,7 @@ Affix.prototype.setOrigin = function() {
 };
 
 Affix.prototype.move = function() {
-    this.element.css('top', this.getTop(scroll));
+    this.element.css('top', this.getTop());
 };
 
 Affix.prototype.getTop = function() {

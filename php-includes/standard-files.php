@@ -26,6 +26,8 @@
 <script src="js/shared/modules/ventu-affix/Affix.js"></script>
 <script src="js/shared/modules/ventu-api/VentuApi.js"></script>
 <script src="js/shared/modules/ventu-modal/modal.js"></script>
+<script src="js/shared/modules/ventu-scroll/Scroll.js"></script>
+<script src="js/shared/modules/ventu-scroll/Anchor.js"></script>
 
 
 

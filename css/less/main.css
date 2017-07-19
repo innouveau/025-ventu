@@ -2680,6 +2680,36 @@ input::placeholder {
     display: none;
   }
 }
+#ventu-scroll-anchors {
+  background: #fff;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.3s ease;
+  display: none;
+}
+#ventu-scroll-anchors.ventu-scroll-anchors--fixed {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  top: 60px;
+}
+#ventu-scroll-anchors .ventu-scroll-anchor-button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 20px 0;
+  margin: 0 10px;
+  border-bottom: 3px solid transparent;
+}
+#ventu-scroll-anchors .ventu-scroll-anchor-button:hover {
+  color: #03256b;
+  border-bottom: 3px solid #03256b;
+}
+@media (max-width: 767px) {
+  #ventu-scroll-anchors {
+    display: block;
+  }
+}
 #breadcrumb {
   margin-top: 60px;
   border-bottom: 0;
