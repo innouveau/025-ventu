@@ -33,7 +33,7 @@ User.prototype.uses = function(what) {
             this._checkCriteria(criteria, topic);
             break;
     }
-    
+
 };
 
 User.prototype._checkCriteria = function(criteria, topic) {

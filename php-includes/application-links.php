@@ -36,5 +36,4 @@
 
 <!-- dom -->
 <script src="js/application/dom/filter-listeners.js"></script>
-<!--<script src="js/application/dom/list-listeners.js"></script>-->
 

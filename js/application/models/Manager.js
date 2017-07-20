@@ -13,10 +13,36 @@ function Manager() {
 
 // init
 
-Manager.prototype.updateAfterDraw = function(result) {
+Manager.prototype.updateAfterDraw = function (result) {
+    var self = this;
+
     this.lastIndex = 0;
     this.status.found = result.markers.length;
+
+    var favs = window.ventuApi.getFavoriteBuildings();
+    var trash = window.ventuApi.getTrashBuildings();
+
+    this.status.love = favs.length;
+    this.status.hate = trash.length;
     this.status.left = result.markers.length;
+
+    // substract objects from favorites and thrash lists
+    $(result.markers).each(function (index, marker) {
+
+        $(favs).each(function (f, obj) {
+            if (marker.UniqueId === obj.uniqueId) {
+                self.status.left--;
+            }
+        });
+
+        $(trash).each(function (t, obj) {
+            if (marker.UniqueId === obj.uniqueId) {
+                self.status.left--;
+            }
+        });
+
+    });
+
     console.log(result.markers.length + ' Objects, with ' + result.objects.length + ' buildings');
     this.updateDom();
     this.createInitialCards();
@@ -35,6 +61,7 @@ Manager.prototype.createInitialCards = function() {
     console.log('created ' + objects.length + ' cards.');
     for (var i = 0, l = objects.length; i < l; i++) {
         var obj = objects[i];
+
         obj.createCard(this.lastIndex);
         this.lastIndex++;
     }
@@ -63,6 +90,7 @@ Manager.prototype.next = function() {
             // the added card, we have to wait until it is disappeared
             wait = 800
         }
+
         newObj.createCard(self.lastIndex);
         setTimeout(function () {
             newObj.card.launch('normal');
@@ -86,6 +114,8 @@ Manager.prototype.next = function() {
                 } else {
                     // this shouldnt be possible irl situations
                     console.log('something went wrong. The newly added buildings couldnt be matched with the existing objects');
+
+                    modal.message('Alles gezien', 'Start een nieuwe zoekopdracht om nieuwe kaarten te bekijken of stel het filter anders in', false, true);
                 }
 
             }
@@ -93,7 +123,7 @@ Manager.prototype.next = function() {
             console.log('got new cards!');
             window.ventuApi.getSelectResults(callbackAfterInject, true); // todo remove this second argument, for testing only
         } else if (report.objects === report.addedToList) {
-            modal.message('Alles gezien', 'Start een nieuwe zoekopdracht om nieuwe kaarten te bekijken', false, true);
+            modal.message('Alles gezien', 'Start een nieuwe zoekopdracht om nieuwe kaarten te bekijken of stel het filter anders in', false, true);
         }
     }
 };
@@ -146,7 +176,7 @@ Manager.prototype.report = function() {
             report.potentialCards++;
         }
     }
-    console.log(report);
+    //console.log(report);
     return report;
 };
 
@@ -175,6 +205,8 @@ Manager.prototype.launch = function() {
         } else {
             window.ventu.currentCard.launch(launchType);
         }
+    } else {
+        modal.message('Alles gezien', 'Start een nieuwe zoekopdracht om nieuwe kaarten te bekijken of stel het filter anders in', false, true);
     }
 };
 
@@ -218,8 +250,10 @@ Manager.prototype.updateResultBar = function() {
     $('#ventu-filter-result').html(this.status.found);
 };
 
-Manager.prototype.updateBottomBar = function() {
-    $('#ventu-bottom-bar-counter-label').html(this.status.left + ' objecten over');
+Manager.prototype.updateBottomBar = function () {
+    var text = window.ventu.config.device.type === 0 ? '' : ' objecten';
+
+    $('#ventu-bottom-bar-counter-label').html(this.status.left + text + ' over');
 };
 
 Manager.prototype.updateBottomBarType = function(type) {

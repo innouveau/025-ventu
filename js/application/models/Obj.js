@@ -20,7 +20,7 @@ Obj.prototype.getStatus = function(index) {
 };
 
 Obj.prototype.isOfType = function(type) {
-    if (window.ventu[type + 'Objects']) {
+    if (window.ventu.user[type + 'Objects']) {
         for (var i = 0, l = window.ventu.user[type + 'Objects'].length; i < l; i++) {
             if (this.uniqueId === window.ventu.user[type + 'Objects'][i].uniqueId) {
                 return true;
@@ -34,7 +34,16 @@ Obj.prototype.isOfType = function(type) {
 
 Obj.prototype.createMarker = function() {
     if (window.ventu.config.isMapPresent) {
-        this.marker = new Marker(this, this.coordinate, this.status);
+
+        var icon = settings.icon.standard;
+
+        if (this.status == 'love') {
+            icon = settings.icon.love;
+        } else if (this.status == 'hate') {
+            icon = settings.icon.hate;
+        }
+
+        this.marker = new Marker(this, this.coordinate, icon);
         window.ventu.map.markers.push(this.marker);
     }
 };

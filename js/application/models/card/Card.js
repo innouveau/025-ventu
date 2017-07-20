@@ -312,6 +312,7 @@ Card.prototype.swap = function () {
     topCard._backToOrigin();
     this._backToOrigin();
 
+    console.log(originalX, originalY);
 
     setTimeout(function () {
         var rotation = window.ventu.config.card.rotation * (Math.random() - 0.5);

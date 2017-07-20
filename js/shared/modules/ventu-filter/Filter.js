@@ -21,12 +21,18 @@ function Filter(searchQuery) {
 //
 
 Filter.prototype.execute = function () {
+
     var query = jQuery.extend({}, this.query);
     query.location = null;
     window.ventuApi.setSearchFilter(query);
 
     function callback(result) {
         window.ventu.redraw(result);
+
+        if (window.ventu.config.device.type === 0) {
+            $('.ventu-filter-read-more').trigger('click');
+            $('#ventu-filter-content').animate({ scrollTop: (0) }, 'slow');
+        }
     }
 
     window.ventuApi.getSelectResults(callback);
@@ -35,21 +41,21 @@ Filter.prototype.execute = function () {
 
 // creation
 
-Filter.prototype.createOptions = function() {
+Filter.prototype.createOptions = function () {
     this.createTypeOptions();
     this.createAreaOptions();
     this.createTransactionOptions();
     this.createSearchTypeOptions();
 };
 
-Filter.prototype.createTypeOptions = function() {
+Filter.prototype.createTypeOptions = function () {
     var self = this;
     this.element.typesButtons.empty();
     for (var i = 0, l = filterContent.primaryUsage.length; i < l; i++) {
         var filterObject = filterContent.primaryUsageLibrary[filterContent.primaryUsage[i]],
             active = this.isActiveLabel('types', filterObject),
             button = this.getButton('type', filterObject, active);
-        button.click(function(){
+        button.click(function () {
             $(this).toggleClass('ventu-filter-button--active');
             self.updateQueryTypes();
         });
@@ -57,7 +63,7 @@ Filter.prototype.createTypeOptions = function() {
     }
 };
 
-Filter.prototype.isActiveLabel = function(type, filterObject) {
+Filter.prototype.isActiveLabel = function (type, filterObject) {
     for (var i = 0, l = this.query[type].length; i < l; i++) {
         var queryLabel = this.query[type][i];
         if (filterObject.id === queryLabel) {
@@ -67,14 +73,14 @@ Filter.prototype.isActiveLabel = function(type, filterObject) {
     return false;
 };
 
-Filter.prototype.createTransactionOptions = function() {
+Filter.prototype.createTransactionOptions = function () {
     var self = this;
     this.element.transactionButtons.empty();
     for (var i = 0, l = filterContent.objectType.length; i < l; i++) {
         var filterObject = filterContent.objectTypeLibrary[filterContent.objectType[i]],
             active = this.isActiveLabel('transactions', filterObject),
             button = this.getButton('transaction', filterObject, active);
-        button.click(function(){
+        button.click(function () {
             $(this).toggleClass('ventu-filter-button--active');
             self.updateQueryTransaction();
         });
@@ -82,7 +88,7 @@ Filter.prototype.createTransactionOptions = function() {
     }
 };
 
-Filter.prototype.createAreaOptions = function() {
+Filter.prototype.createAreaOptions = function () {
     var self = this;
     this.element.areaMinInput.val(this.query.area[0]);
     this.element.areaMaxInput.val(this.query.area[1]);
@@ -112,9 +118,9 @@ Filter.prototype.createAreaOptions = function() {
     }
 };
 
-Filter.prototype.createSearchTypeOptions = function() {
+Filter.prototype.createSearchTypeOptions = function () {
     var self = this;
-    $('.ventu-filter-search-type-button').each(function(){
+    $('.ventu-filter-search-type-button').each(function () {
         var button = $(this),
             type = button.attr('search-type');
         var input;
@@ -144,7 +150,7 @@ Filter.prototype.createSearchTypeOptions = function() {
             input.keyup(changeType);
         }
 
-        button.click(function(event){
+        button.click(function (event) {
             // prevent click on input
             if (event.target.tagName.toLowerCase() !== 'input') {
                 self.updateQuerySearchArea(this);
@@ -157,9 +163,9 @@ Filter.prototype.createSearchTypeOptions = function() {
 
 // update queries
 
-Filter.prototype.updateQueryTypes = function() {
+Filter.prototype.updateQueryTypes = function () {
     var types = [];
-    $('#ventu-filter-types-buttons .ventu-filter-button').each(function(){
+    $('#ventu-filter-types-buttons .ventu-filter-button').each(function () {
         if ($(this).hasClass('ventu-filter-button--active')) {
             types.push(parseInt($(this).attr('type')));
         }
@@ -169,7 +175,7 @@ Filter.prototype.updateQueryTypes = function() {
     //this.execute();
 };
 
-Filter.prototype.updateQueryArea = function() {
+Filter.prototype.updateQueryArea = function () {
     var min = this.element.areaMinInput.val(),
         max = this.element.areaMaxInput.val();
     this.element.areaMin.html(min + '  m²');
@@ -180,9 +186,9 @@ Filter.prototype.updateQueryArea = function() {
     //this.execute();
 };
 
-Filter.prototype.updateQueryTransaction = function() {
+Filter.prototype.updateQueryTransaction = function () {
     var transactions = [];
-    $('#ventu-filter-transaction-buttons .ventu-filter-button').each(function(){
+    $('#ventu-filter-transaction-buttons .ventu-filter-button').each(function () {
         if ($(this).hasClass('ventu-filter-button--active')) {
             transactions.push(parseInt($(this).attr('transaction')));
         }
@@ -192,9 +198,9 @@ Filter.prototype.updateQueryTransaction = function() {
     //this.execute();
 };
 
-Filter.prototype.updateQuerySearchArea = function(current) {
+Filter.prototype.updateQuerySearchArea = function (current) {
     var self = this;
-    $('.ventu-filter-search-type-button').each(function(){
+    $('.ventu-filter-search-type-button').each(function () {
         if (this === current) {
             var input, type = $(this).attr('search-type');
             $(this).addClass('ventu-filter-search-type-button--active');
@@ -217,7 +223,7 @@ Filter.prototype.updateQuerySearchArea = function(current) {
 
 // update DOM
 
-Filter.prototype.update = function() {
+Filter.prototype.update = function () {
     this.updateLocation();
     this.updateTypes();
     this.updateArea();
@@ -226,13 +232,17 @@ Filter.prototype.update = function() {
 };
 
 Filter.prototype.updateLocation = function () {
-    if (this.query.location !== null) {
+
+    if (this.query.location) {
         var label = this.getLabel(this.query.location);
+        this.element.location.empty().append(label);
+    } else if (loadExternalSearchEngine) {
+        var label = this.getLabel(externalSearchEngineDomain);
         this.element.location.empty().append(label);
     }
 };
 
-Filter.prototype.updateTypes = function() {
+Filter.prototype.updateTypes = function () {
     this.element.types.empty();
     for (var i = 0, l = this.query.types.length; i < l; i++) {
         var type = filterContent.primaryUsageLibrary[this.query.types[i]].translation,
@@ -241,12 +251,12 @@ Filter.prototype.updateTypes = function() {
     }
 };
 
-Filter.prototype.updateArea = function() {
+Filter.prototype.updateArea = function () {
     this.element.areaMin.html(this.query.area[0] + '  m²');
     this.element.areaMax.html(this.query.area[1] + '  m²');
 };
 
-Filter.prototype.updateTransaction = function() {
+Filter.prototype.updateTransaction = function () {
     this.element.transaction.empty();
     for (var i = 0, l = this.query.transactions.length; i < l; i++) {
         var transaction = filterContent.objectTypeLibrary[this.query.transactions[i]].translation,
@@ -255,7 +265,7 @@ Filter.prototype.updateTransaction = function() {
     }
 };
 
-Filter.prototype.updateSearchType = function() {
+Filter.prototype.updateSearchType = function () {
     var label;
     this.element.searchType.empty();
     switch (this.query.searchType.type) {
@@ -263,7 +273,7 @@ Filter.prototype.updateSearchType = function() {
             label = this.getLabel('Geen aangepast zoekgebied');
             break;
         case 'circle':
-            label = this.getLabel('Cirkel: ' + this.query.searchType.size + 'km');
+            label = this.getLabel('Cirkel: ' + this.query.searchType.size + ' km');
             break;
     }
     this.element.searchType.append(label);
@@ -273,12 +283,12 @@ Filter.prototype.updateSearchType = function() {
 
 // helpers
 
-Filter.prototype.getLabel = function(text) {
+Filter.prototype.getLabel = function (text) {
     return $('<div class="ventu-filter-label">' + text + '</div>');
 };
 
-Filter.prototype.getButton = function(type, filterObject, active) {
-    var button = $('<div class="ventu-filter-button ventu-filter-button--' +filterObject.slug + '" ' + type + '="' + filterObject.id + '">' + filterObject.translation + '</div>');
+Filter.prototype.getButton = function (type, filterObject, active) {
+    var button = $('<div class="ventu-filter-button ventu-filter-button--' + filterObject.slug + '" ' + type + '="' + filterObject.id + '">' + filterObject.translation + '</div>');
     if (active) {
         button.addClass('ventu-filter-button--active');
     }

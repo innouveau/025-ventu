@@ -1,5 +1,8 @@
 function Building(obj, building) {
-    this.obj = obj;
+    //this.obj = obj;
+
+    this.uniqueId = building.UniqueId;
+
     // address
     this.address = building.Address;
     this.city = building.City;
@@ -31,7 +34,7 @@ Building.prototype.getCardAddress = function () {
     //if (this.productId > 0 && this.broker !== null && this.broker.Logo !== null && this.includesOrganization) {
     //    return this.fullAddressInfo;
     //} else {
-        return this.address;
+    return this.address;
     //}
 };
 
@@ -43,6 +46,10 @@ Building.prototype.getCardImage = function () {
     var img = this.imageURL === null ? '/img/misc/ventu-stock-thumb.jpg' : this.imageURL;
     return img; //'https://ventu.nl' + img;
 };
+
+Building.prototype.getBrokerLogo = function () {
+    return this.broker.Logo;
+}
 
 Building.prototype.getCardBrokerLogo = function () {
     if (this.productId > 0 && this.broker !== null && this.broker.Logo !== null && this.includesOrganization) {

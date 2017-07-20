@@ -22,7 +22,7 @@ Marker.prototype.create = function() {
 
     this.marker.addListener('click', function() {
         var obj = self.obj;
-        if (!obj.card) {
+        if (obj.card == null) {
 
             if (obj.status === 'love') {
                 window.location.href = '/Interesselijst';
@@ -36,19 +36,30 @@ Marker.prototype.create = function() {
                 }
 
                 function createAndLaunch() {
-                    obj.createCard();
+
+                    obj.createCard(window.ventu.manager.lastIndex);
                     obj.card.launch('normal');
+                    window.ventu.manager.lastIndex++;
+
                     obj.card.swap();
                 }
 
                 if (obj.isPotentialForCard()) {
                     createAndLaunch();
                 } else {
-                    window.ventuApi.getObjectByUniqueId(obj.UniqueId, callback);
+                    window.ventuApi.getObjectByUniqueId(obj.uniqueId, callback);
                 }
             }
         } else {
-            self.card.swap();
+
+            if (obj.status === 'love') {
+                window.location.href = '/Interesselijst';
+            } else if (obj.status === 'hate') {
+                window.location.href = '/Prullenbak';
+            } else {
+
+                obj.card.swap();
+            }
         }
     });
 };
