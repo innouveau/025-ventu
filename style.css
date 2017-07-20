@@ -2398,8 +2398,28 @@ img.projectCarousel {
 .ventu-slide-panel .ventu-slide-panel-label:hover {
   background-color: #D87800;
 }
+.ventu-slide-panel .ventu-slide-panel-label .ventu-slide-panel-label-hint {
+  position: absolute;
+  left: calc(100% + 10px);
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  color: #17141f;
+  top: 7px;
+  padding: 10px;
+}
+.ventu-slide-panel .ventu-slide-panel-label .ventu-slide-panel-label-hint:after {
+  position: absolute;
+  left: -15px;
+  top: 10px;
+  width: 15px;
+  height: 24px;
+  background-image: url(img/parts/triangle-left.png);
+  background-size: 100% 100%;
+  content: '';
+}
 .ventu-slide-panel.ventu-slide-panel--inactive {
-  left: -290px;
+  left: -315px;
 }
 .ventu-slide-panel.ventu-slide-panel--inactive .ventu-slide-panel-label {
   background-image: url(img/tools/label-arrow-right.svg);

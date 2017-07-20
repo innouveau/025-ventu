@@ -26,10 +26,32 @@
         &:hover {
             background-color: @ventu-active-button-hover;
         }
+
+        .ventu-slide-panel-label-hint {
+            position: absolute;
+            left: ~'calc(100% + 10px)';
+            white-space: nowrap;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            background: #fff;
+            color: @ventu-black;
+            top: 7px;
+            padding: 10px;
+
+            &:after {
+                position: absolute;
+                left: -15px;
+                top: 10px;
+                width: 15px;
+                height: 24px;
+                background-image: url(img/parts/triangle-left.png);
+                background-size: 100% 100%;
+                content: '';
+            }
+        }
     }
 
     &.ventu-slide-panel--inactive {
-        left: -290px;
+        left: -315px;
 
         .ventu-slide-panel-label {
             background-image: url(img/tools/label-arrow-right.svg);

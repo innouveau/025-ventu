@@ -14,11 +14,39 @@ function Filter(searchQuery) {
         typesButtons: $('#ventu-filter-types-buttons'),
         transactionButtons: $('#ventu-filter-transaction-buttons')
     };
-    this.createOptions();
-    this.update();
+    this.init();
 }
 
-//
+Filter.prototype.init = function () {
+    this.createOptions();
+    this.update();
+
+    if (whatScreen() < 3) {
+        this.close();
+        this.addHintLabel();
+    }
+
+};
+
+Filter.prototype.close = function () {
+    $('#ventu-filters').addClass('ventu-slide-panel--inactive');
+};
+
+Filter.prototype.addHintLabel = function () {
+    var label, hintLabel;
+    label = $('.ventu-slide-panel-label');
+    hintLabel = $('<div class="ventu-slide-panel-label-hint">Schuif filters uit</div>');
+
+    label.append(hintLabel);
+
+    label.click(function(){
+        if (hintLabel) {
+            hintLabel.remove();
+        }
+
+    })
+
+};
 
 Filter.prototype.execute = function () {
 
