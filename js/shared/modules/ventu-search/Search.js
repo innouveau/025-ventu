@@ -38,7 +38,7 @@ Search.prototype.create = function() {
     var _this = this,
         placeholder = this.element.attr('ph');
     if (!placeholder) {
-        placeholder = 'Zoek op plaats, naam, postcode, gebouw';
+        placeholder = 'Vind plaats-, straat-, gebouw-naam of postcode';
     }
     this.elements.icon = $('<div class="ventu-search-icon"></div>');
     this.elements.input = $('<input placeholder="' + placeholder + '" tabindex=-1>');

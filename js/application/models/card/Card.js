@@ -47,6 +47,11 @@ Card.prototype._create = function () {
     cardBlocker = $('<div class="ventu-card-blocker"></div>');
     cardBack = $('<div class="ventu-card-back"></div>');
     cardImage = $('<div class="ventu-card-image" style="background-image:url(' + this.obj.building.getCardImage() + ')"></div>');
+
+    if (this.obj.building.productId > 0 && this.obj.building.includesOrganization && this.obj.building.broker && this.obj.building.broker.Logo) {
+        cardImage.append($('<img class="ventu-card-broker-logo" src="'+this.obj.building.broker.Logo+'" alt="Logo '+this.obj.building.broker.Name+'" />'));
+    }
+
     cardText = $('<div class="ventu-card-text">');
     cardHead = $('<div class="ventu-card-header"><h4>' + this.obj.building.getCardCity() + '</h4><h3>' + this.obj.building.getCardAddress() + '</h3></div>');
     cardFeatures = $('<div class="ventu-features"></div>');

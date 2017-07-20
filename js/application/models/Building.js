@@ -15,7 +15,7 @@ function Building(obj, building) {
     this.broker = building.Broker;
     // extra info
     this.imageURL = building.PhotoURL !== null ? building.PhotoURL.replace('/wm', '/thumb') : null;
-    this.detailLinkUrl = '/Project/' + building.DetailLinkUrl + '?c=1';
+    this.detailLinkUrl = "/" + building.CanonicalObjectUsage + '/' + building.DetailLinkUrl; //'/Project/' + building.DetailLinkUrl;
     this.brochureUrl = building.BrochureUrl;
     this.videoUrl = building.VideoUrl;
     this.primaryUsage = building.PrimaryUsage;
@@ -28,11 +28,11 @@ function Building(obj, building) {
 }
 
 Building.prototype.getCardAddress = function () {
-    if (this.productId > 0 && this.broker !== null && this.broker.Logo !== null && this.includesOrganization) {
-        return this.fullAddressInfo;
-    } else {
+    //if (this.productId > 0 && this.broker !== null && this.broker.Logo !== null && this.includesOrganization) {
+    //    return this.fullAddressInfo;
+    //} else {
         return this.address;
-    }
+    //}
 };
 
 Building.prototype.getCardCity = function () {

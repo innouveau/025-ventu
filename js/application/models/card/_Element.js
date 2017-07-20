@@ -13,13 +13,20 @@ _Element.prototype._getTransform = function (transform, netto) {
             shiftY = 0;
             z = window.ventu.config.card.sealevel - window.ventu.config.card.zGap + 2;
         }
+        var scaleSX = transform[6], scaleSY = transform[7];
+
+        // fix for iphone4 screens
+        if (screen.height <= 480) {
+            scaleSX = scaleSY = 0.75;
+        }
+
         return 'translateX(' + (transform[0] + shiftX) + 'px) ' +
             'translateY(' + (transform[1] + shiftY) + 'px) ' +
             'translateZ(' + z + 'px) ' +
             'rotateX(' + transform[3] + 'deg) ' +
             'rotateY(' + transform[4] + 'deg) ' +
             'rotateZ(' + (transform[5] + rotate) + 'deg) ' +
-            'scale(' + transform[6] + ',' + transform[7] + ')';
+            'scale(' + scaleSX + ',' + scaleSY + ')';
     } else {
         return 'translateX(' + transform[0] + 'px) translateY(' + transform[1] + 'px) translateZ(' + this.status.stackPosition.zIndex + 'px)';
     }

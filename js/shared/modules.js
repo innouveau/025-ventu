@@ -46,3 +46,22 @@ function initialiseModules() {
         });
     }
 }
+
+function sanitizeAreaInput(el) {
+    // @walstra heb jij een mening of we nog meer moeten checken hier, gaat over
+    // de oppervlakte waarden
+    var value = el.val();
+    if (!isNaN(value) && value.length > 0) {
+        el.parent().removeClass('ventu-slider-area-picker--error');
+        return {
+            value: value,
+            valid: true
+        }
+    } else {
+        el.parent().addClass('ventu-slider-area-picker--error');
+        return {
+            value: null,
+            valid: false
+        }
+    }
+}
