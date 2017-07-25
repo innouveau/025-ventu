@@ -12,6 +12,7 @@ body.ventu-application #ventu-application-container {
   top: 60px;
   width: 100%;
   height: calc(100% - 60px);
+  overflow: hidden;
 }
 body.ventu-application #ventu-application-container #ventu-canvas {
   width: 100%;
