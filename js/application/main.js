@@ -14,12 +14,25 @@ window.ventuConfig = {
 
 $(window).ready(function () {
 
+    // fixes history.back cache loading
+    window.onpageshow = function (event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+
     initialiseModules();
     initialiseModals();
     setFullscreenAndContinueButton();
 
     var searchFilter = window.ventuApi.getSearchFilter();
-    
+
+    // external search engines should refresh the GUI filter
+    if (typeof loadExternalSearchEngine !== 'undefined') {
+        searchFilter.RefreshGUIFilter = true;
+        window.ventuApi.setSearchFilter(null, searchFilter, true);
+    }
+
     if (typeof autoSearchFilter === 'undefined') {
 
         var searchQuery = window.ventuApi.getSearchQuery();
@@ -28,18 +41,19 @@ $(window).ready(function () {
         window.ventu = new App();
         window.ventu.init();
 
-        if (searchFilter.Building !== null ||
-            searchFilter.City !== null ||
-            searchFilter.Postcode !== null ||
-            searchFilter.Street !== null) {
+        if ((typeof loadExternalSearchEngine !== 'undefined') ||
+            (searchFilter.Building !== null ||
+                searchFilter.City !== null ||
+                searchFilter.Postcode !== null ||
+                searchFilter.Street !== null)) {
 
             function callback(result) {
                 window.ventu.redraw(result);
             }
 
             window.ventuApi.getSelectResults(callback);
-        }
-        else {
+
+        } else {
             $('.ventu-search-open').trigger('click');
         }
 
@@ -49,11 +63,5 @@ $(window).ready(function () {
     }
 
     slidePanelListener();
-    // listListeners();
-
-    function c() {
-        console.log('test');
-    }
-
 
 });

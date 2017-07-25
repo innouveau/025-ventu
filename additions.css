@@ -1,0 +1,138 @@
+#ventu-account-lists a.ventu-tools-button {
+    display: block;
+}
+
+.btn {
+    padding: 12px 20px;
+}
+
+.ventu-card .ventu-card-image .ventu-card-broker-logo {
+    border: 3px solid #fff;
+    max-width: 122px;
+    background-color: #fff;
+}
+
+#ventu-features h1 {
+    font-size: 16px;
+    color: #17141f;
+    font-weight: normal;
+    line-height: 1.25em;
+}
+
+#ventu-filters #ventu-filter-tools {
+    height: auto;
+}
+
+#ventu-filters #ventu-filter-content {
+    height: calc(100% - 61px);
+}
+
+.btn {
+    height: auto;
+    white-space: initial;
+}
+
+#ventu-application-container {
+    overflow: hidden;
+}
+
+#ventu-scroll-anchors.ventu-scroll-anchors--fixed {
+    top: 40px;
+}
+
+.ventu-identity img.hidden-xs, .ventu-identity img.visible-xs {
+    height: 60px;
+}
+
+.navbar {
+    min-height: 0;
+}
+
+.ventu-filter-area-box {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.ventu-filter-area-box input {
+    width: 50%;
+    text-align: right;
+    padding: 0 3px;
+}
+
+#ventu-social .btn-wrapper a i.hate {
+    background-color: #df0040;
+    background-image: url(img/icons/buttons/hate.svg);
+}
+
+@media (max-width: 767px) {
+
+    /* fix for iOS input focus zoom */
+    input,
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select:focus,
+    textarea {
+        font-size: 16px !important;
+    }
+
+    .ventu-filter-area-box {
+        display: block;
+    }
+
+    #ventu-features-icons {
+        padding-top:20px;
+        padding-bottom: 20px
+    }
+
+    .ventu-features {
+        padding: 0;
+    }
+
+    .ventu-features ul li {
+        display: block;
+    }
+
+    #ventu-modal {
+        width: 100%;
+        left: 0;
+        top: 25%;
+    }
+
+    #ventu-slide-panel-landing {
+        width: 90%;
+        z-index: 1;
+    }
+
+    #ventu-slide-panel-landing.ventu-slide-panel--inactive {
+        left: calc(-90% + 10px);
+    }
+
+    #ventu-bottom-bar .ventu-bottom-bar-sub .ventu-bottom-bar-sub-content {
+        width: auto;
+    }
+
+    nav.navbar-default .navbar-header {
+        background: inherit !important;
+    }
+}
+
+/* fix for iphone 4 screens */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3)
+{
+    body.ventu-application #ventu-application-container {
+        top: 10px;
+        height: calc(100% - 10px);
+    }
+}

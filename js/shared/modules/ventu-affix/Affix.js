@@ -33,13 +33,13 @@ Affix.prototype.getTopBoundary = function() {
 
 Affix.prototype.getBottomBoundary = function() {
     var buffer = 0,
-        graphHeight = 250;
+        graphHeight = 0;
 
     return this.mainCol.offset().top +
-           this.mainCol.outerHeight() + graphHeight -
-           this.element.outerHeight() -
-           this.top -
-           buffer;
+        this.mainCol.outerHeight() + graphHeight -
+        this.element.outerHeight() -
+        this.top -
+        buffer;
 };
 
 Affix.prototype.setOrigin = function() {

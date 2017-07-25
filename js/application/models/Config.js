@@ -9,7 +9,7 @@ function Config() {
 
     };
     this.stack = {
-        max: 20
+        max: 5
     };
     this.zoom = 0;
     this.swipe = null;
@@ -56,15 +56,25 @@ Config.prototype._initTouchMove = function() {
         if (!self.event.ontouchmoveAllowd) {
             event.preventDefault();
         }
-
     };
+
+    if ($('#ventu-filter-content').length > 0) {
+        $('#ventu-filter-content')[0].ontouchmove = function (event) {
+            event.stopPropagation();
+        };
+    }
+
+    if ($('.ventu-slide-panel-content').length > 0) {
+        $('.ventu-slide-panel-content')[0].ontouchmove = function (event) {
+            event.stopPropagation();
+        };
+    }
+
 };
 
 Config.prototype.setTouchMove = function(setting) {
     this.event.ontouchmoveAllowd = setting;
 };
-
-
 
 Config.prototype._getDevice = function() {
     var width = $(window).outerWidth(),
@@ -88,7 +98,6 @@ Config.prototype._getDevice = function() {
     }
 
     orientation = (width > height) ? 'landscape' : 'portrait';
-
 
     return {
         name: name,
@@ -132,6 +141,7 @@ Config.prototype._getBottomBarSizes = function() {
         height = catcherHeight;
 
     }
+
     return {
         love: {
             x: loveX,
@@ -244,7 +254,6 @@ Config.prototype._getCardConfig = function() {
     }
 };
 
-
 // browser specific styles
 
 Config.prototype._setBrowserSpecificStyle = function() {
@@ -265,9 +274,6 @@ Config.prototype._setFilterZindex = function() {
 
     }
 };
-
-
-
 
 Config.prototype._createBottomBarAnimationOver = function() {
     var zBottomBarUnder = this.card.sealevel + 1,
@@ -293,9 +299,6 @@ Config.prototype._createCardFloatAnimation = function() {
     this._prefixAndInject(baseString, z);
 };
 
-
-
-
 Config.prototype._prefixAndInject = function(baseString, z) {
     this._injectStyles(this._prefixStyle('@keyframes', 'transform', baseString, z));
     this._injectStyles(this._prefixStyle('@-moz-keyframes', '-moz-transform', baseString, z));
@@ -313,11 +316,7 @@ Config.prototype._injectStyles = function(rule) {
     this.inlineStyleContainer.append('&shy;<style>' + rule + '</style>');
 };
 
-
-
-
 // device specifice sizes
-
 
 Config.prototype._addResizeListener = function() {
     var self = this;

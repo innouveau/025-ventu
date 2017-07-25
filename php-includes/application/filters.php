@@ -84,15 +84,13 @@
 
                 <div class="ventu-filter-full-text-container">
                     <div class="ventu-filter-full-text">
-                        van
+                        van minimaal
                         <div class="ventu-filter-area-box">
-                            min
                             <input id="ventu-filter-area-min-input" type="number" maxlength="7" min="0" max="999999">
                             m²
                         </div>
-                        tot
+                        tot maximaal
                         <div class="ventu-filter-area-box">
-                            max
                             <input id="ventu-filter-area-max-input" type="number" maxlength="7" min="0" max="999999" >
                             m²
                         </div>
@@ -131,7 +129,7 @@
             </div>
 
             <!-- search-area -->
-            <div id="ventu-filter-search-type" class="ventu-filter-section">
+            <div id="ventu-filter-search-type" class="ventu-filter-section hidden-xs">
                 <div class="ventu-filter-header">
                     Aangepast zoekgebied:
                     <div class="ventu-filter-read-more">

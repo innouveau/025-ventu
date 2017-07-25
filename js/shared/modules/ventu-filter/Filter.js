@@ -14,6 +14,7 @@ function Filter(searchQuery) {
         typesButtons: $('#ventu-filter-types-buttons'),
         transactionButtons: $('#ventu-filter-transaction-buttons')
     };
+
     this.init();
 }
 
@@ -39,12 +40,12 @@ Filter.prototype.addHintLabel = function () {
 
     label.append(hintLabel);
 
-    label.click(function(){
+    label.click(function () {
         if (hintLabel) {
             hintLabel.remove();
         }
 
-    })
+    });
 
 };
 
@@ -57,10 +58,9 @@ Filter.prototype.execute = function () {
     function callback(result) {
         window.ventu.redraw(result);
 
-        if (window.ventu.config.device.type === 0) {
-            $('.ventu-filter-read-more').trigger('click');
-            $('#ventu-filter-content').animate({ scrollTop: (0) }, 'slow');
-        }
+        $('.ventu-filter-read-more').removeClass('ventu-filter-read-more--open');
+        $('.ventu-filter-full-text-container').css('height', 0);
+        $('#ventu-filter-content').animate({ scrollTop: (0) }, 'slow');
     }
 
     window.ventuApi.getSelectResults(callback);
@@ -187,8 +187,6 @@ Filter.prototype.createSearchTypeOptions = function () {
     })
 };
 
-
-
 // update queries
 
 Filter.prototype.updateQueryTypes = function () {
@@ -200,7 +198,6 @@ Filter.prototype.updateQueryTypes = function () {
     });
     this.query.types = types;
     this.updateTypes();
-    //this.execute();
 };
 
 Filter.prototype.updateQueryArea = function () {
@@ -211,7 +208,6 @@ Filter.prototype.updateQueryArea = function () {
     this.query.area[0] = min;
     this.query.area[1] = max;
     this.updateArea();
-    //this.execute();
 };
 
 Filter.prototype.updateQueryTransaction = function () {
@@ -223,7 +219,6 @@ Filter.prototype.updateQueryTransaction = function () {
     });
     this.query.transactions = transactions;
     this.updateTransaction();
-    //this.execute();
 };
 
 Filter.prototype.updateQuerySearchArea = function (current) {
@@ -242,12 +237,7 @@ Filter.prototype.updateQuerySearchArea = function (current) {
         }
     });
     this.updateSearchType();
-    //this.execute();
 };
-
-
-
-
 
 // update DOM
 
@@ -264,7 +254,7 @@ Filter.prototype.updateLocation = function () {
     if (this.query.location) {
         var label = this.getLabel(this.query.location);
         this.element.location.empty().append(label);
-    } else if (loadExternalSearchEngine) {
+    } else if (typeof loadExternalSearchEngine !== 'undefined' && loadExternalSearchEngine) {
         var label = this.getLabel(externalSearchEngineDomain);
         this.element.location.empty().append(label);
     }
@@ -306,8 +296,6 @@ Filter.prototype.updateSearchType = function () {
     }
     this.element.searchType.append(label);
 };
-
-
 
 // helpers
 

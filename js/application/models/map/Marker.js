@@ -15,11 +15,6 @@ Marker.prototype.create = function() {
         title: ''
     });
 
-
-    if (window.showGoogleMapObjects !== undefined && !showGoogleMapObjects) {
-        this.marker.setVisible(false);
-    }
-
     this.marker.addListener('click', function() {
         var obj = self.obj;
         if (obj.card == null) {
@@ -100,8 +95,6 @@ Marker.prototype.remove = function() {
 Marker.prototype.eject = function() {
     this.marker.setMap(null);
 };
-
-
 
 // getters
 

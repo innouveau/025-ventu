@@ -3,24 +3,32 @@ function filterListeners() {
     filterReadMoreListeners();
     filterButtonListeners();
 }
+
 function filterSetFullTextLengths() {
-    $('.ventu-filter-full-text-container').each(function(){
-        var height = $(this).outerHeight();
-        $(this).attr('height', height).css('height', 0);
+    $('.ventu-filter-full-text-container').each(function () {
+        $(this).css('height', 0);
     })
 }
 
 function filterReadMoreListeners() {
-    $('.ventu-filter-read-more').click(function(){
-        var fullText = $(this).parent().parent().find('.ventu-filter-full-text-container');
+    $('.ventu-filter-read-more').click(function () {
+        var section = $(this).parent().parent();
+
+        var fullText = section.find('.ventu-filter-full-text-container');
         $(this).toggleClass('ventu-filter-read-more--open');
 
         if ($(this).hasClass('ventu-filter-read-more--open')) {
-            fullText.css('height', parseInt(fullText.attr('height')));
+            fullText.css('height', 'auto');
         } else {
             fullText.css('height', 0);
         }
+
+        setTimeout(function () {
+            $('#ventu-filter-content').animate({ scrollTop: section.prop('offsetTop') }, 'slow');
+        }, 1);
+
     });
+
     if (window.ventu.config.device.type === 0) {
         $('#ventu-filters').hide();
     }

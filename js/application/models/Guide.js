@@ -10,27 +10,24 @@ Guide.prototype.hint = function(type) {
     switch (type) {
         case 'swiping':
             element = $('#ventu-stack').offset();
-            console.log(element);
             text = 'Je kunt de kaarten ook swipen.<br>Als je de kaart naar rechts sleept en dan los laat, belandt hij in je interesselijst.<br><br>Als je naar links sleept vind je hem niet interessant.';
             position = [element.left, element.top + 30];
             direction = window.ventu.config.device.type === 0 ? 'top' : 'right';
             break;
         case 'filter':
             element = $('#ventu-filters').offset();
-            text = 'Gebruik de filters om je selectie te verkleinen.';
+            text = 'Gebruik de filters om je selectie te verkleinen.' + (window.ventu.config.device.type > 0 ? '<br><br>Als alternatief kun je ook op een marker op de kaart klikken.' : '');
             position = [element.left + 50, element.top + 250];
             direction = 'left';
             break;
         case 'lists':
-            text = 'Bekijk hier je lijst met interessante objecten';
+            text = 'Bekijk hier je lijst met interessante objecten.';
             position = window.ventu.isMobile() ? [(window.ventu.config.device.width - 305), (window.ventu.config.device.height - 170)] : [(window.ventu.config.device.width - 375), (window.ventu.config.device.height - 170)]; // because this is bottom: attention: adjust y positin to length text
             direction = 'bottom-right';
             break;
     }
 
-    //if (type == 'filter' && window.showGoogleMapObjects == undefined) {
-        this._append(text, position, direction);
-    //}
+    this._append(text, position, direction);
 };
 
 Guide.prototype._append = function(text, position, direction) {
@@ -51,7 +48,6 @@ Guide.prototype._append = function(text, position, direction) {
             top: position[1]
         });
     }
-
 
     this.guide.append(close);
     close.on('click', function () {
@@ -75,4 +71,3 @@ Guide.prototype._remove = function() {
     }
 
 };
-

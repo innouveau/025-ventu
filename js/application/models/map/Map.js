@@ -35,25 +35,19 @@ Map.prototype.draw = function(result, leaveshape) {
     var self = this;
     this._cleanUp(leaveshape);
 
-    if (!leaveshape && window.showGoogleMapObjects === undefined) {
+    if (!leaveshape) {
         if (result.shape) {
             this._drawShape(result.shape);
         }
 
     }
 
-    if (window.showGoogleMapObjects === undefined) {
-        setTimeout(function () {
+    if (result.markers.length > 0) {
+        setTimeout(function () { // needs timeout to fire async
             self.showMarkers();
-        }, 500);
+        }, 1);
     }
 };
-
-
-
-
-
-
 
 Map.prototype._cleanUp = function(leaveshape) {
     if (!leaveshape) {
@@ -131,15 +125,10 @@ Map.prototype.setCircleEvents = function (shape) {
         var radius = shape.getRadius();
 
         if (window.filter) {
-            if (radius > window.filter.query.area[1]) {
-                radius = window.filter.query.area[1];
-            }
-            else if (radius < window.filter.query.area[0]) {
-                radius = window.filter.query.area[0];
-            }
             radius = Math.ceil(radius / 1000);
 
             window.filter.query.searchType.size = radius;
+            window.filter.updateSearchType();
             $('#ventu-filter-search-type-cirkel').val(radius);
 
             window.filter.execute();
@@ -149,13 +138,6 @@ Map.prototype.setCircleEvents = function (shape) {
 };
 
 Map.prototype.setRectangleEvents = function (shape) {
-    //var timeout;
-    //google.maps.event.addListener(shape, 'bounds_changed', function () {
-    //    window.clearTimeout(timeout);
-    //    timeout = window.setTimeout(function () {
-    //        alert("get all objects within this rectangle");
-    //    });
-    //}, 500);
     this.setDragEndEvent(shape);
 };
 
@@ -176,8 +158,6 @@ Map.prototype._removeShape = function () {
 
     this.shapes = [];
 };
-
-
 
 // markers
 
