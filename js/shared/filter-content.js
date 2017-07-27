@@ -84,6 +84,7 @@ var filterContent = {
             slug: 'mixeduse',
             translation: 'Mixed use (PEU - tr)'
         }
+        
     },
 
     objectTypeLibrary: {
