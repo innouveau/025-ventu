@@ -68,6 +68,21 @@ var filterContent = {
             id: 14,
             slug: 'agricultural',
             translation: 'Agrarisch'
+        },
+        '15': {
+            id: 15,
+            slug: 'hotel',
+            translation: 'Hotel'
+        },
+        '16': {
+            id: 16,
+            slug: 'living',
+            translation: 'Wonen'
+        },
+        '17': {
+            id: 17,
+            slug: 'mixeduse',
+            translation: 'Mixed use (PEU - tr)'
         }
     },
 
