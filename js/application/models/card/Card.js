@@ -49,7 +49,15 @@ Card.prototype._create = function () {
     cardImage = $('<div class="ventu-card-image" style="background-image:url(' + this.obj.building.getCardImage() + ')"></div>');
 
     if (this.obj.building.productId > 0 && this.obj.building.includesOrganization && this.obj.building.broker && this.obj.building.broker.Logo) {
-        cardImage.append($('<img class="ventu-card-broker-logo" src="'+this.obj.building.broker.Logo+'" alt="Logo '+this.obj.building.broker.Name+'" />'));
+        var brokerLogosWrapper = $('<div style="position:absolute;bottom:0">');
+
+        brokerLogosWrapper.append($('<img class="ventu-card-broker-logo" src="' + this.obj.building.broker.Logo + '" alt="Logo ' + this.obj.building.broker.Name + '" />'));
+
+        $(this.obj.building.parties).each(function (index, party) {
+            brokerLogosWrapper.append($('<img class="ventu-card-broker-logo" src="' + party.Logo + '" alt="Logo ' + party.Name + '" />'));
+        });
+
+        cardImage.append(brokerLogosWrapper);
     }
 
     cardText = $('<div class="ventu-card-text">');

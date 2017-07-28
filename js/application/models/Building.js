@@ -16,6 +16,7 @@ function Building(obj, building) {
     this.saleOrRent = building.SaleOrRent;
     this.metrageInfo = building.MetrageInfo;
     this.broker = building.Broker;
+    this.parties = building.Parties;
     // extra info
     this.imageURL = building.PhotoURL !== null ? building.PhotoURL.replace('/wm', '/thumb') : null;
     this.detailLinkUrl = "/" + building.CanonicalObjectUsage + '/' + building.DetailLinkUrl; //'/Project/' + building.DetailLinkUrl;
