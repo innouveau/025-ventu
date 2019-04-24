@@ -1038,7 +1038,7 @@ section.proximity .ventu-card .button {
   background-image: url(img/tools/arrow-up-white.svg);
 }
 .ventu-hangout-tools .ventu-hangout-tools-sort .ventu-hangout-tools-sort-button.ventu-hangout-tools-sort-button--active:hover {
-  color: #fff!important;
+  color: #fff !important;
 }
 @media (max-width: 767px) {
   .ventu-hangout-tools {
@@ -1222,43 +1222,81 @@ section.proximity .ventu-card .button {
   width: 100%;
   height: auto;
 }
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container {
-  clear: both;
-  padding: 20px 0;
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container {
+  display: flex;
+  padding: 10px 20px;
   font-size: 14px;
   position: relative;
 }
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container:last-child {
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--yours {
+  justify-content: flex-end;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--yours .ventu-hangout-member-avatar {
+  order: 3;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--yours .ventu-chat__balloon-triangle {
+  order: 2;
+  margin-right: 0;
+  margin-left: -35px;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--yours .ventu-chat__balloon {
+  order: 1;
+  border-top-right-radius: 0;
+  border-top-left-radius: 7.5px;
+  margin-right: 10px;
+  margin-left: 0;
+  background: #DCEEC4;
+  border: 1px solid #ddd;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--yours .ventu-chat__balloon:after {
+  right: -7.5px;
+  left: auto;
+  border-top: 15px solid #DCEEC4;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container:last-child {
   padding-bottom: 40px;
 }
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-hangout-member-avatar {
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container .ventu-chat__balloon-triangle {
+  width: 0;
+  height: 0;
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  border-top: 17px solid #ddd;
+  margin-right: -35px;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container .ventu-chat__balloon {
+  z-index: 1;
+  position: relative;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 7.5px;
+  border-top-left-radius: 0;
+  margin-right: 0;
+  margin-left: 10px;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container .ventu-chat__balloon:after {
   position: absolute;
-  top: 32px;
-  left: 24px;
+  left: -7.5px;
+  top: 0;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #fff;
 }
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-chat-balloon-container {
-  width: calc(100% - 88px);
-  margin-top: 36px;
-  margin-left: 64px;
-}
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-chat-balloon-container .ventu-chat-balloon .ventu-chat-balloon-middle .ventu-member-name {
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container .ventu-chat__balloon .ventu-member__name {
   margin-top: 0;
   color: #03256b;
 }
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-chat-balloon-container .ventu-chat-balloon .ventu-chat-balloon-middle .ventu-member-feedback {
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container .ventu-chat__balloon .ventu-member__feedback {
   text-align: left;
 }
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container .ventu-chat-balloon-container .ventu-chat-balloon .ventu-chat-balloon-middle .ventu-member-date {
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container .ventu-chat__balloon .ventu-member__date {
   margin-bottom: 0;
-}
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container.ventu-feedback-container-yours .ventu-hangout-member-avatar {
-  right: 24px;
-  left: auto;
-}
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback-container.ventu-feedback-container-yours .ventu-chat-balloon-container {
-  margin-right: 64px;
-  margin-left: 24px;
-  text-align: right;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ventu-popup.ventu-popup--hangout-chat .ventu-hangout-chat-input {
   position: fixed;
@@ -2502,7 +2540,7 @@ img.projectCarousel {
   border-left: 16px solid #FFDE00;
 }
 .ventu-guide-top:after {
-  left: calc(40%);
+  left: calc(50% - 10px);
   top: -30px;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
@@ -3494,7 +3532,7 @@ section.section--small-padding .divider {
   width: 100%;
 }
 .ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container {
-  width: 33.333333333%;
+  width: 33.33333333%;
 }
 .ventu-card .ventu-card-buttons.ventu-card-buttons-3 .ventu-card-button-container .ventu-card-button {
   margin: 7px auto 3px auto;
@@ -3839,7 +3877,7 @@ section.section--small-padding .divider {
   width: 500px;
   pointer-events: none;
   height: 400px;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   background-image: url('img/card/shade.png');
   background-color: transparent;
   background-size: contain;

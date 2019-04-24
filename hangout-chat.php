@@ -122,7 +122,7 @@
 
     <?php include('php-includes/modals.php'); ?>
 
-    <?php include('php-includes/hangout/chat.php'); ?>
+    <?php include('php-includes/hangout/chat-2.php'); ?>
 </div>
 
 
