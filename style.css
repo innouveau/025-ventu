@@ -1422,6 +1422,7 @@ p.ventu-external-member {
 .section--dialog .dialog__container {
   margin: 40px auto 40px auto;
   width: 600px;
+  max-width: 100%;
 }
 body.ventu-application {
   position: relative;
@@ -2840,10 +2841,12 @@ input::placeholder {
   width: 600px;
   height: 600px;
   perspective: 600px;
+  max-width: 100%;
 }
 .scene .cube {
   width: 600px;
   height: 600px;
+  max-width: 100%;
   position: relative;
   transform-style: preserve-3d;
   transform: translateZ(-300px);
@@ -2853,6 +2856,7 @@ input::placeholder {
   position: absolute;
   width: 600px;
   height: 600px;
+  max-width: 100%;
   background: #eee;
 }
 .scene .cube .cube__face .cube__label {
@@ -2896,7 +2900,19 @@ input::placeholder {
   transform: rotateX(-90deg) translateZ(300px);
 }
 .scene .cube.cube--rotated {
-  transform: translateZ(-300px) rotateY(-90deg);
+  transform: translateZ(-300px) rotateY(180deg);
+}
+@media (max-width: 767px) {
+  .scene {
+    overflow: hidden;
+    height: 400px;
+  }
+  .scene .cube {
+    height: 400px;
+  }
+  .scene .cube .cube__face {
+    height: 400px;
+  }
 }
 .cube.show-front {
   transform: translateZ(-300px) rotateY(0deg);

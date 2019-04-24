@@ -13,9 +13,11 @@
                 <div class="cube__face cube__face--front">
                     <?php include('dialog-flow.php'); ?>
                 </div>
-                <div class="cube__face cube__face--back"></div>
-                <div class="cube__face cube__face--right">
+                <div class="cube__face cube__face--back">
                     <?php include('dialog-classic.php'); ?>
+                </div>
+                <div class="cube__face cube__face--right">
+
                 </div>
                 <div class="cube__face cube__face--left"></div>
                 <div class="cube__face cube__face--top"></div>
