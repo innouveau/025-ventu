@@ -1209,18 +1209,13 @@ section.proximity .ventu-card .button {
   background-image: url(img/icons/hangout/reaction-balloon-white.svg);
 }
 .ventu-popup.ventu-popup--hangout-chat {
-  background: #ededec;
+  background: transparent!important;
   width: 570px;
 }
 .ventu-popup.ventu-popup--hangout-chat .ventu-popup-body {
   height: calc(100% - 56px);
   overflow: auto;
   background: #ededec;
-}
-.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-hangout-chat-image {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 .ventu-popup.ventu-popup--hangout-chat .ventu-hangout-chat-input {
   position: fixed;
@@ -1283,7 +1278,11 @@ p.ventu-external-member {
 .ventu-chat .ventu-chat__conversation {
   height: calc(100% - 60px);
   overflow: auto;
-  padding-top: 50px;
+}
+.ventu-chat .ventu-chat__conversation .ventu-chat__image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .ventu-chat .ventu-chat__input {
   height: 60px;
@@ -1414,6 +1413,9 @@ p.ventu-external-member {
 }
 .ventu-dialog-flow {
   height: 100%;
+}
+.ventu-dialog-flow .ventu-chat .ventu-chat__conversation {
+  padding-top: 50px;
 }
 .section--dialog .section-header h1,
 .section--dialog .section-header h2 {
