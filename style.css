@@ -1245,13 +1245,11 @@ section.proximity .ventu-card .button {
   border-top-left-radius: 7.5px;
   margin-right: 10px;
   margin-left: 0;
-  background: #DCEEC4;
   border: 1px solid #ddd;
 }
 .ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--yours .ventu-chat__balloon:after {
   right: -7.5px;
   left: auto;
-  border-top: 15px solid #DCEEC4;
 }
 .ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container:last-child {
   padding-bottom: 40px;
@@ -1290,6 +1288,7 @@ section.proximity .ventu-card .button {
 .ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container .ventu-chat__balloon .ventu-member__name {
   margin-top: 0;
   color: #03256b;
+  font-weight: 700;
 }
 .ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container .ventu-chat__balloon .ventu-member__feedback {
   text-align: left;
@@ -1297,6 +1296,25 @@ section.proximity .ventu-card .button {
 .ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container .ventu-chat__balloon .ventu-member__date {
   margin-bottom: 0;
   color: rgba(0, 0, 0, 0.6);
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--color-1 .ventu-chat__balloon {
+  background: #94ddca;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--color-1 .ventu-chat__balloon:after {
+  border-top: 15px solid #94ddca;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--color-2 .ventu-chat__balloon {
+  background: #5d687c;
+  color: #fff;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--color-2 .ventu-chat__balloon:after {
+  border-top: 15px solid #5d687c;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--color-2 .ventu-chat__balloon .ventu-member__name {
+  color: #fff;
+}
+.ventu-popup.ventu-popup--hangout-chat .ventu-popup-body .ventu-feedback__container.ventu-feedback__container--color-2 .ventu-chat__balloon .ventu-member__date {
+  color: rgba(255, 255, 255, 0.8);
 }
 .ventu-popup.ventu-popup--hangout-chat .ventu-hangout-chat-input {
   position: fixed;

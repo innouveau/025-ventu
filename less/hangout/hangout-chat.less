@@ -1,6 +1,10 @@
 @import '../mixins';
 
-@balloon: #DCEEC4;
+@ventu-variant-1: #94ddca;
+@ventu-variant-2: #5d687c;
+
+@balloon-color-1: @ventu-variant-1;
+@balloon-color-2: @ventu-variant-2;
 
 .ventu-popup {
 
@@ -44,13 +48,11 @@
                         border-top-left-radius: 7.5px;
                         margin-right: 10px;
                         margin-left: 0;
-                        background: @balloon;
                         border: 1px solid #ddd;
 
                         &:after {
                             right: -7.5px;
                             left: auto;
-                            border-top: 15px solid @balloon;
                         }
                     }
                 }
@@ -95,6 +97,7 @@
                     .ventu-member__name {
                         margin-top: 0;
                         color: @ventu-color-secundary;
+                        font-weight: 700;
                     }
 
                     .ventu-member__feedback {
@@ -104,6 +107,38 @@
                     .ventu-member__date {
                         margin-bottom: 0;
                         color: rgba(0,0,0,0.6);
+                    }
+                }
+
+                &.ventu-feedback__container--color-1 {
+
+                    .ventu-chat__balloon {
+                        background: @balloon-color-1;
+
+                        &:after {
+                            border-top: 15px solid @balloon-color-1;
+                        }
+                    }
+                }
+
+                &.ventu-feedback__container--color-2 {
+
+                    .ventu-chat__balloon {
+                        background: @balloon-color-2;
+                        color: #fff;
+
+                        &:after {
+                            border-top: 15px solid @balloon-color-2;
+                        }
+
+                        .ventu-member__name {
+                            color: #fff;
+                        }
+
+
+                        .ventu-member__date {
+                            color: rgba(255,255,255,0.8);
+                        }
                     }
                 }
             }
