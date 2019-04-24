@@ -1,0 +1,149 @@
+.ventu-chat {
+    height: 100%;
+
+    .ventu-chat__conversation {
+        height: ~'calc(100% - 60px)';
+        overflow: auto;
+    }
+
+    .ventu-chat__input {
+        height: 60px;
+        padding: 10px;
+
+        form {
+            height: 100%;
+
+            input {
+                background: #fff;
+                border-radius: 6px;
+                border: 0;
+                padding: 6px 8px;
+                height: 100%;
+                margin-bottom: 0;
+                max-width: 100%!important;
+                outline: none;
+            }
+        }
+    }
+}
+
+
+.ventu-chat__message {
+    display: flex;
+    padding: 10px 20px;
+    font-size: 14px;
+    position: relative;
+
+    &.ventu-chat__message--yours {
+        justify-content: flex-end;
+
+        .ventu-hangout-member-avatar {
+            order: 3;
+        }
+
+        .ventu-chat__balloon-triangle {
+            order: 2;
+            margin-right: 0;
+            margin-left: -35px;
+        }
+
+        .ventu-chat__balloon {
+            order: 1;
+            border-top-right-radius: 0;
+            border-top-left-radius: 7.5px;
+            margin-right: 10px;
+            margin-left: 0;
+            border: 1px solid #ddd;
+
+            &:after {
+                right: -7.5px;
+                left: auto;
+            }
+        }
+    }
+
+    &:last-child {
+        padding-bottom: 40px;
+    }
+
+    .ventu-chat__balloon-triangle {
+        width: 0;
+        height: 0;
+        border-left: 17px solid transparent;
+        border-right: 17px solid transparent;
+        border-top: 17px solid #ddd;
+        margin-right: -35px;
+    }
+
+    .ventu-chat__balloon {
+        z-index: 1;
+        position: relative;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 7.5px;
+        border-top-left-radius: 0;
+        margin-right: 0;
+        margin-left: 10px;
+        box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+
+        &:after {
+            position: absolute;
+            left: -7.5px;
+            top: 0;
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #fff;
+        }
+
+        .ventu-member__name {
+            margin-top: 0;
+            color: @ventu-color-secundary;
+            font-weight: 700;
+        }
+
+        .ventu-member__feedback {
+            text-align: left;
+        }
+
+        .ventu-member__date {
+            margin-bottom: 0;
+            color: rgba(0,0,0,0.6);
+        }
+    }
+
+    &.ventu-chat__message--color-1 {
+
+        .ventu-chat__balloon {
+            background: @balloon-color-1;
+
+            &:after {
+                border-top: 15px solid @balloon-color-1;
+            }
+        }
+    }
+
+    &.ventu-chat__message--color-2 {
+
+        .ventu-chat__balloon {
+            background: @balloon-color-2;
+            color: #fff;
+
+            &:after {
+                border-top: 15px solid @balloon-color-2;
+            }
+
+            .ventu-member__name {
+                color: #fff;
+            }
+
+
+            .ventu-member__date {
+                color: rgba(255,255,255,0.8);
+            }
+        }
+    }
+}

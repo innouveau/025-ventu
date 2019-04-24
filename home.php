@@ -16,7 +16,7 @@
 
         <?php include('php-includes/nav.php'); ?>
 
-        <?php include('php-includes/dialog.php'); ?>
+        <?php include('php-includes/dialog/dialog.php'); ?>
 
         <div class="container">
             <?php include('php-includes/usp.php'); ?>
