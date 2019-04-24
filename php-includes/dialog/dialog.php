@@ -7,8 +7,6 @@
         <h2>Vindt u op Ventu</h2>
     </div>
 
-    <button id="dialog__switch">Switch dialog (temp button)</button>
-
     <div class="dialog__container">
         <div class="scene">
             <div class="cube">
@@ -37,7 +35,7 @@
 </section>
 
 <script>
-    $('#dialog__switch').click(function(){
+    $('.dialog__switch').click(function(){
         $('.section--dialog .cube').toggleClass('cube--rotated');
     });
 </script>

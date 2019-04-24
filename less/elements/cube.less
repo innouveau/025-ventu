@@ -15,7 +15,34 @@
             position: absolute;
             width: 600px;
             height: 600px;
-            background: #ddd;
+            background: #eee;
+
+            .cube__label {
+                position: absolute;
+                right: 30px;
+                top: 16px;
+                z-index: 2;
+                color: @ventu-active-button-hover;
+                padding: 6px;
+                border: 1px solid @ventu-active-button-hover;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 13px;
+                background: #eee;
+
+                &:hover {
+                    color: #000;
+                    border: 1px solid #000;
+                }
+
+                &.cube__label--white {
+                    color: #fff;
+                    border: 1px solid #fff;
+                    background: transparent;
+                }
+            }
+
+
 
             &.cube__face--front  { transform: rotateY(  0deg) translateZ(300px); }
             &.cube__face--right  { transform: rotateY( 90deg) translateZ(300px); }

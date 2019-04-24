@@ -1283,6 +1283,7 @@ p.ventu-external-member {
 .ventu-chat .ventu-chat__conversation {
   height: calc(100% - 60px);
   overflow: auto;
+  padding-top: 50px;
 }
 .ventu-chat .ventu-chat__input {
   height: 60px;
@@ -1290,6 +1291,9 @@ p.ventu-external-member {
 }
 .ventu-chat .ventu-chat__input form {
   height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .ventu-chat .ventu-chat__input form input {
   background: #fff;
@@ -1298,8 +1302,21 @@ p.ventu-external-member {
   padding: 6px 8px;
   height: 100%;
   margin-bottom: 0;
+  width: calc(100% - 60px);
   max-width: 100%!important;
   outline: none;
+}
+.ventu-chat .ventu-chat__input form .ventu-chat__submit {
+  text-decoration: none;
+  width: 32px;
+  height: 32px;
+  background-size: 20px 20px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  background-color: #727272;
+  background-image: url(img/icons/contact/react-white.svg);
+  cursor: pointer;
 }
 .ventu-chat__message {
   display: flex;
@@ -1396,16 +1413,7 @@ p.ventu-external-member {
   color: rgba(255, 255, 255, 0.8);
 }
 .ventu-dialog-flow {
-  width: 600px;
-  max-width: 100%;
-  margin: 0 auto;
-  background: #eee;
-  height: 600px;
-}
-@media (max-width: 767px) {
-  .ventu-dialog-flow {
-    height: 400px;
-  }
+  height: 100%;
 }
 .section--dialog .section-header h1,
 .section--dialog .section-header h2 {
@@ -2247,9 +2255,6 @@ label.error {
   border-radius: 13px;
 }
 .ventu-continue {
-  position: absolute!important;
-  left: 0;
-  bottom: 30px;
   width: 100%;
   text-align: center;
 }
@@ -2848,7 +2853,29 @@ input::placeholder {
   position: absolute;
   width: 600px;
   height: 600px;
-  background: #ddd;
+  background: #eee;
+}
+.scene .cube .cube__face .cube__label {
+  position: absolute;
+  right: 30px;
+  top: 16px;
+  z-index: 2;
+  color: #D87800;
+  padding: 6px;
+  border: 1px solid #D87800;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  background: #eee;
+}
+.scene .cube .cube__face .cube__label:hover {
+  color: #000;
+  border: 1px solid #000;
+}
+.scene .cube .cube__face .cube__label.cube__label--white {
+  color: #fff;
+  border: 1px solid #fff;
+  background: transparent;
 }
 .scene .cube .cube__face.cube__face--front {
   transform: rotateY(0deg) translateZ(300px);

@@ -1,3 +1,6 @@
+<div class="cube__label dialog__switch">
+    Gebruik Classic Dialog
+</div>
 <div class="ventu-dialog-flow">
     <div class="ventu-chat">
         <div class="ventu-chat__conversation">
@@ -89,6 +92,7 @@
         <div class="ventu-chat__input">
             <form>
                 <input id="" name="" placeholder="Schrijf een reactie..." required="" aria-required="true" type="text">
+                <a class="ventu-chat__submit"></a>
             </form>
         </div>
     </div>
