@@ -2903,36 +2903,6 @@ input::placeholder {
 .scene .cube.cube--rotated {
   transform: translateZ(-300px) rotateY(180deg);
 }
-@media (max-width: 767px) {
-  .scene {
-    overflow: hidden;
-    height: 400px;
-  }
-  .scene .cube {
-    height: 400px;
-  }
-  .scene .cube .cube__face {
-    height: 400px;
-  }
-}
-.cube.show-front {
-  transform: translateZ(-300px) rotateY(0deg);
-}
-.cube.show-right {
-  transform: translateZ(-300px) rotateY(-90deg);
-}
-.cube.show-back {
-  transform: translateZ(-300px) rotateY(-180deg);
-}
-.cube.show-left {
-  transform: translateZ(-300px) rotateY(90deg);
-}
-.cube.show-top {
-  transform: translateZ(-300px) rotateX(-90deg);
-}
-.cube.show-bottom {
-  transform: translateZ(-300px) rotateX(90deg);
-}
 #breadcrumb {
   margin-top: 60px;
   border-bottom: 0;
