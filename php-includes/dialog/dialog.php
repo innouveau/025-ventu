@@ -37,8 +37,57 @@
 </section>
 
 <script>
-    $('.dialog__switch').click(function(){
-        $('.section--dialog .cube').toggleClass('cube--rotated');
+    $(window).ready(function(){
+        $('.dialog__switch').click(function(){
+            $('.section--dialog .cube').toggleClass('cube--rotated');
+        });
+
+        resizeCube();
     });
+
+    $(window).resize(function(){
+        resizeCube();
+    });
+
+    (function() {
+        var node = document.createElement('style');
+        document.body.appendChild(node);
+        window.addStyleString = function(str) {
+            node.innerHTML = str;
+        }
+    }());
+
+    function getCubeStyle(size) {
+        var cubeStyle = '';
+        cubeStyle += '.scene { width: ' + size + 'px; height: ' + size + 'px; perspective: ' + size + 'px;}';
+        cubeStyle += '.scene .cube { width: ' + size + 'px; height: ' + size + 'px; transform: translateZ(-' + (0.5 * size) + 'px);}';
+        cubeStyle += '.scene .cube .cube__face { width: ' + size + 'px; height: ' + size + 'px;}';
+        cubeStyle += '.scene .cube .cube__face.cube__face--front    { transform: rotateY(  0deg) translateZ(' + (0.5 * size) + 'px);}';
+        cubeStyle += '.scene .cube .cube__face.cube__face--right    { transform: rotateY( 90deg) translateZ(' + (0.5 * size) + 'px);}';
+        cubeStyle += '.scene .cube .cube__face.cube__face--back     { transform: rotateY(180deg) translateZ(' + (0.5 * size) + 'px);}';
+        cubeStyle += '.scene .cube .cube__face.cube__face--left     { transform: rotateY(-90deg) translateZ(' + (0.5 * size) + 'px);}';
+        cubeStyle += '.scene .cube .cube__face.cube__face--top      { transform: rotateX( 90deg) translateZ(' + (0.5 * size) + 'px);}';
+        cubeStyle += '.scene .cube .cube__face.cube__face--bottom   { transform: rotateX(-90deg) translateZ(' + (0.5 * size) + 'px);}';
+        cubeStyle += '.scene .cube.cube--rotated   { transform: translateZ(-' + (0.5 * size) + 'px) rotateY( 180deg);}';
+        return cubeStyle;
+    }
+
+
+    function resizeCube() {
+        var windowWidth, cubeWidth, newStyle;
+        windowWidth = $(window).outerWidth();
+        if (windowWidth < 640) {
+            cubeWidth = windowWidth - 40;
+            newStyle = getCubeStyle(cubeWidth);
+            addStyleString(newStyle);
+        } else {
+            // clear previous made cube styles
+            // so it will fallback to the css in style.css
+            addStyleString('');
+        }
+    }
+
+
+
 </script>
 

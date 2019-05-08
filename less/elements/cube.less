@@ -18,30 +18,23 @@
             width: 600px;
             height: 600px;
             max-width: 100%;
-            background: #eee;
+            background: @ventu-background-blue-dark;
 
             .cube__label {
                 position: absolute;
                 right: 30px;
                 top: 16px;
                 z-index: 2;
-                color: @ventu-active-button-hover;
+                color: #fff;
+                border: 1px solid #fff;
                 padding: 6px;
-                border: 1px solid @ventu-active-button-hover;
                 border-radius: 4px;
                 cursor: pointer;
                 font-size: 13px;
-                background: #eee;
 
                 &:hover {
                     color: #000;
                     border: 1px solid #000;
-                }
-
-                &.cube__label--white {
-                    color: #fff;
-                    border: 1px solid #fff;
-                    background: transparent;
                 }
             }
 
@@ -59,30 +52,7 @@
             transform: translateZ(-300px) rotateY( 180deg);
         }
     }
-
-    @media (max-width: 767px) {
-        overflow: hidden;
-        height: 400px;
-
-        .cube {
-            height: 400px;
-
-            .cube__face {
-                height: 400px;
-            }
-        }
-    }
-
 }
-
-
-.cube.show-front  { transform: translateZ(-300px) rotateY(   0deg); }
-.cube.show-right  { transform: translateZ(-300px) rotateY( -90deg); }
-.cube.show-back   { transform: translateZ(-300px) rotateY(-180deg); }
-.cube.show-left   { transform: translateZ(-300px) rotateY(  90deg); }
-.cube.show-top    { transform: translateZ(-300px) rotateX( -90deg); }
-.cube.show-bottom { transform: translateZ(-300px) rotateX(  90deg); }
-
 
 
 

@@ -2,7 +2,7 @@
     height: 100%;
 
     .ventu-chat__conversation {
-        height: ~'calc(100% - 60px)';
+        height: ~'calc(100% - 80px)';
         overflow: auto;
 
         .ventu-chat__image {
@@ -13,8 +13,8 @@
     }
 
     .ventu-chat__input {
-        height: 60px;
-        padding: 10px;
+        height: 80px;
+        padding: 20px 10px;
 
         form {
             height: 100%;
@@ -42,9 +42,13 @@
                 background-position: 50% 50%;
                 background-repeat: no-repeat;
                 border-radius: 50%;
-                background-color: #727272;
+                background-color: @ventu-background-blue-dark;
                 background-image: url(img/icons/contact/react-white.svg);
                 cursor: pointer;
+
+                &:hover {
+                    background-color: @ventu-active-button;
+                }
             }
         }
     }

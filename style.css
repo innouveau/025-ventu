@@ -1276,7 +1276,7 @@ p.ventu-external-member {
   height: 100%;
 }
 .ventu-chat .ventu-chat__conversation {
-  height: calc(100% - 60px);
+  height: calc(100% - 80px);
   overflow: auto;
 }
 .ventu-chat .ventu-chat__conversation .ventu-chat__image {
@@ -1285,8 +1285,8 @@ p.ventu-external-member {
   height: auto;
 }
 .ventu-chat .ventu-chat__input {
-  height: 60px;
-  padding: 10px;
+  height: 80px;
+  padding: 20px 10px;
 }
 .ventu-chat .ventu-chat__input form {
   height: 100%;
@@ -1313,9 +1313,12 @@ p.ventu-external-member {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   border-radius: 50%;
-  background-color: #727272;
+  background-color: #2a4666;
   background-image: url(img/icons/contact/react-white.svg);
   cursor: pointer;
+}
+.ventu-chat .ventu-chat__input form .ventu-chat__submit:hover {
+  background-color: #FE8A1A;
 }
 .ventu-chat__message {
   display: flex;
@@ -1413,6 +1416,8 @@ p.ventu-external-member {
 }
 .ventu-dialog-flow {
   height: 100%;
+  background: #4977AD;
+  border: 1px solid #2a4666;
 }
 .ventu-dialog-flow .ventu-chat .ventu-chat__conversation {
   padding-top: 50px;
@@ -2859,29 +2864,23 @@ input::placeholder {
   width: 600px;
   height: 600px;
   max-width: 100%;
-  background: #eee;
+  background: #2a4666;
 }
 .scene .cube .cube__face .cube__label {
   position: absolute;
   right: 30px;
   top: 16px;
   z-index: 2;
-  color: #D87800;
+  color: #fff;
+  border: 1px solid #fff;
   padding: 6px;
-  border: 1px solid #D87800;
   border-radius: 4px;
   cursor: pointer;
   font-size: 13px;
-  background: #eee;
 }
 .scene .cube .cube__face .cube__label:hover {
   color: #000;
   border: 1px solid #000;
-}
-.scene .cube .cube__face .cube__label.cube__label--white {
-  color: #fff;
-  border: 1px solid #fff;
-  background: transparent;
 }
 .scene .cube .cube__face.cube__face--front {
   transform: rotateY(0deg) translateZ(300px);
@@ -3090,9 +3089,10 @@ section.section--small-padding .divider {
   margin-right: -20px;
 }
 .ventu-dialog__classic {
-  background-color: #4977AD;
+  background: #4977AD;
+  border: 1px solid #2a4666;
   height: 100%;
-  padding: 20px;
+  padding: 64px 20px 20px 20px;
 }
 #ventu-slider-slide-types .ventu-slider-slide-body {
   padding-top: 10px;
