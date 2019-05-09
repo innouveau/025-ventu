@@ -37,8 +37,7 @@ function Dialog(element) {
         slides: [],
         buttons: {}
     };
-    var isMobile = this.isThisMobile();
-    this.isMobile = isMobile;
+    this.isMobile = this.isThisMobile();
     this.settings = {
         size: {
             frame: 0

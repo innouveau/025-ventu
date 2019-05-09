@@ -9,7 +9,7 @@
 
     <div class="dialog__container">
         <div class="scene">
-            <div class="cube">
+            <div class="cube ">
                 <div class="cube__face cube__face--front">
                     <?php include('dialog-flow.php'); ?>
                 </div>

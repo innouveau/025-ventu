@@ -19,11 +19,11 @@ function initialiseModules() {
 
     var screen = whatScreen();
 
-    if (screen > 0) {
+    //if (screen > 0) {
         $('.ventu-dialog').each(function () {
             new Dialog($(this));
         });
-    }
+    //}
 
     $('.ventu-search').each(function(){
         // we want the search module initialis by hand

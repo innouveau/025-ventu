@@ -5,7 +5,43 @@
     background: @ventu-background-blue;
     border: 1px solid @ventu-background-blue-dark;
     height: 100%;
-    padding: 64px 20px 20px 20px;
+    padding: 20px;
+
+    .ventu-slider {
+        height: 100%;
+
+        .ventu-slider-header {
+            padding-right: 80px;
+            height: 140px;
+
+            .ventu-slider-header-section {
+                display: flex;
+
+                .ventu-slider-header-section-text {
+                    margin-right: 0;
+                    padding-right: 3px;
+                }
+            }
+        }
+
+        // going to do some overwriting over slider.less
+        // Because not sure whether stuff in slider.less is still used
+        // for other purposes besides the dialog
+
+        .ventu-slider-slide-frame {
+            position: relative;
+            height: ~'calc(100% - 140px)';
+            left: 0;
+            top: 0;
+
+            .ventu-slider-slide-content {
+
+                .ventu-slider-slide-header {
+                    text-align: center;
+                }
+            }
+        }
+    }
 }
 
 
@@ -73,6 +109,8 @@
 
     .ventu-slider-slide-body {
         padding-top: 38px;
+        display: flex;
+        justify-content: center;
 
         span {
             vertical-align: top;
@@ -141,6 +179,8 @@
 
     .ventu-slider-slide-body {
         padding-top: 38px;
+        display: flex;
+        justify-content: center;
 
         .ventu-slider-transaction-button {
             padding: 6px 24px;
@@ -198,11 +238,103 @@
 }
 
 
+@media @mobile {
 
-@media (max-width: 767px) {
+    .ventu-dialog__classic {
 
-    #ventu-dialog-entry > .ventu-search {
-        z-index: 2;
+        .ventu-slider {
+
+            .ventu-slider-header {
+                height: 100px;
+                padding-left: 0;
+            }
+
+            .ventu-slider-slide-frame {
+
+                .ventu-slider-slide-container {
+
+                    .ventu-slider-slide {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+
+        .ventu-slider-center-line {
+            width: ~'calc(100% + 40px)';
+            left: -20px;
+        }
+
+        // type
+        #ventu-slider-slide-types {
+
+            .ventu-slider-slide-body {
+
+                .ventu-slider-slide-buttons-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+
+                    .ventu-slider-type-button {
+                        width: auto;
+                        margin-right: 10px;
+
+                        .ventu-slider-type-button-icon {
+                            display: none;
+                        }
+
+                        .ventu-slider-type-button-label {
+                            color: #fff;
+                            padding: 6px;
+                            height: 30px;
+                            display: inline-block;
+
+                            &::first-letter {
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // area
+        #ventu-slider-slide-area {
+
+            .ventu-slider-slide-body {
+
+                > span {
+                    display: none;
+                }
+
+                .ventu-slider-area-picker {
+
+                    .ventu-slider-area-picker-label {
+
+                        &:first-child {
+                            display: none;
+                        }
+                    }
+
+                    input {
+                        //width: 80px;
+                    }
+                }
+            }
+        }
+
+        #ventu-slider-slide-transactions {
+
+            .ventu-slider-slide-body {
+
+                .ventu-slider-transaction-button {
+                    padding: 6px 18px;
+                }
+            }
+        }
     }
 
+
 }
+
+
