@@ -28,6 +28,12 @@
                         <div class="aspect16by9">
                             <img src="img/content/kantoor2.jpg">
                         </div>
+                        <div class="ventu-card__energy-label">
+                            <div class="ventu-energy-label ventu-energy-label--A-PLUS"></div>
+                        </div>
+                        <div class="ventu-card__mobility-index">
+                            <div class="ventu-mobility-index">55</div>
+                        </div>
                     </div>
                     <div class="ventu-card-text">
                         <div class="ventu-card-header">
@@ -52,7 +58,13 @@
                 <div class="ventu-card ventu-card--static ventu-card--grid">
                     <div class="ventu-card-image">
                         <div class="aspect16by9">
-                            <img src="img/content/kantoor2.jpg">
+                            <img src="img/content/893745.jpg">
+                        </div>
+                        <div class="ventu-card__energy-label">
+                            <div class="ventu-energy-label ventu-energy-label--E"></div>
+                        </div>
+                         <div class="ventu-card__mobility-index">
+                            <div class="ventu-mobility-index">2</div>
                         </div>
                     </div>
                     <div class="ventu-card-text">
@@ -69,7 +81,16 @@
                 <div class="ventu-card ventu-card--static ventu-card--grid">
                     <div class="ventu-card-image">
                         <div class="aspect16by9">
-                            <img src="img/content/kantoor2.jpg">
+                            <img src="img/content/1.jpg">
+                        </div>
+                        <div class="ventu-card__brokers">
+                            <img src="img/content/brokers/cebre.png">
+                        </div>
+                        <div class="ventu-card__energy-label">
+                            <div class="ventu-energy-label ventu-energy-label--A"></div>
+                        </div>
+                        <div class="ventu-card__mobility-index">
+                            <div class="ventu-mobility-index">74</div>
                         </div>
                     </div>
                     <div class="ventu-card-text">
@@ -86,6 +107,9 @@
                             </div>
                             <div class="ventu-card-button-label">
                                 Niet interessant
+                            </div>
+                            <div class="ventu-card__mobility-index">
+                                <div class="ventu-mobility-index">23</div>
                             </div>
                         </div>
                         <div class="ventu-card-button-container ventu-card-button--read-more">
@@ -115,7 +139,13 @@
                 <div class="ventu-card ventu-card--static ventu-card--grid">
                     <div class="ventu-card-image">
                         <div class="aspect16by9">
-                            <img src="img/content/kantoor2.jpg">
+                            <img src="img/content/98243872.jpg">
+                        </div>
+                        <div class="ventu-card__energy-label">
+                            <div class="ventu-energy-label ventu-energy-label--A-PLUS-PLUS"></div>
+                        </div>
+                        <div class="ventu-card__mobility-index">
+                            <div class="ventu-mobility-index">99</div>
                         </div>
                     </div>
                     <div class="ventu-card-text">
@@ -135,7 +165,13 @@
                 <div class="ventu-card ventu-card--static ventu-card--grid">
                     <div class="ventu-card-image">
                         <div class="aspect16by9">
-                            <img src="img/content/kantoor2.jpg">
+                            <img src="img/content/87342489.jpg">
+                        </div>
+                        <div class="ventu-card__energy-label">
+                            <div class="ventu-energy-label ventu-energy-label--B"></div>
+                        </div>
+                        <div class="ventu-card__mobility-index">
+                            <div class="ventu-mobility-index">38</div>
                         </div>
                     </div>
                     <div class="ventu-card-text">
@@ -160,7 +196,13 @@
                 <div class="ventu-card ventu-card--absolute" style="-moz-user-select: none; touch-action: none; transform: translateX(50px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(-8deg) scale(1, 1);">
                     <div class="ventu-card-image">
                         <div class="aspect16by9">
-                            <img src="img/content/kantoor2.jpg">
+                            <img src="img/content/187654.jpg">
+                        </div>
+                        <div class="ventu-card__energy-label">
+                            <div class="ventu-energy-label ventu-energy-label--C"></div>
+                        </div>
+                        <div class="ventu-card__mobility-index">
+                            <div class="ventu-mobility-index">89</div>
                         </div>
                     </div>
                     <div class="ventu-card-text">
@@ -180,7 +222,13 @@
                 <div class="ventu-card ventu-card--grid ventu-card--float">
                     <div class="ventu-card-image">
                         <div class="aspect16by9">
-                            <img src="img/content/kantoor2.jpg">
+                            <img src="img/content/19876.jpg">
+                        </div>
+                        <div class="ventu-card__energy-label">
+                            <div class="ventu-energy-label ventu-energy-label--D"></div>
+                        </div>
+                        <div class="ventu-card__mobility-index">
+                            <div class="ventu-mobility-index">61</div>
                         </div>
                     </div>
                     <div class="ventu-card-text">
