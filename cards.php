@@ -108,9 +108,6 @@
                             <div class="ventu-card-button-label">
                                 Niet interessant
                             </div>
-                            <div class="ventu-card__mobility-index">
-                                <div class="ventu-mobility-index">23</div>
-                            </div>
                         </div>
                         <div class="ventu-card-button-container ventu-card-button--read-more">
                             <div class="ventu-card-button">
