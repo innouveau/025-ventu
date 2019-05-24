@@ -19,6 +19,11 @@
         <?php include('php-includes/dialog/dialog.php'); ?>
 
         <div class="container">
+                <div>
+                    Dit is even een test met een energie label<br>
+                    <div class="ventu-energy-label ventu-energy-label--B"></div>
+                </div>
+
             <?php include('php-includes/usp.php'); ?>
 
             <?php include('php-includes/hangout.php'); ?>
